@@ -1,0 +1,905 @@
+[
+  {
+    "concept_id": "place_value",
+    "concept_name": "Place Value",
+    "aliases": [
+      "place value",
+      "digit place",
+      "number place",
+      "units place",
+      "tens place",
+      "hundreds place",
+      "position of digits",
+      "digit position"
+    ],
+    "tibetan_culture": "Prayer bead groupings",
+    "explanation_text": "Just like Tibetan prayer beads are grouped in sets of ten, place value helps organize digits into ones, tens, and hundreds.",
+    "image_prompt": "Illustrate strings of Tibetan prayer beads separated into groups, showing how one group stands for tens, another for hundreds."
+  },
+  {
+    "concept_id": "addition_subtraction",
+    "concept_name": "Addition & Subtraction",
+    "aliases": [
+      "add",
+      "addition",
+      "plus",
+      "sum",
+      "combine",
+      "total",
+      "subtract",
+      "subtraction",
+      "minus",
+      "take away",
+      "difference"
+    ],
+    "tibetan_culture": "Butter lamps being added or removed",
+    "explanation_text": "Adding or removing butter lamps from a shrine shows how total amounts increase or decrease—just like addition and subtraction.",
+    "image_prompt": "Show butter lamps being added to or taken away from a row, with a total count changing."
+  },
+  {
+    "concept_id": "multiplication_division",
+    "concept_name": "Multiplication & Division",
+    "aliases": [
+      "multiply",
+      "multiplication",
+      "times",
+      "groups of",
+      "repeated addition",
+      "divide",
+      "division",
+      "split equally",
+      "sharing"
+    ],
+    "tibetan_culture": "Butter lamp festival rows",
+    "explanation_text": "If you arrange butter lamps in equal rows, you’re showing multiplication. Splitting them evenly between rows shows division.",
+    "image_prompt": "Show rows of butter lamps arranged in equal groups, with multiplication or division highlighted visually."
+  },
+  {
+    "concept_id": "even_odd",
+    "concept_name": "Even and Odd Numbers",
+    "aliases": [
+      "even numbers",
+      "odd numbers",
+      "even",
+      "odd",
+      "pairs",
+      "leftover",
+      "no remainder",
+      "remains one"
+    ],
+    "tibetan_culture": "Prayer wheels in pairs",
+    "explanation_text": "Prayer wheels set in pairs show even numbers. If one is left out, it's odd.",
+    "image_prompt": "Display prayer wheels arranged in pairs, and one set with a single wheel left alone to illustrate odd numbers."
+  },
+  {
+    "concept_id": "skip_counting",
+    "concept_name": "Skip Counting / Number Patterns",
+    "aliases": [
+      "skip counting",
+      "count by 2s",
+      "count by 5s",
+      "count by 10s",
+      "jump counting",
+      "repeating numbers",
+      "number patterns"
+    ],
+    "tibetan_culture": "Prayer flag color patterns",
+    "explanation_text": "Prayer flags are often arranged in repeating colors. Counting every same color flag shows skip counting.",
+    "image_prompt": "Draw prayer flags in color sequence, highlight every 5th flag to show a skip-counting pattern."
+  },
+  {
+    "concept_id": "comparing_numbers",
+    "concept_name": "Comparing and Ordering Numbers",
+    "aliases": [
+      "compare numbers",
+      "greater than",
+      "less than",
+      "more than",
+      "fewer than",
+      "biggest",
+      "smallest",
+      "ordering numbers",
+      "number order"
+    ],
+    "tibetan_culture": "Butter lamp stacks",
+    "explanation_text": "Comparing the height of butter lamp stacks helps visualize greater than or less than.",
+    "image_prompt": "Show different height stacks of lamps and use comparison symbols between them."
+  },
+  {
+    "concept_id": "rounding_estimation",
+    "concept_name": "Rounding & Estimation",
+    "aliases": [
+      "round",
+      "rounding",
+      "estimate",
+      "estimation",
+      "approximate",
+      "about how much",
+      "close to",
+      "nearby number"
+    ],
+    "tibetan_culture": "Yak butter estimation",
+    "explanation_text": "Estimating the volume of yak butter used for a lamp helps practice rounding to nearest 10 or 100.",
+    "image_prompt": "Show a butter bowl labeled with an approximate value, and show how it's rounded."
+  },
+  {
+    "concept_id": "concept_7",
+    "concept_name": "Concept 7",
+    "aliases": [
+      "term 7",
+      "concept 7",
+      "related term 7"
+    ],
+    "tibetan_culture": "Tibetan cultural element 7",
+    "explanation_text": "This is a conceptual explanation for math topic 7 using Tibetan cultural element 7.",
+    "image_prompt": "Draw a Tibetan object 7 to illustrate math topic 7 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_8",
+    "concept_name": "Concept 8",
+    "aliases": [
+      "term 8",
+      "concept 8",
+      "related term 8"
+    ],
+    "tibetan_culture": "Tibetan cultural element 8",
+    "explanation_text": "This is a conceptual explanation for math topic 8 using Tibetan cultural element 8.",
+    "image_prompt": "Draw a Tibetan object 8 to illustrate math topic 8 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_9",
+    "concept_name": "Concept 9",
+    "aliases": [
+      "term 9",
+      "concept 9",
+      "related term 9"
+    ],
+    "tibetan_culture": "Tibetan cultural element 9",
+    "explanation_text": "This is a conceptual explanation for math topic 9 using Tibetan cultural element 9.",
+    "image_prompt": "Draw a Tibetan object 9 to illustrate math topic 9 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_10",
+    "concept_name": "Concept 10",
+    "aliases": [
+      "term 10",
+      "concept 10",
+      "related term 10"
+    ],
+    "tibetan_culture": "Tibetan cultural element 10",
+    "explanation_text": "This is a conceptual explanation for math topic 10 using Tibetan cultural element 10.",
+    "image_prompt": "Draw a Tibetan object 10 to illustrate math topic 10 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_11",
+    "concept_name": "Concept 11",
+    "aliases": [
+      "term 11",
+      "concept 11",
+      "related term 11"
+    ],
+    "tibetan_culture": "Tibetan cultural element 11",
+    "explanation_text": "This is a conceptual explanation for math topic 11 using Tibetan cultural element 11.",
+    "image_prompt": "Draw a Tibetan object 11 to illustrate math topic 11 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_12",
+    "concept_name": "Concept 12",
+    "aliases": [
+      "term 12",
+      "concept 12",
+      "related term 12"
+    ],
+    "tibetan_culture": "Tibetan cultural element 12",
+    "explanation_text": "This is a conceptual explanation for math topic 12 using Tibetan cultural element 12.",
+    "image_prompt": "Draw a Tibetan object 12 to illustrate math topic 12 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_13",
+    "concept_name": "Concept 13",
+    "aliases": [
+      "term 13",
+      "concept 13",
+      "related term 13"
+    ],
+    "tibetan_culture": "Tibetan cultural element 13",
+    "explanation_text": "This is a conceptual explanation for math topic 13 using Tibetan cultural element 13.",
+    "image_prompt": "Draw a Tibetan object 13 to illustrate math topic 13 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_14",
+    "concept_name": "Concept 14",
+    "aliases": [
+      "term 14",
+      "concept 14",
+      "related term 14"
+    ],
+    "tibetan_culture": "Tibetan cultural element 14",
+    "explanation_text": "This is a conceptual explanation for math topic 14 using Tibetan cultural element 14.",
+    "image_prompt": "Draw a Tibetan object 14 to illustrate math topic 14 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_15",
+    "concept_name": "Concept 15",
+    "aliases": [
+      "term 15",
+      "concept 15",
+      "related term 15"
+    ],
+    "tibetan_culture": "Tibetan cultural element 15",
+    "explanation_text": "This is a conceptual explanation for math topic 15 using Tibetan cultural element 15.",
+    "image_prompt": "Draw a Tibetan object 15 to illustrate math topic 15 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_16",
+    "concept_name": "Concept 16",
+    "aliases": [
+      "term 16",
+      "concept 16",
+      "related term 16"
+    ],
+    "tibetan_culture": "Tibetan cultural element 16",
+    "explanation_text": "This is a conceptual explanation for math topic 16 using Tibetan cultural element 16.",
+    "image_prompt": "Draw a Tibetan object 16 to illustrate math topic 16 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_17",
+    "concept_name": "Concept 17",
+    "aliases": [
+      "term 17",
+      "concept 17",
+      "related term 17"
+    ],
+    "tibetan_culture": "Tibetan cultural element 17",
+    "explanation_text": "This is a conceptual explanation for math topic 17 using Tibetan cultural element 17.",
+    "image_prompt": "Draw a Tibetan object 17 to illustrate math topic 17 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_18",
+    "concept_name": "Concept 18",
+    "aliases": [
+      "term 18",
+      "concept 18",
+      "related term 18"
+    ],
+    "tibetan_culture": "Tibetan cultural element 18",
+    "explanation_text": "This is a conceptual explanation for math topic 18 using Tibetan cultural element 18.",
+    "image_prompt": "Draw a Tibetan object 18 to illustrate math topic 18 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_19",
+    "concept_name": "Concept 19",
+    "aliases": [
+      "term 19",
+      "concept 19",
+      "related term 19"
+    ],
+    "tibetan_culture": "Tibetan cultural element 19",
+    "explanation_text": "This is a conceptual explanation for math topic 19 using Tibetan cultural element 19.",
+    "image_prompt": "Draw a Tibetan object 19 to illustrate math topic 19 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_20",
+    "concept_name": "Concept 20",
+    "aliases": [
+      "term 20",
+      "concept 20",
+      "related term 20"
+    ],
+    "tibetan_culture": "Tibetan cultural element 20",
+    "explanation_text": "This is a conceptual explanation for math topic 20 using Tibetan cultural element 20.",
+    "image_prompt": "Draw a Tibetan object 20 to illustrate math topic 20 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_21",
+    "concept_name": "Concept 21",
+    "aliases": [
+      "term 21",
+      "concept 21",
+      "related term 21"
+    ],
+    "tibetan_culture": "Tibetan cultural element 21",
+    "explanation_text": "This is a conceptual explanation for math topic 21 using Tibetan cultural element 21.",
+    "image_prompt": "Draw a Tibetan object 21 to illustrate math topic 21 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_22",
+    "concept_name": "Concept 22",
+    "aliases": [
+      "term 22",
+      "concept 22",
+      "related term 22"
+    ],
+    "tibetan_culture": "Tibetan cultural element 22",
+    "explanation_text": "This is a conceptual explanation for math topic 22 using Tibetan cultural element 22.",
+    "image_prompt": "Draw a Tibetan object 22 to illustrate math topic 22 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_23",
+    "concept_name": "Concept 23",
+    "aliases": [
+      "term 23",
+      "concept 23",
+      "related term 23"
+    ],
+    "tibetan_culture": "Tibetan cultural element 23",
+    "explanation_text": "This is a conceptual explanation for math topic 23 using Tibetan cultural element 23.",
+    "image_prompt": "Draw a Tibetan object 23 to illustrate math topic 23 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_24",
+    "concept_name": "Concept 24",
+    "aliases": [
+      "term 24",
+      "concept 24",
+      "related term 24"
+    ],
+    "tibetan_culture": "Tibetan cultural element 24",
+    "explanation_text": "This is a conceptual explanation for math topic 24 using Tibetan cultural element 24.",
+    "image_prompt": "Draw a Tibetan object 24 to illustrate math topic 24 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_25",
+    "concept_name": "Concept 25",
+    "aliases": [
+      "term 25",
+      "concept 25",
+      "related term 25"
+    ],
+    "tibetan_culture": "Tibetan cultural element 25",
+    "explanation_text": "This is a conceptual explanation for math topic 25 using Tibetan cultural element 25.",
+    "image_prompt": "Draw a Tibetan object 25 to illustrate math topic 25 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_26",
+    "concept_name": "Concept 26",
+    "aliases": [
+      "term 26",
+      "concept 26",
+      "related term 26"
+    ],
+    "tibetan_culture": "Tibetan cultural element 26",
+    "explanation_text": "This is a conceptual explanation for math topic 26 using Tibetan cultural element 26.",
+    "image_prompt": "Draw a Tibetan object 26 to illustrate math topic 26 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_27",
+    "concept_name": "Concept 27",
+    "aliases": [
+      "term 27",
+      "concept 27",
+      "related term 27"
+    ],
+    "tibetan_culture": "Tibetan cultural element 27",
+    "explanation_text": "This is a conceptual explanation for math topic 27 using Tibetan cultural element 27.",
+    "image_prompt": "Draw a Tibetan object 27 to illustrate math topic 27 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_28",
+    "concept_name": "Concept 28",
+    "aliases": [
+      "term 28",
+      "concept 28",
+      "related term 28"
+    ],
+    "tibetan_culture": "Tibetan cultural element 28",
+    "explanation_text": "This is a conceptual explanation for math topic 28 using Tibetan cultural element 28.",
+    "image_prompt": "Draw a Tibetan object 28 to illustrate math topic 28 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_29",
+    "concept_name": "Concept 29",
+    "aliases": [
+      "term 29",
+      "concept 29",
+      "related term 29"
+    ],
+    "tibetan_culture": "Tibetan cultural element 29",
+    "explanation_text": "This is a conceptual explanation for math topic 29 using Tibetan cultural element 29.",
+    "image_prompt": "Draw a Tibetan object 29 to illustrate math topic 29 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_30",
+    "concept_name": "Concept 30",
+    "aliases": [
+      "term 30",
+      "concept 30",
+      "related term 30"
+    ],
+    "tibetan_culture": "Tibetan cultural element 30",
+    "explanation_text": "This is a conceptual explanation for math topic 30 using Tibetan cultural element 30.",
+    "image_prompt": "Draw a Tibetan object 30 to illustrate math topic 30 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_31",
+    "concept_name": "Concept 31",
+    "aliases": [
+      "term 31",
+      "concept 31",
+      "related term 31"
+    ],
+    "tibetan_culture": "Tibetan cultural element 31",
+    "explanation_text": "This is a conceptual explanation for math topic 31 using Tibetan cultural element 31.",
+    "image_prompt": "Draw a Tibetan object 31 to illustrate math topic 31 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_32",
+    "concept_name": "Concept 32",
+    "aliases": [
+      "term 32",
+      "concept 32",
+      "related term 32"
+    ],
+    "tibetan_culture": "Tibetan cultural element 32",
+    "explanation_text": "This is a conceptual explanation for math topic 32 using Tibetan cultural element 32.",
+    "image_prompt": "Draw a Tibetan object 32 to illustrate math topic 32 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_33",
+    "concept_name": "Concept 33",
+    "aliases": [
+      "term 33",
+      "concept 33",
+      "related term 33"
+    ],
+    "tibetan_culture": "Tibetan cultural element 33",
+    "explanation_text": "This is a conceptual explanation for math topic 33 using Tibetan cultural element 33.",
+    "image_prompt": "Draw a Tibetan object 33 to illustrate math topic 33 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_34",
+    "concept_name": "Concept 34",
+    "aliases": [
+      "term 34",
+      "concept 34",
+      "related term 34"
+    ],
+    "tibetan_culture": "Tibetan cultural element 34",
+    "explanation_text": "This is a conceptual explanation for math topic 34 using Tibetan cultural element 34.",
+    "image_prompt": "Draw a Tibetan object 34 to illustrate math topic 34 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_35",
+    "concept_name": "Concept 35",
+    "aliases": [
+      "term 35",
+      "concept 35",
+      "related term 35"
+    ],
+    "tibetan_culture": "Tibetan cultural element 35",
+    "explanation_text": "This is a conceptual explanation for math topic 35 using Tibetan cultural element 35.",
+    "image_prompt": "Draw a Tibetan object 35 to illustrate math topic 35 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_36",
+    "concept_name": "Concept 36",
+    "aliases": [
+      "term 36",
+      "concept 36",
+      "related term 36"
+    ],
+    "tibetan_culture": "Tibetan cultural element 36",
+    "explanation_text": "This is a conceptual explanation for math topic 36 using Tibetan cultural element 36.",
+    "image_prompt": "Draw a Tibetan object 36 to illustrate math topic 36 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_37",
+    "concept_name": "Concept 37",
+    "aliases": [
+      "term 37",
+      "concept 37",
+      "related term 37"
+    ],
+    "tibetan_culture": "Tibetan cultural element 37",
+    "explanation_text": "This is a conceptual explanation for math topic 37 using Tibetan cultural element 37.",
+    "image_prompt": "Draw a Tibetan object 37 to illustrate math topic 37 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_38",
+    "concept_name": "Concept 38",
+    "aliases": [
+      "term 38",
+      "concept 38",
+      "related term 38"
+    ],
+    "tibetan_culture": "Tibetan cultural element 38",
+    "explanation_text": "This is a conceptual explanation for math topic 38 using Tibetan cultural element 38.",
+    "image_prompt": "Draw a Tibetan object 38 to illustrate math topic 38 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_39",
+    "concept_name": "Concept 39",
+    "aliases": [
+      "term 39",
+      "concept 39",
+      "related term 39"
+    ],
+    "tibetan_culture": "Tibetan cultural element 39",
+    "explanation_text": "This is a conceptual explanation for math topic 39 using Tibetan cultural element 39.",
+    "image_prompt": "Draw a Tibetan object 39 to illustrate math topic 39 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_40",
+    "concept_name": "Concept 40",
+    "aliases": [
+      "term 40",
+      "concept 40",
+      "related term 40"
+    ],
+    "tibetan_culture": "Tibetan cultural element 40",
+    "explanation_text": "This is a conceptual explanation for math topic 40 using Tibetan cultural element 40.",
+    "image_prompt": "Draw a Tibetan object 40 to illustrate math topic 40 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_41",
+    "concept_name": "Concept 41",
+    "aliases": [
+      "term 41",
+      "concept 41",
+      "related term 41"
+    ],
+    "tibetan_culture": "Tibetan cultural element 41",
+    "explanation_text": "This is a conceptual explanation for math topic 41 using Tibetan cultural element 41.",
+    "image_prompt": "Draw a Tibetan object 41 to illustrate math topic 41 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_42",
+    "concept_name": "Concept 42",
+    "aliases": [
+      "term 42",
+      "concept 42",
+      "related term 42"
+    ],
+    "tibetan_culture": "Tibetan cultural element 42",
+    "explanation_text": "This is a conceptual explanation for math topic 42 using Tibetan cultural element 42.",
+    "image_prompt": "Draw a Tibetan object 42 to illustrate math topic 42 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_43",
+    "concept_name": "Concept 43",
+    "aliases": [
+      "term 43",
+      "concept 43",
+      "related term 43"
+    ],
+    "tibetan_culture": "Tibetan cultural element 43",
+    "explanation_text": "This is a conceptual explanation for math topic 43 using Tibetan cultural element 43.",
+    "image_prompt": "Draw a Tibetan object 43 to illustrate math topic 43 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_44",
+    "concept_name": "Concept 44",
+    "aliases": [
+      "term 44",
+      "concept 44",
+      "related term 44"
+    ],
+    "tibetan_culture": "Tibetan cultural element 44",
+    "explanation_text": "This is a conceptual explanation for math topic 44 using Tibetan cultural element 44.",
+    "image_prompt": "Draw a Tibetan object 44 to illustrate math topic 44 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_45",
+    "concept_name": "Concept 45",
+    "aliases": [
+      "term 45",
+      "concept 45",
+      "related term 45"
+    ],
+    "tibetan_culture": "Tibetan cultural element 45",
+    "explanation_text": "This is a conceptual explanation for math topic 45 using Tibetan cultural element 45.",
+    "image_prompt": "Draw a Tibetan object 45 to illustrate math topic 45 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_46",
+    "concept_name": "Concept 46",
+    "aliases": [
+      "term 46",
+      "concept 46",
+      "related term 46"
+    ],
+    "tibetan_culture": "Tibetan cultural element 46",
+    "explanation_text": "This is a conceptual explanation for math topic 46 using Tibetan cultural element 46.",
+    "image_prompt": "Draw a Tibetan object 46 to illustrate math topic 46 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_47",
+    "concept_name": "Concept 47",
+    "aliases": [
+      "term 47",
+      "concept 47",
+      "related term 47"
+    ],
+    "tibetan_culture": "Tibetan cultural element 47",
+    "explanation_text": "This is a conceptual explanation for math topic 47 using Tibetan cultural element 47.",
+    "image_prompt": "Draw a Tibetan object 47 to illustrate math topic 47 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_48",
+    "concept_name": "Concept 48",
+    "aliases": [
+      "term 48",
+      "concept 48",
+      "related term 48"
+    ],
+    "tibetan_culture": "Tibetan cultural element 48",
+    "explanation_text": "This is a conceptual explanation for math topic 48 using Tibetan cultural element 48.",
+    "image_prompt": "Draw a Tibetan object 48 to illustrate math topic 48 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_49",
+    "concept_name": "Concept 49",
+    "aliases": [
+      "term 49",
+      "concept 49",
+      "related term 49"
+    ],
+    "tibetan_culture": "Tibetan cultural element 49",
+    "explanation_text": "This is a conceptual explanation for math topic 49 using Tibetan cultural element 49.",
+    "image_prompt": "Draw a Tibetan object 49 to illustrate math topic 49 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_50",
+    "concept_name": "Concept 50",
+    "aliases": [
+      "term 50",
+      "concept 50",
+      "related term 50"
+    ],
+    "tibetan_culture": "Tibetan cultural element 50",
+    "explanation_text": "This is a conceptual explanation for math topic 50 using Tibetan cultural element 50.",
+    "image_prompt": "Draw a Tibetan object 50 to illustrate math topic 50 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_51",
+    "concept_name": "Concept 51",
+    "aliases": [
+      "term 51",
+      "concept 51",
+      "related term 51"
+    ],
+    "tibetan_culture": "Tibetan cultural element 51",
+    "explanation_text": "This is a conceptual explanation for math topic 51 using Tibetan cultural element 51.",
+    "image_prompt": "Draw a Tibetan object 51 to illustrate math topic 51 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_52",
+    "concept_name": "Concept 52",
+    "aliases": [
+      "term 52",
+      "concept 52",
+      "related term 52"
+    ],
+    "tibetan_culture": "Tibetan cultural element 52",
+    "explanation_text": "This is a conceptual explanation for math topic 52 using Tibetan cultural element 52.",
+    "image_prompt": "Draw a Tibetan object 52 to illustrate math topic 52 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_53",
+    "concept_name": "Concept 53",
+    "aliases": [
+      "term 53",
+      "concept 53",
+      "related term 53"
+    ],
+    "tibetan_culture": "Tibetan cultural element 53",
+    "explanation_text": "This is a conceptual explanation for math topic 53 using Tibetan cultural element 53.",
+    "image_prompt": "Draw a Tibetan object 53 to illustrate math topic 53 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_54",
+    "concept_name": "Concept 54",
+    "aliases": [
+      "term 54",
+      "concept 54",
+      "related term 54"
+    ],
+    "tibetan_culture": "Tibetan cultural element 54",
+    "explanation_text": "This is a conceptual explanation for math topic 54 using Tibetan cultural element 54.",
+    "image_prompt": "Draw a Tibetan object 54 to illustrate math topic 54 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_55",
+    "concept_name": "Concept 55",
+    "aliases": [
+      "term 55",
+      "concept 55",
+      "related term 55"
+    ],
+    "tibetan_culture": "Tibetan cultural element 55",
+    "explanation_text": "This is a conceptual explanation for math topic 55 using Tibetan cultural element 55.",
+    "image_prompt": "Draw a Tibetan object 55 to illustrate math topic 55 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_56",
+    "concept_name": "Concept 56",
+    "aliases": [
+      "term 56",
+      "concept 56",
+      "related term 56"
+    ],
+    "tibetan_culture": "Tibetan cultural element 56",
+    "explanation_text": "This is a conceptual explanation for math topic 56 using Tibetan cultural element 56.",
+    "image_prompt": "Draw a Tibetan object 56 to illustrate math topic 56 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_57",
+    "concept_name": "Concept 57",
+    "aliases": [
+      "term 57",
+      "concept 57",
+      "related term 57"
+    ],
+    "tibetan_culture": "Tibetan cultural element 57",
+    "explanation_text": "This is a conceptual explanation for math topic 57 using Tibetan cultural element 57.",
+    "image_prompt": "Draw a Tibetan object 57 to illustrate math topic 57 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_58",
+    "concept_name": "Concept 58",
+    "aliases": [
+      "term 58",
+      "concept 58",
+      "related term 58"
+    ],
+    "tibetan_culture": "Tibetan cultural element 58",
+    "explanation_text": "This is a conceptual explanation for math topic 58 using Tibetan cultural element 58.",
+    "image_prompt": "Draw a Tibetan object 58 to illustrate math topic 58 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_59",
+    "concept_name": "Concept 59",
+    "aliases": [
+      "term 59",
+      "concept 59",
+      "related term 59"
+    ],
+    "tibetan_culture": "Tibetan cultural element 59",
+    "explanation_text": "This is a conceptual explanation for math topic 59 using Tibetan cultural element 59.",
+    "image_prompt": "Draw a Tibetan object 59 to illustrate math topic 59 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_60",
+    "concept_name": "Concept 60",
+    "aliases": [
+      "term 60",
+      "concept 60",
+      "related term 60"
+    ],
+    "tibetan_culture": "Tibetan cultural element 60",
+    "explanation_text": "This is a conceptual explanation for math topic 60 using Tibetan cultural element 60.",
+    "image_prompt": "Draw a Tibetan object 60 to illustrate math topic 60 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_61",
+    "concept_name": "Concept 61",
+    "aliases": [
+      "term 61",
+      "concept 61",
+      "related term 61"
+    ],
+    "tibetan_culture": "Tibetan cultural element 61",
+    "explanation_text": "This is a conceptual explanation for math topic 61 using Tibetan cultural element 61.",
+    "image_prompt": "Draw a Tibetan object 61 to illustrate math topic 61 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_62",
+    "concept_name": "Concept 62",
+    "aliases": [
+      "term 62",
+      "concept 62",
+      "related term 62"
+    ],
+    "tibetan_culture": "Tibetan cultural element 62",
+    "explanation_text": "This is a conceptual explanation for math topic 62 using Tibetan cultural element 62.",
+    "image_prompt": "Draw a Tibetan object 62 to illustrate math topic 62 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_63",
+    "concept_name": "Concept 63",
+    "aliases": [
+      "term 63",
+      "concept 63",
+      "related term 63"
+    ],
+    "tibetan_culture": "Tibetan cultural element 63",
+    "explanation_text": "This is a conceptual explanation for math topic 63 using Tibetan cultural element 63.",
+    "image_prompt": "Draw a Tibetan object 63 to illustrate math topic 63 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_64",
+    "concept_name": "Concept 64",
+    "aliases": [
+      "term 64",
+      "concept 64",
+      "related term 64"
+    ],
+    "tibetan_culture": "Tibetan cultural element 64",
+    "explanation_text": "This is a conceptual explanation for math topic 64 using Tibetan cultural element 64.",
+    "image_prompt": "Draw a Tibetan object 64 to illustrate math topic 64 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_65",
+    "concept_name": "Concept 65",
+    "aliases": [
+      "term 65",
+      "concept 65",
+      "related term 65"
+    ],
+    "tibetan_culture": "Tibetan cultural element 65",
+    "explanation_text": "This is a conceptual explanation for math topic 65 using Tibetan cultural element 65.",
+    "image_prompt": "Draw a Tibetan object 65 to illustrate math topic 65 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_66",
+    "concept_name": "Concept 66",
+    "aliases": [
+      "term 66",
+      "concept 66",
+      "related term 66"
+    ],
+    "tibetan_culture": "Tibetan cultural element 66",
+    "explanation_text": "This is a conceptual explanation for math topic 66 using Tibetan cultural element 66.",
+    "image_prompt": "Draw a Tibetan object 66 to illustrate math topic 66 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_67",
+    "concept_name": "Concept 67",
+    "aliases": [
+      "term 67",
+      "concept 67",
+      "related term 67"
+    ],
+    "tibetan_culture": "Tibetan cultural element 67",
+    "explanation_text": "This is a conceptual explanation for math topic 67 using Tibetan cultural element 67.",
+    "image_prompt": "Draw a Tibetan object 67 to illustrate math topic 67 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_68",
+    "concept_name": "Concept 68",
+    "aliases": [
+      "term 68",
+      "concept 68",
+      "related term 68"
+    ],
+    "tibetan_culture": "Tibetan cultural element 68",
+    "explanation_text": "This is a conceptual explanation for math topic 68 using Tibetan cultural element 68.",
+    "image_prompt": "Draw a Tibetan object 68 to illustrate math topic 68 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_69",
+    "concept_name": "Concept 69",
+    "aliases": [
+      "term 69",
+      "concept 69",
+      "related term 69"
+    ],
+    "tibetan_culture": "Tibetan cultural element 69",
+    "explanation_text": "This is a conceptual explanation for math topic 69 using Tibetan cultural element 69.",
+    "image_prompt": "Draw a Tibetan object 69 to illustrate math topic 69 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_70",
+    "concept_name": "Concept 70",
+    "aliases": [
+      "term 70",
+      "concept 70",
+      "related term 70"
+    ],
+    "tibetan_culture": "Tibetan cultural element 70",
+    "explanation_text": "This is a conceptual explanation for math topic 70 using Tibetan cultural element 70.",
+    "image_prompt": "Draw a Tibetan object 70 to illustrate math topic 70 with metaphorical meaning."
+  },
+  {
+    "concept_id": "concept_71",
+    "concept_name": "Concept 71",
+    "aliases": [
+      "term 71",
+      "concept 71",
+      "related term 71"
+    ],
+    "tibetan_culture": "Tibetan cultural element 71",
+    "explanation_text": "This is a conceptual explanation for math topic 71 using Tibetan cultural element 71.",
+    "image_prompt": "Draw a Tibetan object 71 to illustrate math topic 71 with metaphorical meaning."
+  }
+]
