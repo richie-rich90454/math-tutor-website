@@ -1,0 +1,790 @@
+[
+    {
+        "concept_id": "place_value",
+        "concept_name": "Place Value",
+        "aliases": [
+            "place value",
+            "digit place",
+            "number place",
+            "units place",
+            "tens place",
+            "hundreds place",
+            "position of digits",
+            "digit position"
+        ],
+        "mongolian_culture": "Morin khuur string tuning",
+        "explanation_text": "Each string on a morin khuur (horse-head fiddle) has a position and pitch, just like digits have places that determine their value.",
+        "image_prompt": "Illustrate a morin khuur with strings labeled as ones, tens, and hundreds, showing how position affects tone and value."
+    },
+    {
+        "concept_id": "addition_subtraction",
+        "concept_name": "Addition & Subtraction",
+        "aliases": [
+            "add",
+            "addition",
+            "plus",
+            "sum",
+            "combine",
+            "total",
+            "subtract",
+            "subtraction",
+            "minus",
+            "take away",
+            "difference"
+        ],
+        "mongolian_culture": "Milk tea cups being poured or served",
+        "explanation_text": "When you pour more suutei tsai (milk tea) into cups, the total increases. When some is drunk or poured out, it decreases—like addition and subtraction.",
+        "image_prompt": "Show cups of Mongolian milk tea being filled or emptied, with the total changing accordingly."
+    },
+    {
+        "concept_id": "multiplication_division",
+        "concept_name": "Multiplication & Division",
+        "aliases": [
+            "multiply",
+            "multiplication",
+            "times",
+            "groups of",
+            "repeated addition",
+            "divide",
+            "division",
+            "split equally",
+            "sharing"
+        ],
+        "mongolian_culture": "Naadam archery targets",
+        "explanation_text": "Setting up equal rows of archery targets shows multiplication. Splitting targets evenly among players shows division.",
+        "image_prompt": "Display rows of identical archery targets arranged evenly, showing equal grouping (multiplication) and even sharing (division)."
+    },
+    {
+        "concept_id": "even_odd",
+        "concept_name": "Even and Odd Numbers",
+        "aliases": [
+            "even numbers",
+            "odd numbers",
+            "even",
+            "odd",
+            "pairs",
+            "leftover",
+            "no remainder",
+            "remains one"
+        ],
+        "mongolian_culture": "Horse riders in Naadam pairs",
+        "explanation_text": "Horse riders lined up in pairs represent even numbers. If one rider stands alone, it's odd.",
+        "image_prompt": "Show Naadam festival horse riders standing in pairs, with one single rider at the end to represent an odd number."
+    },
+    {
+        "concept_id": "skip_counting",
+        "concept_name": "Skip Counting / Number Patterns",
+        "aliases": [
+            "skip counting",
+            "count by 2s",
+            "count by 5s",
+            "count by 10s",
+            "jump counting",
+            "repeating numbers",
+            "number patterns"
+        ],
+        "mongolian_culture": "Color patterns in deel trims",
+        "explanation_text": "The repeating patterns on the trim of a Mongolian deel or hat follow rhythmic color sequences—similar to number patterns or skip counting.",
+        "image_prompt": "Show a deel trim with repeating colored shapes, highlighting every 5th pattern to illustrate skip counting."
+    },
+    {
+        "concept_id": "comparing_numbers",
+        "concept_name": "Comparing and Ordering Numbers",
+        "aliases": [
+            "compare numbers",
+            "greater than",
+            "less than",
+            "more than",
+            "fewer than",
+            "biggest",
+            "smallest",
+            "ordering numbers",
+            "number order"
+        ],
+        "mongolian_culture": "Airag cups with different amounts",
+        "explanation_text": "Comparing the levels of airag (fermented mare's milk) in cups helps show which is greater or smaller—like comparing numbers.",
+        "image_prompt": "Show several cups with different amounts of airag, using > and < symbols between them."
+    },
+    {
+        "concept_id": "rounding_estimation",
+        "concept_name": "Rounding & Estimation",
+        "aliases": [
+            "round",
+            "rounding",
+            "estimate",
+            "estimation",
+            "approximate",
+            "about how much",
+            "close to",
+            "nearby number"
+        ],
+        "mongolian_culture": "Estimating dairy for dumplings",
+        "explanation_text": "When making buuz (steamed dumplings), cooks estimate how much milk or flour to add—similar to rounding to the nearest convenient number.",
+        "image_prompt": "Show a cook preparing buuz dough, roughly estimating milk quantity and labeling it with rounded amounts."
+    },
+    {
+        "concept_id": "fractions",
+        "concept_name": "Fractions",
+        "aliases": [
+            "fraction",
+            "part of a whole",
+            "portion",
+            "share",
+            "numerator",
+            "denominator"
+        ],
+        "mongolian_culture": "Sharing dairy portions",
+        "explanation_text": "When a bowl of airag or milk is shared equally among friends, each person gets a fraction of the total amount.",
+        "image_prompt": "Show a bowl of milk being divided into equal parts among several cups, each labeled as a fraction of the whole."
+    },
+    {
+        "concept_id": "equivalent_fractions",
+        "concept_name": "Equivalent Fractions",
+        "aliases": [
+            "equal fractions",
+            "same value",
+            "fraction equality",
+            "equivalent"
+        ],
+        "mongolian_culture": "Cutting meat pieces evenly",
+        "explanation_text": "Dividing a piece of meat into 2 equal parts or 4 smaller equal parts gives the same total—like equivalent fractions.",
+        "image_prompt": "Show a slab of meat divided first into halves, then quarters, demonstrating equal portions."
+    },
+    {
+        "concept_id": "simplifying_fractions",
+        "concept_name": "Simplifying Fractions",
+        "aliases": [
+            "reduce fraction",
+            "lowest terms",
+            "simplify fraction"
+        ],
+        "mongolian_culture": "Combining small herds",
+        "explanation_text": "If two small herds combine into one larger group, you simplify the count—like reducing a fraction to its simplest form.",
+        "image_prompt": "Depict smaller groups of sheep merging into one larger group, labeled with reduced fractions."
+    },
+    {
+        "concept_id": "mixed_numbers",
+        "concept_name": "Mixed Numbers",
+        "aliases": [
+            "mixed number",
+            "whole and fraction",
+            "whole part and fraction part"
+        ],
+        "mongolian_culture": "Counting full and half milk jars",
+        "explanation_text": "If you have 3 full jars of milk and half a jar more, that's 3½—just like a mixed number.",
+        "image_prompt": "Show three full jars and one half-full jar labeled as 3½."
+    },
+    {
+        "concept_id": "improper_fractions",
+        "concept_name": "Improper Fractions",
+        "aliases": [
+            "top-heavy fraction",
+            "numerator larger",
+            "greater than one fraction"
+        ],
+        "mongolian_culture": "Overflowing dairy containers",
+        "explanation_text": "When milk fills more than one container but is measured as parts of the same size, it represents an improper fraction.",
+        "image_prompt": "Show several small bowls filled past one full portion, symbolizing fractions greater than 1."
+    },
+    {
+        "concept_id": "adding_fractions",
+        "concept_name": "Adding Fractions",
+        "aliases": [
+            "fraction addition",
+            "add fractions",
+            "sum of fractions"
+        ],
+        "mongolian_culture": "Combining portions of cream",
+        "explanation_text": "Adding portions of cream from different bowls shows how fractional amounts combine to make a whole.",
+        "image_prompt": "Show smaller bowls of cream being poured together to make one total bowl."
+    },
+    {
+        "concept_id": "subtracting_fractions",
+        "concept_name": "Subtracting Fractions",
+        "aliases": [
+            "fraction subtraction",
+            "take away fractions",
+            "difference of fractions"
+        ],
+        "mongolian_culture": "Pouring out part of milk tea",
+        "explanation_text": "Removing a portion of milk tea from a bowl shows subtraction of a fractional part.",
+        "image_prompt": "Show a cup of milk tea with part of it being poured out, the remainder labeled as the fraction left."
+    },
+    {
+        "concept_id": "multiplying_fractions",
+        "concept_name": "Multiplying Fractions",
+        "aliases": [
+            "fraction multiplication",
+            "part of a part",
+            "multiply fractions"
+        ],
+        "mongolian_culture": "Portions of meat servings",
+        "explanation_text": "If each person gets half of a half portion of meat, you're finding a fraction of a fraction—like multiplying fractions.",
+        "image_prompt": "Show a plate of meat divided into halves, and one half divided again to show smaller portions."
+    },
+    {
+        "concept_id": "dividing_fractions",
+        "concept_name": "Dividing Fractions",
+        "aliases": [
+            "fraction division",
+            "divide fractions",
+            "how many times in"
+        ],
+        "mongolian_culture": "Splitting dough pieces",
+        "explanation_text": "If one portion of dough is divided evenly into smaller parts, it represents dividing a fraction by another fraction.",
+        "image_prompt": "Show dough being cut into smaller even pieces to illustrate fractional division."
+    },
+    {
+        "concept_id": "decimals",
+        "concept_name": "Decimals",
+        "aliases": [
+            "decimal point",
+            "tenths",
+            "hundredths",
+            "decimal number"
+        ],
+        "mongolian_culture": "Measuring milk in liters",
+        "explanation_text": "Using liters and milliliters when measuring milk introduces decimals, like 1.5 liters meaning one and a half liters.",
+        "image_prompt": "Show a measuring container marked with 1.0, 1.5, and 2.0 liters of milk."
+    },
+    {
+        "concept_id": "converting_fractions_decimals",
+        "concept_name": "Converting Fractions and Decimals",
+        "aliases": [
+            "fraction to decimal",
+            "decimal to fraction",
+            "convert fractions"
+        ],
+        "mongolian_culture": "Comparing milk amounts",
+        "explanation_text": "Whether you say half a liter or 0.5 liters, both describe the same amount—like converting between fractions and decimals.",
+        "image_prompt": "Show two labeled cups, one marked ½ and another 0.5, filled with the same amount."
+    },
+    {
+        "concept_id": "percents",
+        "concept_name": "Percents",
+        "aliases": [
+            "percent",
+            "percentage",
+            "per hundred",
+            "rate per 100"
+        ],
+        "mongolian_culture": "School test scores",
+        "explanation_text": "When a student scores 90 out of 100 on a Mongolian language test, that's 90%—a way to express parts per hundred.",
+        "image_prompt": "Show a test paper with 90/100 written and a 90% mark beside it."
+    },
+    {
+        "concept_id": "percent_of_number",
+        "concept_name": "Percent of a Number",
+        "aliases": [
+            "percentage of number",
+            "find percent",
+            "portion of total"
+        ],
+        "mongolian_culture": "Discounts at local markets",
+        "explanation_text": "A 10% discount on a deel at the market shows how percents are used to find parts of a number.",
+        "image_prompt": "Show a shop sign with a deel marked ‘10% off' and price tags with reduced amounts."
+    },
+    {
+        "concept_id": "variables",
+        "concept_name": "Variables",
+        "aliases": [
+            "variable",
+            "unknown",
+            "letter as number",
+            "symbol in math"
+        ],
+        "mongolian_culture": "Unlabeled milk jars",
+        "explanation_text": "If some jars are unlabeled, each represents an unknown quantity—like variables in math.",
+        "image_prompt": "Show labeled jars (2L, 3L) and an unlabeled jar marked as x."
+    },
+    {
+        "concept_id": "expressions",
+        "concept_name": "Expressions",
+        "aliases": [
+            "math expressions",
+            "numerical expressions",
+            "algebraic expressions"
+        ],
+        "mongolian_culture": "Combining unknown and known items",
+        "explanation_text": "If you have 2 known milk jars and x more unknown ones, that's like writing the expression 2 + x.",
+        "image_prompt": "Show two milk jars plus an unlabeled one, symbolized as 2 + x."
+    },
+    {
+        "concept_id": "equations",
+        "concept_name": "Equations",
+        "aliases": [
+            "math equations",
+            "equal statements",
+            "algebra equations"
+        ],
+        "mongolian_culture": "Balancing a scale",
+        "explanation_text": "When two sides of a balance hold equal weight, it represents equality—just like both sides of an equation.",
+        "image_prompt": "Show a balance scale with equal objects on both sides labeled as an equation."
+    },
+    {
+        "concept_id": "solving_one_step_equations",
+        "concept_name": "Solving One-Step Equations",
+        "aliases": [
+            "one-step equations",
+            "simple equations"
+        ],
+        "mongolian_culture": "Adjusting a horse load evenly",
+        "explanation_text": "If one side of a horse's load is heavier, you adjust it by adding or removing weight—like solving one-step equations.",
+        "image_prompt": "Show a horse with balanced saddle bags illustrating equal sides."
+    },
+    {
+        "concept_id": "solving_two_step_equations",
+        "concept_name": "Solving Two-Step Equations",
+        "aliases": [
+            "two-step equations",
+            "multi-step equations"
+        ],
+        "mongolian_culture": "Preparing a meal step-by-step",
+        "explanation_text": "Making milk tea requires boiling water first and then adding tea—like solving an equation with two steps.",
+        "image_prompt": "Show the step sequence: boil water then add tea then get result, symbolizing step-by-step solving."
+    },
+    {
+        "concept_id": "inequalities",
+        "concept_name": "Inequalities",
+        "aliases": [
+            "greater than",
+            "less than",
+            "not equal",
+            "comparison statements"
+        ],
+        "mongolian_culture": "Comparing herd sizes",
+        "explanation_text": "When one family's herd is larger than another's, it shows inequality—like greater than or less than in math.",
+        "image_prompt": "Show two herds of sheep of different sizes with > and < symbols between them."
+    },
+    {
+        "concept_id": "order_of_operations",
+        "concept_name": "Order of Operations (PEMDAS)",
+        "aliases": [
+            "PEMDAS",
+            "BODMAS",
+            "math order",
+            "operations order"
+        ],
+        "mongolian_culture": "Cooking sequence",
+        "explanation_text": "When preparing buuz, you must mix dough before steaming—it matters what you do first, just like in math order.",
+        "image_prompt": "Show a cooking sequence where steps must happen in order, labeled like parentheses, exponents, etc."
+    },
+    {
+        "concept_id": "substitution",
+        "concept_name": "Substitution",
+        "aliases": [
+            "replace variable",
+            "substitute value",
+            "replace letter with number"
+        ],
+        "mongolian_culture": "Replacing missing tools",
+        "explanation_text": "If a broken ladle is replaced with another of the same size, that's like substituting a value for a variable.",
+        "image_prompt": "Show a missing ladle replaced with an identical one, representing substitution."
+    },
+    {
+        "concept_id": "points",
+        "concept_name": "Points",
+        "aliases": [
+            "dot",
+            "location",
+            "coordinate point"
+        ],
+        "mongolian_culture": "Stars over the grassland",
+        "explanation_text": "Each star in the night sky marks a position, like a point in geometry.",
+        "image_prompt": "Show a starry sky with individual stars labeled as points on a coordinate grid."
+    },
+    {
+        "concept_id": "lines",
+        "concept_name": "Lines",
+        "aliases": [
+            "straight line",
+            "geometry line",
+            "infinite line"
+        ],
+        "mongolian_culture": "Rope lines in a ger tent",
+        "explanation_text": "The ropes stretching straight from the center pole of a ger resemble geometric lines that extend in both directions.",
+        "image_prompt": "Show straight ropes extending from a ger's top pole, representing geometric lines."
+    },
+    {
+        "concept_id": "angles",
+        "concept_name": "Angles",
+        "aliases": [
+            "angle",
+            "degree",
+            "corner measure"
+        ],
+        "mongolian_culture": "Opening a ger door",
+        "explanation_text": "When the ger door opens, it forms an angle between the door and frame.",
+        "image_prompt": "Show a ger door partially open with the angle clearly marked."
+    },
+    {
+        "concept_id": "perpendicular_lines",
+        "concept_name": "Perpendicular Lines",
+        "aliases": [
+            "right angle lines",
+            "intersecting lines",
+            "orthogonal lines"
+        ],
+        "mongolian_culture": "Ger roof supports",
+        "explanation_text": "The wooden beams meeting the ger's circular roof frame form perpendicular lines, creating right angles for strength.",
+        "image_prompt": "Show ger roof supports meeting at 90° angles."
+    },
+    {
+        "concept_id": "parallel_lines",
+        "concept_name": "Parallel Lines",
+        "aliases": [
+            "side-by-side lines",
+            "never meet",
+            "equal distance lines"
+        ],
+        "mongolian_culture": "Tracks in grassland paths",
+        "explanation_text": "The twin tracks left by a cart traveling across the steppe never meet—like parallel lines.",
+        "image_prompt": "Show two wagon tracks running side by side through grassland."
+    },
+    {
+        "concept_id": "polygons",
+        "concept_name": "Polygons",
+        "aliases": [
+            "shapes",
+            "closed figure",
+            "many-sided shape"
+        ],
+        "mongolian_culture": "Ger tent shapes from above",
+        "explanation_text": "Seen from above, the circular and polygonal layouts of traditional gers show closed geometric shapes.",
+        "image_prompt": "Show the overhead shapes of several gers forming geometric patterns."
+    },
+    {
+        "concept_id": "triangles",
+        "concept_name": "Triangles",
+        "aliases": [
+            "three sides",
+            "triangular",
+            "triangle shape"
+        ],
+        "mongolian_culture": "Roof supports on gers",
+        "explanation_text": "Each section of a ger roof creates a triangle between the poles and top ring.",
+        "image_prompt": "Show triangular segments formed by ger roof beams."
+    },
+    {
+        "concept_id": "quadrilaterals",
+        "concept_name": "Quadrilaterals",
+        "aliases": [
+            "four sides",
+            "rectangles",
+            "squares",
+            "trapezoids"
+        ],
+        "mongolian_culture": "Carpet patterns",
+        "explanation_text": "The decorative patterns on Mongolian carpets often form quadrilateral shapes.",
+        "image_prompt": "Show a carpet with repeating square and rectangular motifs."
+    },
+    {
+        "concept_id": "perimeter",
+        "concept_name": "Perimeter",
+        "aliases": [
+            "boundary length",
+            "distance around",
+            "outline measure"
+        ],
+        "mongolian_culture": "Walking around a ger camp",
+        "explanation_text": "Measuring the distance around a circle of gers is like finding the perimeter of a shape.",
+        "image_prompt": "Show people walking around a ring of gers with a dashed perimeter line."
+    },
+    {
+        "concept_id": "area",
+        "concept_name": "Area",
+        "aliases": [
+            "surface area",
+            "space inside",
+            "coverage"
+        ],
+        "mongolian_culture": "Rug coverage in a ger",
+        "explanation_text": "The amount of floor covered by a rug inside a ger represents its area.",
+        "image_prompt": "Show a rug spread on the ger floor, shaded to show its area."
+    },
+    {
+        "concept_id": "volume",
+        "concept_name": "Volume",
+        "aliases": [
+            "capacity",
+            "space inside 3D shape",
+            "liquid amount"
+        ],
+        "mongolian_culture": "Milk barrels",
+        "explanation_text": "The amount of milk a barrel can hold represents its volume.",
+        "image_prompt": "Show wooden milk barrels filled to different levels to illustrate volume."
+    },
+    {
+        "concept_id": "circle_properties",
+        "concept_name": "Circle Properties",
+        "aliases": [
+            "radius",
+            "diameter",
+            "circumference",
+            "circle geometry"
+        ],
+        "mongolian_culture": "Top view of a ger",
+        "explanation_text": "Looking down at a ger from above shows a perfect circle, illustrating diameter, radius, and circumference.",
+        "image_prompt": "Show a ger from above labeled with radius and diameter lines."
+    },
+    {
+        "concept_id": "pi",
+        "concept_name": "Pi (π)",
+        "aliases": [
+            "pi",
+            "ratio of circumference",
+            "3.14"
+        ],
+        "mongolian_culture": "Round cheese wheels",
+        "explanation_text": "The relationship between a round cheese's circumference and diameter shows the constant ratio π.",
+        "image_prompt": "Show a circular cheese wheel labeled with circumference and diameter measurements."
+    },
+    {
+        "concept_id": "coordinate_plane",
+        "concept_name": "Coordinate Plane",
+        "aliases": [
+            "x-y plane",
+            "graph grid",
+            "axes"
+        ],
+        "mongolian_culture": "Market stall grid",
+        "explanation_text": "A market arranged in rows and columns resembles a coordinate grid, where each stall has coordinates.",
+        "image_prompt": "Show a market map labeled with x and y coordinates."
+    },
+    {
+        "concept_id": "plotting_points",
+        "concept_name": "Plotting Points",
+        "aliases": [
+            "graphing points",
+            "coordinates",
+            "x-y plotting"
+        ],
+        "mongolian_culture": "Marking tent locations",
+        "explanation_text": "Plotting the location of each family's ger on a map is like plotting points on a coordinate plane.",
+        "image_prompt": "Show a map of a steppe campsite with labeled ger locations marked as points."
+    },
+    {
+        "concept_id": "symmetry",
+        "concept_name": "Symmetry",
+        "aliases": [
+            "mirror image",
+            "balanced halves",
+            "reflection symmetry"
+        ],
+        "mongolian_culture": "Traditional deel patterns",
+        "explanation_text": "The embroidered designs on Mongolian deels often mirror each other across the center line, showing symmetry.",
+        "image_prompt": "Show a symmetrical deel pattern split by a mirror line."
+    },
+    {
+        "concept_id": "transformations",
+        "concept_name": "Transformations",
+        "aliases": [
+            "translate",
+            "rotate",
+            "reflect",
+            "dilate"
+        ],
+        "mongolian_culture": "Rotating horse riders in formation",
+        "explanation_text": "When riders change direction or rotate during a Naadam show, it represents geometric transformations.",
+        "image_prompt": "Show horse riders turning and shifting positions to illustrate transformations."
+    },
+    {
+        "concept_id": "ratios",
+        "concept_name": "Ratios",
+        "aliases": [
+            "comparison",
+            "proportion of quantities",
+            "rate"
+        ],
+        "mongolian_culture": "Mixing tea and milk",
+        "explanation_text": "When preparing suutei tsai, the balance of milk to water represents a ratio.",
+        "image_prompt": "Show a teapot labeled with milk and water ratios, like 2:1."
+    },
+    {
+        "concept_id": "proportions",
+        "concept_name": "Proportions",
+        "aliases": [
+            "equal ratios",
+            "scaling",
+            "balance of ratios"
+        ],
+        "mongolian_culture": "Enlarging carpet designs",
+        "explanation_text": "When scaling up a carpet pattern while keeping it identical, that's maintaining proportion.",
+        "image_prompt": "Show a small and large carpet with same geometric proportions."
+    },
+    {
+        "concept_id": "unit_rate",
+        "concept_name": "Unit Rate",
+        "aliases": [
+            "per unit",
+            "rate per one",
+            "comparison per one unit"
+        ],
+        "mongolian_culture": "Horse speed in races",
+        "explanation_text": "The distance a horse runs in one minute during Naadam is a unit rate.",
+        "image_prompt": "Show a horse race with speed measured as kilometers per minute."
+    },
+    {
+        "concept_id": "scale_drawings",
+        "concept_name": "Scale Drawings",
+        "aliases": [
+            "map scale",
+            "drawing proportion",
+            "scaled map"
+        ],
+        "mongolian_culture": "Mapping a ger camp",
+        "explanation_text": "Drawing a smaller map of a large ger camp while keeping distances proportional is a scale drawing.",
+        "image_prompt": "Show a ger camp and a smaller scaled map side by side with a scale legend."
+    },
+    {
+        "concept_id": "percent_change",
+        "concept_name": "Percent Change",
+        "aliases": [
+            "percent increase",
+            "percent decrease",
+            "growth rate"
+        ],
+        "mongolian_culture": "Increase in horse herd size",
+        "explanation_text": "If a family's horse herd grows from 100 to 120, that's a 20% increase—an example of percent change.",
+        "image_prompt": "Show a herd growing in number with +20% label."
+    },
+    {
+        "concept_id": "data_collection",
+        "concept_name": "Data Collection",
+        "aliases": [
+            "gather data",
+            "record information",
+            "collect numbers"
+        ],
+        "mongolian_culture": "Counting livestock",
+        "explanation_text": "Recording how many sheep, goats, and horses a family owns is an example of data collection.",
+        "image_prompt": "Show a herder marking tallies of animals on a clipboard."
+    },
+    {
+        "concept_id": "tables_graphs",
+        "concept_name": "Tables and Graphs",
+        "aliases": [
+            "data table",
+            "bar graph",
+            "chart"
+        ],
+        "mongolian_culture": "Livestock data comparison",
+        "explanation_text": "Using a graph to show how many animals were born each season helps visualize data trends.",
+        "image_prompt": "Show a bar graph comparing livestock births across four seasons."
+    },
+    {
+        "concept_id": "mean",
+        "concept_name": "Mean",
+        "aliases": [
+            "average",
+            "arithmetic mean",
+            "mean value"
+        ],
+        "mongolian_culture": "Average milk yield",
+        "explanation_text": "Finding the average milk a cow produces per day shows the mean.",
+        "image_prompt": "Show a table of milk outputs with an average value highlighted."
+    },
+    {
+        "concept_id": "median",
+        "concept_name": "Median",
+        "aliases": [
+            "middle value",
+            "data median"
+        ],
+        "mongolian_culture": "Middle income of families",
+        "explanation_text": "When family incomes are arranged from smallest to largest, the middle one is the median.",
+        "image_prompt": "Show incomes lined up with the middle one highlighted as the median."
+    },
+    {
+        "concept_id": "mode",
+        "concept_name": "Mode",
+        "aliases": [
+            "most frequent value",
+            "common value"
+        ],
+        "mongolian_culture": "Most common horse color",
+        "explanation_text": "If most horses in the area are brown, that color is the mode.",
+        "image_prompt": "Show horses of various colors with brown being the most common."
+    },
+    {
+        "concept_id": "range",
+        "concept_name": "Range",
+        "aliases": [
+            "difference",
+            "spread of data",
+            "highest minus lowest"
+        ],
+        "mongolian_culture": "Difference in herd sizes",
+        "explanation_text": "The gap between the largest and smallest herd shows the range.",
+        "image_prompt": "Show bar chart with shortest and tallest bars marked for range."
+    },
+    {
+        "concept_id": "bar_graphs",
+        "concept_name": "Bar Graphs",
+        "aliases": [
+            "bar chart",
+            "column graph"
+        ],
+        "mongolian_culture": "Comparing family livestock counts",
+        "explanation_text": "Each bar represents how many animals each family owns—useful for quick comparisons.",
+        "image_prompt": "Show a bar graph labeled by family names with livestock totals."
+    },
+    {
+        "concept_id": "line_graphs",
+        "concept_name": "Line Graphs",
+        "aliases": [
+            "trend graph",
+            "line chart"
+        ],
+        "mongolian_culture": "Tracking milk production over months",
+        "explanation_text": "A line graph shows how milk yield changes throughout the year.",
+        "image_prompt": "Show a line graph labeled with months and milk output."
+    },
+    {
+        "concept_id": "pie_charts",
+        "concept_name": "Pie Charts",
+        "aliases": [
+            "circle chart",
+            "percentage chart"
+        ],
+        "mongolian_culture": "Types of livestock distribution",
+        "explanation_text": "A pie chart can show the proportion of horses, sheep, goats, and cows in a herd.",
+        "image_prompt": "Show a pie chart divided into livestock categories with percentages."
+    },
+    {
+        "concept_id": "probability",
+        "concept_name": "Probability",
+        "aliases": [
+            "chance",
+            "likelihood",
+            "odds"
+        ],
+        "mongolian_culture": "Predicting Naadam race winners",
+        "explanation_text": "Estimating which horse is most likely to win a race involves probability.",
+        "image_prompt": "Show horses at a race start line with probability labels above each."
+    },
+    {
+        "concept_id": "patterns",
+        "concept_name": "Patterns",
+        "aliases": [
+            "repeating design",
+            "sequence",
+            "recurrence"
+        ],
+        "mongolian_culture": "Traditional border designs",
+        "explanation_text": "Repeated geometric motifs on carpets or deels represent visual patterns.",
+        "image_prompt": "Show repeating geometric designs in traditional Mongolian art."
+    },
+    {
+        "concept_id": "functions",
+        "concept_name": "Functions",
+        "aliases": [
+            "input-output rule",
+            "function relation",
+            "mapping"
+        ],
+        "mongolian_culture": "Horse speed vs distance",
+        "explanation_text": "If each speed of a horse gives a specific distance over time, it's like a function—each input gives one output.",
+        "image_prompt": "Show a graph linking horse speed (input) to distance traveled (output)."
+    }
+]
