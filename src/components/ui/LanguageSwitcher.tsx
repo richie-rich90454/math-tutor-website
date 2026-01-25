@@ -1,49 +1,56 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { useLanguage, languages } from '@/contexts/LanguageContext';
+import { useState } from "react";
+import { useLanguage, languages } from "@/contexts/LanguageContext";
 
 export default function LanguageSwitcher() {
-  const { currentLanguage, setLanguage } = useLanguage();
-  const [isOpen, setIsOpen] = useState(false);
+    const { currentLanguage, setLanguage } = useLanguage();
+    const [isOpen, setIsOpen] = useState(false);
 
-  const handleLanguageChange = (language: any) => {
-    setLanguage(language);
-    setIsOpen(false);
-  };
+    const handleLanguageChange = (language: any) => {
+        setLanguage(language);
+        setIsOpen(false);
+    };
 
-  return (
-    <div className="relative">
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-2 bg-white/80 backdrop-blur-sm border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-700 hover:bg-white hover:shadow-sm transition-all"
-      >
-        <span>{currentLanguage.name}</span>
-        <svg 
-          className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`}
-          fill="none" 
-          stroke="currentColor" 
-          viewBox="0 0 24 24"
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-        </svg>
-      </button>
-
-      {isOpen && (
-        <div className="absolute top-full right-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg z-50 min-w-[120px]">
-          {languages.map((language) => (
+    return (
+        <div className="relative">
             <button
-              key={language.code}
-              onClick={() => handleLanguageChange(language)}
-              className={`w-full flex items-center space-x-2 px-3 py-2 text-sm hover:bg-gray-50 transition-colors first:rounded-t-lg last:rounded-b-lg ${
-                currentLanguage.code === language.code ? 'bg-gray-50 text-gray-900' : 'text-gray-700'
-              }`}
+                onClick={() => setIsOpen(!isOpen)}
+                className="flex items-center space-x-2 rounded-lg border border-gray-200 bg-white/80 px-3 py-2 text-sm text-gray-700 backdrop-blur-sm transition-all hover:bg-white hover:shadow-sm"
             >
-              <span>{language.name}</span>
+                <span>{currentLanguage.name}</span>
+                <svg
+                    className={`h-4 w-4 transition-transform ${isOpen ? "rotate-180" : ""}`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                    />
+                </svg>
             </button>
-          ))}
+
+            {isOpen && (
+                <div className="absolute top-full right-0 z-50 mt-2 min-w-[120px] rounded-lg border border-gray-200 bg-white shadow-lg">
+                    {languages.map((language) => (
+                        <button
+                            key={language.code}
+                            onClick={() => handleLanguageChange(language)}
+                            className={`flex w-full items-center space-x-2 px-3 py-2 text-sm transition-colors first:rounded-t-lg last:rounded-b-lg hover:bg-gray-50 ${
+                                currentLanguage.code === language.code
+                                    ? "bg-gray-50 text-gray-900"
+                                    : "text-gray-700"
+                            }`}
+                        >
+                            <span>{language.name}</span>
+                        </button>
+                    ))}
+                </div>
+            )}
         </div>
-      )}
-    </div>
-  );
+    );
 }

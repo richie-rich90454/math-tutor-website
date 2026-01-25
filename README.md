@@ -67,40 +67,45 @@ AI-powered math education platform that adapts to students' cultural backgrounds
 ### Installation
 
 1. **Clone the repository**
-   ```bash
-   git clone https://github.com/richie-rich90454/math-tutor-website.git
-   cd math-tutor-website
-   ```
+
+    ```bash
+    git clone https://github.com/richie-rich90454/math-tutor-website.git
+    cd math-tutor-website
+    ```
 
 2. **Install dependencies**
-   ```bash
-   npm install
-   # or
-   yarn install
-   # or
-   pnpm install
-   ```
+
+    ```bash
+    npm install
+    # or
+    yarn install
+    # or
+    pnpm install
+    ```
 
 3. **Set up environment variables**
-   ```bash
-   cp .env.local.example .env.local
-   ```
-   
-   Edit `.env.local` and add your OpenAI API key:
-   ```
-   OPENAI_API_KEY=your_openai_api_key_here
-   OPENAI_BASE_URL=https://api.openai.com/v1
-   OPENAI_MODEL=gpt-4o-mini
-   ```
+
+    ```bash
+    cp .env.local.example .env.local
+    ```
+
+    Edit `.env.local` and add your OpenAI API key:
+
+    ```
+    OPENAI_API_KEY=your_openai_api_key_here
+    OPENAI_BASE_URL=https://api.openai.com/v1
+    OPENAI_MODEL=gpt-4o-mini
+    ```
 
 4. **Run the development server**
-   ```bash
-   npm run dev
-   # or
-   yarn dev
-   # or
-   pnpm dev
-   ```
+
+    ```bash
+    npm run dev
+    # or
+    yarn dev
+    # or
+    pnpm dev
+    ```
 
 5. **Open your browser**
    Navigate to [http://localhost:3000](http://localhost:3000)
@@ -109,12 +114,12 @@ AI-powered math education platform that adapts to students' cultural backgrounds
 
 Create a `.env.local` file in the root directory with the following variables:
 
-| Variable | Description | Required | Default |
-|----------|-------------|----------|---------|
-| `OPENAI_API_KEY` | Your OpenAI API key | Yes | - |
-| `OPENAI_BASE_URL` | OpenAI API base URL | No | `https://api.openai.com/v1` |
-| `OPENAI_MODEL` | OpenAI model to use | No | `gpt-4o-mini` |
-| `NEXT_PUBLIC_APP_URL` | Public URL of the application | No | `http://localhost:3000` |
+| Variable              | Description                   | Required | Default                     |
+| --------------------- | ----------------------------- | -------- | --------------------------- |
+| `OPENAI_API_KEY`      | Your OpenAI API key           | Yes      | -                           |
+| `OPENAI_BASE_URL`     | OpenAI API base URL           | No       | `https://api.openai.com/v1` |
+| `OPENAI_MODEL`        | OpenAI model to use           | No       | `gpt-4o-mini`               |
+| `NEXT_PUBLIC_APP_URL` | Public URL of the application | No       | `http://localhost:3000`     |
 
 ## API Documentation
 
@@ -125,39 +130,43 @@ Create a `.env.local` file in the root directory with the following variables:
 Send a message to the AI math tutor and receive a streamed response.
 
 **Request Body:**
+
 ```json
 {
-  "message": "Explain the Pythagorean theorem",
-  "preferredLanguage": "en"
+    "message": "Explain the Pythagorean theorem",
+    "preferredLanguage": "en"
 }
 ```
 
 **Parameters:**
+
 - `message` (string): The user's question or message
 - `preferredLanguage` (string): Language code (`en` for English, `zh` for Chinese)
 
 **Response:**
+
 - Streamed text response with markdown and LaTeX formatting
 - Content-Type: `text/plain; charset=utf-8`
 
 **Example Usage:**
+
 ```javascript
-const response = await fetch('/api/chat/message', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({
-    message: 'How do I solve quadratic equations?',
-    preferredLanguage: 'en'
-  })
+const response = await fetch("/api/chat/message", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+        message: "How do I solve quadratic equations?",
+        preferredLanguage: "en",
+    }),
 });
 
 // Read streamed response
 const reader = response.body.getReader();
 const decoder = new TextDecoder();
 while (true) {
-  const { value, done } = await reader.read();
-  if (done) break;
-  console.log(decoder.decode(value));
+    const { value, done } = await reader.read();
+    if (done) break;
+    console.log(decoder.decode(value));
 }
 ```
 
@@ -214,18 +223,20 @@ The easiest way to deploy this application is using [Vercel](https://vercel.com)
 ### Manual Deployment
 
 1. Build the application:
-   ```bash
-   npm run build
-   ```
+
+    ```bash
+    npm run build
+    ```
 
 2. Start the production server:
-   ```bash
-   npm run start
-   ```
+    ```bash
+    npm run start
+    ```
 
 ## Backend Logic Implementation Opportunities
 
 ### Current Backend Structure
+
 - **Primary API**: `src/app/api/chat/message/route.ts` - Handles AI chat with streaming
 - **Edge Runtime**: Optimized for low-latency responses
 - **Error Handling**: Basic error handling for API failures
@@ -233,44 +244,44 @@ The easiest way to deploy this application is using [Vercel](https://vercel.com)
 ### Recommended Backend Extensions
 
 1. **Database Integration** (`src/lib/db/` or `src/app/api/db/`)
-   - Store user sessions and chat history
-   - Implement Supabase/PostgreSQL with Prisma or Drizzle
-   - Create CRUD operations for user data
+    - Store user sessions and chat history
+    - Implement Supabase/PostgreSQL with Prisma or Drizzle
+    - Create CRUD operations for user data
 
 2. **Authentication** (`src/app/api/auth/`)
-   - User registration and login
-   - JWT-based session management
-   - Protected API routes with middleware
+    - User registration and login
+    - JWT-based session management
+    - Protected API routes with middleware
 
 3. **Enhanced Prompt Management** (`src/app/api/chat/prompts/`)
-   - Dynamic prompt loading from database
-   - Subject-specific prompt templates
-   - Cultural adaptation engine
+    - Dynamic prompt loading from database
+    - Subject-specific prompt templates
+    - Cultural adaptation engine
 
 4. **Analytics & Progress Tracking** (`src/app/api/analytics/`)
-   - Track user learning patterns
-   - Generate progress reports
-   - Learning analytics dashboard
+    - Track user learning patterns
+    - Generate progress reports
+    - Learning analytics dashboard
 
 5. **File Processing** (`src/app/api/upload/`)
-   - Math problem image upload
-   - OCR for handwritten problems
-   - PDF math worksheet processing
+    - Math problem image upload
+    - OCR for handwritten problems
+    - PDF math worksheet processing
 
 6. **Caching Layer** (`src/lib/cache/`)
-   - Redis for frequent AI responses
-   - In-memory caching for prompt templates
-   - Response caching to reduce API costs
+    - Redis for frequent AI responses
+    - In-memory caching for prompt templates
+    - Response caching to reduce API costs
 
 7. **Rate Limiting** (`src/middleware.ts`)
-   - Protect against API abuse
-   - IP-based request limiting
-   - User-tier based rate limits
+    - Protect against API abuse
+    - IP-based request limiting
+    - User-tier based rate limits
 
 8. **Background Jobs** (`src/lib/workers/`)
-   - Async email notifications
-   - Report generation
-   - Data processing tasks
+    - Async email notifications
+    - Report generation
+    - Data processing tasks
 
 ## Contributing
 
@@ -283,6 +294,7 @@ Contributions are welcome! Please follow these steps:
 5. Open a Pull Request
 
 ### Development Guidelines
+
 - Follow TypeScript best practices
 - Use Tailwind CSS for styling
 - Write meaningful commit messages
@@ -303,6 +315,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Support
 
 For questions, issues, or feature requests:
+
 - Open an issue on [GitHub](https://github.com/richie-rich90454/math-tutor-website/issues)
 - Check the [discussions](https://github.com/richie-rich90454/math-tutor-website/discussions) page
 
