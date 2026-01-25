@@ -6,7 +6,6 @@ import { translations, Translations } from '@/lib/translations';
 export interface Language {
   code: string;
   name: string;
-  flag: string;
 }
 
 interface LanguageContextType {
@@ -16,8 +15,16 @@ interface LanguageContextType {
 }
 
 const languages: Language[] = [
-  { code: 'en', name: 'English', flag: '🇺🇸' },
-  { code: 'zh', name: '中文', flag: '🇨🇳' }
+  { code: 'en', name: 'English' },
+  { code: 'zh-hans', name: '汉语' },
+  { code: 'zh-hant', name: '漢語' },
+  { code: 'mn-cyrl', name: 'Монгол (Кирилл)' },
+  { code: 'mn-mong', name: 'ᠮᠣᠩᠭᠣᠯ (Монгол)' },
+  { code: 'bo', name: 'བོད་སྐད་' },
+  { code: 'es', name: 'Español' },
+  { code: 'fr', name: 'Français' },
+  { code: 'de', name: 'Deutsch' },
+  { code: 'ja', name: '日本語' }
 ];
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);

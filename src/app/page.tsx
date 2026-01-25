@@ -237,8 +237,7 @@ export default function Home() {
                 <div className="flex flex-wrap gap-2 justify-center mt-6">
                   <button 
                     onClick={() => {
-                      const message = currentLanguage.code === 'zh' ? '帮我练习加法' : 'Help me practice addition';
-                      setInput(message);
+                      setInput(t('examplePracticeAddition'));
                       setTimeout(() => sendMessage(), 0);
                     }}
                     className="bg-white/80 backdrop-blur-sm border border-gray-200 rounded-lg px-4 py-2.5 text-sm text-gray-700 hover:bg-white hover:border-gray-300 transition-all"
@@ -247,8 +246,7 @@ export default function Home() {
                   </button>
                   <button 
                     onClick={() => {
-                      const message = currentLanguage.code === 'zh' ? '教我几何学' : 'Teach me geometry';
-                      setInput(message);
+                      setInput(t('exampleLearnGeometry'));
                       setTimeout(() => sendMessage(), 0);
                     }}
                     className="bg-white/80 backdrop-blur-sm border border-gray-200 rounded-lg px-4 py-2.5 text-sm text-gray-700 hover:bg-white hover:border-gray-300 transition-all"
@@ -257,8 +255,7 @@ export default function Home() {
                   </button>
                   <button 
                     onClick={() => {
-                      const message = currentLanguage.code === 'zh' ? '帮我练习乘法表' : 'Help me with times tables';
-                      setInput(message);
+                      setInput(t('exampleTimesTables'));
                       setTimeout(() => sendMessage(), 0);
                     }}
                     className="bg-white/80 backdrop-blur-sm border border-gray-200 rounded-lg px-4 py-2.5 text-sm text-gray-700 hover:bg-white hover:border-gray-300 transition-all"
@@ -267,8 +264,7 @@ export default function Home() {
                   </button>
                   <button 
                     onClick={() => {
-                      const message = currentLanguage.code === 'zh' ? '给我一些文化相关的数学例子' : 'Give me cultural math examples';
-                      setInput(message);
+                      setInput(t('exampleCulturalExamples'));
                       setTimeout(() => sendMessage(), 0);
                     }}
                     className="bg-white/80 backdrop-blur-sm border border-gray-200 rounded-lg px-4 py-2.5 text-sm text-gray-700 hover:bg-white hover:border-gray-300 transition-all"
