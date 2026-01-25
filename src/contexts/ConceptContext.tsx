@@ -25,13 +25,13 @@ const ConceptContext = createContext<ConceptContextType | undefined>(undefined);
 
 async function loadConcepts(culture: 'mongolian' | 'tibetan'): Promise<MathConcept[]> {
   try {
-    let module;
+    let importedModule;
     if (culture === 'mongolian') {
-      module = await import('./context_json/mongolian_math_concepts_full_70_plus.json');
+      importedModule = await import('./context_json/mongolian_math_concepts_full_70_plus.json');
     } else {
-      module = await import('./context_json/tibetan_math_concepts_full_70_plus.json');
+      importedModule = await import('./context_json/tibetan_math_concepts_full_70_plus.json');
     }
-    return module.default || module;
+    return importedModule.default || importedModule;
   } catch (error) {
     console.error(`Failed to load ${culture} concepts:`, error);
     return [];
