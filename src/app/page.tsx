@@ -133,6 +133,67 @@ export default function Home() {
         }
     }, { dependencies: [messages.length] });
 
+    // Animate header buttons stagger entrance when messages appear
+    useGSAP(() => {
+        if (messages.length > 0 && contentAreaRef.current) {
+            const headerBtns = contentAreaRef.current.querySelectorAll(".app-header-btn");
+            if (headerBtns.length > 0) {
+                gsap.fromTo(
+                    headerBtns,
+                    { opacity: 0, scale: 0.8, y: -4 },
+                    { opacity: 1, scale: 1, y: 0, duration: 0.3, stagger: 0.06, ease: "back.out(1.7)" }
+                );
+            }
+        }
+    }, { dependencies: [messages.length > 0], scope: contentAreaRef, revertOnUpdate: false });
+
+    // Animate scroll-to-bottom button entrance/exit with GSAP
+    const scrollBtnRef = useRef<HTMLButtonElement>(null);
+    const prevShowScrollRef = useRef(false);
+    useEffect(() => {
+        if (scrollBtnRef.current && showScrollBtn !== prevShowScrollRef.current) {
+            prevShowScrollRef.current = showScrollBtn;
+            gsap.killTweensOf(scrollBtnRef.current);
+            if (showScrollBtn) {
+                gsap.fromTo(scrollBtnRef.current,
+                    { opacity: 0, y: 12, scale: 0.9 },
+                    { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: "back.out(1.7)" }
+                );
+            } else {
+                gsap.to(scrollBtnRef.current, { opacity: 0, y: 12, duration: 0.2, ease: "power2.in" });
+            }
+        }
+    }, [showScrollBtn]);
+
+    // Animate loading dots with GSAP continuous bounce
+    const loadingDotsRef = useRef<HTMLDivElement>(null);
+    useEffect(() => {
+        if (isLoading && loadingDotsRef.current) {
+            const dots = loadingDotsRef.current.querySelectorAll(".loading-dot");
+            dots.forEach((dot, i) => {
+                gsap.to(dot, {
+                    y: -6,
+                    duration: 0.5,
+                    repeat: -1,
+                    yoyo: true,
+                    ease: "power1.inOut",
+                    delay: i * 0.15,
+                });
+            });
+        }
+    }, [isLoading]);
+
+    // Animate chat-input-bar entrance when messages appear
+    const inputBarRef = useRef<HTMLDivElement>(null);
+    useEffect(() => {
+        if (messages.length > 0 && inputBarRef.current) {
+            gsap.fromTo(inputBarRef.current,
+                { opacity: 0, y: 16 },
+                { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }
+            );
+        }
+    }, [messages.length > 0]);
+
     // Animate new message bubbles with springIn
     useEffect(() => {
         const prevLen = prevMessagesLenRef.current;
@@ -555,7 +616,7 @@ export default function Home() {
                                             ))}
 
                                             {isLoading && messages[messages.length - 1]?.role === "user" && (
-                                                <div className="message-row is-assistant">
+                                                <div className="message-row is-assistant" ref={loadingDotsRef}>
                                                     <div className="loading-dots">
                                                         <div className="loading-dots-row">
                                                             <div className="loading-dot animate-pulse" />
@@ -571,6 +632,7 @@ export default function Home() {
 
                                     {showScrollBtn && (
                                         <button
+                                            ref={scrollBtnRef}
                                             className="scroll-bottom-btn"
                                             onClick={() => scrollToBottom(true)}
                                             aria-label={t("chatScrollToBottom")}
@@ -582,7 +644,7 @@ export default function Home() {
                                     )}
                                 </div>
 
-                                <div className="chat-input-bar">
+                                <div className="chat-input-bar" ref={inputBarRef}>
                                     <div className="chat-input-bar-inner">
                                         <div className="chat-input-card">
                                             <InputArea

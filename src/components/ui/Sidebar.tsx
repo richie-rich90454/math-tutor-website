@@ -85,6 +85,19 @@ export default function Sidebar({ isOpen, onToggle, onChatSelect, onShowShortcut
         return () => { el.removeEventListener("touchstart", onTouchStart); el.removeEventListener("touchmove", onTouchMove); el.removeEventListener("touchend", onTouchEnd); };
     }, [onToggle]);
 
+    // Stagger entrance for sidebar chat items when the sidebar opens or chat history changes
+    useEffect(() => {
+        if (!effectiveIsOpen || !sidebarRef.current) return;
+        const items = sidebarRef.current.querySelectorAll(".sb-chat-item");
+        if (items.length > 0) {
+            gsap.fromTo(
+                items,
+                { opacity: 0, x: -12 },
+                { opacity: 1, x: 0, duration: 0.3, stagger: 0.03, ease: "power2.out", overwrite: "auto" }
+            );
+        }
+    }, [effectiveIsOpen, chatHistory.length]);
+
     const filteredChats = useMemo(() => {
         if (!searchQuery.trim()) return chatHistory;
         const query = searchQuery.toLowerCase();
