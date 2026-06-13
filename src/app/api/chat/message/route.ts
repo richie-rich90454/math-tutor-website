@@ -29,7 +29,12 @@ function checkRateLimit(userId: string): { allowed: boolean; remaining: number; 
     return { allowed: true, remaining: RATE_LIMIT - entry.count, resetAt: entry.resetAt };
 }
 
+const systemPromptCache = new Map<string, string>();
+
 async function getSystemPrompt(language: string): Promise<string> {
+    const cached = systemPromptCache.get(language);
+    if (cached) return cached;
+
     let fileName: string;
     switch (language) {
         case "zh":
@@ -46,11 +51,15 @@ async function getSystemPrompt(language: string): Promise<string> {
     try {
         const promptsDir = path.join(process.cwd(), "src/app/api/chat/prompts");
         const filePath = path.join(promptsDir, fileName);
-        return await fs.readFile(filePath, "utf-8");
+        const content = await fs.readFile(filePath, "utf-8");
+        systemPromptCache.set(language, content);
+        return content;
     } catch {
-        return `You are a friendly, patient math tutor. Explain math concepts clearly using LaTeX for formulas.
+        const fallback = `You are a friendly, patient math tutor. Explain math concepts clearly using LaTeX for formulas.
 Use step-by-step reasoning. Break down complex problems. Be encouraging and positive.
 Format inline math with $...$ and display math with $$...$$.`;
+        systemPromptCache.set(language, fallback);
+        return fallback;
     }
 }
 
@@ -79,7 +88,7 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        const { message, chatId } = await request.json();
+        const { message, chatId, preferredLanguage } = await request.json();
         if (!message || typeof message !== "string") {
             return NextResponse.json({ error: "Message is required" }, { status: 400 });
         }
@@ -87,7 +96,7 @@ export async function POST(request: NextRequest) {
         let activeChatId = chatId;
 
         const systemPrompt = await getSystemPrompt(
-            session.user.preferred_language || "en"
+            preferredLanguage || session.user.preferred_language || "en"
         );
 
         const userMsgId = uuidv4();
@@ -115,6 +124,10 @@ export async function POST(request: NextRequest) {
                 try {
                     const { done, value } = await reader.read();
                     if (done) {
+                        const assistantMsgId = uuidv4();
+                        addMessage(assistantMsgId, activeChatId!, "assistant", fullResponse, 0);
+                        const usageId = uuidv4();
+                        logUsage(usageId, session.user.id, activeChatId!, 0, 0);
                         controller.close();
                         return;
                     }
@@ -127,7 +140,7 @@ export async function POST(request: NextRequest) {
             },
         });
 
-        const response = new Response(responseStream, {
+        return new Response(responseStream, {
             headers: {
                 "Content-Type": "text/plain; charset=utf-8",
                 "Cache-Control": "no-cache, no-transform",
@@ -138,18 +151,6 @@ export async function POST(request: NextRequest) {
                 "X-Chat-Id": activeChatId,
             },
         });
-
-        const originalClose = response.clone().body?.getReader().closed;
-        if (originalClose) {
-            originalClose.then(() => {
-                const assistantMsgId = uuidv4();
-                addMessage(assistantMsgId, activeChatId!, "assistant", fullResponse, 0);
-                const usageId = uuidv4();
-                logUsage(usageId, session.user.id, activeChatId!, 0, 0);
-            }).catch(() => {});
-        }
-
-        return response;
     } catch (error: any) {
         console.error("Chat API error:", error);
         return NextResponse.json(
