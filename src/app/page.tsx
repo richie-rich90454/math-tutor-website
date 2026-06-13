@@ -297,30 +297,28 @@ export default function Home() {
                     {/* Chat Messages Area - Shows when conversation starts */}
                     {messages.length > 0 && (
                         <>
-                            <div className="flex-1 overflow-y-auto px-4 pt-20">
-                                <div className="mx-auto max-w-3xl pb-4">
-                                    <div className="space-y-4">
+                            <div className="chat-messages-area">
+                                <div className="chat-messages-inner">
+                                    <div className="chat-messages-list">
                                         {messages.map((message, index) => (
                                             <div
                                                 key={message.id}
-                                                className={`animate-fade-in flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
+                                                className={`animate-fade-in message-row ${message.role === "user" ? "is-user" : "is-assistant"}`}
                                                 style={{
                                                     animation: `fadeIn 0.3s ease-out`,
                                                     animationDelay: `${index * 0.05}s`,
                                                     animationFillMode: "backwards",
                                                 }}
                                             >
-                                                <div
-                                                    className={`group relative ${message.role === "user" ? "max-w-[70%]" : "max-w-[85%]"}`}
-                                                >
+                                                <div className="message-row-bubble-wrapper">
                                                     {message.role === "user" ? (
                                                         <>
-                                                            <div className="rounded-2xl bg-gray-900 px-4 py-3 text-white shadow-sm">
-                                                                <p className="text-sm leading-relaxed whitespace-pre-wrap">
+                                                            <div className="message-bubble-user">
+                                                                <p>
                                                                     {message.content}
                                                                 </p>
                                                             </div>
-                                                            <span className="mt-1 block px-2 text-right text-xs text-gray-400">
+                                                            <span className="message-time is-right">
                                                                 {message.timestamp.toLocaleTimeString(
                                                                     [],
                                                                     {
@@ -332,14 +330,12 @@ export default function Home() {
                                                         </>
                                                     ) : (
                                                         <>
-                                                            <div className="rounded-2xl border border-gray-200 bg-white px-4 py-3 shadow-sm">
-                                                                <div className="prose prose-sm prose-gray max-w-none">
-                                                                    <MarkdownRenderer
-                                                                        content={message.content}
-                                                                    />
-                                                                </div>
+                                                            <div className="message-bubble-assistant">
+                                                                <MarkdownRenderer
+                                                                    content={message.content}
+                                                                />
                                                             </div>
-                                                            <span className="mt-1 block px-2 text-left text-xs text-gray-400">
+                                                            <span className="message-time is-left">
                                                                 {message.timestamp.toLocaleTimeString(
                                                                     [],
                                                                     {
@@ -356,16 +352,16 @@ export default function Home() {
 
                                         {/* Loading indicator */}
                                         {isLoading && (
-                                            <div className="animate-fade-in flex justify-start">
-                                                <div className="rounded-2xl border border-gray-200 bg-white px-4 py-3 shadow-sm">
-                                                    <div className="flex space-x-1.5">
-                                                        <div className="h-2 w-2 animate-pulse rounded-full bg-gray-400"></div>
+                                            <div className="animate-fade-in message-row is-assistant">
+                                                <div className="loading-dots">
+                                                    <div className="loading-dots-row">
+                                                        <div className="loading-dot animate-pulse"></div>
                                                         <div
-                                                            className="h-2 w-2 animate-pulse rounded-full bg-gray-400"
+                                                            className="loading-dot animate-pulse"
                                                             style={{ animationDelay: "150ms" }}
                                                         ></div>
                                                         <div
-                                                            className="h-2 w-2 animate-pulse rounded-full bg-gray-400"
+                                                            className="loading-dot animate-pulse"
                                                             style={{ animationDelay: "300ms" }}
                                                         ></div>
                                                     </div>
@@ -378,23 +374,23 @@ export default function Home() {
                             </div>
 
                             {/* Input Section - Fixed at bottom when in chat mode */}
-                            <div className="flex-shrink-0 border-t border-gray-200 bg-white/90 px-4 py-4 backdrop-blur-sm">
-                                <div className="mx-auto max-w-3xl">
-                                    <div className="rounded-2xl border border-gray-200 bg-white p-1 shadow-sm">
-                                        <div className="flex items-center">
+                            <div className="chat-input-bar">
+                                <div className="chat-input-bar-inner">
+                                    <div className="chat-input-card">
+                                        <div className="chat-input-row">
                                             <input
                                                 type="text"
                                                 value={input}
                                                 onChange={(e) => setInput(e.target.value)}
                                                 onKeyPress={handleKeyPress}
                                                 placeholder={t("inputPlaceholder")}
-                                                className="flex-1 border-none bg-transparent px-5 py-3.5 text-base placeholder-gray-400 outline-none"
+                                                className="chat-input-field"
                                                 disabled={isLoading}
                                             />
                                             <button
                                                 onClick={sendMessage}
                                                 disabled={!input.trim() || isLoading}
-                                                className="mr-1 rounded-xl bg-gray-900 p-3 text-white transition-colors hover:bg-gray-800 disabled:cursor-not-allowed disabled:opacity-50"
+                                                className="chat-input-send-btn"
                                             >
                                                 <svg
                                                     width="20"
@@ -419,8 +415,8 @@ export default function Home() {
                 </div>
 
                 {/* Footer text - Fixed at bottom */}
-                <div className="flex-shrink-0 py-3 text-center">
-                    <p className="text-xs text-gray-400">{t("bottomText")}</p>
+                <div className="app-footer">
+                    <p className="app-footer-text">{t("bottomText")}</p>
                 </div>
             </div>
         </div>
