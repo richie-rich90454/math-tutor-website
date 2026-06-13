@@ -205,33 +205,33 @@ export default function Home() {
                 >
                     {/* Logo and Welcome Message - Centered initially */}
                     {messages.length === 0 && (
-                        <div className="flex transform flex-col items-center justify-center px-6 transition-all duration-700 ease-out">
-                            <div className="mx-auto mb-12 max-w-2xl text-center">
-                                <h1 className="mb-3 text-5xl font-bold text-gray-900">
+                        <div className="welcome-section">
+                            <div className="welcome-heading">
+                                <h1 className="welcome-title">
                                     {t("title")}
                                 </h1>
-                                <p className="text-xl text-gray-600">{t("subtitle")}</p>
+                                <p className="welcome-subtitle">{t("subtitle")}</p>
                             </div>
 
                             {/* Centered Input Box for initial state */}
-                            <div className="mx-auto w-full max-w-2xl px-6">
+                            <div className="welcome-input-wrapper">
                                 <div className="relative">
-                                    <div className="rounded-2xl border border-gray-200 bg-white p-1 shadow-lg">
-                                        <div className="flex items-center">
+                                    <div className="welcome-input-card">
+                                        <div className="welcome-input-row">
                                             <input
                                                 type="text"
                                                 value={input}
                                                 onChange={(e) => setInput(e.target.value)}
                                                 onKeyPress={handleKeyPress}
                                                 placeholder={t("inputPlaceholder")}
-                                                className="flex-1 border-none bg-transparent px-5 py-4 text-base placeholder-gray-400 outline-none"
+                                                className="welcome-input-field"
                                                 disabled={isLoading}
                                                 autoFocus
                                             />
                                             <button
                                                 onClick={sendMessage}
                                                 disabled={!input.trim() || isLoading}
-                                                className="mr-1 rounded-xl bg-gray-900 p-3 text-white transition-colors hover:bg-gray-800 disabled:cursor-not-allowed disabled:opacity-50"
+                                                className="welcome-send-btn"
                                             >
                                                 <svg
                                                     width="20"
@@ -252,13 +252,13 @@ export default function Home() {
                                 </div>
 
                                 {/* Example prompts */}
-                                <div className="mt-6 flex flex-wrap justify-center gap-2">
+                                <div className="prompt-buttons">
                                     <button
                                         onClick={() => {
                                             setInput(t("examplePracticeAddition"));
                                             setTimeout(() => sendMessage(), 0);
                                         }}
-                                        className="rounded-lg border border-gray-200 bg-white/80 px-4 py-2.5 text-sm text-gray-700 backdrop-blur-sm transition-all hover:border-gray-300 hover:bg-white"
+                                        className="prompt-btn"
                                     >
                                         {t("practiceAddition")}
                                     </button>
@@ -267,7 +267,7 @@ export default function Home() {
                                             setInput(t("exampleLearnGeometry"));
                                             setTimeout(() => sendMessage(), 0);
                                         }}
-                                        className="rounded-lg border border-gray-200 bg-white/80 px-4 py-2.5 text-sm text-gray-700 backdrop-blur-sm transition-all hover:border-gray-300 hover:bg-white"
+                                        className="prompt-btn"
                                     >
                                         {t("learnGeometry")}
                                     </button>
@@ -276,7 +276,7 @@ export default function Home() {
                                             setInput(t("exampleTimesTables"));
                                             setTimeout(() => sendMessage(), 0);
                                         }}
-                                        className="rounded-lg border border-gray-200 bg-white/80 px-4 py-2.5 text-sm text-gray-700 backdrop-blur-sm transition-all hover:border-gray-300 hover:bg-white"
+                                        className="prompt-btn"
                                     >
                                         {t("timesTables")}
                                     </button>
@@ -285,7 +285,7 @@ export default function Home() {
                                             setInput(t("exampleCulturalExamples"));
                                             setTimeout(() => sendMessage(), 0);
                                         }}
-                                        className="rounded-lg border border-gray-200 bg-white/80 px-4 py-2.5 text-sm text-gray-700 backdrop-blur-sm transition-all hover:border-gray-300 hover:bg-white"
+                                        className="prompt-btn"
                                     >
                                         {t("culturalExamples")}
                                     </button>
