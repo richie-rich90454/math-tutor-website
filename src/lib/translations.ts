@@ -107,6 +107,7 @@ export interface Translations {
     authContinue: string;
     authBack: string;
     authHaveAccount: string;
+    authLoginSignIn: string;
     // Settings
     settingsBackToApp: string;
     settingsTitle: string;
@@ -126,6 +127,7 @@ export interface Translations {
     settingsLanguageSaved: string;
     settingsVersion: string;
     settingsCurrentTheme: string;
+    settingsSelectLanguage: string;
     // Shortcuts (settings page labels use these)
     shortcutsTitle: string;
     shortcutsGeneral: string;
@@ -265,6 +267,7 @@ export const translations: Record<string, Translations> = {
         authContinue: "Continue",
         authBack: "Back",
         authHaveAccount: "Already have an account?",
+        authLoginSignIn: "Sign in",
         settingsBackToApp: "Back to app",
         settingsTitle: "Settings",
         settingsAccount: "Account",
@@ -283,6 +286,7 @@ export const translations: Record<string, Translations> = {
         settingsLanguageSaved: "Language preference saved",
         settingsVersion: "AI Math Tutor v1.0.0",
         settingsCurrentTheme: "Current theme: %s",
+        settingsSelectLanguage: "Select language",
         shortcutsTitle: "Keyboard Shortcuts",
         shortcutsGeneral: "General",
         shortcutsToggleSidebar: "Toggle sidebar",
@@ -413,6 +417,7 @@ export const translations: Record<string, Translations> = {
         authContinue: "继续",
         authBack: "返回",
         authHaveAccount: "已有账号？",
+        authLoginSignIn: "登录",
         settingsBackToApp: "返回应用",
         settingsTitle: "设置",
         settingsAccount: "账号",
@@ -431,6 +436,7 @@ export const translations: Record<string, Translations> = {
         settingsLanguageSaved: "语言偏好已保存",
         settingsVersion: "AI 数学导师 v1.0.0",
         settingsCurrentTheme: "当前主题：%s",
+        settingsSelectLanguage: "选择语言",
         shortcutsTitle: "键盘快捷键",
         shortcutsGeneral: "通用",
         shortcutsToggleSidebar: "切换侧边栏",
@@ -561,6 +567,7 @@ export const translations: Record<string, Translations> = {
         authContinue: "繼續",
         authBack: "返回",
         authHaveAccount: "已有帳號？",
+        authLoginSignIn: "登入",
         settingsBackToApp: "返回應用",
         settingsTitle: "設定",
         settingsAccount: "帳號",
@@ -579,6 +586,7 @@ export const translations: Record<string, Translations> = {
         settingsLanguageSaved: "語言偏好已儲存",
         settingsVersion: "AI 數學導師 v1.0.0",
         settingsCurrentTheme: "目前主題：%s",
+        settingsSelectLanguage: "選擇語言",
         shortcutsTitle: "鍵盤快捷鍵",
         shortcutsGeneral: "通用",
         shortcutsToggleSidebar: "切換側邊欄",
@@ -709,6 +717,7 @@ export const translations: Record<string, Translations> = {
         authContinue: "Үргэлжлүүлэх",
         authBack: "Буцах",
         authHaveAccount: "Бүртгэлтэй юу?",
+        authLoginSignIn: "Нэвтрэх",
         settingsBackToApp: "Апп руу буцах",
         settingsTitle: "Тохиргоо",
         settingsAccount: "Бүртгэл",
@@ -727,6 +736,7 @@ export const translations: Record<string, Translations> = {
         settingsLanguageSaved: "Хэлний тохиргоо хадгалагдлаа",
         settingsVersion: "AI Математикийн багш v1.0.0",
         settingsCurrentTheme: "Одоогийн загвар: %s",
+        settingsSelectLanguage: "Хэл сонгох",
         shortcutsTitle: "Товчлолууд",
         shortcutsGeneral: "Ерөнхий",
         shortcutsToggleSidebar: "Хажуу талыг нээх/хаах",
@@ -857,6 +867,7 @@ export const translations: Record<string, Translations> = {
         authContinue: "ᠦᠷᠭᠦᠯᠵᠢᠯᠡᠬᠦ",
         authBack: "ᠪᠣᠴᠠᠬᠤ",
         authHaveAccount: "ᠪᠦᠷᠢᠲᠬᠡᠯ ᠲᠡᠢ ᠦᠦ?",
+        authLoginSignIn: "ᠨᠡᠭᠡᠨ ᠣᠷᠣᠬᠤ",
         settingsBackToApp: "ᠠᡦᡦ ᠲᠤ ᠪᠣᠴᠠᠬᠤ",
         settingsTitle: "ᠲᠣᠬᠢᠷᠢᠭᠠ",
         settingsAccount: "ᠪᠦᠷᠢᠲᠬᠡᠯ",
@@ -875,6 +886,7 @@ export const translations: Record<string, Translations> = {
         settingsLanguageSaved: "ᠬᠡᠯᠡᠨ ᠦ ᠲᠣᠬᠢᠷᠢᠭᠠ ᠬᠠᠳᠠᠭᠠᠯᠠᠭᠳᠠᠯᠠ",
         settingsVersion: "AI ᠮᠠᠲ᠋ᠧᠮᠠᠲᠢᠺᠢᠨ ᠶᠢᠨ ᠪᠠᠭᠰᠢ v1.0.0",
         settingsCurrentTheme: "ᠣᠳᠣᠭᠢᠨ ᠵᠠᠭᠪᠤᠷ: %s",
+        settingsSelectLanguage: "ᠬᠡᠯᠡ ᠰᠣᠩᠭᠤᠬᠤ",
         shortcutsTitle: "ᠲᠣᠪᠴᠢᠯᠠᠯᠤᠳ",
         shortcutsGeneral: "ᠶᠡᠷᠦᠩᠬᠡᠢ",
         shortcutsToggleSidebar: "ᠬᠠᠵᠠᠭᠤ ᠲᠠᠯᠢ ᠨᠡᠭᠡᠬᠦ/ᠬᠠᠭᠠᠬᠤ",
@@ -1005,6 +1017,7 @@ export const translations: Record<string, Translations> = {
         authContinue: "མུ་མཐུད།",
         authBack: "ཕྱིར་འཐེན།",
         authHaveAccount: "ཐོ་འགོད་ཡོད་པ་ཡིན་ནམ།",
+        authLoginSignIn: "ནང་འཛུལ།",
         settingsBackToApp: "མཉེན་ཆས་ལ་ཕྱིར་ལོག",
         settingsTitle: "སྒྲིག་འགོད།",
         settingsAccount: "ཐོ་འགོད།",
@@ -1023,6 +1036,7 @@ export const translations: Record<string, Translations> = {
         settingsLanguageSaved: "སྐད་ཡིག་གི་གདམ་ཀ་ཉར་ཚགས་བྱས་ཟིན།",
         settingsVersion: "AI རྩིས་རིག་སློབ་དཔོན་ v1.0.0",
         settingsCurrentTheme: "ད་ལྟའི་རྣམ་པ། %s",
+        settingsSelectLanguage: "སྐད་ཡིག་འདེམས།",
         shortcutsTitle: "མྱུར་བདེའི་ལམ།",
         shortcutsGeneral: "སྤྱི་བསྒྲགས།",
         shortcutsToggleSidebar: "ཟུར་ངོས་ཁ་ཕྱེ་འཐེན།",
@@ -1153,6 +1167,7 @@ export const translations: Record<string, Translations> = {
         authContinue: "Continuar",
         authBack: "Volver",
         authHaveAccount: "Ya tienes una cuenta?",
+        authLoginSignIn: "Iniciar sesion",
         settingsBackToApp: "Volver a la app",
         settingsTitle: "Configuracion",
         settingsAccount: "Cuenta",
@@ -1171,6 +1186,7 @@ export const translations: Record<string, Translations> = {
         settingsLanguageSaved: "Preferencia de idioma guardada",
         settingsVersion: "AI Tutor de Matematicas v1.0.0",
         settingsCurrentTheme: "Tema actual: %s",
+        settingsSelectLanguage: "Seleccionar idioma",
         shortcutsTitle: "Atajos de Teclado",
         shortcutsGeneral: "General",
         shortcutsToggleSidebar: "Alternar barra lateral",
@@ -1301,6 +1317,7 @@ export const translations: Record<string, Translations> = {
         authContinue: "Continuer",
         authBack: "Retour",
         authHaveAccount: "Vous avez deja un compte?",
+        authLoginSignIn: "Se connecter",
         settingsBackToApp: "Retour a l'application",
         settingsTitle: "Parametres",
         settingsAccount: "Compte",
@@ -1319,6 +1336,7 @@ export const translations: Record<string, Translations> = {
         settingsLanguageSaved: "Preference de langue enregistree",
         settingsVersion: "Tuteur de Maths IA v1.0.0",
         settingsCurrentTheme: "Theme actuel: %s",
+        settingsSelectLanguage: "Choisir la langue",
         shortcutsTitle: "Raccourcis Clavier",
         shortcutsGeneral: "General",
         shortcutsToggleSidebar: "Basculer la barre laterale",
@@ -1449,6 +1467,7 @@ export const translations: Record<string, Translations> = {
         authContinue: "Weiter",
         authBack: "Zuruck",
         authHaveAccount: "Haben Sie bereits ein Konto?",
+        authLoginSignIn: "Anmelden",
         settingsBackToApp: "Zuruck zur App",
         settingsTitle: "Einstellungen",
         settingsAccount: "Konto",
@@ -1467,6 +1486,7 @@ export const translations: Record<string, Translations> = {
         settingsLanguageSaved: "Spracheinstellung gespeichert",
         settingsVersion: "AI Mathe-Tutor v1.0.0",
         settingsCurrentTheme: "Aktuelles Design: %s",
+        settingsSelectLanguage: "Sprache auswahlen",
         shortcutsTitle: "Tastaturkurzbefehle",
         shortcutsGeneral: "Allgemein",
         shortcutsToggleSidebar: "Seitenleiste umschalten",
@@ -1597,6 +1617,7 @@ export const translations: Record<string, Translations> = {
         authContinue: "続ける",
         authBack: "戻る",
         authHaveAccount: "すでにアカウントをお持ちですか？",
+        authLoginSignIn: "ログイン",
         settingsBackToApp: "アプリに戻る",
         settingsTitle: "設定",
         settingsAccount: "アカウント",
@@ -1615,6 +1636,7 @@ export const translations: Record<string, Translations> = {
         settingsLanguageSaved: "言語設定を保存しました",
         settingsVersion: "AI 数学チューター v1.0.0",
         settingsCurrentTheme: "現在のテーマ: %s",
+        settingsSelectLanguage: "言語を選択",
         shortcutsTitle: "キーボードショートカット",
         shortcutsGeneral: "一般",
         shortcutsToggleSidebar: "サイドバーを切り替え",

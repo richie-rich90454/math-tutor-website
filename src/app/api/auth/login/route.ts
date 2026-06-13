@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        if (remember) {
+        if (!remember) {
             deleteUserSessions(user.id);
         }
 
@@ -47,7 +47,7 @@ export async function POST(request: NextRequest) {
             },
         });
 
-        setSessionCookie(response, session.token);
+        setSessionCookie(response, session.token, !!remember);
         return response;
     } catch (error) {
         console.error("Login error:", error);

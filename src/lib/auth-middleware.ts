@@ -62,10 +62,11 @@ export async function getSession(request: NextRequest): Promise<SessionData | nu
     }
 }
 
-export function setSessionCookie(response: Response, token: string): void {
+export function setSessionCookie(response: Response, token: string, remember: boolean = false): void {
+    const maxAge = remember ? 2592000 : 86400; // 30 days or 24 hours
     response.headers.set(
         "Set-Cookie",
-        `session_token=${token}; HttpOnly; Path=/; Max-Age=604800; SameSite=Lax${
+        `session_token=${token}; HttpOnly; Path=/; Max-Age=${maxAge}; SameSite=Lax${
             process.env.NODE_ENV === "production" ? "; Secure" : ""
         }`
     );

@@ -1,23 +1,38 @@
-import { createHash, createHmac, timingSafeEqual, randomBytes } from "crypto";
+import { createHash, createHmac, timingSafeEqual, randomBytes, pbkdf2Sync } from "crypto";
 
 const JWT_SECRET = process.env.SESSION_SECRET || "dev-secret-change-in-production";
 const JWT_EXPIRES_IN_SECONDS = 7 * 24 * 60 * 60; // 7 days
+const PBKDF2_ITERATIONS = 100000;
+const PBKDF2_KEYLEN = 32;
+const PBKDF2_DIGEST = "sha256";
 
 export function hashPassword(password: string): string {
     const salt = randomBytes(16).toString("hex");
-    const hash = createHash("sha256")
-        .update(password + salt)
-        .digest("hex");
-    return `${salt}:${hash}`;
+    const hash = pbkdf2Sync(password, salt, PBKDF2_ITERATIONS, PBKDF2_KEYLEN, PBKDF2_DIGEST).toString("hex");
+    return `${salt}:${PBKDF2_ITERATIONS}:${PBKDF2_KEYLEN}:${hash}`;
 }
 
 export function comparePassword(password: string, stored: string): boolean {
-    const [salt, hash] = stored.split(":");
-    if (!salt || !hash) return false;
-    const computed = createHash("sha256")
-        .update(password + salt)
-        .digest("hex");
-    return computed === hash;
+    const parts = stored.split(":");
+    // Legacy format (salt:hash) — 2 parts, hash is raw SHA256
+    if (parts.length === 2) {
+        const [salt, hash] = parts;
+        if (!salt || !hash) return false;
+        const computed = createHash("sha256")
+            .update(password + salt)
+            .digest("hex");
+        return computed === hash;
+    }
+    // PBKDF2 format (salt:iterations:keylen:hash)
+    if (parts.length === 4) {
+        const [salt, iterationsStr, keylenStr, hash] = parts;
+        const iterations = parseInt(iterationsStr, 10);
+        const keylen = parseInt(keylenStr, 10);
+        if (!salt || !iterations || !keylen || !hash) return false;
+        const computed = pbkdf2Sync(password, salt, iterations, keylen, PBKDF2_DIGEST).toString("hex");
+        return computed === hash;
+    }
+    return false;
 }
 
 export function signToken(payload: Record<string, unknown>): string {
