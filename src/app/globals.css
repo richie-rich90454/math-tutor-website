@@ -351,8 +351,9 @@ a:hover {
     z-index: var(--z-sidebar);
     height: 100dvh;
     transition: width var(--transition-slow), transform var(--transition-normal);
+    box-shadow: none;
 }
-.app-sidebar-wrapper.is-open      { width: 260px; }
+.app-sidebar-wrapper.is-open      { width: 260px; box-shadow: 1px 0 3px rgba(0,0,0,0.05); }
 .app-sidebar-wrapper.is-collapsed  { width: 60px; }
 
 /* ==========================================
@@ -487,13 +488,16 @@ a:hover {
     white-space: nowrap;
     font-weight: 500;
     will-change: transform;
+    cursor: pointer;
 }
 .prompt-btn:hover {
     border-color: var(--fg-primary);
     background: var(--bg-hover);
     color: var(--fg-primary);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
 }
-.prompt-btn:active { transform: scale(0.97); }
+.prompt-btn:active { transform: scale(0.97) translateY(0); }
 
 /* ==========================================
    Chat Messages Area
@@ -504,7 +508,14 @@ a:hover {
     min-height: 0;
     padding: var(--space-4) var(--space-4) 0;
     overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-default) transparent;
 }
+
+.chat-messages-area::-webkit-scrollbar { width: 6px; }
+.chat-messages-area::-webkit-scrollbar-track { background: transparent; }
+.chat-messages-area::-webkit-scrollbar-thumb { background: var(--border-default); border-radius: 3px; transition: background var(--transition-fast); }
+.chat-messages-area::-webkit-scrollbar-thumb:hover { background: var(--fg-tertiary); }
 
 .chat-messages-inner {
     margin: 0 auto;
@@ -520,7 +531,7 @@ a:hover {
 
 .message-row {
     display: flex;
-    animation: fadeIn 0.3s ease-out;
+    animation: fadeIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 .message-row.is-user      { justify-content: flex-end; }
 .message-row.is-assistant  { justify-content: flex-start; }
@@ -543,6 +554,7 @@ a:hover {
     color: var(--fg-inverse);
     font-size: 0.9375rem;
     line-height: 1.6;
+    transition: opacity var(--transition-fast);
 }
 .message-bubble-user p {
     white-space: pre-wrap;
@@ -558,7 +570,9 @@ a:hover {
     padding: var(--space-4) var(--space-5);
     font-size: 0.9375rem;
     line-height: 1.7;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
+.message-bubble-assistant:hover { border-color: var(--border-hover); box-shadow: var(--shadow-sm); }
 
 .message-time {
     display: block;
@@ -1193,7 +1207,7 @@ a:hover {
     display: flex; align-items: center; justify-content: center;
     transition: all var(--transition-fast);
 }
-.ia-send-btn:hover:not(:disabled) { background: var(--accent-hover); }
+.ia-send-btn:hover:not(:disabled) { background: var(--accent-hover); transform: scale(1.05); box-shadow: 0 0 12px var(--accent-alpha); }
 .ia-send-btn:active:not(:disabled) { transform: scale(0.93); }
 .ia-send-btn:disabled { cursor: not-allowed; opacity: 0.35; background: var(--fg-muted); }
 .ia-send-btn svg { width: 16px; height: 16px; }
@@ -1233,9 +1247,11 @@ a:hover {
     background: rgba(0, 0, 0, 0.35);
     z-index: var(--z-sidebar-backdrop);
     opacity: 0; pointer-events: none;
-    transition: opacity var(--transition-normal);
+    transition: opacity var(--transition-normal), backdrop-filter var(--transition-normal);
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
 }
-.sidebar-backdrop.is-visible { opacity: 1; pointer-events: auto; }
+.sidebar-backdrop.is-visible { opacity: 1; pointer-events: auto; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
 
 /* ==========================================
    Theme Toggle
@@ -1627,7 +1643,11 @@ a:hover {
     color: var(--fg-muted);
     margin: 0 0 var(--space-3); padding: 0 var(--space-1);
 }
-.settings-card { background: var(--bg-surface); border: 1px solid var(--border-default); border-radius: var(--radius-md); overflow: hidden; }
+.settings-card { background: var(--bg-surface); border: 1px solid var(--border-default); border-radius: var(--radius-md); overflow: hidden; animation: fadeIn 0.4s ease-out both; }
+.settings-card:nth-child(1) { animation-delay: 0.05s; }
+.settings-card:nth-child(2) { animation-delay: 0.1s; }
+.settings-card:nth-child(3) { animation-delay: 0.15s; }
+.settings-card:nth-child(4) { animation-delay: 0.2s; }
 .settings-row { display: flex; align-items: center; justify-content: space-between; padding: var(--space-3) var(--space-4); border-bottom: 1px solid var(--border-subtle); }
 .settings-row:last-child { border-bottom: none; }
 .settings-row-label { display: flex; flex-direction: column; gap: 2px; }

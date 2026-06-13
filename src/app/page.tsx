@@ -48,6 +48,7 @@ export default function Home() {
     const [hoveredMsgId, setHoveredMsgId] = useState<string | null>(null);
     const [showScrollBtn, setShowScrollBtn] = useState(false);
     const [activeChatId, setActiveChatId] = useState<string | null>(null);
+    const [isMobile, setIsMobile] = useState(false);
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const chatMessagesRef = useRef<HTMLDivElement>(null);
     const abortControllerRef = useRef<AbortController | null>(null);
@@ -61,6 +62,7 @@ export default function Home() {
         const handleResize = () => {
             const width = window.innerWidth;
             isMobileRef.current = width <= 768;
+            setIsMobile(width < 1024);
             if (width >= 1024) {
                 setIsSidebarOpen(true);
             }
@@ -386,11 +388,11 @@ export default function Home() {
                 </svg>
             </button>
 
-            {/* Mobile backdrop */}
+            {/* Mobile backdrop - only visible on screens < 1024px */}
             <div
-                className={`sidebar-backdrop ${isSidebarOpen ? "is-visible" : ""}`}
+                className={`sidebar-backdrop ${isSidebarOpen && isMobile ? "is-visible" : ""}`}
                 onClick={() => {
-                    if (window.innerWidth < 1024) setIsSidebarOpen(false);
+                    if (isMobile) setIsSidebarOpen(false);
                 }}
             />
 
