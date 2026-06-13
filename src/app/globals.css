@@ -1820,3 +1820,70 @@ textarea {
 .lang-switcher-option:not(.is-active) {
     color: var(--color-gray-700);
 }
+
+/* ==========================================
+   Responsive - Mobile
+   ========================================== */
+@media (max-width: 768px) {
+    .app-sidebar-wrapper.is-open {
+        width: 100%;
+    }
+
+    .app-main.with-sidebar {
+        margin-left: 0;
+    }
+
+    .app-main.with-sidebar-collapsed {
+        margin-left: 0;
+    }
+
+    .welcome-title {
+        font-size: 2rem;
+    }
+
+    .welcome-subtitle {
+        font-size: 1rem;
+    }
+
+    .welcome-input-wrapper {
+        padding: 0 var(--space-4);
+    }
+
+    .chat-messages-area {
+        padding: var(--space-4) var(--space-3) 0;
+    }
+
+    .chat-messages-inner {
+        padding-bottom: var(--space-3);
+    }
+
+    .chat-input-bar {
+        padding: var(--space-3);
+    }
+
+    .message-row.is-user .message-row-bubble-wrapper {
+        max-width: 85%;
+    }
+
+    .app-header {
+        padding: var(--space-3) var(--space-4);
+    }
+
+    .ci-messages-area {
+        padding: var(--space-4) var(--space-3);
+    }
+
+    .ci-input-area {
+        padding: var(--space-3);
+    }
+
+    .ci-suggestion-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sb-history-tooltip {
+        position: fixed;
+        left: 64px;
+        width: calc(100vw - 80px);
+    }
+}
