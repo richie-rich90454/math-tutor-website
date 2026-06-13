@@ -254,17 +254,17 @@ export default function ChatInterface() {
     };
 
     return (
-        <div className="flex h-screen flex-col bg-white">
+        <div className="ci-root">
             {/* Header */}
-            <div className="border-b border-gray-200 bg-white px-4 py-3">
-                <div className="mx-auto flex max-w-3xl items-center justify-between">
-                    <div className="flex items-center space-x-3">
+            <div className="ci-header">
+                <div className="ci-header-inner">
+                    <div className="ci-header-left">
                         <button
                             onClick={() => setCurrentChat(null)}
-                            className="rounded-lg p-2 transition-colors hover:bg-gray-100"
+                            className="ci-back-btn"
                         >
                             <svg
-                                className="h-5 w-5 text-gray-600"
+                                className="ci-back-icon"
                                 fill="none"
                                 stroke="currentColor"
                                 viewBox="0 0 24 24"
@@ -278,25 +278,25 @@ export default function ChatInterface() {
                             </svg>
                         </button>
                         <div>
-                            <h2 className="font-semibold text-gray-900">
+                            <h2 className="ci-title">
                                 {currentChat?.title || "Math Chat"}
                             </h2>
-                            <p className="text-sm text-gray-500">AI Math Tutor</p>
+                            <p className="ci-subtitle">AI Math Tutor</p>
                         </div>
                     </div>
-                    <div className="text-sm text-gray-500">{currentChat?.timestamp}</div>
+                    <div className="ci-timestamp">{currentChat?.timestamp}</div>
                 </div>
             </div>
 
             {/* Messages Area */}
-            <div className="flex-1 overflow-y-auto bg-gradient-to-b from-gray-50/50 to-white px-4 py-6">
-                <div className="mx-auto max-w-3xl space-y-4">
+            <div className="ci-messages-area">
+                <div className="ci-messages-inner">
                     {messages.length === 0 && (
-                        <div className="mt-20 text-center">
-                            <div className="mb-8">
-                                <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-gray-100">
+                        <div className="ci-empty-state">
+                            <div className="ci-empty-body">
+                                <div className="ci-empty-icon-circle">
                                     <svg
-                                        className="h-10 w-10 text-gray-400"
+                                        className="ci-empty-icon"
                                         fill="none"
                                         stroke="currentColor"
                                         viewBox="0 0 24 24"
@@ -309,33 +309,33 @@ export default function ChatInterface() {
                                         />
                                     </svg>
                                 </div>
-                                <h3 className="mb-2 text-lg font-medium text-gray-900">
+                                <h3 className="ci-empty-title">
                                     Start a math conversation
                                 </h3>
-                                <p className="mb-8 text-sm text-gray-500">
+                                <p className="ci-empty-subtitle">
                                     Ask me anything about mathematics
                                 </p>
                             </div>
-                            <div className="mx-auto grid max-w-md grid-cols-2 gap-3">
-                                <button className="rounded-xl border border-gray-200 p-3 text-left transition-colors hover:bg-gray-50">
-                                    <p className="text-sm font-medium text-gray-900">Basic Math</p>
-                                    <p className="mt-1 text-xs text-gray-500">
+                            <div className="ci-suggestion-grid">
+                                <button className="ci-suggestion-btn">
+                                    <p className="ci-suggestion-title">Basic Math</p>
+                                    <p className="ci-suggestion-desc">
                                         Addition, subtraction...
                                     </p>
                                 </button>
-                                <button className="rounded-xl border border-gray-200 p-3 text-left transition-colors hover:bg-gray-50">
-                                    <p className="text-sm font-medium text-gray-900">Fractions</p>
-                                    <p className="mt-1 text-xs text-gray-500">Learn about parts</p>
+                                <button className="ci-suggestion-btn">
+                                    <p className="ci-suggestion-title">Fractions</p>
+                                    <p className="ci-suggestion-desc">Learn about parts</p>
                                 </button>
-                                <button className="rounded-xl border border-gray-200 p-3 text-left transition-colors hover:bg-gray-50">
-                                    <p className="text-sm font-medium text-gray-900">Geometry</p>
-                                    <p className="mt-1 text-xs text-gray-500">Shapes and angles</p>
+                                <button className="ci-suggestion-btn">
+                                    <p className="ci-suggestion-title">Geometry</p>
+                                    <p className="ci-suggestion-desc">Shapes and angles</p>
                                 </button>
-                                <button className="rounded-xl border border-gray-200 p-3 text-left transition-colors hover:bg-gray-50">
-                                    <p className="text-sm font-medium text-gray-900">
+                                <button className="ci-suggestion-btn">
+                                    <p className="ci-suggestion-title">
                                         Word Problems
                                     </p>
-                                    <p className="mt-1 text-xs text-gray-500">Real-world math</p>
+                                    <p className="ci-suggestion-desc">Real-world math</p>
                                 </button>
                             </div>
                         </div>
@@ -343,14 +343,14 @@ export default function ChatInterface() {
 
                     {messages.map((message) =>
                         message.role === "user" ? (
-                            <div key={message.id} className="flex justify-end">
-                                <div className="group relative max-w-[70%]">
-                                    <div className="rounded-2xl bg-gray-900 px-4 py-3 text-white">
-                                        <p className="text-sm leading-relaxed whitespace-pre-wrap">
+                            <div key={message.id} className="ci-user-row">
+                                <div className="ci-user-wrapper">
+                                    <div className="ci-user-bubble">
+                                        <p>
                                             {message.content}
                                         </p>
                                     </div>
-                                    <span className="mt-1 block px-2 text-right text-xs text-gray-400">
+                                    <span className="ci-user-time">
                                         {message.timestamp.toLocaleTimeString([], {
                                             hour: "2-digit",
                                             minute: "2-digit",
@@ -359,9 +359,9 @@ export default function ChatInterface() {
                                 </div>
                             </div>
                         ) : (
-                            <div key={message.id} className="mb-4">
+                            <div key={message.id} className="ci-assistant-row">
                                 <MarkdownRenderer content={message.content} />
-                                <span className="mt-1 block text-xs text-gray-400">
+                                <span className="ci-assistant-time">
                                     {message.timestamp.toLocaleTimeString([], {
                                         hour: "2-digit",
                                         minute: "2-digit",
@@ -372,16 +372,16 @@ export default function ChatInterface() {
                     )}
 
                     {isLoading && (
-                        <div className="flex justify-start">
+                        <div className="ci-loading-row">
                             <div>
-                                <div className="flex space-x-1.5">
-                                    <div className="h-2 w-2 animate-pulse rounded-full bg-gray-400"></div>
+                                <div className="ci-loading-dots">
+                                    <div className="ci-loading-dot animate-pulse"></div>
                                     <div
-                                        className="h-2 w-2 animate-pulse rounded-full bg-gray-400"
+                                        className="ci-loading-dot animate-pulse"
                                         style={{ animationDelay: "150ms" }}
                                     ></div>
                                     <div
-                                        className="h-2 w-2 animate-pulse rounded-full bg-gray-400"
+                                        className="ci-loading-dot animate-pulse"
                                         style={{ animationDelay: "300ms" }}
                                     ></div>
                                 </div>
@@ -394,10 +394,10 @@ export default function ChatInterface() {
             </div>
 
             {/* Input Area */}
-            <div className="border-t border-gray-200 bg-white px-4 py-4">
-                <div className="mx-auto max-w-3xl">
-                    <div className="flex items-end space-x-3">
-                        <div className="relative flex-1">
+            <div className="ci-input-area">
+                <div className="ci-input-inner">
+                    <div className="ci-input-row">
+                        <div className="ci-textarea-wrapper">
                             <textarea
                                 ref={textareaRef}
                                 value={input}
@@ -405,7 +405,7 @@ export default function ChatInterface() {
                                 onInput={() => adjustTextareaHeight()}
                                 onKeyPress={handleKeyPress}
                                 placeholder={t("inputPlaceholder")}
-                                className="w-full resize-none rounded-xl border border-gray-200 px-4 py-3 pr-12 text-sm focus:border-transparent focus:ring-2 focus:ring-gray-900 focus:outline-none"
+                                className="ci-textarea"
                                 rows={1}
                                 style={{
                                     height: "48px",
@@ -420,7 +420,7 @@ export default function ChatInterface() {
                             <button
                                 onClick={sendMessage}
                                 disabled={!input.trim() || isLoading}
-                                className="absolute right-2 bottom-2 rounded-lg bg-gray-900 p-2 text-white transition-colors hover:bg-gray-800 disabled:cursor-not-allowed disabled:opacity-50"
+                                className="ci-send-btn"
                             >
                                 <svg
                                     width="18"
@@ -438,11 +438,11 @@ export default function ChatInterface() {
                             </button>
                         </div>
                     </div>
-                    <div className="mt-2 flex items-center justify-between">
-                        <div className="flex space-x-2">
-                            <button className="p-1.5 text-gray-400 transition-colors hover:text-gray-600">
+                    <div className="ci-input-bottom">
+                        <div className="ci-attach-btns">
+                            <button className="ci-attach-btn">
                                 <svg
-                                    className="h-5 w-5"
+                                    className="ci-attach-icon"
                                     fill="none"
                                     stroke="currentColor"
                                     viewBox="0 0 24 24"
@@ -456,7 +456,7 @@ export default function ChatInterface() {
                                 </svg>
                             </button>
                         </div>
-                        <span className="text-xs text-gray-400">Press Enter to send</span>
+                        <span className="ci-hint">Press Enter to send</span>
                     </div>
                 </div>
             </div>

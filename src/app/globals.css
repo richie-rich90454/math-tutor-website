@@ -50,6 +50,7 @@
     --space-10: 40px;
     --space-12: 48px;
     --space-16: 64px;
+    --space-20: 80px;
 
     /* Border radius */
     --radius-sm: 6px;
@@ -628,6 +629,325 @@ textarea {
 }
 
 .app-footer-text {
+    font-size: 0.75rem;
+    color: var(--color-gray-400);
+}
+
+/* ==========================================
+   Chat Interface (Standalone Chat Page)
+   ========================================== */
+.ci-root {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    background: var(--color-white);
+}
+
+.ci-header {
+    border-bottom: 1px solid var(--color-gray-200);
+    background: var(--color-white);
+    padding: var(--space-3) var(--space-4);
+}
+
+.ci-header-inner {
+    margin: 0 auto;
+    display: flex;
+    max-width: 768px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ci-header-left {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.ci-back-btn {
+    border-radius: var(--radius-md);
+    padding: var(--space-2);
+    border: none;
+    background: transparent;
+    transition: background-color var(--transition-fast);
+}
+
+.ci-back-btn:hover {
+    background: var(--color-gray-100);
+}
+
+.ci-back-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--color-gray-600);
+}
+
+.ci-title {
+    font-weight: 600;
+    color: var(--color-gray-900);
+}
+
+.ci-subtitle {
+    font-size: 0.875rem;
+    color: var(--color-gray-500);
+}
+
+.ci-timestamp {
+    font-size: 0.875rem;
+    color: var(--color-gray-500);
+}
+
+.ci-messages-area {
+    flex: 1 1 0%;
+    overflow-y: auto;
+    background: linear-gradient(to bottom, rgba(249, 250, 251, 0.5), var(--color-white));
+    padding: var(--space-6) var(--space-4);
+}
+
+.ci-messages-inner {
+    margin: 0 auto;
+    max-width: 768px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.ci-empty-state {
+    margin-top: var(--space-20);
+    text-align: center;
+}
+
+.ci-empty-icon-circle {
+    margin: 0 auto var(--space-4);
+    display: flex;
+    height: 80px;
+    width: 80px;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    background: var(--color-gray-100);
+}
+
+.ci-empty-icon {
+    width: 40px;
+    height: 40px;
+    color: var(--color-gray-400);
+}
+
+.ci-empty-title {
+    margin-bottom: var(--space-2);
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: var(--color-gray-900);
+}
+
+.ci-empty-subtitle {
+    margin-bottom: var(--space-8);
+    font-size: 0.875rem;
+    color: var(--color-gray-500);
+}
+
+.ci-empty-body {
+    margin-bottom: var(--space-8);
+}
+
+.ci-suggestion-grid {
+    margin: 0 auto;
+    display: grid;
+    max-width: 448px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+}
+
+.ci-suggestion-btn {
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--color-gray-200);
+    padding: var(--space-3);
+    text-align: left;
+    background: transparent;
+    transition: background-color var(--transition-fast);
+}
+
+.ci-suggestion-btn:hover {
+    background: var(--color-gray-50);
+}
+
+.ci-suggestion-title {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-gray-900);
+    margin: 0;
+}
+
+.ci-suggestion-desc {
+    margin-top: var(--space-1);
+    font-size: 0.75rem;
+    color: var(--color-gray-500);
+}
+
+.ci-user-row {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.ci-user-wrapper {
+    max-width: 70%;
+}
+
+.ci-user-bubble {
+    border-radius: var(--radius-2xl);
+    background: var(--color-gray-900);
+    padding: var(--space-3) var(--space-4);
+    color: var(--color-white);
+}
+
+.ci-user-bubble p {
+    font-size: 0.875rem;
+    line-height: 1.625;
+    white-space: pre-wrap;
+    margin: 0;
+}
+
+.ci-user-time {
+    display: block;
+    margin-top: var(--space-1);
+    padding: 0 var(--space-2);
+    text-align: right;
+    font-size: 0.75rem;
+    color: var(--color-gray-400);
+}
+
+.ci-assistant-row {
+    margin-bottom: var(--space-4);
+}
+
+.ci-assistant-time {
+    display: block;
+    margin-top: var(--space-1);
+    font-size: 0.75rem;
+    color: var(--color-gray-400);
+}
+
+.ci-loading-row {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.ci-loading-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.ci-loading-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: var(--radius-full);
+    background: var(--color-gray-400);
+}
+
+.ci-input-area {
+    border-top: 1px solid var(--color-gray-200);
+    background: var(--color-white);
+    padding: var(--space-4);
+}
+
+.ci-input-inner {
+    margin: 0 auto;
+    max-width: 768px;
+}
+
+.ci-input-row {
+    display: flex;
+    align-items: flex-end;
+    gap: var(--space-3);
+}
+
+.ci-textarea-wrapper {
+    position: relative;
+    flex: 1 1 0%;
+}
+
+.ci-textarea {
+    width: 100%;
+    resize: none;
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--color-gray-200);
+    padding: var(--space-3) var(--space-4);
+    padding-right: 48px;
+    font-size: 0.875rem;
+    font-family: inherit;
+    outline: none;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.ci-textarea:focus {
+    border-color: transparent;
+    box-shadow: 0 0 0 2px var(--color-gray-900);
+}
+
+.ci-textarea:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.ci-send-btn {
+    position: absolute;
+    right: var(--space-2);
+    bottom: var(--space-2);
+    border-radius: var(--radius-md);
+    background: var(--color-gray-900);
+    padding: var(--space-2);
+    color: var(--color-white);
+    border: none;
+    transition: background-color var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ci-send-btn:hover:not(:disabled) {
+    background: var(--color-gray-800);
+}
+
+.ci-send-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.ci-send-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+.ci-input-bottom {
+    margin-top: var(--space-2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ci-attach-btns {
+    display: flex;
+    gap: var(--space-2);
+}
+
+.ci-attach-btn {
+    padding: 6px;
+    color: var(--color-gray-400);
+    border: none;
+    background: transparent;
+    transition: color var(--transition-fast);
+}
+
+.ci-attach-btn:hover {
+    color: var(--color-gray-600);
+}
+
+.ci-attach-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.ci-hint {
     font-size: 0.75rem;
     color: var(--color-gray-400);
 }
