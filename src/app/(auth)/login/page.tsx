@@ -6,9 +6,12 @@ import Link from "next/link";
 import gsap from "gsap";
 import PageTransition from "@/components/ui/PageTransition";
 import { useAuth } from "@/contexts/AuthContext";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { Translations } from "@/lib/translations";
 
 export default function LoginPage() {
     const router = useRouter();
+    const { t } = useLanguage();
     const { login, isAuthenticated } = useAuth();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -65,7 +68,7 @@ export default function LoginPage() {
             await login(email, password);
             router.push("/");
         } catch (err: any) {
-            setError(err.message || "Invalid email or password");
+            setError(err.message || t("authInvalidCredentials"));
             shakeError();
         } finally {
             setIsLoading(false);
@@ -95,23 +98,23 @@ export default function LoginPage() {
                             <line x1="8" y1="7" x2="16" y2="7" />
                             <line x1="8" y1="11" x2="14" y2="11" />
                         </svg>
-                        <span>AI Math Tutor</span>
+                        <span>{t("ciAIMathTutor")}</span>
                     </Link>
-                    <h1 className="auth-heading">Welcome back</h1>
-                    <p className="auth-subtext">Sign in to continue your math journey</p>
+                    <h1 className="auth-heading">{t("authLoginTitle")}</h1>
+                    <p className="auth-subtext">{t("authLoginSubtitle")}</p>
                 </div>
 
                 <form ref={formRef} onSubmit={handleSubmit} className="auth-form">
                     <div className="auth-field">
                         <label htmlFor="email" className="auth-label">
-                            Email
+                            {t("authEmail")}
                         </label>
                         <input
                             id="email"
                             type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            placeholder="you@example.com"
+                            placeholder={t("authEmailPlaceholder")}
                             className="auth-input"
                             required
                             autoComplete="email"
@@ -121,7 +124,7 @@ export default function LoginPage() {
 
                     <div className="auth-field">
                         <label htmlFor="password" className="auth-label">
-                            Password
+                            {t("authPassword")}
                         </label>
                         <div className="auth-password-wrapper">
                             <input
@@ -129,7 +132,7 @@ export default function LoginPage() {
                                 type={showPassword ? "text" : "password"}
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
-                                placeholder="Enter your password"
+                                placeholder={t("authPasswordPlaceholder")}
                                 className="auth-input"
                                 required
                                 autoComplete="current-password"
@@ -138,7 +141,7 @@ export default function LoginPage() {
                                 type="button"
                                 onClick={() => setShowPassword(!showPassword)}
                                 className="auth-password-toggle"
-                                aria-label={showPassword ? "Hide password" : "Show password"}
+                                aria-label={showPassword ? t("authHidePassword") : t("authShowPassword")}
                             >
                                 {showPassword ? (
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" /><line x1="1" y1="1" x2="23" y2="23" /></svg>
@@ -152,7 +155,7 @@ export default function LoginPage() {
                     <div className="auth-field">
                         <label className="auth-checkbox-label">
                             <input type="checkbox" className="auth-checkbox" />
-                            <span>Remember me</span>
+                            <span>{t("authRememberMe")}</span>
                         </label>
                     </div>
 
@@ -171,15 +174,15 @@ export default function LoginPage() {
                         {isLoading ? (
                             <span className="auth-spinner" />
                         ) : (
-                            "Sign in"
+                            t("authSignIn")
                         )}
                     </button>
                 </form>
 
                 <p className="auth-footer-text">
-                    Don&apos;t have an account?{" "}
+                    {t("authNoAccount")}{" "}
                     <Link href="/signup" className="auth-link">
-                        Create one
+                        {t("authCreateOne")}
                     </Link>
                 </p>
             </div>

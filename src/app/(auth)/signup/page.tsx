@@ -6,16 +6,17 @@ import Link from "next/link";
 import gsap from "gsap";
 import PageTransition from "@/components/ui/PageTransition";
 import { useAuth } from "@/contexts/AuthContext";
-
-const STEPS = [
-    { title: "Your details", fields: ["name", "email"] },
-    { title: "Set password", fields: ["password", "confirmPassword"] },
-    { title: "Math level", fields: ["mathLevel"] },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function SignupPage() {
     const router = useRouter();
+    const { t } = useLanguage();
     const { signup, isAuthenticated } = useAuth();
+    const STEPS = [
+        { title: t("authSignupStep1Title"), fields: ["name", "email"] },
+        { title: t("authSignupStep2Title"), fields: ["password", "confirmPassword"] },
+        { title: t("authSignupStep3Title"), fields: ["mathLevel"] },
+    ];
     const [step, setStep] = useState(0);
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -66,21 +67,21 @@ export default function SignupPage() {
         switch (step) {
             case 0:
                 if (name.length < 2) {
-                    setError("Name must be at least 2 characters");
+                    setError(t("authNameTooShort"));
                     return false;
                 }
                 if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                    setError("Please enter a valid email");
+                    setError(t("authInvalidEmail"));
                     return false;
                 }
                 break;
             case 1:
                 if (password.length < 8) {
-                    setError("Password must be at least 8 characters");
+                    setError(t("authPasswordTooShort"));
                     return false;
                 }
                 if (password !== confirmPassword) {
-                    setError("Passwords do not match");
+                    setError(t("authPasswordsMismatch"));
                     return false;
                 }
                 break;
@@ -120,14 +121,14 @@ export default function SignupPage() {
                 },
             });
         } catch (err: any) {
-            setError(err.message || "Failed to create account");
+            setError(err.message || t("authSignupFailed"));
             gsap.fromTo(cardRef.current, { x: -10 }, { x: 10, duration: 0.1, repeat: 3, yoyo: true });
         } finally {
             setIsLoading(false);
         }
     };
 
-    const strengthLabel = ["", "Weak", "Fair", "Strong"];
+    const strengthLabel = ["", t("authPasswordStrengthWeak"), t("authPasswordStrengthFair"), t("authPasswordStrengthStrong")];
     const strengthColor = ["", "var(--color-red-600)", "#f59e0b", "#10b981"];
 
     if (isAuthenticated) return null;
@@ -144,9 +145,9 @@ export default function SignupPage() {
                             <line x1="8" y1="7" x2="16" y2="7" />
                             <line x1="8" y1="11" x2="14" y2="11" />
                         </svg>
-                        <span>AI Math Tutor</span>
+                        <span>{t("ciAIMathTutor")}</span>
                     </Link>
-                    <h1 className="auth-heading">Create your account</h1>
+                    <h1 className="auth-heading">{t("authSignupTitle")}</h1>
 
                     <div className="auth-steps">
                         {STEPS.map((s, i) => (
@@ -163,12 +164,12 @@ export default function SignupPage() {
                         {step === 0 && (
                             <>
                                 <div className="auth-field">
-                                    <label htmlFor="name" className="auth-label">Name</label>
-                                    <input id="name" type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Your full name" className="auth-input" required autoFocus />
+                                    <label htmlFor="name" className="auth-label">{t("authName")}</label>
+                                    <input id="name" type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder={t("authNamePlaceholder")} className="auth-input" required autoFocus />
                                 </div>
                                 <div className="auth-field">
-                                    <label htmlFor="email" className="auth-label">Email</label>
-                                    <input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@example.com" className="auth-input" required autoComplete="email" />
+                                    <label htmlFor="email" className="auth-label">{t("authEmail")}</label>
+                                    <input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder={t("authEmailPlaceholder")} className="auth-input" required autoComplete="email" />
                                 </div>
                             </>
                         )}
@@ -176,8 +177,8 @@ export default function SignupPage() {
                         {step === 1 && (
                             <>
                                 <div className="auth-field">
-                                    <label htmlFor="password" className="auth-label">Password</label>
-                                    <input id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="At least 8 characters" className="auth-input" required autoFocus />
+                                    <label htmlFor="password" className="auth-label">{t("authPassword")}</label>
+                                    <input id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder={t("authPasswordPlaceholder")} className="auth-input" required autoFocus />
                                     {password.length > 0 && (
                                         <div className="auth-strength">
                                             <div className="auth-strength-bar">
@@ -193,20 +194,20 @@ export default function SignupPage() {
                                     )}
                                 </div>
                                 <div className="auth-field">
-                                    <label htmlFor="confirmPassword" className="auth-label">Confirm password</label>
-                                    <input id="confirmPassword" type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder="Re-enter your password" className="auth-input" required />
+                                    <label htmlFor="confirmPassword" className="auth-label">{t("authConfirmPassword")}</label>
+                                    <input id="confirmPassword" type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder={t("authConfirmPasswordPlaceholder")} className="auth-input" required />
                                 </div>
                             </>
                         )}
 
                         {step === 2 && (
                             <div className="auth-field">
-                                <label className="auth-label">Your math level</label>
+                                <label className="auth-label">{t("authMathLevel")}</label>
                                 <div className="auth-radio-group">
                                     {[
-                                        { value: "beginner", label: "Beginner", desc: "Just getting started with math" },
-                                        { value: "intermediate", label: "Intermediate", desc: "Comfortable with basics, learning more" },
-                                        { value: "advanced", label: "Advanced", desc: "Ready for complex problems" },
+                                        { value: "beginner", label: t("authMathLevelBeginner"), desc: t("authMathLevelBeginnerDesc") },
+                                        { value: "intermediate", label: t("authMathLevelIntermediate"), desc: t("authMathLevelIntermediateDesc") },
+                                        { value: "advanced", label: t("authMathLevelAdvanced"), desc: t("authMathLevelAdvancedDesc") },
                                     ].map((level) => (
                                         <label
                                             key={level.value}
@@ -239,24 +240,24 @@ export default function SignupPage() {
                     <div className="auth-form-actions">
                         {step > 0 && (
                             <button type="button" onClick={prevStep} className="auth-back-btn">
-                                Back
+                                {t("authBack")}
                             </button>
                         )}
                         <button type="submit" disabled={isLoading} className="auth-submit-btn auth-submit-full">
                             {isLoading ? (
                                 <span className="auth-spinner" />
                             ) : step === STEPS.length - 1 ? (
-                                success ? "✓ Account created!" : "Create account"
+                                success ? <>&#10003; {t("authAccountCreated")}</> : t("authCreateAccount")
                             ) : (
-                                "Continue"
+                                t("authContinue")
                             )}
                         </button>
                     </div>
                 </form>
 
                 <p className="auth-footer-text">
-                    Already have an account?{" "}
-                    <Link href="/login" className="auth-link">Sign in</Link>
+                    {t("authHaveAccount")}{" "}
+                    <Link href="/login" className="auth-link">{t("authLoginSignIn")}</Link>
                 </p>
             </div>
         </div>

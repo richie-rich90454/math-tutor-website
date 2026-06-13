@@ -245,7 +245,7 @@ export default function SettingsPage() {
                                 <button
                                     onClick={() => handleLanguageChange(lang)}
                                     className={`settings-radio ${currentLanguage.code === lang.code ? "is-active" : ""}`}
-                                    aria-label={`Select ${lang.name}`}
+                                    aria-label={t("settingsSelectLanguage")}
                                 >
                                     {currentLanguage.code === lang.code && (
                                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
