@@ -8,28 +8,44 @@ const nextConfig: NextConfig = {
     },
     compress: true,
     productionBrowserSourceMaps: false,
+    poweredByHeader: false,
     onDemandEntries: {
         maxInactiveAge: 60 * 1000,
         pagesBufferLength: 2,
     },
     turbopack: {
         root: __dirname,
+        resolveAlias: {
+            "react/jsx-runtime": "react/jsx-runtime",
+        },
+        treeShaking: true,
     },
     images: {
         formats: ["image/avif", "image/webp"],
+        minimumCacheTTL: 604800,
     },
     experimental: {
         optimizePackageImports: [
             "react-syntax-highlighter",
             "react-markdown",
             "gsap",
+            "rehype-katex",
+            "remark-gfm",
+            "remark-math",
         ],
         optimizeCss: true,
+        cssChunking: true,
+        scrollRestoration: true,
+        webpackBuildWorker: true,
+        parallelServerBuildTraces: true,
+        parallelServerCompiles: true,
+        optimizeServerReact: true,
+        useCache: true,
     },
     async headers() {
         return [
             {
-                source: "/((?!_next/static).*)",
+                source: "/((?!_next/static|_next/image|favicon).*)",
                 headers: [
                     {
                         key: "X-Frame-Options",
@@ -64,6 +80,15 @@ const nextConfig: NextConfig = {
                     {
                         key: "Cache-Control",
                         value: "public, max-age=31536000, immutable",
+                    },
+                ],
+            },
+            {
+                source: "/_next/image(.*)",
+                headers: [
+                    {
+                        key: "Cache-Control",
+                        value: "public, max-age=604800, immutable",
                     },
                 ],
             },

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect, useCallback } from "react";
+import { memo, useRef, useEffect, useCallback } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 interface InputAreaProps {
@@ -13,7 +13,7 @@ interface InputAreaProps {
     isStreaming?: boolean;
 }
 
-export default function InputArea({
+const InputArea = memo(function InputArea({
     value,
     onChange,
     onSend,
@@ -107,3 +107,5 @@ export default function InputArea({
         </div>
     );
 }
+
+export default InputArea;

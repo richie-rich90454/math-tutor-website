@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useRef, useEffect, useCallback, memo } from "react";
 import gsap from "gsap";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -13,7 +13,7 @@ interface MessageActionsProps {
     isVisible: boolean;
 }
 
-export default function MessageActions({
+function MessageActions({
     content,
     onRegenerate,
     onFeedback,
@@ -87,3 +87,5 @@ export default function MessageActions({
         </div>
     );
 }
+
+export default memo(MessageActions);
