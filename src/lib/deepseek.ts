@@ -1,7 +1,7 @@
-const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY;
-const DEEPSEEK_BASE_URL =
-    process.env.DEEPSEEK_BASE_URL || "https://api.deepseek.com/v1";
-const MODEL = process.env.DEEPSEEK_MODEL || "deepseek-chat";
+const OPENAI_COMPATIBLE_API_KEY = process.env.OPENAI_COMPATIBLE_API_KEY;
+const OPENAI_COMPATIBLE_BASE_URL =
+    process.env.OPENAI_COMPATIBLE_BASE_URL || "https://api.deepseek.com/v1";
+const MODEL = process.env.OPENAI_COMPATIBLE_MODEL || "deepseek-chat";
 
 interface ChatMessage {
     role: "system" | "user" | "assistant";
@@ -11,15 +11,15 @@ interface ChatMessage {
 export async function streamChatCompletion(
     messages: ChatMessage[]
 ): Promise<ReadableStream<Uint8Array>> {
-    if (!DEEPSEEK_API_KEY) {
+    if (!OPENAI_COMPATIBLE_API_KEY) {
         throw new Error("DeepSeek API key is not configured");
     }
 
-    const response = await fetch(`${DEEPSEEK_BASE_URL}/chat/completions`, {
+    const response = await fetch(`${OPENAI_COMPATIBLE_BASE_URL}/chat/completions`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${DEEPSEEK_API_KEY}`,
+            Authorization: `Bearer ${OPENAI_COMPATIBLE_API_KEY}`,
         },
         body: JSON.stringify({
             model: MODEL,
@@ -28,6 +28,7 @@ export async function streamChatCompletion(
             temperature: 0.7,
             max_tokens: 4096,
         }),
+        signal: AbortSignal.timeout(60_000),
     });
 
     if (!response.ok) {
