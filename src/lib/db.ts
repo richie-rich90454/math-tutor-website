@@ -1,7 +1,7 @@
 import Database from "better-sqlite3";
 import path from "path";
 import fs from "fs";
-import { migrate } from "./migrations";
+import { migrate } from "./db/migrations";
 
 const DB_PATH = process.env.DATABASE_PATH || path.join(process.cwd(), "data", "math-tutor.db");
 

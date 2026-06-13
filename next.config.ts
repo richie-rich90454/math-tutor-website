@@ -1,6 +1,17 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+    reactStrictMode: true,
+    swcMinify: true,
+    compiler: {
+        removeConsole: process.env.NODE_ENV === "production" ? { exclude: ["error", "warn"] } : false,
+    },
+    compress: true,
+    productionBrowserSourceMaps: false,
+    onDemandEntries: {
+        maxInactiveAge: 60 * 1000,
+        pagesBufferLength: 2,
+    },
     turbopack: {
         root: __dirname,
     },
@@ -13,11 +24,12 @@ const nextConfig: NextConfig = {
             "react-markdown",
             "gsap",
         ],
+        optimizeCss: true,
     },
     async headers() {
         return [
             {
-                source: "/(.*)",
+                source: "/((?!_next/static).*)",
                 headers: [
                     {
                         key: "X-Frame-Options",
@@ -35,9 +47,23 @@ const nextConfig: NextConfig = {
                         key: "Permissions-Policy",
                         value: "camera=(), microphone=(), geolocation=()",
                     },
+                ],
+            },
+            {
+                source: "/fonts/(.*)",
+                headers: [
                     {
-                        key: "X-XSS-Protection",
-                        value: "1; mode=block",
+                        key: "Cache-Control",
+                        value: "public, max-age=31536000, immutable",
+                    },
+                ],
+            },
+            {
+                source: "/_next/static/(.*)",
+                headers: [
+                    {
+                        key: "Cache-Control",
+                        value: "public, max-age=31536000, immutable",
                     },
                 ],
             },

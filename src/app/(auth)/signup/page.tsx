@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useRef, useEffect, FormEvent } from "react";
+import { useState, useRef, useEffect, useMemo, FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import gsap from "gsap";
+import PageTransition from "@/components/ui/PageTransition";
 import { useAuth } from "@/contexts/AuthContext";
 
 const STEPS = [
@@ -23,10 +24,16 @@ export default function SignupPage() {
     const [mathLevel, setMathLevel] = useState("intermediate");
     const [error, setError] = useState("");
     const [isLoading, setIsLoading] = useState(false);
-    const [passwordStrength, setPasswordStrength] = useState(0);
     const [success, setSuccess] = useState(false);
     const cardRef = useRef<HTMLDivElement>(null);
     const stepRef = useRef<HTMLDivElement>(null);
+
+    const passwordStrength = useMemo(() => {
+        if (password.length === 0) return 0;
+        if (password.length < 8) return 1;
+        if (/[A-Z]/.test(password) && /[0-9]/.test(password)) return 3;
+        return 2;
+    }, [password]);
 
     useEffect(() => {
         if (isAuthenticated) {
@@ -54,18 +61,6 @@ export default function SignupPage() {
             );
         }
     }, [step]);
-
-    useEffect(() => {
-        if (password.length === 0) {
-            setPasswordStrength(0);
-        } else if (password.length < 8) {
-            setPasswordStrength(1);
-        } else if (/[A-Z]/.test(password) && /[0-9]/.test(password)) {
-            setPasswordStrength(3);
-        } else {
-            setPasswordStrength(2);
-        }
-    }, [password]);
 
     const validateStep = (): boolean => {
         switch (step) {
@@ -138,6 +133,7 @@ export default function SignupPage() {
     if (isAuthenticated) return null;
 
     return (
+        <PageTransition>
         <div className="auth-page">
             <div className="auth-card" ref={cardRef}>
                 <div className="auth-card-header">
@@ -264,5 +260,6 @@ export default function SignupPage() {
                 </p>
             </div>
         </div>
+        </PageTransition>
     );
 }

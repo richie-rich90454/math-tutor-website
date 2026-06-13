@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getSession } from "@/lib/auth-middleware";
 import { getUserChats, createChat } from "@/lib/db/chats";
+import { getChatMessages } from "@/lib/db/messages";
 import { v4 as uuidv4 } from "uuid";
 
 export async function GET(request: NextRequest) {
@@ -11,7 +12,20 @@ export async function GET(request: NextRequest) {
         }
 
         const chats = getUserChats(session.user.id);
-        return NextResponse.json({ chats });
+        const chatsWithMessages = chats.map((chat) => ({
+            id: chat.id,
+            title: chat.title,
+            timestamp: chat.created_at,
+            preview: chat.preview || chat.title,
+            isPinned: chat.is_pinned === 1,
+            messages: getChatMessages(chat.id).map((msg) => ({
+                id: msg.id,
+                content: msg.content,
+                role: msg.role,
+                timestamp: msg.created_at,
+            })),
+        }));
+        return NextResponse.json({ chats: chatsWithMessages });
     } catch (error) {
         console.error("Get chats error:", error);
         return NextResponse.json({ error: "Failed to get chats" }, { status: 500 });

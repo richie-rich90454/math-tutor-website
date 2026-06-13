@@ -1,6 +1,7 @@
 "use client";
 
-import { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, useContext, useState, useCallback, useEffect, ReactNode } from "react";
+import { useAuth } from "./AuthContext";
 
 export interface ChatSession {
     id: string;
@@ -20,88 +21,48 @@ export interface ChatMessage {
 interface ChatContextType {
     chatHistory: ChatSession[];
     currentChat: ChatSession | null;
+    isHistoryLoading: boolean;
     addChatSession: (session: ChatSession) => void;
     setCurrentChat: (session: ChatSession | null) => void;
     addMessage: (chatId: string, message: ChatMessage) => void;
     deleteChat: (chatId: string) => void;
+    renameChat: (chatId: string, newTitle: string) => void;
+    loadChatHistory: () => Promise<void>;
 }
 
 const ChatContext = createContext<ChatContextType | undefined>(undefined);
 
 export function ChatProvider({ children }: { children: ReactNode }) {
-    const [chatHistory, setChatHistory] = useState<ChatSession[]>([
-        {
-            id: "1",
-            title: "Algebra Help",
-            timestamp: "2024-01-15 10:30 AM",
-            preview: "How do I solve quadratic equations?",
-            messages: [
-                {
-                    id: "1",
-                    content: "How do I solve quadratic equations?",
-                    role: "user",
-                    timestamp: "2024-01-15 10:30 AM",
-                },
-                {
-                    id: "2",
-                    content:
-                        "To solve quadratic equations, you can use the quadratic formula: x = (-b ± √(b²-4ac)) / 2a",
-                    role: "assistant",
-                    timestamp: "2024-01-15 10:31 AM",
-                },
-            ],
-        },
-        {
-            id: "2",
-            title: "Geometry Question",
-            timestamp: "2024-01-14 2:15 PM",
-            preview: "What is the area of a circle?",
-            messages: [
-                {
-                    id: "3",
-                    content: "What is the area of a circle?",
-                    role: "user",
-                    timestamp: "2024-01-14 2:15 PM",
-                },
-                {
-                    id: "4",
-                    content: "The area of a circle is π × r², where r is the radius of the circle.",
-                    role: "assistant",
-                    timestamp: "2024-01-14 2:16 PM",
-                },
-            ],
-        },
-        {
-            id: "3",
-            title: "Times Tables Practice",
-            timestamp: "2024-01-13 9:45 AM",
-            preview: "Help me practice 7 times table",
-            messages: [
-                {
-                    id: "5",
-                    content: "Help me practice 7 times table",
-                    role: "user",
-                    timestamp: "2024-01-13 9:45 AM",
-                },
-            ],
-        },
-        {
-            id: "4",
-            title: "Fractions Tutorial",
-            timestamp: "2024-01-12 4:20 PM",
-            preview: "How do I add fractions with different denominators?",
-            messages: [
-                {
-                    id: "6",
-                    content: "How do I add fractions with different denominators?",
-                    role: "user",
-                    timestamp: "2024-01-12 4:20 PM",
-                },
-            ],
-        },
-    ]);
+    const { isAuthenticated } = useAuth();
+    const [chatHistory, setChatHistory] = useState<ChatSession[]>([]);
 
     const [currentChat, setCurrentChat] = useState<ChatSession | null>(null);
+    const [isHistoryLoading, setIsHistoryLoading] = useState(false);
+
+    const loadChatHistory = useCallback(async () => {
+        try {
+            setIsHistoryLoading(true);
+            const res = await fetch("/api/chats");
+            if (res.ok) {
+                const data = await res.json();
+                setChatHistory(data.chats || []);
+            }
+        } catch {
+            // Silently fail — chats will remain in local state
+        } finally {
+            setIsHistoryLoading(false);
+        }
+    }, []);
+
+    // Load chat history when authenticated
+    useEffect(() => {
+        if (isAuthenticated) {
+            // eslint-disable-next-line react-hooks/set-state-in-effect
+            loadChatHistory();
+        } else {
+            setChatHistory([]);
+        }
+    }, [isAuthenticated, loadChatHistory]);
 
     const addChatSession = (session: ChatSession) => {
         setChatHistory((prev) => [session, ...prev]);
@@ -125,15 +86,29 @@ export function ChatProvider({ children }: { children: ReactNode }) {
         }
     };
 
+    const renameChat = useCallback((chatId: string, newTitle: string) => {
+        setChatHistory((prev) =>
+            prev.map((chat) =>
+                chat.id === chatId ? { ...chat, title: newTitle, preview: newTitle } : chat
+            )
+        );
+        if (currentChat?.id === chatId) {
+            setCurrentChat((prev) => (prev ? { ...prev, title: newTitle } : prev));
+        }
+    }, [currentChat]);
+
     return (
         <ChatContext.Provider
             value={{
                 chatHistory,
                 currentChat,
+                isHistoryLoading,
                 addChatSession,
                 setCurrentChat,
                 addMessage,
                 deleteChat,
+                renameChat,
+                loadChatHistory,
             }}
         >
             {children}

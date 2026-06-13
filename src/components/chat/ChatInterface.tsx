@@ -21,6 +21,69 @@ export default function ChatInterface() {
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const textareaRef = useRef<HTMLTextAreaElement>(null);
 
+    // Auto-response handler (declared before useEffect that calls it)
+    const handleAutoResponse = async (userMessage: string) => {
+        setIsLoading(true);
+
+        try {
+            const response = await fetch("/api/chat/message", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    message: userMessage,
+                    preferredLanguage: currentLanguage.code,
+                }),
+            });
+
+            if (!response.ok) {
+                let errMsg = "Failed to get response";
+                try {
+                    const data = await response.json();
+                    errMsg = data?.error || errMsg;
+                } catch {}
+                throw new Error(errMsg);
+            }
+
+            const id = (Date.now() + 1).toString();
+            const assistantMessage: Message = {
+                id,
+                role: "assistant",
+                content: "",
+                timestamp: new Date(),
+            };
+            setMessages((prev) => [...prev, assistantMessage]);
+
+            const reader = response.body?.getReader();
+            if (!reader) throw new Error("No response body");
+            const decoder = new TextDecoder();
+
+            while (true) {
+                const { value, done } = await reader.read();
+                if (done) break;
+                const chunk = decoder.decode(value, { stream: true });
+                if (!chunk) continue;
+                setMessages((prev) =>
+                    prev.map((m) => (m.id === id ? { ...m, content: m.content + chunk } : m))
+                );
+            }
+        } catch (error: any) {
+            console.error("Error getting auto response:", error);
+
+            const errorMessage: Message = {
+                id: (Date.now() + 1).toString(),
+                role: "assistant",
+                content: error.message || "Sorry, I encountered an error. Please try again.",
+                timestamp: new Date(),
+            };
+
+            setMessages((prev) => [...prev, errorMessage]);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
     // Load messages from current chat when it changes
     useEffect(() => {
         if (currentChat && currentChat.messages) {
@@ -30,6 +93,7 @@ export default function ChatInterface() {
                 role: msg.role,
                 timestamp: new Date(msg.timestamp),
             }));
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             setMessages(formattedMessages);
 
             // If there's only one message (from landing page), automatically get AI response
@@ -104,68 +168,6 @@ export default function ChatInterface() {
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
     }, [adjustTextareaHeight]);
-
-    const handleAutoResponse = async (userMessage: string) => {
-        setIsLoading(true);
-
-        try {
-            const response = await fetch("/api/chat/message", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    message: userMessage,
-                    preferredLanguage: currentLanguage.code,
-                }),
-            });
-
-            if (!response.ok) {
-                let errMsg = "Failed to get response";
-                try {
-                    const data = await response.json();
-                    errMsg = data?.error || errMsg;
-                } catch {}
-                throw new Error(errMsg);
-            }
-
-            const id = (Date.now() + 1).toString();
-            const assistantMessage: Message = {
-                id,
-                role: "assistant",
-                content: "",
-                timestamp: new Date(),
-            };
-            setMessages((prev) => [...prev, assistantMessage]);
-
-            const reader = response.body?.getReader();
-            if (!reader) throw new Error("No response body");
-            const decoder = new TextDecoder();
-
-            while (true) {
-                const { value, done } = await reader.read();
-                if (done) break;
-                const chunk = decoder.decode(value, { stream: true });
-                if (!chunk) continue;
-                setMessages((prev) =>
-                    prev.map((m) => (m.id === id ? { ...m, content: m.content + chunk } : m))
-                );
-            }
-        } catch (error: any) {
-            console.error("Error getting auto response:", error);
-
-            const errorMessage: Message = {
-                id: (Date.now() + 1).toString(),
-                role: "assistant",
-                content: error.message || "Sorry, I encountered an error. Please try again.",
-                timestamp: new Date(),
-            };
-
-            setMessages((prev) => [...prev, errorMessage]);
-        } finally {
-            setIsLoading(false);
-        }
-    };
 
     const sendMessage = async () => {
         if (!input.trim() || isLoading) return;

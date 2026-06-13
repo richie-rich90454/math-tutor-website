@@ -1,13 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { useLanguage, languages } from "@/contexts/LanguageContext";
+import { useLanguage, languages, type Language } from "@/contexts/LanguageContext";
 
 export default function LanguageSwitcher() {
     const { currentLanguage, setLanguage } = useLanguage();
     const [isOpen, setIsOpen] = useState(false);
 
-    const handleLanguageChange = (language: any) => {
+    const handleLanguageChange = (language: Language) => {
         setLanguage(language);
         setIsOpen(false);
     };
@@ -17,6 +17,7 @@ export default function LanguageSwitcher() {
             <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="lang-switcher-btn"
+                aria-label={`Language: ${currentLanguage.name}`}
             >
                 <span>{currentLanguage.name}</span>
                 <svg

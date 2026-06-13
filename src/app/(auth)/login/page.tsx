@@ -4,6 +4,7 @@ import { useState, useRef, useEffect, FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import gsap from "gsap";
+import PageTransition from "@/components/ui/PageTransition";
 import { useAuth } from "@/contexts/AuthContext";
 
 export default function LoginPage() {
@@ -74,6 +75,7 @@ export default function LoginPage() {
     if (isAuthenticated) return null;
 
     return (
+        <PageTransition>
         <div className="auth-page">
             <div className="auth-card" ref={cardRef}>
                 <div className="auth-card-header">
@@ -182,5 +184,6 @@ export default function LoginPage() {
                 </p>
             </div>
         </div>
+        </PageTransition>
     );
 }
