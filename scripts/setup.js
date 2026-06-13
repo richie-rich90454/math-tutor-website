@@ -19,9 +19,9 @@ if (!fs.existsSync(dbDir)) {
 
 if (!fs.existsSync(envFile) && fs.existsSync(envExample)) {
     fs.copyFileSync(envExample, envFile);
-    console.log("Created .env from .env.example (please set your DEEPSEEK_API_KEY)");
+    console.log("Created .env from .env.example (please set your OPENAI_COMPATIBLE_API_KEY)");
 } else if (!fs.existsSync(envFile)) {
-    console.log("No .env file found. Create one with your DEEPSEEK_API_KEY.");
+    console.log("No .env file found. Create one with your OPENAI_COMPATIBLE_API_KEY.");
 }
 
 console.log("Setup complete. Run 'npm run dev' to start the application.");
