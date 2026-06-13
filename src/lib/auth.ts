@@ -1,4 +1,4 @@
-import { createHash, createSign, createVerify, randomBytes } from "crypto";
+import { createHash, createHmac, timingSafeEqual, randomBytes } from "crypto";
 
 const JWT_SECRET = process.env.SESSION_SECRET || "dev-secret-change-in-production";
 const JWT_EXPIRES_IN_SECONDS = 7 * 24 * 60 * 60; // 7 days
@@ -33,10 +33,9 @@ export function signToken(payload: Record<string, unknown>): string {
         })
     ).toString("base64url");
 
-    const signer = createSign("SHA256");
-    signer.update(`${header}.${body}`);
-    signer.end();
-    const signature = signer.sign(JWT_SECRET, "base64url");
+    const hmac = createHmac("sha256", JWT_SECRET);
+    hmac.update(`${header}.${body}`);
+    const signature = hmac.digest("base64url");
 
     return `${header}.${body}.${signature}`;
 }
@@ -48,12 +47,16 @@ export function verifyToken(token: string): Record<string, unknown> | null {
 
         const [header, body, signature] = parts;
 
-        const verifier = createVerify("SHA256");
-        verifier.update(`${header}.${body}`);
-        verifier.end();
+        const hmac = createHmac("sha256", JWT_SECRET);
+        hmac.update(`${header}.${body}`);
+        const expected = hmac.digest("base64url");
 
-        const valid = verifier.verify(JWT_SECRET, signature, "base64url");
-        if (!valid) return null;
+        const sigBuf = Buffer.from(signature);
+        const expBuf = Buffer.from(expected);
+
+        if (sigBuf.length !== expBuf.length || !timingSafeEqual(sigBuf, expBuf)) {
+            return null;
+        }
 
         const payload = JSON.parse(Buffer.from(body, "base64url").toString()) as Record<
             string,

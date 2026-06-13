@@ -8,7 +8,9 @@
         "start": "next start",
         "lint": "next lint",
         "format": "prettier --write .",
-        "format:check": "prettier --check ."
+        "format:check": "prettier --check .",
+        "setup": "node scripts/setup.js",
+        "clear": "node scripts/clear.js"
     },
     "dependencies": {
         "@gsap/react": "^2.1.2",
