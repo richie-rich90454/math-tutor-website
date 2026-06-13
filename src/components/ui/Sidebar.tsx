@@ -79,25 +79,23 @@ export default function Sidebar({ isOpen, onToggle }: SidebarProps) {
     return (
         <>
             {/* Main Sidebar - Full height and fixed */}
-            <div
-                className={`flex h-full flex-col border-r border-gray-200 bg-gray-50 transition-all duration-300 ease-in-out`}
-            >
+            <div className="sb-root">
                 {/* Header */}
                 <div
-                    className={`flex items-center ${isOpen ? "justify-between" : "justify-center"} h-[72px] border-b border-gray-200 bg-white p-4`}
+                    className={`sb-header ${isOpen ? "is-open" : "is-collapsed"}`}
                 >
                     {isOpen && (
-                        <h2 className="text-lg font-semibold text-gray-900">
+                        <h2 className="sb-title">
                             {t("sidebarHistory")}
                         </h2>
                     )}
                     <button
                         onClick={onToggle}
-                        className="rounded-lg p-2 transition-colors hover:bg-gray-100"
+                        className="sb-toggle-btn"
                         aria-label={isOpen ? "Minimize sidebar" : "Expand sidebar"}
                     >
                         <svg
-                            className="h-5 w-5 text-gray-600"
+                            className="sb-toggle-icon"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -122,11 +120,11 @@ export default function Sidebar({ isOpen, onToggle }: SidebarProps) {
                 </div>
 
                 {/* Search Section */}
-                <div className={`${isOpen ? "p-3" : "p-2"} border-b border-gray-200 bg-white`}>
+                <div className={`sb-search-section ${isOpen ? "is-open" : "is-collapsed"}`}>
                     {isOpen ? (
-                        <div className="relative">
+                        <div className="sb-search-wrapper">
                             <svg
-                                className="absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 transform text-gray-400"
+                                className="sb-search-icon"
                                 fill="none"
                                 stroke="currentColor"
                                 viewBox="0 0 24 24"
@@ -143,15 +141,15 @@ export default function Sidebar({ isOpen, onToggle }: SidebarProps) {
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
                                 placeholder={t("sidebarSearchPlaceholder")}
-                                className="w-full rounded-lg border border-gray-200 bg-gray-50 py-2.5 pr-4 pl-10 text-sm placeholder-gray-400 transition-all focus:border-transparent focus:ring-2 focus:ring-gray-900 focus:outline-none"
+                                className="sb-search-input"
                             />
                             {searchQuery && (
                                 <button
                                     onClick={() => setSearchQuery("")}
-                                    className="absolute top-1/2 right-3 -translate-y-1/2 transform text-gray-400 hover:text-gray-600"
+                                    className="sb-search-clear"
                                 >
                                     <svg
-                                        className="h-4 w-4"
+                                        className="sb-search-clear-icon"
                                         fill="none"
                                         stroke="currentColor"
                                         viewBox="0 0 24 24"
@@ -168,11 +166,11 @@ export default function Sidebar({ isOpen, onToggle }: SidebarProps) {
                         </div>
                     ) : (
                         <button
-                            className="group relative flex w-full items-center justify-center rounded-lg p-2.5 transition-colors hover:bg-gray-100"
+                            className="group relative sb-search-collapsed-btn"
                             title="Search"
                         >
                             <svg
-                                className="h-5 w-5 text-gray-600"
+                                className="sb-search-collapsed-icon"
                                 fill="none"
                                 stroke="currentColor"
                                 viewBox="0 0 24 24"
@@ -184,7 +182,7 @@ export default function Sidebar({ isOpen, onToggle }: SidebarProps) {
                                     d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                                 />
                             </svg>
-                            <span className="pointer-events-none absolute left-full ml-2 rounded bg-gray-900 px-2 py-1 text-xs whitespace-nowrap text-white opacity-0 transition-opacity group-hover:opacity-100">
+                            <span className="sb-tooltip group-hover:opacity-100">
                                 {t("sidebarSearchPlaceholder")}
                             </span>
                         </button>
@@ -192,14 +190,14 @@ export default function Sidebar({ isOpen, onToggle }: SidebarProps) {
                 </div>
 
                 {/* New Chat Button */}
-                <div className={`${isOpen ? "p-3" : "p-2"} border-b border-gray-200 bg-white`}>
+                <div className={`sb-new-chat-section ${isOpen ? "is-open" : "is-collapsed"}`}>
                     {isOpen ? (
                         <button
                             onClick={handleNewChat}
-                            className="flex w-full items-center justify-center gap-2 rounded-lg bg-gray-900 px-4 py-2.5 text-sm font-medium text-white shadow-sm transition-all duration-200 hover:bg-gray-800 hover:shadow-md"
+                            className="sb-new-chat-btn"
                         >
                             <svg
-                                className="h-4 w-4"
+                                className="sb-new-chat-btn-icon"
                                 fill="none"
                                 stroke="currentColor"
                                 viewBox="0 0 24 24"
@@ -216,11 +214,11 @@ export default function Sidebar({ isOpen, onToggle }: SidebarProps) {
                     ) : (
                         <button
                             onClick={handleNewChat}
-                            className="group relative flex w-full items-center justify-center rounded-lg bg-gray-900 p-2.5 text-white transition-colors hover:bg-gray-800"
+                            className="group relative sb-new-chat-btn-collapsed"
                             title="New Chat"
                         >
                             <svg
-                                className="h-5 w-5"
+                                className="sb-new-chat-btn-collapsed-icon"
                                 fill="none"
                                 stroke="currentColor"
                                 viewBox="0 0 24 24"
@@ -232,7 +230,7 @@ export default function Sidebar({ isOpen, onToggle }: SidebarProps) {
                                     d="M12 4v16m8-8H4"
                                 />
                             </svg>
-                            <span className="pointer-events-none absolute left-full z-50 ml-2 rounded bg-gray-900 px-2 py-1 text-xs whitespace-nowrap text-white opacity-0 transition-opacity group-hover:opacity-100">
+                            <span className="sb-tooltip group-hover:opacity-100">
                                 {t("sidebarNewChat")}
                             </span>
                         </button>
