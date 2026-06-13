@@ -1135,7 +1135,7 @@ a:hover {
     background: var(--accent);
     margin-left: 1px;
     vertical-align: text-bottom;
-    animation: blink-cursor 1s step-end infinite;
+    border-radius: 1px;
 }
 
 /* ==========================================
