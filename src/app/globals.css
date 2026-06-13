@@ -128,9 +128,17 @@
     box-sizing: border-box;
 }
 
+html {
+    height: 100%;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
 body {
     margin: 0;
     padding: 0;
+    height: 100%;
     background: var(--bg-app);
     color: var(--fg-primary);
     font-family: var(--font-sans);
