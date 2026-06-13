@@ -106,6 +106,7 @@ const InputArea = memo(function InputArea({
             </div>
         </div>
     );
-}
+});
 
+export { InputArea };
 export default InputArea;

@@ -275,10 +275,10 @@ export default function RootLayout({
                 />
             </head>
             <body className={`${geistSans.variable} ${geistMono.variable}`}>
-                <SkipLink />
                 <ToastProvider>
                 <AuthProvider>
                     <LanguageProvider>
+                        <SkipLink />
                         <ConceptProvider>
                             <ChatProvider>{children}</ChatProvider>
                         </ConceptProvider>

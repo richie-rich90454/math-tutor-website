@@ -13,7 +13,7 @@ interface MessageActionsProps {
     isVisible: boolean;
 }
 
-function MessageActions({
+const MessageActions = memo(function MessageActions({
     content,
     onRegenerate,
     onFeedback,
@@ -86,6 +86,7 @@ function MessageActions({
             )}
         </div>
     );
-}
+});
 
-export default memo(MessageActions);
+export { MessageActions };
+export default MessageActions;

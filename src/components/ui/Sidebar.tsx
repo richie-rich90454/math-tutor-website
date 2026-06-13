@@ -438,6 +438,7 @@ function ChatItem({ chat, onSelect, onDelete, onContextMenu, isHovered, onHover,
     isActive: boolean;
     isPinned: boolean;
 }) {
+    const { t } = useLanguage();
     return (
         <div data-chat-id={chat.id} onClick={() => onSelect(chat)} onContextMenu={onContextMenu} onMouseEnter={() => onHover(chat.id)} onMouseLeave={() => onHover(null)} className={`sb-chat-item ${isActive ? "is-active" : isHovered ? "is-hovered" : ""}`}>
             <div className="sb-chat-item-row">

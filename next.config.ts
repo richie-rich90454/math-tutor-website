@@ -2,7 +2,6 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
     reactStrictMode: true,
-    swcMinify: true,
     compiler: {
         removeConsole: process.env.NODE_ENV === "production" ? { exclude: ["error", "warn"] } : false,
     },
@@ -18,7 +17,6 @@ const nextConfig: NextConfig = {
         resolveAlias: {
             "react/jsx-runtime": "react/jsx-runtime",
         },
-        treeShaking: true,
     },
     images: {
         formats: ["image/avif", "image/webp"],
@@ -71,24 +69,6 @@ const nextConfig: NextConfig = {
                     {
                         key: "Cache-Control",
                         value: "public, max-age=31536000, immutable",
-                    },
-                ],
-            },
-            {
-                source: "/_next/static/(.*)",
-                headers: [
-                    {
-                        key: "Cache-Control",
-                        value: "public, max-age=31536000, immutable",
-                    },
-                ],
-            },
-            {
-                source: "/_next/image(.*)",
-                headers: [
-                    {
-                        key: "Cache-Control",
-                        value: "public, max-age=604800, immutable",
                     },
                 ],
             },
