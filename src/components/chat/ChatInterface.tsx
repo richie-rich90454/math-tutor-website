@@ -246,7 +246,7 @@ export default function ChatInterface() {
         }
     };
 
-    const handleKeyPress = (e: React.KeyboardEvent) => {
+    const handleKeyDown = (e: React.KeyboardEvent) => {
         if (e.key === "Enter" && !e.shiftKey) {
             e.preventDefault();
             sendMessage();
@@ -403,7 +403,7 @@ export default function ChatInterface() {
                                 value={input}
                                 onChange={handleInputChange}
                                 onInput={() => adjustTextareaHeight()}
-                                onKeyPress={handleKeyPress}
+                                onKeyDown={handleKeyDown}
                                 placeholder={t("inputPlaceholder")}
                                 className="ci-textarea"
                                 rows={1}

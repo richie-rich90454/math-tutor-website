@@ -222,7 +222,7 @@ export default function Home() {
                                                 type="text"
                                                 value={input}
                                                 onChange={(e) => setInput(e.target.value)}
-                                                onKeyPress={handleKeyPress}
+                                                onKeyDown={handleKeyDown}
                                                 placeholder={t("inputPlaceholder")}
                                                 className="welcome-input-field"
                                                 disabled={isLoading}
@@ -382,7 +382,7 @@ export default function Home() {
                                                 type="text"
                                                 value={input}
                                                 onChange={(e) => setInput(e.target.value)}
-                                                onKeyPress={handleKeyPress}
+                                                onKeyDown={handleKeyDown}
                                                 placeholder={t("inputPlaceholder")}
                                                 className="chat-input-field"
                                                 disabled={isLoading}
