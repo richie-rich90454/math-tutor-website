@@ -16,6 +16,7 @@ export default function LoginPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
+    const [remember, setRemember] = useState(false);
     const [error, setError] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const cardRef = useRef<HTMLDivElement>(null);
@@ -65,7 +66,7 @@ export default function LoginPage() {
         setIsLoading(true);
 
         try {
-            await login(email, password);
+            await login(email, password, remember);
             router.push("/");
         } catch (err: any) {
             setError(err.message || t("authInvalidCredentials"));
@@ -154,7 +155,7 @@ export default function LoginPage() {
 
                     <div className="auth-field">
                         <label className="auth-checkbox-label">
-                            <input type="checkbox" className="auth-checkbox" />
+                            <input type="checkbox" className="auth-checkbox" checked={remember} onChange={(e) => setRemember(e.target.checked)} />
                             <span>{t("authRememberMe")}</span>
                         </label>
                     </div>
