@@ -1,4 +1,5 @@
 import { getDb } from "../db";
+import { v4 as uuidv4 } from "uuid";
 
 interface Session {
     id: string;
@@ -10,7 +11,6 @@ interface Session {
 
 export function createSession(userId: string, providedToken?: string): Session {
     const db = getDb();
-    const { v4: uuidv4 } = require("uuid");
     const id = uuidv4();
     const token = providedToken || uuidv4() + uuidv4();
     const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString();
