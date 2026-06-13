@@ -1,11 +1,13 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
+import gsap from "gsap";
 import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
 import Sidebar from "@/components/ui/Sidebar";
 import MarkdownRenderer from "@/components/ui/MarkdownRenderer";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useChat, ChatSession } from "@/contexts/ChatContext";
+import { useAuth } from "@/contexts/AuthContext";
 
 interface Message {
     id: string;
@@ -17,11 +19,14 @@ interface Message {
 export default function Home() {
     const { t, currentLanguage } = useLanguage();
     const { currentChat, addChatSession, setCurrentChat } = useChat();
+    const { isAuthenticated, isLoading: authLoading } = useAuth();
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
     const [input, setInput] = useState("");
     const [messages, setMessages] = useState<Message[]>([]);
     const [isLoading, setIsLoading] = useState(false);
     const messagesEndRef = useRef<HTMLDivElement>(null);
+    const welcomeRef = useRef<HTMLDivElement>(null);
+    const chatMessagesRef = useRef<HTMLDivElement>(null);
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -30,6 +35,43 @@ export default function Home() {
     useEffect(() => {
         scrollToBottom();
     }, [messages]);
+
+    // GSAP welcome animation
+    useEffect(() => {
+        if (messages.length === 0 && welcomeRef.current) {
+            const ctx = gsap.context(() => {
+                gsap.from(".welcome-title", {
+                    scale: 0.8,
+                    opacity: 0,
+                    duration: 0.8,
+                    ease: "elastic.out(1, 0.6)",
+                });
+                gsap.from(".welcome-subtitle", {
+                    y: 20,
+                    opacity: 0,
+                    duration: 0.5,
+                    delay: 0.3,
+                    ease: "power2.out",
+                });
+                gsap.from(".welcome-input-card", {
+                    y: 30,
+                    opacity: 0,
+                    duration: 0.6,
+                    delay: 0.5,
+                    ease: "power2.out",
+                });
+                gsap.from(".prompt-btn", {
+                    y: 20,
+                    opacity: 0,
+                    duration: 0.4,
+                    stagger: 0.1,
+                    delay: 0.7,
+                    ease: "power2.out",
+                });
+            }, welcomeRef);
+            return () => ctx.revert();
+        }
+    }, [messages.length]);
 
     // Load messages from current chat when it changes
     useEffect(() => {
@@ -205,7 +247,7 @@ export default function Home() {
                 >
                     {/* Logo and Welcome Message - Centered initially */}
                     {messages.length === 0 && (
-                        <div className="welcome-section">
+                        <div className="welcome-section" ref={welcomeRef}>
                             <div className="welcome-heading">
                                 <h1 className="welcome-title">
                                     {t("title")}
@@ -299,7 +341,7 @@ export default function Home() {
                         <>
                             <div className="chat-messages-area">
                                 <div className="chat-messages-inner">
-                                    <div className="chat-messages-list">
+                                    <div className="chat-messages-list" ref={chatMessagesRef}>
                                         {messages.map((message, index) => (
                                             <div
                                                 key={message.id}
