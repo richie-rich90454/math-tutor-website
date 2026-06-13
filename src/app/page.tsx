@@ -213,9 +213,115 @@ export default function Home() {
         }
     }, [messages.length]);
 
+    // ==========================================
+    // GSAP Streaming Animations
+    // ==========================================
+
+    // Ref to track previous streaming state for completion animation
+    const prevStreamingRef = useRef(false);
+
+    // 1. Animate streaming cursor with GSAP (smooth pulse instead of CSS blink)
+    useEffect(() => {
+        if (isStreaming) {
+            const cursor = document.querySelector(".streaming-cursor") as HTMLElement | null;
+            if (cursor) {
+                gsap.fromTo(
+                    cursor,
+                    { opacity: 1, scaleY: 1 },
+                    {
+                        opacity: 0.25,
+                        scaleY: 0.6,
+                        duration: 0.6,
+                        repeat: -1,
+                        yoyo: true,
+                        ease: "power2.inOut",
+                    }
+                );
+            }
+        } else {
+            gsap.killTweensOf(".streaming-cursor");
+        }
+    }, [isStreaming]);
+
+    // 2. Animate streaming message bubble on each new chunk arrival
+    const prevContentLenRef = useRef(0);
+    useEffect(() => {
+        if (isStreaming && messages.length > 0) {
+            const last = messages[messages.length - 1];
+            if (last.role === "assistant" && last.content.length > prevContentLenRef.current) {
+                prevContentLenRef.current = last.content.length;
+                const bubble = document.querySelector(
+                    `.message-bubble-assistant[data-streaming="true"]`
+                ) as HTMLElement | null;
+                if (bubble) {
+                    // Subtle glow pulse on the bubble when new content arrives
+                    gsap.fromTo(
+                        bubble,
+                        { boxShadow: "0 0 0 0 rgba(96,165,250,0)" },
+                        {
+                            boxShadow: "0 0 14px 2px rgba(96,165,250,0.08)",
+                            duration: 0.12,
+                            ease: "power2.out",
+                            onComplete: () => {
+                                gsap.to(bubble, {
+                                    boxShadow: "0 1px 3px rgba(0,0,0,0.04)",
+                                    duration: 0.35,
+                                    ease: "power2.out",
+                                });
+                            },
+                        }
+                    );
+                }
+            }
+        } else if (!isStreaming) {
+            prevContentLenRef.current = 0;
+        }
+    }, [messages, isStreaming]);
+
+    // 3. Completion animation when streaming finishes
+    useEffect(() => {
+        if (prevStreamingRef.current && !isStreaming && messages.length > 0) {
+            // Find the last assistant message bubble
+            const bubbles = document.querySelectorAll(
+                '.message-bubble-assistant[data-streaming]'
+            ) as NodeListOf<HTMLElement>;
+            const lastBubble = bubbles[bubbles.length - 1];
+            if (lastBubble) {
+                // Remove data-streaming attribute
+                lastBubble.removeAttribute("data-streaming");
+
+                // Animate a subtle border highlight then fade
+                gsap.to(lastBubble, {
+                    borderColor: "var(--accent)",
+                    boxShadow: "0 2px 16px rgba(96,165,250,0.1)",
+                    duration: 0.35,
+                    ease: "power2.out",
+                    onComplete: () => {
+                        gsap.to(lastBubble, {
+                            borderColor: "var(--border-default)",
+                            boxShadow: "0 1px 3px rgba(0,0,0,0.04)",
+                            duration: 0.6,
+                            ease: "power2.out",
+                            delay: 0.5,
+                        });
+                    },
+                });
+            }
+        }
+        prevStreamingRef.current = isStreaming;
+    }, [isStreaming, messages.length]);
+
     // Load messages from current chat when it changes
     useEffect(() => {
-        if (currentChat && currentChat.messages) {
+        if (!currentChat) {
+            queueMicrotask(() => {
+                setMessages([]);
+                prevMessagesLenRef.current = 0;
+            });
+            return;
+        }
+
+        if (currentChat.messages && currentChat.messages.length > 0) {
             const formattedMessages = currentChat.messages.map((msg) => ({
                 id: msg.id,
                 content: msg.content,
@@ -226,12 +332,34 @@ export default function Home() {
                 setMessages(formattedMessages);
                 prevMessagesLenRef.current = formattedMessages.length;
             });
-        } else {
-            queueMicrotask(() => {
-                setMessages([]);
-                prevMessagesLenRef.current = 0;
-            });
+            return;
         }
+
+        // Messages not loaded yet — fetch from API
+        let cancelled = false;
+        (async () => {
+            try {
+                const res = await fetch(`/api/chats/${currentChat.id}`);
+                if (!res.ok || cancelled) return;
+                const data = await res.json();
+                if (cancelled) return;
+                const formattedMessages = (data.messages || []).map((msg: any) => ({
+                    id: msg.id,
+                    content: msg.content,
+                    role: msg.role as "user" | "assistant",
+                    timestamp: new Date(msg.created_at),
+                }));
+                setMessages(formattedMessages);
+                prevMessagesLenRef.current = formattedMessages.length;
+            } catch {
+                if (!cancelled) {
+                    setMessages([]);
+                    prevMessagesLenRef.current = 0;
+                }
+            }
+        })();
+
+        return () => { cancelled = true; };
     }, [currentChat]);
 
     const sendMessage = async () => {
@@ -333,8 +461,8 @@ export default function Home() {
                 );
             }
 
-            // Reload chat history from server to sync all data
-            loadChatHistory();
+            // Don't reload full chat history after every stream — it's slow and causes white flashes.
+            // The local state is already up-to-date from streaming.
         } catch (error: any) {
             if (error.name === "AbortError") return;
 
@@ -401,7 +529,10 @@ export default function Home() {
         const lastUserMsg = [...messages].reverse().find((m) => m.role === "user");
         if (!lastUserMsg) return;
 
-        setMessages((prev) => prev.filter((m) => m.role !== "assistant" || m.id === prev[prev.length - 1].id ? false : true));
+        setMessages((prev) => {
+            const lastUserIdx = prev.map((m) => m.role).lastIndexOf("user");
+            return lastUserIdx >= 0 ? prev.slice(0, lastUserIdx + 1) : prev;
+        });
         setInput(lastUserMsg.content);
         setTimeout(() => sendMessage(), 0);
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -604,7 +735,14 @@ export default function Home() {
                                                                     feedback={feedback.get(message.id) || null}
                                                                     isVisible={hoveredMsgId === message.id}
                                                                 />
-                                                                <div className="message-bubble-assistant">
+                                                                <div
+                                                                    className="message-bubble-assistant"
+                                                                    data-streaming={
+                                                                        isStreaming && index === messages.length - 1 && message.role === "assistant"
+                                                                            ? "true"
+                                                                            : undefined
+                                                                    }
+                                                                >
                                                                     <MarkdownRenderer content={message.content} />
                                                                     {isStreaming && index === messages.length - 1 && message.role === "assistant" && (
                                                                         <span className="streaming-cursor" />
