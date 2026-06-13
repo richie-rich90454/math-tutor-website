@@ -361,6 +361,7 @@ textarea {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    min-height: 0;
     padding: 0 var(--space-6);
     transition: all var(--transition-slower);
 }
@@ -485,6 +486,7 @@ textarea {
 .chat-messages-area {
     flex: 1 1 0%;
     overflow-y: auto;
+    min-height: 0;
     padding: var(--space-5) var(--space-4) 0;
 }
 
@@ -752,6 +754,7 @@ textarea {
 .ci-messages-area {
     flex: 1 1 0%;
     overflow-y: auto;
+    min-height: 0;
     background: linear-gradient(to bottom, var(--color-gray-50), var(--color-white));
     padding: var(--space-6) var(--space-4);
 }
@@ -1247,6 +1250,7 @@ textarea {
 .sb-history {
     flex: 1 1 0%;
     overflow-y: auto;
+    min-height: 0;
     background: var(--color-white);
 }
 
