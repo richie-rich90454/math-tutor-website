@@ -35,7 +35,8 @@ export async function POST(request: NextRequest) {
             deleteUserSessions(user.id);
         }
 
-        const session = createSession(user.id);
+        const jwtToken = signToken({ sub: user.id, email: user.email });
+        const session = createSession(user.id, jwtToken);
 
         const response = NextResponse.json({
             user: {

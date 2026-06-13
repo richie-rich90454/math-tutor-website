@@ -47,8 +47,8 @@ export async function POST(request: NextRequest) {
         const passwordHash = hashPassword(password);
         const user = createUser(userId, email, name, passwordHash);
 
-        const session = createSession(userId);
-        const token = signToken({ sub: user.id, email: user.email });
+        const jwtToken = signToken({ sub: user.id, email: user.email });
+        const session = createSession(userId, jwtToken);
 
         const response = NextResponse.json(
             {
