@@ -114,6 +114,8 @@ button {
 input,
 textarea {
     font-family: inherit;
+    font-size: inherit;
+    color: inherit;
 }
 
 /* ==========================================
@@ -867,6 +869,7 @@ textarea {
     padding-right: 48px;
     font-size: 0.875rem;
     font-family: inherit;
+    color: var(--color-gray-900);
     outline: none;
     transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
@@ -1033,6 +1036,7 @@ textarea {
     padding-left: 40px;
     font-size: 0.875rem;
     font-family: inherit;
+    color: var(--color-gray-900);
     outline: none;
     transition: all var(--transition-fast);
 }
