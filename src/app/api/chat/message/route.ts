@@ -45,6 +45,8 @@ async function getSystemPrompt(language: string): Promise<string> {
         case "zh-hant":
             fileName = "prompt-zh-hant.txt";
             break;
+        case "bo":
+            fileName = "prompt-bo".txt
         default:
             fileName = "prompt-en-us.txt";
     }
