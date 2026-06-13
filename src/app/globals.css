@@ -1109,6 +1109,14 @@ textarea {
     opacity: 0;
     transition: opacity var(--transition-fast);
     pointer-events: none;
+    z-index: var(--z-dropdown);
+}
+
+/* Show tooltip when parent button is hovered */
+.sb-search-collapsed-btn:hover .sb-tooltip,
+.sb-new-chat-btn-collapsed:hover .sb-tooltip,
+.sb-collapsed-history-btn:hover .sb-tooltip {
+    opacity: 1;
 }
 
 .sb-new-chat-section {
@@ -1171,4 +1179,288 @@ textarea {
 .sb-new-chat-btn-collapsed-icon {
     width: 20px;
     height: 20px;
+}
+
+/* Sidebar - Chat History */
+.sb-history {
+    flex: 1 1 0%;
+    overflow-y: auto;
+    background: var(--color-white);
+}
+
+.sb-history-empty {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-8);
+    color: var(--color-gray-400);
+}
+
+.sb-history-empty-icon {
+    margin-bottom: var(--space-3);
+    width: 48px;
+    height: 48px;
+}
+
+.sb-history-empty-text {
+    text-align: center;
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+.sb-history-empty-hint {
+    margin-top: var(--space-1);
+    text-align: center;
+    font-size: 0.75rem;
+}
+
+.sb-history-list {
+    padding: var(--space-2) 0;
+}
+
+.sb-group {
+    margin-bottom: var(--space-1);
+}
+
+.sb-group-title {
+    padding: var(--space-2) var(--space-4);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--color-gray-500);
+    text-transform: uppercase;
+}
+
+.sb-chat-item {
+    position: relative;
+    cursor: pointer;
+    padding: var(--space-3) var(--space-4);
+    transition: all 200ms ease;
+}
+
+.sb-chat-item:hover {
+    background: var(--color-gray-50);
+}
+
+.sb-chat-item.is-active {
+    background: var(--color-gray-200);
+}
+
+.sb-chat-item.is-active:hover {
+    background: var(--color-gray-200);
+}
+
+.sb-chat-item.is-hovered {
+    background: var(--color-gray-100);
+}
+
+.sb-chat-item-row {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+}
+
+.sb-chat-item-dot-wrapper {
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.sb-chat-item-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: var(--radius-full);
+    background: var(--color-gray-300);
+    transition: background-color 200ms ease;
+}
+
+.sb-chat-item.is-active .sb-chat-item-dot {
+    background: var(--color-gray-900);
+}
+
+.sb-chat-item.is-hovered .sb-chat-item-dot {
+    background: var(--color-gray-700);
+}
+
+.sb-chat-item-content {
+    min-width: 0;
+    flex: 1 1 0%;
+}
+
+.sb-chat-item-title {
+    margin: 0 0 var(--space-1);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-gray-900);
+}
+
+.sb-chat-item-preview {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    font-size: 0.75rem;
+    line-height: 1.625;
+    color: var(--color-gray-500);
+    margin: 0;
+}
+
+.sb-chat-item-delete {
+    flex-shrink: 0;
+    border-radius: 4px;
+    padding: var(--space-1);
+    border: none;
+    background: transparent;
+    transition: background-color var(--transition-fast);
+}
+
+.sb-chat-item-delete:hover {
+    background: var(--color-red-100);
+}
+
+.sb-chat-item-delete-icon {
+    width: 16px;
+    height: 16px;
+    color: var(--color-gray-500);
+}
+
+.sb-chat-item-delete:hover .sb-chat-item-delete-icon {
+    color: var(--color-red-600);
+}
+
+/* Sidebar - Collapsed History */
+.sb-collapsed-history {
+    position: relative;
+    display: flex;
+    flex: 1 1 0%;
+    flex-direction: column;
+    align-items: center;
+    background: var(--color-white);
+    padding-top: var(--space-4);
+}
+
+.sb-collapsed-history-btn {
+    position: relative;
+    cursor: pointer;
+    border-radius: var(--radius-md);
+    padding: var(--space-2);
+    border: none;
+    background: transparent;
+    transition: background-color var(--transition-fast);
+}
+
+.sb-collapsed-history-btn:hover {
+    background: var(--color-gray-100);
+}
+
+.sb-collapsed-history-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--color-gray-600);
+}
+
+/* Sidebar - History Tooltip Popup */
+.sb-history-tooltip {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    z-index: var(--z-dropdown);
+    margin-left: var(--space-2);
+    max-height: 600px;
+    width: 288px;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-gray-200);
+    background: var(--color-white);
+    box-shadow: var(--shadow-xl);
+}
+
+.sb-history-tooltip-header {
+    border-bottom: 1px solid var(--color-gray-200);
+    background: var(--color-gray-50);
+    padding: var(--space-3);
+}
+
+.sb-history-tooltip-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-gray-900);
+    margin: 0;
+}
+
+.sb-history-tooltip-list {
+    max-height: 540px;
+    overflow-y: auto;
+}
+
+.sb-history-tooltip-item {
+    cursor: pointer;
+    border-bottom: 1px solid var(--color-gray-100);
+    padding: var(--space-3) var(--space-4);
+    transition: background-color var(--transition-fast);
+}
+
+.sb-history-tooltip-item:hover {
+    background: var(--color-gray-50);
+}
+
+.sb-history-tooltip-item.is-active {
+    background: var(--color-gray-100);
+}
+
+.sb-history-tooltip-item-title {
+    margin: 0 0 var(--space-1);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-gray-900);
+}
+
+.sb-history-tooltip-item-preview {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    font-size: 0.75rem;
+    color: var(--color-gray-500);
+    margin: 0;
+}
+
+.sb-history-tooltip-item-date {
+    display: block;
+    margin-top: var(--space-1);
+    font-size: 0.75rem;
+    color: var(--color-gray-400);
+}
+
+/* Sidebar - Footer */
+.sb-footer {
+    border-top: 1px solid var(--color-gray-200);
+    background: var(--color-white);
+    padding: var(--space-4);
+}
+
+.sb-footer.is-collapsed {
+    padding: var(--space-4) var(--space-2);
+}
+
+.sb-footer-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    color: var(--color-gray-400);
+}
+
+.sb-footer-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: var(--radius-full);
+    background: var(--color-gray-400);
 }

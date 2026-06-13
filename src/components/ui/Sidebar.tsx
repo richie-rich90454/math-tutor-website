@@ -166,7 +166,7 @@ export default function Sidebar({ isOpen, onToggle }: SidebarProps) {
                         </div>
                     ) : (
                         <button
-                            className="group relative sb-search-collapsed-btn"
+                            className="sb-search-collapsed-btn"
                             title="Search"
                         >
                             <svg
@@ -182,7 +182,7 @@ export default function Sidebar({ isOpen, onToggle }: SidebarProps) {
                                     d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                                 />
                             </svg>
-                            <span className="sb-tooltip group-hover:opacity-100">
+                            <span className="sb-tooltip">
                                 {t("sidebarSearchPlaceholder")}
                             </span>
                         </button>
@@ -214,7 +214,7 @@ export default function Sidebar({ isOpen, onToggle }: SidebarProps) {
                     ) : (
                         <button
                             onClick={handleNewChat}
-                            className="group relative sb-new-chat-btn-collapsed"
+                            className="sb-new-chat-btn-collapsed"
                             title="New Chat"
                         >
                             <svg
@@ -230,7 +230,7 @@ export default function Sidebar({ isOpen, onToggle }: SidebarProps) {
                                     d="M12 4v16m8-8H4"
                                 />
                             </svg>
-                            <span className="sb-tooltip group-hover:opacity-100">
+                            <span className="sb-tooltip">
                                 {t("sidebarNewChat")}
                             </span>
                         </button>
@@ -239,11 +239,11 @@ export default function Sidebar({ isOpen, onToggle }: SidebarProps) {
 
                 {/* Chat History */}
                 {isOpen ? (
-                    <div className="flex-1 overflow-y-auto bg-white">
+                    <div className="sb-history">
                         {filteredChats.length === 0 ? (
-                            <div className="flex h-full flex-col items-center justify-center p-8 text-gray-400">
+                            <div className="sb-history-empty">
                                 <svg
-                                    className="mb-3 h-12 w-12"
+                                    className="sb-history-empty-icon"
                                     fill="none"
                                     stroke="currentColor"
                                     viewBox="0 0 24 24"
@@ -255,23 +255,23 @@ export default function Sidebar({ isOpen, onToggle }: SidebarProps) {
                                         d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
                                     />
                                 </svg>
-                                <p className="text-center text-sm">
+                                <p className="sb-history-empty-text">
                                     {searchQuery
                                         ? t("sidebarNoMatchingConversations")
                                         : t("sidebarNoConversationsYet")}
                                 </p>
                                 {!searchQuery && (
-                                    <p className="mt-1 text-center text-xs">
+                                    <p className="sb-history-empty-hint">
                                         {t("sidebarStartNewChat")}
                                     </p>
                                 )}
                             </div>
                         ) : (
-                            <div className="py-2">
+                            <div className="sb-history-list">
                                 {/* Today */}
                                 {chatGroups.today.length > 0 && (
-                                    <div className="mb-1">
-                                        <h3 className="px-4 py-2 text-xs font-semibold tracking-wider text-gray-500 uppercase">
+                                    <div className="sb-group">
+                                        <h3 className="sb-group-title">
                                             {t("sidebarToday")}
                                         </h3>
                                         {chatGroups.today.map((chat) => (
@@ -290,8 +290,8 @@ export default function Sidebar({ isOpen, onToggle }: SidebarProps) {
 
                                 {/* Yesterday */}
                                 {chatGroups.yesterday.length > 0 && (
-                                    <div className="mb-1">
-                                        <h3 className="px-4 py-2 text-xs font-semibold tracking-wider text-gray-500 uppercase">
+                                    <div className="sb-group">
+                                        <h3 className="sb-group-title">
                                             {t("sidebarYesterday")}
                                         </h3>
                                         {chatGroups.yesterday.map((chat) => (
@@ -310,8 +310,8 @@ export default function Sidebar({ isOpen, onToggle }: SidebarProps) {
 
                                 {/* This Week */}
                                 {chatGroups.thisWeek.length > 0 && (
-                                    <div className="mb-1">
-                                        <h3 className="px-4 py-2 text-xs font-semibold tracking-wider text-gray-500 uppercase">
+                                    <div className="sb-group">
+                                        <h3 className="sb-group-title">
                                             {t("sidebarThisWeek")}
                                         </h3>
                                         {chatGroups.thisWeek.map((chat) => (
@@ -330,8 +330,8 @@ export default function Sidebar({ isOpen, onToggle }: SidebarProps) {
 
                                 {/* This Month */}
                                 {chatGroups.thisMonth.length > 0 && (
-                                    <div className="mb-1">
-                                        <h3 className="px-4 py-2 text-xs font-semibold tracking-wider text-gray-500 uppercase">
+                                    <div className="sb-group">
+                                        <h3 className="sb-group-title">
                                             {t("sidebarThisMonth")}
                                         </h3>
                                         {chatGroups.thisMonth.map((chat) => (
@@ -350,8 +350,8 @@ export default function Sidebar({ isOpen, onToggle }: SidebarProps) {
 
                                 {/* Older */}
                                 {chatGroups.older.length > 0 && (
-                                    <div className="mb-1">
-                                        <h3 className="px-4 py-2 text-xs font-semibold tracking-wider text-gray-500 uppercase">
+                                    <div className="sb-group">
+                                        <h3 className="sb-group-title">
                                             {t("sidebarOlder")}
                                         </h3>
                                         {chatGroups.older.map((chat) => (
@@ -371,14 +371,14 @@ export default function Sidebar({ isOpen, onToggle }: SidebarProps) {
                         )}
                     </div>
                 ) : (
-                    <div className="relative flex flex-1 flex-col items-center bg-white pt-4">
+                    <div className="sb-collapsed-history">
                         <div
-                            className="group relative cursor-pointer rounded-lg p-2 transition-colors hover:bg-gray-100"
+                            className="sb-collapsed-history-btn"
                             onMouseEnter={() => setShowHistoryTooltip(true)}
                             onMouseLeave={() => setShowHistoryTooltip(false)}
                         >
                             <svg
-                                className="h-5 w-5 text-gray-600"
+                                className="sb-collapsed-history-icon"
                                 fill="none"
                                 stroke="currentColor"
                                 viewBox="0 0 24 24"
@@ -390,7 +390,7 @@ export default function Sidebar({ isOpen, onToggle }: SidebarProps) {
                                     d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                                 />
                             </svg>
-                            <span className="pointer-events-none absolute left-full z-50 ml-2 rounded bg-gray-900 px-2 py-1 text-xs whitespace-nowrap text-white opacity-0 transition-opacity group-hover:opacity-100">
+                            <span className="sb-tooltip">
                                 {t("sidebarHistory")}
                             </span>
                         </div>
@@ -398,31 +398,29 @@ export default function Sidebar({ isOpen, onToggle }: SidebarProps) {
                         {/* History Tooltip Popup */}
                         {showHistoryTooltip && chatHistory.length > 0 && (
                             <div
-                                className="absolute top-0 left-full z-50 ml-2 max-h-[600px] w-72 overflow-hidden rounded-lg border border-gray-200 bg-white shadow-xl"
+                                className="sb-history-tooltip"
                                 onMouseEnter={() => setShowHistoryTooltip(true)}
                                 onMouseLeave={() => setShowHistoryTooltip(false)}
                             >
-                                <div className="border-b border-gray-200 bg-gray-50 p-3">
-                                    <h3 className="text-sm font-semibold text-gray-900">
+                                <div className="sb-history-tooltip-header">
+                                    <h3 className="sb-history-tooltip-title">
                                         {t("sidebarRecentConversations")}
                                     </h3>
                                 </div>
-                                <div className="max-h-[540px] overflow-y-auto">
+                                <div className="sb-history-tooltip-list">
                                     {chatHistory.slice(0, 10).map((chat) => (
                                         <div
                                             key={chat.id}
                                             onClick={() => handleChatSelect(chat)}
-                                            className={`cursor-pointer border-b border-gray-100 px-4 py-3 transition-colors hover:bg-gray-50 ${
-                                                currentChat?.id === chat.id ? "bg-gray-100" : ""
-                                            }`}
+                                            className={`sb-history-tooltip-item ${currentChat?.id === chat.id ? "is-active" : ""}`}
                                         >
-                                            <h4 className="mb-1 truncate text-sm font-medium text-gray-900">
+                                            <h4 className="sb-history-tooltip-item-title">
                                                 {chat.title}
                                             </h4>
-                                            <p className="line-clamp-2 text-xs text-gray-500">
+                                            <p className="sb-history-tooltip-item-preview">
                                                 {chat.preview}
                                             </p>
-                                            <span className="mt-1 block text-xs text-gray-400">
+                                            <span className="sb-history-tooltip-item-date">
                                                 {new Date(chat.timestamp).toLocaleDateString()}
                                             </span>
                                         </div>
@@ -434,14 +432,14 @@ export default function Sidebar({ isOpen, onToggle }: SidebarProps) {
                 )}
 
                 {/* Footer */}
-                <div className={`border-t border-gray-200 bg-white p-4 ${!isOpen && "px-2"}`}>
+                <div className={`sb-footer ${!isOpen ? "is-collapsed" : ""}`}>
                     {isOpen ? (
-                        <div className="flex items-center justify-center text-xs text-gray-400">
+                        <div className="sb-footer-text">
                             <span>{t("sidebarMathTutorAI")}</span>
                         </div>
                     ) : (
-                        <div className="flex items-center justify-center">
-                            <div className="h-2 w-2 rounded-full bg-gray-400"></div>
+                        <div className="sb-footer-text">
+                            <div className="sb-footer-dot"></div>
                         </div>
                     )}
                 </div>
@@ -465,23 +463,17 @@ function ChatItem({ chat, onSelect, onDelete, isHovered, onHover, isActive }: Ch
             onClick={() => onSelect(chat)}
             onMouseEnter={() => onHover(chat.id)}
             onMouseLeave={() => onHover(null)}
-            className={`group relative cursor-pointer px-4 py-3 transition-all duration-200 ${
-                isActive ? "bg-gray-200" : isHovered ? "bg-gray-100" : "hover:bg-gray-50"
-            }`}
+            className={`sb-chat-item ${isActive ? "is-active" : isHovered ? "is-hovered" : ""}`}
         >
-            <div className="flex items-start gap-3">
-                <div className="mt-0.5 flex-shrink-0">
-                    <div
-                        className={`h-2 w-2 rounded-full transition-colors duration-200 ${
-                            isActive ? "bg-gray-900" : isHovered ? "bg-gray-700" : "bg-gray-300"
-                        }`}
-                    />
+            <div className="sb-chat-item-row">
+                <div className="sb-chat-item-dot-wrapper">
+                    <div className="sb-chat-item-dot" />
                 </div>
-                <div className="min-w-0 flex-1">
-                    <h4 className="mb-1 truncate text-sm font-medium text-gray-900">
+                <div className="sb-chat-item-content">
+                    <h4 className="sb-chat-item-title">
                         {chat.title}
                     </h4>
-                    <p className="line-clamp-2 text-xs leading-relaxed text-gray-500">
+                    <p className="sb-chat-item-preview">
                         {chat.preview}
                     </p>
                 </div>
@@ -493,11 +485,11 @@ function ChatItem({ chat, onSelect, onDelete, isHovered, onHover, isActive }: Ch
                                 onDelete(chat.id);
                             }
                         }}
-                        className="group flex-shrink-0 rounded p-1 transition-colors hover:bg-red-100"
+                        className="sb-chat-item-delete"
                         aria-label="Delete chat"
                     >
                         <svg
-                            className="h-4 w-4 text-gray-500 group-hover:text-red-600"
+                            className="sb-chat-item-delete-icon"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
