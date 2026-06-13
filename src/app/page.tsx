@@ -34,7 +34,7 @@ interface Message {
 
 export default function Home() {
     const { t, currentLanguage } = useLanguage();
-    const { currentChat, addChatSession, setCurrentChat, chatHistory } = useChat();
+    const { currentChat, addChatSession, setCurrentChat, chatHistory, syncChatId, loadChatHistory } = useChat();
     const { isAuthenticated } = useAuth();
     const { addToast } = useToast();
     const router = useRouter();
@@ -304,7 +304,8 @@ export default function Home() {
             }
 
             const serverChatId = response.headers.get("X-Chat-Id");
-            if (serverChatId && serverChatId !== activeChatId) {
+            if (serverChatId && serverChatId !== activeChatId && activeChatId) {
+                syncChatId(activeChatId, serverChatId);
                 setActiveChatId(serverChatId);
             }
 
@@ -331,6 +332,9 @@ export default function Home() {
                     prev.map((m) => (m.id === id ? { ...m, content: m.content + chunk } : m))
                 );
             }
+
+            // Reload chat history from server to sync all data
+            loadChatHistory();
         } catch (error: any) {
             if (error.name === "AbortError") return;
 
