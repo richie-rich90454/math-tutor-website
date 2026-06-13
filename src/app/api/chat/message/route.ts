@@ -38,6 +38,7 @@ async function getSystemPrompt(language: string): Promise<string> {
     let fileName: string;
     switch (language) {
         case "zh":
+            fileName = "prompt-zh-hant.txt";
         case "zh-hans":
             fileName = "prompt-zh-hans.txt";
             break;
