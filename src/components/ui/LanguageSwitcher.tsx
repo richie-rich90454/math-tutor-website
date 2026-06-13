@@ -13,14 +13,14 @@ export default function LanguageSwitcher() {
     };
 
     return (
-        <div className="relative">
+        <div className="lang-switcher">
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="flex items-center space-x-2 rounded-lg border border-gray-200 bg-white/80 px-3 py-2 text-sm text-gray-700 backdrop-blur-sm transition-all hover:bg-white hover:shadow-sm"
+                className="lang-switcher-btn"
             >
                 <span>{currentLanguage.name}</span>
                 <svg
-                    className={`h-4 w-4 transition-transform ${isOpen ? "rotate-180" : ""}`}
+                    className={`lang-switcher-chevron ${isOpen ? "is-open" : ""}`}
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -35,15 +35,13 @@ export default function LanguageSwitcher() {
             </button>
 
             {isOpen && (
-                <div className="absolute top-full right-0 z-50 mt-2 min-w-[120px] rounded-lg border border-gray-200 bg-white shadow-lg">
+                <div className="lang-switcher-dropdown">
                     {languages.map((language) => (
                         <button
                             key={language.code}
                             onClick={() => handleLanguageChange(language)}
-                            className={`flex w-full items-center space-x-2 px-3 py-2 text-sm transition-colors first:rounded-t-lg last:rounded-b-lg hover:bg-gray-50 ${
-                                currentLanguage.code === language.code
-                                    ? "bg-gray-50 text-gray-900"
-                                    : "text-gray-700"
+                            className={`lang-switcher-option ${
+                                currentLanguage.code === language.code ? "is-active" : ""
                             }`}
                         >
                             <span>{language.name}</span>

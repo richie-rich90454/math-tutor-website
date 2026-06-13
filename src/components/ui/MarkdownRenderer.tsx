@@ -31,39 +31,39 @@ export default function MarkdownRenderer({ content, className = "" }: MarkdownRe
                 rehypePlugins={[rehypeKatex]}
                 components={{
                     h1: ({ children }) => (
-                        <h1 className="mt-4 mb-3 text-xl font-bold text-gray-900">{children}</h1>
+                        <h1 className="mdr-h1">{children}</h1>
                     ),
                     h2: ({ children }) => (
-                        <h2 className="mt-3 mb-2 text-lg font-semibold text-gray-900">
+                        <h2 className="mdr-h2">
                             {children}
                         </h2>
                     ),
                     h3: ({ children }) => (
-                        <h3 className="mt-2 mb-1 text-base font-semibold text-gray-900">
+                        <h3 className="mdr-h3">
                             {children}
                         </h3>
                     ),
                     h4: ({ children }) => (
-                        <h4 className="mt-2 mb-1 text-sm font-semibold text-gray-900">
+                        <h4 className="mdr-h4">
                             {children}
                         </h4>
                     ),
                     p: ({ children }) => (
-                        <p className="mb-3 text-sm leading-relaxed text-gray-800">{children}</p>
+                        <p className="mdr-p">{children}</p>
                     ),
                     ul: ({ children }) => (
-                        <ul className="mb-3 list-inside list-disc space-y-1 text-sm text-gray-800">
+                        <ul className="mdr-ul">
                             {children}
                         </ul>
                     ),
                     ol: ({ children }) => (
-                        <ol className="mb-3 list-inside list-decimal space-y-1 text-sm text-gray-800">
+                        <ol className="mdr-ol">
                             {children}
                         </ol>
                     ),
-                    li: ({ children }) => <li className="ml-4 leading-relaxed">{children}</li>,
+                    li: ({ children }) => <li className="mdr-li">{children}</li>,
                     blockquote: ({ children }) => (
-                        <blockquote className="mb-3 rounded-r-lg border-l-4 border-gray-300 bg-gray-50 py-2 pl-4 text-sm text-gray-700 italic">
+                        <blockquote className="mdr-blockquote">
                             {children}
                         </blockquote>
                     ),
@@ -73,15 +73,15 @@ export default function MarkdownRenderer({ content, className = "" }: MarkdownRe
 
                         if (!inline && language) {
                             return (
-                                <div className="group relative mb-4">
-                                    <div className="absolute top-0 right-0 px-2 py-1 text-xs tracking-wide text-gray-400 uppercase">
+                                <div className="mdr-code-block">
+                                    <div className="mdr-code-lang">
                                         {language}
                                     </div>
                                     <SyntaxHighlighter
                                         style={oneDark}
                                         language={language}
                                         PreTag="div"
-                                        className="!mt-0 rounded-lg"
+                                        className="mdr-code-pre"
                                         showLineNumbers={true}
                                         customStyle={{
                                             margin: 0,
@@ -102,7 +102,7 @@ export default function MarkdownRenderer({ content, className = "" }: MarkdownRe
                                                 btn.innerText = originalText;
                                             }, 2000);
                                         }}
-                                        className="absolute top-2 right-2 rounded bg-gray-700 px-2 py-1 text-xs text-gray-300 opacity-0 transition-colors group-hover:opacity-100 hover:bg-gray-600"
+                                        className="mdr-copy-btn"
                                     >
                                         Copy
                                     </button>
@@ -112,7 +112,7 @@ export default function MarkdownRenderer({ content, className = "" }: MarkdownRe
 
                         return (
                             <code
-                                className="rounded bg-gray-100 px-1.5 py-0.5 font-mono text-sm text-gray-800"
+                                className="mdr-inline-code"
                                 {...props}
                             >
                                 {children}
@@ -120,26 +120,26 @@ export default function MarkdownRenderer({ content, className = "" }: MarkdownRe
                         );
                     },
                     table: ({ children }) => (
-                        <div className="mb-4 overflow-x-auto">
-                            <table className="min-w-full divide-y divide-gray-300 rounded-lg border border-gray-300">
+                        <div className="mdr-table-wrapper">
+                            <table className="mdr-table">
                                 {children}
                             </table>
                         </div>
                     ),
-                    thead: ({ children }) => <thead className="bg-gray-50">{children}</thead>,
+                    thead: ({ children }) => <thead className="mdr-thead">{children}</thead>,
                     tbody: ({ children }) => (
-                        <tbody className="divide-y divide-gray-200 bg-white">{children}</tbody>
+                        <tbody className="mdr-tbody">{children}</tbody>
                     ),
                     tr: ({ children }) => (
-                        <tr className="transition-colors hover:bg-gray-50">{children}</tr>
+                        <tr>{children}</tr>
                     ),
                     th: ({ children }) => (
-                        <th className="px-4 py-3 text-left text-xs font-medium tracking-wider text-gray-500 uppercase">
+                        <th className="mdr-th">
                             {children}
                         </th>
                     ),
                     td: ({ children }) => (
-                        <td className="px-4 py-3 text-sm whitespace-nowrap text-gray-900">
+                        <td className="mdr-td">
                             {children}
                         </td>
                     ),
@@ -148,16 +148,16 @@ export default function MarkdownRenderer({ content, className = "" }: MarkdownRe
                             href={href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-blue-600 underline decoration-1 underline-offset-2 transition-colors hover:text-blue-800"
+                            className="mdr-a"
                         >
                             {children}
                         </a>
                     ),
-                    hr: () => <hr className="my-6 border-gray-200" />,
+                    hr: () => <hr className="mdr-hr" />,
                     strong: ({ children }) => (
-                        <strong className="font-semibold text-gray-900">{children}</strong>
+                        <strong className="mdr-strong">{children}</strong>
                     ),
-                    em: ({ children }) => <em className="italic">{children}</em>,
+                    em: ({ children }) => <em className="mdr-em">{children}</em>,
                 }}
             >
                 {content}
