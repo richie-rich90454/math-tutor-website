@@ -215,7 +215,7 @@ export default function Home() {
 
                             {/* Centered Input Box for initial state */}
                             <div className="welcome-input-wrapper">
-                                <div className="relative">
+                                <div>
                                     <div className="welcome-input-card">
                                         <div className="welcome-input-row">
                                             <input
