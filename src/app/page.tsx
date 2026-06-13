@@ -150,11 +150,11 @@ export default function Home() {
     };
 
     return (
-        <div className="flex h-screen overflow-hidden bg-gradient-to-b from-gray-50 to-gray-100">
+        <div className="app-shell">
             {/* Sidebar - Fixed position */}
             <div
-                className={`fixed top-0 left-0 z-30 h-full transition-all duration-300 ease-out ${
-                    isSidebarOpen ? "w-64" : "w-16"
+                className={`app-sidebar-wrapper ${
+                    isSidebarOpen ? "is-open" : "is-collapsed"
                 }`}
             >
                 <Sidebar isOpen={isSidebarOpen} onToggle={() => setIsSidebarOpen(!isSidebarOpen)} />
@@ -162,24 +162,24 @@ export default function Home() {
 
             {/* Main Content - with margin for sidebar */}
             <div
-                className={`flex flex-1 flex-col transition-all duration-300 ease-out ${
-                    isSidebarOpen ? "ml-64" : "ml-16"
+                className={`app-main ${
+                    isSidebarOpen ? "with-sidebar" : "with-sidebar-collapsed"
                 }`}
             >
                 {/* Header - Fixed at top */}
-                <div className="fixed top-0 right-0 z-20 px-6 py-4">
-                    <div className="flex items-center gap-2">
+                <div className="app-header">
+                    <div className="app-header-inner">
                         {messages.length > 0 && (
                             <button
                                 onClick={() => {
                                     setMessages([]);
                                     setCurrentChat(null);
                                 }}
-                                className="rounded-lg p-2.5 transition-all hover:bg-gray-100"
+                                className="app-header-new-chat-btn"
                                 aria-label="New chat"
                             >
                                 <svg
-                                    className="h-5 w-5 text-gray-600"
+                                    className="app-header-icon"
                                     fill="none"
                                     stroke="currentColor"
                                     viewBox="0 0 24 24"
@@ -199,8 +199,8 @@ export default function Home() {
 
                 {/* Dynamic Content Area - Main scrollable area */}
                 <div
-                    className={`flex flex-1 flex-col overflow-hidden transition-all duration-700 ease-out ${
-                        messages.length === 0 ? "justify-center" : "justify-start"
+                    className={`content-area ${
+                        messages.length === 0 ? "is-centered" : "is-top"
                     }`}
                 >
                     {/* Logo and Welcome Message - Centered initially */}
