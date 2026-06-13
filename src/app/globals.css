@@ -217,6 +217,12 @@ textarea {
     background: var(--color-gray-400);
 }
 
+/* Firefox scrollbar */
+.custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-gray-300) transparent;
+}
+
 /* ==========================================
    Markdown Content Styles
    ========================================== */
@@ -915,6 +921,10 @@ textarea {
 .ci-textarea:focus {
     border-color: transparent;
     box-shadow: 0 0 0 2px var(--color-gray-900);
+}
+
+.ci-textarea::placeholder {
+    color: var(--color-gray-400);
 }
 
 .ci-textarea:disabled {
