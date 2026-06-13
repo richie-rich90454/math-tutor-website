@@ -21,7 +21,7 @@ export function comparePassword(password: string, stored: string): boolean {
         const computed = createHash("sha256")
             .update(password + salt)
             .digest("hex");
-        return computed === hash;
+        return timingSafeEqual(Buffer.from(computed), Buffer.from(hash));
     }
     // PBKDF2 format (salt:iterations:keylen:hash)
     if (parts.length === 4) {
@@ -30,7 +30,7 @@ export function comparePassword(password: string, stored: string): boolean {
         const keylen = parseInt(keylenStr, 10);
         if (!salt || !iterations || !keylen || !hash) return false;
         const computed = pbkdf2Sync(password, salt, iterations, keylen, PBKDF2_DIGEST).toString("hex");
-        return computed === hash;
+        return timingSafeEqual(Buffer.from(computed), Buffer.from(hash));
     }
     return false;
 }
