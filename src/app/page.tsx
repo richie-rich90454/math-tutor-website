@@ -455,14 +455,19 @@ export default function Home() {
 
             if (!reader) throw new Error("No response body");
 
-            while (true) {
-                const { value, done } = await reader.read();
-                if (done) break;
-                const chunk = decoder.decode(value, { stream: true });
-                if (!chunk) continue;
-                setMessages((prev) =>
-                    prev.map((m) => (m.id === id ? { ...m, content: m.content + chunk } : m))
-                );
+            try {
+                while (true) {
+                    const { value, done } = await reader.read();
+                    if (done) break;
+                    const chunk = decoder.decode(value, { stream: true });
+                    if (!chunk) continue;
+                    setMessages((prev) =>
+                        prev.map((m) => (m.id === id ? { ...m, content: m.content + chunk } : m))
+                    );
+                }
+            } catch (streamError) {
+                console.error("Stream reading error:", streamError);
+                // Don't throw - the message may have partial content
             }
 
             // Don't reload full chat history after every stream — it's slow and causes white flashes.
@@ -881,34 +886,39 @@ export default function Home() {
                                                                     </button>
                                                                 )}
                                                                 <span className="message-time is-right">
-                                                                    {message.timestamp.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
+                                                                    {message.timestamp instanceof Date && !isNaN(message.timestamp.getTime())
+                                                                        ? message.timestamp.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
+                                                                        : ""}
                                                                 </span>
                                                             </>
                                                         ) : (
-                                                            <div className="msg-wrapper">
-                                                                <MessageActions
-                                                                    messageId={message.id}
-                                                                    content={message.content}
-                                                                    onRegenerate={handleRegenerate}
-                                                                    onFeedback={(type) => handleFeedback(message.id, type)}
-                                                                    feedback={feedback.get(message.id) || null}
-                                                                    isVisible={hoveredMsgId === message.id}
-                                                                />
-                                                                <div
-                                                                    className="message-bubble-assistant"
-                                                                    data-streaming={
-                                                                        isStreaming && index === messages.length - 1 && message.role === "assistant"
-                                                                            ? "true"
-                                                                            : undefined
-                                                                    }
-                                                                >
-                                                                    <MarkdownRenderer content={message.content} />
-                                                                    {isStreaming && index === messages.length - 1 && message.role === "assistant" && (
-                                                                        <span className="streaming-cursor" />
-                                                                    )}
-                                                                </div>
+                                                <div className="msg-wrapper">
+                                                    <MessageActions
+                                                        messageId={message.id}
+                                                        content={message.content}
+                                                        onRegenerate={handleRegenerate}
+                                                        onFeedback={(type) => handleFeedback(message.id, type)}
+                                                        feedback={feedback.get(message.id) || null}
+                                                        isVisible={hoveredMsgId === message.id}
+                                                    />
+                                                    <div
+                                                        className="message-bubble-assistant"
+                                                        data-streaming={
+                                                            isStreaming && index === messages.length - 1 && message.role === "assistant"
+                                                                ? "true"
+                                                                : undefined
+                                                        }
+                                                    >
+                                                        {message.content ? (
+                                                            <MarkdownRenderer content={message.content} />
+                                                        ) : (
+                                                            <span className="streaming-cursor" />
+                                                        )}
+                                                    </div>
                                                                 <span className="message-time is-left">
-                                                                    {message.timestamp.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
+                                                                    {message.timestamp instanceof Date && !isNaN(message.timestamp.getTime())
+                                                                        ? message.timestamp.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
+                                                                        : ""}
                                                                 </span>
                                                             </div>
                                                         )}
