@@ -316,7 +316,10 @@ export default function Home() {
     }, [isStreaming, messages.length]);
 
     // Load messages from current chat when it changes
+    // IMPORTANT: Skip if currently streaming to avoid resetting messages mid-stream
     useEffect(() => {
+        if (isStreaming) return;
+
         if (!currentChat) {
             queueMicrotask(() => {
                 setMessages([]);
@@ -364,7 +367,7 @@ export default function Home() {
         })();
 
         return () => { cancelled = true; };
-    }, [currentChat]);
+    }, [currentChat, isStreaming]);
 
     const sendMessage = async () => {
         if (!input.trim() || isLoading) return;
