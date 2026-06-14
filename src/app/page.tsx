@@ -29,7 +29,6 @@ const ShortcutHelp = dynamic(() => import("@/components/ui/ShortcutHelp"));
 interface Message {
     id: string;
     content: string;
-    thinking?: string;
     role: "user" | "assistant";
     timestamp: Date;
 }
@@ -287,35 +286,20 @@ export default function Home() {
             }
 
             const assistantId = (Date.now() + 1).toString();
-            setMessages((prev) => [...prev, { id: assistantId, role: "assistant", content: "", thinking: "", timestamp: new Date() }]);
+            setMessages((prev) => [...prev, { id: assistantId, role: "assistant", content: "", timestamp: new Date() }]);
 
             const reader = response.body?.getReader();
             if (!reader) throw new Error("No response body");
             const decoder = new TextDecoder();
-            let buffer = "";
 
             while (true) {
                 const { value, done } = await reader.read();
                 if (done) break;
-                buffer += decoder.decode(value, { stream: true });
-                const lines = buffer.split("\n");
-                buffer = lines.pop() || "";
-                for (const line of lines) {
-                    const trimmed = line.trim();
-                    if (!trimmed) continue;
-                    try {
-                        const chunk = JSON.parse(trimmed);
-                        if (chunk.type === "thinking" && chunk.text) {
-                            setMessages((prev) =>
-                                prev.map((m) => m.id === assistantId ? { ...m, thinking: (m.thinking || "") + chunk.text } : m)
-                            );
-                        } else if (chunk.type === "content" && chunk.text) {
-                            setMessages((prev) =>
-                                prev.map((m) => m.id === assistantId ? { ...m, content: m.content + chunk.text } : m)
-                            );
-                        }
-                    } catch {}
-                }
+                const chunk = decoder.decode(value, { stream: true });
+                if (!chunk) continue;
+                setMessages((prev) =>
+                    prev.map((m) => m.id === assistantId ? { ...m, content: m.content + chunk } : m)
+                );
             }
         } catch (error: any) {
             if (error.name === "AbortError") return;
@@ -597,22 +581,10 @@ export default function Home() {
                                                                     feedback={feedback.get(message.id) || null} isVisible={hoveredMsgId === message.id} />
                                                                 <div className="message-bubble-assistant"
                                                                     data-streaming={isStreaming && index === messages.length - 1 ? "true" : undefined}>
-                                                                    {message.thinking ? (
-                                                                        <details className="thinking-block">
-                                                                            <summary className="thinking-label">
-                                                                                {isStreaming && index === messages.length - 1 && !message.content
-                                                                                    ? "Thinking..."
-                                                                                    : "Thinking"}
-                                                                            </summary>
-                                                                            <div className="thinking-content">
-                                                                                <MarkdownRenderer content={message.thinking} />
-                                                                            </div>
-                                                                        </details>
-                                                                    ) : null}
                                                                     {message.content ? (
                                                                         <MarkdownRenderer content={message.content} />
                                                                     ) : (
-                                                                        !message.thinking && <span className="streaming-cursor" />
+                                                                        <span className="streaming-cursor" />
                                                                     )}
                                                                 </div>
                                                                 <span className="message-time is-left">{formatTime(message.timestamp)}</span>

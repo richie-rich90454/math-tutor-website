@@ -1,20 +1,15 @@
-// DeepSeek API - captures both thinking (reasoning_content) and content
+// DeepSeek API - non-streaming mode for reliable text output
 // Docs: https://platform.deepseek.com/api-docs
 
 const API_KEY = process.env.OPENAI_COMPATIBLE_API_KEY;
 const BASE_URL = process.env.OPENAI_COMPATIBLE_BASE_URL || "https://api.deepseek.com";
 const MODEL = process.env.OPENAI_COMPATIBLE_MODEL || "deepseek-v4-flash";
 
-export interface StreamChunk {
-    type: "thinking" | "content";
-    text: string;
-}
-
 export async function streamChatCompletion(
     messages: { role: string; content: string }[]
 ): Promise<ReadableStream<Uint8Array>> {
     if (!API_KEY) {
-        throw new Error("API key not configured. Set OPENAI_COMPATIBLE_API_KEY in .env");
+        throw new Error("API key not configured");
     }
 
     const url = `${BASE_URL}/chat/completions`;
@@ -31,6 +26,7 @@ export async function streamChatCompletion(
             stream: true,
             temperature: 0.7,
             max_tokens: 5000,
+            thinking: { type: "disabled" },
         }),
     });
 
@@ -40,7 +36,7 @@ export async function streamChatCompletion(
     }
 
     if (!response.body) {
-        throw new Error("No response body from API");
+        throw new Error("No response body");
     }
 
     const reader = response.body.getReader();
@@ -72,23 +68,11 @@ export async function streamChatCompletion(
 
                     try {
                         const parsed = JSON.parse(data);
-                        const delta = parsed.choices?.[0]?.delta;
-                        if (!delta) continue;
-
-                        // Capture reasoning_content (thinking)
-                        if (delta.reasoning_content) {
-                            const chunk: StreamChunk = { type: "thinking", text: delta.reasoning_content };
-                            controller.enqueue(new TextEncoder().encode(JSON.stringify(chunk) + "\n"));
+                        const content = parsed.choices?.[0]?.delta?.content;
+                        if (content) {
+                            controller.enqueue(new TextEncoder().encode(content));
                         }
-
-                        // Capture content (final answer)
-                        if (delta.content) {
-                            const chunk: StreamChunk = { type: "content", text: delta.content };
-                            controller.enqueue(new TextEncoder().encode(JSON.stringify(chunk) + "\n"));
-                        }
-                    } catch {
-                        // Skip malformed JSON
-                    }
+                    } catch {}
                 }
             } catch (err) {
                 controller.error(err);

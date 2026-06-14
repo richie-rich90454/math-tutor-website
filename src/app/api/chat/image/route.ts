@@ -76,6 +76,7 @@ export async function POST(request: NextRequest) {
                 stream: true,
                 temperature: 0.7,
                 max_tokens: 4096,
+                thinking: { type: "disabled" },
             }),
             signal: AbortSignal.timeout(120_000),
         });
@@ -91,51 +92,26 @@ export async function POST(request: NextRequest) {
 
         const reader = response.body.getReader();
         const decoder = new TextDecoder();
-        let buffer = "";
-        let fullContent = "";
-        let fullThinking = "";
+        const encoder = new TextEncoder();
+        let fullResponse = "";
 
         const responseStream = new ReadableStream({
             async pull(controller) {
                 try {
                     const { done, value } = await reader.read();
                     if (done) {
-                        const assistantMsgId = uuidv4();
-                        addMessage(assistantMsgId, activeChatId!, "assistant", fullContent || fullThinking, 0);
-                        logUsage(assistantMsgId, session.user.id, activeChatId!, 0, 0);
+                        if (fullResponse.trim()) {
+                            const assistantMsgId = uuidv4();
+                            addMessage(assistantMsgId, activeChatId!, "assistant", fullResponse, 0);
+                            logUsage(assistantMsgId, session.user.id, activeChatId!, 0, 0);
+                        }
                         controller.close();
                         return;
                     }
 
-                    buffer += decoder.decode(value, { stream: true });
-                    const lines = buffer.split("\n");
-                    buffer = lines.pop() || "";
-
-                    for (const line of lines) {
-                        const trimmed = line.trim();
-                        if (!trimmed || !trimmed.startsWith("data: ")) continue;
-                        const data = trimmed.slice(6);
-                        if (data === "[DONE]") {
-                            const assistantMsgId = uuidv4();
-                            addMessage(assistantMsgId, activeChatId!, "assistant", fullContent || fullThinking, 0);
-                            logUsage(assistantMsgId, session.user.id, activeChatId!, 0, 0);
-                            controller.close();
-                            return;
-                        }
-                        try {
-                            const parsed = JSON.parse(data);
-                            const delta = parsed.choices?.[0]?.delta;
-                            if (!delta) continue;
-                            if (delta.reasoning_content) {
-                                fullThinking += delta.reasoning_content;
-                                controller.enqueue(new TextEncoder().encode(JSON.stringify({ type: "thinking", text: delta.reasoning_content }) + "\n"));
-                            }
-                            if (delta.content) {
-                                fullContent += delta.content;
-                                controller.enqueue(new TextEncoder().encode(JSON.stringify({ type: "content", text: delta.content }) + "\n"));
-                            }
-                        } catch {}
-                    }
+                    const chunk = decoder.decode(value, { stream: true });
+                    fullResponse += chunk;
+                    controller.enqueue(encoder.encode(chunk));
                 } catch (err) {
                     controller.error(err);
                 }

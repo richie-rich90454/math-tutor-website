@@ -205,25 +205,25 @@ export async function POST(request: NextRequest) {
 
         const reader = stream.getReader();
         const encoder = new TextEncoder();
-        let fullThinking = "";
-        let fullContent = "";
+        let fullResponse = "";
 
         const responseStream = new ReadableStream({
             async pull(controller) {
                 try {
                     const { done, value } = await reader.read();
                     if (done) {
-                        // Save to DB
-                        const assistantMsgId = uuidv4();
-                        const combinedContent = fullContent || fullThinking;
-                        addMessage(assistantMsgId, activeChatId!, "assistant", combinedContent, 0);
-                        logUsage(uuidv4(), session.user.id, activeChatId!, 0, 0);
+                        // Save accumulated response to DB
+                        if (fullResponse.trim()) {
+                            const assistantMsgId = uuidv4();
+                            addMessage(assistantMsgId, activeChatId!, "assistant", fullResponse, 0);
+                            logUsage(uuidv4(), session.user.id, activeChatId!, 0, 0);
+                        }
                         controller.close();
                         return;
                     }
-                    // Forward the raw JSON chunks as-is
-                    const raw = new TextDecoder().decode(value);
-                    controller.enqueue(encoder.encode(raw));
+                    const chunk = new TextDecoder().decode(value);
+                    fullResponse += chunk;
+                    controller.enqueue(encoder.encode(chunk));
                 } catch (err) {
                     controller.error(err);
                 }
@@ -232,7 +232,7 @@ export async function POST(request: NextRequest) {
 
         return new Response(responseStream, {
             headers: {
-                "Content-Type": "text/x-ndjson; charset=utf-8",
+                "Content-Type": "text/plain; charset=utf-8",
                 "Cache-Control": "no-cache, no-transform",
                 "X-Accel-Buffering": "no",
                 "X-RateLimit-Limit": String(RATE_LIMIT),
