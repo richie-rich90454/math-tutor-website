@@ -67,7 +67,6 @@ export default function Home() {
     const [isStreaming, setIsStreaming] = useState(false);
     const [activeChatId, setActiveChatId] = useState<string | null>(null);
     const [isLoaded, setIsLoaded] = useState(false);
-    const [renderError, setRenderError] = useState<string | null>(null);
 
     // Refs
     const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -244,50 +243,83 @@ export default function Home() {
     const sendMessage = useCallback(async () => {
         if (!input.trim() || isLoading) return;
 
-        console.log("[Debug] sendMessage started");
+        const userMessage: Message = {
+            id: Date.now().toString(),
+            role: "user",
+            content: input,
+            timestamp: new Date(),
+        };
+
         const currentInput = input;
         setInput("");
+        setMessages((prev) => [...prev, userMessage]);
         setIsLoading(true);
+        setIsStreaming(true);
+
+        const controller = new AbortController();
+        abortControllerRef.current = controller;
 
         try {
-            console.log("[Debug] Fetching /api/chat/message...");
             const response = await fetch("/api/chat/message", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ message: currentInput, preferredLanguage: currentLanguage.code, chatId: null }),
+                body: JSON.stringify({
+                    message: currentInput,
+                    preferredLanguage: currentLanguage.code,
+                    chatId: activeChatId,
+                }),
+                signal: controller.signal,
             });
-            console.log("[Debug] Response status:", response.status);
 
             if (!response.ok) {
-                const errText = await response.text();
-                console.error("[Debug] Error:", errText);
-                throw new Error(`API error ${response.status}`);
+                let errMsg = "Failed to get response";
+                try {
+                    const data = await response.json();
+                    errMsg = data?.error || errMsg;
+                } catch {}
+                throw new Error(errMsg);
             }
 
-            // Simple test: just read the response as text
-            const text = await response.text();
-            console.log("[Debug] Response length:", text.length);
-            console.log("[Debug] First 200 chars:", text.slice(0, 200));
+            const serverChatId = response.headers.get("X-Chat-Id");
+            if (serverChatId && serverChatId !== activeChatId) {
+                setActiveChatId(serverChatId);
+            }
 
-            // Add messages after successful fetch
-            const userMessage: Message = { id: Date.now().toString(), role: "user", content: currentInput, timestamp: new Date() };
-            const assistantMessage: Message = { id: (Date.now() + 1).toString(), role: "assistant", content: text, timestamp: new Date() };
-            setMessages([userMessage, assistantMessage]);
+            const assistantId = (Date.now() + 1).toString();
+            setMessages((prev) => [...prev, { id: assistantId, role: "assistant", content: "", timestamp: new Date() }]);
 
-        } catch (err: any) {
-            console.error("[Debug] Error:", err);
+            const reader = response.body?.getReader();
+            if (!reader) throw new Error("No response body");
+            const decoder = new TextDecoder();
+
+            while (true) {
+                const { value, done } = await reader.read();
+                if (done) break;
+                const chunk = decoder.decode(value, { stream: true });
+                if (!chunk) continue;
+                setMessages((prev) =>
+                    prev.map((m) => m.id === assistantId ? { ...m, content: m.content + chunk } : m)
+                );
+            }
+        } catch (error: any) {
+            if (error.name === "AbortError") return;
+            console.error("Send error:", error);
+            setMessages((prev) => [...prev, {
+                id: (Date.now() + 1).toString(),
+                role: "assistant",
+                content: error.message || "Failed to send message",
+                timestamp: new Date(),
+            }]);
         } finally {
             setIsLoading(false);
             setIsStreaming(false);
+            abortControllerRef.current = null;
         }
-    }, [input, isLoading, currentLanguage.code]);
+    }, [input, isLoading, currentLanguage.code, activeChatId]);
 
     // ── Send image ──
     const sendImage = useCallback(async () => {
         if (!pendingImage || isLoading) return;
-
-        const sendBtn = document.querySelector<HTMLElement>(".ia-send-btn");
-        if (sendBtn) particleBurst(sendBtn);
 
         const imageMessage: Message = {
             id: Date.now().toString(),
@@ -298,33 +330,11 @@ export default function Home() {
 
         const imageData = pendingImage;
         const currentInput = input;
-        const currentActiveChatId = activeChatId;
         setInput("");
         setPendingImage(null);
         setMessages((prev) => [...prev, imageMessage]);
         setIsLoading(true);
         setIsStreaming(true);
-
-        let chatIdToSend = currentActiveChatId;
-        if (messages.length === 0 && !currentActiveChatId) {
-            const newId = Date.now().toString();
-            chatIdToSend = newId;
-            setActiveChatId(newId);
-            const newChat: ChatSession = {
-                id: newId,
-                title: (currentInput || "Image question").slice(0, 30),
-                timestamp: new Date().toISOString(),
-                preview: currentInput || "Image question",
-                messages: [{
-                    id: imageMessage.id,
-                    content: `[Image] ${currentInput || "Please solve this math problem"}`,
-                    role: "user" as const,
-                    timestamp: imageMessage.timestamp.toISOString(),
-                }],
-            };
-            addChatSession(newChat);
-            setCurrentChat(newChat);
-        }
 
         const controller = new AbortController();
         abortControllerRef.current = controller;
@@ -338,18 +348,13 @@ export default function Home() {
                     mimeType: imageData.mimeType,
                     message: currentInput || "",
                     preferredLanguage: currentLanguage.code,
-                    chatId: chatIdToSend,
+                    chatId: activeChatId,
                 }),
                 signal: controller.signal,
             });
 
             if (!response.ok) {
-                if (response.status === 401) {
-                    addToast("error", t("toastSignInRequired"));
-                    router.push("/login");
-                    return;
-                }
-                let errMsg = t("toastFailedResponse");
+                let errMsg = "Failed to get response";
                 try {
                     const data = await response.json();
                     errMsg = data?.error || errMsg;
@@ -358,47 +363,41 @@ export default function Home() {
             }
 
             const serverChatId = response.headers.get("X-Chat-Id");
-            if (serverChatId && serverChatId !== chatIdToSend) {
-                syncChatId(chatIdToSend!, serverChatId);
+            if (serverChatId && serverChatId !== activeChatId) {
                 setActiveChatId(serverChatId);
             }
 
             const assistantId = (Date.now() + 1).toString();
-            setMessages((prev) => [...prev, {
-                id: assistantId,
-                role: "assistant",
-                content: "",
-                timestamp: new Date(),
-            }]);
+            setMessages((prev) => [...prev, { id: assistantId, role: "assistant", content: "", timestamp: new Date() }]);
 
             const reader = response.body?.getReader();
             if (!reader) throw new Error("No response body");
             const decoder = new TextDecoder();
 
-            try {
-                while (true) {
-                    const { value, done } = await reader.read();
-                    if (done) break;
-                    const chunk = decoder.decode(value, { stream: true });
-                    if (!chunk) continue;
-                    setMessages((prev) =>
-                        prev.map((m) => m.id === assistantId ? { ...m, content: m.content + chunk } : m)
-                    );
-                }
-            } catch (streamErr) {
-                console.error("Stream error:", streamErr);
+            while (true) {
+                const { value, done } = await reader.read();
+                if (done) break;
+                const chunk = decoder.decode(value, { stream: true });
+                if (!chunk) continue;
+                setMessages((prev) =>
+                    prev.map((m) => m.id === assistantId ? { ...m, content: m.content + chunk } : m)
+                );
             }
         } catch (error: any) {
             if (error.name === "AbortError") return;
             console.error("Send image error:", error);
-            setRenderError(error.message || "Failed to send image");
-            addToast("error", error.message || t("toastFailedSend"));
+            setMessages((prev) => [...prev, {
+                id: (Date.now() + 1).toString(),
+                role: "assistant",
+                content: error.message || "Failed to send image",
+                timestamp: new Date(),
+            }]);
         } finally {
             setIsLoading(false);
             setIsStreaming(false);
             abortControllerRef.current = null;
         }
-    }, [pendingImage, isLoading, input, messages.length, activeChatId, currentLanguage.code, addChatSession, setCurrentChat, syncChatId, addToast, t, router]);
+    }, [pendingImage, isLoading, input, currentLanguage.code, activeChatId]);
 
     const handleStopGeneration = useCallback(() => {
         abortControllerRef.current?.abort();
@@ -475,23 +474,6 @@ export default function Home() {
         if (!(d instanceof Date) || isNaN(d.getTime())) return "";
         return d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", timeZoneName: "short" });
     };
-
-    if (renderError) {
-        return (
-            <div className="app-shell">
-                <div className="error-boundary">
-                    <div className="error-boundary-card">
-                        <h2 className="error-boundary-title">Something went wrong</h2>
-                        <p className="error-boundary-message">{renderError}</p>
-                        <div className="error-boundary-actions">
-                            <button onClick={() => { setRenderError(null); setMessages([]); setActiveChatId(null); }} className="error-boundary-btn">Try again</button>
-                            <button onClick={() => window.location.reload()} className="error-boundary-btn error-boundary-btn-secondary">Reload page</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        );
-    }
 
     return (
         <div className="app-shell">
