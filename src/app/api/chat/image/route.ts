@@ -5,9 +5,9 @@ import { createChat, updateChat } from "@/lib/db/chats";
 import { logUsage } from "@/lib/db/usage";
 import { v4 as uuidv4 } from "uuid";
 
-const VISION_MODEL = process.env.OPENAI_COMPATIBLE_VISION_MODEL || process.env.OPENAI_COMPATIBLE_MODEL || "deepseek-chat";
+const VISION_MODEL = process.env.OPENAI_COMPATIBLE_VISION_MODEL || process.env.OPENAI_COMPATIBLE_MODEL || "deepseek-v4-flash";
 const API_KEY = process.env.OPENAI_COMPATIBLE_API_KEY;
-const BASE_URL = process.env.OPENAI_COMPATIBLE_BASE_URL || "https://api.deepseek.com/v1";
+const BASE_URL = process.env.OPENAI_COMPATIBLE_BASE_URL || "https://api.deepseek.com";
 
 export async function POST(request: NextRequest) {
     try {

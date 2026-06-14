@@ -1,7 +1,7 @@
 const OPENAI_COMPATIBLE_API_KEY = process.env.OPENAI_COMPATIBLE_API_KEY;
 const OPENAI_COMPATIBLE_BASE_URL =
-    process.env.OPENAI_COMPATIBLE_BASE_URL || "https://api.deepseek.com/v1";
-const MODEL = process.env.OPENAI_COMPATIBLE_MODEL || "deepseek-chat";
+    process.env.OPENAI_COMPATIBLE_BASE_URL || "https://api.deepseek.com";
+const MODEL = process.env.OPENAI_COMPATIBLE_MODEL || "deepseek-v4-flash";
 
 interface ChatMessage {
     role: "system" | "user" | "assistant";
@@ -15,7 +15,10 @@ export async function streamChatCompletion(
         throw new Error("DeepSeek API key is not configured");
     }
 
-    const response = await fetch(`${OPENAI_COMPATIBLE_BASE_URL}/chat/completions`, {
+    const url = `${OPENAI_COMPATIBLE_BASE_URL}/chat/completions`;
+    console.log("[DeepSeek] Calling:", url, "model:", MODEL);
+
+    const response = await fetch(url, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -28,14 +31,18 @@ export async function streamChatCompletion(
             temperature: 0.7,
             max_tokens: 4096,
         }),
-        signal: AbortSignal.timeout(60_000),
+        signal: AbortSignal.timeout(120_000),
     });
 
     if (!response.ok) {
-        const error = await response.json().catch(() => ({}));
-        throw new Error(
-            (error as any).error?.message || `DeepSeek API returned ${response.status}`
-        );
+        const errorBody = await response.text();
+        console.error("[DeepSeek] Error response:", response.status, errorBody);
+        let errorMsg = `DeepSeek API returned ${response.status}`;
+        try {
+            const errorJson = JSON.parse(errorBody);
+            errorMsg = errorJson.error?.message || errorMsg;
+        } catch {}
+        throw new Error(errorMsg);
     }
 
     if (!response.body) {
