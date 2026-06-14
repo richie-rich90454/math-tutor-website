@@ -34,14 +34,14 @@ export default function Sidebar({ isOpen, onToggle, onChatSelect, onShowShortcut
     const sidebarRef = useRef<HTMLDivElement>(null);
 
     // ── Responsive: track window width ────────────────────────────────────
-    const [windowWidth, setWindowWidth] = useState<number>(() => {
-        if (typeof window !== "undefined") return window.innerWidth;
-        return 1024;
-    });
+    // Always start with 1024 (server value) to avoid hydration mismatch
+    const [windowWidth, setWindowWidth] = useState<number>(1024);
     const isLargeScreen = windowWidth >= 1024;
     const prevIsLargeScreen = useRef(isLargeScreen);
 
+    // Update width after mount (client-only)
     useEffect(() => {
+        setWindowWidth(window.innerWidth);
         const handleResize = () => setWindowWidth(window.innerWidth);
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
