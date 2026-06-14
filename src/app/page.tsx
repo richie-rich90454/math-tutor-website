@@ -33,6 +33,16 @@ interface Message {
     timestamp: Date;
 }
 
+// Parse UTC timestamp string from DB into a Date object
+// SQLite datetime('now') returns "YYYY-MM-DD HH:MM:SS" which is UTC
+function parseUTCTimestamp(ts: string): Date {
+    if (!ts) return new Date();
+    // If already ISO format with Z, parse directly
+    if (ts.endsWith("Z") || ts.includes("+")) return new Date(ts);
+    // Append Z to indicate UTC
+    return new Date(ts.replace(" ", "T") + "Z");
+}
+
 export default function Home() {
     const { t, currentLanguage } = useLanguage();
     const { currentChat, addChatSession, setCurrentChat, chatHistory, syncChatId } = useChat();
@@ -182,7 +192,7 @@ export default function Home() {
                 id: msg.id,
                 content: msg.content,
                 role: msg.role as "user" | "assistant",
-                timestamp: new Date(msg.timestamp),
+                timestamp: parseUTCTimestamp(msg.timestamp),
             }));
             setMessages(formatted);
             setActiveChatId(currentChat.id);
@@ -203,7 +213,7 @@ export default function Home() {
                     id: msg.id,
                     content: msg.content,
                     role: msg.role as "user" | "assistant",
-                    timestamp: new Date(msg.created_at),
+                    timestamp: parseUTCTimestamp(msg.created_at),
                 }));
                 setMessages(formatted);
                 setActiveChatId(currentChat.id);
@@ -546,7 +556,10 @@ export default function Home() {
     }, [handleSidebarToggle, handleNewChat, sendMessage, showCommandPalette, showShortcuts, isSidebarOpen]);
 
     // ── Render ──
-    const formatTime = (d: Date) => d instanceof Date && !isNaN(d.getTime()) ? d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) : "";
+    const formatTime = (d: Date) => {
+        if (!(d instanceof Date) || isNaN(d.getTime())) return "";
+        return d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", timeZoneName: "short" });
+    };
 
     return (
         <div className="app-shell">
