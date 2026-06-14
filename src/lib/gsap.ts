@@ -326,3 +326,128 @@ export function useAnimateOnMount(
         { dependencies: [ref, ...deps], scope: ref as RefObject<Element> }
     );
 }
+
+// ==========================================
+// Advanced Animations
+// ==========================================
+
+/**
+ * Staggered card entrance — cards slide up and fade in with stagger
+ */
+export function staggerCards(parent: HTMLElement, delay: number = 0) {
+    const cards = parent.querySelectorAll(".settings-card, .progress-stat-card");
+    if (!cards.length) return;
+    return gsap.from(cards, {
+        y: 30,
+        opacity: 0,
+        duration: 0.5,
+        stagger: 0.08,
+        delay,
+        ease: "power3.out",
+    });
+}
+
+/**
+ * Floating animation — gentle up/down oscillation
+ */
+export function float(el: HTMLElement, distance: number = 8, duration: number = 3) {
+    return gsap.to(el, {
+        y: `-=${distance}`,
+        duration,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+    });
+}
+
+/**
+ * Glitch text effect — rapid position jitter then settle
+ */
+export function glitchText(el: HTMLElement) {
+    return gsap.timeline()
+        .to(el, { x: -3, duration: 0.05, repeat: 5, yoyo: true })
+        .to(el, { x: 0, duration: 0.3, ease: "elastic.out(1, 0.3)" });
+}
+
+/**
+ * Morph scale — element scales up slightly then back with bounce
+ */
+export function morphScale(el: HTMLElement, scale: number = 1.08) {
+    return gsap.to(el, {
+        scale,
+        duration: 0.3,
+        ease: "back.out(2)",
+        yoyo: true,
+        repeat: 1,
+    });
+}
+
+/**
+ * Slide reveal — clip-path reveal from left to right
+ */
+export function slideReveal(el: HTMLElement, delay: number = 0) {
+    gsap.set(el, { clipPath: "inset(0 100% 0 0)" });
+    return gsap.to(el, {
+        clipPath: "inset(0 0% 0 0)",
+        duration: 0.6,
+        delay,
+        ease: "power3.out",
+    });
+}
+
+/**
+ * Counter animation — animate a number from 0 to target
+ */
+export function animateCounter(el: HTMLElement, target: number, duration: number = 1.5) {
+    const obj = { value: 0 };
+    return gsap.to(obj, {
+        value: target,
+        duration,
+        ease: "power2.out",
+        onUpdate: () => {
+            el.textContent = Math.round(obj.value).toString();
+        },
+    });
+}
+
+/**
+ * Ripple effect on click
+ */
+export function ripple(el: HTMLElement, x: number, y: number) {
+    const circle = document.createElement("span");
+    const diameter = Math.max(el.clientWidth, el.clientHeight);
+    const radius = diameter / 2;
+    circle.style.cssText = `
+        width: ${diameter}px; height: ${diameter}px;
+        left: ${x - el.getBoundingClientRect().left - radius}px;
+        top: ${y - el.getBoundingClientRect().top - radius}px;
+        position: absolute; border-radius: 50%;
+        background: currentColor; opacity: 0.15;
+        pointer-events: none; transform: scale(0);
+    `;
+    el.style.position = "relative";
+    el.style.overflow = "hidden";
+    el.appendChild(circle);
+    gsap.to(circle, {
+        scale: 2.5,
+        opacity: 0,
+        duration: 0.6,
+        ease: "power2.out",
+        onComplete: () => circle.remove(),
+    });
+}
+
+/**
+ * Smooth number ticker — update a displayed number with animation
+ */
+export function ticker(el: HTMLElement, from: number, to: number, duration: number = 0.8) {
+    const obj = { value: from };
+    return gsap.to(obj, {
+        value: to,
+        duration,
+        ease: "power2.out",
+        onUpdate: () => {
+            el.textContent = Math.round(obj.value).toString();
+        },
+    });
+}

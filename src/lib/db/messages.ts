@@ -45,6 +45,16 @@ export function getChatMessages(chatSessionId: string): ChatMessage[] {
         .all(chatSessionId) as ChatMessage[];
 }
 
+export function getRecentMessages(chatSessionId: string, limit: number = 20): ChatMessage[] {
+    const db = getDb();
+    return db
+        .prepare(
+            "SELECT * FROM chat_messages WHERE chat_session_id = ? ORDER BY created_at DESC LIMIT ?"
+        )
+        .all(chatSessionId, limit)
+        .reverse() as ChatMessage[];
+}
+
 export function deleteMessages(chatSessionId: string): void {
     const db = getDb();
     db.prepare("DELETE FROM chat_messages WHERE chat_session_id = ?").run(chatSessionId);

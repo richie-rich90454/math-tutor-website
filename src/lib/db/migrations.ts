@@ -30,6 +30,7 @@ const MIGRATIONS = [
                 user_id TEXT NOT NULL REFERENCES users(id),
                 title TEXT NOT NULL,
                 preview TEXT,
+                topic TEXT,
                 is_archived INTEGER DEFAULT 0,
                 is_pinned INTEGER DEFAULT 0,
                 created_at TEXT DEFAULT (datetime('now')),
@@ -73,6 +74,11 @@ const MIGRATIONS = [
             CREATE INDEX IF NOT EXISTS idx_usage_logs_created_at ON usage_logs(created_at);
         `,
     },
+    {
+        version: 2,
+        name: "add_topic_column",
+        sql: `ALTER TABLE chat_sessions ADD COLUMN topic TEXT;`,
+    },
 ];
 
 export function migrate(db: Database.Database): void {
@@ -94,7 +100,13 @@ export function migrate(db: Database.Database): void {
     const pending = MIGRATIONS.filter((m) => !applied.has(m.version));
 
     for (const migration of pending) {
-        db.exec(migration.sql);
+        try {
+            db.exec(migration.sql);
+        } catch (e: any) {
+            if (!e.message?.includes("duplicate column")) {
+                throw e;
+            }
+        }
         db.prepare("INSERT INTO _migrations (version, name) VALUES (?, ?)").run(
             migration.version,
             migration.name

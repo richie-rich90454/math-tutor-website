@@ -8,6 +8,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage, languages } from "@/contexts/LanguageContext";
 import { Translations } from "@/lib/translations";
 import { particleBurst } from "@/lib/gsap";
+import { APP_VERSION } from "@/lib/config";
 
 type Theme = "light" | "dark" | "system";
 
@@ -283,7 +284,7 @@ export default function SettingsPage() {
 
                 {/* Version */}
                 <div className="settings-footer">
-                    <p className="settings-version">{t("settingsVersion")}</p>
+                    <p className="settings-version">MathTutor AI v{APP_VERSION}</p>
                 </div>
             </div>
         </div>

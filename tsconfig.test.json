@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "noEmit": false,
+    "module": "commonjs",
+    "moduleResolution": "node16",
+    "ignoreDeprecations": "6.0"
+  },
+  "include": [
+    "__tests__/**/*.ts",
+    "src/**/*.ts"
+  ]
+}

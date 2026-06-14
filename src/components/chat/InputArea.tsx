@@ -1,7 +1,9 @@
 "use client";
 
-import { memo, useRef, useEffect, useCallback } from "react";
+import { memo, useRef, useEffect, useCallback, useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import ImageUpload from "./ImageUpload";
+import VoiceInput from "./VoiceInput";
 
 interface InputAreaProps {
     value: string;
@@ -11,6 +13,7 @@ interface InputAreaProps {
     placeholder?: string;
     onStop?: () => void;
     isStreaming?: boolean;
+    onImageSelect?: (imageData: string, mimeType: string) => void;
 }
 
 const InputArea = memo(function InputArea({
@@ -21,6 +24,7 @@ const InputArea = memo(function InputArea({
     placeholder = "Ask a math question...",
     onStop,
     isStreaming = false,
+    onImageSelect,
 }: InputAreaProps) {
     const { t } = useLanguage();
     const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -48,9 +52,9 @@ const InputArea = memo(function InputArea({
     );
 
     const handleSend = useCallback(() => {
-        if (!value.trim() || isLoading) return;
+        if ((!value.trim() && !onImageSelect) || isLoading) return;
         onSend();
-    }, [value, isLoading, onSend]);
+    }, [value, isLoading, onSend, onImageSelect]);
 
     const handleKeyDown = (e: React.KeyboardEvent) => {
         if (e.key === "Enter" && !e.shiftKey) {
@@ -62,6 +66,13 @@ const InputArea = memo(function InputArea({
     return (
         <div className="ia-root">
             <div className="ia-row">
+                {onImageSelect && (
+                    <ImageUpload onImageSelect={onImageSelect} disabled={isLoading} />
+                )}
+                <VoiceInput
+                    onTranscript={(text) => onChange(value ? value + " " + text : text)}
+                    disabled={isLoading}
+                />
                 <div className="ia-textarea-wrap">
                     <textarea
                         ref={textareaRef}
@@ -86,7 +97,7 @@ const InputArea = memo(function InputArea({
                     ) : (
                         <button
                             onClick={handleSend}
-                            disabled={!value.trim() || isLoading}
+                            disabled={(!value.trim() && !onImageSelect) || isLoading}
                             className="ia-send-btn"
                             aria-label={t("inputSendMessage")}
                         >

@@ -8,6 +8,7 @@ export interface ChatSession {
     title: string;
     timestamp: string;
     preview: string;
+    topic?: string | null;
     messages: ChatMessage[];
 }
 

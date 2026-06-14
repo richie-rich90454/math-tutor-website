@@ -21,9 +21,23 @@ SyntaxHighlighter.registerLanguage("markup", markup);
 interface MarkdownRendererProps {
     content: string;
     className?: string;
+    onSuggestionClick?: (text: string) => void;
 }
 
-export default function MarkdownRenderer({ content, className = "" }: MarkdownRendererProps) {
+export function extractSuggestions(content: string): { suggestions: string[]; cleanContent: string } {
+    const suggestionRegex = /\[SUGGESTION:\s*(.+?)\]/g;
+    const suggestions: string[] = [];
+    let match;
+    while ((match = suggestionRegex.exec(content)) !== null) {
+        suggestions.push(match[1].trim());
+    }
+    const cleanContent = content.replace(/\n?\[SUGGESTION:\s*.+?\]/g, "").trim();
+    return { suggestions, cleanContent };
+}
+
+export default function MarkdownRenderer({ content, className = "", onSuggestionClick }: MarkdownRendererProps) {
+    const { suggestions, cleanContent } = extractSuggestions(content);
+
     return (
         <div className={`markdown-content ${className}`}>
             <ReactMarkdown
@@ -160,8 +174,21 @@ export default function MarkdownRenderer({ content, className = "" }: MarkdownRe
                     em: ({ children }) => <em className="mdr-em">{children}</em>,
                 }}
             >
-                {content}
+                {cleanContent}
             </ReactMarkdown>
+            {suggestions.length > 0 && onSuggestionClick && (
+                <div className="mdr-suggestions">
+                    {suggestions.map((s, i) => (
+                        <button
+                            key={i}
+                            className="mdr-suggestion-chip"
+                            onClick={() => onSuggestionClick(s)}
+                        >
+                            {s}
+                        </button>
+                    ))}
+                </div>
+            )}
         </div>
     );
 }

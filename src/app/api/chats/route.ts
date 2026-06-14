@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getSession } from "@/lib/auth-middleware";
-import { getUserChats, createChat } from "@/lib/db/chats";
+import { getUserChats, createChat, searchChats } from "@/lib/db/chats";
 import { v4 as uuidv4 } from "uuid";
 
 export async function GET(request: NextRequest) {
@@ -10,12 +10,17 @@ export async function GET(request: NextRequest) {
             return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
         }
 
-        const chats = getUserChats(session.user.id);
+        const query = request.nextUrl.searchParams.get("q");
+        const chats = query
+            ? searchChats(session.user.id, query)
+            : getUserChats(session.user.id);
+
         const chatsWithoutMessages = chats.map((chat) => ({
             id: chat.id,
             title: chat.title,
             timestamp: chat.created_at,
             preview: chat.preview || chat.title,
+            topic: chat.topic || null,
             isPinned: chat.is_pinned === 1,
             messages: [],
         }));

@@ -5,6 +5,7 @@ interface ChatSession {
     user_id: string;
     title: string;
     preview: string | null;
+    topic: string | null;
     is_archived: number;
     is_pinned: number;
     created_at: string;
@@ -43,7 +44,7 @@ export function getChatById(chatId: string): ChatSession | null {
 
 export function updateChat(
     chatId: string,
-    fields: Partial<Pick<ChatSession, "title" | "preview" | "is_archived" | "is_pinned">>
+    fields: Partial<Pick<ChatSession, "title" | "preview" | "topic" | "is_archived" | "is_pinned">>
 ): void {
     const db = getDb();
     const sets: string[] = [];

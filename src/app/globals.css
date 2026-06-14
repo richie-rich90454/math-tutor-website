@@ -498,6 +498,16 @@ a:hover {
     box-shadow: var(--shadow-md);
 }
 .prompt-btn:active { transform: scale(0.97) translateY(0); }
+.prompt-btn-accent {
+    background: var(--accent);
+    color: var(--fg-inverse);
+    border-color: var(--accent);
+}
+.prompt-btn-accent:hover {
+    background: var(--accent-hover);
+    border-color: var(--accent-hover);
+    color: var(--fg-inverse);
+}
 
 /* ==========================================
    Chat Messages Area
@@ -584,6 +594,23 @@ a:hover {
 .message-time.is-right { text-align: right; }
 .message-time.is-left  { text-align: left; }
 
+.msg-edit-btn {
+    position: absolute;
+    top: -8px; right: -8px;
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-default);
+    color: var(--fg-muted);
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all var(--transition-fast);
+    opacity: 0;
+    box-shadow: var(--shadow-sm);
+}
+.message-row:hover .msg-edit-btn { opacity: 1; }
+.msg-edit-btn:hover { color: var(--fg-primary); border-color: var(--fg-primary); background: var(--bg-hover); }
+
 .loading-dots {
     display: flex;
     border-radius: var(--radius-lg);
@@ -591,11 +618,18 @@ a:hover {
     background: var(--bg-surface);
     padding: var(--space-4) var(--space-5);
 }
-.loading-dots-row { display: flex; gap: 5px; }
+.loading-dots-row { display: flex; gap: 5px; align-items: center; }
 .loading-dot {
     width: 8px; height: 8px;
     border-radius: var(--radius-full);
     background: var(--fg-muted);
+    animation: typingBounce 1.4s ease-in-out infinite;
+}
+.loading-dot:nth-child(2) { animation-delay: 0.2s; }
+.loading-dot:nth-child(3) { animation-delay: 0.4s; }
+@keyframes typingBounce {
+    0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+    30% { transform: translateY(-8px); opacity: 1; }
 }
 
 /* ==========================================
@@ -1127,6 +1161,38 @@ a:hover {
 .mdr-em { font-style: italic; }
 
 /* ==========================================
+   Follow-up Suggestion Chips
+   ========================================== */
+.mdr-suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-3);
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--border-subtle);
+}
+.mdr-suggestion-chip {
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border-default);
+    background: var(--bg-surface);
+    padding: 6px 14px;
+    font-size: 0.8125rem;
+    color: var(--fg-secondary);
+    transition: all var(--transition-fast);
+    white-space: nowrap;
+    font-weight: 500;
+    cursor: pointer;
+}
+.mdr-suggestion-chip:hover {
+    border-color: var(--accent);
+    background: var(--accent-light);
+    color: var(--fg-primary);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+.mdr-suggestion-chip:active { transform: scale(0.97); }
+
+/* ==========================================
    Streaming Cursor
    ========================================== */
 .streaming-cursor {
@@ -1175,8 +1241,76 @@ a:hover {
    InputArea Component
    ========================================== */
 .ia-root { width: 100%; }
-.ia-row { display: flex; align-items: center; }
+.ia-row { display: flex; align-items: center; gap: var(--space-2); }
 .ia-textarea-wrap { position: relative; flex: 1 1 0%; }
+
+.ia-image-btn {
+    display: flex; align-items: center; justify-content: center;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--border-default);
+    background: var(--bg-surface);
+    color: var(--fg-secondary);
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all var(--transition-fast);
+}
+.ia-image-btn:hover { background: var(--bg-hover); color: var(--fg-primary); border-color: var(--fg-primary); }
+.ia-image-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+
+.ia-voice-btn {
+    display: flex; align-items: center; justify-content: center;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--border-default);
+    background: var(--bg-surface);
+    color: var(--fg-secondary);
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all var(--transition-fast);
+    position: relative;
+}
+.ia-voice-btn:hover { background: var(--bg-hover); color: var(--fg-primary); border-color: var(--fg-primary); }
+.ia-voice-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+.ia-voice-btn.is-listening { background: var(--danger); color: white; border-color: var(--danger); animation: pulse 1.5s infinite; }
+.ia-voice-pulse {
+    position: absolute; inset: -4px;
+    border-radius: 50%;
+    border: 2px solid var(--danger);
+    animation: voicePulse 1.5s infinite;
+}
+@keyframes voicePulse {
+    0% { transform: scale(1); opacity: 0.6; }
+    100% { transform: scale(1.5); opacity: 0; }
+}
+
+.ia-image-preview {
+    position: relative;
+    display: inline-block;
+    margin-bottom: var(--space-2);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid var(--border-default);
+}
+.ia-image-preview img {
+    max-width: 200px;
+    max-height: 150px;
+    display: block;
+    object-fit: cover;
+}
+.ia-image-preview-remove {
+    position: absolute;
+    top: 4px; right: 4px;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--danger);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 700;
+    line-height: 1;
+}
 
 .ia-textarea {
     width: 100%;
@@ -1412,6 +1546,62 @@ a:hover {
 }
 
 /* ==========================================
+   Command Palette
+   ========================================== */
+.cmd-backdrop {
+    position: fixed; inset: 0;
+    z-index: 200;
+    display: flex; align-items: flex-start; justify-content: center;
+    padding-top: 15vh;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+.cmd-modal {
+    width: 100%; max-width: 520px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    overflow: hidden;
+    animation: fadeIn 0.15s ease-out;
+}
+.cmd-input-wrapper {
+    display: flex; align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    border-bottom: 1px solid var(--border-default);
+}
+.cmd-search-icon { color: var(--fg-muted); flex-shrink: 0; }
+.cmd-input {
+    flex: 1; border: none; background: transparent;
+    font-size: 15px; color: var(--fg-primary);
+    outline: none; font-family: var(--font-sans);
+}
+.cmd-input::placeholder { color: var(--fg-muted); }
+.cmd-list { max-height: 320px; overflow-y: auto; padding: var(--space-1); }
+.cmd-empty { padding: var(--space-8); text-align: center; color: var(--fg-muted); font-size: 13px; }
+.cmd-item {
+    display: flex; align-items: center;
+    gap: var(--space-3);
+    width: 100%; padding: var(--space-2) var(--space-3);
+    border: none; background: transparent;
+    border-radius: var(--radius-sm);
+    cursor: pointer; text-align: left;
+    transition: background var(--transition-fast);
+}
+.cmd-item:hover, .cmd-item.is-selected { background: var(--bg-hover); }
+.cmd-item-icon { width: 16px; height: 16px; color: var(--fg-muted); flex-shrink: 0; }
+.cmd-item-label { flex: 1; font-size: 14px; color: var(--fg-primary); }
+.cmd-item-shortcut {
+    font-size: 11px; color: var(--fg-muted);
+    font-family: var(--font-mono);
+    padding: 2px 6px; border-radius: 3px;
+    background: var(--bg-hover);
+    border: 1px solid var(--border-default);
+}
+
+/* ==========================================
    Scroll-to-bottom Button
    ========================================== */
 .scroll-bottom-btn {
@@ -1479,6 +1669,37 @@ a:hover {
 .context-menu-item.is-danger { color: var(--danger); }
 .context-menu-item.is-danger:hover { background: var(--danger-light); }
 .context-menu-divider { height: 1px; background: var(--border-default); margin: var(--space-1) 0; }
+
+/* ==========================================
+   Error Boundary
+   ========================================== */
+.error-boundary {
+    display: flex; align-items: center; justify-content: center;
+    min-height: 300px; padding: var(--space-8);
+}
+.error-boundary-card {
+    text-align: center; max-width: 400px;
+    background: var(--bg-surface); border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg); padding: var(--space-8);
+    box-shadow: var(--shadow-sm);
+}
+.error-boundary-icon { color: var(--danger); margin: 0 auto var(--space-4); }
+.error-boundary-title { font-size: 1.1rem; font-weight: 600; color: var(--fg-primary); margin: 0 0 var(--space-2); }
+.error-boundary-message { font-size: 13px; color: var(--fg-muted); margin: 0 0 var(--space-6); }
+.error-boundary-actions { display: flex; gap: var(--space-3); justify-content: center; }
+.error-boundary-btn {
+    padding: var(--space-2) var(--space-5);
+    background: var(--accent); color: var(--fg-inverse);
+    border: none; border-radius: var(--radius-sm);
+    font-size: 13px; font-weight: 500; cursor: pointer;
+    transition: all var(--transition-fast);
+}
+.error-boundary-btn:hover { background: var(--accent-hover); }
+.error-boundary-btn-secondary {
+    background: transparent; color: var(--fg-secondary);
+    border: 1px solid var(--border-default);
+}
+.error-boundary-btn-secondary:hover { background: var(--bg-hover); color: var(--fg-primary); }
 
 /* ==========================================
    Math Particles
@@ -1750,6 +1971,76 @@ a:hover {
 }
 .settings-save-btn:hover { background: var(--accent-hover); }
 .settings-save-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ==========================================
+   Progress Page
+   ========================================== */
+.progress-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+    margin-bottom: var(--space-8);
+}
+.progress-stat-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-md);
+    padding: var(--space-5);
+    text-align: center;
+}
+.progress-stat-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--fg-primary);
+    line-height: 1;
+    margin-bottom: var(--space-1);
+}
+.progress-stat-label {
+    font-size: 12px;
+    color: var(--fg-muted);
+    font-weight: 500;
+}
+
+.progress-topic-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-2) var(--space-4);
+    border-bottom: 1px solid var(--border-subtle);
+}
+.progress-topic-row:last-child { border-bottom: none; }
+.progress-topic-info { display: flex; align-items: center; gap: var(--space-2); min-width: 140px; }
+.progress-topic-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.progress-topic-name { font-size: 13px; font-weight: 500; color: var(--fg-primary); text-transform: capitalize; }
+.progress-topic-bar-wrapper { flex: 1; height: 6px; background: var(--bg-hover); border-radius: 3px; overflow: hidden; }
+.progress-topic-bar { height: 100%; border-radius: 3px; transition: width 0.5s ease; }
+.progress-topic-count { font-size: 12px; color: var(--fg-muted); font-variant-numeric: tabular-nums; min-width: 24px; text-align: right; }
+
+.progress-activity-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-2) var(--space-4);
+    border-bottom: 1px solid var(--border-subtle);
+}
+.progress-activity-row:last-child { border-bottom: none; }
+.progress-activity-info { display: flex; align-items: center; gap: var(--space-3); min-width: 0; }
+.progress-activity-title { font-size: 13px; color: var(--fg-primary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.progress-activity-topic { font-size: 11px; font-weight: 500; text-transform: capitalize; }
+.progress-activity-date { font-size: 12px; color: var(--fg-muted); flex-shrink: 0; }
+
+.progress-heatmap {
+    display: flex;
+    gap: 3px;
+    flex-wrap: wrap;
+}
+.progress-heatmap-cell {
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+    transition: background var(--transition-fast);
+}
+.progress-heatmap-cell:hover { outline: 2px solid var(--accent); outline-offset: 1px; }
 
 /* ==========================================
    Dashboard Layout

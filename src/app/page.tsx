@@ -14,6 +14,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useToast } from "@/contexts/ToastContext";
 import { exportChatAsMarkdown, exportChatAsText, downloadFile } from "@/lib/export";
 import { gsap, useGSAP, springIn, particleBurst } from "@/lib/gsap";
+import CommandPalette from "@/components/ui/CommandPalette";
 
 const MarkdownRenderer = dynamic(() => import("@/components/ui/MarkdownRenderer"), {
     loading: () => <div className="skeleton" style={{ height: 60, borderRadius: "var(--radius-md)" }} />,
@@ -49,6 +50,9 @@ export default function Home() {
     const [showScrollBtn, setShowScrollBtn] = useState(false);
     const [activeChatId, setActiveChatId] = useState<string | null>(null);
     const [isMobile, setIsMobile] = useState(false);
+    const [pendingImage, setPendingImage] = useState<{ data: string; mimeType: string } | null>(null);
+    const [showCommandPalette, setShowCommandPalette] = useState(false);
+    const [editingMessageId, setEditingMessageId] = useState<string | null>(null);
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const chatMessagesRef = useRef<HTMLDivElement>(null);
     const abortControllerRef = useRef<AbortController | null>(null);
@@ -483,6 +487,136 @@ export default function Home() {
         }
     };
 
+    const sendImage = async () => {
+        if (!pendingImage || isLoading) return;
+
+        const sendBtn = document.querySelector<HTMLElement>(".ia-send-btn");
+        if (sendBtn) particleBurst(sendBtn);
+
+        const imageMessage: Message = {
+            id: Date.now().toString(),
+            role: "user",
+            content: `[Image] ${input || "Please solve this math problem"}`,
+            timestamp: new Date(),
+        };
+
+        setMessages((prev) => [...prev, imageMessage]);
+        const imageData = pendingImage;
+        const currentInput = input;
+        setInput("");
+        setPendingImage(null);
+        setIsLoading(true);
+        setIsStreaming(true);
+
+        if (messages.length === 0 && !activeChatId) {
+            const newChat: ChatSession = {
+                id: Date.now().toString(),
+                title: (currentInput || "Image question").slice(0, 30),
+                timestamp: new Date().toISOString(),
+                preview: currentInput || "Image question",
+                messages: [
+                    {
+                        id: imageMessage.id,
+                        content: `[Image] ${currentInput || "Please solve this math problem"}`,
+                        role: "user" as const,
+                        timestamp: imageMessage.timestamp.toISOString(),
+                    },
+                ],
+            };
+            setActiveChatId(newChat.id);
+            addChatSession(newChat);
+            setCurrentChat(newChat);
+        }
+
+        const controller = new AbortController();
+        abortControllerRef.current = controller;
+
+        try {
+            const response = await fetch("/api/chat/image", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    image: imageData.data,
+                    mimeType: imageData.mimeType,
+                    message: currentInput || "",
+                    preferredLanguage: currentLanguage.code,
+                    chatId: activeChatId,
+                }),
+                signal: controller.signal,
+            });
+
+            if (!response.ok) {
+                if (response.status === 401) {
+                    addToast("error", t("toastSignInRequired"));
+                    router.push("/login");
+                    return;
+                }
+                let errMsg = t("toastFailedResponse");
+                try {
+                    const data = await response.json();
+                    errMsg = data?.error || errMsg;
+                } catch {}
+                throw new Error(errMsg);
+            }
+
+            const serverChatId = response.headers.get("X-Chat-Id");
+            if (serverChatId && serverChatId !== activeChatId && activeChatId) {
+                syncChatId(activeChatId, serverChatId);
+                setActiveChatId(serverChatId);
+            }
+
+            const id = (Date.now() + 1).toString();
+            const assistantMessage: Message = {
+                id,
+                role: "assistant",
+                content: "",
+                timestamp: new Date(),
+            };
+            setMessages((prev) => [...prev, assistantMessage]);
+
+            const reader = response.body?.getReader();
+            const decoder = new TextDecoder();
+            if (!reader) throw new Error("No response body");
+
+            while (true) {
+                const { value, done } = await reader.read();
+                if (done) break;
+                const chunk = decoder.decode(value, { stream: true });
+                if (!chunk) continue;
+                setMessages((prev) =>
+                    prev.map((m) => (m.id === id ? { ...m, content: m.content + chunk } : m))
+                );
+            }
+        } catch (error: any) {
+            if (error.name === "AbortError") return;
+            console.error("Error sending image:", error);
+            addToast("error", error.message || t("toastFailedSend"));
+            const errorMessage: Message = {
+                id: (Date.now() + 1).toString(),
+                role: "assistant",
+                content: error.message || t("toastGenericError"),
+                timestamp: new Date(),
+            };
+            setMessages((prev) => [...prev, errorMessage]);
+        } finally {
+            setIsLoading(false);
+            setIsStreaming(false);
+            abortControllerRef.current = null;
+        }
+    };
+
+    const handleImageSelect = useCallback((imageData: string, mimeType: string) => {
+        setPendingImage({ data: imageData, mimeType });
+    }, []);
+
+    const handleEditMessage = useCallback((messageId: string) => {
+        const msg = messages.find((m) => m.id === messageId);
+        if (!msg || msg.role !== "user") return;
+        setInput(msg.content);
+        setEditingMessageId(messageId);
+        setMessages((prev) => prev.filter((m) => m.id !== messageId));
+    }, [messages]);
+
     // Keyboard shortcuts
     useEffect(() => {
         const handler = (e: KeyboardEvent) => {
@@ -491,6 +625,10 @@ export default function Home() {
             if (mod && e.key === "b") {
                 e.preventDefault();
                 handleSidebarToggle();
+            }
+            if (mod && e.key === "k") {
+                e.preventDefault();
+                setShowCommandPalette((v) => !v);
             }
             if (mod && e.key === "n") {
                 e.preventDefault();
@@ -661,14 +799,21 @@ export default function Home() {
 
                                 <div className="welcome-input-wrapper">
                                     <div className="welcome-input-card">
+                                        {pendingImage && (
+                                            <div className="ia-image-preview">
+                                                <img src={pendingImage.data} alt="Selected" />
+                                                <button className="ia-image-preview-remove" onClick={() => setPendingImage(null)}>&times;</button>
+                                            </div>
+                                        )}
                                         <InputArea
                                             value={input}
                                             onChange={setInput}
-                                            onSend={sendMessage}
+                                            onSend={pendingImage ? sendImage : sendMessage}
                                             isLoading={isLoading}
                                             isStreaming={isStreaming}
                                             onStop={handleStopGeneration}
                                             placeholder={t("inputPlaceholder")}
+                                            onImageSelect={handleImageSelect}
                                         />
                                     </div>
 
@@ -697,6 +842,12 @@ export default function Home() {
                                         >
                                             {t("culturalExamples")}
                                         </button>
+                                        <button
+                                            onClick={() => setInput(t("examplePracticeProblems") || "Generate 3 practice problems for me at my current level. Make them progressively harder.")}
+                                            className="prompt-btn prompt-btn-accent"
+                                        >
+                                            {t("practiceProblems") || "Practice Problems"}
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -721,6 +872,18 @@ export default function Home() {
                                                                 <div className="message-bubble-user">
                                                                     <p>{message.content}</p>
                                                                 </div>
+                                                                {hoveredMsgId === message.id && !isStreaming && (
+                                                                    <button
+                                                                        className="msg-edit-btn"
+                                                                        onClick={() => handleEditMessage(message.id)}
+                                                                        title={t("chatEditMessage") || "Edit message"}
+                                                                    >
+                                                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                                                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                                                                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                                                                        </svg>
+                                                                    </button>
+                                                                )}
                                                                 <span className="message-time is-right">
                                                                     {message.timestamp.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
                                                                 </span>
@@ -788,15 +951,22 @@ export default function Home() {
 
                                 <div className="chat-input-bar" ref={inputBarRef}>
                                     <div className="chat-input-bar-inner">
+                                        {pendingImage && (
+                                            <div className="ia-image-preview">
+                                                <img src={pendingImage.data} alt="Selected" />
+                                                <button className="ia-image-preview-remove" onClick={() => setPendingImage(null)}>&times;</button>
+                                            </div>
+                                        )}
                                         <div className="chat-input-card">
                                             <InputArea
                                                 value={input}
                                                 onChange={setInput}
-                                                onSend={sendMessage}
+                                                onSend={pendingImage ? sendImage : sendMessage}
                                                 isLoading={isLoading}
                                                 isStreaming={isStreaming}
                                                 onStop={handleStopGeneration}
                                                 placeholder={t("inputPlaceholder")}
+                                                onImageSelect={handleImageSelect}
                                             />
                                         </div>
                                     </div>
@@ -810,6 +980,15 @@ export default function Home() {
                     <p className="app-footer-text">{t("bottomText")}</p>
                 </div>
             </div>
+
+            {showCommandPalette && (
+                <CommandPalette
+                    isOpen={showCommandPalette}
+                    onClose={() => setShowCommandPalette(false)}
+                    onNewChat={() => { setMessages([]); setCurrentChat(null); setActiveChatId(null); }}
+                    onExportChat={handleExport}
+                />
+            )}
 
             {showShortcuts && (
                 <ShortcutHelp isOpen={showShortcuts} onClose={() => setShowShortcuts(false)} />

@@ -22,6 +22,10 @@ export default class ErrorBoundary extends Component<Props, State> {
         return { hasError: true, error };
     }
 
+    componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+        console.error("ErrorBoundary caught:", error, errorInfo);
+    }
+
     render() {
         if (this.state.hasError) {
             if (this.props.fallback) return this.props.fallback;
@@ -37,12 +41,20 @@ export default class ErrorBoundary extends Component<Props, State> {
                         <p className="error-boundary-message">
                             {this.state.error?.message || "An unexpected error occurred"}
                         </p>
-                        <button
-                            onClick={() => this.setState({ hasError: false, error: null })}
-                            className="error-boundary-btn"
-                        >
-                            Try again
-                        </button>
+                        <div className="error-boundary-actions">
+                            <button
+                                onClick={() => this.setState({ hasError: false, error: null })}
+                                className="error-boundary-btn"
+                            >
+                                Try again
+                            </button>
+                            <button
+                                onClick={() => window.location.reload()}
+                                className="error-boundary-btn error-boundary-btn-secondary"
+                            >
+                                Reload page
+                            </button>
+                        </div>
                     </div>
                 </div>
             );
