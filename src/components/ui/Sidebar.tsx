@@ -130,21 +130,29 @@ export default function Sidebar({ isOpen, onToggle, onChatSelect, onShowShortcut
         setContextMenu({ x: e.clientX, y: e.clientY, chatId });
     }, []);
 
+    const [pendingDelete, setPendingDelete] = useState<{ chatId: string; chatTitle: string } | null>(null);
+    const [pendingRename, setPendingRename] = useState<{ chatId: string; currentTitle: string } | null>(null);
+    const [renameValue, setRenameValue] = useState("");
+
     const handleDeleteChat = useCallback((chatId: string, chatTitle: string) => {
-        if (window.confirm(t("sidebarDeleteConfirm").replace("%s", chatTitle))) {
-            const item = document.querySelector(`[data-chat-id="${chatId}"]`);
-            if (item) {
-                gsap.to(item, {
-                    height: 0, opacity: 0, paddingTop: 0, paddingBottom: 0, marginBottom: 0,
-                    duration: 0.25, ease: "power2.in",
-                    onComplete: () => deleteChat(chatId),
-                });
-            } else {
-                deleteChat(chatId);
-            }
+        setPendingDelete({ chatId, chatTitle });
+    }, []);
+
+    const confirmDelete = useCallback(() => {
+        if (!pendingDelete) return;
+        const item = document.querySelector(`[data-chat-id="${pendingDelete.chatId}"]`);
+        if (item) {
+            gsap.to(item, {
+                height: 0, opacity: 0, paddingTop: 0, paddingBottom: 0, marginBottom: 0,
+                duration: 0.25, ease: "power2.in",
+                onComplete: () => deleteChat(pendingDelete.chatId),
+            });
+        } else {
+            deleteChat(pendingDelete.chatId);
         }
+        setPendingDelete(null);
         setContextMenu(null);
-    }, [deleteChat]);
+    }, [pendingDelete, deleteChat]);
 
     const handlePinChat = useCallback((chatId: string) => {
         setPinnedChats((prev) => {
@@ -407,8 +415,8 @@ export default function Sidebar({ isOpen, onToggle, onChatSelect, onShowShortcut
                     </button>
                     <button className="context-menu-item" onClick={() => {
                         const chat = chatHistory.find((c) => c.id === contextMenu.chatId);
-                        const newName = window.prompt(t("sidebarRenamePrompt"), chat?.title || "");
-                        if (newName && newName.trim()) renameChat(contextMenu.chatId, newName.trim());
+                        setPendingRename({ chatId: contextMenu.chatId, currentTitle: chat?.title || "" });
+                        setRenameValue(chat?.title || "");
                         setContextMenu(null);
                     }}>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" /><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" /></svg>
@@ -422,6 +430,65 @@ export default function Sidebar({ isOpen, onToggle, onChatSelect, onShowShortcut
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="3 6 5 6 21 6" /><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /></svg>
                         {t("sidebarDelete")}
                     </button>
+                </div>
+            )}
+
+            {pendingDelete && (
+                <div className="shortcut-modal-backdrop" onClick={() => setPendingDelete(null)}>
+                    <div className="shortcut-modal" onClick={(e) => e.stopPropagation()} style={{ maxWidth: 360 }}>
+                        <div className="shortcut-modal-header">
+                            <h2 className="shortcut-modal-title">{t("sidebarDeleteConfirmTitle")}</h2>
+                        </div>
+                        <p style={{ fontSize: 14, color: "var(--fg-secondary)", marginBottom: "var(--space-6)" }}>
+                            {t("sidebarDeleteConfirm").replace("%s", pendingDelete.chatTitle)}
+                        </p>
+                        <div style={{ display: "flex", gap: "var(--space-3)", justifyContent: "flex-end" }}>
+                            <button onClick={() => setPendingDelete(null)} className="error-boundary-btn error-boundary-btn-secondary">
+                                {t("authBack") || "Cancel"}
+                            </button>
+                            <button onClick={confirmDelete} className="error-boundary-btn" style={{ background: "var(--danger)" }}>
+                                {t("sidebarDelete")}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {pendingRename && (
+                <div className="shortcut-modal-backdrop" onClick={() => setPendingRename(null)}>
+                    <div className="shortcut-modal" onClick={(e) => e.stopPropagation()} style={{ maxWidth: 360 }}>
+                        <div className="shortcut-modal-header">
+                            <h2 className="shortcut-modal-title">{t("sidebarRename")}</h2>
+                        </div>
+                        <input
+                            type="text"
+                            value={renameValue}
+                            onChange={(e) => setRenameValue(e.target.value)}
+                            onKeyDown={(e) => {
+                                if (e.key === "Enter" && renameValue.trim()) {
+                                    renameChat(pendingRename.chatId, renameValue.trim());
+                                    setPendingRename(null);
+                                }
+                                if (e.key === "Escape") setPendingRename(null);
+                            }}
+                            className="auth-input"
+                            style={{ width: "100%", marginBottom: "var(--space-4)" }}
+                            autoFocus
+                        />
+                        <div style={{ display: "flex", gap: "var(--space-3)", justifyContent: "flex-end" }}>
+                            <button onClick={() => setPendingRename(null)} className="error-boundary-btn error-boundary-btn-secondary">
+                                {t("authBack") || "Cancel"}
+                            </button>
+                            <button onClick={() => {
+                                if (renameValue.trim()) {
+                                    renameChat(pendingRename.chatId, renameValue.trim());
+                                    setPendingRename(null);
+                                }
+                            }} className="error-boundary-btn">
+                                {t("sidebarRename")}
+                            </button>
+                        </div>
+                    </div>
                 </div>
             )}
         </>
