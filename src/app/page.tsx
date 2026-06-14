@@ -241,7 +241,11 @@ export default function Home() {
 
     // ── Core: Send message ──
     const sendMessage = useCallback(async () => {
-        if (!input.trim() || isLoading) return;
+        if (!input.trim() || isLoading) {
+            console.log("[Client] sendMessage blocked:", { input: input.trim(), isLoading });
+            return;
+        }
+        console.log("[Client] sendMessage called");
 
         const sendBtn = document.querySelector<HTMLElement>(".ia-send-btn");
         if (sendBtn) particleBurst(sendBtn);
@@ -329,15 +333,24 @@ export default function Home() {
 
             // Stream response
             const reader = response.body?.getReader();
-            if (!reader) throw new Error("No response body");
+            if (!reader) {
+                console.error("[Client] No response body reader");
+                throw new Error("No response body");
+            }
             const decoder = new TextDecoder();
+            let chunkCount = 0;
 
             try {
                 while (true) {
                     const { value, done } = await reader.read();
-                    if (done) break;
+                    if (done) {
+                        console.log("[Client] Stream done, total chunks:", chunkCount);
+                        break;
+                    }
                     const chunk = decoder.decode(value, { stream: true });
                     if (!chunk) continue;
+                    chunkCount++;
+                    console.log("[Client] Chunk:", chunk.slice(0, 50));
                     setMessages((prev) =>
                         prev.map((m) => m.id === assistantId ? { ...m, content: m.content + chunk } : m)
                     );
