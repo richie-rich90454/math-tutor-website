@@ -92,7 +92,8 @@ export async function POST(request: NextRequest) {
         const reader = response.body.getReader();
         const decoder = new TextDecoder();
         let buffer = "";
-        let fullResponse = "";
+        let fullContent = "";
+        let fullThinking = "";
 
         const responseStream = new ReadableStream({
             async pull(controller) {
@@ -100,7 +101,7 @@ export async function POST(request: NextRequest) {
                     const { done, value } = await reader.read();
                     if (done) {
                         const assistantMsgId = uuidv4();
-                        addMessage(assistantMsgId, activeChatId!, "assistant", fullResponse, 0);
+                        addMessage(assistantMsgId, activeChatId!, "assistant", fullContent || fullThinking, 0);
                         logUsage(assistantMsgId, session.user.id, activeChatId!, 0, 0);
                         controller.close();
                         return;
@@ -116,17 +117,22 @@ export async function POST(request: NextRequest) {
                         const data = trimmed.slice(6);
                         if (data === "[DONE]") {
                             const assistantMsgId = uuidv4();
-                            addMessage(assistantMsgId, activeChatId!, "assistant", fullResponse, 0);
+                            addMessage(assistantMsgId, activeChatId!, "assistant", fullContent || fullThinking, 0);
                             logUsage(assistantMsgId, session.user.id, activeChatId!, 0, 0);
                             controller.close();
                             return;
                         }
                         try {
                             const parsed = JSON.parse(data);
-                            const content = parsed.choices?.[0]?.delta?.content;
-                            if (content) {
-                                fullResponse += content;
-                                controller.enqueue(new TextEncoder().encode(content));
+                            const delta = parsed.choices?.[0]?.delta;
+                            if (!delta) continue;
+                            if (delta.reasoning_content) {
+                                fullThinking += delta.reasoning_content;
+                                controller.enqueue(new TextEncoder().encode(JSON.stringify({ type: "thinking", text: delta.reasoning_content }) + "\n"));
+                            }
+                            if (delta.content) {
+                                fullContent += delta.content;
+                                controller.enqueue(new TextEncoder().encode(JSON.stringify({ type: "content", text: delta.content }) + "\n"));
                             }
                         } catch {}
                     }

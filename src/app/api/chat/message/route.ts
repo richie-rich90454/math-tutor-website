@@ -205,23 +205,25 @@ export async function POST(request: NextRequest) {
 
         const reader = stream.getReader();
         const encoder = new TextEncoder();
-        let fullResponse = "";
+        let fullThinking = "";
+        let fullContent = "";
 
         const responseStream = new ReadableStream({
             async pull(controller) {
                 try {
                     const { done, value } = await reader.read();
                     if (done) {
+                        // Save to DB
                         const assistantMsgId = uuidv4();
-                        addMessage(assistantMsgId, activeChatId!, "assistant", fullResponse, 0);
-                        const usageId = uuidv4();
-                        logUsage(usageId, session.user.id, activeChatId!, 0, 0);
+                        const combinedContent = fullContent || fullThinking;
+                        addMessage(assistantMsgId, activeChatId!, "assistant", combinedContent, 0);
+                        logUsage(uuidv4(), session.user.id, activeChatId!, 0, 0);
                         controller.close();
                         return;
                     }
-                    const chunk = new TextDecoder().decode(value);
-                    fullResponse += chunk;
-                    controller.enqueue(encoder.encode(chunk));
+                    // Forward the raw JSON chunks as-is
+                    const raw = new TextDecoder().decode(value);
+                    controller.enqueue(encoder.encode(raw));
                 } catch (err) {
                     controller.error(err);
                 }
@@ -230,7 +232,7 @@ export async function POST(request: NextRequest) {
 
         return new Response(responseStream, {
             headers: {
-                "Content-Type": "text/plain; charset=utf-8",
+                "Content-Type": "text/x-ndjson; charset=utf-8",
                 "Cache-Control": "no-cache, no-transform",
                 "X-Accel-Buffering": "no",
                 "X-RateLimit-Limit": String(RATE_LIMIT),
