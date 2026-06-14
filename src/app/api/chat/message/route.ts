@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getSession } from "@/lib/auth-middleware";
 import { streamChatCompletion } from "@/lib/deepseek";
 import { addMessage, getRecentMessages } from "@/lib/db/messages";
-import { createChat, updateChat } from "@/lib/db/chats";
+import { createChat, updateChat, getChatById } from "@/lib/db/chats";
 import { logUsage } from "@/lib/db/usage";
 import { v4 as uuidv4 } from "uuid";
 import { promises as fs } from "fs";
@@ -70,6 +70,8 @@ async function getSystemPrompt(language: string): Promise<string> {
     let fileName: string;
     switch (language) {
         case "zh":
+            fileName = "prompt-zh-hant.txt";
+            break;
         case "zh-hans":
             fileName = "prompt-zh-hans.txt";
             break;
@@ -98,6 +100,8 @@ async function getSystemPrompt(language: string): Promise<string> {
             fileName = "prompt-ja.txt";
             break;
         case "en":
+            fileName = "prompt-en-us.txt";
+            break;
         default:
             fileName = "prompt-en-us.txt";
             break;
@@ -156,11 +160,21 @@ export async function POST(request: NextRequest) {
 
         const userMsgId = uuidv4();
         if (activeChatId) {
-            addMessage(userMsgId, activeChatId, "user", message, 0);
-            updateChat(activeChatId, { preview: message.slice(0, 100) });
-            // Extract topic on first message of conversation
-            const topic = extractTopic(message);
-            if (topic) updateChat(activeChatId, { topic });
+            // Check if chat exists in database
+            const existingChat = getChatById(activeChatId);
+            if (existingChat) {
+                addMessage(userMsgId, activeChatId, "user", message, 0);
+                updateChat(activeChatId, { preview: message.slice(0, 100) });
+                const topic = extractTopic(message);
+                if (topic) updateChat(activeChatId, { topic });
+            } else {
+                // Chat doesn't exist, create it with the provided ID
+                const title = message.slice(0, 50) + (message.length > 50 ? "..." : "");
+                const topic = extractTopic(message);
+                createChat(activeChatId, session.user.id, title, message.slice(0, 100));
+                if (topic) updateChat(activeChatId, { topic });
+                addMessage(userMsgId, activeChatId, "user", message, 0);
+            }
         } else {
             activeChatId = uuidv4();
             const title = message.slice(0, 50) + (message.length > 50 ? "..." : "");
