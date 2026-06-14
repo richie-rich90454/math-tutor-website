@@ -123,13 +123,13 @@ export default function CommandPalette({ isOpen, onClose, onNewChat, onExportCha
                         ref={inputRef}
                         value={query}
                         onChange={(e) => setQuery(e.target.value)}
-                        placeholder="Type a command or search..."
+                        placeholder={t("cmdPlaceholder") || "Type a command or search..."}
                         className="cmd-input"
                     />
                 </div>
                 <div className="cmd-list" ref={listRef}>
                     {filtered.length === 0 && (
-                        <div className="cmd-empty">No results found</div>
+                        <div className="cmd-empty">{t("cmdNoResults") || "No results found"}</div>
                     )}
                     {filtered.map((cmd, i) => (
                         <button

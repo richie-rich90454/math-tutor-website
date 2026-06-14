@@ -799,12 +799,6 @@ export default function Home() {
 
                                 <div className="welcome-input-wrapper">
                                     <div className="welcome-input-card">
-                                        {pendingImage && (
-                                            <div className="ia-image-preview">
-                                                <img src={pendingImage.data} alt="Selected" />
-                                                <button className="ia-image-preview-remove" onClick={() => setPendingImage(null)}>&times;</button>
-                                            </div>
-                                        )}
                                         <InputArea
                                             value={input}
                                             onChange={setInput}
@@ -814,6 +808,8 @@ export default function Home() {
                                             onStop={handleStopGeneration}
                                             placeholder={t("inputPlaceholder")}
                                             onImageSelect={handleImageSelect}
+                                            pendingImage={pendingImage}
+                                            onClearImage={() => setPendingImage(null)}
                                         />
                                     </div>
 
@@ -951,12 +947,6 @@ export default function Home() {
 
                                 <div className="chat-input-bar" ref={inputBarRef}>
                                     <div className="chat-input-bar-inner">
-                                        {pendingImage && (
-                                            <div className="ia-image-preview">
-                                                <img src={pendingImage.data} alt="Selected" />
-                                                <button className="ia-image-preview-remove" onClick={() => setPendingImage(null)}>&times;</button>
-                                            </div>
-                                        )}
                                         <div className="chat-input-card">
                                             <InputArea
                                                 value={input}
@@ -967,6 +957,8 @@ export default function Home() {
                                                 onStop={handleStopGeneration}
                                                 placeholder={t("inputPlaceholder")}
                                                 onImageSelect={handleImageSelect}
+                                                pendingImage={pendingImage}
+                                                onClearImage={() => setPendingImage(null)}
                                             />
                                         </div>
                                     </div>

@@ -1241,75 +1241,12 @@ a:hover {
    InputArea Component
    ========================================== */
 .ia-root { width: 100%; }
-.ia-row { display: flex; align-items: center; gap: var(--space-2); }
-.ia-textarea-wrap { position: relative; flex: 1 1 0%; }
 
-.ia-image-btn {
-    display: flex; align-items: center; justify-content: center;
-    width: 36px; height: 36px;
-    border-radius: 50%;
-    border: 1px solid var(--border-default);
-    background: var(--bg-surface);
-    color: var(--fg-secondary);
-    cursor: pointer;
-    flex-shrink: 0;
-    transition: all var(--transition-fast);
-}
-.ia-image-btn:hover { background: var(--bg-hover); color: var(--fg-primary); border-color: var(--fg-primary); }
-.ia-image-btn:disabled { opacity: 0.35; cursor: not-allowed; }
-
-.ia-voice-btn {
-    display: flex; align-items: center; justify-content: center;
-    width: 36px; height: 36px;
-    border-radius: 50%;
-    border: 1px solid var(--border-default);
-    background: var(--bg-surface);
-    color: var(--fg-secondary);
-    cursor: pointer;
-    flex-shrink: 0;
-    transition: all var(--transition-fast);
+.ia-textarea-wrap {
     position: relative;
-}
-.ia-voice-btn:hover { background: var(--bg-hover); color: var(--fg-primary); border-color: var(--fg-primary); }
-.ia-voice-btn:disabled { opacity: 0.35; cursor: not-allowed; }
-.ia-voice-btn.is-listening { background: var(--danger); color: white; border-color: var(--danger); animation: pulse 1.5s infinite; }
-.ia-voice-pulse {
-    position: absolute; inset: -4px;
-    border-radius: 50%;
-    border: 2px solid var(--danger);
-    animation: voicePulse 1.5s infinite;
-}
-@keyframes voicePulse {
-    0% { transform: scale(1); opacity: 0.6; }
-    100% { transform: scale(1.5); opacity: 0; }
-}
-
-.ia-image-preview {
-    position: relative;
-    display: inline-block;
-    margin-bottom: var(--space-2);
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    border: 1px solid var(--border-default);
-}
-.ia-image-preview img {
-    max-width: 200px;
-    max-height: 150px;
-    display: block;
-    object-fit: cover;
-}
-.ia-image-preview-remove {
-    position: absolute;
-    top: 4px; right: 4px;
-    width: 22px; height: 22px;
-    border-radius: 50%;
-    background: var(--danger);
-    color: white;
-    border: none;
-    cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 14px; font-weight: 700;
-    line-height: 1;
+    display: flex;
+    align-items: flex-end;
+    gap: 0;
 }
 
 .ia-textarea {
@@ -1317,7 +1254,7 @@ a:hover {
     resize: none;
     border: none;
     background: transparent;
-    padding: 12px 50px 12px var(--space-4);
+    padding: 12px 48px 12px 80px;
     font-size: 0.9375rem;
     font-family: inherit;
     color: var(--fg-primary);
@@ -1329,39 +1266,102 @@ a:hover {
 .ia-textarea::placeholder { color: var(--fg-muted); }
 .ia-textarea:disabled { opacity: 0.5; cursor: not-allowed; }
 
-.ia-send-btn {
+/* Left-side utility buttons (image, voice) */
+.ia-util-btn {
     position: absolute;
-    right: 6px; bottom: 6px;
-    width: 36px; height: 36px;
-    border-radius: 50%;
-    background: var(--accent);
-    color: var(--fg-inverse);
+    left: 8px;
+    bottom: 8px;
+    width: 32px; height: 32px;
+    border-radius: var(--radius-sm);
+    border: none;
+    background: transparent;
+    color: var(--fg-muted);
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all var(--transition-fast);
+    z-index: 1;
+}
+.ia-util-btn:nth-of-type(2) { left: 40px; }
+.ia-util-btn:hover { color: var(--fg-primary); background: var(--bg-hover); }
+.ia-util-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+.ia-util-btn.is-active { color: var(--danger); background: var(--danger-light); }
+
+/* Right-side action buttons (send, stop) */
+.ia-action-btn {
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    width: 32px; height: 32px;
+    border-radius: var(--radius-sm);
     border: none;
     cursor: pointer;
     display: flex; align-items: center; justify-content: center;
     transition: all var(--transition-fast);
 }
-.ia-send-btn:hover:not(:disabled) { background: var(--accent-hover); transform: scale(1.05); box-shadow: 0 0 12px var(--accent-alpha); }
+
+.ia-send-btn {
+    background: var(--accent);
+    color: var(--fg-inverse);
+}
+.ia-send-btn:hover:not(:disabled) { background: var(--accent-hover); transform: scale(1.05); }
 .ia-send-btn:active:not(:disabled) { transform: scale(0.93); }
 .ia-send-btn:disabled { cursor: not-allowed; opacity: 0.35; background: var(--fg-muted); }
-.ia-send-btn svg { width: 16px; height: 16px; }
 
 .ia-stop-btn {
-    position: absolute;
-    right: 6px; bottom: 6px;
-    width: 36px; height: 36px;
-    border-radius: 50%;
     background: var(--danger);
     color: white;
-    border: none;
-    cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    transition: all var(--transition-fast);
 }
 .ia-stop-btn:hover { background: var(--danger-hover); }
 .ia-stop-btn:active { transform: scale(0.93); }
-.ia-stop-btn svg { width: 14px; height: 14px; }
 
+/* Image preview */
+.ia-image-preview {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    border-bottom: 1px solid var(--border-subtle);
+    background: var(--bg-app-alt);
+}
+.ia-image-preview-img {
+    width: 48px; height: 48px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-default);
+}
+.ia-image-preview-remove {
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    border: none;
+    background: var(--danger);
+    color: white;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all var(--transition-fast);
+    flex-shrink: 0;
+}
+.ia-image-preview-remove:hover { background: var(--danger-hover); transform: scale(1.1); }
+
+/* Drag overlay */
+.ia-drag-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    background: var(--bg-surface);
+    border: 2px dashed var(--accent);
+    border-radius: var(--radius-md);
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 500;
+    z-index: 10;
+    animation: fadeIn 0.15s ease-out;
+}
+
+/* Bottom hint row */
 .ia-bottom {
     display: flex; align-items: center; justify-content: space-between;
     margin-top: 6px;
