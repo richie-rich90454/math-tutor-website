@@ -594,6 +594,7 @@ a:hover {
     padding: var(--space-4) var(--space-5);
     font-size: 0.9375rem;
     line-height: 1.7;
+    color: var(--fg-primary);
     transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 .message-bubble-assistant:hover { border-color: var(--border-hover); box-shadow: var(--shadow-sm); }
@@ -1098,6 +1099,9 @@ a:hover {
     line-height: 1.7;
     color: var(--fg-primary);
 }
+.markdown-content p { color: var(--fg-primary); }
+.markdown-content h1, .markdown-content h2, .markdown-content h3, .markdown-content h4 { color: var(--fg-primary); }
+.markdown-content li { color: var(--fg-primary); }
 .markdown-content > *:first-child { margin-top: 0; }
 .markdown-content > *:last-child  { margin-bottom: 0; }
 
