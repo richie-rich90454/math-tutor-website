@@ -67,6 +67,7 @@ export default function Home() {
     const [isStreaming, setIsStreaming] = useState(false);
     const [activeChatId, setActiveChatId] = useState<string | null>(null);
     const [isLoaded, setIsLoaded] = useState(false);
+    const [renderError, setRenderError] = useState<string | null>(null);
 
     // Refs
     const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -333,13 +334,8 @@ export default function Home() {
         } catch (error: any) {
             if (error.name === "AbortError") return;
             console.error("Send error:", error);
+            setRenderError(error.message || "Failed to send message");
             addToast("error", error.message || t("toastFailedSend"));
-            setMessages((prev) => [...prev, {
-                id: (Date.now() + 1).toString(),
-                role: "assistant",
-                content: error.message || t("toastGenericError"),
-                timestamp: new Date(),
-            }]);
         } finally {
             setIsLoading(false);
             setIsStreaming(false);
@@ -456,13 +452,8 @@ export default function Home() {
         } catch (error: any) {
             if (error.name === "AbortError") return;
             console.error("Send image error:", error);
+            setRenderError(error.message || "Failed to send image");
             addToast("error", error.message || t("toastFailedSend"));
-            setMessages((prev) => [...prev, {
-                id: (Date.now() + 1).toString(),
-                role: "assistant",
-                content: error.message || t("toastGenericError"),
-                timestamp: new Date(),
-            }]);
         } finally {
             setIsLoading(false);
             setIsStreaming(false);
@@ -545,6 +536,23 @@ export default function Home() {
         if (!(d instanceof Date) || isNaN(d.getTime())) return "";
         return d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", timeZoneName: "short" });
     };
+
+    if (renderError) {
+        return (
+            <div className="app-shell">
+                <div className="error-boundary">
+                    <div className="error-boundary-card">
+                        <h2 className="error-boundary-title">Something went wrong</h2>
+                        <p className="error-boundary-message">{renderError}</p>
+                        <div className="error-boundary-actions">
+                            <button onClick={() => { setRenderError(null); setMessages([]); setActiveChatId(null); }} className="error-boundary-btn">Try again</button>
+                            <button onClick={() => window.location.reload()} className="error-boundary-btn error-boundary-btn-secondary">Reload page</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className="app-shell">
