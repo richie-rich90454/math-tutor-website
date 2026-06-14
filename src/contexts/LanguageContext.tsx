@@ -27,35 +27,31 @@ const languages: Language[] = [
     { code: "ja", name: "日本語" },
 ];
 
-function getInitialLanguage(): Language {
-    if (typeof window === "undefined") return languages[0];
-    try {
-        const stored = localStorage.getItem("preferred-language");
-        if (stored) {
-            const found = languages.find((l) => l.code === stored);
-            if (found) return found;
-        }
-    } catch {}
-    return languages[0];
-}
-
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-    const [currentLanguage, setCurrentLanguage] = useState<Language>(getInitialLanguage);
-    const [mounted, setMounted] = useState(false);
+    // Always initialize with English to match server render
+    const [currentLanguage, setCurrentLanguage] = useState<Language>(languages[0]);
 
+    // Load saved language after mount (client-only)
     useEffect(() => {
-        setMounted(true);
+        try {
+            const stored = localStorage.getItem("preferred-language");
+            if (stored) {
+                const found = languages.find((l) => l.code === stored);
+                if (found && found.code !== currentLanguage.code) {
+                    setCurrentLanguage(found);
+                }
+            }
+        } catch {}
     }, []);
 
+    // Save language to localStorage when it changes
     useEffect(() => {
-        if (mounted) {
-            try {
-                localStorage.setItem("preferred-language", currentLanguage.code);
-            } catch {}
-        }
-    }, [currentLanguage.code, mounted]);
+        try {
+            localStorage.setItem("preferred-language", currentLanguage.code);
+        } catch {}
+    }, [currentLanguage.code]);
 
     const setLanguage = useCallback((language: Language) => {
         setCurrentLanguage(language);
