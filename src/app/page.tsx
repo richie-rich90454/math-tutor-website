@@ -241,14 +241,7 @@ export default function Home() {
 
     // ── Core: Send message ──
     const sendMessage = useCallback(async () => {
-        if (!input.trim() || isLoading) {
-            console.log("[Client] sendMessage blocked:", { input: input.trim(), isLoading });
-            return;
-        }
-        console.log("[Client] sendMessage called");
-
-        const sendBtn = document.querySelector<HTMLElement>(".ia-send-btn");
-        if (sendBtn) particleBurst(sendBtn);
+        if (!input.trim() || isLoading) return;
 
         const userMessage: Message = {
             id: Date.now().toString(),
@@ -315,48 +308,27 @@ export default function Home() {
                 throw new Error(errMsg);
             }
 
-            // Sync chat ID if server assigned a different one
             const serverChatId = response.headers.get("X-Chat-Id");
             if (serverChatId && serverChatId !== chatIdToSend) {
                 syncChatId(chatIdToSend!, serverChatId);
                 setActiveChatId(serverChatId);
             }
 
-            // Add empty assistant message
             const assistantId = (Date.now() + 1).toString();
-            setMessages((prev) => [...prev, {
-                id: assistantId,
-                role: "assistant",
-                content: "",
-                timestamp: new Date(),
-            }]);
+            setMessages((prev) => [...prev, { id: assistantId, role: "assistant", content: "", timestamp: new Date() }]);
 
-            // Stream response
             const reader = response.body?.getReader();
-            if (!reader) {
-                console.error("[Client] No response body reader");
-                throw new Error("No response body");
-            }
+            if (!reader) throw new Error("No response body");
             const decoder = new TextDecoder();
-            let chunkCount = 0;
 
-            try {
-                while (true) {
-                    const { value, done } = await reader.read();
-                    if (done) {
-                        console.log("[Client] Stream done, total chunks:", chunkCount);
-                        break;
-                    }
-                    const chunk = decoder.decode(value, { stream: true });
-                    if (!chunk) continue;
-                    chunkCount++;
-                    console.log("[Client] Chunk:", chunk.slice(0, 50));
-                    setMessages((prev) =>
-                        prev.map((m) => m.id === assistantId ? { ...m, content: m.content + chunk } : m)
-                    );
-                }
-            } catch (streamErr) {
-                console.error("Stream error:", streamErr);
+            while (true) {
+                const { value, done } = await reader.read();
+                if (done) break;
+                const chunk = decoder.decode(value, { stream: true });
+                if (!chunk) continue;
+                setMessages((prev) =>
+                    prev.map((m) => m.id === assistantId ? { ...m, content: m.content + chunk } : m)
+                );
             }
         } catch (error: any) {
             if (error.name === "AbortError") return;

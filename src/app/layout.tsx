@@ -275,6 +275,14 @@ export default function RootLayout({
                 />
             </head>
             <body className={`${geistSans.variable} ${geistMono.variable}`}>
+                <script dangerouslySetInnerHTML={{ __html: `
+                    window.addEventListener('error', function(e) {
+                        console.error('Global error:', e.error);
+                    });
+                    window.addEventListener('unhandledrejection', function(e) {
+                        console.error('Unhandled rejection:', e.reason);
+                    });
+                `}} />
                 <ToastProvider>
                 <AuthProvider>
                     <LanguageProvider>
