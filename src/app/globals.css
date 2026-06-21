@@ -700,9 +700,9 @@ a:hover {
 
 .message-bubble-user {
     border-radius: var(--radius-xl) var(--radius-xl) 4px var(--radius-xl);
-    background: var(--accent);
+    background: var(--bg-active);
     padding: var(--space-3) var(--space-4);
-    color: var(--fg-inverse);
+    color: var(--fg-primary);
     font-size: clamp(0.875rem, 1.5vw, 1rem);
     line-height: 1.6;
     transition: opacity var(--transition-fast);
@@ -712,6 +712,45 @@ a:hover {
     word-wrap: break-word;
     overflow-wrap: break-word;
     margin: 0;
+}
+
+/* KaTeX in user messages */
+.message-bubble-user .katex { color: var(--fg-primary); }
+.message-bubble-user .katex .mord,
+.message-bubble-user .katex .mbin,
+.message-bubble-user .katex .mrel,
+.message-bubble-user .katex .mopen,
+.message-bubble-user .katex .mclose,
+.message-bubble-user .katex .mpunct,
+.message-bubble-user .katex .minner { color: var(--fg-primary); }
+.message-bubble-user .katex .accent-body { stroke: var(--fg-primary); }
+.message-bubble-user .katex .stretchy,
+.message-bubble-user .katex .overline,
+.message-bubble-user .katex .underline { stroke: var(--fg-primary); }
+.message-bubble-user .katex-display {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: var(--space-1) 0;
+}
+.message-bubble-user .katex-display > .katex {
+    white-space: nowrap;
+}
+
+/* KaTeX in assistant messages */
+.message-bubble-assistant .katex-display {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: var(--space-1) 0;
+}
+.message-bubble-assistant .katex-display > .katex {
+    white-space: nowrap;
+}
+
+/* KaTeX inline math — ensure it stays inline */
+.message-bubble-user .katex,
+.message-bubble-assistant .katex {
+    direction: ltr;
+    unicode-bidi: isolate;
 }
 
 .message-bubble-assistant {

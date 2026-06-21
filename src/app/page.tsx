@@ -87,7 +87,7 @@ const MessageRow = memo(function MessageRow({
                 {message.role === "user" ? (
                     <>
                         <div className="message-bubble-user">
-                            <p>{message.content}</p>
+                            <MarkdownRenderer content={message.content} />
                         </div>
                         {isHovered && !isStreaming && (
                             <button

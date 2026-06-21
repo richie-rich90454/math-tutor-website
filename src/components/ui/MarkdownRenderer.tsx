@@ -36,6 +36,18 @@ export function extractSuggestions(content: string): {
     return { suggestions, cleanContent };
 }
 
+/**
+ * Convert LaTeX-style delimiters to remark-math-compatible delimiters.
+ * \(...\) → $...$ (inline)  |  \[...\] → $$...$$ (display)
+ */
+function normalizeLatex(content: string): string {
+    return content
+        .replace(/\\\[/g, "$$\n")
+        .replace(/\\\]/g, "\n$$")
+        .replace(/\\\(/g, "$")
+        .replace(/\\\)/g, "$");
+}
+
 export default function MarkdownRenderer({
     content,
     className = "",
@@ -43,7 +55,8 @@ export default function MarkdownRenderer({
 }: MarkdownRendererProps) {
     if (!content) return null;
 
-    const { suggestions, cleanContent } = extractSuggestions(content);
+    const normalizedContent = normalizeLatex(content);
+    const { suggestions, cleanContent } = extractSuggestions(normalizedContent);
 
     return (
         <div className={`markdown-content ${className}`}>
