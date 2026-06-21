@@ -210,6 +210,7 @@ export default function Sidebar({ isOpen, onToggle, onChatSelect, onShowShortcut
                         onClick={onToggle}
                         className={`sb-toggle-btn ${isLargeScreen ? "is-disabled" : ""}`}
                         aria-label={effectiveIsOpen ? t("sidebarMinimize") : t("sidebarExpand")}
+                        aria-expanded={effectiveIsOpen}
                     >
                         <svg className="sb-toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             {effectiveIsOpen ? (
@@ -341,7 +342,9 @@ export default function Sidebar({ isOpen, onToggle, onChatSelect, onShowShortcut
                     </div>
                 ) : (
                     <div className="sb-collapsed-history">
-                        <div className="sb-collapsed-history-btn" onMouseEnter={() => setShowHistoryTooltip(true)} onMouseLeave={() => setShowHistoryTooltip(false)}>
+                        <div className="sb-collapsed-history-btn" onMouseEnter={() => setShowHistoryTooltip(true)} onMouseLeave={() => setShowHistoryTooltip(false)}
+                            role="button" tabIndex={0} aria-label={t("sidebarHistory")}
+                            onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setShowHistoryTooltip(true); } }}>
                             <svg className="sb-collapsed-history-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>

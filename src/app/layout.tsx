@@ -8,6 +8,7 @@ import { ConceptProvider } from "@/contexts/ConceptContext";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { ToastProvider } from "@/contexts/ToastContext";
 import SkipLink from "@/components/ui/SkipLink";
+import HtmlAttributes from "@/components/ui/HtmlAttributes";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -275,6 +276,8 @@ export default function RootLayout({
                 />
             </head>
             <body className={`${geistSans.variable} ${geistMono.variable}`}>
+                <div id="aria-live-polite" className="sr-only" aria-live="polite" aria-atomic="true" />
+                <div id="aria-live-assertive" className="sr-only" aria-live="assertive" aria-atomic="true" />
                 <script dangerouslySetInnerHTML={{ __html: `
                     window.addEventListener('error', function(e) {
                         console.error('Global error:', e.error);
@@ -286,6 +289,7 @@ export default function RootLayout({
                 <ToastProvider>
                 <AuthProvider>
                     <LanguageProvider>
+                        <HtmlAttributes />
                         <SkipLink />
                         <ConceptProvider>
                             <ChatProvider>{children}</ChatProvider>

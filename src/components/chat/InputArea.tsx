@@ -178,7 +178,7 @@ const InputArea = memo(function InputArea({
             {/* Image preview inside the card */}
             {pendingImage && (
                 <div className="ia-image-preview">
-                    <img src={pendingImage.data} alt="Selected" className="ia-image-preview-img" />
+                    <img src={pendingImage.data} alt="Selected" className="ia-image-preview-img" loading="lazy" />
                     <button className="ia-image-preview-remove" onClick={onClearImage} aria-label="Remove image">
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                             <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
@@ -247,6 +247,7 @@ const InputArea = memo(function InputArea({
                         onClick={onStop}
                         className="ia-action-btn ia-stop-btn"
                         title={t("inputStopGenerating")}
+                        aria-label={t("inputStopGenerating") || "Stop generating"}
                     >
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                             <rect x="4" y="4" width="16" height="16" rx="2" />

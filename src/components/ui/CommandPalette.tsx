@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useChat } from "@/contexts/ChatContext";
 import { useAuth } from "@/contexts/AuthContext";
+import FocusTrap from "@/components/ui/FocusTrap";
 
 interface CommandPaletteProps {
     isOpen: boolean;
@@ -96,8 +97,6 @@ export default function CommandPalette({ isOpen, onClose, onNewChat, onExportCha
             } else if (e.key === "Enter") {
                 e.preventDefault();
                 if (filtered[selectedIndex]) executeCommand(filtered[selectedIndex]);
-            } else if (e.key === "Escape") {
-                onClose();
             }
         };
         window.addEventListener("keydown", handler);
@@ -113,42 +112,44 @@ export default function CommandPalette({ isOpen, onClose, onNewChat, onExportCha
 
     return (
         <div className="cmd-backdrop" onClick={onClose}>
-            <div className="cmd-modal" onClick={(e) => e.stopPropagation()}>
-                <div className="cmd-input-wrapper">
-                    <svg className="cmd-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <circle cx="11" cy="11" r="8" />
-                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                    </svg>
-                    <input
-                        ref={inputRef}
-                        value={query}
-                        onChange={(e) => setQuery(e.target.value)}
-                        placeholder={t("cmdPlaceholder") || "Type a command or search..."}
-                        className="cmd-input"
-                    />
+            <FocusTrap isActive={isOpen} onDeactivate={onClose}>
+                <div className="cmd-modal" onClick={(e) => e.stopPropagation()}>
+                    <div className="cmd-input-wrapper">
+                        <svg className="cmd-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <circle cx="11" cy="11" r="8" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                        </svg>
+                        <input
+                            ref={inputRef}
+                            value={query}
+                            onChange={(e) => setQuery(e.target.value)}
+                            placeholder={t("cmdPlaceholder") || "Type a command or search..."}
+                            className="cmd-input"
+                        />
+                    </div>
+                    <div className="cmd-list" ref={listRef}>
+                        {filtered.length === 0 && (
+                            <div className="cmd-empty">{t("cmdNoResults") || "No results found"}</div>
+                        )}
+                        {filtered.map((cmd, i) => (
+                            <button
+                                key={cmd.id}
+                                className={`cmd-item ${i === selectedIndex ? "is-selected" : ""}`}
+                                onClick={() => executeCommand(cmd)}
+                                onMouseEnter={() => setSelectedIndex(i)}
+                            >
+                                <svg className="cmd-item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                    <path d={cmd.icon} />
+                                </svg>
+                                <span className="cmd-item-label">{cmd.label}</span>
+                                {cmd.shortcut && (
+                                    <span className="cmd-item-shortcut">{cmd.shortcut}</span>
+                                )}
+                            </button>
+                        ))}
+                    </div>
                 </div>
-                <div className="cmd-list" ref={listRef}>
-                    {filtered.length === 0 && (
-                        <div className="cmd-empty">{t("cmdNoResults") || "No results found"}</div>
-                    )}
-                    {filtered.map((cmd, i) => (
-                        <button
-                            key={cmd.id}
-                            className={`cmd-item ${i === selectedIndex ? "is-selected" : ""}`}
-                            onClick={() => executeCommand(cmd)}
-                            onMouseEnter={() => setSelectedIndex(i)}
-                        >
-                            <svg className="cmd-item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                <path d={cmd.icon} />
-                            </svg>
-                            <span className="cmd-item-label">{cmd.label}</span>
-                            {cmd.shortcut && (
-                                <span className="cmd-item-shortcut">{cmd.shortcut}</span>
-                            )}
-                        </button>
-                    ))}
-                </div>
-            </div>
+            </FocusTrap>
         </div>
     );
 }

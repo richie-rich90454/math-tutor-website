@@ -1,10 +1,12 @@
 "use client";
 
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useRef, useEffect, useCallback, useMemo, memo } from "react";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
-import Sidebar from "@/components/ui/Sidebar";
+const Sidebar = dynamic(() => import("@/components/ui/Sidebar"), {
+    loading: () => <div className="app-sidebar-wrapper is-collapsed" />,
+});
 import ThemeToggle from "@/components/ui/ThemeToggle";
 import ErrorBoundary from "@/components/ui/ErrorBoundary";
 import InputArea from "@/components/chat/InputArea";
@@ -14,6 +16,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useToast } from "@/contexts/ToastContext";
 import { exportChatAsMarkdown, exportChatAsText, downloadFile } from "@/lib/export";
 import { gsap, useGSAP, springIn, particleBurst } from "@/lib/gsap";
+import { announcePolite } from "@/lib/aria-live";
 import CommandPalette from "@/components/ui/CommandPalette";
 
 const MarkdownRenderer = dynamic(() => import("@/components/ui/MarkdownRenderer"), {
@@ -42,6 +45,90 @@ function parseUTCTimestamp(ts: string): Date {
     // Append Z to indicate UTC
     return new Date(ts.replace(" ", "T") + "Z");
 }
+
+interface MessageRowProps {
+    message: Message;
+    isHovered: boolean;
+    isStreaming: boolean;
+    isLastMessage: boolean;
+    formatTime: (d: Date) => string;
+    onRegenerate: () => void;
+    onFeedback: (msgId: string, type: "up" | "down") => void;
+    feedbackValue: "up" | "down" | null;
+    onEdit: (messageId: string, content: string) => void;
+    editLabel: string;
+    onMouseEnter: () => void;
+    onMouseLeave: () => void;
+}
+
+const MessageRow = memo(function MessageRow({
+    message,
+    isHovered,
+    isStreaming,
+    isLastMessage,
+    formatTime,
+    onRegenerate,
+    onFeedback,
+    feedbackValue,
+    onEdit,
+    editLabel,
+    onMouseEnter,
+    onMouseLeave,
+}: MessageRowProps) {
+    return (
+        <div
+            className={`message-row ${message.role === "user" ? "is-user" : "is-assistant"}`}
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
+        >
+            <div className="message-row-bubble-wrapper">
+                {message.role === "user" ? (
+                    <>
+                        <div className="message-bubble-user"><p>{message.content}</p></div>
+                        {isHovered && !isStreaming && (
+                            <button
+                                className="msg-edit-btn"
+                                onClick={() => onEdit(message.id, message.content)}
+                                title={editLabel}
+                                aria-label={editLabel}
+                                onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onEdit(message.id, message.content); } }}
+                            >
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                                </svg>
+                            </button>
+                        )}
+                        <span className="message-time is-right">{formatTime(message.timestamp)}</span>
+                    </>
+                ) : (
+                    <div className="msg-wrapper">
+                        <MessageActions
+                            messageId={message.id}
+                            content={message.content}
+                            onRegenerate={onRegenerate}
+                            onFeedback={(type) => onFeedback(message.id, type)}
+                            feedback={feedbackValue}
+                            isVisible={isHovered}
+                        />
+                        <div
+                            className="message-bubble-assistant"
+                            data-streaming={isStreaming && isLastMessage ? "true" : undefined}
+                            aria-busy={isStreaming && isLastMessage ? "true" : "false"}
+                        >
+                            {message.content ? (
+                                <MarkdownRenderer content={message.content} />
+                            ) : (
+                                <span className="streaming-cursor" />
+                            )}
+                        </div>
+                        <span className="message-time is-left">{formatTime(message.timestamp)}</span>
+                    </div>
+                )}
+            </div>
+        </div>
+    );
+});
 
 export default function Home() {
     const { t, currentLanguage } = useLanguage();
@@ -79,6 +166,7 @@ export default function Home() {
     const loadingDotsRef = useRef<HTMLDivElement>(null);
     const inputBarRef = useRef<HTMLDivElement>(null);
     const prevStreamingRef = useRef(false);
+    const isLoadingRef = useRef(false);
 
     // ── Responsive sidebar ──
     useEffect(() => {
@@ -91,6 +179,32 @@ export default function Home() {
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
     }, []);
+
+    // ── Touch swipe for sidebar ──
+    useEffect(() => {
+        if (!isMobile) return;
+        let startX = 0;
+        let startY = 0;
+        const handleTouchStart = (e: TouchEvent) => {
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+        };
+        const handleTouchEnd = (e: TouchEvent) => {
+            const dx = e.changedTouches[0].clientX - startX;
+            const dy = e.changedTouches[0].clientY - startY;
+            // Only horizontal swipes (more horizontal than vertical)
+            if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 60) {
+                if (dx > 0 && !isSidebarOpen) setIsSidebarOpen(true);
+                else if (dx < 0 && isSidebarOpen) setIsSidebarOpen(false);
+            }
+        };
+        document.addEventListener("touchstart", handleTouchStart, { passive: true });
+        document.addEventListener("touchend", handleTouchEnd, { passive: true });
+        return () => {
+            document.removeEventListener("touchstart", handleTouchStart);
+            document.removeEventListener("touchend", handleTouchEnd);
+        };
+    }, [isMobile, isSidebarOpen]);
 
     const handleSidebarToggle = useCallback(() => {
         if (window.innerWidth < 1024) setIsSidebarOpen((p) => !p);
@@ -108,7 +222,8 @@ export default function Home() {
     }, []);
 
     useEffect(() => {
-        if (isNearBottom() || isStreaming) scrollToBottom(false);
+        if (isStreaming && isNearBottom()) scrollToBottom(false);
+        else if (!isStreaming && messages.length > prevMessagesLenRef.current) scrollToBottom(true);
     }, [messages, isStreaming, scrollToBottom, isNearBottom]);
 
     useEffect(() => {
@@ -135,10 +250,10 @@ export default function Home() {
     }, { dependencies: [messages.length], scope: welcomeRef, revertOnUpdate: false });
 
     useGSAP(() => {
-        if (contentAreaRef.current) {
+        if (contentAreaRef.current && messages.length > 0) {
             gsap.fromTo(contentAreaRef.current, { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" });
         }
-    }, { dependencies: [messages.length] });
+    }, { dependencies: [messages.length > 0] });
 
     useEffect(() => {
         if (messages.length > 0 && contentAreaRef.current) {
@@ -240,24 +355,29 @@ export default function Home() {
     }, [currentChat]);
 
     // ── Core: Send message ──
-    const sendMessage = useCallback(async () => {
-        if (!input.trim() || isLoading) return;
+    const sendMessage = useCallback(async (overrideInput?: string) => {
+        const messageText = (overrideInput ?? input).trim();
+        if (!messageText || isLoadingRef.current) return;
 
+        isLoadingRef.current = true;
         const userMessage: Message = {
             id: Date.now().toString(),
             role: "user",
-            content: input,
+            content: messageText,
             timestamp: new Date(),
         };
 
-        const currentInput = input;
+        const currentInput = messageText;
         setInput("");
         setMessages((prev) => [...prev, userMessage]);
         setIsLoading(true);
         setIsStreaming(true);
 
+        announcePolite(t("ariaLiveStreaming"));
+
         const controller = new AbortController();
         abortControllerRef.current = controller;
+        const timeoutId = setTimeout(() => controller.abort(), 30_000); // 30s timeout
 
         try {
             const response = await fetch("/api/chat/message", {
@@ -270,6 +390,8 @@ export default function Home() {
                 }),
                 signal: controller.signal,
             });
+
+            clearTimeout(timeoutId);
 
             if (!response.ok) {
                 let errMsg = "Failed to get response";
@@ -302,7 +424,16 @@ export default function Home() {
                 );
             }
         } catch (error: any) {
-            if (error.name === "AbortError") return;
+            clearTimeout(timeoutId);
+            if (error.name === "AbortError") {
+                setMessages((prev) => [...prev, {
+                    id: (Date.now() + 1).toString(),
+                    role: "assistant",
+                    content: "Request timed out. Please try again.",
+                    timestamp: new Date(),
+                }]);
+                return;
+            }
             console.error("Send error:", error);
             setMessages((prev) => [...prev, {
                 id: (Date.now() + 1).toString(),
@@ -311,15 +442,18 @@ export default function Home() {
                 timestamp: new Date(),
             }]);
         } finally {
+            isLoadingRef.current = false;
             setIsLoading(false);
             setIsStreaming(false);
             abortControllerRef.current = null;
         }
-    }, [input, isLoading, currentLanguage.code, activeChatId]);
+    }, [input, currentLanguage.code, activeChatId, t]);
 
     // ── Send image ──
     const sendImage = useCallback(async () => {
-        if (!pendingImage || isLoading) return;
+        if (!pendingImage || isLoadingRef.current) return;
+
+        isLoadingRef.current = true;
 
         const imageMessage: Message = {
             id: Date.now().toString(),
@@ -338,6 +472,7 @@ export default function Home() {
 
         const controller = new AbortController();
         abortControllerRef.current = controller;
+        const timeoutId = setTimeout(() => controller.abort(), 30_000); // 30s timeout
 
         try {
             const response = await fetch("/api/chat/image", {
@@ -352,6 +487,8 @@ export default function Home() {
                 }),
                 signal: controller.signal,
             });
+
+            clearTimeout(timeoutId);
 
             if (!response.ok) {
                 let errMsg = "Failed to get response";
@@ -384,7 +521,16 @@ export default function Home() {
                 );
             }
         } catch (error: any) {
-            if (error.name === "AbortError") return;
+            clearTimeout(timeoutId);
+            if (error.name === "AbortError") {
+                setMessages((prev) => [...prev, {
+                    id: (Date.now() + 1).toString(),
+                    role: "assistant",
+                    content: "Request timed out. Please try again.",
+                    timestamp: new Date(),
+                }]);
+                return;
+            }
             console.error("Send image error:", error);
             setMessages((prev) => [...prev, {
                 id: (Date.now() + 1).toString(),
@@ -393,29 +539,31 @@ export default function Home() {
                 timestamp: new Date(),
             }]);
         } finally {
+            isLoadingRef.current = false;
             setIsLoading(false);
             setIsStreaming(false);
             abortControllerRef.current = null;
         }
-    }, [pendingImage, isLoading, input, currentLanguage.code, activeChatId]);
+    }, [pendingImage, input, currentLanguage.code, activeChatId]);
 
     const handleStopGeneration = useCallback(() => {
         abortControllerRef.current?.abort();
+        isLoadingRef.current = false;
         setIsLoading(false);
         setIsStreaming(false);
     }, []);
 
     const handleRegenerate = useCallback(async () => {
-        if (messages.length < 2 || isLoading) return;
+        if (messages.length < 2 || isLoadingRef.current) return;
         const lastUserMsg = [...messages].reverse().find((m) => m.role === "user");
         if (!lastUserMsg) return;
         setMessages((prev) => {
             const lastUserIdx = prev.map((m) => m.role).lastIndexOf("user");
-            return lastUserIdx >= 0 ? prev.slice(0, lastUserIdx + 1) : prev;
+            return lastUserIdx >= 0 ? prev.slice(0, lastUserIdx) : prev;
         });
         setInput(lastUserMsg.content);
-        setTimeout(() => sendMessage(), 0);
-    }, [messages, isLoading, sendMessage]);
+        sendMessage(lastUserMsg.content);
+    }, [messages, sendMessage]);
 
     const handleFeedback = useCallback((msgId: string, type: "up" | "down") => {
         setFeedback((prev) => {
@@ -470,10 +618,39 @@ export default function Home() {
     }, [handleSidebarToggle, handleNewChat, sendMessage, showCommandPalette, showShortcuts, isSidebarOpen]);
 
     // ── Render ──
-    const formatTime = (d: Date) => {
+    const formatTime = useCallback((d: Date) => {
         if (!(d instanceof Date) || isNaN(d.getTime())) return "";
         return d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", timeZoneName: "short" });
-    };
+    }, []);
+
+    const handleEdit = useCallback((messageId: string, content: string) => {
+        setInput(content);
+        setMessages((prev) => {
+            const idx = prev.findIndex((m) => m.id === messageId);
+            if (idx < 0) return prev;
+            return prev.slice(0, idx);
+        });
+    }, []);
+
+    const renderedMessages = useMemo(() => {
+        return messages.map((message, index) => (
+            <MessageRow
+                key={message.id}
+                message={message}
+                isHovered={hoveredMsgId === message.id}
+                isStreaming={isStreaming}
+                isLastMessage={index === messages.length - 1}
+                formatTime={formatTime}
+                onRegenerate={handleRegenerate}
+                onFeedback={handleFeedback}
+                feedbackValue={feedback.get(message.id) || null}
+                onEdit={handleEdit}
+                editLabel={t("chatEditMessage") || "Edit message"}
+                onMouseEnter={() => setHoveredMsgId(message.id)}
+                onMouseLeave={() => setHoveredMsgId(null)}
+            />
+        ));
+    }, [messages, hoveredMsgId, isStreaming, feedback, formatTime, handleRegenerate, handleFeedback, handleEdit, t]);
 
     return (
         <div className="app-shell">
@@ -556,46 +733,10 @@ export default function Home() {
                                 <div className="chat-messages-area" ref={chatMessagesRef}>
                                     <div className="chat-messages-inner">
                                         <div className="chat-messages-list">
-                                            {messages.map((message, index) => (
-                                                <div key={message.id} className={`message-row ${message.role === "user" ? "is-user" : "is-assistant"}`}
-                                                    onMouseEnter={() => setHoveredMsgId(message.id)} onMouseLeave={() => setHoveredMsgId(null)}>
-                                                    <div className="message-row-bubble-wrapper">
-                                                        {message.role === "user" ? (
-                                                            <>
-                                                                <div className="message-bubble-user"><p>{message.content}</p></div>
-                                                                {hoveredMsgId === message.id && !isStreaming && (
-                                                                    <button className="msg-edit-btn" onClick={() => { setInput(message.content); setMessages((p) => p.filter((m) => m.id !== message.id)); }}
-                                                                        title={t("chatEditMessage") || "Edit message"}>
-                                                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                                                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
-                                                                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
-                                                                        </svg>
-                                                                    </button>
-                                                                )}
-                                                                <span className="message-time is-right">{formatTime(message.timestamp)}</span>
-                                                            </>
-                                                        ) : (
-                                                            <div className="msg-wrapper">
-                                                                <MessageActions messageId={message.id} content={message.content}
-                                                                    onRegenerate={handleRegenerate} onFeedback={(type) => handleFeedback(message.id, type)}
-                                                                    feedback={feedback.get(message.id) || null} isVisible={hoveredMsgId === message.id} />
-                                                                <div className="message-bubble-assistant"
-                                                                    data-streaming={isStreaming && index === messages.length - 1 ? "true" : undefined}>
-                                                                    {message.content ? (
-                                                                        <MarkdownRenderer content={message.content} />
-                                                                    ) : (
-                                                                        <span className="streaming-cursor" />
-                                                                    )}
-                                                                </div>
-                                                                <span className="message-time is-left">{formatTime(message.timestamp)}</span>
-                                                            </div>
-                                                        )}
-                                                    </div>
-                                                </div>
-                                            ))}
+                                            {renderedMessages}
                                             {isLoading && messages[messages.length - 1]?.role === "user" && (
                                                 <div className="message-row is-assistant" ref={loadingDotsRef}>
-                                                    <div className="loading-dots"><div className="loading-dots-row">
+                                                    <div className="loading-dots" role="status" aria-label="Loading..."><div className="loading-dots-row">
                                                         <div className="loading-dot animate-pulse" />
                                                         <div className="loading-dot animate-pulse" style={{ animationDelay: "150ms" }} />
                                                         <div className="loading-dot animate-pulse" style={{ animationDelay: "300ms" }} />

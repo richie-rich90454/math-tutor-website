@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { gsap, useGSAP, ScrollTrigger, animateCounter } from "@/lib/gsap";
 
 interface TopicData {
     topic: string;
@@ -47,6 +48,12 @@ export default function ProgressPage() {
     const { t } = useLanguage();
     const [data, setData] = useState<ProgressData | null>(null);
     const [loading, setLoading] = useState(true);
+    const pageRef = useRef<HTMLDivElement>(null);
+    const statsRef = useRef<HTMLDivElement>(null);
+    const chatsRef = useRef<HTMLDivElement>(null);
+    const messagesRef = useRef<HTMLDivElement>(null);
+    const streakRef = useRef<HTMLDivElement>(null);
+    const topicsRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         if (!isLoading && !isAuthenticated) {
@@ -64,13 +71,45 @@ export default function ProgressPage() {
         }
     }, [isAuthenticated]);
 
+    // Scroll-triggered entrance animations
+    useGSAP(() => {
+        if (!pageRef.current) return;
+        const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (prefersReduced) return;
+
+        const cards = pageRef.current.querySelectorAll(".settings-card");
+        gsap.from(cards, {
+            y: 30,
+            opacity: 0,
+            duration: 0.5,
+            stagger: 0.08,
+            ease: "power3.out",
+            scrollTrigger: {
+                trigger: pageRef.current,
+                start: "top 90%",
+            },
+        });
+    }, { scope: pageRef });
+
+    // Counter animation when data loads
+    useGSAP(() => {
+        if (!data) return;
+        const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (prefersReduced) return;
+
+        if (chatsRef.current) animateCounter(chatsRef.current, data.totalChats);
+        if (messagesRef.current) animateCounter(messagesRef.current, data.totalMessages);
+        if (streakRef.current) animateCounter(streakRef.current, data.longestStreak);
+        if (topicsRef.current) animateCounter(topicsRef.current, data.topics.length);
+    }, { dependencies: [data], scope: pageRef });
+
     if (isLoading || !isAuthenticated) return null;
 
     const maxTopicCount = data ? Math.max(...data.topics.map((t) => t.count), 1) : 1;
 
     return (
         <div className="settings-page">
-            <div className="settings-container">
+            <div className="settings-container" ref={pageRef}>
                 <div className="settings-header">
                     <Link href="/" className="settings-back-link">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -90,21 +129,21 @@ export default function ProgressPage() {
                 ) : data ? (
                     <>
                         {/* Stats Cards */}
-                        <div className="progress-stats">
+                        <div className="progress-stats" ref={statsRef}>
                             <div className="progress-stat-card">
-                                <div className="progress-stat-value">{data.totalChats}</div>
+                                <div className="progress-stat-value" ref={chatsRef}>{data.totalChats}</div>
                                 <div className="progress-stat-label">{t("progressConversations") || "Conversations"}</div>
                             </div>
                             <div className="progress-stat-card">
-                                <div className="progress-stat-value">{data.totalMessages}</div>
+                                <div className="progress-stat-value" ref={messagesRef}>{data.totalMessages}</div>
                                 <div className="progress-stat-label">{t("progressMessages") || "Messages"}</div>
                             </div>
                             <div className="progress-stat-card">
-                                <div className="progress-stat-value">{data.longestStreak}</div>
+                                <div className="progress-stat-value" ref={streakRef}>{data.longestStreak}</div>
                                 <div className="progress-stat-label">{t("progressStreak") || "Day Streak"}</div>
                             </div>
                             <div className="progress-stat-card">
-                                <div className="progress-stat-value">{data.topics.length}</div>
+                                <div className="progress-stat-value" ref={topicsRef}>{data.topics.length}</div>
                                 <div className="progress-stat-label">{t("progressTopics") || "Topics Explored"}</div>
                             </div>
                         </div>

@@ -15,7 +15,32 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        const user = getUserByEmail(email);
+        if (typeof email !== "string" || typeof password !== "string") {
+            return NextResponse.json(
+                { error: "Invalid input" },
+                { status: 400 }
+            );
+        }
+
+        const sanitizedEmail = email.trim();
+        const sanitizedPassword = password.trim();
+
+        if (sanitizedEmail.length === 0 || sanitizedPassword.length === 0) {
+            return NextResponse.json(
+                { error: "Email and password are required" },
+                { status: 400 }
+            );
+        }
+
+        if (sanitizedEmail.length > 255) {
+            return NextResponse.json({ error: "Email is too long" }, { status: 400 });
+        }
+
+        if (sanitizedPassword.length > 128) {
+            return NextResponse.json({ error: "Password is too long" }, { status: 400 });
+        }
+
+        const user = getUserByEmail(sanitizedEmail);
         if (!user) {
             return NextResponse.json(
                 { error: "Invalid email or password" },
@@ -23,7 +48,7 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        const valid = comparePassword(password, user.password_hash);
+        const valid = comparePassword(sanitizedPassword, user.password_hash);
         if (!valid) {
             return NextResponse.json(
                 { error: "Invalid email or password" },

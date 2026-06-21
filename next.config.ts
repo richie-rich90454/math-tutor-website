@@ -72,6 +72,15 @@ const nextConfig: NextConfig = {
                     },
                 ],
             },
+            {
+                source: "/api/chats/:path*",
+                headers: [
+                    {
+                        key: "Cache-Control",
+                        value: "private, max-age=0, stale-while-revalidate=60",
+                    },
+                ],
+            },
         ];
     },
 };

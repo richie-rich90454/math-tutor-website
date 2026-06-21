@@ -4,6 +4,7 @@ import { streamChatCompletion } from "@/lib/deepseek";
 import { addMessage, getRecentMessages } from "@/lib/db/messages";
 import { createChat, updateChat, getChatById } from "@/lib/db/chats";
 import { logUsage } from "@/lib/db/usage";
+import { rateLimit } from "@/lib/rate-limit";
 import { v4 as uuidv4 } from "uuid";
 import { promises as fs } from "fs";
 import path from "path";
@@ -129,28 +130,51 @@ export async function POST(request: NextRequest) {
             return NextResponse.json({ error: "Please sign in to chat" }, { status: 401 });
         }
 
-        const rateLimit = checkRateLimit(session.user.id);
-        if (!rateLimit.allowed) {
+        const ip = request.headers.get("x-forwarded-for") || request.headers.get("x-real-ip") || "unknown";
+        const { allowed: ipAllowed } = rateLimit(`chat:${ip}`, 30, 60 * 1000);
+
+        if (!ipAllowed) {
+            return Response.json(
+                { error: "Too many requests. Please wait a moment." },
+                {
+                    status: 429,
+                    headers: {
+                        "Retry-After": "60",
+                        "X-RateLimit-Remaining": "0",
+                    },
+                }
+            );
+        }
+
+        const userRateLimit = checkRateLimit(session.user.id);
+        if (!userRateLimit.allowed) {
             return NextResponse.json(
                 { error: "Too many requests. Please wait a moment." },
                 {
                     status: 429,
                     headers: {
                         "Retry-After": String(
-                            Math.ceil((rateLimit.resetAt - Date.now()) / 1000)
+                            Math.ceil((userRateLimit.resetAt - Date.now()) / 1000)
                         ),
                         "X-RateLimit-Limit": String(RATE_LIMIT),
                         "X-RateLimit-Remaining": "0",
-                        "X-RateLimit-Reset": String(rateLimit.resetAt),
+                        "X-RateLimit-Reset": String(userRateLimit.resetAt),
                     },
                 }
             );
         }
 
         const { message, chatId, preferredLanguage } = await request.json();
-        if (!message || typeof message !== "string") {
+
+        // Validate inputs
+        if (!message || typeof message !== "string" || message.trim().length === 0) {
             return NextResponse.json({ error: "Message is required" }, { status: 400 });
         }
+        if (message.length > 4000) {
+            return NextResponse.json({ error: "Message is too long" }, { status: 400 });
+        }
+        // Sanitize: trim
+        const sanitizedMessage = message.trim();
 
         let activeChatId = chatId;
 
@@ -163,25 +187,25 @@ export async function POST(request: NextRequest) {
             // Check if chat exists in database
             const existingChat = getChatById(activeChatId);
             if (existingChat) {
-                addMessage(userMsgId, activeChatId, "user", message, 0);
-                updateChat(activeChatId, { preview: message.slice(0, 100) });
-                const topic = extractTopic(message);
+                addMessage(userMsgId, activeChatId, "user", sanitizedMessage, 0);
+                updateChat(activeChatId, { preview: sanitizedMessage.slice(0, 100) });
+                const topic = extractTopic(sanitizedMessage);
                 if (topic) updateChat(activeChatId, { topic });
             } else {
                 // Chat doesn't exist, create it with the provided ID
-                const title = message.slice(0, 50) + (message.length > 50 ? "..." : "");
-                const topic = extractTopic(message);
-                createChat(activeChatId, session.user.id, title, message.slice(0, 100));
+                const title = sanitizedMessage.slice(0, 50) + (sanitizedMessage.length > 50 ? "..." : "");
+                const topic = extractTopic(sanitizedMessage);
+                createChat(activeChatId, session.user.id, title, sanitizedMessage.slice(0, 100));
                 if (topic) updateChat(activeChatId, { topic });
-                addMessage(userMsgId, activeChatId, "user", message, 0);
+                addMessage(userMsgId, activeChatId, "user", sanitizedMessage, 0);
             }
         } else {
             activeChatId = uuidv4();
-            const title = message.slice(0, 50) + (message.length > 50 ? "..." : "");
-            const topic = extractTopic(message);
-            createChat(activeChatId, session.user.id, title, message.slice(0, 100));
+            const title = sanitizedMessage.slice(0, 50) + (sanitizedMessage.length > 50 ? "..." : "");
+            const topic = extractTopic(sanitizedMessage);
+            createChat(activeChatId, session.user.id, title, sanitizedMessage.slice(0, 100));
             if (topic) updateChat(activeChatId, { topic });
-            addMessage(userMsgId, activeChatId, "user", message, 0);
+            addMessage(userMsgId, activeChatId, "user", sanitizedMessage, 0);
         }
 
         // Build conversation context: system prompt + last 20 messages + new user message
@@ -199,7 +223,7 @@ export async function POST(request: NextRequest) {
             }
         }
 
-        contextMessages.push({ role: "user", content: message });
+        contextMessages.push({ role: "user", content: sanitizedMessage });
 
         const stream = await streamChatCompletion(contextMessages);
 
@@ -236,8 +260,8 @@ export async function POST(request: NextRequest) {
                 "Cache-Control": "no-cache, no-transform",
                 "X-Accel-Buffering": "no",
                 "X-RateLimit-Limit": String(RATE_LIMIT),
-                "X-RateLimit-Remaining": String(rateLimit.remaining),
-                "X-RateLimit-Reset": String(rateLimit.resetAt),
+                "X-RateLimit-Remaining": String(userRateLimit.remaining),
+                "X-RateLimit-Reset": String(userRateLimit.resetAt),
                 "X-Chat-Id": activeChatId,
             },
         });

@@ -10,6 +10,14 @@ if (typeof window !== "undefined") {
 export { gsap, useGSAP, ScrollTrigger };
 
 // ==========================================
+// Accessibility
+// ==========================================
+export function prefersReducedMotion(): boolean {
+    if (typeof window === "undefined") return false;
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
+// ==========================================
 // Entrance Animations
 // ==========================================
 export function fadeInUp(ref: RefObject<HTMLElement | null>, delay: number = 0) {

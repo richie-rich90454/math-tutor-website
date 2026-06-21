@@ -1,32 +1,32 @@
 "use client";
 
 import { useRef, ReactNode } from "react";
-import { useGSAP } from "@/lib/gsap";
-import gsap from "gsap";
+import { usePathname } from "next/navigation";
+import { gsap, useGSAP } from "@/lib/gsap";
 
-interface PageTransitionProps {
+interface Props {
     children: ReactNode;
-    className?: string;
 }
 
-export default function PageTransition({ children, className = "" }: PageTransitionProps) {
-    const ref = useRef<HTMLDivElement>(null);
+export default function PageTransition({ children }: Props) {
+    const containerRef = useRef<HTMLDivElement>(null);
+    const pathname = usePathname();
 
-    useGSAP(
-        () => {
-            gsap.from(ref.current, {
-                y: 20,
-                opacity: 0,
-                duration: 0.5,
-                ease: "power3.out",
-            });
-        },
-        { scope: ref }
-    );
+    useGSAP(() => {
+        if (!containerRef.current) return;
+        
+        const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (prefersReduced) {
+            gsap.set(containerRef.current, { opacity: 1, y: 0 });
+            return;
+        }
 
-    return (
-        <div ref={ref} className={className}>
-            {children}
-        </div>
-    );
+        gsap.fromTo(
+            containerRef.current,
+            { opacity: 0, y: 12, filter: "blur(4px)" },
+            { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }
+        );
+    }, { dependencies: [pathname], scope: containerRef });
+
+    return <div ref={containerRef}>{children}</div>;
 }

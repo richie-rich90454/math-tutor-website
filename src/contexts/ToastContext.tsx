@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState, useCallback, ReactNode } from "react";
+import { createContext, useContext, useState, useCallback, useRef, ReactNode } from "react";
 import gsap from "gsap";
 
 export type ToastType = "success" | "error" | "warning" | "info";
@@ -9,7 +9,6 @@ interface Toast {
     id: string;
     type: ToastType;
     message: string;
-    removing?: boolean;
 }
 
 interface ToastContextType {
@@ -24,12 +23,25 @@ let toastId = 0;
 
 export function ToastProvider({ children }: { children: ReactNode }) {
     const [toasts, setToasts] = useState<Toast[]>([]);
+    const toastRefs = useRef<Map<string, HTMLDivElement>>(new Map());
 
     const removeToast = useCallback((id: string) => {
-        setToasts((prev) => prev.map((t) => (t.id === id ? { ...t, removing: true } : t)));
-        setTimeout(() => {
+        const el = toastRefs.current.get(id);
+        if (el) {
+            gsap.to(el, {
+                opacity: 0,
+                y: -12,
+                scale: 0.95,
+                duration: 0.25,
+                ease: "power2.in",
+                onComplete: () => {
+                    setToasts((prev) => prev.filter((t) => t.id !== id));
+                    toastRefs.current.delete(id);
+                },
+            });
+        } else {
             setToasts((prev) => prev.filter((t) => t.id !== id));
-        }, 300);
+        }
     }, []);
 
     const addToast = useCallback(
@@ -41,6 +53,12 @@ export function ToastProvider({ children }: { children: ReactNode }) {
         [removeToast]
     );
 
+    const setToastRef = useCallback((id: string, el: HTMLDivElement | null) => {
+        if (el) {
+            toastRefs.current.set(id, el);
+        }
+    }, []);
+
     return (
         <ToastContext.Provider value={{ toasts, addToast, removeToast }}>
             {children}
@@ -48,6 +66,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
                 {toasts.map((toast) => (
                     <div
                         key={toast.id}
+                        ref={(el) => setToastRef(toast.id, el)}
                         className={`toast-item is-${toast.type}`}
                     >
                         <svg className="toast-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

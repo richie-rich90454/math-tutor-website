@@ -18,6 +18,7 @@ export default function LanguageSwitcher() {
                 onClick={() => setIsOpen(!isOpen)}
                 className="lang-switcher-btn"
                 aria-label={`Language: ${currentLanguage.name}`}
+                aria-expanded={isOpen}
             >
                 <span>{currentLanguage.name}</span>
                 <svg

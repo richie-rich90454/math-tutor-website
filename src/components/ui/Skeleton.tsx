@@ -21,5 +21,5 @@ export default function Skeleton({ className = "", width, height, variant = "tex
     if (width) style.width = width;
     if (height) style.height = height;
 
-    return <div className={classes} style={style} />;
+    return <div className={classes} style={style} role="status" aria-label="Loading..." />;
 }

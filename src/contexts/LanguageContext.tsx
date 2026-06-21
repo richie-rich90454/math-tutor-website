@@ -25,6 +25,8 @@ const languages: Language[] = [
     { code: "fr", name: "Français" },
     { code: "de", name: "Deutsch" },
     { code: "ja", name: "日本語" },
+    { code: "ar", name: "العربية" },
+    { code: "he", name: "עברית" },
 ];
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
