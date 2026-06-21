@@ -14,16 +14,151 @@ const RATE_WINDOW_MS = 60 * 1000;
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
 
 const TOPIC_KEYWORDS: Record<string, string[]> = {
-    algebra: ["algebra", "equation", "variable", "polynomial", "factor", "quadratic", "linear", "inequality", "matrix", "алгебр", "方程式", "الجبر", "algèbre", "Algebra", "алгебр"],
-    geometry: ["geometry", "angle", "triangle", "circle", "area", "perimeter", "volume", "surface", "parallel", "perpendicular", "геометр", "几何", "هندسة", "géométrie", "Geometrie", "геометр"],
-    calculus: ["calculus", "derivative", "integral", "limit", "differentiation", "integration", "differential", "optimization", " calculus", "интеграл", "微积分", "حساب التفاضل", "calcul", "分析"],
-    trigonometry: ["trigonometry", "sine", "cosine", "tangent", "trig", "angle", "radian", "triangl", "тригонометр", "三角函数", "usul", "trigonométrie", "trigonometrie"],
-    statistics: ["statistics", "probability", "mean", "median", "standard deviation", "variance", "distribution", "sample", "статистик", "统计", "إحصاء", "statistique", "Statistik"],
-    arithmetic: ["addition", "subtraction", "multiplication", "division", "fraction", "decimal", "percentage", "arithmetic", "算术", "أithmetic", "arithmétique", "Arithmetik"],
-    "linear algebra": ["matrix", "vector", "eigenvalue", "linear transformation", "determinant", "span", "basis", "линейная алгебр", "线性代数", "جبر خطي", "algèbre linéaire", "Lineare Algebra"],
-    "number theory": ["prime", "divisibility", "modular", "congruence", "gcd", "lcm", "diophantine", "теория чисел", "数论", "نظرية الأعداد", "théorie des nombres"],
-    "differential equations": ["differential equation", "ode", "pde", "laplace", "fourier", "уравнение", "微分方程", "المعادلات التفاضلية", "équation différentielle", "Differentialgleichung"],
-    "word problems": ["word problem", "real world", "application", "scenario", "бодлог", "应用题", "مسألة", "problème", "Anwendung"],
+    algebra: [
+        "algebra",
+        "equation",
+        "variable",
+        "polynomial",
+        "factor",
+        "quadratic",
+        "linear",
+        "inequality",
+        "matrix",
+        "алгебр",
+        "方程式",
+        "الجبر",
+        "algèbre",
+        "Algebra",
+        "алгебр",
+    ],
+    geometry: [
+        "geometry",
+        "angle",
+        "triangle",
+        "circle",
+        "area",
+        "perimeter",
+        "volume",
+        "surface",
+        "parallel",
+        "perpendicular",
+        "геометр",
+        "几何",
+        "هندسة",
+        "géométrie",
+        "Geometrie",
+        "геометр",
+    ],
+    calculus: [
+        "calculus",
+        "derivative",
+        "integral",
+        "limit",
+        "differentiation",
+        "integration",
+        "differential",
+        "optimization",
+        " calculus",
+        "интеграл",
+        "微积分",
+        "حساب التفاضل",
+        "calcul",
+        "分析",
+    ],
+    trigonometry: [
+        "trigonometry",
+        "sine",
+        "cosine",
+        "tangent",
+        "trig",
+        "angle",
+        "radian",
+        "triangl",
+        "тригонометр",
+        "三角函数",
+        "usul",
+        "trigonométrie",
+        "trigonometrie",
+    ],
+    statistics: [
+        "statistics",
+        "probability",
+        "mean",
+        "median",
+        "standard deviation",
+        "variance",
+        "distribution",
+        "sample",
+        "статистик",
+        "统计",
+        "إحصاء",
+        "statistique",
+        "Statistik",
+    ],
+    arithmetic: [
+        "addition",
+        "subtraction",
+        "multiplication",
+        "division",
+        "fraction",
+        "decimal",
+        "percentage",
+        "arithmetic",
+        "算术",
+        "أithmetic",
+        "arithmétique",
+        "Arithmetik",
+    ],
+    "linear algebra": [
+        "matrix",
+        "vector",
+        "eigenvalue",
+        "linear transformation",
+        "determinant",
+        "span",
+        "basis",
+        "линейная алгебр",
+        "线性代数",
+        "جبر خطي",
+        "algèbre linéaire",
+        "Lineare Algebra",
+    ],
+    "number theory": [
+        "prime",
+        "divisibility",
+        "modular",
+        "congruence",
+        "gcd",
+        "lcm",
+        "diophantine",
+        "теория чисел",
+        "数论",
+        "نظرية الأعداد",
+        "théorie des nombres",
+    ],
+    "differential equations": [
+        "differential equation",
+        "ode",
+        "pde",
+        "laplace",
+        "fourier",
+        "уравнение",
+        "微分方程",
+        "المعادلات التفاضلية",
+        "équation différentielle",
+        "Differentialgleichung",
+    ],
+    "word problems": [
+        "word problem",
+        "real world",
+        "application",
+        "scenario",
+        "бодлог",
+        "应用题",
+        "مسألة",
+        "problème",
+        "Anwendung",
+    ],
 };
 
 function extractTopic(message: string): string | null {
@@ -130,7 +265,8 @@ export async function POST(request: NextRequest) {
             return NextResponse.json({ error: "Please sign in to chat" }, { status: 401 });
         }
 
-        const ip = request.headers.get("x-forwarded-for") || request.headers.get("x-real-ip") || "unknown";
+        const ip =
+            request.headers.get("x-forwarded-for") || request.headers.get("x-real-ip") || "unknown";
         const { allowed: ipAllowed } = rateLimit(`chat:${ip}`, 30, 60 * 1000);
 
         if (!ipAllowed) {
@@ -142,7 +278,7 @@ export async function POST(request: NextRequest) {
                         "Retry-After": "60",
                         "X-RateLimit-Remaining": "0",
                     },
-                }
+                },
             );
         }
 
@@ -154,13 +290,13 @@ export async function POST(request: NextRequest) {
                     status: 429,
                     headers: {
                         "Retry-After": String(
-                            Math.ceil((userRateLimit.resetAt - Date.now()) / 1000)
+                            Math.ceil((userRateLimit.resetAt - Date.now()) / 1000),
                         ),
                         "X-RateLimit-Limit": String(RATE_LIMIT),
                         "X-RateLimit-Remaining": "0",
                         "X-RateLimit-Reset": String(userRateLimit.resetAt),
                     },
-                }
+                },
             );
         }
 
@@ -179,7 +315,7 @@ export async function POST(request: NextRequest) {
         let activeChatId = chatId;
 
         const systemPrompt = await getSystemPrompt(
-            preferredLanguage || session.user.preferred_language || "en"
+            preferredLanguage || session.user.preferred_language || "en",
         );
 
         const userMsgId = uuidv4();
@@ -193,7 +329,8 @@ export async function POST(request: NextRequest) {
                 if (topic) updateChat(activeChatId, { topic });
             } else {
                 // Chat doesn't exist, create it with the provided ID
-                const title = sanitizedMessage.slice(0, 50) + (sanitizedMessage.length > 50 ? "..." : "");
+                const title =
+                    sanitizedMessage.slice(0, 50) + (sanitizedMessage.length > 50 ? "..." : "");
                 const topic = extractTopic(sanitizedMessage);
                 createChat(activeChatId, session.user.id, title, sanitizedMessage.slice(0, 100));
                 if (topic) updateChat(activeChatId, { topic });
@@ -201,7 +338,8 @@ export async function POST(request: NextRequest) {
             }
         } else {
             activeChatId = uuidv4();
-            const title = sanitizedMessage.slice(0, 50) + (sanitizedMessage.length > 50 ? "..." : "");
+            const title =
+                sanitizedMessage.slice(0, 50) + (sanitizedMessage.length > 50 ? "..." : "");
             const topic = extractTopic(sanitizedMessage);
             createChat(activeChatId, session.user.id, title, sanitizedMessage.slice(0, 100));
             if (topic) updateChat(activeChatId, { topic });
@@ -269,7 +407,7 @@ export async function POST(request: NextRequest) {
         console.error("Chat API error:", error);
         return NextResponse.json(
             { error: error.message || "Failed to process message" },
-            { status: 500 }
+            { status: 500 },
         );
     }
 }

@@ -45,7 +45,7 @@ export function fadeInScale(ref: RefObject<HTMLElement | null>, delay: number = 
 export function staggerChildren(
     parent: RefObject<HTMLElement | null>,
     childSelector: string,
-    delay: number = 0
+    delay: number = 0,
 ) {
     if (!parent.current) return;
     return gsap.from(parent.current.querySelectorAll(childSelector), {
@@ -87,11 +87,14 @@ export function slideInRight(ref: RefObject<HTMLElement | null>, delay: number =
 /**
  * Bouncy spring entrance — great for message bubbles
  */
-export function springIn(el: HTMLElement, options?: {
-    from?: "left" | "right" | "bottom";
-    duration?: number;
-    delay?: number;
-}) {
+export function springIn(
+    el: HTMLElement,
+    options?: {
+        from?: "left" | "right" | "bottom";
+        duration?: number;
+        delay?: number;
+    },
+) {
     const from = options?.from || "bottom";
     const props: gsap.TweenVars = {
         opacity: 0,
@@ -126,7 +129,7 @@ export function typewriterText(el: HTMLElement, duration: number = 1) {
     const text = el.textContent || "";
     el.textContent = "";
     const chars = text.split("");
-    
+
     chars.forEach((_, i) => {
         const span = document.createElement("span");
         span.textContent = text[i] === " " ? "\u00A0" : text[i];
@@ -204,7 +207,8 @@ export function attentionPulse(el: HTMLElement) {
  * Celebratory scale burst
  */
 export function successPop(el: HTMLElement) {
-    return gsap.timeline()
+    return gsap
+        .timeline()
         .to(el, { scale: 1.3, duration: 0.2, ease: "back.out(2)" })
         .to(el, { scale: 1, duration: 0.3, ease: "elastic.out(1, 0.5)" });
 }
@@ -256,7 +260,7 @@ export function magneticHover(el: HTMLElement, strength: number = 0.3) {
 export function particleBurst(
     el: HTMLElement,
     count: number = 8,
-    colors: string[] = ["#60a5fa", "#a78bfa", "#f472b6", "#34d399"]
+    colors: string[] = ["#60a5fa", "#a78bfa", "#f472b6", "#34d399"],
 ) {
     const rect = el.getBoundingClientRect();
     const cx = rect.left + rect.width / 2;
@@ -298,11 +302,7 @@ export function particleBurst(
 /**
  * Parallax effect where element moves slower than scroll
  */
-export function parallaxScroll(
-    el: HTMLElement,
-    speed: number = 0.3,
-    direction: "y" | "x" = "y"
-) {
+export function parallaxScroll(el: HTMLElement, speed: number = 0.3, direction: "y" | "x" = "y") {
     return gsap.to(el, {
         [direction]: () => window.innerHeight * speed * (direction === "y" ? -1 : 1),
         ease: "none",
@@ -321,7 +321,7 @@ export function parallaxScroll(
 export function useAnimateOnMount(
     ref: RefObject<HTMLElement | null>,
     animation: gsap.TweenVars,
-    deps: any[] = []
+    deps: any[] = [],
 ) {
     useGSAP(
         () => {
@@ -331,7 +331,7 @@ export function useAnimateOnMount(
                 });
             }
         },
-        { dependencies: [ref, ...deps], scope: ref as RefObject<Element> }
+        { dependencies: [ref, ...deps], scope: ref as RefObject<Element> },
     );
 }
 
@@ -372,7 +372,8 @@ export function float(el: HTMLElement, distance: number = 8, duration: number = 
  * Glitch text effect — rapid position jitter then settle
  */
 export function glitchText(el: HTMLElement) {
-    return gsap.timeline()
+    return gsap
+        .timeline()
         .to(el, { x: -3, duration: 0.05, repeat: 5, yoyo: true })
         .to(el, { x: 0, duration: 0.3, ease: "elastic.out(1, 0.3)" });
 }

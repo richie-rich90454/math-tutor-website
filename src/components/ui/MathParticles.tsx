@@ -3,8 +3,37 @@
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
 
-const SYMBOLS = ["+", "−", "×", "÷", "=", "π", "√", "∑", "∫", "∞", "α", "β", "θ", "Δ", "λ", "∂", "∇", "∈", "∉", "∝"];
-const FORMULAS = ["E=mc²", "a²+b²=c²", "e^(iπ)=-1", "∫f(x)dx", "Δ=b²-4ac", "x=(-b±√Δ)/2a", "sin²θ+cos²θ=1"];
+const SYMBOLS = [
+    "+",
+    "−",
+    "×",
+    "÷",
+    "=",
+    "π",
+    "√",
+    "∑",
+    "∫",
+    "∞",
+    "α",
+    "β",
+    "θ",
+    "Δ",
+    "λ",
+    "∂",
+    "∇",
+    "∈",
+    "∉",
+    "∝",
+];
+const FORMULAS = [
+    "E=mc²",
+    "a²+b²=c²",
+    "e^(iπ)=-1",
+    "∫f(x)dx",
+    "Δ=b²-4ac",
+    "x=(-b±√Δ)/2a",
+    "sin²θ+cos²θ=1",
+];
 
 interface Particle {
     el: HTMLSpanElement;
@@ -25,7 +54,7 @@ export default function MathParticles() {
         for (let i = 0; i < 30; i++) {
             const el = document.createElement("span");
             el.className = "math-particle";
-            
+
             // Every 5th particle is a formula
             const isFormula = i % 5 === 0;
             if (isFormula) {
@@ -38,7 +67,7 @@ export default function MathParticles() {
 
             const opacity = isDark ? 0.04 + Math.random() * 0.08 : 0.03 + Math.random() * 0.07;
             el.style.opacity = String(opacity);
-            
+
             // Subtle glow in dark mode
             if (isDark) {
                 el.style.textShadow = `0 0 ${6 + Math.random() * 8}px rgba(148, 163, 184, 0.15)`;

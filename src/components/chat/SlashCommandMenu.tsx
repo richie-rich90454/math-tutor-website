@@ -10,13 +10,34 @@ interface SlashCommandMenuProps {
 }
 
 const COMMANDS = [
-    { command: "/explain", label: "Explain a concept", description: "Get a detailed explanation of a math topic" },
-    { command: "/solve", label: "Solve a problem", description: "Step through solving a specific problem" },
-    { command: "/practice", label: "Practice problems", description: "Generate practice problems on a topic" },
-    { command: "/quiz", label: "Take a quiz", description: "Test your knowledge with a quick quiz" },
+    {
+        command: "/explain",
+        label: "Explain a concept",
+        description: "Get a detailed explanation of a math topic",
+    },
+    {
+        command: "/solve",
+        label: "Solve a problem",
+        description: "Step through solving a specific problem",
+    },
+    {
+        command: "/practice",
+        label: "Practice problems",
+        description: "Generate practice problems on a topic",
+    },
+    {
+        command: "/quiz",
+        label: "Take a quiz",
+        description: "Test your knowledge with a quick quiz",
+    },
 ];
 
-export default function SlashCommandMenu({ isOpen, onSelect, onClose, position }: SlashCommandMenuProps) {
+export default function SlashCommandMenu({
+    isOpen,
+    onSelect,
+    onClose,
+    position,
+}: SlashCommandMenuProps) {
     const [selectedIndex, setSelectedIndex] = useState(0);
     const ref = useRef<HTMLDivElement>(null);
 
@@ -58,11 +79,7 @@ export default function SlashCommandMenu({ isOpen, onSelect, onClose, position }
     if (!isOpen) return null;
 
     return (
-        <div
-            ref={ref}
-            className="slash-menu"
-            style={{ top: position.top, left: position.left }}
-        >
+        <div ref={ref} className="slash-menu" style={{ top: position.top, left: position.left }}>
             {COMMANDS.map((cmd, i) => (
                 <button
                     key={cmd.command}

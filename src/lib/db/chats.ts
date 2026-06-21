@@ -16,12 +16,15 @@ export function createChat(
     id: string,
     userId: string,
     title: string,
-    preview?: string
+    preview?: string,
 ): ChatSession {
     const db = getDb();
-    db.prepare(
-        "INSERT INTO chat_sessions (id, user_id, title, preview) VALUES (?, ?, ?, ?)"
-    ).run(id, userId, title, preview || title);
+    db.prepare("INSERT INTO chat_sessions (id, user_id, title, preview) VALUES (?, ?, ?, ?)").run(
+        id,
+        userId,
+        title,
+        preview || title,
+    );
     return getChatById(id)!;
 }
 
@@ -29,7 +32,7 @@ export function getUserChats(userId: string): ChatSession[] {
     const db = getDb();
     return db
         .prepare(
-            "SELECT * FROM chat_sessions WHERE user_id = ? AND is_archived = 0 ORDER BY is_pinned DESC, updated_at DESC"
+            "SELECT * FROM chat_sessions WHERE user_id = ? AND is_archived = 0 ORDER BY is_pinned DESC, updated_at DESC",
         )
         .all(userId) as ChatSession[];
 }
@@ -44,7 +47,7 @@ export function getChatById(chatId: string): ChatSession | null {
 
 export function updateChat(
     chatId: string,
-    fields: Partial<Pick<ChatSession, "title" | "preview" | "topic" | "is_archived" | "is_pinned">>
+    fields: Partial<Pick<ChatSession, "title" | "preview" | "topic" | "is_archived" | "is_pinned">>,
 ): void {
     const db = getDb();
     const sets: string[] = [];
@@ -79,7 +82,7 @@ export function searchChats(userId: string, query: string): ChatSession[] {
              LEFT JOIN chat_messages cm ON cm.chat_session_id = cs.id
              WHERE cs.user_id = ? 
              AND (cs.title LIKE ? OR cs.preview LIKE ? OR cm.content LIKE ?)
-             ORDER BY cs.updated_at DESC`
+             ORDER BY cs.updated_at DESC`,
         )
         .all(userId, likeQuery, likeQuery, likeQuery) as ChatSession[];
 }

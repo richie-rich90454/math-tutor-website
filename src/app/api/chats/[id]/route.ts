@@ -3,10 +3,7 @@ import { getSession } from "@/lib/auth-middleware";
 import { getChatById, updateChat, deleteChat } from "@/lib/db/chats";
 import { getChatMessages } from "@/lib/db/messages";
 
-export async function GET(
-    request: NextRequest,
-    { params }: { params: Promise<{ id: string }> }
-) {
+export async function GET(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
     try {
         const session = await getSession(request);
         if (!session) {
@@ -31,10 +28,7 @@ export async function GET(
     }
 }
 
-export async function PATCH(
-    request: NextRequest,
-    { params }: { params: Promise<{ id: string }> }
-) {
+export async function PATCH(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
     try {
         const session = await getSession(request);
         if (!session) {
@@ -63,7 +57,7 @@ export async function PATCH(
 
 export async function DELETE(
     request: NextRequest,
-    { params }: { params: Promise<{ id: string }> }
+    { params }: { params: Promise<{ id: string }> },
 ) {
     try {
         const session = await getSession(request);

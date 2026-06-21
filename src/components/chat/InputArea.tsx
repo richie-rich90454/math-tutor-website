@@ -54,7 +54,7 @@ const InputArea = memo(function InputArea({
             onChange(e.target.value);
             setTimeout(adjustHeight, 0);
         },
-        [onChange, adjustHeight]
+        [onChange, adjustHeight],
     );
 
     const handleSend = useCallback(() => {
@@ -80,7 +80,7 @@ const InputArea = memo(function InputArea({
             };
             reader.readAsDataURL(file);
         },
-        [onImageSelect]
+        [onImageSelect],
     );
 
     const handleFileChange = useCallback(
@@ -89,7 +89,7 @@ const InputArea = memo(function InputArea({
             if (file) processFile(file);
             e.target.value = "";
         },
-        [processFile]
+        [processFile],
     );
 
     const handleDrop = useCallback(
@@ -99,7 +99,7 @@ const InputArea = memo(function InputArea({
             const file = e.dataTransfer.files[0];
             if (file) processFile(file);
         },
-        [processFile]
+        [processFile],
     );
 
     const handleDragOver = useCallback((e: React.DragEvent) => {
@@ -119,7 +119,8 @@ const InputArea = memo(function InputArea({
             return;
         }
 
-        const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+        const SpeechRecognition =
+            (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
         if (!SpeechRecognition) return;
 
         const recognition = new SpeechRecognition();
@@ -178,16 +179,34 @@ const InputArea = memo(function InputArea({
             {/* Image preview inside the card */}
             {pendingImage && (
                 <div className="ia-image-preview">
-                    <img src={pendingImage.data} alt="Selected" className="ia-image-preview-img" loading="lazy" />
-                    <button className="ia-image-preview-remove" onClick={onClearImage} aria-label="Remove image">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                            <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+                    <img
+                        src={pendingImage.data}
+                        alt="Selected"
+                        className="ia-image-preview-img"
+                        loading="lazy"
+                    />
+                    <button
+                        className="ia-image-preview-remove"
+                        onClick={onClearImage}
+                        aria-label="Remove image"
+                    >
+                        <svg
+                            width="12"
+                            height="12"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2.5"
+                        >
+                            <line x1="18" y1="6" x2="6" y2="18" />
+                            <line x1="6" y1="6" x2="18" y2="18" />
                         </svg>
                     </button>
                 </div>
             )}
 
-            <div className="ia-textarea-wrap"
+            <div
+                className="ia-textarea-wrap"
                 onDrop={onImageSelect ? handleDrop : undefined}
                 onDragOver={onImageSelect ? handleDragOver : undefined}
                 onDragLeave={onImageSelect ? handleDragLeave : undefined}
@@ -201,7 +220,16 @@ const InputArea = memo(function InputArea({
                         title={t("inputAttachImage") || "Attach image"}
                         aria-label={t("inputAttachImage") || "Attach image"}
                     >
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                        >
                             <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
                             <circle cx="8.5" cy="8.5" r="1.5" />
                             <polyline points="21 15 16 10 5 21" />
@@ -213,15 +241,32 @@ const InputArea = memo(function InputArea({
                     onClick={toggleVoice}
                     disabled={isLoading}
                     className={`ia-util-btn ${isListening ? "is-active" : ""}`}
-                    title={isListening ? (t("inputStopListening") || "Stop") : (t("inputVoiceInput") || "Voice")}
-                    aria-label={isListening ? (t("inputStopListening") || "Stop") : (t("inputVoiceInput") || "Voice")}
+                    title={
+                        isListening
+                            ? t("inputStopListening") || "Stop"
+                            : t("inputVoiceInput") || "Voice"
+                    }
+                    aria-label={
+                        isListening
+                            ? t("inputStopListening") || "Stop"
+                            : t("inputVoiceInput") || "Voice"
+                    }
                 >
                     {isListening ? (
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                             <rect x="6" y="6" width="12" height="12" rx="2" />
                         </svg>
                     ) : (
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                        >
                             <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
                             <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
                             <line x1="12" y1="19" x2="12" y2="23" />
@@ -260,7 +305,16 @@ const InputArea = memo(function InputArea({
                         className="ia-action-btn ia-send-btn"
                         aria-label={t("inputSendMessage")}
                     >
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                        >
                             <line x1="22" y1="2" x2="11" y2="13" />
                             <polygon points="22 2 15 22 11 13 2 9 22 2" />
                         </svg>
@@ -270,7 +324,14 @@ const InputArea = memo(function InputArea({
                 {/* Drag overlay */}
                 {isDragOver && (
                     <div className="ia-drag-overlay">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                        >
                             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
                             <polyline points="17 8 12 3 7 8" />
                             <line x1="12" y1="3" x2="12" y2="15" />
@@ -282,9 +343,7 @@ const InputArea = memo(function InputArea({
 
             <div className="ia-bottom">
                 <span className="ia-hint">{t("inputShiftHint")}</span>
-                {charCount > 1000 && (
-                    <span className="ia-char-count">{charCount}</span>
-                )}
+                {charCount > 1000 && <span className="ia-char-count">{charCount}</span>}
             </div>
         </div>
     );

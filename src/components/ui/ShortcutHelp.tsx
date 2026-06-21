@@ -31,7 +31,7 @@ export default function ShortcutHelp({ isOpen, onClose }: ShortcutHelpProps) {
             // Focus trap: cycle Tab within modal
             if (e.key === "Tab" && modalRef.current) {
                 const focusable = modalRef.current.querySelectorAll<HTMLElement>(
-                    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+                    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
                 );
                 if (focusable.length === 0) return;
                 const first = focusable[0];
@@ -56,7 +56,12 @@ export default function ShortcutHelp({ isOpen, onClose }: ShortcutHelpProps) {
 
     useEffect(() => {
         if (isOpen && modalRef.current) {
-            gsap.from(modalRef.current, { scale: 0.9, opacity: 0, duration: 0.3, ease: "back.out(1.7)" });
+            gsap.from(modalRef.current, {
+                scale: 0.9,
+                opacity: 0,
+                duration: 0.3,
+                ease: "back.out(1.7)",
+            });
             gsap.from(backdropRef.current, { opacity: 0, duration: 0.2 });
         }
     }, [isOpen]);
@@ -68,8 +73,22 @@ export default function ShortcutHelp({ isOpen, onClose }: ShortcutHelpProps) {
             <div ref={modalRef} className="shortcut-modal" onClick={(e) => e.stopPropagation()}>
                 <div className="shortcut-modal-header">
                     <h2 className="shortcut-modal-title">{t("shortcutsTitle")}</h2>
-                    <button onClick={onClose} className="shortcut-modal-close" aria-label={t("a11yClose")}>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
+                    <button
+                        onClick={onClose}
+                        className="shortcut-modal-close"
+                        aria-label={t("a11yClose")}
+                    >
+                        <svg
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                        >
+                            <line x1="18" y1="6" x2="6" y2="18" />
+                            <line x1="6" y1="6" x2="18" y2="18" />
+                        </svg>
                     </button>
                 </div>
                 <div className="shortcut-section">
@@ -79,7 +98,9 @@ export default function ShortcutHelp({ isOpen, onClose }: ShortcutHelpProps) {
                             <span className="shortcut-label">{t(s.translationKey)}</span>
                             <span className="shortcut-keys">
                                 {s.keys.map((k) => (
-                                    <kbd key={k} className="shortcut-kbd">{k}</kbd>
+                                    <kbd key={k} className="shortcut-kbd">
+                                        {k}
+                                    </kbd>
                                 ))}
                             </span>
                         </div>

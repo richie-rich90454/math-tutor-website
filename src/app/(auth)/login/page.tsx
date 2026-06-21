@@ -55,7 +55,7 @@ export default function LoginPage() {
             gsap.fromTo(
                 cardRef.current,
                 { x: -10 },
-                { x: 10, duration: 0.1, repeat: 3, yoyo: true, ease: "power2.inOut" }
+                { x: 10, duration: 0.1, repeat: 3, yoyo: true, ease: "power2.inOut" },
             );
         }
     };
@@ -80,114 +80,150 @@ export default function LoginPage() {
 
     return (
         <PageTransition>
-        <div className="auth-page">
-            <div className="auth-card" ref={cardRef}>
-                <div className="auth-card-header">
-                    <Link href="/" className="auth-logo">
-                        <svg
-                            width="32"
-                            height="32"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                        >
-                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
-                            <line x1="8" y1="7" x2="16" y2="7" />
-                            <line x1="8" y1="11" x2="14" y2="11" />
-                        </svg>
-                        <span>{t("ciAIMathTutor")}</span>
-                    </Link>
-                    <h1 className="auth-heading">{t("authLoginTitle")}</h1>
-                    <p className="auth-subtext">{t("authLoginSubtitle")}</p>
-                </div>
-
-                <form ref={formRef} onSubmit={handleSubmit} className="auth-form">
-                    <div className="auth-field">
-                        <label htmlFor="email" className="auth-label">
-                            {t("authEmail")}
-                        </label>
-                        <input
-                            id="email"
-                            type="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            placeholder={t("authEmailPlaceholder")}
-                            className="auth-input"
-                            required
-                            autoComplete="email"
-                            autoFocus
-                        />
+            <div className="auth-page">
+                <div className="auth-card" ref={cardRef}>
+                    <div className="auth-card-header">
+                        <Link href="/" className="auth-logo">
+                            <svg
+                                width="32"
+                                height="32"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            >
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                                <line x1="8" y1="7" x2="16" y2="7" />
+                                <line x1="8" y1="11" x2="14" y2="11" />
+                            </svg>
+                            <span>{t("ciAIMathTutor")}</span>
+                        </Link>
+                        <h1 className="auth-heading">{t("authLoginTitle")}</h1>
+                        <p className="auth-subtext">{t("authLoginSubtitle")}</p>
                     </div>
 
-                    <div className="auth-field">
-                        <label htmlFor="password" className="auth-label">
-                            {t("authPassword")}
-                        </label>
-                        <div className="auth-password-wrapper">
+                    <form ref={formRef} onSubmit={handleSubmit} className="auth-form">
+                        <div className="auth-field">
+                            <label htmlFor="email" className="auth-label">
+                                {t("authEmail")}
+                            </label>
                             <input
-                                id="password"
-                                type={showPassword ? "text" : "password"}
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                placeholder={t("authPasswordPlaceholder")}
+                                id="email"
+                                type="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                placeholder={t("authEmailPlaceholder")}
                                 className="auth-input"
                                 required
-                                autoComplete="current-password"
+                                autoComplete="email"
+                                autoFocus
                             />
-                            <button
-                                type="button"
-                                onClick={() => setShowPassword(!showPassword)}
-                                className="auth-password-toggle"
-                                aria-label={showPassword ? t("authHidePassword") : t("authShowPassword")}
-                            >
-                                {showPassword ? (
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" /><line x1="1" y1="1" x2="23" y2="23" /></svg>
-                                ) : (
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" /><circle cx="12" cy="12" r="3" /></svg>
-                                )}
-                            </button>
                         </div>
-                    </div>
 
-                    <div className="auth-field">
-                        <label className="auth-checkbox-label">
-                            <input type="checkbox" className="auth-checkbox" checked={remember} onChange={(e) => setRemember(e.target.checked)} />
-                            <span>{t("authRememberMe")}</span>
-                        </label>
-                    </div>
-
-                    {error && (
-                        <div className="auth-error">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><line x1="15" y1="9" x2="9" y2="15" /><line x1="9" y1="9" x2="15" y2="15" /></svg>
-                            <span>{error}</span>
+                        <div className="auth-field">
+                            <label htmlFor="password" className="auth-label">
+                                {t("authPassword")}
+                            </label>
+                            <div className="auth-password-wrapper">
+                                <input
+                                    id="password"
+                                    type={showPassword ? "text" : "password"}
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    placeholder={t("authPasswordPlaceholder")}
+                                    className="auth-input"
+                                    required
+                                    autoComplete="current-password"
+                                />
+                                <button
+                                    type="button"
+                                    onClick={() => setShowPassword(!showPassword)}
+                                    className="auth-password-toggle"
+                                    aria-label={
+                                        showPassword ? t("authHidePassword") : t("authShowPassword")
+                                    }
+                                >
+                                    {showPassword ? (
+                                        <svg
+                                            width="20"
+                                            height="20"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            strokeWidth="2"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                        >
+                                            <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" />
+                                            <line x1="1" y1="1" x2="23" y2="23" />
+                                        </svg>
+                                    ) : (
+                                        <svg
+                                            width="20"
+                                            height="20"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            strokeWidth="2"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                        >
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                            <circle cx="12" cy="12" r="3" />
+                                        </svg>
+                                    )}
+                                </button>
+                            </div>
                         </div>
-                    )}
 
-                    <button
-                        type="submit"
-                        disabled={isLoading}
-                        className="auth-submit-btn"
-                    >
-                        {isLoading ? (
-                            <span className="auth-spinner" />
-                        ) : (
-                            t("authSignIn")
+                        <div className="auth-field">
+                            <label className="auth-checkbox-label">
+                                <input
+                                    type="checkbox"
+                                    className="auth-checkbox"
+                                    checked={remember}
+                                    onChange={(e) => setRemember(e.target.checked)}
+                                />
+                                <span>{t("authRememberMe")}</span>
+                            </label>
+                        </div>
+
+                        {error && (
+                            <div className="auth-error">
+                                <svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                >
+                                    <circle cx="12" cy="12" r="10" />
+                                    <line x1="15" y1="9" x2="9" y2="15" />
+                                    <line x1="9" y1="9" x2="15" y2="15" />
+                                </svg>
+                                <span>{error}</span>
+                            </div>
                         )}
-                    </button>
-                </form>
 
-                <p className="auth-footer-text">
-                    {t("authNoAccount")}{" "}
-                    <Link href="/signup" className="auth-link">
-                        {t("authCreateOne")}
-                    </Link>
-                </p>
+                        <button type="submit" disabled={isLoading} className="auth-submit-btn">
+                            {isLoading ? <span className="auth-spinner" /> : t("authSignIn")}
+                        </button>
+                    </form>
+
+                    <p className="auth-footer-text">
+                        {t("authNoAccount")}{" "}
+                        <Link href="/signup" className="auth-link">
+                            {t("authCreateOne")}
+                        </Link>
+                    </p>
+                </div>
             </div>
-        </div>
         </PageTransition>
     );
 }

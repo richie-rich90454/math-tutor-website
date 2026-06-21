@@ -58,7 +58,7 @@ export default function SignupPage() {
             gsap.fromTo(
                 stepRef.current,
                 { x: 40, opacity: 0 },
-                { x: 0, opacity: 1, duration: 0.4, ease: "power2.out" }
+                { x: 0, opacity: 1, duration: 0.4, ease: "power2.out" },
             );
         }
     }, [step]);
@@ -122,145 +122,252 @@ export default function SignupPage() {
             });
         } catch (err: any) {
             setError(err.message || t("authSignupFailed"));
-            gsap.fromTo(cardRef.current, { x: -10 }, { x: 10, duration: 0.1, repeat: 3, yoyo: true });
+            gsap.fromTo(
+                cardRef.current,
+                { x: -10 },
+                { x: 10, duration: 0.1, repeat: 3, yoyo: true },
+            );
         } finally {
             setIsLoading(false);
         }
     };
 
-    const strengthLabel = ["", t("authPasswordStrengthWeak"), t("authPasswordStrengthFair"), t("authPasswordStrengthStrong")];
+    const strengthLabel = [
+        "",
+        t("authPasswordStrengthWeak"),
+        t("authPasswordStrengthFair"),
+        t("authPasswordStrengthStrong"),
+    ];
     const strengthColor = ["", "var(--color-red-600)", "#f59e0b", "#10b981"];
 
     if (isAuthenticated) return null;
 
     return (
         <PageTransition>
-        <div className="auth-page">
-            <div className="auth-card" ref={cardRef}>
-                <div className="auth-card-header">
-                    <Link href="/" className="auth-logo">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
-                            <line x1="8" y1="7" x2="16" y2="7" />
-                            <line x1="8" y1="11" x2="14" y2="11" />
-                        </svg>
-                        <span>{t("ciAIMathTutor")}</span>
-                    </Link>
-                    <h1 className="auth-heading">{t("authSignupTitle")}</h1>
+            <div className="auth-page">
+                <div className="auth-card" ref={cardRef}>
+                    <div className="auth-card-header">
+                        <Link href="/" className="auth-logo">
+                            <svg
+                                width="32"
+                                height="32"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            >
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                                <line x1="8" y1="7" x2="16" y2="7" />
+                                <line x1="8" y1="11" x2="14" y2="11" />
+                            </svg>
+                            <span>{t("ciAIMathTutor")}</span>
+                        </Link>
+                        <h1 className="auth-heading">{t("authSignupTitle")}</h1>
 
-                    <div className="auth-steps">
-                        {STEPS.map((s, i) => (
-                            <div
-                                key={i}
-                                className={`auth-step-dot ${i <= step ? "is-active" : ""} ${i < step ? "is-done" : ""}`}
-                            />
-                        ))}
+                        <div className="auth-steps">
+                            {STEPS.map((s, i) => (
+                                <div
+                                    key={i}
+                                    className={`auth-step-dot ${i <= step ? "is-active" : ""} ${i < step ? "is-done" : ""}`}
+                                />
+                            ))}
+                        </div>
                     </div>
-                </div>
 
-                <form onSubmit={handleSubmit} className="auth-form">
-                    <div ref={stepRef} className="auth-step-content">
-                        {step === 0 && (
-                            <>
-                                <div className="auth-field">
-                                    <label htmlFor="name" className="auth-label">{t("authName")}</label>
-                                    <input id="name" type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder={t("authNamePlaceholder")} className="auth-input" required autoFocus />
-                                </div>
-                                <div className="auth-field">
-                                    <label htmlFor="email" className="auth-label">{t("authEmail")}</label>
-                                    <input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder={t("authEmailPlaceholder")} className="auth-input" required autoComplete="email" />
-                                </div>
-                            </>
-                        )}
-
-                        {step === 1 && (
-                            <>
-                                <div className="auth-field">
-                                    <label htmlFor="password" className="auth-label">{t("authPassword")}</label>
-                                    <input id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder={t("authPasswordPlaceholder")} className="auth-input" required autoFocus />
-                                    {password.length > 0 && (
-                                        <div className="auth-strength">
-                                            <div className="auth-strength-bar">
-                                                <div
-                                                    className="auth-strength-fill"
-                                                    style={{ width: `${(passwordStrength / 3) * 100}%`, backgroundColor: strengthColor[passwordStrength] }}
-                                                />
-                                            </div>
-                                            <span className="auth-strength-label" style={{ color: strengthColor[passwordStrength] }}>
-                                                {strengthLabel[passwordStrength]}
-                                            </span>
-                                        </div>
-                                    )}
-                                </div>
-                                <div className="auth-field">
-                                    <label htmlFor="confirmPassword" className="auth-label">{t("authConfirmPassword")}</label>
-                                    <input id="confirmPassword" type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder={t("authConfirmPasswordPlaceholder")} className="auth-input" required />
-                                </div>
-                            </>
-                        )}
-
-                        {step === 2 && (
-                            <div className="auth-field">
-                                <label className="auth-label">{t("authMathLevel")}</label>
-                                <div className="auth-radio-group">
-                                    {[
-                                        { value: "beginner", label: t("authMathLevelBeginner"), desc: t("authMathLevelBeginnerDesc") },
-                                        { value: "intermediate", label: t("authMathLevelIntermediate"), desc: t("authMathLevelIntermediateDesc") },
-                                        { value: "advanced", label: t("authMathLevelAdvanced"), desc: t("authMathLevelAdvancedDesc") },
-                                    ].map((level) => (
-                                        <label
-                                            key={level.value}
-                                            className={`auth-radio-card ${mathLevel === level.value ? "is-selected" : ""}`}
-                                        >
-                                            <input
-                                                type="radio"
-                                                name="mathLevel"
-                                                value={level.value}
-                                                checked={mathLevel === level.value}
-                                                onChange={(e) => setMathLevel(e.target.value)}
-                                                className="auth-radio-input"
-                                            />
-                                            <span className="auth-radio-label">{level.label}</span>
-                                            <span className="auth-radio-desc">{level.desc}</span>
+                    <form onSubmit={handleSubmit} className="auth-form">
+                        <div ref={stepRef} className="auth-step-content">
+                            {step === 0 && (
+                                <>
+                                    <div className="auth-field">
+                                        <label htmlFor="name" className="auth-label">
+                                            {t("authName")}
                                         </label>
-                                    ))}
+                                        <input
+                                            id="name"
+                                            type="text"
+                                            value={name}
+                                            onChange={(e) => setName(e.target.value)}
+                                            placeholder={t("authNamePlaceholder")}
+                                            className="auth-input"
+                                            required
+                                            autoFocus
+                                        />
+                                    </div>
+                                    <div className="auth-field">
+                                        <label htmlFor="email" className="auth-label">
+                                            {t("authEmail")}
+                                        </label>
+                                        <input
+                                            id="email"
+                                            type="email"
+                                            value={email}
+                                            onChange={(e) => setEmail(e.target.value)}
+                                            placeholder={t("authEmailPlaceholder")}
+                                            className="auth-input"
+                                            required
+                                            autoComplete="email"
+                                        />
+                                    </div>
+                                </>
+                            )}
+
+                            {step === 1 && (
+                                <>
+                                    <div className="auth-field">
+                                        <label htmlFor="password" className="auth-label">
+                                            {t("authPassword")}
+                                        </label>
+                                        <input
+                                            id="password"
+                                            type="password"
+                                            value={password}
+                                            onChange={(e) => setPassword(e.target.value)}
+                                            placeholder={t("authPasswordPlaceholder")}
+                                            className="auth-input"
+                                            required
+                                            autoFocus
+                                        />
+                                        {password.length > 0 && (
+                                            <div className="auth-strength">
+                                                <div className="auth-strength-bar">
+                                                    <div
+                                                        className="auth-strength-fill"
+                                                        style={{
+                                                            width: `${(passwordStrength / 3) * 100}%`,
+                                                            backgroundColor:
+                                                                strengthColor[passwordStrength],
+                                                        }}
+                                                    />
+                                                </div>
+                                                <span
+                                                    className="auth-strength-label"
+                                                    style={{
+                                                        color: strengthColor[passwordStrength],
+                                                    }}
+                                                >
+                                                    {strengthLabel[passwordStrength]}
+                                                </span>
+                                            </div>
+                                        )}
+                                    </div>
+                                    <div className="auth-field">
+                                        <label htmlFor="confirmPassword" className="auth-label">
+                                            {t("authConfirmPassword")}
+                                        </label>
+                                        <input
+                                            id="confirmPassword"
+                                            type="password"
+                                            value={confirmPassword}
+                                            onChange={(e) => setConfirmPassword(e.target.value)}
+                                            placeholder={t("authConfirmPasswordPlaceholder")}
+                                            className="auth-input"
+                                            required
+                                        />
+                                    </div>
+                                </>
+                            )}
+
+                            {step === 2 && (
+                                <div className="auth-field">
+                                    <label className="auth-label">{t("authMathLevel")}</label>
+                                    <div className="auth-radio-group">
+                                        {[
+                                            {
+                                                value: "beginner",
+                                                label: t("authMathLevelBeginner"),
+                                                desc: t("authMathLevelBeginnerDesc"),
+                                            },
+                                            {
+                                                value: "intermediate",
+                                                label: t("authMathLevelIntermediate"),
+                                                desc: t("authMathLevelIntermediateDesc"),
+                                            },
+                                            {
+                                                value: "advanced",
+                                                label: t("authMathLevelAdvanced"),
+                                                desc: t("authMathLevelAdvancedDesc"),
+                                            },
+                                        ].map((level) => (
+                                            <label
+                                                key={level.value}
+                                                className={`auth-radio-card ${mathLevel === level.value ? "is-selected" : ""}`}
+                                            >
+                                                <input
+                                                    type="radio"
+                                                    name="mathLevel"
+                                                    value={level.value}
+                                                    checked={mathLevel === level.value}
+                                                    onChange={(e) => setMathLevel(e.target.value)}
+                                                    className="auth-radio-input"
+                                                />
+                                                <span className="auth-radio-label">
+                                                    {level.label}
+                                                </span>
+                                                <span className="auth-radio-desc">
+                                                    {level.desc}
+                                                </span>
+                                            </label>
+                                        ))}
+                                    </div>
                                 </div>
+                            )}
+                        </div>
+
+                        {error && (
+                            <div className="auth-error">
+                                <svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                >
+                                    <circle cx="12" cy="12" r="10" />
+                                    <line x1="15" y1="9" x2="9" y2="15" />
+                                    <line x1="9" y1="9" x2="15" y2="15" />
+                                </svg>
+                                <span>{error}</span>
                             </div>
                         )}
-                    </div>
 
-                    {error && (
-                        <div className="auth-error">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10" /><line x1="15" y1="9" x2="9" y2="15" /><line x1="9" y1="9" x2="15" y2="15" /></svg>
-                            <span>{error}</span>
-                        </div>
-                    )}
-
-                    <div className="auth-form-actions">
-                        {step > 0 && (
-                            <button type="button" onClick={prevStep} className="auth-back-btn">
-                                {t("authBack")}
-                            </button>
-                        )}
-                        <button type="submit" disabled={isLoading} className="auth-submit-btn auth-submit-full">
-                            {isLoading ? (
-                                <span className="auth-spinner" />
-                            ) : step === STEPS.length - 1 ? (
-                                success ? <>&#10003; {t("authAccountCreated")}</> : t("authCreateAccount")
-                            ) : (
-                                t("authContinue")
+                        <div className="auth-form-actions">
+                            {step > 0 && (
+                                <button type="button" onClick={prevStep} className="auth-back-btn">
+                                    {t("authBack")}
+                                </button>
                             )}
-                        </button>
-                    </div>
-                </form>
+                            <button
+                                type="submit"
+                                disabled={isLoading}
+                                className="auth-submit-btn auth-submit-full"
+                            >
+                                {isLoading ? (
+                                    <span className="auth-spinner" />
+                                ) : step === STEPS.length - 1 ? (
+                                    success ? (
+                                        <>&#10003; {t("authAccountCreated")}</>
+                                    ) : (
+                                        t("authCreateAccount")
+                                    )
+                                ) : (
+                                    t("authContinue")
+                                )}
+                            </button>
+                        </div>
+                    </form>
 
-                <p className="auth-footer-text">
-                    {t("authHaveAccount")}{" "}
-                    <Link href="/login" className="auth-link">{t("authLoginSignIn")}</Link>
-                </p>
+                    <p className="auth-footer-text">
+                        {t("authHaveAccount")}{" "}
+                        <Link href="/login" className="auth-link">
+                            {t("authLoginSignIn")}
+                        </Link>
+                    </p>
+                </div>
             </div>
-        </div>
         </PageTransition>
     );
 }

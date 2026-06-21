@@ -7,7 +7,12 @@ interface SkeletonProps {
     variant?: "text" | "circle" | "card";
 }
 
-export default function Skeleton({ className = "", width, height, variant = "text" }: SkeletonProps) {
+export default function Skeleton({
+    className = "",
+    width,
+    height,
+    variant = "text",
+}: SkeletonProps) {
     const classes = [
         "skeleton",
         variant === "circle" ? "skeleton-circle" : "",

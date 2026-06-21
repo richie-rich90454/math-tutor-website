@@ -30,7 +30,10 @@ describe("Auth", () => {
             // Legacy format: salt:hash (SHA-256)
             const crypto = require("crypto");
             const salt = "abc123";
-            const hash = crypto.createHash("sha256").update("test" + salt).digest("hex");
+            const hash = crypto
+                .createHash("sha256")
+                .update("test" + salt)
+                .digest("hex");
             const stored = `${salt}:${hash}`;
             expect(comparePassword("test", stored)).toBe(true);
             expect(comparePassword("wrong", stored)).toBe(false);
@@ -66,12 +69,16 @@ describe("Auth", () => {
 
         it("returns null for expired token", () => {
             // Create a token with a past expiry
-            const header = Buffer.from(JSON.stringify({ alg: "HS256", typ: "JWT" })).toString("base64url");
-            const body = Buffer.from(JSON.stringify({
-                sub: "user123",
-                iat: Math.floor(Date.now() / 1000) - 100000,
-                exp: Math.floor(Date.now() / 1000) - 1000,
-            })).toString("base64url");
+            const header = Buffer.from(JSON.stringify({ alg: "HS256", typ: "JWT" })).toString(
+                "base64url",
+            );
+            const body = Buffer.from(
+                JSON.stringify({
+                    sub: "user123",
+                    iat: Math.floor(Date.now() / 1000) - 100000,
+                    exp: Math.floor(Date.now() / 1000) - 1000,
+                }),
+            ).toString("base64url");
             // We can't easily create a valid signature for an expired token without the secret,
             // but we can verify that the verify function handles the structure
             const token = `${header}.${body}.fakesignature`;

@@ -11,9 +11,7 @@ export async function GET(request: NextRequest) {
         }
 
         const query = request.nextUrl.searchParams.get("q");
-        const chats = query
-            ? searchChats(session.user.id, query)
-            : getUserChats(session.user.id);
+        const chats = query ? searchChats(session.user.id, query) : getUserChats(session.user.id);
 
         const chatsWithoutMessages = chats.map((chat) => ({
             id: chat.id,

@@ -20,7 +20,9 @@ import { announcePolite } from "@/lib/aria-live";
 import CommandPalette from "@/components/ui/CommandPalette";
 
 const MarkdownRenderer = dynamic(() => import("@/components/ui/MarkdownRenderer"), {
-    loading: () => <div className="skeleton" style={{ height: 60, borderRadius: "var(--radius-md)" }} />,
+    loading: () => (
+        <div className="skeleton" style={{ height: 60, borderRadius: "var(--radius-md)" }} />
+    ),
 });
 const MathParticles = dynamic(() => import("@/components/ui/MathParticles"), {
     ssr: false,
@@ -84,22 +86,40 @@ const MessageRow = memo(function MessageRow({
             <div className="message-row-bubble-wrapper">
                 {message.role === "user" ? (
                     <>
-                        <div className="message-bubble-user"><p>{message.content}</p></div>
+                        <div className="message-bubble-user">
+                            <p>{message.content}</p>
+                        </div>
                         {isHovered && !isStreaming && (
                             <button
                                 className="msg-edit-btn"
                                 onClick={() => onEdit(message.id, message.content)}
                                 title={editLabel}
                                 aria-label={editLabel}
-                                onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onEdit(message.id, message.content); } }}
+                                onKeyDown={(e) => {
+                                    if (e.key === "Enter" || e.key === " ") {
+                                        e.preventDefault();
+                                        onEdit(message.id, message.content);
+                                    }
+                                }}
                             >
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <svg
+                                    width="14"
+                                    height="14"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                >
                                     <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
                                     <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
                                 </svg>
                             </button>
                         )}
-                        <span className="message-time is-right">{formatTime(message.timestamp)}</span>
+                        <span className="message-time is-right">
+                            {formatTime(message.timestamp)}
+                        </span>
                     </>
                 ) : (
                     <div className="msg-wrapper">
@@ -122,7 +142,9 @@ const MessageRow = memo(function MessageRow({
                                 <span className="streaming-cursor" />
                             )}
                         </div>
-                        <span className="message-time is-left">{formatTime(message.timestamp)}</span>
+                        <span className="message-time is-left">
+                            {formatTime(message.timestamp)}
+                        </span>
                     </div>
                 )}
             </div>
@@ -145,7 +167,9 @@ export default function Home() {
     const [showScrollBtn, setShowScrollBtn] = useState(false);
     const [hoveredMsgId, setHoveredMsgId] = useState<string | null>(null);
     const [feedback, setFeedback] = useState<Map<string, "up" | "down">>(new Map());
-    const [pendingImage, setPendingImage] = useState<{ data: string; mimeType: string } | null>(null);
+    const [pendingImage, setPendingImage] = useState<{ data: string; mimeType: string } | null>(
+        null,
+    );
 
     // Chat state
     const [input, setInput] = useState("");
@@ -229,37 +253,75 @@ export default function Home() {
     useEffect(() => {
         const el = chatMessagesRef.current;
         if (!el) return;
-        const handler = () => setShowScrollBtn(el.scrollHeight - el.scrollTop - el.clientHeight > 200);
+        const handler = () =>
+            setShowScrollBtn(el.scrollHeight - el.scrollTop - el.clientHeight > 200);
         el.addEventListener("scroll", handler, { passive: true });
         return () => el.removeEventListener("scroll", handler);
     }, [messages.length]);
 
     // ── GSAP animations ──
-    useGSAP(() => {
-        if (messages.length === 0 && welcomeRef.current) {
-            const tl = gsap.timeline();
-            const titleEl = welcomeRef.current.querySelector(".welcome-title");
-            const subtitleEl = welcomeRef.current.querySelector(".welcome-subtitle");
-            const promptBtns = welcomeRef.current.querySelectorAll(".prompt-btn");
-            const inputCard = welcomeRef.current.querySelector(".welcome-input-card");
-            if (titleEl) tl.from(titleEl, { y: 30, opacity: 0, duration: 0.6, ease: "power2.out" }, 0);
-            if (subtitleEl) tl.from(subtitleEl, { y: 30, opacity: 0, duration: 0.6, ease: "power2.out" }, 0.1);
-            if (inputCard) tl.from(inputCard, { y: 30, opacity: 0, duration: 0.6, ease: "power2.out" }, 0.2);
-            if (promptBtns.length) tl.from(promptBtns, { y: 20, opacity: 0, duration: 0.4, stagger: 0.08, ease: "power2.out" }, 0.3);
-        }
-    }, { dependencies: [messages.length], scope: welcomeRef, revertOnUpdate: false });
+    useGSAP(
+        () => {
+            if (messages.length === 0 && welcomeRef.current) {
+                const tl = gsap.timeline();
+                const titleEl = welcomeRef.current.querySelector(".welcome-title");
+                const subtitleEl = welcomeRef.current.querySelector(".welcome-subtitle");
+                const promptBtns = welcomeRef.current.querySelectorAll(".prompt-btn");
+                const inputCard = welcomeRef.current.querySelector(".welcome-input-card");
+                if (titleEl)
+                    tl.from(titleEl, { y: 30, opacity: 0, duration: 0.6, ease: "power2.out" }, 0);
+                if (subtitleEl)
+                    tl.from(
+                        subtitleEl,
+                        { y: 30, opacity: 0, duration: 0.6, ease: "power2.out" },
+                        0.1,
+                    );
+                if (inputCard)
+                    tl.from(
+                        inputCard,
+                        { y: 30, opacity: 0, duration: 0.6, ease: "power2.out" },
+                        0.2,
+                    );
+                if (promptBtns.length)
+                    tl.from(
+                        promptBtns,
+                        { y: 20, opacity: 0, duration: 0.4, stagger: 0.08, ease: "power2.out" },
+                        0.3,
+                    );
+            }
+        },
+        { dependencies: [messages.length], scope: welcomeRef, revertOnUpdate: false },
+    );
 
-    useGSAP(() => {
-        if (contentAreaRef.current && messages.length > 0) {
-            gsap.fromTo(contentAreaRef.current, { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" });
-        }
-    }, { dependencies: [messages.length > 0] });
+    useGSAP(
+        () => {
+            if (contentAreaRef.current && messages.length > 0) {
+                gsap.fromTo(
+                    contentAreaRef.current,
+                    { opacity: 0, y: 8 },
+                    { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" },
+                );
+            }
+        },
+        { dependencies: [messages.length > 0] },
+    );
 
     useEffect(() => {
         if (messages.length > 0 && contentAreaRef.current) {
             const headerBtns = contentAreaRef.current.querySelectorAll(".app-header-btn");
             if (headerBtns.length > 0) {
-                gsap.fromTo(headerBtns, { opacity: 0, scale: 0.8, y: -4 }, { opacity: 1, scale: 1, y: 0, duration: 0.3, stagger: 0.06, ease: "back.out(1.7)" });
+                gsap.fromTo(
+                    headerBtns,
+                    { opacity: 0, scale: 0.8, y: -4 },
+                    {
+                        opacity: 1,
+                        scale: 1,
+                        y: 0,
+                        duration: 0.3,
+                        stagger: 0.06,
+                        ease: "back.out(1.7)",
+                    },
+                );
             }
         }
     }, [messages.length > 0]);
@@ -269,16 +331,29 @@ export default function Home() {
             prevStreamingRef.current = showScrollBtn;
             gsap.killTweensOf(scrollBtnRef.current);
             if (showScrollBtn) {
-                gsap.fromTo(scrollBtnRef.current, { opacity: 0, y: 12, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: "back.out(1.7)" });
+                gsap.fromTo(
+                    scrollBtnRef.current,
+                    { opacity: 0, y: 12, scale: 0.9 },
+                    { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: "back.out(1.7)" },
+                );
             } else {
-                gsap.to(scrollBtnRef.current, { opacity: 0, y: 12, duration: 0.2, ease: "power2.in" });
+                gsap.to(scrollBtnRef.current, {
+                    opacity: 0,
+                    y: 12,
+                    duration: 0.2,
+                    ease: "power2.in",
+                });
             }
         }
     }, [showScrollBtn]);
 
     useEffect(() => {
         if (messages.length > 0 && inputBarRef.current) {
-            gsap.fromTo(inputBarRef.current, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" });
+            gsap.fromTo(
+                inputBarRef.current,
+                { opacity: 0, y: 16 },
+                { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" },
+            );
         }
     }, [messages.length > 0]);
 
@@ -291,7 +366,10 @@ export default function Home() {
                 const rows = chatMessagesRef.current!.querySelectorAll(".message-row");
                 for (let i = prevLen; i < rows.length; i++) {
                     const row = rows[i] as HTMLElement;
-                    springIn(row, { from: row.classList.contains("is-user") ? "right" : "left", duration: 0.5 });
+                    springIn(row, {
+                        from: row.classList.contains("is-user") ? "right" : "left",
+                        duration: 0.5,
+                    });
                 }
             }, 0);
             return () => clearTimeout(timer);
@@ -341,7 +419,9 @@ export default function Home() {
                 }
             }
         })();
-        return () => { cancelled = true; };
+        return () => {
+            cancelled = true;
+        };
     }, [currentChat, isLoaded]);
 
     // Reset isLoaded when currentChat becomes null (new chat)
@@ -355,99 +435,113 @@ export default function Home() {
     }, [currentChat]);
 
     // ── Core: Send message ──
-    const sendMessage = useCallback(async (overrideInput?: string) => {
-        const messageText = (overrideInput ?? input).trim();
-        if (!messageText || isLoadingRef.current) return;
+    const sendMessage = useCallback(
+        async (overrideInput?: string) => {
+            const messageText = (overrideInput ?? input).trim();
+            if (!messageText || isLoadingRef.current) return;
 
-        isLoadingRef.current = true;
-        const userMessage: Message = {
-            id: Date.now().toString(),
-            role: "user",
-            content: messageText,
-            timestamp: new Date(),
-        };
-
-        const currentInput = messageText;
-        setInput("");
-        setMessages((prev) => [...prev, userMessage]);
-        setIsLoading(true);
-        setIsStreaming(true);
-
-        announcePolite(t("ariaLiveStreaming"));
-
-        const controller = new AbortController();
-        abortControllerRef.current = controller;
-        const timeoutId = setTimeout(() => controller.abort(), 30_000); // 30s timeout
-
-        try {
-            const response = await fetch("/api/chat/message", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    message: currentInput,
-                    preferredLanguage: currentLanguage.code,
-                    chatId: activeChatId,
-                }),
-                signal: controller.signal,
-            });
-
-            clearTimeout(timeoutId);
-
-            if (!response.ok) {
-                let errMsg = "Failed to get response";
-                try {
-                    const data = await response.json();
-                    errMsg = data?.error || errMsg;
-                } catch {}
-                throw new Error(errMsg);
-            }
-
-            const serverChatId = response.headers.get("X-Chat-Id");
-            if (serverChatId && serverChatId !== activeChatId) {
-                setActiveChatId(serverChatId);
-            }
-
-            const assistantId = (Date.now() + 1).toString();
-            setMessages((prev) => [...prev, { id: assistantId, role: "assistant", content: "", timestamp: new Date() }]);
-
-            const reader = response.body?.getReader();
-            if (!reader) throw new Error("No response body");
-            const decoder = new TextDecoder();
-
-            while (true) {
-                const { value, done } = await reader.read();
-                if (done) break;
-                const chunk = decoder.decode(value, { stream: true });
-                if (!chunk) continue;
-                setMessages((prev) =>
-                    prev.map((m) => m.id === assistantId ? { ...m, content: m.content + chunk } : m)
-                );
-            }
-        } catch (error: any) {
-            clearTimeout(timeoutId);
-            if (error.name === "AbortError") {
-                setMessages((prev) => [...prev, {
-                    id: (Date.now() + 1).toString(),
-                    role: "assistant",
-                    content: "Request timed out. Please try again.",
-                    timestamp: new Date(),
-                }]);
-                return;
-            }
-            console.error("Send error:", error);
-            setMessages((prev) => [...prev, {
-                id: (Date.now() + 1).toString(),
-                role: "assistant",
-                content: error.message || "Failed to send message",
+            isLoadingRef.current = true;
+            const userMessage: Message = {
+                id: Date.now().toString(),
+                role: "user",
+                content: messageText,
                 timestamp: new Date(),
-            }]);
-        } finally {
-            isLoadingRef.current = false;
-            setIsLoading(false);
-            setIsStreaming(false);
-            abortControllerRef.current = null;
-        }
-    }, [input, currentLanguage.code, activeChatId, t]);
+            };
+
+            const currentInput = messageText;
+            setInput("");
+            setMessages((prev) => [...prev, userMessage]);
+            setIsLoading(true);
+            setIsStreaming(true);
+
+            announcePolite(t("ariaLiveStreaming"));
+
+            const controller = new AbortController();
+            abortControllerRef.current = controller;
+            const timeoutId = setTimeout(() => controller.abort(), 30_000); // 30s timeout
+
+            try {
+                const response = await fetch("/api/chat/message", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        message: currentInput,
+                        preferredLanguage: currentLanguage.code,
+                        chatId: activeChatId,
+                    }),
+                    signal: controller.signal,
+                });
+
+                clearTimeout(timeoutId);
+
+                if (!response.ok) {
+                    let errMsg = "Failed to get response";
+                    try {
+                        const data = await response.json();
+                        errMsg = data?.error || errMsg;
+                    } catch {}
+                    throw new Error(errMsg);
+                }
+
+                const serverChatId = response.headers.get("X-Chat-Id");
+                if (serverChatId && serverChatId !== activeChatId) {
+                    setActiveChatId(serverChatId);
+                }
+
+                const assistantId = (Date.now() + 1).toString();
+                setMessages((prev) => [
+                    ...prev,
+                    { id: assistantId, role: "assistant", content: "", timestamp: new Date() },
+                ]);
+
+                const reader = response.body?.getReader();
+                if (!reader) throw new Error("No response body");
+                const decoder = new TextDecoder();
+
+                while (true) {
+                    const { value, done } = await reader.read();
+                    if (done) break;
+                    const chunk = decoder.decode(value, { stream: true });
+                    if (!chunk) continue;
+                    setMessages((prev) =>
+                        prev.map((m) =>
+                            m.id === assistantId ? { ...m, content: m.content + chunk } : m,
+                        ),
+                    );
+                }
+            } catch (error: any) {
+                clearTimeout(timeoutId);
+                if (error.name === "AbortError") {
+                    setMessages((prev) => [
+                        ...prev,
+                        {
+                            id: (Date.now() + 1).toString(),
+                            role: "assistant",
+                            content: "Request timed out. Please try again.",
+                            timestamp: new Date(),
+                        },
+                    ]);
+                    return;
+                }
+                console.error("Send error:", error);
+                setMessages((prev) => [
+                    ...prev,
+                    {
+                        id: (Date.now() + 1).toString(),
+                        role: "assistant",
+                        content: error.message || "Failed to send message",
+                        timestamp: new Date(),
+                    },
+                ]);
+            } finally {
+                isLoadingRef.current = false;
+                setIsLoading(false);
+                setIsStreaming(false);
+                abortControllerRef.current = null;
+            }
+        },
+        [input, currentLanguage.code, activeChatId, t],
+    );
 
     // ── Send image ──
     const sendImage = useCallback(async () => {
@@ -505,7 +599,10 @@ export default function Home() {
             }
 
             const assistantId = (Date.now() + 1).toString();
-            setMessages((prev) => [...prev, { id: assistantId, role: "assistant", content: "", timestamp: new Date() }]);
+            setMessages((prev) => [
+                ...prev,
+                { id: assistantId, role: "assistant", content: "", timestamp: new Date() },
+            ]);
 
             const reader = response.body?.getReader();
             if (!reader) throw new Error("No response body");
@@ -517,27 +614,35 @@ export default function Home() {
                 const chunk = decoder.decode(value, { stream: true });
                 if (!chunk) continue;
                 setMessages((prev) =>
-                    prev.map((m) => m.id === assistantId ? { ...m, content: m.content + chunk } : m)
+                    prev.map((m) =>
+                        m.id === assistantId ? { ...m, content: m.content + chunk } : m,
+                    ),
                 );
             }
         } catch (error: any) {
             clearTimeout(timeoutId);
             if (error.name === "AbortError") {
-                setMessages((prev) => [...prev, {
-                    id: (Date.now() + 1).toString(),
-                    role: "assistant",
-                    content: "Request timed out. Please try again.",
-                    timestamp: new Date(),
-                }]);
+                setMessages((prev) => [
+                    ...prev,
+                    {
+                        id: (Date.now() + 1).toString(),
+                        role: "assistant",
+                        content: "Request timed out. Please try again.",
+                        timestamp: new Date(),
+                    },
+                ]);
                 return;
             }
             console.error("Send image error:", error);
-            setMessages((prev) => [...prev, {
-                id: (Date.now() + 1).toString(),
-                role: "assistant",
-                content: error.message || "Failed to send image",
-                timestamp: new Date(),
-            }]);
+            setMessages((prev) => [
+                ...prev,
+                {
+                    id: (Date.now() + 1).toString(),
+                    role: "assistant",
+                    content: error.message || "Failed to send image",
+                    timestamp: new Date(),
+                },
+            ]);
         } finally {
             isLoadingRef.current = false;
             setIsLoading(false);
@@ -574,17 +679,32 @@ export default function Home() {
         });
     }, []);
 
-    const handleExport = useCallback((format: "md" | "txt") => {
-        if (messages.length === 0) return;
-        const title = currentChat?.title || "Math Chat";
-        const msgs = messages.map((m) => ({ role: m.role, content: m.content, timestamp: m.timestamp.toISOString() }));
-        if (format === "md") {
-            downloadFile(exportChatAsMarkdown(msgs, title), `${title.replace(/[^a-zA-Z0-9]/g, "_")}.md`, "text/markdown");
-        } else {
-            downloadFile(exportChatAsText(msgs, title), `${title.replace(/[^a-zA-Z0-9]/g, "_")}.txt`, "text/plain");
-        }
-        addToast("success", t("chatExportSuccess").replace("%s", format.toUpperCase()));
-    }, [messages, currentChat, addToast, t]);
+    const handleExport = useCallback(
+        (format: "md" | "txt") => {
+            if (messages.length === 0) return;
+            const title = currentChat?.title || "Math Chat";
+            const msgs = messages.map((m) => ({
+                role: m.role,
+                content: m.content,
+                timestamp: m.timestamp.toISOString(),
+            }));
+            if (format === "md") {
+                downloadFile(
+                    exportChatAsMarkdown(msgs, title),
+                    `${title.replace(/[^a-zA-Z0-9]/g, "_")}.md`,
+                    "text/markdown",
+                );
+            } else {
+                downloadFile(
+                    exportChatAsText(msgs, title),
+                    `${title.replace(/[^a-zA-Z0-9]/g, "_")}.txt`,
+                    "text/plain",
+                );
+            }
+            addToast("success", t("chatExportSuccess").replace("%s", format.toUpperCase()));
+        },
+        [messages, currentChat, addToast, t],
+    );
 
     const handleImageSelect = useCallback((imageData: string, mimeType: string) => {
         setPendingImage({ data: imageData, mimeType });
@@ -602,11 +722,26 @@ export default function Home() {
     useEffect(() => {
         const handler = (e: KeyboardEvent) => {
             const mod = e.ctrlKey || e.metaKey;
-            if (mod && e.key === "b") { e.preventDefault(); handleSidebarToggle(); }
-            if (mod && e.key === "k") { e.preventDefault(); setShowCommandPalette((v) => !v); }
-            if (mod && e.key === "n") { e.preventDefault(); handleNewChat(); }
-            if (mod && e.key === "/") { e.preventDefault(); setShowShortcuts((v) => !v); }
-            if (mod && e.key === "Enter") { e.preventDefault(); sendMessage(); }
+            if (mod && e.key === "b") {
+                e.preventDefault();
+                handleSidebarToggle();
+            }
+            if (mod && e.key === "k") {
+                e.preventDefault();
+                setShowCommandPalette((v) => !v);
+            }
+            if (mod && e.key === "n") {
+                e.preventDefault();
+                handleNewChat();
+            }
+            if (mod && e.key === "/") {
+                e.preventDefault();
+                setShowShortcuts((v) => !v);
+            }
+            if (mod && e.key === "Enter") {
+                e.preventDefault();
+                sendMessage();
+            }
             if (e.key === "Escape") {
                 if (showCommandPalette) setShowCommandPalette(false);
                 else if (showShortcuts) setShowShortcuts(false);
@@ -615,12 +750,23 @@ export default function Home() {
         };
         window.addEventListener("keydown", handler);
         return () => window.removeEventListener("keydown", handler);
-    }, [handleSidebarToggle, handleNewChat, sendMessage, showCommandPalette, showShortcuts, isSidebarOpen]);
+    }, [
+        handleSidebarToggle,
+        handleNewChat,
+        sendMessage,
+        showCommandPalette,
+        showShortcuts,
+        isSidebarOpen,
+    ]);
 
     // ── Render ──
     const formatTime = useCallback((d: Date) => {
         if (!(d instanceof Date) || isNaN(d.getTime())) return "";
-        return d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", timeZoneName: "short" });
+        return d.toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+            timeZoneName: "short",
+        });
     }, []);
 
     const handleEdit = useCallback((messageId: string, content: string) => {
@@ -650,17 +796,46 @@ export default function Home() {
                 onMouseLeave={() => setHoveredMsgId(null)}
             />
         ));
-    }, [messages, hoveredMsgId, isStreaming, feedback, formatTime, handleRegenerate, handleFeedback, handleEdit, t]);
+    }, [
+        messages,
+        hoveredMsgId,
+        isStreaming,
+        feedback,
+        formatTime,
+        handleRegenerate,
+        handleFeedback,
+        handleEdit,
+        t,
+    ]);
 
     return (
         <div className="app-shell">
-            <button className="mobile-menu-btn" onClick={() => setIsSidebarOpen(true)} aria-label={t("openMenu")}>
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                    <line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" />
+            <button
+                className="mobile-menu-btn"
+                onClick={() => setIsSidebarOpen(true)}
+                aria-label={t("openMenu")}
+            >
+                <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                >
+                    <line x1="3" y1="6" x2="21" y2="6" />
+                    <line x1="3" y1="12" x2="21" y2="12" />
+                    <line x1="3" y1="18" x2="21" y2="18" />
                 </svg>
             </button>
 
-            <div className={`sidebar-backdrop ${isSidebarOpen && isMobile ? "is-visible" : ""}`} onClick={() => { if (isMobile) setIsSidebarOpen(false); }} />
+            <div
+                className={`sidebar-backdrop ${isSidebarOpen && isMobile ? "is-visible" : ""}`}
+                onClick={() => {
+                    if (isMobile) setIsSidebarOpen(false);
+                }}
+            />
 
             <div className={`app-sidebar-wrapper ${isSidebarOpen ? "is-open" : "is-collapsed"}`}>
                 <Sidebar
@@ -675,19 +850,51 @@ export default function Home() {
                 />
             </div>
 
-            <div className={`app-main ${isSidebarOpen ? "with-sidebar" : "with-sidebar-collapsed"}`}>
+            <div
+                className={`app-main ${isSidebarOpen ? "with-sidebar" : "with-sidebar-collapsed"}`}
+            >
                 <div className="app-header">
                     <div className="app-header-inner">
                         {messages.length > 0 && (
                             <>
-                                <button onClick={handleNewChat} className="app-header-btn" aria-label={t("headerNewChat")}>
-                                    <svg className="app-header-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                                <button
+                                    onClick={handleNewChat}
+                                    className="app-header-btn"
+                                    aria-label={t("headerNewChat")}
+                                >
+                                    <svg
+                                        className="app-header-icon"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth={2}
+                                            d="M12 4v16m8-8H4"
+                                        />
                                     </svg>
                                 </button>
-                                <button onClick={() => handleExport("md")} className="app-header-btn" aria-label={t("headerExportChat")} title={t("headerExportAsMD")}>
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" />
+                                <button
+                                    onClick={() => handleExport("md")}
+                                    className="app-header-btn"
+                                    aria-label={t("headerExportChat")}
+                                    title={t("headerExportAsMD")}
+                                >
+                                    <svg
+                                        width="18"
+                                        height="18"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        strokeWidth="2"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                    >
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                        <polyline points="7 10 12 15 17 10" />
+                                        <line x1="12" y1="15" x2="12" y2="3" />
                                     </svg>
                                 </button>
                             </>
@@ -698,7 +905,10 @@ export default function Home() {
                 </div>
 
                 <ErrorBoundary>
-                    <div ref={contentAreaRef} className={`content-area ${messages.length === 0 ? "is-centered" : "is-top"}`}>
+                    <div
+                        ref={contentAreaRef}
+                        className={`content-area ${messages.length === 0 ? "is-centered" : "is-top"}`}
+                    >
                         {/* Welcome */}
                         {messages.length === 0 && (
                             <div className="welcome-section" ref={welcomeRef}>
@@ -710,18 +920,54 @@ export default function Home() {
                                 <div className="welcome-input-wrapper">
                                     <div className="welcome-input-card">
                                         <InputArea
-                                            value={input} onChange={setInput} onSend={pendingImage ? sendImage : sendMessage}
-                                            isLoading={isLoading} isStreaming={isStreaming} onStop={handleStopGeneration}
-                                            placeholder={t("inputPlaceholder")} onImageSelect={handleImageSelect}
-                                            pendingImage={pendingImage} onClearImage={() => setPendingImage(null)}
+                                            value={input}
+                                            onChange={setInput}
+                                            onSend={pendingImage ? sendImage : sendMessage}
+                                            isLoading={isLoading}
+                                            isStreaming={isStreaming}
+                                            onStop={handleStopGeneration}
+                                            placeholder={t("inputPlaceholder")}
+                                            onImageSelect={handleImageSelect}
+                                            pendingImage={pendingImage}
+                                            onClearImage={() => setPendingImage(null)}
                                         />
                                     </div>
                                     <div className="prompt-buttons">
-                                        <button onClick={() => setInput(t("examplePracticeAddition"))} className="prompt-btn">{t("practiceAddition")}</button>
-                                        <button onClick={() => setInput(t("exampleLearnGeometry"))} className="prompt-btn">{t("learnGeometry")}</button>
-                                        <button onClick={() => setInput(t("exampleTimesTables"))} className="prompt-btn">{t("timesTables")}</button>
-                                        <button onClick={() => setInput(t("exampleCulturalExamples"))} className="prompt-btn">{t("culturalExamples")}</button>
-                                        <button onClick={() => setInput(t("examplePracticeProblems") || "Generate 3 practice problems for me at my current level. Make them progressively harder.")} className="prompt-btn prompt-btn-accent">{t("practiceProblems") || "Practice Problems"}</button>
+                                        <button
+                                            onClick={() => setInput(t("examplePracticeAddition"))}
+                                            className="prompt-btn"
+                                        >
+                                            {t("practiceAddition")}
+                                        </button>
+                                        <button
+                                            onClick={() => setInput(t("exampleLearnGeometry"))}
+                                            className="prompt-btn"
+                                        >
+                                            {t("learnGeometry")}
+                                        </button>
+                                        <button
+                                            onClick={() => setInput(t("exampleTimesTables"))}
+                                            className="prompt-btn"
+                                        >
+                                            {t("timesTables")}
+                                        </button>
+                                        <button
+                                            onClick={() => setInput(t("exampleCulturalExamples"))}
+                                            className="prompt-btn"
+                                        >
+                                            {t("culturalExamples")}
+                                        </button>
+                                        <button
+                                            onClick={() =>
+                                                setInput(
+                                                    t("examplePracticeProblems") ||
+                                                        "Generate 3 practice problems for me at my current level. Make them progressively harder.",
+                                                )
+                                            }
+                                            className="prompt-btn prompt-btn-accent"
+                                        >
+                                            {t("practiceProblems") || "Practice Problems"}
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -734,21 +980,55 @@ export default function Home() {
                                     <div className="chat-messages-inner">
                                         <div className="chat-messages-list">
                                             {renderedMessages}
-                                            {isLoading && messages[messages.length - 1]?.role === "user" && (
-                                                <div className="message-row is-assistant" ref={loadingDotsRef}>
-                                                    <div className="loading-dots" role="status" aria-label="Loading..."><div className="loading-dots-row">
-                                                        <div className="loading-dot animate-pulse" />
-                                                        <div className="loading-dot animate-pulse" style={{ animationDelay: "150ms" }} />
-                                                        <div className="loading-dot animate-pulse" style={{ animationDelay: "300ms" }} />
-                                                    </div></div>
-                                                </div>
-                                            )}
+                                            {isLoading &&
+                                                messages[messages.length - 1]?.role === "user" && (
+                                                    <div
+                                                        className="message-row is-assistant"
+                                                        ref={loadingDotsRef}
+                                                    >
+                                                        <div
+                                                            className="loading-dots"
+                                                            role="status"
+                                                            aria-label="Loading..."
+                                                        >
+                                                            <div className="loading-dots-row">
+                                                                <div className="loading-dot animate-pulse" />
+                                                                <div
+                                                                    className="loading-dot animate-pulse"
+                                                                    style={{
+                                                                        animationDelay: "150ms",
+                                                                    }}
+                                                                />
+                                                                <div
+                                                                    className="loading-dot animate-pulse"
+                                                                    style={{
+                                                                        animationDelay: "300ms",
+                                                                    }}
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                )}
                                             <div ref={messagesEndRef} />
                                         </div>
                                     </div>
                                     {showScrollBtn && (
-                                        <button ref={scrollBtnRef} className="scroll-bottom-btn" onClick={() => scrollToBottom(true)} aria-label={t("chatScrollToBottom")}>
-                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <button
+                                            ref={scrollBtnRef}
+                                            className="scroll-bottom-btn"
+                                            onClick={() => scrollToBottom(true)}
+                                            aria-label={t("chatScrollToBottom")}
+                                        >
+                                            <svg
+                                                width="18"
+                                                height="18"
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                strokeWidth="2"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                            >
                                                 <polyline points="6 9 12 15 18 9" />
                                             </svg>
                                         </button>
@@ -758,10 +1038,16 @@ export default function Home() {
                                     <div className="chat-input-bar-inner">
                                         <div className="chat-input-card">
                                             <InputArea
-                                                value={input} onChange={setInput} onSend={pendingImage ? sendImage : sendMessage}
-                                                isLoading={isLoading} isStreaming={isStreaming} onStop={handleStopGeneration}
-                                                placeholder={t("inputPlaceholder")} onImageSelect={handleImageSelect}
-                                                pendingImage={pendingImage} onClearImage={() => setPendingImage(null)}
+                                                value={input}
+                                                onChange={setInput}
+                                                onSend={pendingImage ? sendImage : sendMessage}
+                                                isLoading={isLoading}
+                                                isStreaming={isStreaming}
+                                                onStop={handleStopGeneration}
+                                                placeholder={t("inputPlaceholder")}
+                                                onImageSelect={handleImageSelect}
+                                                pendingImage={pendingImage}
+                                                onClearImage={() => setPendingImage(null)}
                                             />
                                         </div>
                                     </div>
@@ -771,14 +1057,22 @@ export default function Home() {
                     </div>
                 </ErrorBoundary>
 
-                <div className="app-footer"><p className="app-footer-text">{t("bottomText")}</p></div>
+                <div className="app-footer">
+                    <p className="app-footer-text">{t("bottomText")}</p>
+                </div>
             </div>
 
             {showCommandPalette && (
-                <CommandPalette isOpen={showCommandPalette} onClose={() => setShowCommandPalette(false)}
-                    onNewChat={handleNewChat} onExportChat={handleExport} />
+                <CommandPalette
+                    isOpen={showCommandPalette}
+                    onClose={() => setShowCommandPalette(false)}
+                    onNewChat={handleNewChat}
+                    onExportChat={handleExport}
+                />
             )}
-            {showShortcuts && <ShortcutHelp isOpen={showShortcuts} onClose={() => setShowShortcuts(false)} />}
+            {showShortcuts && (
+                <ShortcutHelp isOpen={showShortcuts} onClose={() => setShowShortcuts(false)} />
+            )}
         </div>
     );
 }

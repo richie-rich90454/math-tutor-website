@@ -9,27 +9,18 @@ export async function POST(request: NextRequest) {
         const { email, password, remember } = await request.json();
 
         if (!email || !password) {
-            return NextResponse.json(
-                { error: "Email and password are required" },
-                { status: 400 }
-            );
+            return NextResponse.json({ error: "Email and password are required" }, { status: 400 });
         }
 
         if (typeof email !== "string" || typeof password !== "string") {
-            return NextResponse.json(
-                { error: "Invalid input" },
-                { status: 400 }
-            );
+            return NextResponse.json({ error: "Invalid input" }, { status: 400 });
         }
 
         const sanitizedEmail = email.trim();
         const sanitizedPassword = password.trim();
 
         if (sanitizedEmail.length === 0 || sanitizedPassword.length === 0) {
-            return NextResponse.json(
-                { error: "Email and password are required" },
-                { status: 400 }
-            );
+            return NextResponse.json({ error: "Email and password are required" }, { status: 400 });
         }
 
         if (sanitizedEmail.length > 255) {
@@ -42,18 +33,12 @@ export async function POST(request: NextRequest) {
 
         const user = getUserByEmail(sanitizedEmail);
         if (!user) {
-            return NextResponse.json(
-                { error: "Invalid email or password" },
-                { status: 401 }
-            );
+            return NextResponse.json({ error: "Invalid email or password" }, { status: 401 });
         }
 
         const valid = comparePassword(sanitizedPassword, user.password_hash);
         if (!valid) {
-            return NextResponse.json(
-                { error: "Invalid email or password" },
-                { status: 401 }
-            );
+            return NextResponse.json({ error: "Invalid email or password" }, { status: 401 });
         }
 
         if (!remember) {
@@ -77,9 +62,6 @@ export async function POST(request: NextRequest) {
         return response;
     } catch (error) {
         console.error("Login error:", error);
-        return NextResponse.json(
-            { error: "Failed to sign in" },
-            { status: 500 }
-        );
+        return NextResponse.json({ error: "Failed to sign in" }, { status: 500 });
     }
 }

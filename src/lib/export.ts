@@ -1,6 +1,6 @@
 export function exportChatAsMarkdown(
     messages: { role: string; content: string; timestamp: string }[],
-    title: string
+    title: string,
 ): string {
     let md = `# ${title}\n\n`;
     md += `Exported on ${new Date().toLocaleString()}\n\n---\n\n`;
@@ -16,7 +16,7 @@ export function exportChatAsMarkdown(
 
 export function exportChatAsText(
     messages: { role: string; content: string; timestamp: string }[],
-    title: string
+    title: string,
 ): string {
     let text = `${title}\n`;
     text += `Exported on ${new Date().toLocaleString()}\n`;

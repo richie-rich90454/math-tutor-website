@@ -12,8 +12,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Topic landing pages for SEO
     const topicPages = [
-        "algebra", "geometry", "calculus", "trigonometry",
-        "statistics", "arithmetic", "fractions", "equations",
+        "algebra",
+        "geometry",
+        "calculus",
+        "trigonometry",
+        "statistics",
+        "arithmetic",
+        "fractions",
+        "equations",
     ];
 
     const allPages = [

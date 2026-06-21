@@ -1,6 +1,14 @@
 "use client";
 
-import { createContext, useContext, useState, useCallback, useMemo, useEffect, ReactNode } from "react";
+import {
+    createContext,
+    useContext,
+    useState,
+    useCallback,
+    useMemo,
+    useEffect,
+    ReactNode,
+} from "react";
 import { translations, Translations } from "@/lib/translations";
 
 export interface Language {
@@ -59,17 +67,19 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
         setCurrentLanguage(language);
     }, []);
 
-    const t = useCallback((key: keyof Translations): string => {
-        return translations[currentLanguage.code]?.[key] || translations.en[key];
-    }, [currentLanguage.code]);
-
-    const value = useMemo(() => ({ currentLanguage, setLanguage, t }), [currentLanguage, setLanguage, t]);
-
-    return (
-        <LanguageContext.Provider value={value}>
-            {children}
-        </LanguageContext.Provider>
+    const t = useCallback(
+        (key: keyof Translations): string => {
+            return translations[currentLanguage.code]?.[key] || translations.en[key];
+        },
+        [currentLanguage.code],
     );
+
+    const value = useMemo(
+        () => ({ currentLanguage, setLanguage, t }),
+        [currentLanguage, setLanguage, t],
+    );
+
+    return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
 }
 
 export function useLanguage() {

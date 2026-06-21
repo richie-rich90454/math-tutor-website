@@ -6,7 +6,10 @@ import { logUsage } from "@/lib/db/usage";
 import { rateLimit } from "@/lib/rate-limit";
 import { v4 as uuidv4 } from "uuid";
 
-const VISION_MODEL = process.env.OPENAI_COMPATIBLE_VISION_MODEL || process.env.OPENAI_COMPATIBLE_MODEL || "deepseek-v4-flash";
+const VISION_MODEL =
+    process.env.OPENAI_COMPATIBLE_VISION_MODEL ||
+    process.env.OPENAI_COMPATIBLE_MODEL ||
+    "deepseek-v4-flash";
 const API_KEY = process.env.OPENAI_COMPATIBLE_API_KEY;
 const BASE_URL = process.env.OPENAI_COMPATIBLE_BASE_URL || "https://api.deepseek.com";
 
@@ -17,7 +20,8 @@ export async function POST(request: NextRequest) {
             return NextResponse.json({ error: "Please sign in to chat" }, { status: 401 });
         }
 
-        const ip = request.headers.get("x-forwarded-for") || request.headers.get("x-real-ip") || "unknown";
+        const ip =
+            request.headers.get("x-forwarded-for") || request.headers.get("x-real-ip") || "unknown";
         const { allowed } = rateLimit(`image:${ip}`, 10, 60 * 1000);
 
         if (!allowed) {
@@ -26,7 +30,7 @@ export async function POST(request: NextRequest) {
                 {
                     status: 429,
                     headers: { "Retry-After": "60" },
-                }
+                },
             );
         }
 
@@ -49,7 +53,9 @@ export async function POST(request: NextRequest) {
         const sanitizedMessage = (message || "").trim();
 
         let activeChatId = chatId;
-        const userText = sanitizedMessage || "Please analyze this image and solve any math problem you see. Show your work step by step.";
+        const userText =
+            sanitizedMessage ||
+            "Please analyze this image and solve any math problem you see. Show your work step by step.";
 
         const userMsgId = uuidv4();
         if (activeChatId) {
@@ -62,10 +68,14 @@ export async function POST(request: NextRequest) {
             addMessage(userMsgId, activeChatId, "user", `[Image] ${userText}`, 0);
         }
 
-        const contextMessages: { role: "system" | "user" | "assistant"; content: string | any[] }[] = [
+        const contextMessages: {
+            role: "system" | "user" | "assistant";
+            content: string | any[];
+        }[] = [
             {
                 role: "system",
-                content: "You are an expert math tutor. The user has shared an image containing a math problem. Analyze the image carefully, identify the math problem, and solve it step by step. Use LaTeX for all mathematical expressions. Be clear and thorough.",
+                content:
+                    "You are an expert math tutor. The user has shared an image containing a math problem. Analyze the image carefully, identify the math problem, and solve it step by step. Use LaTeX for all mathematical expressions. Be clear and thorough.",
             },
         ];
 
@@ -106,7 +116,9 @@ export async function POST(request: NextRequest) {
 
         if (!response.ok) {
             const error = await response.json().catch(() => ({}));
-            throw new Error((error as any).error?.message || `Vision API returned ${response.status}`);
+            throw new Error(
+                (error as any).error?.message || `Vision API returned ${response.status}`,
+            );
         }
 
         if (!response.body) {
@@ -153,7 +165,7 @@ export async function POST(request: NextRequest) {
         console.error("Vision API error:", error);
         return NextResponse.json(
             { error: error.message || "Failed to analyze image" },
-            { status: 500 }
+            { status: 500 },
         );
     }
 }

@@ -7,20 +7,23 @@ const store = new Map<string, RateLimitEntry>();
 
 // Clean up expired entries every 5 minutes
 if (typeof globalThis !== "undefined") {
-    setInterval(() => {
-        const now = Date.now();
-        for (const [key, entry] of store) {
-            if (now > entry.resetAt) {
-                store.delete(key);
+    setInterval(
+        () => {
+            const now = Date.now();
+            for (const [key, entry] of store) {
+                if (now > entry.resetAt) {
+                    store.delete(key);
+                }
             }
-        }
-    }, 5 * 60 * 1000);
+        },
+        5 * 60 * 1000,
+    );
 }
 
 export function rateLimit(
     key: string,
     maxRequests: number,
-    windowMs: number
+    windowMs: number,
 ): { allowed: boolean; remaining: number; resetAt: number } {
     const now = Date.now();
     const entry = store.get(key);

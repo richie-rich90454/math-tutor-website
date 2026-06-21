@@ -81,10 +81,8 @@ export function ChatProvider({ children }: { children: ReactNode }) {
     const addMessage = useCallback((chatId: string, message: ChatMessage) => {
         setChatHistory((prev) =>
             prev.map((chat) =>
-                chat.id === chatId
-                    ? { ...chat, messages: [...chat.messages, message] }
-                    : chat
-            )
+                chat.id === chatId ? { ...chat, messages: [...chat.messages, message] } : chat,
+            ),
         );
     }, []);
 
@@ -98,45 +96,49 @@ export function ChatProvider({ children }: { children: ReactNode }) {
         setCurrentChat((prev) => (prev?.id === oldId ? { ...prev, id: newId } : prev));
     }, []);
 
-    const deleteChat = useCallback(async (chatId: string) => {
-        try {
-            const res = await fetch(`/api/chats/${chatId}`, { method: "DELETE" });
-            if (res.ok) {
-                setChatHistory((prev) => prev.filter((chat) => chat.id !== chatId));
-                if (currentChat?.id === chatId) {
-                    setCurrentChat(null);
+    const deleteChat = useCallback(
+        async (chatId: string) => {
+            try {
+                const res = await fetch(`/api/chats/${chatId}`, { method: "DELETE" });
+                if (res.ok) {
+                    setChatHistory((prev) => prev.filter((chat) => chat.id !== chatId));
+                    if (currentChat?.id === chatId) {
+                        setCurrentChat(null);
+                    }
                 }
+            } catch {
+                // Silently fail
             }
-        } catch {
-            // Silently fail
-        }
-    }, [currentChat]);
+        },
+        [currentChat],
+    );
 
-    const renameChat = useCallback(async (chatId: string, newTitle: string) => {
-        try {
-            const res = await fetch(`/api/chats/${chatId}`, {
-                method: "PATCH",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ title: newTitle }),
-            });
-            if (res.ok) {
-                setChatHistory((prev) =>
-                    prev.map((chat) =>
-                        chat.id === chatId
-                            ? { ...chat, title: newTitle, preview: newTitle }
-                            : chat
-                    )
-                );
-                if (currentChat?.id === chatId) {
-                    setCurrentChat((prev) =>
-                        prev ? { ...prev, title: newTitle } : prev
+    const renameChat = useCallback(
+        async (chatId: string, newTitle: string) => {
+            try {
+                const res = await fetch(`/api/chats/${chatId}`, {
+                    method: "PATCH",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ title: newTitle }),
+                });
+                if (res.ok) {
+                    setChatHistory((prev) =>
+                        prev.map((chat) =>
+                            chat.id === chatId
+                                ? { ...chat, title: newTitle, preview: newTitle }
+                                : chat,
+                        ),
                     );
+                    if (currentChat?.id === chatId) {
+                        setCurrentChat((prev) => (prev ? { ...prev, title: newTitle } : prev));
+                    }
                 }
+            } catch {
+                // Silently fail
             }
-        } catch {
-            // Silently fail
-        }
-    }, [currentChat]);
+        },
+        [currentChat],
+    );
 
     return (
         <ChatContext.Provider

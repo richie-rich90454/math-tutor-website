@@ -21,7 +21,7 @@ export default function FocusTrap({ children, isActive, onDeactivate }: Props) {
         if (!container) return;
 
         const focusable = container.querySelectorAll<HTMLElement>(
-            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
         );
         const first = focusable[0];
         const last = focusable[focusable.length - 1];

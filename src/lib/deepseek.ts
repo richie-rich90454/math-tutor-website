@@ -6,7 +6,7 @@ const BASE_URL = process.env.OPENAI_COMPATIBLE_BASE_URL || "https://api.deepseek
 const MODEL = process.env.OPENAI_COMPATIBLE_MODEL || "deepseek-v4-flash";
 
 export async function streamChatCompletion(
-    messages: { role: string; content: string }[]
+    messages: { role: string; content: string }[],
 ): Promise<ReadableStream<Uint8Array>> {
     if (!API_KEY) {
         throw new Error("API key not configured");
@@ -18,7 +18,7 @@ export async function streamChatCompletion(
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": `Bearer ${API_KEY}`,
+            Authorization: `Bearer ${API_KEY}`,
         },
         body: JSON.stringify({
             model: MODEL,

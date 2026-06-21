@@ -8,7 +8,11 @@ interface Props {
     estimatedHeight?: number;
 }
 
-export default function VirtualizedMessages({ children, overscan = 3, estimatedHeight = 120 }: Props) {
+export default function VirtualizedMessages({
+    children,
+    overscan = 3,
+    estimatedHeight = 120,
+}: Props) {
     const containerRef = useRef<HTMLDivElement>(null);
     const [visibleRange, setVisibleRange] = useState({ start: 0, end: 20 });
 

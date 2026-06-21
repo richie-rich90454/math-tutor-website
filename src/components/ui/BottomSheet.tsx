@@ -87,7 +87,7 @@ export default function BottomSheet({ isOpen, onClose, title, children }: Bottom
         (e: React.MouseEvent) => {
             if (e.target === backdropRef.current) onClose();
         },
-        [onClose]
+        [onClose],
     );
 
     return (

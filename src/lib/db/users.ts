@@ -12,15 +12,10 @@ interface User {
     updated_at: string;
 }
 
-export function createUser(
-    id: string,
-    email: string,
-    name: string,
-    passwordHash: string
-): User {
+export function createUser(id: string, email: string, name: string, passwordHash: string): User {
     const db = getDb();
     const stmt = db.prepare(
-        `INSERT INTO users (id, email, name, password_hash) VALUES (?, ?, ?, ?)`
+        `INSERT INTO users (id, email, name, password_hash) VALUES (?, ?, ?, ?)`,
     );
     stmt.run(id, email, name, passwordHash);
     return getUserById(id)!;
@@ -40,7 +35,12 @@ export function getUserById(id: string): User | null {
 
 export function updateUser(
     id: string,
-    fields: Partial<Pick<User, "name" | "email" | "avatar_url" | "preferred_language" | "math_level" | "password_hash">>
+    fields: Partial<
+        Pick<
+            User,
+            "name" | "email" | "avatar_url" | "preferred_language" | "math_level" | "password_hash"
+        >
+    >,
 ): void {
     const db = getDb();
     const sets: string[] = [];

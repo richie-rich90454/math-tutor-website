@@ -72,7 +72,7 @@ export function ConceptProvider({ children }: { children: ReactNode }) {
             (concept) =>
                 concept.concept_name.toLowerCase().includes(lowerQuery) ||
                 concept.aliases.some((alias) => alias.toLowerCase().includes(lowerQuery)) ||
-                concept.explanation_text.toLowerCase().includes(lowerQuery)
+                concept.explanation_text.toLowerCase().includes(lowerQuery),
         );
     };
 
@@ -81,8 +81,8 @@ export function ConceptProvider({ children }: { children: ReactNode }) {
             (concept) =>
                 concept.concept_name.toLowerCase().includes(category.toLowerCase()) ||
                 concept.aliases.some((alias) =>
-                    alias.toLowerCase().includes(category.toLowerCase())
-                )
+                    alias.toLowerCase().includes(category.toLowerCase()),
+                ),
         );
     };
 

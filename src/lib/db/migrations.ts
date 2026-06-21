@@ -94,7 +94,7 @@ export function migrate(db: Database.Database): void {
         db
             .prepare("SELECT version FROM _migrations")
             .all()
-            .map((row: any) => row.version)
+            .map((row: any) => row.version),
     );
 
     const pending = MIGRATIONS.filter((m) => !applied.has(m.version));
@@ -109,7 +109,7 @@ export function migrate(db: Database.Database): void {
         }
         db.prepare("INSERT INTO _migrations (version, name) VALUES (?, ?)").run(
             migration.version,
-            migration.name
+            migration.name,
         );
     }
 }

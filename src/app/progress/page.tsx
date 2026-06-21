@@ -72,36 +72,42 @@ export default function ProgressPage() {
     }, [isAuthenticated]);
 
     // Scroll-triggered entrance animations
-    useGSAP(() => {
-        if (!pageRef.current) return;
-        const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        if (prefersReduced) return;
+    useGSAP(
+        () => {
+            if (!pageRef.current) return;
+            const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+            if (prefersReduced) return;
 
-        const cards = pageRef.current.querySelectorAll(".settings-card");
-        gsap.from(cards, {
-            y: 30,
-            opacity: 0,
-            duration: 0.5,
-            stagger: 0.08,
-            ease: "power3.out",
-            scrollTrigger: {
-                trigger: pageRef.current,
-                start: "top 90%",
-            },
-        });
-    }, { scope: pageRef });
+            const cards = pageRef.current.querySelectorAll(".settings-card");
+            gsap.from(cards, {
+                y: 30,
+                opacity: 0,
+                duration: 0.5,
+                stagger: 0.08,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: pageRef.current,
+                    start: "top 90%",
+                },
+            });
+        },
+        { scope: pageRef },
+    );
 
     // Counter animation when data loads
-    useGSAP(() => {
-        if (!data) return;
-        const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        if (prefersReduced) return;
+    useGSAP(
+        () => {
+            if (!data) return;
+            const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+            if (prefersReduced) return;
 
-        if (chatsRef.current) animateCounter(chatsRef.current, data.totalChats);
-        if (messagesRef.current) animateCounter(messagesRef.current, data.totalMessages);
-        if (streakRef.current) animateCounter(streakRef.current, data.longestStreak);
-        if (topicsRef.current) animateCounter(topicsRef.current, data.topics.length);
-    }, { dependencies: [data], scope: pageRef });
+            if (chatsRef.current) animateCounter(chatsRef.current, data.totalChats);
+            if (messagesRef.current) animateCounter(messagesRef.current, data.totalMessages);
+            if (streakRef.current) animateCounter(streakRef.current, data.longestStreak);
+            if (topicsRef.current) animateCounter(topicsRef.current, data.topics.length);
+        },
+        { dependencies: [data], scope: pageRef },
+    );
 
     if (isLoading || !isAuthenticated) return null;
 
@@ -112,7 +118,16 @@ export default function ProgressPage() {
             <div className="settings-container" ref={pageRef}>
                 <div className="settings-header">
                     <Link href="/" className="settings-back-link">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                        >
                             <line x1="19" y1="12" x2="5" y2="12" />
                             <polyline points="12 19 5 12 12 5" />
                         </svg>
@@ -123,55 +138,87 @@ export default function ProgressPage() {
 
                 {loading ? (
                     <div className="settings-skeleton">
-                        <div className="skeleton" style={{ height: 120, marginBottom: "var(--space-6)" }} />
-                        <div className="skeleton" style={{ height: 200, marginBottom: "var(--space-6)" }} />
+                        <div
+                            className="skeleton"
+                            style={{ height: 120, marginBottom: "var(--space-6)" }}
+                        />
+                        <div
+                            className="skeleton"
+                            style={{ height: 200, marginBottom: "var(--space-6)" }}
+                        />
                     </div>
                 ) : data ? (
                     <>
                         {/* Stats Cards */}
                         <div className="progress-stats" ref={statsRef}>
                             <div className="progress-stat-card">
-                                <div className="progress-stat-value" ref={chatsRef}>{data.totalChats}</div>
-                                <div className="progress-stat-label">{t("progressConversations") || "Conversations"}</div>
+                                <div className="progress-stat-value" ref={chatsRef}>
+                                    {data.totalChats}
+                                </div>
+                                <div className="progress-stat-label">
+                                    {t("progressConversations") || "Conversations"}
+                                </div>
                             </div>
                             <div className="progress-stat-card">
-                                <div className="progress-stat-value" ref={messagesRef}>{data.totalMessages}</div>
-                                <div className="progress-stat-label">{t("progressMessages") || "Messages"}</div>
+                                <div className="progress-stat-value" ref={messagesRef}>
+                                    {data.totalMessages}
+                                </div>
+                                <div className="progress-stat-label">
+                                    {t("progressMessages") || "Messages"}
+                                </div>
                             </div>
                             <div className="progress-stat-card">
-                                <div className="progress-stat-value" ref={streakRef}>{data.longestStreak}</div>
-                                <div className="progress-stat-label">{t("progressStreak") || "Day Streak"}</div>
+                                <div className="progress-stat-value" ref={streakRef}>
+                                    {data.longestStreak}
+                                </div>
+                                <div className="progress-stat-label">
+                                    {t("progressStreak") || "Day Streak"}
+                                </div>
                             </div>
                             <div className="progress-stat-card">
-                                <div className="progress-stat-value" ref={topicsRef}>{data.topics.length}</div>
-                                <div className="progress-stat-label">{t("progressTopics") || "Topics Explored"}</div>
+                                <div className="progress-stat-value" ref={topicsRef}>
+                                    {data.topics.length}
+                                </div>
+                                <div className="progress-stat-label">
+                                    {t("progressTopics") || "Topics Explored"}
+                                </div>
                             </div>
                         </div>
 
                         {/* Topics */}
                         {data.topics.length > 0 && (
                             <section className="settings-section">
-                                <h2 className="settings-section-title">{t("progressTopicsExplored") || "Topics Explored"}</h2>
+                                <h2 className="settings-section-title">
+                                    {t("progressTopicsExplored") || "Topics Explored"}
+                                </h2>
                                 <div className="settings-card">
                                     {data.topics.map((topic) => (
                                         <div key={topic.topic} className="progress-topic-row">
                                             <div className="progress-topic-info">
                                                 <span
                                                     className="progress-topic-dot"
-                                                    style={{ background: TOPIC_COLORS[topic.topic] || "#6b7280" }}
+                                                    style={{
+                                                        background:
+                                                            TOPIC_COLORS[topic.topic] || "#6b7280",
+                                                    }}
                                                 />
-                                                <span className="progress-topic-name">{topic.topic}</span>
+                                                <span className="progress-topic-name">
+                                                    {topic.topic}
+                                                </span>
                                             </div>
                                             <div className="progress-topic-bar-wrapper">
                                                 <div
                                                     className="progress-topic-bar"
                                                     style={{
                                                         width: `${(topic.count / maxTopicCount) * 100}%`,
-                                                        background: TOPIC_COLORS[topic.topic] || "#6b7280",
+                                                        background:
+                                                            TOPIC_COLORS[topic.topic] || "#6b7280",
                                                     }}
                                                 />
                                             </div>
-                                            <span className="progress-topic-count">{topic.count}</span>
+                                            <span className="progress-topic-count">
+                                                {topic.count}
+                                            </span>
                                         </div>
                                     ))}
                                 </div>
@@ -181,14 +228,25 @@ export default function ProgressPage() {
                         {/* Recent Activity */}
                         {data.recentChats.length > 0 && (
                             <section className="settings-section">
-                                <h2 className="settings-section-title">{t("progressRecentActivity") || "Recent Activity"}</h2>
+                                <h2 className="settings-section-title">
+                                    {t("progressRecentActivity") || "Recent Activity"}
+                                </h2>
                                 <div className="settings-card">
                                     {data.recentChats.map((chat) => (
                                         <div key={chat.id} className="progress-activity-row">
                                             <div className="progress-activity-info">
-                                                <span className="progress-activity-title">{chat.title}</span>
+                                                <span className="progress-activity-title">
+                                                    {chat.title}
+                                                </span>
                                                 {chat.topic && (
-                                                    <span className="progress-activity-topic" style={{ color: TOPIC_COLORS[chat.topic] || "#6b7280" }}>
+                                                    <span
+                                                        className="progress-activity-topic"
+                                                        style={{
+                                                            color:
+                                                                TOPIC_COLORS[chat.topic] ||
+                                                                "#6b7280",
+                                                        }}
+                                                    >
                                                         {chat.topic}
                                                     </span>
                                                 )}
@@ -205,14 +263,21 @@ export default function ProgressPage() {
                         {/* Activity Heatmap (simple) */}
                         {data.dailyActivity.length > 0 && (
                             <section className="settings-section">
-                                <h2 className="settings-section-title">{t("progressActivity") || "Last 30 Days"}</h2>
-                                <div className="settings-card" style={{ padding: "var(--space-4)" }}>
+                                <h2 className="settings-section-title">
+                                    {t("progressActivity") || "Last 30 Days"}
+                                </h2>
+                                <div
+                                    className="settings-card"
+                                    style={{ padding: "var(--space-4)" }}
+                                >
                                     <div className="progress-heatmap">
                                         {Array.from({ length: 30 }, (_, i) => {
                                             const d = new Date();
                                             d.setDate(d.getDate() - (29 - i));
                                             const dateStr = d.toISOString().split("T")[0];
-                                            const entry = data.dailyActivity.find((a) => a.date === dateStr);
+                                            const entry = data.dailyActivity.find(
+                                                (a) => a.date === dateStr,
+                                            );
                                             const count = entry?.count || 0;
                                             const intensity = Math.min(count / 3, 1);
                                             return (
@@ -220,9 +285,10 @@ export default function ProgressPage() {
                                                     key={dateStr}
                                                     className="progress-heatmap-cell"
                                                     style={{
-                                                        background: count === 0
-                                                            ? "var(--bg-hover)"
-                                                            : `rgba(99, 102, 241, ${0.2 + intensity * 0.8})`,
+                                                        background:
+                                                            count === 0
+                                                                ? "var(--bg-hover)"
+                                                                : `rgba(99, 102, 241, ${0.2 + intensity * 0.8})`,
                                                     }}
                                                     title={`${dateStr}: ${count} chats`}
                                                 />

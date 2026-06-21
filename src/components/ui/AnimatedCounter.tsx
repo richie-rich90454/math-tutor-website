@@ -39,5 +39,10 @@ export default function AnimatedCounter({
         });
     }, [from, to, duration, delay, suffix]);
 
-    return <span ref={ref} className={className}>{from}{suffix}</span>;
+    return (
+        <span ref={ref} className={className}>
+            {from}
+            {suffix}
+        </span>
+    );
 }

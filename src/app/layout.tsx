@@ -105,7 +105,10 @@ export default function RootLayout({
     return (
         <html lang="en" suppressHydrationWarning>
             <head>
-                <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1, viewport-fit=cover"
+                />
                 <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
                 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
                 <meta name="mobile-web-app-capable" content="yes" />
@@ -276,26 +279,40 @@ export default function RootLayout({
                 />
             </head>
             <body className={`${geistSans.variable} ${geistMono.variable}`}>
-                <div id="aria-live-polite" className="sr-only" aria-live="polite" aria-atomic="true" />
-                <div id="aria-live-assertive" className="sr-only" aria-live="assertive" aria-atomic="true" />
-                <script dangerouslySetInnerHTML={{ __html: `
+                <div
+                    id="aria-live-polite"
+                    className="sr-only"
+                    aria-live="polite"
+                    aria-atomic="true"
+                />
+                <div
+                    id="aria-live-assertive"
+                    className="sr-only"
+                    aria-live="assertive"
+                    aria-atomic="true"
+                />
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
                     window.addEventListener('error', function(e) {
                         console.error('Global error:', e.error);
                     });
                     window.addEventListener('unhandledrejection', function(e) {
                         console.error('Unhandled rejection:', e.reason);
                     });
-                `}} />
+                `,
+                    }}
+                />
                 <ToastProvider>
-                <AuthProvider>
-                    <LanguageProvider>
-                        <HtmlAttributes />
-                        <SkipLink />
-                        <ConceptProvider>
-                            <ChatProvider>{children}</ChatProvider>
-                        </ConceptProvider>
-                    </LanguageProvider>
-                </AuthProvider>
+                    <AuthProvider>
+                        <LanguageProvider>
+                            <HtmlAttributes />
+                            <SkipLink />
+                            <ConceptProvider>
+                                <ChatProvider>{children}</ChatProvider>
+                            </ConceptProvider>
+                        </LanguageProvider>
+                    </AuthProvider>
                 </ToastProvider>
             </body>
         </html>
