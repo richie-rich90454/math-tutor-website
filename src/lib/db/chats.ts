@@ -12,6 +12,14 @@ interface ChatSession {
     updated_at: string;
 }
 
+const ALLOWED_CHAT_COLUMNS = new Set([
+    "title",
+    "preview",
+    "topic",
+    "is_archived",
+    "is_pinned",
+]);
+
 export function createChat(
     id: string,
     userId: string,
@@ -50,17 +58,14 @@ export function updateChat(
     fields: Partial<Pick<ChatSession, "title" | "preview" | "topic" | "is_archived" | "is_pinned">>,
 ): void {
     const db = getDb();
-    const sets: string[] = [];
-    const values: any[] = [];
+    const entries = Object.entries(fields).filter(
+        ([key, value]) => ALLOWED_CHAT_COLUMNS.has(key) && value !== undefined,
+    );
 
-    for (const [key, value] of Object.entries(fields)) {
-        if (value !== undefined) {
-            sets.push(`${key} = ?`);
-            values.push(value);
-        }
-    }
+    if (entries.length === 0) return;
 
-    if (sets.length === 0) return;
+    const sets = entries.map(([key]) => `${key} = ?`);
+    const values = entries.map(([, value]) => value);
 
     sets.push("updated_at = datetime('now')");
     values.push(chatId);

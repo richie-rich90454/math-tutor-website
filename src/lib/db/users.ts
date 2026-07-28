@@ -12,6 +12,15 @@ interface User {
     updated_at: string;
 }
 
+const ALLOWED_USER_COLUMNS = new Set([
+    "name",
+    "email",
+    "avatar_url",
+    "preferred_language",
+    "math_level",
+    "password_hash",
+]);
+
 export function createUser(id: string, email: string, name: string, passwordHash: string): User {
     const db = getDb();
     const stmt = db.prepare(
@@ -43,17 +52,14 @@ export function updateUser(
     >,
 ): void {
     const db = getDb();
-    const sets: string[] = [];
-    const values: any[] = [];
+    const entries = Object.entries(fields).filter(
+        ([key, value]) => ALLOWED_USER_COLUMNS.has(key) && value !== undefined,
+    );
 
-    for (const [key, value] of Object.entries(fields)) {
-        if (value !== undefined) {
-            sets.push(`${key} = ?`);
-            values.push(value);
-        }
-    }
+    if (entries.length === 0) return;
 
-    if (sets.length === 0) return;
+    const sets = entries.map(([key]) => `${key} = ?`);
+    const values = entries.map(([, value]) => value);
 
     sets.push("updated_at = datetime('now')");
     values.push(id);
