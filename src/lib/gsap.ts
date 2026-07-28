@@ -1,7 +1,7 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { RefObject } from "react";
+import type { RefObject, DependencyList } from "react";
 
 if (typeof window !== "undefined") {
     gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -321,7 +321,7 @@ export function parallaxScroll(el: HTMLElement, speed: number = 0.3, direction: 
 export function useAnimateOnMount(
     ref: RefObject<HTMLElement | null>,
     animation: gsap.TweenVars,
-    deps: any[] = [],
+    deps: DependencyList = [],
 ) {
     useGSAP(
         () => {

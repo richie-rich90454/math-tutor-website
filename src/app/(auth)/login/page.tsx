@@ -68,8 +68,9 @@ export default function LoginPage() {
         try {
             await login(email, password, remember);
             router.push("/");
-        } catch (err: any) {
-            setError(err.message || t("authInvalidCredentials"));
+        } catch (err: unknown) {
+            const msg = err instanceof Error ? err.message : t("authInvalidCredentials");
+            setError(msg);
             shakeError();
         } finally {
             setIsLoading(false);

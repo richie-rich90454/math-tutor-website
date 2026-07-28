@@ -402,7 +402,8 @@ export default function Home() {
                 if (!res.ok || cancelled) return;
                 const data = await res.json();
                 if (cancelled) return;
-                const formatted = (data.messages || []).map((msg: any) => ({
+                type ApiMessage = { id: string; content: string; role: string; created_at: string };
+                const formatted = ((data.messages ?? []) as ApiMessage[]).map((msg) => ({
                     id: msg.id,
                     content: msg.content,
                     role: msg.role as "user" | "assistant",
@@ -509,9 +510,10 @@ export default function Home() {
                         ),
                     );
                 }
-            } catch (error: any) {
+            } catch (error: unknown) {
                 clearTimeout(timeoutId);
-                if (error.name === "AbortError") {
+                const isAbort = error instanceof DOMException && error.name === "AbortError";
+                if (isAbort) {
                     setMessages((prev) => [
                         ...prev,
                         {
@@ -523,13 +525,14 @@ export default function Home() {
                     ]);
                     return;
                 }
+                const errMsg = error instanceof Error ? error.message : "Failed to send message";
                 console.error("Send error:", error);
                 setMessages((prev) => [
                     ...prev,
                     {
                         id: (Date.now() + 1).toString(),
                         role: "assistant",
-                        content: error.message || "Failed to send message",
+                        content: errMsg,
                         timestamp: new Date(),
                     },
                 ]);
@@ -619,9 +622,10 @@ export default function Home() {
                     ),
                 );
             }
-        } catch (error: any) {
+        } catch (error: unknown) {
             clearTimeout(timeoutId);
-            if (error.name === "AbortError") {
+            const isAbort = error instanceof DOMException && error.name === "AbortError";
+            if (isAbort) {
                 setMessages((prev) => [
                     ...prev,
                     {
@@ -633,13 +637,14 @@ export default function Home() {
                 ]);
                 return;
             }
+            const errMsg = error instanceof Error ? error.message : "Failed to send image";
             console.error("Send image error:", error);
             setMessages((prev) => [
                 ...prev,
                 {
                     id: (Date.now() + 1).toString(),
                     role: "assistant",
-                    content: error.message || "Failed to send image",
+                    content: errMsg,
                     timestamp: new Date(),
                 },
             ]);

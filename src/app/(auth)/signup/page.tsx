@@ -120,8 +120,9 @@ export default function SignupPage() {
                     setTimeout(() => router.push("/"), 1500);
                 },
             });
-        } catch (err: any) {
-            setError(err.message || t("authSignupFailed"));
+        } catch (err: unknown) {
+            const msg = err instanceof Error ? err.message : t("authSignupFailed");
+            setError(msg);
             gsap.fromTo(
                 cardRef.current,
                 { x: -10 },

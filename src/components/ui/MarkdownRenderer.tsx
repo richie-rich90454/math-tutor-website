@@ -1,5 +1,6 @@
 "use client";
 
+import type { ComponentPropsWithoutRef } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
@@ -75,7 +76,7 @@ export default function MarkdownRenderer({
                     blockquote: ({ children }) => (
                         <blockquote className="mdr-blockquote">{children}</blockquote>
                     ),
-                    code: ({ className, children, ...props }: any) => {
+                    code: ({ className, children, ...props }: ComponentPropsWithoutRef<"code">) => {
                         const match = /language-(\w+)/.exec(className || "");
                         const language = match ? match[1] : "";
                         const isInline = !language;

@@ -144,12 +144,13 @@ const InputArea = memo(function InputArea({
         const currentLang = document.documentElement.lang || "en";
         recognition.lang = langMap[currentLang] || "en-US";
 
-        recognition.onresult = (event: any) => {
+        recognition.onresult = (event: SpeechRecognitionEvent) => {
             let transcript = "";
-            for (let i = event.resultIndex; i < event.results.length; i++) {
-                transcript += event.results[i][0].transcript;
+            const results = event.results;
+            for (let i = event.resultIndex; i < results.length; i++) {
+                transcript += results[i][0].transcript;
             }
-            if (event.results[event.results.length - 1].isFinal) {
+            if (results[results.length - 1].isFinal) {
                 onChange(value ? value + " " + transcript : transcript);
                 setIsListening(false);
             }

@@ -161,11 +161,9 @@ export async function POST(request: NextRequest) {
                 "X-Chat-Id": activeChatId,
             },
         });
-    } catch (error: any) {
+    } catch (error: unknown) {
+        const msg = error instanceof Error ? error.message : "Failed to analyze image";
         console.error("Vision API error:", error);
-        return NextResponse.json(
-            { error: error.message || "Failed to analyze image" },
-            { status: 500 },
-        );
+        return NextResponse.json({ error: msg }, { status: 500 });
     }
 }

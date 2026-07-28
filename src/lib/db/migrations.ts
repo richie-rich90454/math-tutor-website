@@ -90,11 +90,11 @@ export function migrate(db: Database.Database): void {
         )
     `);
 
+    type MigrationRow = { version: number };
     const applied = new Set(
-        db
+        (db
             .prepare("SELECT version FROM _migrations")
-            .all()
-            .map((row: any) => row.version),
+            .all() as MigrationRow[]).map((row) => row.version),
     );
 
     const pending = MIGRATIONS.filter((m) => !applied.has(m.version));
@@ -102,8 +102,10 @@ export function migrate(db: Database.Database): void {
     for (const migration of pending) {
         try {
             db.exec(migration.sql);
-        } catch (e: any) {
-            if (!e.message?.includes("duplicate column")) {
+        } catch (e: unknown) {
+            if (!(e instanceof Error) || !e.message?.includes("duplicate column")) {
+                throw e;
+            }
                 throw e;
             }
         }
