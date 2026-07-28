@@ -45,7 +45,6 @@ export function ConceptProvider({ children }: { children: ReactNode }) {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-         
         setIsLoading(true);
         loadConcepts(currentCulture)
             .then((data) => {

@@ -43,7 +43,6 @@ export default function SlashCommandMenu({
 
     useEffect(() => {
         if (isOpen) {
-             
             setSelectedIndex(0);
         }
     }, [isOpen]);

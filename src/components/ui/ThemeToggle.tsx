@@ -15,7 +15,6 @@ export default function ThemeToggle() {
     const iconRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-         
         setMounted(true);
         const stored = localStorage.getItem("theme") as Theme | null;
         if (stored) setTheme(stored);

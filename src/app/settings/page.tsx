@@ -41,7 +41,6 @@ export default function SettingsPage() {
     const settingsRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-         
         setMounted(true);
         const stored = localStorage.getItem("theme") as Theme | null;
         if (stored) setTheme(stored);

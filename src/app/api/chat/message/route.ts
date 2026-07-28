@@ -42,9 +42,7 @@ export async function POST(request: NextRequest) {
                     status: 429,
                     headers: {
                         ...getRateLimitHeaders(userRl),
-                        "Retry-After": String(
-                            Math.ceil((userRl.resetAt - Date.now()) / 1000),
-                        ),
+                        "Retry-After": String(Math.ceil((userRl.resetAt - Date.now()) / 1000)),
                     },
                 },
             );

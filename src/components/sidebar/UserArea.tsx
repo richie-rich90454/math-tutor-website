@@ -46,10 +46,7 @@ export default function UserArea({
     if (!isAuthenticated || !user) {
         return (
             <div className="sb-footer is-open">
-                <button
-                    className="sb-sign-in-btn"
-                    onClick={() => router.push("/login")}
-                >
+                <button className="sb-sign-in-btn" onClick={() => router.push("/login")}>
                     <svg
                         width="16"
                         height="16"
@@ -83,10 +80,7 @@ export default function UserArea({
                     <p className="sb-user-email">{user.email}</p>
                 </div>
                 {showUserDropdown && (
-                    <div
-                        className="sb-user-dropdown"
-                        onClick={(e) => e.stopPropagation()}
-                    >
+                    <div className="sb-user-dropdown" onClick={(e) => e.stopPropagation()}>
                         <button
                             className="sb-user-dropdown-item"
                             onClick={() => router.push("/settings")}

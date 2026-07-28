@@ -92,7 +92,9 @@ export default function ChatList({
                                     className={`sb-history-tooltip-item ${currentChat?.id === chat.id ? "is-active" : ""}`}
                                 >
                                     <h4 className="sb-history-tooltip-item-title">{chat.title}</h4>
-                                    <p className="sb-history-tooltip-item-preview">{chat.preview}</p>
+                                    <p className="sb-history-tooltip-item-preview">
+                                        {chat.preview}
+                                    </p>
                                     <span className="sb-history-tooltip-item-date">
                                         {new Date(chat.timestamp).toLocaleDateString()}
                                     </span>
@@ -139,10 +141,7 @@ export default function ChatList({
                                         marginBottom: "var(--space-2)",
                                     }}
                                 />
-                                <div
-                                    className="skeleton skeleton-text"
-                                    style={{ width: "60%" }}
-                                />
+                                <div className="skeleton skeleton-text" style={{ width: "60%" }} />
                             </div>
                         </div>
                     ))}

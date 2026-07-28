@@ -55,11 +55,14 @@ const InputArea = memo(function InputArea({
         }
     }, [value]);
 
-    const handleSlashSelect = useCallback((command: string) => {
-        onChange(command + " ");
-        setSlashMenuOpen(false);
-        textareaRef.current?.focus();
-    }, [onChange]);
+    const handleSlashSelect = useCallback(
+        (command: string) => {
+            onChange(command + " ");
+            setSlashMenuOpen(false);
+            textareaRef.current?.focus();
+        },
+        [onChange],
+    );
 
     const adjustHeight = useCallback(() => {
         const ta = textareaRef.current;
@@ -241,7 +244,10 @@ const InputArea = memo(function InputArea({
                 {/* Left-side utility buttons */}
                 {onImageSelect && (
                     <button
-                        onClick={(e) => { createRipple(e); fileInputRef.current?.click(); }}
+                        onClick={(e) => {
+                            createRipple(e);
+                            fileInputRef.current?.click();
+                        }}
                         disabled={isLoading}
                         className="ia-util-btn"
                         title={t("inputAttachImage") || "Attach image"}
@@ -327,7 +333,10 @@ const InputArea = memo(function InputArea({
                     </button>
                 ) : (
                     <button
-                        onClick={(e) => { createRipple(e); handleSend(); }}
+                        onClick={(e) => {
+                            createRipple(e);
+                            handleSend();
+                        }}
                         disabled={(!value.trim() && !pendingImage) || isLoading}
                         className="ia-action-btn ia-send-btn"
                         aria-label={t("inputSendMessage")}

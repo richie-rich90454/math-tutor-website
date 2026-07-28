@@ -92,9 +92,9 @@ export function migrate(db: Database.Database): void {
 
     type MigrationRow = { version: number };
     const applied = new Set(
-        (db
-            .prepare("SELECT version FROM _migrations")
-            .all() as MigrationRow[]).map((row) => row.version),
+        (db.prepare("SELECT version FROM _migrations").all() as MigrationRow[]).map(
+            (row) => row.version,
+        ),
     );
 
     const pending = MIGRATIONS.filter((m) => !applied.has(m.version));

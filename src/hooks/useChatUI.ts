@@ -59,9 +59,12 @@ export function useChatUI(
     }, []);
 
     // Scroll helpers
-    const scrollToBottom = useCallback((smooth = true) => {
-        messagesEndRef.current?.scrollIntoView({ behavior: smooth ? "smooth" : "auto" });
-    }, [messagesEndRef]);
+    const scrollToBottom = useCallback(
+        (smooth = true) => {
+            messagesEndRef.current?.scrollIntoView({ behavior: smooth ? "smooth" : "auto" });
+        },
+        [messagesEndRef],
+    );
 
     const isNearBottom = useCallback(() => {
         const el = chatMessagesRef.current;

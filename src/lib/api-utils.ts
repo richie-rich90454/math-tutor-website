@@ -23,7 +23,10 @@ export async function validateBody<T>(
         }));
         return {
             data: null as unknown as T,
-            error: NextResponse.json({ error: "Validation failed", details: errors }, { status: 400 }),
+            error: NextResponse.json(
+                { error: "Validation failed", details: errors },
+                { status: 400 },
+            ),
         };
     }
 

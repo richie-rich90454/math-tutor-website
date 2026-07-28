@@ -13,7 +13,9 @@ export function useChatMessages() {
     const { addToast } = useToast();
 
     const [input, setInput] = useState("");
-    const [pendingImage, setPendingImage] = useState<{ data: string; mimeType: string } | null>(null);
+    const [pendingImage, setPendingImage] = useState<{ data: string; mimeType: string } | null>(
+        null,
+    );
     const [messages, setMessages] = useState<Message[]>([]);
     const [isLoading, setIsLoading] = useState(false);
     const [isStreaming, setIsStreaming] = useState(false);

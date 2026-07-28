@@ -715,18 +715,26 @@ a:hover {
 }
 
 /* KaTeX in user messages */
-.message-bubble-user .katex { color: var(--fg-primary); }
+.message-bubble-user .katex {
+    color: var(--fg-primary);
+}
 .message-bubble-user .katex .mord,
 .message-bubble-user .katex .mbin,
 .message-bubble-user .katex .mrel,
 .message-bubble-user .katex .mopen,
 .message-bubble-user .katex .mclose,
 .message-bubble-user .katex .mpunct,
-.message-bubble-user .katex .minner { color: var(--fg-primary); }
-.message-bubble-user .katex .accent-body { stroke: var(--fg-primary); }
+.message-bubble-user .katex .minner {
+    color: var(--fg-primary);
+}
+.message-bubble-user .katex .accent-body {
+    stroke: var(--fg-primary);
+}
 .message-bubble-user .katex .stretchy,
 .message-bubble-user .katex .overline,
-.message-bubble-user .katex .underline { stroke: var(--fg-primary); }
+.message-bubble-user .katex .underline {
+    stroke: var(--fg-primary);
+}
 .message-bubble-user .katex-display {
     overflow-x: auto;
     overflow-y: hidden;

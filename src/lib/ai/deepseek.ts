@@ -4,10 +4,7 @@ const API_KEY = process.env.OPENAI_COMPATIBLE_API_KEY;
 const BASE_URL = process.env.OPENAI_COMPATIBLE_BASE_URL || "https://api.deepseek.com";
 const MODEL_NAME = process.env.OPENAI_COMPATIBLE_MODEL || "deepseek-v4-flash";
 
-async function fetchWithRetry(
-    url: string,
-    options: RequestInit,
-): Promise<Response> {
+async function fetchWithRetry(url: string, options: RequestInit): Promise<Response> {
     for (let attempt = 0; ; attempt++) {
         try {
             const response = await fetch(url, options);

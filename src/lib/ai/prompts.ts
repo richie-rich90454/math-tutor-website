@@ -192,8 +192,7 @@ export async function getSystemPrompt(language: string): Promise<string> {
     const cached = SYSTEM_PROMPT_CACHE.get(language);
     if (cached) return cached;
 
-    const fileName =
-        LANGUAGE_FILE_MAP[language] || LANGUAGE_FILE_MAP.en || "prompt-en-us.txt";
+    const fileName = LANGUAGE_FILE_MAP[language] || LANGUAGE_FILE_MAP.en || "prompt-en-us.txt";
 
     try {
         const filePath = path.join(PROMPTS_DIR, fileName);

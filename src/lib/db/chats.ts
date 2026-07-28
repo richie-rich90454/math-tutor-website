@@ -12,13 +12,7 @@ interface ChatSession {
     updated_at: string;
 }
 
-const ALLOWED_CHAT_COLUMNS = new Set([
-    "title",
-    "preview",
-    "topic",
-    "is_archived",
-    "is_pinned",
-]);
+const ALLOWED_CHAT_COLUMNS = new Set(["title", "preview", "topic", "is_archived", "is_pinned"]);
 
 export function createChat(
     id: string,
