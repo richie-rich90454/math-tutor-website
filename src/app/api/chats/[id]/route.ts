@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { getSession } from "@/lib/auth-middleware";
 import { getChatById, updateChat, deleteChat } from "@/lib/db/chats";
 import { getChatMessages } from "@/lib/db/messages";
+import { updateChatSchema } from "@/lib/validators";
+import { validateBody } from "@/lib/api-utils";
 
 export async function GET(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
     try {
@@ -45,8 +47,10 @@ export async function PATCH(request: NextRequest, { params }: { params: Promise<
             return NextResponse.json({ error: "Not authorized" }, { status: 403 });
         }
 
-        const body = await request.json();
-        updateChat(id, body);
+        const { data, error } = await validateBody(request, updateChatSchema);
+        if (error) return error;
+
+        updateChat(id, data);
         const updated = getChatById(id);
         return NextResponse.json({ chat: updated });
     } catch (error) {

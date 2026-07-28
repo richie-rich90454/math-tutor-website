@@ -4,6 +4,8 @@ import { getUserByEmail } from "@/lib/db/users";
 import { createSession, deleteUserSessions } from "@/lib/db/sessions";
 import { setSessionCookie } from "@/lib/auth-middleware";
 import { rateLimit, getRateLimitHeaders } from "@/lib/rate-limit";
+import { loginSchema } from "@/lib/validators";
+import { validateBody } from "@/lib/api-utils";
 
 export async function POST(request: NextRequest) {
     try {
@@ -20,37 +22,17 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        const { email, password, remember } = await request.json();
+        const { data, error } = await validateBody(request, loginSchema);
+        if (error) return error;
 
-        if (!email || !password) {
-            return NextResponse.json({ error: "Email and password are required" }, { status: 400 });
-        }
+        const { email, password, remember } = data;
 
-        if (typeof email !== "string" || typeof password !== "string") {
-            return NextResponse.json({ error: "Invalid input" }, { status: 400 });
-        }
-
-        const sanitizedEmail = email.trim();
-        const sanitizedPassword = password.trim();
-
-        if (sanitizedEmail.length === 0 || sanitizedPassword.length === 0) {
-            return NextResponse.json({ error: "Email and password are required" }, { status: 400 });
-        }
-
-        if (sanitizedEmail.length > 255) {
-            return NextResponse.json({ error: "Email is too long" }, { status: 400 });
-        }
-
-        if (sanitizedPassword.length > 128) {
-            return NextResponse.json({ error: "Password is too long" }, { status: 400 });
-        }
-
-        const user = getUserByEmail(sanitizedEmail);
+        const user = getUserByEmail(email);
         if (!user) {
             return NextResponse.json({ error: "Invalid email or password" }, { status: 401 });
         }
 
-        const valid = comparePassword(sanitizedPassword, user.password_hash);
+        const valid = comparePassword(password, user.password_hash);
         if (!valid) {
             return NextResponse.json({ error: "Invalid email or password" }, { status: 401 });
         }

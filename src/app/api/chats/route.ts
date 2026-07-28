@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { getSession } from "@/lib/auth-middleware";
 import { getUserChats, createChat, searchChats } from "@/lib/db/chats";
 import { v4 as uuidv4 } from "uuid";
+import { createChatSchema } from "@/lib/validators";
+import { validateBody } from "@/lib/api-utils";
 
 export async function GET(request: NextRequest) {
     try {
@@ -36,10 +38,10 @@ export async function POST(request: NextRequest) {
             return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
         }
 
-        const { title, preview } = await request.json();
-        if (!title) {
-            return NextResponse.json({ error: "Title is required" }, { status: 400 });
-        }
+        const { data, error } = await validateBody(request, createChatSchema);
+        if (error) return error;
+
+        const { title, preview } = data;
 
         const id = uuidv4();
         const chat = createChat(id, session.user.id, title, preview);

@@ -5,6 +5,8 @@ import { createChat, updateChat } from "@/lib/db/chats";
 import { logUsage } from "@/lib/db/usage";
 import { rateLimit } from "@/lib/rate-limit";
 import { v4 as uuidv4 } from "uuid";
+import { chatImageSchema } from "@/lib/validators";
+import { validateBody } from "@/lib/api-utils";
 
 const VISION_MODEL =
     process.env.OPENAI_COMPATIBLE_VISION_MODEL ||
@@ -38,18 +40,10 @@ export async function POST(request: NextRequest) {
             return NextResponse.json({ error: "Vision API not configured" }, { status: 500 });
         }
 
-        const { image, mimeType, message, chatId, preferredLanguage } = await request.json();
+        const { data, error } = await validateBody(request, chatImageSchema);
+        if (error) return error;
 
-        // Validate inputs
-        if (!image || typeof image !== "string" || image.trim().length === 0) {
-            return NextResponse.json({ error: "Image is required" }, { status: 400 });
-        }
-        if (message && typeof message !== "string") {
-            return NextResponse.json({ error: "Message must be a string" }, { status: 400 });
-        }
-        if (message && message.length > 4000) {
-            return NextResponse.json({ error: "Message is too long" }, { status: 400 });
-        }
+        const { image, mimeType, message, chatId, preferredLanguage } = data;
         const sanitizedMessage = (message || "").trim();
 
         let activeChatId = chatId;
