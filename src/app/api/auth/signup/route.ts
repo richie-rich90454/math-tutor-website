@@ -3,10 +3,24 @@ import { hashPassword, signToken } from "@/lib/auth";
 import { createUser, getUserByEmail } from "@/lib/db/users";
 import { createSession } from "@/lib/db/sessions";
 import { setSessionCookie } from "@/lib/auth-middleware";
+import { rateLimit, getRateLimitHeaders } from "@/lib/rate-limit";
 import { v4 as uuidv4 } from "uuid";
 
 export async function POST(request: NextRequest) {
     try {
+        const ip =
+            request.headers.get("x-forwarded-for") || request.headers.get("x-real-ip") || "unknown";
+        const rl = rateLimit(`signup:${ip}`, 5, 60 * 1000);
+        if (!rl.allowed) {
+            return NextResponse.json(
+                { error: "Too many signup attempts. Please wait." },
+                {
+                    status: 429,
+                    headers: { ...getRateLimitHeaders(rl), "Retry-After": "60" },
+                },
+            );
+        }
+
         const { email, password, name } = await request.json();
 
         if (!email || !password || !name) {

@@ -4,14 +4,13 @@ import { streamChatCompletion } from "@/lib/deepseek";
 import { addMessage, getRecentMessages } from "@/lib/db/messages";
 import { createChat, updateChat, getChatById } from "@/lib/db/chats";
 import { logUsage } from "@/lib/db/usage";
-import { rateLimit } from "@/lib/rate-limit";
+import { rateLimit, getRateLimitHeaders } from "@/lib/rate-limit";
 import { v4 as uuidv4 } from "uuid";
 import { promises as fs } from "fs";
 import path from "path";
 
-const RATE_LIMIT = 30;
+const CHAT_RATE_LIMIT = 30;
 const RATE_WINDOW_MS = 60 * 1000;
-const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
 
 const TOPIC_KEYWORDS: Record<string, string[]> = {
     algebra: [
@@ -180,23 +179,6 @@ function extractTopic(message: string): string | null {
     return bestTopic;
 }
 
-function checkRateLimit(userId: string): { allowed: boolean; remaining: number; resetAt: number } {
-    const now = Date.now();
-    const entry = rateLimitMap.get(userId);
-
-    if (!entry || now > entry.resetAt) {
-        rateLimitMap.set(userId, { count: 1, resetAt: now + RATE_WINDOW_MS });
-        return { allowed: true, remaining: RATE_LIMIT - 1, resetAt: now + RATE_WINDOW_MS };
-    }
-
-    entry.count++;
-    if (entry.count > RATE_LIMIT) {
-        return { allowed: false, remaining: 0, resetAt: entry.resetAt };
-    }
-
-    return { allowed: true, remaining: RATE_LIMIT - entry.count, resetAt: entry.resetAt };
-}
-
 const systemPromptCache = new Map<string, string>();
 
 async function getSystemPrompt(language: string): Promise<string> {
@@ -267,34 +249,28 @@ export async function POST(request: NextRequest) {
 
         const ip =
             request.headers.get("x-forwarded-for") || request.headers.get("x-real-ip") || "unknown";
-        const { allowed: ipAllowed } = rateLimit(`chat:${ip}`, 30, 60 * 1000);
-
-        if (!ipAllowed) {
-            return Response.json(
+        const ipRl = rateLimit(`chat:ip:${ip}`, 60, RATE_WINDOW_MS);
+        if (!ipRl.allowed) {
+            return NextResponse.json(
                 { error: "Too many requests. Please wait a moment." },
                 {
                     status: 429,
-                    headers: {
-                        "Retry-After": "60",
-                        "X-RateLimit-Remaining": "0",
-                    },
+                    headers: { ...getRateLimitHeaders(ipRl), "Retry-After": "60" },
                 },
             );
         }
 
-        const userRateLimit = checkRateLimit(session.user.id);
-        if (!userRateLimit.allowed) {
+        const userRl = rateLimit(`chat:user:${session.user.id}`, CHAT_RATE_LIMIT, RATE_WINDOW_MS);
+        if (!userRl.allowed) {
             return NextResponse.json(
                 { error: "Too many requests. Please wait a moment." },
                 {
                     status: 429,
                     headers: {
+                        ...getRateLimitHeaders(userRl),
                         "Retry-After": String(
-                            Math.ceil((userRateLimit.resetAt - Date.now()) / 1000),
+                            Math.ceil((userRl.resetAt - Date.now()) / 1000),
                         ),
-                        "X-RateLimit-Limit": String(RATE_LIMIT),
-                        "X-RateLimit-Remaining": "0",
-                        "X-RateLimit-Reset": String(userRateLimit.resetAt),
                     },
                 },
             );
@@ -397,17 +373,13 @@ export async function POST(request: NextRequest) {
                 "Content-Type": "text/plain; charset=utf-8",
                 "Cache-Control": "no-cache, no-transform",
                 "X-Accel-Buffering": "no",
-                "X-RateLimit-Limit": String(RATE_LIMIT),
-                "X-RateLimit-Remaining": String(userRateLimit.remaining),
-                "X-RateLimit-Reset": String(userRateLimit.resetAt),
+                ...getRateLimitHeaders(userRl),
                 "X-Chat-Id": activeChatId,
             },
         });
-    } catch (error: any) {
+    } catch (error: unknown) {
         console.error("Chat API error:", error);
-        return NextResponse.json(
-            { error: error.message || "Failed to process message" },
-            { status: 500 },
-        );
+        const message = error instanceof Error ? error.message : "Failed to process message";
+        return NextResponse.json({ error: message }, { status: 500 });
     }
 }

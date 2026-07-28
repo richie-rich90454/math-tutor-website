@@ -3,9 +3,23 @@ import { comparePassword, signToken } from "@/lib/auth";
 import { getUserByEmail } from "@/lib/db/users";
 import { createSession, deleteUserSessions } from "@/lib/db/sessions";
 import { setSessionCookie } from "@/lib/auth-middleware";
+import { rateLimit, getRateLimitHeaders } from "@/lib/rate-limit";
 
 export async function POST(request: NextRequest) {
     try {
+        const ip =
+            request.headers.get("x-forwarded-for") || request.headers.get("x-real-ip") || "unknown";
+        const rl = rateLimit(`login:${ip}`, 10, 60 * 1000);
+        if (!rl.allowed) {
+            return NextResponse.json(
+                { error: "Too many login attempts. Please wait." },
+                {
+                    status: 429,
+                    headers: { ...getRateLimitHeaders(rl), "Retry-After": "60" },
+                },
+            );
+        }
+
         const { email, password, remember } = await request.json();
 
         if (!email || !password) {
