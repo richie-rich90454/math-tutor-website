@@ -5,7 +5,8 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { gsap, useGSAP, ScrollTrigger, animateCounter } from "@/lib/gsap";
+import { gsap, useGSAP } from "@/lib/gsap";
+import AnimatedCounter from "@/components/ui/AnimatedCounter";
 
 interface TopicData {
     topic: string;
@@ -50,10 +51,6 @@ export default function ProgressPage() {
     const [loading, setLoading] = useState(true);
     const pageRef = useRef<HTMLDivElement>(null);
     const statsRef = useRef<HTMLDivElement>(null);
-    const chatsRef = useRef<HTMLDivElement>(null);
-    const messagesRef = useRef<HTMLDivElement>(null);
-    const streakRef = useRef<HTMLDivElement>(null);
-    const topicsRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         if (!isLoading && !isAuthenticated) {
@@ -94,20 +91,7 @@ export default function ProgressPage() {
         { scope: pageRef },
     );
 
-    // Counter animation when data loads
-    useGSAP(
-        () => {
-            if (!data) return;
-            const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-            if (prefersReduced) return;
-
-            if (chatsRef.current) animateCounter(chatsRef.current, data.totalChats);
-            if (messagesRef.current) animateCounter(messagesRef.current, data.totalMessages);
-            if (streakRef.current) animateCounter(streakRef.current, data.longestStreak);
-            if (topicsRef.current) animateCounter(topicsRef.current, data.topics.length);
-        },
-        { dependencies: [data], scope: pageRef },
-    );
+    // Counter animation when data loads — handled by AnimatedCounter components
 
     if (isLoading || !isAuthenticated) return null;
 
@@ -152,33 +136,41 @@ export default function ProgressPage() {
                         {/* Stats Cards */}
                         <div className="progress-stats" ref={statsRef}>
                             <div className="progress-stat-card">
-                                <div className="progress-stat-value" ref={chatsRef}>
-                                    {data.totalChats}
-                                </div>
+                                <AnimatedCounter
+                                    from={0}
+                                    to={data.totalChats}
+                                    className="progress-stat-value"
+                                />
                                 <div className="progress-stat-label">
                                     {t("progressConversations") || "Conversations"}
                                 </div>
                             </div>
                             <div className="progress-stat-card">
-                                <div className="progress-stat-value" ref={messagesRef}>
-                                    {data.totalMessages}
-                                </div>
+                                <AnimatedCounter
+                                    from={0}
+                                    to={data.totalMessages}
+                                    className="progress-stat-value"
+                                />
                                 <div className="progress-stat-label">
                                     {t("progressMessages") || "Messages"}
                                 </div>
                             </div>
                             <div className="progress-stat-card">
-                                <div className="progress-stat-value" ref={streakRef}>
-                                    {data.longestStreak}
-                                </div>
+                                <AnimatedCounter
+                                    from={0}
+                                    to={data.longestStreak}
+                                    className="progress-stat-value"
+                                />
                                 <div className="progress-stat-label">
                                     {t("progressStreak") || "Day Streak"}
                                 </div>
                             </div>
                             <div className="progress-stat-card">
-                                <div className="progress-stat-value" ref={topicsRef}>
-                                    {data.topics.length}
-                                </div>
+                                <AnimatedCounter
+                                    from={0}
+                                    to={data.topics.length}
+                                    className="progress-stat-value"
+                                />
                                 <div className="progress-stat-label">
                                     {t("progressTopics") || "Topics Explored"}
                                 </div>

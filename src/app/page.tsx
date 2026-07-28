@@ -18,6 +18,10 @@ import { exportChatAsMarkdown, exportChatAsText, downloadFile } from "@/lib/expo
 import { gsap, useGSAP, springIn, particleBurst } from "@/lib/gsap";
 import { announcePolite } from "@/lib/aria-live";
 import CommandPalette from "@/components/ui/CommandPalette";
+import MessageSkeleton from "@/components/ui/MessageSkeleton";
+import BottomSheet from "@/components/ui/BottomSheet";
+import Sparkles from "@/components/ui/Sparkles";
+import VirtualizedMessages from "@/components/chat/VirtualizedMessages";
 
 import Skeleton from "@/components/ui/Skeleton";
 
@@ -835,25 +839,41 @@ export default function Home() {
                 </svg>
             </button>
 
-            <div
-                className={`sidebar-backdrop ${isSidebarOpen && isMobile ? "is-visible" : ""}`}
-                onClick={() => {
-                    if (isMobile) setIsSidebarOpen(false);
-                }}
-            />
-
-            <div className={`app-sidebar-wrapper ${isSidebarOpen ? "is-open" : "is-collapsed"}`}>
-                <Sidebar
+            {isMobile ? (
+                <BottomSheet
                     isOpen={isSidebarOpen}
-                    onToggle={handleSidebarToggle}
-                    onShowShortcuts={() => setShowShortcuts(true)}
-                    onChatSelect={(chat: ChatSession) => {
-                        setActiveChatId(chat.id);
-                        setIsLoaded(false);
-                        if (window.innerWidth < 1024) setIsSidebarOpen(false);
-                    }}
-                />
-            </div>
+                    onClose={() => setIsSidebarOpen(false)}
+                >
+                    <Sidebar
+                        isOpen={true}
+                        onToggle={handleSidebarToggle}
+                        onShowShortcuts={() => setShowShortcuts(true)}
+                        onChatSelect={(chat: ChatSession) => {
+                            setActiveChatId(chat.id);
+                            setIsLoaded(false);
+                            setIsSidebarOpen(false);
+                        }}
+                    />
+                </BottomSheet>
+            ) : (
+                <>
+                    <div
+                        className={`sidebar-backdrop ${isSidebarOpen ? "is-visible" : ""}`}
+                        onClick={() => setIsSidebarOpen(false)}
+                    />
+                    <div className={`app-sidebar-wrapper ${isSidebarOpen ? "is-open" : "is-collapsed"}`}>
+                        <Sidebar
+                            isOpen={isSidebarOpen}
+                            onToggle={handleSidebarToggle}
+                            onShowShortcuts={() => setShowShortcuts(true)}
+                            onChatSelect={(chat: ChatSession) => {
+                                setActiveChatId(chat.id);
+                                setIsLoaded(false);
+                            }}
+                        />
+                    </div>
+                </>
+            )}
 
             <div
                 className={`app-main ${isSidebarOpen ? "with-sidebar" : "with-sidebar-collapsed"}`}
@@ -917,6 +937,7 @@ export default function Home() {
                         {/* Welcome */}
                         {messages.length === 0 && (
                             <div className="welcome-section" ref={welcomeRef}>
+                                <Sparkles trigger={true} />
                                 <MathParticles />
                                 <div className="welcome-heading">
                                     <h1 className="welcome-title">{t("title")}</h1>
@@ -984,35 +1005,12 @@ export default function Home() {
                                 <div className="chat-messages-area" ref={chatMessagesRef}>
                                     <div className="chat-messages-inner">
                                         <div className="chat-messages-list">
-                                            {renderedMessages}
+                                            <VirtualizedMessages>
+                                                {renderedMessages}
+                                            </VirtualizedMessages>
                                             {isLoading &&
                                                 messages[messages.length - 1]?.role === "user" && (
-                                                    <div
-                                                        className="message-row is-assistant"
-                                                        ref={loadingDotsRef}
-                                                    >
-                                                        <div
-                                                            className="loading-dots"
-                                                            role="status"
-                                                            aria-label="Loading..."
-                                                        >
-                                                            <div className="loading-dots-row">
-                                                                <div className="loading-dot animate-pulse" />
-                                                                <div
-                                                                    className="loading-dot animate-pulse"
-                                                                    style={{
-                                                                        animationDelay: "150ms",
-                                                                    }}
-                                                                />
-                                                                <div
-                                                                    className="loading-dot animate-pulse"
-                                                                    style={{
-                                                                        animationDelay: "300ms",
-                                                                    }}
-                                                                />
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                    <MessageSkeleton />
                                                 )}
                                             <div ref={messagesEndRef} />
                                         </div>

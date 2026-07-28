@@ -2,6 +2,8 @@
 
 import { memo, useRef, useEffect, useCallback, useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import SlashCommandMenu from "@/components/chat/SlashCommandMenu";
+import { useRipple } from "@/components/ui/RippleEffect";
 
 interface InputAreaProps {
     value: string;
@@ -35,6 +37,29 @@ const InputArea = memo(function InputArea({
     const [isListening, setIsListening] = useState(false);
     const recognitionRef = useRef<any>(null);
     const charCount = value.length;
+    const createRipple = useRipple();
+
+    // Slash command menu
+    const [slashMenuOpen, setSlashMenuOpen] = useState(false);
+    const [slashMenuPos, setSlashMenuPos] = useState({ top: 0, left: 0 });
+
+    useEffect(() => {
+        if (value.startsWith("/") && !value.includes(" ")) {
+            setSlashMenuOpen(true);
+            if (textareaRef.current) {
+                const rect = textareaRef.current.getBoundingClientRect();
+                setSlashMenuPos({ top: rect.top - 200, left: rect.left });
+            }
+        } else {
+            setSlashMenuOpen(false);
+        }
+    }, [value]);
+
+    const handleSlashSelect = useCallback((command: string) => {
+        onChange(command + " ");
+        setSlashMenuOpen(false);
+        textareaRef.current?.focus();
+    }, [onChange]);
 
     const adjustHeight = useCallback(() => {
         const ta = textareaRef.current;
@@ -215,7 +240,7 @@ const InputArea = memo(function InputArea({
                 {/* Left-side utility buttons */}
                 {onImageSelect && (
                     <button
-                        onClick={() => fileInputRef.current?.click()}
+                        onClick={(e) => { createRipple(e); fileInputRef.current?.click(); }}
                         disabled={isLoading}
                         className="ia-util-btn"
                         title={t("inputAttachImage") || "Attach image"}
@@ -301,7 +326,7 @@ const InputArea = memo(function InputArea({
                     </button>
                 ) : (
                     <button
-                        onClick={handleSend}
+                        onClick={(e) => { createRipple(e); handleSend(); }}
                         disabled={(!value.trim() && !pendingImage) || isLoading}
                         className="ia-action-btn ia-send-btn"
                         aria-label={t("inputSendMessage")}
@@ -321,6 +346,14 @@ const InputArea = memo(function InputArea({
                         </svg>
                     </button>
                 )}
+
+                {/* Slash command menu */}
+                <SlashCommandMenu
+                    isOpen={slashMenuOpen}
+                    onSelect={handleSlashSelect}
+                    onClose={() => setSlashMenuOpen(false)}
+                    position={slashMenuPos}
+                />
 
                 {/* Drag overlay */}
                 {isDragOver && (
