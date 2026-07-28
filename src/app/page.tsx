@@ -19,10 +19,10 @@ import { gsap, useGSAP, springIn, particleBurst } from "@/lib/gsap";
 import { announcePolite } from "@/lib/aria-live";
 import CommandPalette from "@/components/ui/CommandPalette";
 
+import Skeleton from "@/components/ui/Skeleton";
+
 const MarkdownRenderer = dynamic(() => import("@/components/ui/MarkdownRenderer"), {
-    loading: () => (
-        <div className="skeleton" style={{ height: 60, borderRadius: "var(--radius-md)" }} />
-    ),
+    loading: () => <Skeleton height="60px" variant="card" />,
 });
 const MathParticles = dynamic(() => import("@/components/ui/MathParticles"), {
     ssr: false,
