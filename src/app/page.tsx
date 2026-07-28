@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useMemo, useEffect, memo } from "react";
+import { useRef, useMemo, useEffect, useCallback } from "react";
 import dynamic from "next/dynamic";
 import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
 import ThemeToggle from "@/components/ui/ThemeToggle";
@@ -36,6 +36,7 @@ export default function Home() {
         input,
         setInput,
         pendingImage,
+        setPendingImage,
         messages,
         isLoading,
         isStreaming,
@@ -106,14 +107,15 @@ export default function Home() {
         { dependencies: [messages.length > 0] },
     );
 
+    const hasMessages = messages.length > 0;
     useEffect(() => {
-        if (messages.length > 0 && contentAreaRef.current) {
+        if (hasMessages && contentAreaRef.current) {
             const headerBtns = contentAreaRef.current.querySelectorAll(".app-header-btn");
             if (headerBtns.length > 0) {
                 gsap.fromTo(headerBtns, { opacity: 0, scale: 0.8, y: -4 }, { opacity: 1, scale: 1, y: 0, duration: 0.3, stagger: 0.06, ease: "back.out(1.7)" });
             }
         }
-    }, [messages.length > 0]);
+    }, [hasMessages]);
 
     useEffect(() => {
         if (scrollBtnRef.current && showScrollBtn !== prevStreamingRef.current) {
@@ -128,10 +130,10 @@ export default function Home() {
     }, [showScrollBtn]);
 
     useEffect(() => {
-        if (messages.length > 0 && inputBarRef.current) {
+        if (hasMessages && inputBarRef.current) {
             gsap.fromTo(inputBarRef.current, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" });
         }
-    }, [messages.length > 0]);
+    }, [hasMessages]);
 
     // ── Message spring animations ──
     useEffect(() => {
@@ -178,7 +180,7 @@ export default function Home() {
                 onMouseLeave={() => setHoveredMsgId(null)}
             />
         ));
-    }, [messages, hoveredMsgId, isStreaming, feedback, formatTime, handleRegenerate, handleFeedback, handleEdit, t]);
+    }, [messages, hoveredMsgId, isStreaming, feedback, formatTime, handleRegenerate, handleFeedback, handleEdit, t, setHoveredMsgId]);
 
     return (
         <div className="app-shell">

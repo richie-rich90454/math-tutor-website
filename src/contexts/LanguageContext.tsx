@@ -7,6 +7,7 @@ import {
     useCallback,
     useMemo,
     useEffect,
+    useRef,
     ReactNode,
 } from "react";
 import { translations, Translations } from "@/lib/translations";
@@ -44,12 +45,13 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     const [currentLanguage, setCurrentLanguage] = useState<Language>(languages[0]);
 
     // Load saved language after mount (client-only)
+    const initialLang = useRef(currentLanguage);
     useEffect(() => {
         try {
             const stored = localStorage.getItem("preferred-language");
             if (stored) {
                 const found = languages.find((l) => l.code === stored);
-                if (found && found.code !== currentLanguage.code) {
+                if (found && found.code !== initialLang.current.code) {
                     setCurrentLanguage(found);
                 }
             }

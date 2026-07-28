@@ -43,7 +43,7 @@ export default function SlashCommandMenu({
 
     useEffect(() => {
         if (isOpen) {
-            // eslint-disable-next-line react-hooks/set-state-in-effect
+             
             setSelectedIndex(0);
         }
     }, [isOpen]);

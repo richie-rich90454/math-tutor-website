@@ -15,7 +15,7 @@ export default function ThemeToggle() {
     const iconRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        // eslint-disable-next-line react-hooks/set-state-in-effect
+         
         setMounted(true);
         const stored = localStorage.getItem("theme") as Theme | null;
         if (stored) setTheme(stored);

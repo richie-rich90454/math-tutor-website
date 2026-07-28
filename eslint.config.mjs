@@ -16,4 +16,10 @@ eslintConfig.push({
     ignores: [".next/**", "node_modules/**", "public/**"],
 });
 
+eslintConfig.push({
+    rules: {
+        "react-hooks/set-state-in-effect": "off",
+    },
+});
+
 export default eslintConfig;

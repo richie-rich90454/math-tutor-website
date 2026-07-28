@@ -205,6 +205,7 @@ const InputArea = memo(function InputArea({
             {/* Image preview inside the card */}
             {pendingImage && (
                 <div className="ia-image-preview">
+                    {/* eslint-disable-next-line @next/next/no-img-element -- data URL, can't use next/image */}
                     <img
                         src={pendingImage.data}
                         alt="Selected"

@@ -106,8 +106,6 @@ export function migrate(db: Database.Database): void {
             if (!(e instanceof Error) || !e.message?.includes("duplicate column")) {
                 throw e;
             }
-                throw e;
-            }
         }
         db.prepare("INSERT INTO _migrations (version, name) VALUES (?, ?)").run(
             migration.version,
