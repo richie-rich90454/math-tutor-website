@@ -12,12 +12,18 @@ public class User extends BaseEntity {
     private String email;
 
     @Column(nullable = false)
-    private String displayName;
+    private String name;
 
     @Column(nullable = false)
     private String passwordHash;
 
+    private String avatarUrl;
+
+    @Column(nullable = false)
     private String preferredLanguage;
+
+    @Column(nullable = false)
+    private String mathLevel;
 
     public String getEmail() {
         return email;
@@ -27,12 +33,12 @@ public class User extends BaseEntity {
         this.email = email;
     }
 
-    public String getDisplayName() {
-        return displayName;
+    public String getName() {
+        return name;
     }
 
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getPasswordHash() {
@@ -43,11 +49,27 @@ public class User extends BaseEntity {
         this.passwordHash = passwordHash;
     }
 
+    public String getAvatarUrl() {
+        return avatarUrl;
+    }
+
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
+    }
+
     public String getPreferredLanguage() {
         return preferredLanguage;
     }
 
     public void setPreferredLanguage(String preferredLanguage) {
         this.preferredLanguage = preferredLanguage;
+    }
+
+    public String getMathLevel() {
+        return mathLevel;
+    }
+
+    public void setMathLevel(String mathLevel) {
+        this.mathLevel = mathLevel;
     }
 }
