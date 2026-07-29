@@ -9,11 +9,24 @@ spring:
       hibernate:
         format_sql: true
     show-sql: false
+  web:
+    resources:
+      cache:
+        period: 31536000
+      chain:
+        strategy:
+          content:
+            enabled: true
+            paths: /assets/**
+
+server:
+  compression:
+    enabled: true
+    min-response-size: 1024
+    mime-types: text/html,text/css,application/javascript,application/json,image/svg+xml,font/woff2,font/woff
+  port: ${SERVER_PORT:8080}
 
 openai:
   api-key: ${OPENAI_API_KEY}
   base-url: ${OPENAI_BASE_URL:https://api.openai.com/v1}
   model: ${OPENAI_MODEL:gpt-4o-mini}
-
-server:
-  port: ${SERVER_PORT:8080}
