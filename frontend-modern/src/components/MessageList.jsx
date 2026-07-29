@@ -1,3 +1,15 @@
+import ReactMarkdown from 'react-markdown';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+
+function MarkdownRenderer({ content }) {
+    return (
+        <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>
+            {content}
+        </ReactMarkdown>
+    );
+}
+
 export function MessageList({ messages, isLoading }) {
     if (messages.length === 0) return null;
 
@@ -11,7 +23,13 @@ export function MessageList({ messages, isLoading }) {
                             class={`message-row message-row-${msg.role}`}
                         >
                             <div class={`message-bubble message-bubble-${msg.role}`}>
-                                {msg.content || (msg.role === 'assistant' && isLoading && i === messages.length - 1 ? (
+                                {msg.content ? (
+                                    msg.role === 'assistant' ? (
+                                        <MarkdownRenderer content={msg.content} />
+                                    ) : (
+                                        msg.content
+                                    )
+                                ) : (msg.role === 'assistant' && isLoading && i === messages.length - 1 ? (
                                     <span class="loading-dots">
                                         <span class="loading-dot"></span>
                                         <span class="loading-dot"></span>

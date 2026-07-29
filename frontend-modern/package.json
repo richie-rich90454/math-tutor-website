@@ -12,6 +12,7 @@
   "dependencies": {
     "preact": "^10.29.1",
     "react-markdown": "^10.1.0",
+    "katex": "^0.16.11",
     "rehype-katex": "^7.0.1",
     "remark-math": "^6.0.0"
   },
