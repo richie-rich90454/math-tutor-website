@@ -30,3 +30,7 @@ openai:
   api-key: ${OPENAI_API_KEY}
   base-url: ${OPENAI_BASE_URL:https://api.openai.com/v1}
   model: ${OPENAI_MODEL:gpt-4o-mini}
+
+jwt:
+  secret: ${JWT_SECRET:default-secret-that-must-be-changed-in-production}
+  expiration-ms: ${JWT_EXPIRATION_MS:604800000}
