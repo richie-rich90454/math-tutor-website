@@ -32,11 +32,10 @@ describe('language utility', () => {
         expect(baseUrl).toBe('/api/chat');
     });
 
-    it('formats chat request body correctly', async () => {
-        const { ChatRequest } = await import('../types/chat');
-        const request: ChatRequest = {
+    it('formats chat request body correctly', () => {
+        const request = {
             message: 'test',
-            sessionId: null,
+            sessionId: null as string | null,
             language: 'en',
         };
         expect(request.message).toBe('test');
