@@ -12,6 +12,7 @@
     "sortPackageJson": false,
     "sortTailwindcss": {},
     "ignorePatterns": [
+        "frontend-legacy/",
         "node_modules/",
         ".next/",
         "dist/",
