@@ -19,8 +19,8 @@ public class Message extends BaseEntity {
     }
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "session_id", nullable = false)
-    private Session session;
+    @JoinColumn(name = "chat_session_id", nullable = false)
+    private ChatSession chatSession;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
@@ -29,12 +29,12 @@ public class Message extends BaseEntity {
     @Column(nullable = false, columnDefinition = "TEXT")
     private String content;
 
-    public Session getSession() {
-        return session;
+    public ChatSession getChatSession() {
+        return chatSession;
     }
 
-    public void setSession(Session session) {
-        this.session = session;
+    public void setChatSession(ChatSession chatSession) {
+        this.chatSession = chatSession;
     }
 
     public Role getRole() {
