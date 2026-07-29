@@ -12,6 +12,8 @@ public class ChatRequest {
 
     private String topic;
 
+    private String language;
+
     private List<ChatMessage> history;
 
     public String getMessage() {
@@ -36,6 +38,14 @@ public class ChatRequest {
 
     public void setTopic(String topic) {
         this.topic = topic;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
     }
 
     public List<ChatMessage> getHistory() {
