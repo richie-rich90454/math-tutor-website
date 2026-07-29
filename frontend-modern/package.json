@@ -20,7 +20,8 @@
         "react-syntax-highlighter": "^15.6.1",
         "rehype-katex": "^7.0.1",
         "remark-gfm": "^4.0.1",
-        "remark-math": "^6.0.0"
+        "remark-math": "^6.0.0",
+        "wouter": "^3.10.0"
     },
     "devDependencies": {
         "@preact/preset-vite": "^2.10.1",

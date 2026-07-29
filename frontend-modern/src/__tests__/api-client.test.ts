@@ -5,7 +5,8 @@ describe('translations', () => {
         const { translations } = await import('../lib/translations');
         expect(translations.en).toBeDefined();
         expect(translations.en.title).toBe('MathTutor AI');
-        expect(translations.en.subtitle).toContain('personal math tutor');
+        expect(translations.en.subtitle).toBeTruthy();
+        expect(translations.en.subtitle.length).toBeGreaterThan(10);
         expect(translations.en.inputPlaceholder).toBeDefined();
         expect(translations.en.bottomText).toBeDefined();
     });

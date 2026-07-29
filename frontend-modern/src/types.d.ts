@@ -40,3 +40,19 @@ declare module 'react-syntax-highlighter/dist/esm/styles/prism' {
     const style: unknown;
     export const oneDark: unknown;
 }
+
+declare module 'wouter' {
+    import type { ComponentType, ComponentChildren } from 'preact';
+    interface RouteProps {
+        path: string;
+        children?: ComponentChildren;
+        component?: ComponentType<unknown>;
+    }
+    const Route: ComponentType<RouteProps>;
+    const Switch: ComponentType<{ children: ComponentChildren }>;
+    const Link: ComponentType<{ href: string; children: ComponentChildren; className?: string }>;
+    export function useLocation(): [string, (to: string) => void];
+    export function useRoute(pattern: string): [boolean, Record<string, string> | null];
+    export { Route, Switch, Link };
+    export default { Route, Switch, Link };
+}
