@@ -9,7 +9,7 @@ import { LanguageSwitcher } from '../components/LanguageSwitcher';
 import type { ChatSession } from '../types/chat';
 
 export function Home() {
-    const { t, currentLanguage } = useLanguage();
+    const { t } = useLanguage();
     const { messages, input, setInput, isLoading, isStreaming, sendMessage, clearMessages, handleStopGeneration, handleRegenerate } = useChat();
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
     const [showScrollBtn, setShowScrollBtn] = useState(false);
@@ -17,7 +17,6 @@ export function Home() {
     const welcomeRef = useRef<HTMLDivElement>(null);
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const chatMessagesRef = useRef<HTMLDivElement>(null);
-    const prevMessagesLenRef = useRef(0);
     const hasMessages = messages.length > 0;
 
     useEffect(() => {

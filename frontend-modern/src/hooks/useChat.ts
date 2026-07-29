@@ -15,7 +15,7 @@ export function useChat(initialSessionId?: string, language?: string): UseChatRe
     const [isStreaming, setIsStreaming] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const [sessionId, setSessionId] = useState<string | null>(initialSessionId ?? null);
-    const abortRef = useRef<AbortController | null>(null);
+    const _abortRef = useRef<AbortController | null>(null);
 
     const sendMessageCore = useCallback(async (text: string, isRegenerate = false) => {
         if (!text.trim()) return;
