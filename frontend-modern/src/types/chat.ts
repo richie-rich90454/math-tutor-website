@@ -5,6 +5,7 @@ export interface ChatRequest {
     message: string;
     sessionId?: string | null;
     topic?: string;
+    language?: string;
     history?: ChatMessageDto[];
 }
 

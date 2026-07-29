@@ -4,9 +4,10 @@ import type { ChatMessageDto } from '../types/message';
 export async function sendChatMessage(
     message: string,
     history: ChatMessageDto[],
-    sessionId: string | null
+    sessionId: string | null,
+    language?: string
 ): Promise<ChatResponse> {
-    const body: ChatRequest = { message, history, sessionId };
+    const body: ChatRequest = { message, history, sessionId, language };
     const res = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -22,9 +23,10 @@ export async function sendChatMessageStream(
     sessionId: string | null,
     onChunk: (chunk: string) => void,
     onDone: () => void,
-    onError: (err: Error) => void
+    onError: (err: Error) => void,
+    language?: string
 ): Promise<void> {
-    const body: ChatRequest = { message, history, sessionId };
+    const body: ChatRequest = { message, history, sessionId, language };
     const res = await fetch('/api/chat/stream', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

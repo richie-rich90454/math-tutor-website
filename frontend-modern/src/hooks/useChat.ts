@@ -3,7 +3,7 @@ import { sendChatMessageStream } from '../lib/api-client';
 import type { Message } from '../types/message';
 import type { UseChatReturn } from '../types/chat';
 
-export function useChat(initialSessionId?: string): UseChatReturn {
+export function useChat(initialSessionId?: string, language?: string): UseChatReturn {
     const [messages, setMessages] = useState<Message[]>([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
@@ -43,7 +43,8 @@ export function useChat(initialSessionId?: string): UseChatReturn {
                 (err: Error) => {
                     setError(err.message);
                     setIsLoading(false);
-                }
+                },
+                language
             );
         } catch (err) {
             const message = err instanceof Error ? err.message : 'Unknown error';
