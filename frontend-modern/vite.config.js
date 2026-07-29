@@ -7,7 +7,6 @@ export default defineConfig({
         preact(),
         legacy({
             targets: ['ie >= 9'],
-            additionalLegacyPolyfills: ['whatwg-fetch'],
         }),
     ],
     server: {
