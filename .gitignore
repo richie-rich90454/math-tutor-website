@@ -65,3 +65,6 @@ AGENTS.md
 
 # Restored Next.js source (for reference only)
 /src/
+/public/
+/__tests__/
+/vitest.config.mts
