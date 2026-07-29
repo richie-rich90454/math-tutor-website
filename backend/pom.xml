@@ -18,7 +18,7 @@
     <description>AI-powered math tutoring platform backend</description>
 
     <properties>
-        <java.version>21</java.version>
+        <java.version>25</java.version>
         <spring-dotenv.version>5.1.0</spring-dotenv.version>
         <sqlite-dialect.version>3.1.1</sqlite-dialect.version>
     </properties>
