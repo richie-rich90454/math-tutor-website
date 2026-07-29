@@ -3,16 +3,17 @@
     "version": "2.0.0",
     "private": true,
     "scripts": {
-        "dev": "concurrently -n backend,frontend -c blue,green \"node scripts/run-backend.cjs\" \"cd frontend-modern && npm run dev\"",
-        "build": "npm run build:modern && npm run build:backend",
-        "build:modern": "cd frontend-modern && npm run build && node ../scripts/copy-legacy.js",
+        "dev:backend": "cd backend && mvn spring-boot:run",
+        "dev:frontend": "cd frontend-modern && npm run dev",
+        "dev": "concurrently -n backend,frontend -c blue,green \"npm run dev:backend\" \"npm run dev:frontend\"",
+        "build:modern": "cd frontend-modern && npm run build && node ../copy-legacy.js",
         "build:backend": "cd backend && mvn clean package -DskipTests",
+        "build": "npm run build:modern && npm run build:backend",
         "start": "java -jar backend/target/math-tutor-backend-*.jar",
-        "format": "oxfmt --write \"**/*.{ts,tsx,css,json}\"",
+        "format:modern": "cd frontend-modern && npm run format",
         "typecheck": "cd frontend-modern && npx tsc --noEmit"
     },
     "devDependencies": {
-        "concurrently": "^10.0.4",
-        "oxfmt": "^0.61.0"
+        "concurrently": "^10.0.4"
     }
 }
