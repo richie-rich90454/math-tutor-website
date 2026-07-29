@@ -15,6 +15,7 @@ export function useChat(initialSessionId?: string, language?: string): UseChatRe
     const [isStreaming, setIsStreaming] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const [sessionId, setSessionId] = useState<string | null>(initialSessionId ?? null);
+    const [pendingImage, setPendingImage] = useState<{ data: string; mimeType: string } | null>(null);
 
 
     const sendMessageCore = useCallback(async (text: string, isRegenerate = false) => {
@@ -96,5 +97,5 @@ export function useChat(initialSessionId?: string, language?: string): UseChatRe
         setSessionId(null);
     }, []);
 
-    return { messages, input, setInput, isLoading, isStreaming, error, sessionId, sendMessage, clearMessages, handleStopGeneration, handleRegenerate };
+    return { messages, input, setInput, isLoading, isStreaming, error, sessionId, pendingImage, setPendingImage, sendMessage, clearMessages, handleStopGeneration, handleRegenerate };
 }

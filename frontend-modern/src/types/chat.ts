@@ -33,6 +33,8 @@ export interface UseChatReturn {
     isStreaming: boolean;
     error: string | null;
     sessionId: string | null;
+    pendingImage: { data: string; mimeType: string } | null;
+    setPendingImage: (val: { data: string; mimeType: string } | null) => void;
     sendMessage: (text?: string) => Promise<void>;
     clearMessages: () => void;
     handleStopGeneration: () => void;
