@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef } from 'preact/hooks';
+import { useState, useCallback } from 'preact/hooks';
 import { sendChatMessageStream } from '../lib/api-client';
 import type { Message } from '../types/message';
 import type { UseChatReturn } from '../types/chat';
@@ -15,7 +15,7 @@ export function useChat(initialSessionId?: string, language?: string): UseChatRe
     const [isStreaming, setIsStreaming] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const [sessionId, setSessionId] = useState<string | null>(initialSessionId ?? null);
-    const _abortRef = useRef<AbortController | null>(null);
+
 
     const sendMessageCore = useCallback(async (text: string, isRegenerate = false) => {
         if (!text.trim()) return;

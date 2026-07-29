@@ -27,7 +27,8 @@ function MarkdownRenderer({ content }: { content: string }) {
     );
 }
 
-export const MessageRow = memo(function MessageRow({ message, isHovered, isStreaming, isLastMessage, _formatTime, onRegenerate, onFeedback, feedbackValue, _editLabel, onMouseEnter, onMouseLeave }: MessageRowProps) {
+export const MessageRow = memo(function MessageRow(props: MessageRowProps) {
+    const { message, isHovered, isStreaming, isLastMessage, onRegenerate, onFeedback, feedbackValue, onMouseEnter, onMouseLeave } = props;
     const isUser = message.role === 'user';
     const showSkeleton = isLastMessage && isStreaming && !message.content;
 

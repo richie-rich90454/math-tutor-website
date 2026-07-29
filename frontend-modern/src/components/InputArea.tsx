@@ -13,7 +13,8 @@ interface InputAreaProps {
     onClearImage?: () => void;
 }
 
-export function InputArea({ value, onChange, onSend, isLoading, placeholder, onStop, isStreaming, _onImageSelect, pendingImage, onClearImage }: InputAreaProps) {
+export function InputArea(props: InputAreaProps) {
+    const { value, onChange, onSend, isLoading, placeholder, onStop, isStreaming, pendingImage, onClearImage } = props;
     const textareaRef = useRef<HTMLTextAreaElement>(null);
 
     const handleInput = useCallback((e: Event) => {
