@@ -7,16 +7,18 @@ public class AuthResponse {
     private String email;
     private String preferredLanguage;
     private String mathLevel;
+    private String token;
 
     public AuthResponse() {
     }
 
-    public AuthResponse(Long userId, String name, String email, String preferredLanguage, String mathLevel) {
+    public AuthResponse(Long userId, String name, String email, String preferredLanguage, String mathLevel, String token) {
         this.userId = userId;
         this.name = name;
         this.email = email;
         this.preferredLanguage = preferredLanguage;
         this.mathLevel = mathLevel;
+        this.token = token;
     }
 
     public Long getUserId() {
@@ -57,5 +59,13 @@ public class AuthResponse {
 
     public void setMathLevel(String mathLevel) {
         this.mathLevel = mathLevel;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }
