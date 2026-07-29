@@ -40,3 +40,28 @@ export interface UseChatReturn {
     handleStopGeneration: () => void;
     handleRegenerate: () => Promise<void>;
 }
+
+export interface UseChatMessagesReturn {
+    input: string;
+    setInput: (val: string) => void;
+    pendingImage: { data: string; mimeType: string } | null;
+    setPendingImage: (val: { data: string; mimeType: string } | null) => void;
+    messages: Message[];
+    isLoading: boolean;
+    isStreaming: boolean;
+    activeChatId: string | null;
+    setActiveChatId: (id: string | null) => void;
+    isLoaded: boolean;
+    setIsLoaded: (val: boolean) => void;
+    sendMessage: (overrideInput?: string) => Promise<void>;
+    sendImage: () => Promise<void>;
+    handleRegenerate: () => Promise<void>;
+    handleStopGeneration: () => void;
+    handleEdit: (messageId: string, content: string) => void;
+    handleNewChat: () => void;
+    handleExport: (format: "md" | "txt") => void;
+    handleImageSelect: (imageData: string, mimeType: string) => void;
+    chatMessagesRef: { current: HTMLDivElement | null };
+    messagesEndRef: { current: HTMLDivElement | null };
+    prevMessagesLenRef: { current: number };
+}

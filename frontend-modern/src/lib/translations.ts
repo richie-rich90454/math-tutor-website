@@ -34,6 +34,8 @@ export const translations: Record<string, Record<string, string>> = {
         sidebarStartNewChat: 'Start a new chat',
         sidebarRecentConversations: 'Recent conversations',
         sidebarMathTutorAI: 'MathTutor AI',
+        ariaLiveStreaming: 'AI is generating a response',
+        chatExportSuccess: 'Chat exported as %s',
     },
 };
 
