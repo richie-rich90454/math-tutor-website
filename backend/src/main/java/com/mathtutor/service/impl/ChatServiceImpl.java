@@ -6,6 +6,7 @@ import com.mathtutor.dto.ChatRequest;
 import com.mathtutor.dto.ChatResponse;
 import com.mathtutor.dto.OpenAiResponse;
 import com.mathtutor.service.ChatService;
+import com.mathtutor.service.PromptService;
 import com.mathtutor.service.PromptStrategy;
 import java.util.List;
 import java.util.function.Consumer;
@@ -21,15 +22,16 @@ public class ChatServiceImpl implements ChatService {
     private final OpenAiClient openAiClient;
     private final PromptStrategy promptStrategy;
 
-    public ChatServiceImpl(OpenAiClient openAiClient) {
+    public ChatServiceImpl(OpenAiClient openAiClient, PromptService promptService) {
         this.openAiClient = openAiClient;
-        this.promptStrategy = new GeneralMathStrategy();
+        this.promptStrategy = new GeneralMathStrategy(promptService);
     }
 
     @Override
     public ChatResponse sendMessage(ChatRequest request) {
-        List<ChatMessage> messages = promptStrategy.buildMessages(request.getMessage(), request.getHistory());
-        log.debug("Sending chat message to OpenAI, history size: {}", request.getHistory() != null ? request.getHistory().size() : 0);
+        String language = request.getLanguage();
+        List<ChatMessage> messages = promptStrategy.buildMessages(request.getMessage(), request.getHistory(), language);
+        log.debug("Sending chat message to OpenAI, history size: {}, language: {}", request.getHistory() != null ? request.getHistory().size() : 0, language);
         OpenAiResponse response = openAiClient.sendMessage(messages);
         String reply = extractReply(response);
         return new ChatResponse(request.getSessionId(), reply);
@@ -37,7 +39,8 @@ public class ChatServiceImpl implements ChatService {
 
     @Override
     public void sendMessageStream(ChatRequest request, Consumer<String> onChunk, Runnable onComplete, Consumer<Throwable> onError) {
-        List<ChatMessage> messages = promptStrategy.buildMessages(request.getMessage(), request.getHistory());
+        String language = request.getLanguage();
+        List<ChatMessage> messages = promptStrategy.buildMessages(request.getMessage(), request.getHistory(), language);
         openAiClient.sendMessageStream(messages, onChunk, onComplete, onError);
     }
 
