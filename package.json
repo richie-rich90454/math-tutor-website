@@ -3,7 +3,7 @@
     "version": "2.0.0",
     "private": true,
     "scripts": {
-        "dev": "concurrently -n backend,frontend -c blue,green \"cd backend && mvn spring-boot:run\" \"cd frontend-modern && npm run dev\"",
+        "dev": "concurrently -n backend,frontend -c blue,green \"node scripts/run-backend.cjs\" \"cd frontend-modern && npm run dev\"",
         "build": "npm run build:modern && npm run build:backend",
         "build:modern": "cd frontend-modern && npm run build && node ../scripts/copy-legacy.js",
         "build:backend": "cd backend && mvn clean package -DskipTests",
