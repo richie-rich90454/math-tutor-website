@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface MessageRepository extends JpaRepository<Message, Long> {
 
-    List<Message> findBySessionIdOrderByCreatedAtAsc(Long sessionId);
+    List<Message> findByChatSessionIdOrderByCreatedAtAsc(Long chatSessionId);
 
-    long countBySessionId(Long sessionId);
+    long countByChatSessionId(Long chatSessionId);
 }
