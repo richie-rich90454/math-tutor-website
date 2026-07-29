@@ -1,0 +1,12 @@
+package com.mathtutor;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class MathTutorApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(MathTutorApplication.class, args);
+    }
+}
