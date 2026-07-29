@@ -1,49 +1,17 @@
 {
     "name": "math-tutor-website",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "private": true,
     "scripts": {
-        "dev": "next dev --turbopack",
-        "build": "next build",
-        "start": "next start",
-        "lint": "eslint src/",
-        "format": "prettier --write .",
-        "format:check": "prettier --check .",
-        "setup": "node scripts/setup.js",
-        "clear": "node scripts/clear.js",
-        "test": "vitest run",
-        "test:watch": "vitest",
-        "test:coverage": "vitest run --coverage",
-        "typecheck": "tsc --noEmit"
-    },
-    "dependencies": {
-        "@gsap/react": "^2.1.2",
-        "better-sqlite3": "^12.11.1",
-        "gsap": "^3.15.0",
-        "next": "^16.2.9",
-        "react": "^19.2.7",
-        "react-dom": "^19.2.7",
-        "react-markdown": "^10.1.0",
-        "react-syntax-highlighter": "^16.1.1",
-        "rehype-katex": "^7.0.1",
-        "remark-gfm": "^4.0.1",
-        "remark-math": "^6.0.0",
-        "uuid": "^14.0.1",
-        "zod": "^3.24.0"
+        "dev": "concurrently -n backend,frontend -c blue,green \"cd backend && mvn spring-boot:run\" \"cd frontend-modern && npm run dev\"",
+        "build": "npm run build:modern && npm run build:backend",
+        "build:modern": "cd frontend-modern && npm run build && node ../scripts/copy-legacy.js",
+        "build:backend": "cd backend && mvn clean package -DskipTests",
+        "start": "java -jar backend/target/math-tutor-backend-*.jar",
+        "format": "cd frontend-modern && npm run format",
+        "typecheck": "cd frontend-modern && npx tsc --noEmit"
     },
     "devDependencies": {
-        "@eslint/compat": "^2.1.0",
-        "@types/better-sqlite3": "^7.6.13",
-        "@types/node": "^26.0.0",
-        "@types/react": "^19.2.17",
-        "@types/react-dom": "^19.2.3",
-        "@types/react-syntax-highlighter": "^15.5.13",
-        "@types/uuid": "^10.0.0",
-        "@vitest/coverage-v8": "^4.1.10",
-        "eslint": "^9.39.4",
-        "eslint-config-next": "^16.2.9",
-        "oxfmt": "^0.61.0",
-        "typescript": "^6.0.3",
-        "vitest": "^4.1.10"
+        "concurrently": "^9.1.2"
     }
 }
