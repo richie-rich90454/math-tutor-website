@@ -1,6 +1,6 @@
-import { useChat } from '../hooks/useChat';
-import { MessageList } from '../components/MessageList';
-import { InputArea } from '../components/InputArea';
+import { useChat } from "../hooks/useChat";
+import { MessageList } from "../components/MessageList";
+import { InputArea } from "../components/InputArea";
 
 export function Chat() {
     const { messages, isLoading, sendMessage } = useChat();

@@ -8,7 +8,7 @@
         "build:modern": "cd frontend-modern && npm run build && node ../scripts/copy-legacy.js",
         "build:backend": "cd backend && mvn clean package -DskipTests",
         "start": "java -jar backend/target/math-tutor-backend-*.jar",
-        "format": "oxfmt --write \"src/**/*.{ts,tsx,css,json}\"",
+        "format": "oxfmt --write \"**/*.{ts,tsx,css,json}\"",
         "typecheck": "cd frontend-modern && npx tsc --noEmit"
     },
     "devDependencies": {

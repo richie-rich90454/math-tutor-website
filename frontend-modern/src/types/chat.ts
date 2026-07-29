@@ -1,5 +1,5 @@
-import type { ChatMessageDto } from './message';
-import type { Message } from './message';
+import type { ChatMessageDto } from "./message";
+import type { Message } from "./message";
 
 export interface ChatRequest {
     message: string;

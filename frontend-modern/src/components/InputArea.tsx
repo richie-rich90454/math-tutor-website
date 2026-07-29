@@ -1,8 +1,8 @@
-import { useState, useRef, useCallback } from 'preact/hooks';
-import type { InputAreaProps } from '../types/props';
+import { useState, useRef, useCallback } from "preact/hooks";
+import type { InputAreaProps } from "../types/props";
 
 export function InputArea({ onSend, isLoading }: InputAreaProps) {
-    const [text, setText] = useState('');
+    const [text, setText] = useState("");
     const textareaRef = useRef<HTMLTextAreaElement>(null);
 
     const handleInput = useCallback((e: Event) => {
@@ -10,26 +10,29 @@ export function InputArea({ onSend, isLoading }: InputAreaProps) {
         setText(target.value);
         const el = textareaRef.current;
         if (el) {
-            el.style.height = 'auto';
-            el.style.height = Math.min(el.scrollHeight, 144) + 'px';
+            el.style.height = "auto";
+            el.style.height = Math.min(el.scrollHeight, 144) + "px";
         }
     }, []);
 
     const handleSubmit = useCallback(() => {
         if (!text.trim() || isLoading) return;
         onSend(text);
-        setText('');
+        setText("");
         if (textareaRef.current) {
-            textareaRef.current.style.height = 'auto';
+            textareaRef.current.style.height = "auto";
         }
     }, [text, isLoading, onSend]);
 
-    const handleKeyDown = useCallback((e: KeyboardEvent) => {
-        if (e.key === 'Enter' && !e.shiftKey) {
-            e.preventDefault();
-            handleSubmit();
-        }
-    }, [handleSubmit]);
+    const handleKeyDown = useCallback(
+        (e: KeyboardEvent) => {
+            if (e.key === "Enter" && !e.shiftKey) {
+                e.preventDefault();
+                handleSubmit();
+            }
+        },
+        [handleSubmit],
+    );
 
     return (
         <div class="input-card">
@@ -48,7 +51,7 @@ export function InputArea({ onSend, isLoading }: InputAreaProps) {
                 disabled={!text.trim() || isLoading}
                 aria-label="Send message"
             >
-                {isLoading ? '...' : '>'}
+                {isLoading ? "..." : ">"}
             </button>
         </div>
     );

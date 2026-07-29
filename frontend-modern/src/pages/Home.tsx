@@ -1,13 +1,13 @@
-import { useCallback } from 'preact/hooks';
-import { InputArea } from '../components/InputArea';
-import type { HomeProps } from '../types/props';
+import { useCallback } from "preact/hooks";
+import { InputArea } from "../components/InputArea";
+import type { HomeProps } from "../types/props";
 
 const promptExamples = [
-    'Solve for x: 2x + 5 = 13',
-    'Explain the Pythagorean theorem',
-    'What is a derivative?',
-    'Help me with fractions',
-    'Factor x^2 + 5x + 6',
+    "Solve for x: 2x + 5 = 13",
+    "Explain the Pythagorean theorem",
+    "What is a derivative?",
+    "Help me with fractions",
+    "Factor x^2 + 5x + 6",
 ];
 
 export function Home({ onStart }: HomeProps) {
@@ -31,7 +31,7 @@ export function Home({ onStart }: HomeProps) {
                     {promptExamples.map((prompt, i) => (
                         <button
                             key={i}
-                            class={i === 0 ? 'prompt-btn prompt-btn-accent' : 'prompt-btn'}
+                            class={i === 0 ? "prompt-btn prompt-btn-accent" : "prompt-btn"}
                             onClick={() => onStart()}
                         >
                             {prompt}
