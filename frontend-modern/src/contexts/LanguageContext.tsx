@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useCallback } from 'preact/compat';
 import type { ComponentChildren } from 'preact';
+import { translations } from '../lib/translations';
 
 export interface Language {
     code: string;
