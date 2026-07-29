@@ -5,7 +5,6 @@ import com.mathtutor.domain.Message;
 import com.mathtutor.domain.User;
 import com.mathtutor.dto.ChatRequest;
 import com.mathtutor.dto.ChatResponse;
-import com.mathtutor.exception.ChatException;
 import com.mathtutor.repository.ChatSessionRepository;
 import com.mathtutor.repository.MessageRepository;
 import com.mathtutor.service.AuthService;
@@ -45,12 +44,14 @@ public class ChatController {
 
     @PostMapping
     public ResponseEntity<ChatResponse> chat(@Valid @RequestBody ChatRequest request, HttpServletRequest httpReq) {
-        User user = authenticate(httpReq);
-        ChatSession session = getOrCreateSession(user, request);
-        Message userMsg = saveMessage(session, Message.Role.USER, request.getMessage());
+        User user = tryAuthenticate(httpReq);
         ChatResponse response = chatService.sendMessage(request);
-        saveMessage(session, Message.Role.ASSISTANT, response.getReply());
-        response.setSessionId(session.getId());
+        if (user != null) {
+            ChatSession session = getOrCreateSession(user, request);
+            saveMessage(session, Message.Role.USER, request.getMessage());
+            saveMessage(session, Message.Role.ASSISTANT, response.getReply());
+            response.setSessionId(session.getId());
+        }
         return ResponseEntity.ok(response);
     }
 
@@ -61,9 +62,11 @@ public class ChatController {
 
     @PostMapping(value = "/stream", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public ResponseBodyEmitter chatStream(@Valid @RequestBody ChatRequest request, HttpServletRequest httpReq) {
-        User user = authenticate(httpReq);
-        ChatSession session = getOrCreateSession(user, request);
-        saveMessage(session, Message.Role.USER, request.getMessage());
+        User user = tryAuthenticate(httpReq);
+        ChatSession session = user != null ? getOrCreateSession(user, request) : null;
+        if (session != null) {
+            saveMessage(session, Message.Role.USER, request.getMessage());
+        }
 
         ResponseBodyEmitter emitter = new ResponseBodyEmitter(0L);
         StringBuilder collector = new StringBuilder();
@@ -77,19 +80,19 @@ public class ChatController {
                     }
                 },
                 () -> {
-                    saveMessage(session, Message.Role.ASSISTANT, collector.toString());
+                    if (session != null) {
+                        saveMessage(session, Message.Role.ASSISTANT, collector.toString());
+                    }
                     emitter.complete();
                 },
                 emitter::completeWithError);
         return emitter;
     }
 
-    private User authenticate(HttpServletRequest request) {
+    private User tryAuthenticate(HttpServletRequest request) {
         Cookie cookie = getAuthCookie(request);
-        if (cookie == null) throw new ChatException("Not authenticated");
-        User user = authService.validateToken(cookie.getValue());
-        if (user == null) throw new ChatException("Not authenticated");
-        return user;
+        if (cookie == null) return null;
+        return authService.validateToken(cookie.getValue());
     }
 
     private ChatSession getOrCreateSession(User user, ChatRequest request) {
@@ -108,13 +111,13 @@ public class ChatController {
         return chatSessionRepository.save(s);
     }
 
-    private Message saveMessage(ChatSession session, Message.Role role, String content) {
-        if (content == null || content.isEmpty()) return null;
+    private void saveMessage(ChatSession session, Message.Role role, String content) {
+        if (content == null || content.isEmpty()) return;
         Message msg = new Message();
         msg.setChatSession(session);
         msg.setRole(role);
         msg.setContent(content);
-        return messageRepository.save(msg);
+        messageRepository.save(msg);
     }
 
     private Cookie getAuthCookie(HttpServletRequest request) {
