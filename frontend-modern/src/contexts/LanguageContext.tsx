@@ -48,7 +48,9 @@ export function LanguageProvider({ children }: { children: ComponentChildren }) 
     }, []);
 
     const t = useCallback((key: string): string => {
-        return translations[currentLanguage.code]?.[key] || translations.en?.[key] || key;
+        const lang = translations[currentLanguage.code] as unknown as Record<string, string> | undefined;
+        const fallback = translations.en as unknown as Record<string, string>;
+        return lang?.[key] || fallback?.[key] || key;
     }, [currentLanguage.code]);
 
     return (
