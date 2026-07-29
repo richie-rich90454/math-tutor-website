@@ -8,18 +8,18 @@ Single-page AI math tutoring app (Next.js 16 App Router). Student types a proble
 
 ## Tech Stack
 
-| Layer | Choice |
-|-------|--------|
-| Runtime | Node.js, Next.js 16.2.9 (Turbopack) |
-| Language | TypeScript 6.0 |
-| Database | SQLite via better-sqlite3 (synchronous) |
-| AI | DeepSeek via raw `fetch()` (OpenAI-compatible endpoint) |
-| Auth | Custom JWT (HMAC-SHA256) + session cookies, no NextAuth |
-| Styling | Custom CSS (globals.css, 4008 lines), no Tailwind |
-| Animations | GSAP 3.15 + @gsap/react (heavy use) |
-| Markdown | react-markdown 10 + KaTeX + rehype/remark plugins |
-| Testing | Jest 30 + ts-jest, 1 test file |
-| Lint/Format | ESLint 9 + Prettier 3.8 |
+| Layer       | Choice                                                  |
+| ----------- | ------------------------------------------------------- |
+| Runtime     | Node.js, Next.js 16.2.9 (Turbopack)                     |
+| Language    | TypeScript 6.0                                          |
+| Database    | SQLite via better-sqlite3 (synchronous)                 |
+| AI          | DeepSeek via raw `fetch()` (OpenAI-compatible endpoint) |
+| Auth        | Custom JWT (HMAC-SHA256) + session cookies, no NextAuth |
+| Styling     | Custom CSS (globals.css, 4008 lines), no Tailwind       |
+| Animations  | GSAP 3.15 + @gsap/react (heavy use)                     |
+| Markdown    | react-markdown 10 + KaTeX + rehype/remark plugins       |
+| Testing     | Jest 30 + ts-jest, 1 test file                          |
+| Lint/Format | ESLint 9 + Prettier 3.8                                 |
 
 ---
 
