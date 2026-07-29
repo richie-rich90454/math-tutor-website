@@ -1,8 +1,9 @@
 export interface Message {
-    id?: string;
-    role: "user" | "assistant";
+    id: string;
+    role: 'user' | 'assistant';
     content: string;
     timestamp?: string;
+    tokenCount?: number;
 }
 
 export interface ChatMessageDto {
