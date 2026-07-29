@@ -1,9 +1,11 @@
 import { useChat } from "../hooks/useChat";
+import { useLanguage } from "../hooks/useLanguage";
 import { MessageList } from "../components/MessageList";
 import { InputArea } from "../components/InputArea";
 
 export function Chat() {
-    const { messages, isLoading, sendMessage } = useChat();
+    const { currentLang } = useLanguage();
+    const { messages, isLoading, sendMessage } = useChat(undefined, currentLang);
 
     return (
         <div class="chat-view">
