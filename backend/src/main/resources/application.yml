@@ -1,6 +1,6 @@
 spring:
   config:
-    import: file:./.env
+    import: file:../.env
   profiles:
     active: dev
   threads:
