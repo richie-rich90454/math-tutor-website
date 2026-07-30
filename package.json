@@ -7,7 +7,7 @@
         "build:next": "next build",
         "start:next": "next start",
         "dev:frontend": "cd frontend-modern && npm run dev",
-        "build:frontend": "cd frontend-modern && npm run build && node copy-legacy.js",
+        "build:frontend": "cd frontend-modern && npm run build && node ../copy-legacy.js",
         "dev:backend": "cd backend && mvn spring-boot:run",
         "build:backend": "cd backend && mvn clean package -DskipTests",
         "dev:all": "concurrently -n frontend,backend -c cyan,green \"cd frontend-modern && npm run dev\" \"cd backend && mvn spring-boot:run\"",
