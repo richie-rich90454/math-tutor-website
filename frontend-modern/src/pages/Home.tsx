@@ -144,9 +144,11 @@ export function Home() {
         URL.revokeObjectURL(url);
     }, [messages]);
 
-    const formatTime = useCallback((d: Date) => {
-        if (!(d instanceof Date) || isNaN(d.getTime())) return '';
-        return d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    const formatTime = useCallback((d: Date | string | undefined) => {
+        if (!d) return '';
+        const date = typeof d === 'string' ? new Date(d) : d;
+        if (!(date instanceof Date) || isNaN(date.getTime())) return '';
+        return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
     }, []);
 
     const handleFeedback = useCallback((msgId: string, type: 'up' | 'down') => {

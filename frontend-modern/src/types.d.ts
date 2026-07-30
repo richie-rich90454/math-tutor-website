@@ -56,3 +56,22 @@ declare module 'wouter' {
     export { Route, Switch, Link };
     export default { Route, Switch, Link };
 }
+
+interface SpeechRecognitionEvent {
+    results: SpeechRecognitionResultList;
+    resultIndex: number;
+}
+
+interface SpeechRecognitionResultList {
+    length: number;
+    [index: number]: SpeechRecognitionResult;
+}
+
+interface SpeechRecognitionResult {
+    isFinal: boolean;
+    [index: number]: SpeechRecognitionAlternative;
+}
+
+interface SpeechRecognitionAlternative {
+    transcript: string;
+}

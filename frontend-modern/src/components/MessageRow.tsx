@@ -1,74 +1,110 @@
 import { memo } from 'preact/compat';
-import ReactMarkdown from 'react-markdown';
-import remarkMath from 'remark-math';
-import rehypeKatex from 'rehype-katex';
 import type { Message } from '../types/message';
+import { MarkdownRenderer } from './MarkdownRenderer';
+import { MessageActions } from './MessageActions';
 
 interface MessageRowProps {
     message: Message;
     isHovered: boolean;
     isStreaming: boolean;
     isLastMessage: boolean;
-    formatTime: (d: Date) => string;
+    formatTime: (d: Date | string | undefined) => string;
     onRegenerate: () => void;
-    onFeedback: (msgId: string, type: 'up' | 'down') => void;
-    feedbackValue: 'up' | 'down' | null;
+    onFeedback: (msgId: string, type: "up" | "down") => void;
+    feedbackValue: "up" | "down" | null;
     onEdit: (messageId: string, content: string) => void;
     editLabel: string;
     onMouseEnter: () => void;
     onMouseLeave: () => void;
 }
 
-function MarkdownRenderer({ content }: { content: string }) {
-    return (
-        <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>
-            {content}
-        </ReactMarkdown>
-    );
-}
-
-export const MessageRow = memo(function MessageRow(props: MessageRowProps) {
-    const { message, isHovered, isStreaming, isLastMessage, onRegenerate, onFeedback, feedbackValue, onMouseEnter, onMouseLeave } = props;
-    const isUser = message.role === 'user';
-    const showSkeleton = isLastMessage && isStreaming && !message.content;
-
+export const MessageRow = memo(function MessageRow({
+    message,
+    isHovered,
+    isStreaming,
+    isLastMessage,
+    formatTime,
+    onRegenerate,
+    onFeedback,
+    feedbackValue,
+    onEdit,
+    editLabel,
+    onMouseEnter,
+    onMouseLeave,
+}: MessageRowProps) {
     return (
         <div
-            class={`message-row ${isUser ? 'is-user' : 'is-assistant'}`}
+            class={`message-row ${message.role === "user" ? "is-user" : "is-assistant"}`}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
         >
-            <div class={`message-bubble ${isUser ? 'message-bubble-user' : 'message-bubble-assistant'}`}>
-                {showSkeleton ? (
-                    <span class="loading-dots">
-                        <span class="loading-dot"></span>
-                        <span class="loading-dot"></span>
-                        <span class="loading-dot"></span>
-                    </span>
-                ) : isUser ? (
-                    <p style="white-space: pre-wrap">{message.content}</p>
+            <div class="message-row-bubble-wrapper">
+                {message.role === "user" ? (
+                    <>
+                        <div class="message-bubble-user">
+                            <MarkdownRenderer content={message.content} />
+                        </div>
+                        {isHovered && !isStreaming && (
+                            <button
+                                class="msg-edit-btn"
+                                onClick={() => onEdit(message.id, message.content)}
+                                title={editLabel}
+                                aria-label={editLabel}
+                                onKeyDown={(e) => {
+                                    if (e.key === "Enter" || e.key === " ") {
+                                        e.preventDefault();
+                                        onEdit(message.id, message.content);
+                                    }
+                                }}
+                            >
+                                <svg
+                                    width="14"
+                                    height="14"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+                                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                                </svg>
+                            </button>
+                        )}
+                        <span class="message-time is-right">
+                            {formatTime(message.timestamp)}
+                        </span>
+                    </>
                 ) : (
-                    <div class="mdr-content">
-                        <MarkdownRenderer content={message.content} />
+                    <div class="msg-wrapper">
+                                                <MessageActions
+
+
+                                messageId={message.id}
+                                content={message.content}
+                                onRegenerate={onRegenerate}
+                                onFeedback={(type) => onFeedback(message.id, type)}
+                                feedback={feedbackValue}
+                                isVisible={isHovered}
+                            />
+                        <div
+                            class="message-bubble-assistant"
+                            data-streaming={isStreaming && isLastMessage ? "true" : undefined}
+                            aria-busy={isStreaming && isLastMessage ? "true" : "false"}
+                        >
+                            {message.content ? (
+                                <MarkdownRenderer content={message.content} />
+                            ) : (
+                                <span class="streaming-cursor" />
+                            )}
+                        </div>
+                        <span class="message-time is-left">
+                            {formatTime(message.timestamp)}
+                        </span>
                     </div>
                 )}
             </div>
-            {!isUser && isHovered && !isStreaming && (
-                <div class="msg-actions">
-                    <button class="msg-action-btn" onClick={() => { try { navigator.clipboard.writeText(message.content); } catch {} }} title="Copy">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
-                    </button>
-                    <button class="msg-action-btn" onClick={onRegenerate} title="Regenerate">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10" /><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10" /></svg>
-                    </button>
-                    <button class={`msg-action-btn ${feedbackValue === 'up' ? 'is-active' : ''}`} onClick={() => onFeedback(message.id, 'up')} title="Helpful">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z" /><polyline points="7 22 7 13" /></svg>
-                    </button>
-                    <button class={`msg-action-btn ${feedbackValue === 'down' ? 'is-active' : ''}`} onClick={() => onFeedback(message.id, 'down')} title="Not helpful">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3H10z" /><polyline points="17 2 17 11" /></svg>
-                    </button>
-                </div>
-            )}
         </div>
     );
 });
