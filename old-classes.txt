@@ -1,0 +1,26 @@
+app-footer
+app-footer-text
+app-header
+app-header-btn
+app-header-icon
+app-header-inner
+app-shell
+app-sidebar-wrapper is-collapsed
+chat-input-bar
+chat-input-bar-inner
+chat-input-card
+chat-messages-area
+chat-messages-inner
+chat-messages-list
+math-particles-container
+mobile-menu-btn
+prompt-btn
+prompt-btn prompt-btn-accent
+prompt-buttons
+scroll-bottom-btn
+welcome-heading
+welcome-input-card
+welcome-input-wrapper
+welcome-section
+welcome-subtitle
+welcome-title
