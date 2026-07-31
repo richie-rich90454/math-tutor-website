@@ -7,6 +7,7 @@ import { rateLimit } from "@/lib/rate-limit";
 import { v4 as uuidv4 } from "uuid";
 import { chatImageSchema } from "@/lib/validators";
 import { validateBody } from "@/lib/api-utils";
+import { streamSSEContent } from "@/lib/ai/deepseek";
 
 const VISION_MODEL =
     process.env.OPENAI_COMPATIBLE_VISION_MODEL ||
@@ -119,7 +120,7 @@ export async function POST(request: NextRequest) {
             throw new Error("No response body from Vision API");
         }
 
-        const reader = response.body.getReader();
+        const reader = streamSSEContent(response).getReader();
         const decoder = new TextDecoder();
         const encoder = new TextEncoder();
         let fullResponse = "";
