@@ -21,8 +21,9 @@ export function useChatUI(
     useEffect(() => {
         const handleResize = () => {
             const width = window.innerWidth;
-            setIsMobile(width < 1024);
-            if (width >= 1024) setIsSidebarOpen(true);
+            setIsMobile(width <= 768);
+            if (width > 768) setIsSidebarOpen(true);
+            else setIsSidebarOpen(false);
         };
         handleResize();
         window.addEventListener("resize", handleResize);
@@ -55,7 +56,7 @@ export function useChatUI(
     }, [isMobile, isSidebarOpen]);
 
     const handleSidebarToggle = useCallback(() => {
-        if (window.innerWidth < 1024) setIsSidebarOpen((p) => !p);
+        if (window.innerWidth <= 768) setIsSidebarOpen((p) => !p);
     }, []);
 
     // Scroll helpers
@@ -115,7 +116,7 @@ export function useChatUI(
             if (e.key === "Escape") {
                 if (showCommandPalette) setShowCommandPalette(false);
                 else if (showShortcuts) setShowShortcuts(false);
-                else if (window.innerWidth < 1024 && isSidebarOpen) setIsSidebarOpen(false);
+                else if (window.innerWidth <= 768 && isSidebarOpen) setIsSidebarOpen(false);
             }
         };
         window.addEventListener("keydown", handler);
