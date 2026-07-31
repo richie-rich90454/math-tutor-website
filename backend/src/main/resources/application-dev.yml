@@ -1,8 +1,0 @@
-spring:
-  datasource:
-    url: ${SQLITE_PATH:jdbc:sqlite:./data/mathtutor.db}
-    driver-class-name: org.sqlite.JDBC
-  jpa:
-    properties:
-      hibernate:
-        dialect: org.hibernate.community.dialect.SQLiteDialect
