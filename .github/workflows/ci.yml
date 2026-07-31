@@ -41,7 +41,6 @@ jobs:
                   node-version: "22"
                   cache: npm
             - run: npm ci
-            - run: node scripts/setup.js
             - run: npm run test
 
     build:
