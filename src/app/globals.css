@@ -3797,6 +3797,23 @@ a:hover {
     border-left: 1px solid var(--border-default);
 }
 
+[dir="rtl"] .sb-user-dropdown {
+    left: auto;
+    right: 0;
+}
+
+[dir="rtl"] .sb-user-dropdown-item,
+[dir="rtl"] .lang-switcher-option,
+[dir="rtl"] .cmd-item,
+[dir="rtl"] .dashboard-nav-item,
+[dir="rtl"] .ci-suggestion-btn {
+    text-align: right;
+}
+
+[dir="rtl"] .cmd-input-wrapper {
+    direction: rtl;
+}
+
 [dir="rtl"] .cmd-search-icon {
     /* stay on left */
 }
@@ -3945,6 +3962,14 @@ a:hover {
     .app-main.with-sidebar-collapsed {
         margin-left: 52px !important;
     }
+    [dir="rtl"] .app-main.with-sidebar {
+        margin-left: 0 !important;
+        margin-right: 220px !important;
+    }
+    [dir="rtl"] .app-main.with-sidebar-collapsed {
+        margin-left: 0 !important;
+        margin-right: 52px !important;
+    }
     .message-row.is-user .message-row-bubble-wrapper {
         max-width: 78%;
     }
@@ -3967,6 +3992,11 @@ a:hover {
     .app-main.with-sidebar,
     .app-main.with-sidebar-collapsed {
         margin-left: 260px !important;
+    }
+    [dir="rtl"] .app-main.with-sidebar,
+    [dir="rtl"] .app-main.with-sidebar-collapsed {
+        margin-left: 0 !important;
+        margin-right: 260px !important;
     }
 }
 
@@ -4005,6 +4035,43 @@ a:hover {
         min-height: 36px;
         max-height: 80px;
         padding: 6px 48px 6px 60px;
+    }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+    .app-header {
+        padding: var(--space-2);
+    }
+    .app-header-btn {
+        width: 32px;
+        height: 32px;
+    }
+    .welcome-section {
+        padding: 0 var(--space-3);
+    }
+    .welcome-title {
+        font-size: 1.5rem;
+    }
+    .welcome-subtitle {
+        font-size: 0.9rem;
+    }
+    .prompt-btn {
+        padding: 6px 10px;
+        font-size: 0.75rem;
+    }
+    .chat-messages-area {
+        padding: var(--space-3) var(--space-3) 0;
+    }
+    .message-bubble-user,
+    .message-bubble-assistant {
+        padding: var(--space-3);
+    }
+    .ia-textarea {
+        padding: 10px 70px 10px 56px;
+    }
+    [dir="rtl"] .ia-textarea {
+        padding: 10px 56px 10px 70px;
     }
 }
 
