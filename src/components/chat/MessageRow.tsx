@@ -19,6 +19,7 @@ interface MessageRowProps {
     feedbackValue: "up" | "down" | null;
     onEdit: (messageId: string, content: string) => void;
     editLabel: string;
+    onSuggestionClick?: (text: string) => void;
     onMouseEnter: () => void;
     onMouseLeave: () => void;
 }
@@ -34,6 +35,7 @@ const MessageRow = memo(function MessageRow({
     feedbackValue,
     onEdit,
     editLabel,
+    onSuggestionClick,
     onMouseEnter,
     onMouseLeave,
 }: MessageRowProps) {
@@ -47,7 +49,10 @@ const MessageRow = memo(function MessageRow({
                 {message.role === "user" ? (
                     <>
                         <div className="message-bubble-user">
-                            <MarkdownRenderer content={message.content} />
+                            <MarkdownRenderer
+                                content={message.content}
+                                onSuggestionClick={onSuggestionClick}
+                            />
                         </div>
                         {isHovered && !isStreaming && (
                             <button
@@ -97,7 +102,10 @@ const MessageRow = memo(function MessageRow({
                             aria-busy={isStreaming && isLastMessage ? "true" : "false"}
                         >
                             {message.content ? (
-                                <MarkdownRenderer content={message.content} />
+                                <MarkdownRenderer
+                                    content={message.content}
+                                    onSuggestionClick={onSuggestionClick}
+                                />
                             ) : (
                                 <span className="streaming-cursor" />
                             )}
