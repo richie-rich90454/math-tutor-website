@@ -11,9 +11,16 @@ interface SidebarProps {
     onToggle: () => void;
     onChatSelect?: (chat: ChatSession) => void;
     onShowShortcuts?: () => void;
+    onNewChat?: () => void;
 }
 
-export default function Sidebar({ isOpen, onToggle, onChatSelect, onShowShortcuts }: SidebarProps) {
+export default function Sidebar({
+    isOpen,
+    onToggle,
+    onChatSelect,
+    onShowShortcuts,
+    onNewChat,
+}: SidebarProps) {
     const {
         sidebarRef,
         searchQuery,
@@ -95,7 +102,7 @@ export default function Sidebar({ isOpen, onToggle, onChatSelect, onShowShortcut
                     effectiveIsOpen={effectiveIsOpen}
                     searchQuery={searchQuery}
                     setSearchQuery={setSearchQuery}
-                    handleNewChat={handleNewChat}
+                    handleNewChat={onNewChat || handleNewChat}
                 />
 
                 <ChatList
