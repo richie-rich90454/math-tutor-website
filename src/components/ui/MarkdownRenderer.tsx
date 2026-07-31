@@ -11,6 +11,7 @@ import ts from "react-syntax-highlighter/dist/esm/languages/prism/typescript";
 import python from "react-syntax-highlighter/dist/esm/languages/prism/python";
 import markup from "react-syntax-highlighter/dist/esm/languages/prism/markup";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import ErrorBoundary from "@/components/ui/ErrorBoundary";
 
 SyntaxHighlighter.registerLanguage("javascript", js);
 SyntaxHighlighter.registerLanguage("typescript", ts);
@@ -60,10 +61,17 @@ export default function MarkdownRenderer({
     const { suggestions, cleanContent } = extractSuggestions(normalizedContent);
 
     return (
-        <div className={`markdown-content ${className}`}>
-            <ReactMarkdown
-                remarkPlugins={[remarkGfm, remarkMath]}
-                rehypePlugins={[rehypeKatex]}
+        <ErrorBoundary
+            fallback={
+                <div className={`markdown-content ${className}`} style={{ whiteSpace: "pre-wrap" }}>
+                    {cleanContent}
+                </div>
+            }
+        >
+            <div className={`markdown-content ${className}`}>
+                <ReactMarkdown
+                    remarkPlugins={[remarkGfm, remarkMath]}
+                    rehypePlugins={[[rehypeKatex, { throwOnError: false }]]}
                 components={{
                     h1: ({ children }) => <h1 className="mdr-h1">{children}</h1>,
                     h2: ({ children }) => <h2 className="mdr-h2">{children}</h2>,
@@ -159,6 +167,7 @@ export default function MarkdownRenderer({
                     ))}
                 </div>
             )}
-        </div>
+            </div>
+        </ErrorBoundary>
     );
 }
