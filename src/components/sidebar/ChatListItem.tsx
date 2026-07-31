@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import type { ChatSession } from "@/contexts/ChatContext";
 
@@ -8,6 +9,7 @@ interface ChatListItemProps {
     onSelect: (chat: ChatSession) => void;
     onDelete: (chatId: string) => void;
     onContextMenu: (e: React.MouseEvent) => void;
+    onLongPress?: (x: number, y: number) => void;
     isHovered: boolean;
     onHover: (id: string | null) => void;
     isActive: boolean;
@@ -19,17 +21,59 @@ export default function ChatListItem({
     onSelect,
     onDelete,
     onContextMenu,
+    onLongPress,
     isHovered,
     onHover,
     isActive,
     isPinned,
 }: ChatListItemProps) {
     const { t } = useLanguage();
+    const longPressTimer = useRef<number | null>(null);
+    const longPressOrigin = useRef({ x: 0, y: 0 });
+    const longPressFired = useRef(false);
+
+    const clearLongPress = () => {
+        if (longPressTimer.current !== null) {
+            window.clearTimeout(longPressTimer.current);
+            longPressTimer.current = null;
+        }
+    };
+
+    const handleTouchStart = (e: React.TouchEvent) => {
+        if (!onLongPress) return;
+        longPressOrigin.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+        longPressFired.current = false;
+        clearLongPress();
+        longPressTimer.current = window.setTimeout(() => {
+            longPressFired.current = true;
+            onLongPress(longPressOrigin.current.x, longPressOrigin.current.y);
+            longPressTimer.current = null;
+        }, 500);
+    };
+
+    const handleTouchMove = (e: React.TouchEvent) => {
+        const dx = e.touches[0].clientX - longPressOrigin.current.x;
+        const dy = e.touches[0].clientY - longPressOrigin.current.y;
+        if (Math.hypot(dx, dy) > 10) clearLongPress();
+    };
+
+    const handleClick = () => {
+        if (longPressFired.current) {
+            longPressFired.current = false;
+            return;
+        }
+        onSelect(chat);
+    };
+
     return (
         <div
             data-chat-id={chat.id}
-            onClick={() => onSelect(chat)}
+            onClick={handleClick}
             onContextMenu={onContextMenu}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={clearLongPress}
+            onTouchCancel={clearLongPress}
             onMouseEnter={() => onHover(chat.id)}
             onMouseLeave={() => onHover(null)}
             className={`sb-chat-item ${isActive ? "is-active" : isHovered ? "is-hovered" : ""}`}
