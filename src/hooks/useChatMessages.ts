@@ -9,7 +9,7 @@ import { announcePolite } from "@/lib/aria-live";
 
 export function useChatMessages() {
     const { t, currentLanguage } = useLanguage();
-    const { currentChat, setCurrentChat } = useChat();
+    const { currentChat, setCurrentChat, addChatSession } = useChat();
     const { addToast } = useToast();
 
     const [input, setInput] = useState("");
@@ -136,7 +136,19 @@ export function useChatMessages() {
 
                 const serverChatId = response.headers.get("X-Chat-Id");
                 if (serverChatId && serverChatId !== activeChatId) {
+                    const wasNewChat = !activeChatId;
                     setActiveChatId(serverChatId);
+                    if (wasNewChat) {
+                        addChatSession({
+                            id: serverChatId,
+                            title:
+                                currentInput.slice(0, 50) +
+                                (currentInput.length > 50 ? "..." : ""),
+                            timestamp: new Date().toISOString(),
+                            preview: currentInput.slice(0, 100),
+                            messages: [],
+                        });
+                    }
                 }
 
                 const assistantId = (Date.now() + 1).toString();
@@ -193,7 +205,7 @@ export function useChatMessages() {
                 abortControllerRef.current = null;
             }
         },
-        [input, currentLanguage.code, activeChatId, t],
+        [input, currentLanguage.code, activeChatId, t, addChatSession],
     );
 
     const sendImage = useCallback(async () => {
@@ -247,7 +259,19 @@ export function useChatMessages() {
 
             const serverChatId = response.headers.get("X-Chat-Id");
             if (serverChatId && serverChatId !== activeChatId) {
+                const wasNewChat = !activeChatId;
                 setActiveChatId(serverChatId);
+                if (wasNewChat) {
+                    addChatSession({
+                        id: serverChatId,
+                        title:
+                            (currentInput || "New chat").slice(0, 50) +
+                            ((currentInput || "New chat").length > 50 ? "..." : ""),
+                        timestamp: new Date().toISOString(),
+                        preview: (currentInput || "New chat").slice(0, 100),
+                        messages: [],
+                    });
+                }
             }
 
             const assistantId = (Date.now() + 1).toString();
@@ -303,7 +327,7 @@ export function useChatMessages() {
             setIsStreaming(false);
             abortControllerRef.current = null;
         }
-    }, [pendingImage, input, currentLanguage.code, activeChatId]);
+    }, [pendingImage, input, currentLanguage.code, activeChatId, addChatSession]);
 
     const handleStopGeneration = useCallback(() => {
         abortControllerRef.current?.abort();
