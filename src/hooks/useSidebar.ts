@@ -47,7 +47,7 @@ export function useSidebar({ isOpen, onToggle, onChatSelect, onShowShortcuts }: 
 
     // ── Responsive: track window width ────────────────────────────────────
     const [windowWidth, setWindowWidth] = useState<number>(1024);
-    const isLargeScreen = windowWidth >= 1024;
+    const isLargeScreen = windowWidth > 768;
     const prevIsLargeScreen = useRef(isLargeScreen);
 
     useEffect(() => {
