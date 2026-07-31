@@ -61,6 +61,7 @@ export default function Home() {
         isSidebarOpen,
         setIsSidebarOpen,
         isMobile,
+        isTouchDevice,
         showShortcuts,
         setShowShortcuts,
         showCommandPalette,
@@ -223,7 +224,7 @@ export default function Home() {
             <MessageRow
                 key={message.id}
                 message={message}
-                isHovered={hoveredMsgId === message.id}
+                isHovered={isTouchDevice || hoveredMsgId === message.id}
                 isStreaming={isStreaming}
                 isLastMessage={index === messages.length - 1}
                 formatTime={formatTime}
@@ -240,6 +241,7 @@ export default function Home() {
     }, [
         messages,
         hoveredMsgId,
+        isTouchDevice,
         isStreaming,
         feedback,
         formatTime,
