@@ -144,6 +144,23 @@ export default function RootLayout({
                     }}
                 />
                 <Script
+                    id="dir-script"
+                    strategy="beforeInteractive"
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                            (function() {
+                                try {
+                                    var lang = localStorage.getItem('preferred-language');
+                                    if (lang === 'ar' || lang === 'he') {
+                                        document.documentElement.setAttribute('dir', 'rtl');
+                                        document.documentElement.setAttribute('lang', lang);
+                                    }
+                                } catch(e) {}
+                            })();
+                        `,
+                    }}
+                />
+                <Script
                     id="jsonld-webapp"
                     type="application/ld+json"
                     strategy="beforeInteractive"
