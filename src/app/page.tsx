@@ -232,6 +232,7 @@ export default function Home() {
                 feedbackValue={feedback.get(message.id) || null}
                 onEdit={handleEdit}
                 editLabel={t("chatEditMessage") || "Edit message"}
+                onSuggestionClick={(text: string) => setInput(text)}
                 onMouseEnter={() => setHoveredMsgId(message.id)}
                 onMouseLeave={() => setHoveredMsgId(null)}
             />
@@ -247,6 +248,7 @@ export default function Home() {
         handleEdit,
         t,
         setHoveredMsgId,
+        setInput,
     ]);
 
     return (
@@ -277,6 +279,7 @@ export default function Home() {
                         isOpen={true}
                         onToggle={handleSidebarToggle}
                         onShowShortcuts={() => setShowShortcuts(true)}
+                        onNewChat={handleNewChat}
                         onChatSelect={(chat: ChatSession) => {
                             setActiveChatId(chat.id);
                             setIsLoaded(false);
@@ -287,7 +290,7 @@ export default function Home() {
             ) : (
                 <>
                     <div
-                        className={`sidebar-backdrop ${isSidebarOpen ? "is-visible" : ""}`}
+                        className={`sidebar-backdrop ${isMobile && isSidebarOpen ? "is-visible" : ""}`}
                         onClick={() => isMobile && setIsSidebarOpen(false)}
                     />
                     <div
@@ -297,6 +300,10 @@ export default function Home() {
                             isOpen={isSidebarOpen}
                             onToggle={handleSidebarToggle}
                             onShowShortcuts={() => setShowShortcuts(true)}
+                        onNewChat={() => {
+                            handleNewChat();
+                            setIsSidebarOpen(false);
+                        }}
                             onChatSelect={(chat: ChatSession) => {
                                 setActiveChatId(chat.id);
                                 setIsLoaded(false);
