@@ -30,6 +30,51 @@ async function fetchWithRetry(url: string, options: RequestInit): Promise<Respon
     }
 }
 
+export function streamSSEContent(response: Response): ReadableStream<Uint8Array> {
+    const reader = response.body!.getReader();
+    const decoder = new TextDecoder();
+    let buffer = "";
+
+    return new ReadableStream({
+        async pull(controller) {
+            try {
+                const { done, value } = await reader.read();
+                if (done) {
+                    controller.close();
+                    return;
+                }
+
+                buffer += decoder.decode(value, { stream: true });
+                const lines = buffer.split("\n");
+                buffer = lines.pop() || "";
+
+                for (const line of lines) {
+                    const trimmed = line.trim();
+                    if (!trimmed.startsWith("data: ")) continue;
+
+                    const data = trimmed.slice(6);
+                    if (data === "[DONE]") {
+                        controller.close();
+                        return;
+                    }
+
+                    try {
+                        const parsed = JSON.parse(data);
+                        const content = parsed.choices?.[0]?.delta?.content;
+                        if (content) {
+                            controller.enqueue(new TextEncoder().encode(content));
+                        }
+                    } catch {
+                        // skip malformed JSON chunks
+                    }
+                }
+            } catch (err) {
+                controller.error(err);
+            }
+        },
+    });
+}
+
 export const deepseek: AIModel = {
     name: MODEL_NAME,
 
@@ -65,47 +110,6 @@ export const deepseek: AIModel = {
             throw new Error("No response body");
         }
 
-        const reader = response.body.getReader();
-        const decoder = new TextDecoder();
-        let buffer = "";
-
-        return new ReadableStream({
-            async pull(controller) {
-                try {
-                    const { done, value } = await reader.read();
-                    if (done) {
-                        controller.close();
-                        return;
-                    }
-
-                    buffer += decoder.decode(value, { stream: true });
-                    const lines = buffer.split("\n");
-                    buffer = lines.pop() || "";
-
-                    for (const line of lines) {
-                        const trimmed = line.trim();
-                        if (!trimmed.startsWith("data: ")) continue;
-
-                        const data = trimmed.slice(6);
-                        if (data === "[DONE]") {
-                            controller.close();
-                            return;
-                        }
-
-                        try {
-                            const parsed = JSON.parse(data);
-                            const content = parsed.choices?.[0]?.delta?.content;
-                            if (content) {
-                                controller.enqueue(new TextEncoder().encode(content));
-                            }
-                        } catch {
-                            // skip malformed JSON chunks
-                        }
-                    }
-                } catch (err) {
-                    controller.error(err);
-                }
-            },
-        });
+        return streamSSEContent(response);
     },
 };
