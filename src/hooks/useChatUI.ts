@@ -11,11 +11,21 @@ export function useChatUI(
 ) {
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
     const [isMobile, setIsMobile] = useState(false);
+    const [isTouchDevice, setIsTouchDevice] = useState(false);
     const [showShortcuts, setShowShortcuts] = useState(false);
     const [showCommandPalette, setShowCommandPalette] = useState(false);
     const [showScrollBtn, setShowScrollBtn] = useState(false);
     const [hoveredMsgId, setHoveredMsgId] = useState<string | null>(null);
     const [feedback, setFeedback] = useState<Map<string, "up" | "down">>(new Map());
+
+    // Touch devices have no hover, so hover-dependent UI must stay reachable
+    useEffect(() => {
+        const mq = window.matchMedia("(hover: none)");
+        const update = () => setIsTouchDevice(mq.matches);
+        update();
+        mq.addEventListener?.("change", update);
+        return () => mq.removeEventListener?.("change", update);
+    }, []);
 
     // Responsive sidebar
     useEffect(() => {
@@ -143,6 +153,7 @@ export function useChatUI(
         isSidebarOpen,
         setIsSidebarOpen,
         isMobile,
+        isTouchDevice,
         showShortcuts,
         setShowShortcuts,
         showCommandPalette,
