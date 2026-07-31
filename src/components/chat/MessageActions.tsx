@@ -46,8 +46,7 @@ const MessageActions = memo(function MessageActions({
     return (
         <div
             ref={ref}
-            className="msg-actions"
-            style={{ visibility: isVisible ? "visible" : "hidden" }}
+            className={`msg-actions ${isVisible ? "is-visible" : ""}`}
         >
             <button
                 onClick={handleCopy}
