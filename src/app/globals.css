@@ -410,6 +410,24 @@ a:hover {
     border-radius: 2px;
 }
 
+/* ==========================================
+   Mobile Foundations
+   ========================================== */
+html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+button,
+a,
+input,
+textarea,
+select,
+[role="button"] {
+    touch-action: manipulation;
+}
+
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -424,6 +442,7 @@ a:hover {
    ========================================== */
 .app-shell {
     display: flex;
+    height: 100vh;
     height: 100dvh;
     width: 100%;
     overflow: hidden;
@@ -451,6 +470,7 @@ a:hover {
     top: 0;
     left: 0;
     z-index: var(--z-sidebar);
+    height: 100vh;
     height: 100dvh;
     transition:
         width var(--transition-slow),
@@ -1195,6 +1215,7 @@ a:hover {
     padding: var(--space-2) var(--space-3);
     transition: background var(--transition-fast);
     user-select: none;
+    -webkit-touch-callout: none;
     border-radius: var(--radius-sm);
     margin: 0 var(--space-1);
 }
@@ -1587,6 +1608,9 @@ a:hover {
     border-radius: var(--radius-sm);
     font-size: 13px;
     padding: var(--space-4);
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
 }
 
 .mdr-copy-btn {
@@ -1746,6 +1770,20 @@ a:hover {
     border-radius: var(--radius-sm);
     box-shadow: var(--shadow-md);
     animation: fadeInOnly 0.12s ease-out;
+    visibility: hidden;
+}
+.msg-actions.is-visible {
+    visibility: visible;
+}
+
+/* Touch devices have no hover, so keep action toolbars reachable */
+@media (hover: none) {
+    .msg-actions {
+        visibility: visible;
+    }
+    .mdr-copy-btn {
+        opacity: 1;
+    }
 }
 
 .msg-action-btn {
@@ -2038,6 +2076,7 @@ a:hover {
     min-height: 0;
     flex: 1 1 0%;
     overflow: hidden;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 .bottom-sheet-content .sb-root {
     border-right: none;
@@ -2077,6 +2116,9 @@ a:hover {
    ========================================== */
 .lang-switcher {
     position: relative;
+}
+.lang-switcher-globe {
+    display: none;
 }
 .lang-switcher-btn {
     display: flex;
@@ -2145,7 +2187,7 @@ a:hover {
    ========================================== */
 .toast-container {
     position: fixed;
-    top: var(--space-4);
+    top: calc(var(--space-4) + env(safe-area-inset-top, 0px));
     right: var(--space-4);
     z-index: var(--z-toast);
     display: flex;
@@ -2524,12 +2566,14 @@ a:hover {
     position: fixed;
     z-index: 90;
     min-width: 160px;
+    max-width: calc(100vw - var(--space-4));
+    max-height: 70vh;
+    overflow-y: auto;
     background: var(--bg-surface);
     border: 1px solid var(--border-default);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-xl);
     padding: var(--space-1);
-    overflow: hidden;
     animation: fadeInOnly 0.1s ease-out;
 }
 .context-menu-item {
@@ -3920,13 +3964,61 @@ a:hover {
 
     .app-header {
         position: sticky;
-        padding: var(--space-2) var(--space-3);
+        padding: calc(var(--space-2) + env(safe-area-inset-top, 0px)) var(--space-3);
+    }
+
+    /* Touch targets: minimum comfortable tap size */
+    .app-header-btn,
+    .theme-toggle-btn {
+        width: 40px;
+        height: 40px;
+    }
+    .lang-switcher-btn {
+        height: 40px;
+    }
+    .ia-util-btn,
+    .ia-action-btn {
+        width: 40px;
+        height: 40px;
+    }
+    .ia-util-btn {
+        left: 6px;
+    }
+    .ia-util-btn:nth-of-type(2) {
+        left: 48px;
+    }
+    .ia-action-btn {
+        right: 6px;
+    }
+    .ia-textarea {
+        padding: 12px 56px 12px 92px;
+    }
+    [dir="rtl"] .ia-textarea {
+        padding: 12px 92px 12px 56px;
+    }
+
+    /* iOS auto-zooms focused inputs smaller than 16px */
+    .ia-textarea,
+    .sb-search-input,
+    .cmd-input,
+    .auth-input,
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="search"],
+    select {
+        font-size: 16px;
+    }
+
+    /* Let the welcome section scroll instead of clipping when the keyboard opens */
+    .content-area.is-centered {
+        justify-content: safe center;
     }
 
     .mobile-menu-btn {
         display: flex;
         position: fixed;
-        top: var(--space-2);
+        top: calc(var(--space-2) + env(safe-area-inset-top, 0px));
         left: var(--space-3);
         z-index: calc(var(--z-modal) + 1);
         width: 38px;
@@ -4089,9 +4181,12 @@ a:hover {
         padding: var(--space-1) var(--space-3);
     }
     .ia-textarea {
-        min-height: 36px;
+        min-height: 44px;
         max-height: 80px;
-        padding: 6px 48px 6px 60px;
+        padding: 6px 56px 6px 92px;
+    }
+    [dir="rtl"] .ia-textarea {
+        padding: 6px 92px 6px 56px;
     }
 }
 
@@ -4124,11 +4219,30 @@ a:hover {
     .message-bubble-assistant {
         padding: var(--space-3);
     }
-    .ia-textarea {
-        padding: 10px 70px 10px 56px;
+    .shortcut-modal {
+        padding: var(--space-4);
     }
-    [dir="rtl"] .ia-textarea {
-        padding: 10px 56px 10px 70px;
+    .shortcut-modal-backdrop {
+        padding: var(--space-2);
+    }
+    .cmd-backdrop {
+        padding-top: 10vh;
+    }
+    /* Compact language switcher: globe icon only */
+    .lang-switcher-btn {
+        width: 40px;
+        height: 40px;
+        justify-content: center;
+        padding: 0;
+    }
+    .lang-switcher-label {
+        display: none;
+    }
+    .lang-switcher-globe {
+        display: flex;
+    }
+    .lang-switcher-chevron {
+        display: none;
     }
 }
 
@@ -4136,5 +4250,21 @@ a:hover {
 @media (max-width: 480px) {
     .katex {
         font-size: 0.95em !important;
+    }
+}
+
+/* Short viewports (keyboard open, landscape phones) */
+@media (max-height: 700px) {
+    .welcome-heading {
+        margin-bottom: var(--space-4);
+    }
+    .welcome-title {
+        font-size: 1.7rem;
+    }
+    .welcome-subtitle {
+        font-size: 0.95rem;
+    }
+    .prompt-buttons {
+        margin-top: var(--space-3);
     }
 }
