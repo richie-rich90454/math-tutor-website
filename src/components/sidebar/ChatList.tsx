@@ -192,6 +192,16 @@ export default function ChatList({
                         onSelect={handleChatSelect}
                         onDelete={(id) => handleDeleteChat(id, chat.title)}
                         onContextMenu={(e) => handleContextMenu(e, chat.id)}
+                        onLongPress={(x, y) =>
+                            handleContextMenu(
+                                {
+                                    preventDefault: () => {},
+                                    clientX: x,
+                                    clientY: y,
+                                } as unknown as React.MouseEvent,
+                                chat.id,
+                            )
+                        }
                         isHovered={hoveredChatId === chat.id}
                         onHover={setHoveredChatId}
                         isActive={currentChat?.id === chat.id}
@@ -215,6 +225,16 @@ export default function ChatList({
                                 onSelect={handleChatSelect}
                                 onDelete={(id) => handleDeleteChat(id, chat.title)}
                                 onContextMenu={(e) => handleContextMenu(e, chat.id)}
+                                onLongPress={(x, y) =>
+                                    handleContextMenu(
+                                        {
+                                            preventDefault: () => {},
+                                            clientX: x,
+                                            clientY: y,
+                                        } as unknown as React.MouseEvent,
+                                        chat.id,
+                                    )
+                                }
                                 isHovered={hoveredChatId === chat.id}
                                 onHover={setHoveredChatId}
                                 isActive={currentChat?.id === chat.id}
