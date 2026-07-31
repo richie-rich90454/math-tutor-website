@@ -14,7 +14,7 @@ export const signupSchema = z.object({
 
 export const chatMessageSchema = z.object({
     message: z.string().min(1).max(4000),
-    chatId: z.string().optional(),
+    chatId: z.string().nullable().optional(),
     preferredLanguage: z.string().max(10).optional(),
 });
 
@@ -23,7 +23,7 @@ export const chatImageSchema = z.object({
     mimeType: z.string().min(1),
     message: z.string().max(4000),
     preferredLanguage: z.string().max(10).optional(),
-    chatId: z.string().optional(),
+    chatId: z.string().nullable().optional(),
 });
 
 export const createChatSchema = z.object({
