@@ -5,6 +5,33 @@
 
 var MathTutor = MathTutor || {};
 
+// ES3 shims for legacy browsers (IE6/IE7).
+if (!String.prototype.trim) {
+    String.prototype.trim = function () {
+        return this.replace(/^\s+|\s+$/g, "");
+    };
+}
+if (!Array.prototype.indexOf) {
+    Array.prototype.indexOf = function (needle) {
+        for (var i = 0; i < this.length; i++) {
+            if (this[i] === needle) {
+                return i;
+            }
+        }
+        return -1;
+    };
+}
+if (!Array.prototype.lastIndexOf) {
+    Array.prototype.lastIndexOf = function (needle) {
+        for (var i = this.length - 1; i >= 0; i--) {
+            if (this[i] === needle) {
+                return i;
+            }
+        }
+        return -1;
+    };
+}
+
 MathTutor.languages = [
     { code: "en", name: "English" },
     { code: "zh-hans", name: "\u6c49\u8bed" },
@@ -241,15 +268,25 @@ MathTutor.exportChat = function (messages, title, format) {
 };
 
 MathTutor.download = function (content, filename) {
-    var blob = new Blob([content], { type: "text/plain" });
-    var url = URL.createObjectURL(blob);
-    var a = document.createElement("a");
-    a.href = url;
-    a.download = filename;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    // Legacy-safe download: use a data URI if Blob/URL is unavailable (IE6/7).
+    if (typeof Blob !== "undefined" && window.URL && URL.createObjectURL) {
+        var blob = new Blob([content], { type: "text/plain" });
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement("a");
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    } else {
+        var win = window.open("", "_blank");
+        if (win) {
+            win.document.open();
+            win.document.write("<pre>" + MathTutor.escapeHtml(content) + "</pre>");
+            win.document.close();
+        }
+    }
 };
 
 function repeat(ch, n) {
