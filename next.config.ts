@@ -48,16 +48,18 @@ const nextConfig: NextConfig = {
         useCache: true,
     },
     async rewrites() {
-        return [
-            {
-                source: "/api/:path*",
-                destination: `${backendUrl}/api/:path*`,
-            },
-            {
-                source: "/legacy/:path*",
-                destination: `${backendUrl}/legacy/:path*`,
-            },
-        ];
+        return {
+            beforeFiles: [
+                {
+                    source: "/api/:path*",
+                    destination: `${backendUrl}/api/:path*`,
+                },
+                {
+                    source: "/legacy/:path*",
+                    destination: `${backendUrl}/legacy/:path*`,
+                },
+            ],
+        };
     },
     async headers() {
         return [
