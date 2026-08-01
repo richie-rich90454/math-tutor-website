@@ -1,7 +1,7 @@
 package com.mathtutor.controller;
 
 import com.mathtutor.dto.CreateChatRequest;
-import com.mathtutor.dto.JsonLike;
+import com.mathtutor.dto.JsonBody;
 import com.mathtutor.dto.UpdateChatRequest;
 import com.mathtutor.repo.ChatRepository;
 import com.mathtutor.repo.MessageRepository;
@@ -82,7 +82,7 @@ public class ChatsController {
             return unauthenticated();
         }
 
-        CreateChatRequest body = CreateChatRequest.parse(JsonLike.of(parseJson(rawBody)));
+        CreateChatRequest body = CreateChatRequest.parse(JsonBody.parse(rawBody));
         ChatRepository.ChatRecord chat = chats.createChat(
                 session.id(), body.title(), body.preview());
         return ResponseEntity.status(201).body(Map.of("chat", chat));
@@ -127,7 +127,7 @@ public class ChatsController {
             return ResponseEntity.status(403).body(Map.of("error", "Not authorized"));
         }
 
-        UpdateChatRequest body = UpdateChatRequest.parse(JsonLike.of(parseJson(rawBody)));
+        UpdateChatRequest body = UpdateChatRequest.parse(JsonBody.parse(rawBody));
         for (Map.Entry<String, Object> field : body.changedFields().entrySet()) {
             chats.updateChat(id, field.getKey(), field.getValue());
         }
@@ -165,13 +165,8 @@ public class ChatsController {
         return ResponseEntity.status(401).body(Map.of("error", "Not authenticated"));
     }
 
-    private com.fasterxml.jackson.databind.JsonNode parseJson(String raw) {
-        try {
-            return new com.fasterxml.jackson.databind.ObjectMapper().readTree(raw);
-        } catch (Exception e) {
-            throw new org.springframework.http.converter.HttpMessageNotReadableException(
-                    "Invalid JSON body");
-        }
+    private com.mathtutor.dto.JsonLike parseJson(String raw) {
+        return JsonBody.parse(raw);
     }
 
     private String readCookie(HttpServletRequest request, String name) {
