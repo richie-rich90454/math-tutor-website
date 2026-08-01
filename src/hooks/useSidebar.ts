@@ -70,7 +70,8 @@ export function useSidebar({ isOpen, onToggle, onChatSelect, onShowShortcuts }: 
     // ── GSAP width animation on narrow screens ────────────────────────────
     useEffect(() => {
         const wrapper = sidebarRef.current?.parentElement;
-        if (!wrapper || isLargeScreen) return;
+        // Only animate the desktop slide-in wrapper, never the mobile bottom sheet.
+        if (!wrapper || isLargeScreen || !wrapper.classList.contains("app-sidebar-wrapper")) return;
         gsap.to(wrapper, {
             width: isOpen ? 260 : 60,
             duration: 0.3,
