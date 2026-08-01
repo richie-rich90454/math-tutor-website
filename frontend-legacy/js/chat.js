@@ -651,7 +651,14 @@
     var pendingImageData = "";
     var pendingImageMime = "";
 
+    var hasFileReader = typeof FileReader !== "undefined";
+
     function handleImageSelect() {
+        if (!hasFileReader) {
+            // IE6 cannot read local files as data URLs; show a hint.
+            alert(MathTutor.t("inputAttachImage") + ": " + MathTutor.t("toastGenericError"));
+            return;
+        }
         var fileInput = el("imageInput");
         var file = fileInput.files && fileInput.files[0];
         if (!file) {
