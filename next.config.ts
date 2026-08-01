@@ -51,8 +51,16 @@ const nextConfig: NextConfig = {
         return {
             beforeFiles: [
                 {
-                    source: "/api/:path*",
-                    destination: `${backendUrl}/api/:path*`,
+                    source: "/api/auth/:path*",
+                    destination: `${backendUrl}/api/auth/:path*`,
+                },
+                {
+                    source: "/api/chats/:path*",
+                    destination: `${backendUrl}/api/chats/:path*`,
+                },
+                {
+                    source: "/api/progress",
+                    destination: `${backendUrl}/api/progress`,
                 },
                 {
                     source: "/legacy",
