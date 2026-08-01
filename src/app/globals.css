@@ -1786,6 +1786,30 @@ select,
     }
 }
 
+/* On touch/mobile render actions as a row under the bubble instead of floating over content */
+@media (hover: none) and (max-width: 768px) {
+    .msg-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+    .msg-actions {
+        order: 2;
+        position: static;
+        justify-content: flex-end;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        padding: 2px 0 0;
+        margin-bottom: 2px;
+    }
+    .message-bubble-assistant {
+        order: 1;
+    }
+    .message-time.is-left {
+        order: 3;
+    }
+}
+
 .msg-action-btn {
     display: flex;
     align-items: center;
