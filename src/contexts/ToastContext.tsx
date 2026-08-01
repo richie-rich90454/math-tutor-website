@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useState, useCallback, useRef, ReactNode } from "react";
 import gsap from "gsap";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export type ToastType = "success" | "error" | "warning" | "info";
 
@@ -22,6 +23,7 @@ const ToastContext = createContext<ToastContextType | undefined>(undefined);
 let toastId = 0;
 
 export function ToastProvider({ children }: { children: ReactNode }) {
+    const { t } = useLanguage();
     const [toasts, setToasts] = useState<Toast[]>([]);
     const toastRefs = useRef<Map<string, HTMLDivElement>>(new Map());
 
@@ -110,7 +112,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
                         <button
                             className="toast-close"
                             onClick={() => removeToast(toast.id)}
-                            aria-label="Close"
+                            aria-label={t("a11yClose")}
                         >
                             <svg
                                 width="14"
