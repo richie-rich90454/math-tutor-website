@@ -16,7 +16,8 @@ public class SchemaInitializer {
         this.jdbc = jdbc;
     }
 
-    private static final String INITIAL_SCHEMA = """
+    private static final List<String> INITIAL_SCHEMA = List.of(
+            """
             CREATE TABLE IF NOT EXISTS users (
                 id TEXT PRIMARY KEY,
                 email TEXT UNIQUE NOT NULL,
@@ -27,16 +28,18 @@ public class SchemaInitializer {
                 math_level TEXT DEFAULT 'intermediate',
                 created_at TEXT DEFAULT (datetime('now')),
                 updated_at TEXT DEFAULT (datetime('now'))
-            );
-
+            )
+            """,
+            """
             CREATE TABLE IF NOT EXISTS sessions (
                 id TEXT PRIMARY KEY,
                 user_id TEXT NOT NULL REFERENCES users(id),
                 token TEXT UNIQUE NOT NULL,
                 expires_at TEXT NOT NULL,
                 created_at TEXT DEFAULT (datetime('now'))
-            );
-
+            )
+            """,
+            """
             CREATE TABLE IF NOT EXISTS chat_sessions (
                 id TEXT PRIMARY KEY,
                 user_id TEXT NOT NULL REFERENCES users(id),
@@ -47,8 +50,9 @@ public class SchemaInitializer {
                 is_pinned INTEGER DEFAULT 0,
                 created_at TEXT DEFAULT (datetime('now')),
                 updated_at TEXT DEFAULT (datetime('now'))
-            );
-
+            )
+            """,
+            """
             CREATE TABLE IF NOT EXISTS chat_messages (
                 id TEXT PRIMARY KEY,
                 chat_session_id TEXT NOT NULL REFERENCES chat_sessions(id) ON DELETE CASCADE,
@@ -56,8 +60,9 @@ public class SchemaInitializer {
                 content TEXT NOT NULL,
                 token_count INTEGER DEFAULT 0,
                 created_at TEXT DEFAULT (datetime('now'))
-            );
-
+            )
+            """,
+            """
             CREATE TABLE IF NOT EXISTS usage_logs (
                 id TEXT PRIMARY KEY,
                 user_id TEXT NOT NULL REFERENCES users(id),
@@ -66,8 +71,9 @@ public class SchemaInitializer {
                 response_tokens INTEGER DEFAULT 0,
                 model TEXT DEFAULT 'deepseek-v4-flash',
                 created_at TEXT DEFAULT (datetime('now'))
-            );
-
+            )
+            """,
+            """
             CREATE TABLE IF NOT EXISTS user_preferences (
                 user_id TEXT PRIMARY KEY REFERENCES users(id),
                 theme TEXT DEFAULT 'system',
@@ -76,17 +82,17 @@ public class SchemaInitializer {
                 sound_enabled INTEGER DEFAULT 1,
                 keyboard_shortcuts_enabled INTEGER DEFAULT 1,
                 animations_enabled INTEGER DEFAULT 1
-            );
+            )
+            """,
+            "CREATE INDEX IF NOT EXISTS idx_sessions_token ON sessions(token)",
+            "CREATE INDEX IF NOT EXISTS idx_sessions_user_id ON sessions(user_id)",
+            "CREATE INDEX IF NOT EXISTS idx_chat_sessions_user_id ON chat_sessions(user_id)",
+            "CREATE INDEX IF NOT EXISTS idx_chat_messages_chat_session_id ON chat_messages(chat_session_id)",
+            "CREATE INDEX IF NOT EXISTS idx_usage_logs_user_id ON usage_logs(user_id)",
+            "CREATE INDEX IF NOT EXISTS idx_usage_logs_created_at ON usage_logs(created_at)");
 
-            CREATE INDEX IF NOT EXISTS idx_sessions_token ON sessions(token);
-            CREATE INDEX IF NOT EXISTS idx_sessions_user_id ON sessions(user_id);
-            CREATE INDEX IF NOT EXISTS idx_chat_sessions_user_id ON chat_sessions(user_id);
-            CREATE INDEX IF NOT EXISTS idx_chat_messages_chat_session_id ON chat_messages(chat_session_id);
-            CREATE INDEX IF NOT EXISTS idx_usage_logs_user_id ON usage_logs(user_id);
-            CREATE INDEX IF NOT EXISTS idx_usage_logs_created_at ON usage_logs(created_at);
-            """;
-
-    private static final String ADD_TOPIC_COLUMN = "ALTER TABLE chat_sessions ADD COLUMN topic TEXT";
+    private static final String ADD_TOPIC_COLUMN =
+            "ALTER TABLE chat_sessions ADD COLUMN topic TEXT";
 
     @PostConstruct
     public void initialize() {
@@ -104,7 +110,9 @@ public class SchemaInitializer {
         Set<Integer> applied = applyVersions();
 
         if (!applied.contains(1)) {
-            jdbc.execute(INITIAL_SCHEMA);
+            for (String statement : INITIAL_SCHEMA) {
+                jdbc.execute(statement);
+            }
             recordMigration(1, "initial_schema");
         }
 
