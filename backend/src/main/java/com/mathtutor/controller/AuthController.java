@@ -1,7 +1,7 @@
 package com.mathtutor.controller;
 
 import com.mathtutor.dto.CreateChatRequest;
-import com.mathtutor.dto.JsonLike;
+import com.mathtutor.dto.JsonBody;
 import com.mathtutor.dto.LoginRequest;
 import com.mathtutor.dto.SignupRequest;
 import com.mathtutor.service.AuthService;
@@ -52,7 +52,7 @@ public class AuthController {
             return tooManyRequests(rl);
         }
 
-        SignupRequest body = SignupRequest.parse(JsonLike.of(parseJson(rawBody)));
+        SignupRequest body = SignupRequest.parse(JsonBody.parse(rawBody));
 
         AuthService.AuthResult result;
         try {
@@ -79,7 +79,7 @@ public class AuthController {
             return tooManyRequests(rl);
         }
 
-        LoginRequest body = LoginRequest.parse(JsonLike.of(parseJson(rawBody)));
+        LoginRequest body = LoginRequest.parse(JsonBody.parse(rawBody));
 
         boolean remember = body.remember() != null && body.remember();
         var result = authService.login(body.email(), body.password(), remember);
@@ -161,15 +161,6 @@ public class AuthController {
             return realIp;
         }
         return "unknown";
-    }
-
-    private com.fasterxml.jackson.databind.JsonNode parseJson(String raw) {
-        try {
-            return new com.fasterxml.jackson.databind.ObjectMapper().readTree(raw);
-        } catch (Exception e) {
-            throw new org.springframework.http.converter.HttpMessageNotReadableException(
-                    "Invalid JSON body");
-        }
     }
 
     private String readCookie(HttpServletRequest request, String name) {
