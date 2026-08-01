@@ -49,3 +49,63 @@ next-env.d.ts
 
 .trae
 AGENTS.md
+
+# --- Secrets and configuration containing secrets ---
+.env
+.env.local
+.env.production
+.env.development
+.env.*.local
+*.env
+application.properties
+application-*.properties
+application.yml
+application-*.yml
+application.yaml
+application-*.yaml
+*.p12
+*.jks
+*.key
+*.pfx
+*.crt
+*.cer
+id_rsa
+id_ed25519
+*.secret
+secrets/
+
+# --- Java / Maven / Gradle build artifacts ---
+target/
+*.class
+*.war
+*.ear
+.gradle/
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.properties
+build/
+
+# --- Logs ---
+*.log
+logs/
+
+# --- IDE and editor files ---
+.idea/
+*.iml
+.vscode/*
+!.vscode/settings.json
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# --- OS files ---
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# --- Temporary files ---
+*.tmp
+*.temp
