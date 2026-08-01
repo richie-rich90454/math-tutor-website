@@ -99,6 +99,10 @@ MathTutor.applyLang = function (lang) {
         if (key && table[key] !== undefined) {
             el.textContent = table[key];
         }
+        var phKey = el.getAttribute && el.getAttribute("data-i18n-placeholder");
+        if (phKey && table[phKey] !== undefined) {
+            el.setAttribute("placeholder", table[phKey]);
+        }
     }
     if (lang === "ar" || lang === "he") {
         document.body.dir = "rtl";
