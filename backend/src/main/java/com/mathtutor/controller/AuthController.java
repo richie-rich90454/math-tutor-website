@@ -122,16 +122,6 @@ public class AuthController {
         return ResponseEntity.ok(Map.of("user", session.get()));
     }
 
-    @GetMapping("/token")
-    public ResponseEntity<?> token(HttpServletRequest request) {
-        String token = readCookie(request, SESSION_COOKIE);
-        var session = sessionService.getSession(token);
-        if (session.isEmpty()) {
-            return ResponseEntity.status(401).body(Map.of("error", "Not authenticated"));
-        }
-        return ResponseEntity.ok(Map.of("token", token));
-    }
-
     private Map<String, Object> userPayload(AuthService.AuthResult result) {
         Map<String, Object> user = new LinkedHashMap<>();
         user.put("id", result.user().id());
