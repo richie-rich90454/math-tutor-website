@@ -6,7 +6,7 @@ import { useChat } from "@/contexts/ChatContext";
 import { useToast } from "@/contexts/ToastContext";
 import { exportChatAsMarkdown, exportChatAsText, downloadFile } from "@/lib/export";
 import { announcePolite } from "@/lib/aria-live";
-import { apiFetch } from "@/lib/api-client";
+import { apiFetch, apiStreamFetch } from "@/lib/api-client";
 
 export function useChatMessages() {
     const { t, currentLanguage } = useLanguage();
@@ -113,7 +113,7 @@ export function useChatMessages() {
             const timeoutId = setTimeout(() => controller.abort(), 30_000);
 
             try {
-                const response = await apiFetch("/api/chat/message", {
+                const response = await apiStreamFetch("/api/chat/message", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
@@ -234,7 +234,7 @@ export function useChatMessages() {
         const timeoutId = setTimeout(() => controller.abort(), 30_000);
 
         try {
-            const response = await apiFetch("/api/chat/image", {
+            const response = await apiStreamFetch("/api/chat/image", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
