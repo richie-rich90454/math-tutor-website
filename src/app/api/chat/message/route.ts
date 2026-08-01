@@ -6,8 +6,6 @@ const BACKEND_URL = (
     "http://localhost:8080"
 ).replace(/\/$/, "");
 
-export const runtime = "nodejs";
-
 export async function POST(request: NextRequest) {
     const body = await request.text();
     const cookie = request.headers.get("cookie") || "";
