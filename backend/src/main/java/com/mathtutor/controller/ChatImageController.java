@@ -9,18 +9,16 @@ import com.mathtutor.service.SessionService;
 import com.mathtutor.service.VisionChatService;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBody;
 
 import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/api/chat")
@@ -45,34 +43,28 @@ public class ChatImageController {
     }
 
     @PostMapping(value = "/image", produces = MediaType.TEXT_PLAIN_VALUE)
-    public ResponseEntity<StreamingResponseBody> analyzeImage(
+    public void analyzeImage(
             @RequestBody String rawBody,
-            HttpServletRequest request) {
+            HttpServletRequest request,
+            HttpServletResponse response) throws IOException {
         String token = resolveToken(request);
         var session = sessionService.getSession(token);
         if (session.isEmpty()) {
-            return ResponseEntity.status(401)
-                    .contentType(MediaType.APPLICATION_JSON)
-                    .body(out -> out.write(
-                            "{\"error\":\"Please sign in to chat\"}".getBytes(StandardCharsets.UTF_8)));
+            writeJson(response, 401, "{\"error\":\"Please sign in to chat\"}");
+            return;
         }
 
         String ip = clientIp(request);
         RateLimitService.RateLimitResult rl = rateLimit.check("image:" + ip, 10, 60 * 1000);
         if (!rl.allowed()) {
-            return ResponseEntity.status(429)
-                    .header("Retry-After", "60")
-                    .contentType(MediaType.APPLICATION_JSON)
-                    .body(out -> out.write(
-                            "{\"error\":\"Too many requests. Please wait a moment.\"}"
-                                    .getBytes(StandardCharsets.UTF_8)));
+            response.setHeader("Retry-After", "60");
+            writeJson(response, 429, "{\"error\":\"Too many requests. Please wait a moment.\"}");
+            return;
         }
 
         if (props.ai().apiKey() == null || props.ai().apiKey().isBlank()) {
-            return ResponseEntity.status(500)
-                    .contentType(MediaType.APPLICATION_JSON)
-                    .body(out -> out.write(
-                            "{\"error\":\"Vision API not configured\"}".getBytes(StandardCharsets.UTF_8)));
+            writeJson(response, 500, "{\"error\":\"Vision API not configured\"}");
+            return;
         }
 
         ChatImageRequest body = ChatImageRequest.parse(JsonBody.parse(rawBody));
@@ -85,37 +77,39 @@ public class ChatImageController {
                     body.message(),
                     body.chatId());
         } catch (IOException e) {
-            return ResponseEntity.status(500)
-                    .contentType(MediaType.APPLICATION_JSON)
-                    .body(out -> out.write(
-                            ("{\"error\":\"" + escapeJson(e.getMessage()) + "\"}")
-                                    .getBytes(StandardCharsets.UTF_8)));
+            writeJson(response, 500,
+                    "{\"error\":\"" + escapeJson(e.getMessage()) + "\"}");
+            return;
         }
 
         String activeChatId = setup.activeChatId();
         AiClient.AiStream stream = setup.stream();
         String userId = session.get().id();
 
-        StreamingResponseBody responseBody = outputStream -> {
-            StringBuilder fullResponse = new StringBuilder();
-            try (stream) {
-                String chunk;
-                while ((chunk = stream.next()) != null) {
-                    fullResponse.append(chunk);
-                    outputStream.write(chunk.getBytes(StandardCharsets.UTF_8));
-                    outputStream.flush();
-                }
-            } finally {
-                visionChatService.saveAssistantMessage(activeChatId, userId, fullResponse.toString());
-            }
-        };
+        response.setStatus(200);
+        response.setContentType("text/plain; charset=utf-8");
+        response.setHeader("Cache-Control", "no-cache, no-transform");
+        response.setHeader("X-Accel-Buffering", "no");
+        response.setHeader("X-Chat-Id", activeChatId);
 
-        return ResponseEntity.ok()
-                .contentType(MediaType.parseMediaType("text/plain; charset=utf-8"))
-                .header("Cache-Control", "no-cache, no-transform")
-                .header("X-Accel-Buffering", "no")
-                .header("X-Chat-Id", activeChatId)
-                .body(responseBody);
+        OutputStream outputStream = response.getOutputStream();
+        StringBuilder fullResponse = new StringBuilder();
+        try (stream) {
+            String chunk;
+            while ((chunk = stream.next()) != null) {
+                fullResponse.append(chunk);
+                outputStream.write(chunk.getBytes(StandardCharsets.UTF_8));
+                outputStream.flush();
+            }
+        } finally {
+            visionChatService.saveAssistantMessage(activeChatId, userId, fullResponse.toString());
+        }
+    }
+
+    private void writeJson(HttpServletResponse response, int status, String json) throws IOException {
+        response.setStatus(status);
+        response.setContentType("application/json");
+        response.getOutputStream().write(json.getBytes(StandardCharsets.UTF_8));
     }
 
     private String clientIp(HttpServletRequest request) {
