@@ -2,127 +2,143 @@
 
 AI-powered math education platform that adapts to students' cultural backgrounds and native languages. This interactive tutor provides personalized math instruction with real-time chat, multi-language support, and culturally relevant examples.
 
-> **Migration status:** This project is currently a monolithic Next.js application. It is being migrated to a Spring Boot backend with two independent frontends (a modern Next.js client and an IE6-compatible legacy client). See the migration plan for details.
+## Architecture
+
+MathTutor AI has been migrated from a monolithic Next.js application into three independent components:
+
+```
+┌─────────────────────┐      ┌──────────────────────────────┐
+│  Modern Next.js 16  │      │  Legacy IE6 Client          │
+│  Client (React 19)  │      │  (jQuery 1.12.4, IE6-safe)  │
+│  / (this repo root) │      │  /frontend-legacy           │
+└──────────┬──────────┘      └──────────────┬───────────────┘
+           │ browser API calls              │ same-origin /legacy/**
+           ▼                                ▼
+┌─────────────────────────────────────────────────────────────┐
+│                 Spring Boot 4.1 Backend                    │
+│                 /backend (Maven, Java 25)                  │
+│  • POST /api/auth/{signup,login,logout}  • GET /api/auth/me│
+│  • POST /api/chat/message (streaming)                      │
+│  • POST /api/chat/image   (vision, streaming)              │
+│  • GET/POST /api/chats, GET/PATCH/DELETE /api/chats/{id}   │
+│  • GET /api/progress                                       │
+│  • GET /legacy/**   (serves the IE6 client static files)   │
+└──────────────┬───────────────────────┬─────────────────────┘
+               ▼                       ▼
+┌───────────────────────┐  ┌──────────────────────────────┐
+│  OpenAI-compatible AI │  │  SQLite (better-sqlite3 /    │
+│  API (DeepSeek), SSE  │  │  xerial sqlite-jdbc)         │
+└───────────────────────┘  └──────────────────────────────┘
+```
+
+### Components
+
+| Component | Location | Stack | Port |
+| --- | --- | --- | --- |
+| Modern client | repository root | Next.js 16, React 19, Tailwind CSS, GSAP | 3000 |
+| Legacy client | `frontend-legacy/` | jQuery 1.12.4, ES3, IE6-compatible | served by backend at `/legacy/**` |
+| Backend | `backend/` | Spring Boot 4.1, Java 25, Maven, SQLite | 8080 |
+
+The two frontends provide **identical functionality** (auth, streaming chat,
+chat history, image analysis, progress, settings, 12 languages, RTL, export).
+They differ only in the UI layer.
 
 ## Features
 
 - **AI-Powered Tutoring**: Real-time streaming chat with an OpenAI-compatible API (DeepSeek)
 - **Multi-Language Support**: English, Simplified/Traditional Chinese, Mongolian (Cyrillic & script), Tibetan, Spanish, French, German, Japanese, Arabic, Hebrew
 - **Subject Coverage**: Arithmetic, algebra, geometry, calculus, trigonometry, statistics, and more
-- **Personalized Learning**: Adaptive explanations based on student level
-- **Interactive Chat**: Streamed responses with markdown and LaTeX rendering
+- **Interactive Chat**: Streamed responses with markdown and LaTeX rendering (modern); safe plain-text rendering (legacy)
 - **Image Analysis**: Attach a photo of a math problem for AI analysis
-- **Modern UI**: Clean, responsive interface with Tailwind CSS and GSAP animations
 - **Session Management**: Save, resume, rename, pin, search, and delete chat conversations
 - **Progress Tracking**: Built-in analytics for learning progress
 - **Authentication**: Email/password sign-up and sign-in with JWT-based sessions
 - **Dark/Light Theme**: System-aware theme with manual override
-
-## Architecture (current)
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    Frontend (Next.js 16)                    │
-│  ┌─────────────┐  ┌─────────────┐  ┌───────────────────┐    │
-│  │   Pages     │  │ Components  │  │   Context/State   │    │
-│  │ (App Router)│  │  (React 19) │  │   (React Hooks)   │    │
-│  └─────────────┘  └─────────────┘  └───────────────────┘    │
-└─────────────────────────────────────────────────────────────┘
-                              │
-                              ▼
-┌─────────────────────────────────────────────────────────────┐
-│               Backend API (Next.js API Routes)              │
-│  • /api/auth/{login,signup,logout,me}                       │
-│  • /api/chat/message (streaming)                            │
-│  • /api/chat/image   (vision analysis, streaming)           │
-│  • /api/chats, /api/chats/[id]                              │
-│  • /api/progress                                            │
-└─────────────────────────────────────────────────────────────┘
-                              │
-                              ▼
-┌─────────────────────────────────────────────────────────────┐
-│                    External Services                        │
-│  ┌─────────────┐  ┌──────────────────┐  ┌──────────────┐    │
-│  │   OpenAI-   │  │  SQLite          │  │   (Hosting)  │    │
-│  │  compatible │  │  (better-sqlite3)│  │              │    │
-│  │  API        │  │  local file DB   │  │              │    │
-│  └─────────────┘  └──────────────────┘  └──────────────┘    │
-└─────────────────────────────────────────────────────────────┘
-```
-
-## Tech Stack
-
-- **Frontend Framework**: Next.js 16 (App Router) with TypeScript
-- **UI Library**: React 19 with Tailwind CSS
-- **Backend**: Next.js API Routes (Node runtime)
-- **AI Integration**: OpenAI-compatible API (DeepSeek), streaming via SSE
-- **Database**: SQLite via better-sqlite3, WAL mode, file at `./data/math-tutor.db`
-- **Auth**: Custom JWT (HS256) + sessions table; PBKDF2-SHA256 password hashing
-- **Code Quality**: ESLint, TypeScript, Vitest
+- **IE6 Support**: Full-featured legacy client for old browsers
 
 ## Getting Started
 
 ### Prerequisites
 
 - Node.js 20+ and npm
+- Java 25 (JDK) and Maven 3.9+
 - An OpenAI-compatible API key (for AI functionality)
 
-### Installation
+### 1. Backend (Spring Boot)
 
-1. **Clone the repository**
+```bash
+cd backend
+cp src/main/resources/application.properties.example src/main/resources/application.properties
+# set env vars (or edit application.properties placeholders)
+export SESSION_SECRET="$(openssl rand -base64 32)"
+export OPENAI_COMPATIBLE_API_KEY=your_api_key_here
+mvn spring-boot:run
+```
 
-    ```bash
-    git clone https://github.com/richie-rich90454/math-tutor-website.git
-    cd math-tutor-website
-    ```
+The backend listens on `http://localhost:8080` and also serves the legacy
+client at `http://localhost:8080/legacy/`.
 
-2. **Install dependencies**
+### 2. Modern Client (Next.js)
 
-    ```bash
-    npm install
-    ```
+```bash
+cd <repo root>
+cp .env.example .env
+# set NEXT_PUBLIC_API_BASE_URL to point at the backend
+npm install
+npm run dev
+```
 
-3. **Set up environment variables**
+Open [http://localhost:3000](http://localhost:3000).
 
-    ```bash
-    cp .env.example .env
-    ```
+### 3. Legacy Client (IE6)
 
-    Edit `.env` and add your API key:
+No build step. When the backend runs with the default
+`LEGACY_STATIC_DIR=../frontend-legacy`, open:
 
-    ```
-    OPENAI_COMPATIBLE_API_KEY=your_api_key_here
-    OPENAI_COMPATIBLE_BASE_URL=https://api.deepseek.com
-    OPENAI_COMPATIBLE_MODEL=deepseek-v4-flash
-    ```
+[http://localhost:8080/legacy/](http://localhost:8080/legacy/)
 
-4. **Run the development server**
-
-    ```bash
-    npm run dev
-    ```
-
-5. **Open your browser**
-   Navigate to [http://localhost:3000](http://localhost:3000)
+The legacy client can also be served as static files by any web server; set
+`API_BASE_URL` in `frontend-legacy/js/config.js` if the backend is hosted
+separately. See `frontend-legacy/README.md` for details.
 
 ## Environment Variables
 
-Create a `.env` file in the root directory with the following variables:
+### Modern client (`.env`)
 
 | Variable                        | Description                                | Required | Default                     |
 | ------------------------------- | ------------------------------------------ | -------- | --------------------------- |
-| `OPENAI_COMPATIBLE_API_KEY`     | Your OpenAI-compatible API key             | Yes      | -                           |
-| `OPENAI_COMPATIBLE_BASE_URL`    | OpenAI-compatible API base URL             | No       | `https://api.deepseek.com`  |
+| `OPENAI_COMPATIBLE_API_KEY`     | AI API key (used by legacy Next.js routes) | No*      | -                           |
+| `OPENAI_COMPATIBLE_BASE_URL`    | AI API base URL                            | No       | `https://api.deepseek.com`  |
 | `OPENAI_COMPATIBLE_MODEL`       | Model to use                               | No       | `deepseek-v4-flash`         |
-| `OPENAI_COMPATIBLE_VISION_MODEL`| Vision-capable model for image analysis    | No       | falls back to MODEL         |
-| `SESSION_SECRET`                | JWT signing secret (>= 256 bits)           | Yes      | -                           |
-| `DATABASE_PATH`                 | Path to the SQLite database file           | No       | `./data/math-tutor.db`      |
-| `NEXT_PUBLIC_SITE_URL`          | Public URL of the application              | No       | `https://math-tutor.ai`     |
+| `SESSION_SECRET`                | JWT signing secret (legacy routes)         | No*      | -                           |
+| `DATABASE_PATH`                 | SQLite path (legacy routes)                | No       | `./data/math-tutor.db`      |
+| `NEXT_PUBLIC_API_BASE_URL`      | Spring Boot backend URL                    | Yes      | empty (same origin)         |
+| `NEXT_PUBLIC_SITE_URL`          | Public URL for SEO                         | No       | `https://math-tutor.ai`     |
 | `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` | Google Search Console token         | No       | -                           |
+
+\* Only required when `NEXT_PUBLIC_API_BASE_URL` is empty (client uses the
+built-in Next.js API routes).
+
+### Backend (`application.properties` / env)
+
+| Variable                        | Description                                | Required | Default                     |
+| ------------------------------- | ------------------------------------------ | -------- | --------------------------- |
+| `SESSION_SECRET`                | JWT signing secret (>= 256 bits)           | Yes      | -                           |
+| `OPENAI_COMPATIBLE_API_KEY`     | OpenAI-compatible API key                  | Yes      | -                           |
+| `OPENAI_COMPATIBLE_BASE_URL`    | AI API base URL                            | No       | `https://api.deepseek.com`  |
+| `OPENAI_COMPATIBLE_MODEL`       | Chat model                                 | No       | `deepseek-v4-flash`         |
+| `OPENAI_COMPATIBLE_VISION_MODEL`| Vision model                               | No       | falls back to MODEL         |
+| `DATABASE_PATH`                 | SQLite database file                       | No       | `./data/math-tutor.db`      |
+| `SERVER_PORT`                   | HTTP port                                  | No       | `8080`                      |
+| `CORS_ALLOWED_ORIGINS`          | Comma-separated allowed origins            | No       | `http://localhost:3000`     |
+| `LEGACY_STATIC_DIR`             | Filesystem dir served at `/legacy/**`      | No       | `../frontend-legacy`        |
+| `PROMPTS_CLASSPATH_DIR`         | Classpath dir with prompt-*.txt files      | No       | `prompts`                   |
 
 ## API Documentation
 
-All endpoints require authentication (except `POST /api/auth/login` and `POST /api/auth/signup`). Authentication uses an `HttpOnly` cookie named `session_token`.
+All endpoints require authentication (except `POST /api/auth/login` and
+`POST /api/auth/signup`). Authentication uses an `HttpOnly` cookie named
+`session_token`.
 
 ### Auth
 
@@ -133,73 +149,14 @@ All endpoints require authentication (except `POST /api/auth/login` and `POST /a
 | POST   | `/api/auth/logout`        | Sign out / revoke session            |
 | GET    | `/api/auth/me`            | Get the current session user         |
 
-**Request Body (signup):**
+### Chat
 
-```json
-{
-    "name": "Jane Doe",
-    "email": "jane@example.com",
-    "password": "super-secret-password"
-}
-```
+| Method | Endpoint          | Description                                   |
+| ------ | ----------------- | --------------------------------------------- |
+| POST   | `/api/chat/message` | Streamed AI response (`text/plain`, `X-Chat-Id`) |
+| POST   | `/api/chat/image`   | Streamed vision response (base64 image)         |
 
-**Request Body (login):**
-
-```json
-{
-    "email": "jane@example.com",
-    "password": "super-secret-password",
-    "remember": true
-}
-```
-
-### Chat Endpoint
-
-**POST** `/api/chat/message`
-
-Send a message to the AI math tutor and receive a streamed response.
-
-**Request Body:**
-
-```json
-{
-    "message": "Explain the Pythagorean theorem",
-    "preferredLanguage": "en",
-    "chatId": null
-}
-```
-
-**Parameters:**
-
-- `message` (string): The user's question or message (1-4000 chars)
-- `preferredLanguage` (string): Language code (e.g. `en`, `zh-hans`, `mn-cyrl`)
-- `chatId` (string | null): Existing chat to continue, or `null` for a new chat
-
-**Response:**
-
-- Streamed plain-text response with markdown and LaTeX formatting
-- Content-Type: `text/plain; charset=utf-8`
-- Header `X-Chat-Id`: the active chat id (new chats return a freshly generated id)
-
-### Image Chat Endpoint
-
-**POST** `/api/chat/image`
-
-Send a message with a base64-encoded image for AI analysis.
-
-**Request Body:**
-
-```json
-{
-    "image": "data:image/png;base64,...",
-    "mimeType": "image/png",
-    "message": "Solve this problem",
-    "preferredLanguage": "en",
-    "chatId": null
-}
-```
-
-### Chats Endpoint
+### Chats
 
 | Method | Endpoint         | Description                               |
 | ------ | ---------------- | ----------------------------------------- |
@@ -209,107 +166,90 @@ Send a message with a base64-encoded image for AI analysis.
 | PATCH  | `/api/chats/:id` | Update title/preview/topic/pin/archive    |
 | DELETE | `/api/chats/:id` | Delete a chat                             |
 
-### Progress Endpoint
+### Progress
 
 | Method | Endpoint      | Description                             |
 | ------ | ------------- | --------------------------------------- |
-| GET    | `/api/progress` | Aggregated user stats, topics, streaks |
+| GET    | `/api/progress` | Aggregated stats, topics, streaks      |
 
-## Development
-
-### Project Structure
+## Project Structure
 
 ```
 math-tutor-website/
-├── src/
-│   ├── app/                    # Next.js App Router
-│   │   ├── api/               # API routes (auth, chat, chats, progress)
-│   │   ├── (auth)/            # Login and signup pages
-│   │   ├── progress/          # Progress page
-│   │   ├── settings/          # Settings page
-│   │   ├── topics/[topic]/    # Topic pages
-│   │   ├── globals.css        # Global styles
-│   │   ├── layout.tsx         # Root layout
-│   │   └── page.tsx           # Home (chat) page
-│   ├── components/           # React components
-│   │   ├── chat/            # Chat interface components
-│   │   ├── sidebar/         # Sidebar components
-│   │   └── ui/              # UI components
-│   ├── contexts/            # React contexts
-│   │   ├── context_json/    # Mongolian/Tibetan math concept data
-│   ├── hooks/               # Custom hooks (useChatMessages, useChatUI, useSidebar)
-│   ├── lib/                 # Utility libraries
-│   │   ├── ai/              # AI client, prompts, context building
-│   │   ├── db/              # SQLite data access (users, sessions, chats, messages, usage)
-│   │   └── ...
-│   └── types/               # TypeScript type definitions
-├── data/                     # SQLite database (gitignored)
-├── public/                   # Static assets
-└── ...config files
+├── backend/                 # Spring Boot 4.1 API (Java 25, Maven)
+│   ├── src/main/java/com/mathtutor/
+│   │   ├── controller/     # Auth, Chats, ChatMessage, ChatImage, Progress
+│   │   ├── service/        # Business logic, AI client, rate limiting, prompts
+│   │   ├── repo/           # SQLite data access
+│   │   ├── security/       # JWT, password hashing, session resolution
+│   │   ├── config/         # App properties, DB, web/CORS, schema init
+│   │   ├── dto/            # Request records + validation
+│   │   └── web/            # Global exception handling
+│   └── src/main/resources/ # application.properties(.example), prompts/
+├── frontend-legacy/         # IE6-compatible client (jQuery 1.12.4)
+├── scripts/                 # Build helpers (legacy i18n generator)
+├── src/                     # Modern Next.js 16 client
+├── data/                    # SQLite databases (gitignored)
+└── docs/                    # Migration analysis
 ```
 
-### Available Scripts
+## Development
 
-- `npm run dev` - Start development server with Turbopack
-- `npm run build` - Build for production
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint
-- `npm run typecheck` - Run TypeScript type checking
-- `npm run test` - Run Vitest unit tests
+### Backend
+
+```bash
+cd backend
+mvn test          # run unit tests
+mvn package       # build the boot jar
+java -jar target/math-tutor-backend-1.0.0.jar
+```
+
+### Modern client
+
+```bash
+npm run dev       # dev server (Turbopack)
+npm run build     # production build
+npm run start     # production server
+npm run lint      # ESLint
+npm run typecheck # TypeScript type checking
+npm run test      # Vitest unit tests
+```
+
+### Legacy client
+
+No build step. Regenerate translations from the modern client with:
+
+```bash
+node scripts/generate-legacy-i18n.js
+```
 
 ### Adding New Languages
 
-1. Add a system prompt file in `src/app/api/chat/prompts/` named `prompt-<code>.txt`
-2. Register the file in `LANGUAGE_FILE_MAP` in `src/lib/ai/prompts.ts`
+1. Add a system prompt file in `backend/src/main/resources/prompts/` and
+   `src/app/api/chat/prompts/` named `prompt-<code>.txt`
+2. Register the file in `PromptService.LANGUAGE_FILE_MAP` and
+   `src/lib/ai/prompts.ts`
 3. Add translation keys to `src/lib/translations.ts`
-4. Add the language to the `languages` array in `src/contexts/LanguageContext.tsx`
+4. Regenerate the legacy client translations (see above)
+5. Add the language to the language list in both frontends
 
-## Deployment
+## Migration Notes
 
-### Deploy to Vercel
-
-1. Push your code to GitHub/GitLab/Bitbucket
-2. Import your repository to Vercel
-3. Add environment variables in Vercel project settings
-4. Deploy!
-
-Note: the SQLite database file is local to the server instance and is not shared across serverless function invocations. For production scale, use a managed database or a persistent volume.
-
-## Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-### Development Guidelines
-
-- Follow TypeScript best practices
-- Use Tailwind CSS for styling
-- Write meaningful commit messages
-- Add tests for new features
-- Update documentation as needed
+The migration from the monolithic Next.js app to the Spring Boot backend +
+two frontends is documented in `docs/phase-0-analysis.md`. The modern client
+retains the built-in Next.js API routes as a fallback when
+`NEXT_PUBLIC_API_BASE_URL` is empty; when set, all API calls route to the
+Spring Boot backend.
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- [OpenAI](https://openai.com) for the AI API
-- [DeepSeek](https://deepseek.com) for the OpenAI-compatible API used by default
-- [Next.js](https://nextjs.org) for the React framework
-- [Tailwind CSS](https://tailwindcss.com) for styling utilities
 
 ## Support
 
 For questions, issues, or feature requests:
 
 - Open an issue on [GitHub](https://github.com/richie-rich90454/math-tutor-website/issues)
-- Check the [discussions](https://github.com/richie-rich90454/math-tutor-website/discussions) page
 
 ---
 
