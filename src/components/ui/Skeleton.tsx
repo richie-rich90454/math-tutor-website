@@ -1,5 +1,7 @@
 "use client";
 
+import { useLanguage } from "@/contexts/LanguageContext";
+
 interface SkeletonProps {
     className?: string;
     width?: string;
@@ -13,6 +15,7 @@ export default function Skeleton({
     height,
     variant = "text",
 }: SkeletonProps) {
+    const { t } = useLanguage();
     const classes = [
         "skeleton",
         variant === "circle" ? "skeleton-circle" : "",
@@ -26,5 +29,5 @@ export default function Skeleton({
     if (width) style.width = width;
     if (height) style.height = height;
 
-    return <div className={classes} style={style} role="status" aria-label="Loading..." />;
+    return <div className={classes} style={style} role="status" aria-label={t("loading")} />;
 }
