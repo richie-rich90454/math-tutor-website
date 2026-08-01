@@ -62,7 +62,7 @@ html,body{height:100%;}
 .sidebar-cell a{color:#ccc;}
 .sidebar-inner{padding:8px;}
 .sidebar-section{margin-bottom:10px;}
-.sidebar-list{list-style:none;margin:0;padding:0;max-height:300px;overflow-y:auto;}
+.sidebar-list{list-style:none;margin:0;padding:0;height:300px;overflow:auto;}
 .sidebar-list li{border-bottom:1px solid #222;padding:6px 4px;}
 .sidebar-list li:hover{background:#222;}
 .sidebar-chat-title{display:block;font-weight:bold;overflow:hidden;}
