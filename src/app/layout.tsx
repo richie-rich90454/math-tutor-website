@@ -320,17 +320,17 @@ export default function RootLayout({
                 `,
                     }}
                 />
-                <ToastProvider>
-                    <AuthProvider>
-                        <LanguageProvider>
+                <LanguageProvider>
+                    <ToastProvider>
+                        <AuthProvider>
                             <HtmlAttributes />
                             <SkipLink />
                             <ConceptProvider>
                                 <ChatProvider>{children}</ChatProvider>
                             </ConceptProvider>
-                        </LanguageProvider>
-                    </AuthProvider>
-                </ToastProvider>
+                        </AuthProvider>
+                    </ToastProvider>
+                </LanguageProvider>
             </body>
         </html>
     );
