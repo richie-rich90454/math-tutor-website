@@ -211,14 +211,14 @@ const InputArea = memo(function InputArea({
                     {/* eslint-disable-next-line @next/next/no-img-element -- data URL, can't use next/image */}
                     <img
                         src={pendingImage.data}
-                        alt="Selected"
+                        alt={t("chatImageSelected")}
                         className="ia-image-preview-img"
                         loading="lazy"
                     />
                     <button
                         className="ia-image-preview-remove"
                         onClick={onClearImage}
-                        aria-label="Remove image"
+                        aria-label={t("chatRemoveImage")}
                     >
                         <svg
                             width="12"
