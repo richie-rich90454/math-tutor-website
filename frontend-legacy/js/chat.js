@@ -1,0 +1,806 @@
+// MathTutor AI - Legacy chat page logic (IE6-compatible).
+(function ($) {
+    "use strict";
+
+    var messages = [];
+    var chatHistory = [];
+    var currentChat = null;
+    var activeChatId = null;
+    var input = "";
+    var isLoading = false;
+    var isStreaming = false;
+    var pendingImage = null;
+    var xhr = null;
+    var currentAssistantId = null;
+    var assistantBuf = "";
+
+    // ---------- Element cache ----------
+    function el(id) {
+        return document.getElementById(id);
+    }
+
+    // ---------- Language switcher ----------
+    function buildLangSwitcher() {
+        var host = el("langSwitcher");
+        var html = '<select id="langSelect">';
+        for (var i = 0; i < MathTutor.languages.length; i++) {
+            var lang = MathTutor.languages[i];
+            html += '<option value="' + lang.code + '">' + lang.name + "</option>";
+        }
+        html += "</select>";
+        host.innerHTML = html;
+        var sel = el("langSelect");
+        sel.value = MathTutor.currentLanguage;
+        $(sel).on("change", function () {
+            MathTutor.setLanguage(this.value);
+            reapplyUiTexts();
+        });
+    }
+
+    function reapplyUiTexts() {
+        MathTutor.applyLang(MathTutor.currentLanguage);
+        var authLink = el("authLink");
+        if (authLink) {
+            authLink.textContent = MathTutor.isAuthenticated()
+                ? MathTutor.t("sidebarSignOut")
+                : MathTutor.t("sidebarSignIn");
+        }
+        var chatTitle = el("chatTitle");
+        if (chatTitle && currentChat) {
+            chatTitle.textContent = currentChat.title;
+        }
+        renderSidebarUserArea();
+    }
+
+    // ---------- Sidebar ----------
+    function loadChatHistory() {
+        MathTutor.api({
+            url: "/api/chats",
+            method: "GET",
+            success: function (data) {
+                chatHistory = data.chats || [];
+                renderChatList();
+            },
+            error: function (msg) {
+                chatHistory = [];
+                renderChatList();
+            }
+        });
+    }
+
+    function renderChatList() {
+        var listEl = el("chatList");
+        var html = "";
+        for (var i = 0; i < chatHistory.length; i++) {
+            var chat = chatHistory[i];
+            var title = chat.title || "Untitled";
+            var preview = chat.preview || title;
+            html += '<li data-chat-id="' + MathTutor.escapeHtml(chat.id) + '">'
+                + '<a href="#" class="sidebar-chat-title">' + MathTutor.escapeHtml(title) + "</a>"
+                + '<span class="sidebar-chat-preview">' + MathTutor.escapeHtml(preview) + "</span>"
+                + '<span class="sidebar-chat-actions">'
+                + '<a href="#" data-action="open">Open</a>'
+                + '<a href="#" data-action="rename">Rename</a>'
+                + '<a href="#" data-action="pin">' + (chat.isPinned ? "Unpin" : "Pin") + "</a>"
+                + '<a href="#" data-action="delete">Delete</a>'
+                + "</span></li>";
+        }
+        if (!chatHistory.length) {
+            html = '<li class="muted">' + MathTutor.escapeHtml(MathTutor.t("sidebarNoConversationsYet")) + "</li>";
+        }
+        listEl.innerHTML = html;
+
+        $(listEl).off("click").on("click", "a[data-action]", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            var li = $(this).closest("li")[0];
+            var chatId = li.getAttribute("data-chat-id");
+            var action = this.getAttribute("data-action");
+            handleChatAction(chatId, action);
+        });
+        $(listEl).off("click").on("click", "li", function (e) {
+            if (e.target.getAttribute && e.target.getAttribute("data-action")) {
+                return;
+            }
+            e.preventDefault();
+            selectChat(this.getAttribute("data-chat-id"));
+        });
+    }
+
+    function handleChatAction(chatId, action) {
+        if (action === "open") {
+            selectChat(chatId);
+        } else if (action === "rename") {
+            promptRename(chatId);
+        } else if (action === "pin") {
+            togglePin(chatId);
+        } else if (action === "delete") {
+            confirmDelete(chatId);
+        }
+    }
+
+    function selectChat(chatId) {
+        if (isLoading || isStreaming) {
+            return;
+        }
+        setActiveChatId(chatId);
+    }
+
+    function setActiveChatId(chatId) {
+        activeChatId = chatId;
+        isLoading = true;
+        isStreaming = false;
+        showLoadingState();
+        var chat = findChat(chatId);
+        currentChat = chat || null;
+        MathTutor.api({
+            url: "/api/chats/" + encodeURIComponent(chatId),
+            method: "GET",
+            success: function (data) {
+                messages = [];
+                var rows = data.messages || [];
+                for (var i = 0; i < rows.length; i++) {
+                    var row = rows[i];
+                    messages.push({
+                        id: row.id,
+                        role: row.role,
+                        content: row.content,
+                        timestamp: row.created_at
+                    });
+                }
+                currentChat = data.chat;
+                activeChatId = chatId;
+                renderMessages();
+                renderSidebarUserArea();
+                reapplyUiTexts();
+                setIsLoading(false);
+                showChatView();
+            },
+            error: function (msg) {
+                messages = [];
+                currentChat = null;
+                activeChatId = null;
+                renderMessages();
+                setIsLoading(false);
+                showWelcomeView();
+            }
+        });
+    }
+
+    function findChat(chatId) {
+        for (var i = 0; i < chatHistory.length; i++) {
+            if (chatHistory[i].id === chatId) {
+                return chatHistory[i];
+            }
+        }
+        return null;
+    }
+
+    function promptRename(chatId) {
+        var chat = findChat(chatId);
+        if (!chat) {
+            return;
+        }
+        showModal(MathTutor.t("sidebarRename"), '<div class="field"><input type="text" id="renameInput" value="'
+            + MathTutor.escapeHtml(chat.title) + '"></div>', function () {
+            var title = el("renameInput").value;
+            if (!title) {
+                return;
+            }
+            MathTutor.api({
+                url: "/api/chats/" + encodeURIComponent(chatId),
+                method: "PATCH",
+                data: { title: title },
+                success: function (data) {
+                    loadChatHistory();
+                    if (currentChat && currentChat.id === chatId) {
+                        currentChat.title = title;
+                        reapplyUiTexts();
+                    }
+                    hideModal();
+                },
+                error: function (msg) {
+                    alert(msg);
+                }
+            });
+        }, function () {
+            hideModal();
+        });
+    }
+
+    function togglePin(chatId) {
+        var chat = findChat(chatId);
+        if (!chat) {
+            return;
+        }
+        var next = !chat.isPinned;
+        MathTutor.api({
+            url: "/api/chats/" + encodeURIComponent(chatId),
+            method: "PATCH",
+            data: { is_archived: undefined, is_pinned: next, title: undefined, preview: undefined, topic: undefined },
+            success: function () {
+                loadChatHistory();
+            },
+            error: function (msg) {
+                alert(msg);
+            }
+        });
+    }
+
+    function confirmDelete(chatId) {
+        showModal(
+            MathTutor.t("sidebarDeleteConfirmTitle"),
+            '<p>' + MathTutor.escapeHtml(MathTutor.t("sidebarDeleteConfirm").replace("%s", chatTitle(chatId))) + "</p>",
+            function () {
+                MathTutor.api({
+                    url: "/api/chats/" + encodeURIComponent(chatId),
+                    method: "DELETE",
+                    success: function () {
+                        if (activeChatId === chatId) {
+                            handleNewChat();
+                        }
+                        loadChatHistory();
+                        hideModal();
+                    },
+                    error: function (msg) {
+                        alert(msg);
+                    }
+                });
+            },
+            function () {
+                hideModal();
+            }
+        );
+    }
+
+    function chatTitle(chatId) {
+        var chat = findChat(chatId);
+        return chat ? chat.title : "";
+    }
+
+    function renderSidebarUserArea() {
+        var area = el("sidebarUserArea");
+        if (MathTutor.isAuthenticated()) {
+            var user = MathTutor.currentUser();
+            area.innerHTML = '<div class="muted">' + MathTutor.escapeHtml(user.name || user.email) + "</div>"
+                + '<a href="settings.html">' + MathTutor.escapeHtml(MathTutor.t("sidebarSettings")) + "</a>";
+        } else {
+            area.innerHTML = '<a href="login.html">' + MathTutor.escapeHtml(MathTutor.t("sidebarSignIn")) + "</a>";
+        }
+    }
+
+    // ---------- Message rendering ----------
+    function renderMessages() {
+        var area = el("messagesArea");
+        var html = "";
+        for (var i = 0; i < messages.length; i++) {
+            html += renderMessageHtml(messages[i]);
+        }
+        if (isLoading && messages.length && messages[messages.length - 1].role === "user") {
+            html += '<div class="msg-row msg-assistant"><div class="msg-role">'
+                + MathTutor.escapeHtml(MathTutor.t("ciAIMathTutor"))
+                + '</div><div class="msg-body loading-dots">...</div></div>';
+        }
+        area.innerHTML = html;
+        scrollMessagesToBottom();
+    }
+
+    function renderMessageHtml(msg) {
+        var role = msg.role === "user" ? "You" : MathTutor.t("ciAIMathTutor");
+        var cls = msg.role === "user" ? "msg-user" : "msg-assistant";
+        var actions = "";
+        if (msg.role === "assistant") {
+            actions = '<div class="msg-actions">'
+                + '<a href="#" data-action="copy" data-msg-id="' + MathTutor.escapeHtml(msg.id) + '">'
+                + MathTutor.escapeHtml(MathTutor.t("chatCopyMessage")) + "</a>"
+                + '<a href="#" data-action="regenerate" data-msg-id="' + MathTutor.escapeHtml(msg.id) + '">'
+                + MathTutor.escapeHtml(MathTutor.t("chatRegenerate")) + "</a></div>";
+        } else {
+            actions = '<div class="msg-actions">'
+                + '<a href="#" data-action="edit" data-msg-id="' + MathTutor.escapeHtml(msg.id) + '">'
+                + MathTutor.escapeHtml(MathTutor.t("chatEditMessage")) + "</a></div>";
+        }
+        return '<div class="msg-row ' + cls + '" data-msg-id="' + MathTutor.escapeHtml(msg.id) + '">'
+            + '<div class="msg-role">' + MathTutor.escapeHtml(role) + "</div>"
+            + '<div class="msg-body">' + MathTutor.renderMarkdownSafe(msg.content) + "</div>"
+            + '<div class="msg-time">' + MathTutor.escapeHtml(MathTutor.formatTime(msg.timestamp)) + "</div>"
+            + actions
+            + "</div>";
+    }
+
+    function appendAssistantChunk(text) {
+        var area = el("messagesArea");
+        var last = messages[messages.length - 1];
+        if (last && last.id === currentAssistantId) {
+            last.content += text;
+            var rowEl = area.querySelector(".msg-row[data-msg-id=\"" + currentAssistantId + "\"] .msg-body");
+            if (rowEl) {
+                rowEl.innerHTML = MathTutor.renderMarkdownSafe(last.content);
+            }
+        }
+        scrollMessagesToBottom();
+    }
+
+    function scrollMessagesToBottom() {
+        var area = el("messagesArea");
+        if (area) {
+            area.scrollTop = area.scrollHeight;
+        }
+    }
+
+    function showChatView() {
+        el("welcomeSection").className = "welcome hidden";
+        el("messagesArea").className = "messages";
+        el("inputBar").className = "input-bar";
+        el("headerNewChat").className = "header-btn";
+        el("headerExport").className = "header-btn";
+    }
+
+    function showWelcomeView() {
+        el("welcomeSection").className = "welcome";
+        el("messagesArea").className = "messages hidden";
+        el("inputBar").className = "input-bar hidden";
+        el("headerNewChat").className = "header-btn hidden";
+        el("headerExport").className = "header-btn hidden";
+        var authPrompt = el("authPrompt");
+        if (!MathTutor.isAuthenticated()) {
+            authPrompt.className = "";
+        } else {
+            authPrompt.className = "hidden";
+        }
+    }
+
+    function setIsLoading(value) {
+        isLoading = value;
+        var sendBtn = el("sendBtn");
+        if (sendBtn) {
+            sendBtn.disabled = value;
+        }
+        renderMessages();
+    }
+
+    function showLoadingState() {
+        renderMessages();
+    }
+
+    // ---------- Send ----------
+    function sendMessage(overrideInput) {
+        var text = (overrideInput !== undefined ? overrideInput : el("chatInput").value).trim();
+        if (!text || isLoading) {
+            return;
+        }
+        isLoading = true;
+        isStreaming = true;
+
+        var userMsg = {
+            id: "u-" + new Date().getTime(),
+            role: "user",
+            content: text,
+            timestamp: new Date()
+        };
+        messages.push(userMsg);
+        el("chatInput").value = "";
+        showChatView();
+        renderMessages();
+
+        var body = {
+            message: text,
+            preferredLanguage: MathTutor.currentLanguage,
+            chatId: activeChatId
+        };
+        currentAssistantId = "a-" + new Date().getTime();
+        assistantBuf = "";
+        messages.push({ id: currentAssistantId, role: "assistant", content: "", timestamp: new Date() });
+        renderMessages();
+
+        sendBtnVisible(false);
+        streamRequest("/api/chat/message", body);
+    }
+
+    function sendImage() {
+        if (!pendingImage || isLoading) {
+            return;
+        }
+        isLoading = true;
+        isStreaming = true;
+
+        var caption = el("chatInput").value || "Please solve this math problem";
+        var userMsg = {
+            id: "u-" + new Date().getTime(),
+            role: "user",
+            content: "[Image] " + caption,
+            timestamp: new Date()
+        };
+        messages.push(userMsg);
+        el("chatInput").value = "";
+        el("imgPreview").className = "img-preview hidden";
+        var fileInput = el("imageInput");
+        fileInput.value = "";
+        pendingImage = null;
+        showChatView();
+        renderMessages();
+
+        currentAssistantId = "a-" + new Date().getTime();
+        assistantBuf = "";
+        messages.push({ id: currentAssistantId, role: "assistant", content: "", timestamp: new Date() });
+        renderMessages();
+
+        var body = {
+            image: pendingImageData,
+            mimeType: pendingImageMime,
+            message: caption,
+            preferredLanguage: MathTutor.currentLanguage,
+            chatId: activeChatId
+        };
+        sendBtnVisible(false);
+        streamRequest("/api/chat/image", body);
+    }
+
+    // Streaming XHR (works on IE6 via readyState polling).
+    function streamRequest(url, body) {
+        var done = false;
+        var lastLen = 0;
+
+        function onProgress() {
+            if (done) {
+                return;
+            }
+            try {
+                var text = xhr.responseText || "";
+                if (text.length > lastLen) {
+                    var chunk = text.substring(lastLen);
+                    lastLen = text.length;
+                    appendAssistantChunk(chunk);
+                }
+            } catch (e) {
+            }
+        }
+
+        function onDone() {
+            if (done) {
+                return;
+            }
+            done = true;
+            var serverChatId = xhr.getResponseHeader && xhr.getResponseHeader("X-Chat-Id");
+            if (serverChatId && serverChatId !== activeChatId) {
+                var wasNewChat = !activeChatId;
+                activeChatId = serverChatId;
+                if (wasNewChat) {
+                    chatHistory.unshift({
+                        id: serverChatId,
+                        title: body.message.slice(0, 50) + (body.message.length > 50 ? "..." : ""),
+                        timestamp: new Date().toISOString(),
+                        preview: body.message.slice(0, 100),
+                        topic: null,
+                        isPinned: false,
+                        messages: []
+                    });
+                    renderChatList();
+                }
+            }
+            finishStreaming();
+            loadChatHistory();
+        }
+
+        xhr = new XMLHttpRequest();
+        var fullUrl = API_BASE_URL + url;
+        xhr.open("POST", fullUrl, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 3) {
+                onProgress();
+            } else if (xhr.readyState === 4) {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    onProgress();
+                    onDone();
+                } else {
+                    if (!done) {
+                        done = true;
+                        var errMsg = "Failed to get response";
+                        try {
+                            var data = JSON.parse(xhr.responseText);
+                            if (data && data.error) {
+                                errMsg = data.error;
+                            }
+                        } catch (e) {
+                        }
+                        appendAssistantChunk(errMsg);
+                        finishStreaming();
+                    }
+                }
+            }
+        };
+        xhr.send(JSON.stringify(body));
+    }
+
+    function finishStreaming() {
+        isLoading = false;
+        isStreaming = false;
+        xhr = null;
+        sendBtnVisible(true);
+        setIsLoading(false);
+        if (currentAssistantId) {
+            currentAssistantId = null;
+        }
+        renderMessages();
+    }
+
+    function sendBtnVisible(sendVisible) {
+        var sendBtn = el("sendBtn");
+        var stopBtn = el("stopBtn");
+        if (sendVisible) {
+            sendBtn.className = "btn btn-primary";
+            stopBtn.className = "btn hidden";
+        } else {
+            sendBtn.className = "btn btn-primary hidden";
+            stopBtn.className = "btn";
+        }
+    }
+
+    // ---------- Regenerate / edit / stop / copy ----------
+    function handleRegenerate() {
+        if (isLoading || messages.length < 2) {
+            return;
+        }
+        var lastUser = null;
+        for (var i = messages.length - 1; i >= 0; i--) {
+            if (messages[i].role === "user") {
+                lastUser = messages[i];
+                break;
+            }
+        }
+        if (!lastUser) {
+            return;
+        }
+        truncateTo(lastUser.id);
+        el("chatInput").value = lastUser.content;
+        sendMessage(lastUser.content);
+    }
+
+    function handleEdit(messageId) {
+        var idx = findMsgIndex(messageId);
+        if (idx < 0) {
+            return;
+        }
+        truncateTo(messageId);
+        el("chatInput").value = messages[idx].content;
+    }
+
+    function truncateTo(messageId) {
+        var idx = findMsgIndex(messageId);
+        if (idx < 0) {
+            return;
+        }
+        messages = messages.slice(0, idx);
+        renderMessages();
+    }
+
+    function findMsgIndex(messageId) {
+        for (var i = 0; i < messages.length; i++) {
+            if (messages[i].id === messageId) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    function handleCopy(messageId) {
+        var idx = findMsgIndex(messageId);
+        if (idx < 0) {
+            return;
+        }
+        var text = messages[idx].content;
+        window.clipboardData && window.clipboardData.setData
+            ? window.clipboardData.setData("Text", text)
+            : prompt(MathTutor.t("chatCopyMessage"), text);
+    }
+
+    // ---------- New chat ----------
+    function handleNewChat() {
+        if (isLoading || isStreaming) {
+            return;
+        }
+        messages = [];
+        currentChat = null;
+        activeChatId = null;
+        el("chatInput").value = "";
+        renderMessages();
+        showWelcomeView();
+        renderSidebarUserArea();
+    }
+
+    // ---------- Export ----------
+    function handleExport() {
+        if (!messages.length) {
+            return;
+        }
+        var title = currentChat ? currentChat.title : "Math Chat";
+        var md = MathTutor.exportChat(messages, title, "md");
+        MathTutor.download(md, title.replace(/[^a-zA-Z0-9]/g, "_") + ".md");
+    }
+
+    // ---------- Modal ----------
+    function showModal(title, bodyHtml, okHandler, cancelHandler) {
+        el("modalTitle").textContent = title;
+        el("modalBody").innerHTML = bodyHtml;
+        el("modalOverlay").className = "modal-overlay";
+        el("modal").className = "modal";
+        el("modalOk").onclick = okHandler;
+        el("modalCancel").onclick = cancelHandler || function () {
+            hideModal();
+        };
+    }
+
+    function hideModal() {
+        el("modalOverlay").className = "modal-overlay hidden";
+        el("modal").className = "modal hidden";
+    }
+
+    // ---------- Image handling ----------
+    var pendingImageData = "";
+    var pendingImageMime = "";
+
+    function handleImageSelect() {
+        var fileInput = el("imageInput");
+        var file = fileInput.files && fileInput.files[0];
+        if (!file) {
+            return;
+        }
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            pendingImageData = e.target.result;
+            pendingImageMime = file.type;
+            pendingImage = { data: e.target.result, mimeType: file.type };
+            el("imgPreview").className = "img-preview";
+        };
+        reader.readAsDataURL(file);
+    }
+
+    function clearImage() {
+        pendingImage = null;
+        pendingImageData = "";
+        pendingImageMime = "";
+        el("imageInput").value = "";
+        el("imgPreview").className = "img-preview hidden";
+    }
+
+    // ---------- Auth link ----------
+    function handleAuthLink() {
+        if (MathTutor.isAuthenticated()) {
+            MathTutor.api({
+                url: "/api/auth/logout",
+                method: "POST",
+                success: function () {
+                    MathTutor.session = null;
+                    handleNewChat();
+                    reapplyUiTexts();
+                    renderSidebarUserArea();
+                    location.href = "login.html";
+                },
+                error: function () {
+                    MathTutor.session = null;
+                    location.href = "login.html";
+                }
+            });
+        } else {
+            location.href = "login.html";
+        }
+    }
+
+    // ---------- Init ----------
+    function init() {
+        var savedLang = MathTutor.getCookie("preferred-language") || "en";
+        MathTutor.currentLanguage = savedLang;
+        MathTutor.applyLang(savedLang);
+        MathTutor.applyTheme(MathTutor.getTheme());
+        buildLangSwitcher();
+
+        el("sendBtn").onclick = function () {
+            sendMessage();
+        };
+        el("stopBtn").onclick = function () {
+            if (xhr) {
+                xhr.abort();
+            }
+            finishStreaming();
+        };
+        el("newChatBtn").onclick = function () {
+            handleNewChat();
+            return false;
+        };
+        el("headerNewChat").onclick = function () {
+            handleNewChat();
+            return false;
+        };
+        el("headerExport").onclick = function () {
+            handleExport();
+            return false;
+        };
+        el("themeToggle").onclick = function () {
+            var next = MathTutor.getTheme() === "dark" ? "light" : "dark";
+            MathTutor.setTheme(next);
+            return false;
+        };
+        el("authLink").onclick = function () {
+            handleAuthLink();
+            return false;
+        };
+        el("attachBtn").onclick = function () {
+            el("imageInput").click();
+        };
+        el("imageInput").onchange = handleImageSelect;
+        el("clearImage").onclick = function () {
+            clearImage();
+            return false;
+        };
+
+        var inputEl = el("chatInput");
+        $(inputEl).on("keydown", function (e) {
+            if (e.keyCode === 13 && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage();
+            }
+        });
+
+        el("chatSearch").onkeyup = function () {
+            searchChats(this.value);
+        };
+
+        $(el("messagesArea")).on("click", "a[data-action]", function (e) {
+            e.preventDefault();
+            var action = this.getAttribute("data-action");
+            var msgId = this.getAttribute("data-msg-id");
+            if (action === "copy") {
+                handleCopy(msgId);
+            } else if (action === "regenerate") {
+                handleRegenerate();
+            } else if (action === "edit") {
+                handleEdit(msgId);
+            }
+        });
+
+        $(".prompt-btn").each(function () {
+            var btn = this;
+            btn.onclick = function () {
+                var key = btn.getAttribute("data-prompt-key");
+                var text = MathTutor.t(key);
+                el("chatInput").value = text;
+                el("chatInput").focus();
+            };
+        });
+
+        MathTutor.refreshSession(function (ok) {
+            reapplyUiTexts();
+            renderSidebarUserArea();
+            if (ok) {
+                loadChatHistory();
+                showWelcomeView();
+            } else {
+                showWelcomeView();
+            }
+        });
+    }
+
+    function searchChats(query) {
+        if (!query) {
+            loadChatHistory();
+            return;
+        }
+        MathTutor.api({
+            url: "/api/chats?q=" + encodeURIComponent(query),
+            method: "GET",
+            success: function (data) {
+                chatHistory = data.chats || [];
+                renderChatList();
+            },
+            error: function () {
+            }
+        });
+    }
+
+    if (document.readyState === "complete" || document.readyState === "interactive") {
+        init();
+    } else {
+        $(document).ready(init);
+    }
+})(jQuery);
