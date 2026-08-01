@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useState, useCallback, useEffect, ReactNode } from "react";
 import { useAuth } from "./AuthContext";
+import { apiFetch } from "@/lib/api-client";
 
 export interface ChatSession {
     id: string;
@@ -43,7 +44,7 @@ export function ChatProvider({ children }: { children: ReactNode }) {
     const loadChatHistory = useCallback(async () => {
         try {
             setIsHistoryLoading(true);
-            const res = await fetch("/api/chats");
+            const res = await apiFetch("/api/chats");
             if (res.ok) {
                 const data = await res.json();
                 setChatHistory(data.chats || []);
@@ -99,7 +100,7 @@ export function ChatProvider({ children }: { children: ReactNode }) {
     const deleteChat = useCallback(
         async (chatId: string) => {
             try {
-                const res = await fetch(`/api/chats/${chatId}`, { method: "DELETE" });
+                const res = await apiFetch(`/api/chats/${chatId}`, { method: "DELETE" });
                 if (res.ok) {
                     setChatHistory((prev) => prev.filter((chat) => chat.id !== chatId));
                     if (currentChat?.id === chatId) {
@@ -116,7 +117,7 @@ export function ChatProvider({ children }: { children: ReactNode }) {
     const renameChat = useCallback(
         async (chatId: string, newTitle: string) => {
             try {
-                const res = await fetch(`/api/chats/${chatId}`, {
+                const res = await apiFetch(`/api/chats/${chatId}`, {
                     method: "PATCH",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ title: newTitle }),
