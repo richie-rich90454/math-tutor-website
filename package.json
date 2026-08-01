@@ -9,7 +9,12 @@
         "lint": "eslint src/",
         "format": "prettier --write .",
         "test": "vitest run",
-        "typecheck": "tsc --noEmit"
+        "typecheck": "tsc --noEmit",
+        "backend:dev": "cd backend && mvn spring-boot:run",
+        "backend:build": "cd backend && mvn package",
+        "backend:test": "cd backend && mvn test",
+        "legacy:i18n": "node scripts/generate-legacy-i18n.js",
+        "test:all": "npm run test && npm run backend:test"
     },
     "dependencies": {
         "@gsap/react": "^2.1.2",
