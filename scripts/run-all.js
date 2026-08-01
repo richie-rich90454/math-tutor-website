@@ -9,7 +9,7 @@ if (!tasks.length) {
 }
 
 const isWin = process.platform === "win32";
-const npmCmd = isWin ? "npm.cmd" : "npm";
+const npmCmd = isWin ? process.env.ComSpec || "cmd.exe" : "npm";
 
 const children = [];
 let exiting = false;
@@ -32,10 +32,9 @@ function killAll(code) {
 }
 
 for (const task of tasks) {
-    const child = spawn(npmCmd, ["run", task], {
-        stdio: "inherit",
-        shell: isWin,
-    });
+    const child = isWin
+        ? spawn(npmCmd, ["/d", "/s", "/c", `npm run ${task}`], { stdio: "inherit" })
+        : spawn(npmCmd, ["run", task], { stdio: "inherit" });
     children.push(child);
 
     child.on("error", (err) => {
