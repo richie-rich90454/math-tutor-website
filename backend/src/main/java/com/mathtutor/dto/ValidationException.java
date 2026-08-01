@@ -4,17 +4,14 @@ import java.util.List;
 
 public class ValidationException extends RuntimeException {
 
-    private final List<Issue> issues;
+    private final List<Validator.Issue> issues;
 
-    public ValidationException(List<Issue> issues) {
+    public ValidationException(List<Validator.Issue> issues) {
         super("Validation failed");
         this.issues = issues;
     }
 
-    public List<Issue> getIssues() {
+    public List<Validator.Issue> getIssues() {
         return issues;
-    }
-
-    public record Issue(String field, String message) {
     }
 }
