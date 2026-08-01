@@ -31,27 +31,8 @@ export async function POST(request: NextRequest) {
     }
 
     const chatId = upstream.headers.get("X-Chat-Id") || "";
-    const reader = upstream.body?.getReader();
 
-    const stream = new ReadableStream<Uint8Array>({
-        async pull(controller) {
-            if (!reader) {
-                controller.close();
-                return;
-            }
-            const { done, value } = await reader.read();
-            if (done) {
-                controller.close();
-                return;
-            }
-            controller.enqueue(value);
-        },
-        cancel() {
-            reader?.cancel().catch(() => {});
-        },
-    });
-
-    return new Response(stream, {
+    return new Response(upstream.body, {
         status: 200,
         headers: {
             "Content-Type": "text/plain; charset=utf-8",
