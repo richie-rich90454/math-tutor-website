@@ -49,6 +49,7 @@
         if (chatTitle && currentChat) {
             chatTitle.textContent = currentChat.title;
         }
+        renderChatList();
         renderSidebarUserArea();
     }
 
@@ -79,10 +80,10 @@
                 + '<a href="#" class="sidebar-chat-title">' + MathTutor.escapeHtml(title) + "</a>"
                 + '<span class="sidebar-chat-preview">' + MathTutor.escapeHtml(preview) + "</span>"
                 + '<span class="sidebar-chat-actions">'
-                + '<a href="#" data-action="open">Open</a>'
-                + '<a href="#" data-action="rename">Rename</a>'
-                + '<a href="#" data-action="pin">' + (chat.isPinned ? "Unpin" : "Pin") + "</a>"
-                + '<a href="#" data-action="delete">Delete</a>'
+                + '<a href="#" data-action="open">' + MathTutor.escapeHtml(MathTutor.t("sidebarOpen")) + "</a>"
+                + '<a href="#" data-action="rename">' + MathTutor.escapeHtml(MathTutor.t("sidebarRename")) + "</a>"
+                + '<a href="#" data-action="pin">' + MathTutor.escapeHtml(MathTutor.t(chat.isPinned ? "sidebarUnpin" : "sidebarPinToTop")) + "</a>"
+                + '<a href="#" data-action="delete">' + MathTutor.escapeHtml(MathTutor.t("sidebarDelete")) + "</a>"
                 + "</span></li>";
         }
         if (!chatHistory.length) {
@@ -91,21 +92,22 @@
         listEl.innerHTML = html;
         fitSidebarList();
 
-        $(listEl).off("click").on("click", "a[data-action]", function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-            var li = $(this).closest("li")[0];
-            var chatId = li.getAttribute("data-chat-id");
-            var action = this.getAttribute("data-action");
-            handleChatAction(chatId, action);
-        });
-        $(listEl).off("click").on("click", "li", function (e) {
-            if (e.target.getAttribute && e.target.getAttribute("data-action")) {
-                return;
-            }
-            e.preventDefault();
-            selectChat(this.getAttribute("data-chat-id"));
-        });
+        $(listEl).off("click")
+            .on("click", "a[data-action]", function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                var li = $(this).closest("li")[0];
+                var chatId = li.getAttribute("data-chat-id");
+                var action = this.getAttribute("data-action");
+                handleChatAction(chatId, action);
+            })
+            .on("click", "li", function (e) {
+                if (e.target.getAttribute && e.target.getAttribute("data-action")) {
+                    return;
+                }
+                e.preventDefault();
+                selectChat(this.getAttribute("data-chat-id"));
+            });
     }
 
     function handleChatAction(chatId, action) {
@@ -288,7 +290,7 @@
     }
 
     function renderMessageHtml(msg) {
-        var role = msg.role === "user" ? "You" : MathTutor.t("ciAIMathTutor");
+        var role = msg.role === "user" ? MathTutor.t("chatYou") : MathTutor.t("ciAIMathTutor");
         var cls = msg.role === "user" ? "msg-user" : "msg-assistant";
         var actions = "";
         if (msg.role === "assistant") {
@@ -679,7 +681,7 @@
         if (!messages.length) {
             return;
         }
-        var title = currentChat ? currentChat.title : "Math Chat";
+        var title = currentChat ? currentChat.title : MathTutor.t("ciMathChat");
         var md = MathTutor.exportChat(messages, title, "md");
         MathTutor.download(md, title.replace(/[^a-zA-Z0-9]/g, "_") + ".md");
     }
