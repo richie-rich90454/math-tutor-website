@@ -32,6 +32,7 @@
         sel.value = MathTutor.currentLanguage;
         $(sel).on("change", function () {
             MathTutor.setLanguage(this.value);
+            loadProgress();
         });
     }
 
@@ -121,7 +122,7 @@
             }
             var intensity = Math.min(count / 3, 1);
             var color = count === 0 ? "#e5e5e5" : rgba(99, 102, 241, 0.2 + intensity * 0.8);
-            html += "<td title=\"" + MathTutor.escapeHtml(dateStr + ": " + count + " chats") + "\""
+            html += "<td title=\"" + MathTutor.escapeHtml(dateStr + ": " + count + " " + MathTutor.t("progressChats")) + "\""
                 + " style=\"width:14px;height:14px;background:" + color + ";\"></td>";
             if ((i + 1) % 10 === 0 && i < 29) {
                 html += "</tr><tr>";
