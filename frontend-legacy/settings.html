@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="settingsTitle">Settings</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="legacy-shell">
+    <div class="legacy-header">
+        <span class="brand">MathTutor AI</span>
+        <span class="right">
+            <span id="langSwitcher"></span>
+            <span> | </span>
+            <a href="index.html" data-i18n="navBackToApp">Back to app</a>
+        </span>
+    </div>
+
+    <div class="legacy-content" style="max-width:560px;">
+        <h1 data-i18n="settingsTitle">Settings</h1>
+
+        <div class="card">
+            <h3 data-i18n="settingsAccount">Account</h3>
+            <div id="accountInfo">
+                <div class="row"><span class="stat-label" data-i18n="settingsEmail">Email</span>: <span id="accountEmail">-</span></div>
+                <div class="row"><span class="stat-label" data-i18n="settingsName">Name</span>: <span id="accountName">-</span></div>
+                <div class="row"><span class="stat-label" data-i18n="settingsMathLevel">Math Level</span>: <span id="accountLevel">-</span></div>
+                <div class="row"><a href="#" id="signOutBtn" class="btn btn-danger" data-i18n="settingsSignOut">Sign out</a></div>
+            </div>
+            <div id="accountNotSigned" class="hidden">
+                <p><a href="login.html" class="btn btn-primary" data-i18n="sidebarSignIn">Sign in</a></p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 data-i18n="settingsAppearance">Appearance</h3>
+            <div class="row">
+                <span class="stat-label" data-i18n="settingsTheme">Theme</span>:
+                <select id="themeSelect">
+                    <option value="light" data-i18n="settingsThemeLight">Light</option>
+                    <option value="dark" data-i18n="settingsThemeDark">Dark</option>
+                    <option value="system" data-i18n="settingsThemeSystem">System</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 data-i18n="settingsLanguage">Language</h3>
+            <div class="row">
+                <span class="stat-label" data-i18n="settingsSelectLanguage">Select language</span>:
+                <select id="languageSelect"></select>
+                <span class="auth-ok hidden" id="langSaved"></span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 data-i18n="settingsVersion">Version</h3>
+            <div class="row muted" id="versionText">MathTutor AI - Legacy Client</div>
+        </div>
+    </div>
+</div>
+
+<script src="js/json2.min.js"></script>
+<script src="js/jquery-1.12.4.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/common.js"></script>
+<script src="js/settings.js"></script>
+</body>
+</html>
