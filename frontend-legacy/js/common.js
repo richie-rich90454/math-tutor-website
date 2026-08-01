@@ -256,14 +256,14 @@ MathTutor.exportChat = function (messages, title, format) {
     if (format === "md") {
         out = "# " + title + "\n\nExported on " + now + "\n\n---\n\n";
         for (i = 0; i < messages.length; i++) {
-            var roleMd = messages[i].role === "user" ? "**You**" : "**AI Math Tutor**";
+            var roleMd = messages[i].role === "user" ? "**" + MathTutor.t("chatYou") + "**" : "**" + MathTutor.t("ciAIMathTutor") + "**";
             out += "### " + roleMd + " \u2014 " + MathTutor.formatTime(messages[i].timestamp) + "\n\n"
                 + messages[i].content + "\n\n---\n\n";
         }
     } else {
         out = title + "\nExported on " + now + "\n" + repeat("=", 50) + "\n\n";
         for (i = 0; i < messages.length; i++) {
-            var role = messages[i].role === "user" ? "You" : "AI Math Tutor";
+            var role = messages[i].role === "user" ? MathTutor.t("chatYou") : MathTutor.t("ciAIMathTutor");
             out += "[" + role + "] \u2014 " + MathTutor.formatTime(messages[i].timestamp) + "\n"
                 + messages[i].content + "\n" + repeat("-", 40) + "\n\n";
         }
@@ -302,12 +302,30 @@ function repeat(ch, n) {
 }
 
 // ---------- AJAX wrapper (JSON bodies, error normalization) ----------
+// IE6/IE7 XHR only supports GET/POST. For PATCH/DELETE/PUT we fall back to
+// POST + ?_method=... which the backend translates via HiddenHttpMethodFilter.
+MathTutor.supportsMethod = function (method) {
+    try {
+        var x = new XMLHttpRequest();
+        x.open(method, "/");
+        return true;
+    } catch (e) {
+        return false;
+    }
+};
+
 MathTutor.api = function (options) {
     var opts = options || {};
     var data = opts.data;
+    var method = opts.method || "GET";
+    var url = API_BASE_URL + opts.url;
+    if (method !== "GET" && method !== "POST" && !MathTutor.supportsMethod(method)) {
+        url += (url.indexOf("?") === -1 ? "?" : "&") + "_method=" + method;
+        method = "POST";
+    }
     var ajaxOpts = {
-        url: API_BASE_URL + opts.url,
-        type: opts.method || "GET",
+        url: url,
+        type: method,
         dataType: "json",
         success: opts.success,
         error: function (xhr, status, err) {
