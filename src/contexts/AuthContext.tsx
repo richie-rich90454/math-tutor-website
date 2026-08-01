@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
 import { useRouter } from "next/navigation";
+import { apiFetch } from "@/lib/api-client";
 
 interface User {
     id: string;
@@ -30,7 +31,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     const refreshUser = useCallback(async () => {
         try {
-            const res = await fetch("/api/auth/me");
+            const res = await apiFetch("/api/auth/me");
             if (res.ok) {
                 const data = await res.json();
                 setUser(data.user);
@@ -49,7 +50,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }, [refreshUser]);
 
     const login = async (email: string, password: string, remember?: boolean) => {
-        const res = await fetch("/api/auth/login", {
+        const res = await apiFetch("/api/auth/login", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ email, password, remember }),
@@ -65,7 +66,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     };
 
     const signup = async (name: string, email: string, password: string, mathLevel: string) => {
-        const res = await fetch("/api/auth/signup", {
+        const res = await apiFetch("/api/auth/signup", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ name, email, password, math_level: mathLevel }),
@@ -81,7 +82,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     };
 
     const logout = async () => {
-        await fetch("/api/auth/logout", { method: "POST" });
+        await apiFetch("/api/auth/logout", { method: "POST" });
         setUser(null);
         router.push("/login");
     };
