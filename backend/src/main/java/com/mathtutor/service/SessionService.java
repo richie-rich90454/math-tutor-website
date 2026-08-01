@@ -1,6 +1,6 @@
 package com.mathtutor.service;
 
-import com.fasterxml.jackson.databind.JsonNode;
+import tools.jackson.databind.JsonNode;
 import com.mathtutor.repo.SessionRepository;
 import com.mathtutor.repo.UserRepository;
 import com.mathtutor.security.JwtUtil;
