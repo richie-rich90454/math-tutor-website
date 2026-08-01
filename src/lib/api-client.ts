@@ -1,16 +1,9 @@
-// JSON endpoints are proxied same-origin through the Next.js server
-// (see next.config.ts rewrites) so the browser stays on one origin.
-// Streaming endpoints (chat message/image) MUST bypass the proxy: the
-// rewrite buffers the whole response, which destroys streaming. They
-// call the backend directly; CORS is configured on the backend and the
-// session cookie is host-scoped (localhost), so it is sent on both ports.
-
-// Keep the client default in sync with next.config.ts backendUrl default so
-// streaming bypasses the proxy even when NEXT_PUBLIC_API_BASE_URL is unset.
-const API_BASE_URL =
-    process.env.NEXT_PUBLIC_API_BASE_URL ||
-    process.env.NEXT_PUBLIC_BACKEND_URL ||
-    "http://localhost:8080";
+// All API calls are same-origin through the Next.js server:
+//  - JSON endpoints are proxied to the backend via next.config.ts rewrites
+//  - streaming endpoints (/api/chat/message, /api/chat/image) are served by
+//    Next.js route handlers that pipe the backend stream chunk by chunk
+// This keeps the browser on one origin so streaming responses are never
+// buffered by cross-origin credential handling.
 
 export function apiFetch(path: string, init?: RequestInit): Promise<Response> {
     const headers = new Headers(init?.headers);
@@ -20,24 +13,5 @@ export function apiFetch(path: string, init?: RequestInit): Promise<Response> {
     return fetch(path, {
         ...init,
         headers,
-    });
-}
-
-export function apiStreamUrl(path: string): string {
-    if (API_BASE_URL && path.startsWith("/api/")) {
-        return `${API_BASE_URL.replace(/\/$/, "")}${path}`;
-    }
-    return path;
-}
-
-export function apiStreamFetch(path: string, init?: RequestInit): Promise<Response> {
-    const headers = new Headers(init?.headers);
-    if (init?.body && !headers.has("Content-Type")) {
-        headers.set("Content-Type", "application/json");
-    }
-    return fetch(apiStreamUrl(path), {
-        ...init,
-        headers,
-        credentials: "include",
     });
 }
