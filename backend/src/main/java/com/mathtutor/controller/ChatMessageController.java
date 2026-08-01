@@ -47,7 +47,7 @@ public class ChatMessageController {
     public ResponseEntity<StreamingResponseBody> sendMessage(
             @RequestBody String rawBody,
             HttpServletRequest request) {
-        String token = readCookie(request, SESSION_COOKIE);
+        String token = resolveToken(request);
         var session = sessionService.getSession(token);
         if (session.isEmpty()) {
             return ResponseEntity.status(401)
@@ -161,6 +161,14 @@ public class ChatMessageController {
             }
         }
         return null;
+    }
+
+    private String resolveToken(HttpServletRequest request) {
+        String auth = request.getHeader("Authorization");
+        if (auth != null && auth.startsWith("Bearer ")) {
+            return auth.substring(7);
+        }
+        return readCookie(request, SESSION_COOKIE);
     }
 
     private String escapeJson(String value) {
