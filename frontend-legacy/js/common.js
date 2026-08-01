@@ -254,14 +254,14 @@ MathTutor.exportChat = function (messages, title, format) {
     var i;
     var now = new Date().toLocaleString();
     if (format === "md") {
-        out = "# " + title + "\n\nExported on " + now + "\n\n---\n\n";
+        out = "# " + title + "\n\n" + MathTutor.t("exportExportedOn") + " " + now + "\n\n---\n\n";
         for (i = 0; i < messages.length; i++) {
             var roleMd = messages[i].role === "user" ? "**" + MathTutor.t("chatYou") + "**" : "**" + MathTutor.t("ciAIMathTutor") + "**";
             out += "### " + roleMd + " \u2014 " + MathTutor.formatTime(messages[i].timestamp) + "\n\n"
                 + messages[i].content + "\n\n---\n\n";
         }
     } else {
-        out = title + "\nExported on " + now + "\n" + repeat("=", 50) + "\n\n";
+        out = title + "\n" + MathTutor.t("exportExportedOn") + " " + now + "\n" + repeat("=", 50) + "\n\n";
         for (i = 0; i < messages.length; i++) {
             var role = messages[i].role === "user" ? MathTutor.t("chatYou") : MathTutor.t("ciAIMathTutor");
             out += "[" + role + "] \u2014 " + MathTutor.formatTime(messages[i].timestamp) + "\n"
@@ -329,7 +329,7 @@ MathTutor.api = function (options) {
         dataType: "json",
         success: opts.success,
         error: function (xhr, status, err) {
-            var message = "Failed to get response";
+            var message = MathTutor.t("errorNetwork");
             try {
                 var body = JSON.parse(xhr.responseText);
                 if (body && body.error) {
