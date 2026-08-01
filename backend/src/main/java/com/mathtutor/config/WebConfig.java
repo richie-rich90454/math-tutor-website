@@ -31,7 +31,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         String legacyDir = props.legacy().staticDir();
-        registry.addResourceHandler("/legacy/**")
+        registry.addResourceHandler("/legacy", "/legacy/**")
                 .addResourceLocations("file:" + legacyDir + "/");
     }
 }
