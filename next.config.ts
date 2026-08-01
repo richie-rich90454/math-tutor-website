@@ -55,6 +55,10 @@ const nextConfig: NextConfig = {
                     destination: `${backendUrl}/api/:path*`,
                 },
                 {
+                    source: "/legacy",
+                    destination: `${backendUrl}/legacy/index.html`,
+                },
+                {
                     source: "/legacy/:path*",
                     destination: `${backendUrl}/legacy/:path*`,
                 },
