@@ -8,13 +8,15 @@ import java.util.Map;
 public record UpdateChatRequest(
         String title,
         String preview,
-        String topic) {
+        String topic,
+        Boolean isPinned) {
 
     public static UpdateChatRequest parse(JsonLike body) {
         List<Validator.Issue> issues = new ArrayList<>();
         String title = body.string("title");
         String preview = body.string("preview");
         String topic = body.string("topic");
+        Boolean isPinned = body.booleanOrNull("is_pinned");
 
         if (title != null) {
             Validator.requireMax(issues, "title", title, 200);
@@ -29,7 +31,7 @@ public record UpdateChatRequest(
         if (!issues.isEmpty()) {
             throw new ValidationException(issues);
         }
-        return new UpdateChatRequest(title, preview, topic);
+        return new UpdateChatRequest(title, preview, topic, isPinned);
     }
 
     public Map<String, Object> changedFields() {
@@ -42,6 +44,9 @@ public record UpdateChatRequest(
         }
         if (topic != null) {
             fields.put("topic", topic);
+        }
+        if (isPinned != null) {
+            fields.put("is_pinned", isPinned ? 1 : 0);
         }
         return fields;
     }
