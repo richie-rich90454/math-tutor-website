@@ -1,6 +1,5 @@
 package com.mathtutor.controller;
 
-import com.mathtutor.dto.CreateChatRequest;
 import com.mathtutor.dto.JsonBody;
 import com.mathtutor.dto.LoginRequest;
 import com.mathtutor.dto.SignupRequest;
