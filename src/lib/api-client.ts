@@ -5,8 +5,12 @@
 // call the backend directly; CORS is configured on the backend and the
 // session cookie is host-scoped (localhost), so it is sent on both ports.
 
+// Keep the client default in sync with next.config.ts backendUrl default so
+// streaming bypasses the proxy even when NEXT_PUBLIC_API_BASE_URL is unset.
 const API_BASE_URL =
-    process.env.NEXT_PUBLIC_API_BASE_URL || process.env.NEXT_PUBLIC_BACKEND_URL || "";
+    process.env.NEXT_PUBLIC_API_BASE_URL ||
+    process.env.NEXT_PUBLIC_BACKEND_URL ||
+    "http://localhost:8080";
 
 export function apiFetch(path: string, init?: RequestInit): Promise<Response> {
     const headers = new Headers(init?.headers);
