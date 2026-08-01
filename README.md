@@ -107,17 +107,14 @@ separately. See `frontend-legacy/README.md` for details.
 
 | Variable                        | Description                                | Required | Default                     |
 | ------------------------------- | ------------------------------------------ | -------- | --------------------------- |
-| `OPENAI_COMPATIBLE_API_KEY`     | AI API key (used by legacy Next.js routes) | No*      | -                           |
-| `OPENAI_COMPATIBLE_BASE_URL`    | AI API base URL                            | No       | `https://api.deepseek.com`  |
-| `OPENAI_COMPATIBLE_MODEL`       | Model to use                               | No       | `deepseek-v4-flash`         |
-| `SESSION_SECRET`                | JWT signing secret (legacy routes)         | No*      | -                           |
-| `DATABASE_PATH`                 | SQLite path (legacy routes)                | No       | `./data/math-tutor.db`      |
-| `NEXT_PUBLIC_API_BASE_URL`      | Spring Boot backend URL                    | Yes      | empty (same origin)         |
+| `NEXT_PUBLIC_API_BASE_URL`      | Spring Boot backend URL (proxied by Next)  | Yes      | `http://localhost:8080`     |
 | `NEXT_PUBLIC_SITE_URL`          | Public URL for SEO                         | No       | `https://math-tutor.ai`     |
 | `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` | Google Search Console token         | No       | -                           |
 
-\* Only required when `NEXT_PUBLIC_API_BASE_URL` is empty (client uses the
-built-in Next.js API routes).
+The Next.js server proxies `/api/*` and `/legacy/*` to the Spring Boot
+backend (see `next.config.ts` `rewrites`), so the browser only ever talks to
+the same origin — no CORS. The modern client's own AI/database settings are
+not needed; configure those on the backend instead.
 
 ### Backend (`application.properties` / env)
 
@@ -236,10 +233,11 @@ node scripts/generate-legacy-i18n.js
 ## Migration Notes
 
 The migration from the monolithic Next.js app to the Spring Boot backend +
-two frontends is documented in `docs/phase-0-analysis.md`. The modern client
-retains the built-in Next.js API routes as a fallback when
-`NEXT_PUBLIC_API_BASE_URL` is empty; when set, all API calls route to the
-Spring Boot backend.
+two frontends is documented in `docs/phase-0-analysis.md`. The old in-app
+Next.js API routes were removed; the Next.js server now proxies `/api/*` and
+`/legacy/*` to the Spring Boot backend via `beforeFiles` rewrites in
+`next.config.ts`, keeping the browser same-origin (no CORS, same behavior as
+the original monolith).
 
 ## License
 
