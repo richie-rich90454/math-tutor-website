@@ -13,6 +13,7 @@
     "sortTailwindcss": {},
     "ignorePatterns": [
         "*.min.*",
+        "frontend-legacy",
         "node_modules/",
         ".next/",
         "dist/",
