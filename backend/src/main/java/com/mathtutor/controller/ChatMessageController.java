@@ -8,14 +8,12 @@ import com.mathtutor.service.RateLimitService;
 import com.mathtutor.service.SessionService;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.http.HttpHeaders;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBody;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -44,46 +42,35 @@ public class ChatMessageController {
     }
 
     @PostMapping(value = "/message", produces = MediaType.TEXT_PLAIN_VALUE)
-    public ResponseEntity<StreamingResponseBody> sendMessage(
+    public void sendMessage(
             @RequestBody String rawBody,
-            HttpServletRequest request) {
+            HttpServletRequest request,
+            HttpServletResponse response) throws IOException {
         String token = resolveToken(request);
         var session = sessionService.getSession(token);
         if (session.isEmpty()) {
-            return ResponseEntity.status(401)
-                    .contentType(MediaType.APPLICATION_JSON)
-                    .body(out -> out.write(
-                            "{\"error\":\"Please sign in to chat\"}".getBytes(StandardCharsets.UTF_8)));
+            writeJson(response, 401, "{\"error\":\"Please sign in to chat\"}");
+            return;
         }
 
         String ip = clientIp(request);
         RateLimitService.RateLimitResult ipRl =
                 rateLimit.check("chat:ip:" + ip, 60, RATE_WINDOW_MS);
         if (!ipRl.allowed()) {
-            return ResponseEntity.status(429)
-                    .headers(headers -> {
-                        headers.setAll(rateLimit.getHeaders(ipRl));
-                        headers.set("Retry-After", "60");
-                    })
-                    .contentType(MediaType.APPLICATION_JSON)
-                    .body(out -> out.write(
-                            "{\"error\":\"Too many requests. Please wait a moment.\"}"
-                                    .getBytes(StandardCharsets.UTF_8)));
+            setRateLimitHeaders(response, ipRl);
+            response.setHeader("Retry-After", "60");
+            writeJson(response, 429, "{\"error\":\"Too many requests. Please wait a moment.\"}");
+            return;
         }
 
         RateLimitService.RateLimitResult userRl =
                 rateLimit.check("chat:user:" + session.get().id(), CHAT_RATE_LIMIT, RATE_WINDOW_MS);
         if (!userRl.allowed()) {
             long retryAfter = Math.max(1, (userRl.resetAt() - System.currentTimeMillis()) / 1000);
-            return ResponseEntity.status(429)
-                    .headers(headers -> {
-                        headers.setAll(rateLimit.getHeaders(userRl));
-                        headers.set("Retry-After", String.valueOf(retryAfter));
-                    })
-                    .contentType(MediaType.APPLICATION_JSON)
-                    .body(out -> out.write(
-                            "{\"error\":\"Too many requests. Please wait a moment.\"}"
-                                    .getBytes(StandardCharsets.UTF_8)));
+            setRateLimitHeaders(response, userRl);
+            response.setHeader("Retry-After", String.valueOf(retryAfter));
+            writeJson(response, 429, "{\"error\":\"Too many requests. Please wait a moment.\"}");
+            return;
         }
 
         ChatMessageRequest body = ChatMessageRequest.parse(JsonBody.parse(rawBody));
@@ -97,34 +84,23 @@ public class ChatMessageController {
                     body.chatId(),
                     body.preferredLanguage());
         } catch (IOException e) {
-            return ResponseEntity.status(500)
-                    .contentType(MediaType.APPLICATION_JSON)
-                    .body(out -> out.write(
-                            ("{\"error\":\"" + escapeJson(e.getMessage()) + "\"}")
-                                    .getBytes(StandardCharsets.UTF_8)));
+            writeJson(response, 500,
+                    "{\"error\":\"" + escapeJson(e.getMessage()) + "\"}");
+            return;
         }
 
         String activeChatId = setup.activeChatId();
         AiClient.AiStream stream = setup.stream();
         String userId = session.get().id();
 
-        StreamingResponseBody responseBody = outputStream -> streamResponse(
-                outputStream, stream, activeChatId, userId);
+        response.setStatus(200);
+        response.setContentType("text/plain; charset=utf-8");
+        response.setHeader("Cache-Control", "no-cache, no-transform");
+        response.setHeader("X-Accel-Buffering", "no");
+        response.setHeader("X-Chat-Id", activeChatId);
+        setRateLimitHeaders(response, userRl);
 
-        return ResponseEntity.ok()
-                .contentType(MediaType.parseMediaType("text/plain; charset=utf-8"))
-                .header("Cache-Control", "no-cache, no-transform")
-                .header("X-Accel-Buffering", "no")
-                .header("X-Chat-Id", activeChatId)
-                .headers(headers -> headers.setAll(rateLimit.getHeaders(userRl)))
-                .body(responseBody);
-    }
-
-    private void streamResponse(
-            OutputStream outputStream,
-            AiClient.AiStream stream,
-            String chatId,
-            String userId) throws IOException {
+        OutputStream outputStream = response.getOutputStream();
         StringBuilder fullResponse = new StringBuilder();
         try (stream) {
             String chunk;
@@ -134,8 +110,25 @@ public class ChatMessageController {
                 outputStream.flush();
             }
         } finally {
-            chatService.saveAssistantMessage(chatId, userId, fullResponse.toString());
+            chatService.saveAssistantMessage(chatId(activeChatId), userId, fullResponse.toString());
         }
+    }
+
+    private void writeJson(HttpServletResponse response, int status, String json) throws IOException {
+        response.setStatus(status);
+        response.setContentType("application/json");
+        response.getOutputStream().write(json.getBytes(StandardCharsets.UTF_8));
+    }
+
+    private void setRateLimitHeaders(HttpServletResponse response, RateLimitService.RateLimitResult result) {
+        int limit = result.remaining() + (result.allowed() ? 1 : 0);
+        response.setHeader("X-RateLimit-Limit", String.valueOf(limit));
+        response.setHeader("X-RateLimit-Remaining", String.valueOf(result.remaining()));
+        response.setHeader("X-RateLimit-Reset", String.valueOf(result.resetAt()));
+    }
+
+    private String chatId(String activeChatId) {
+        return activeChatId;
     }
 
     private String clientIp(HttpServletRequest request) {
