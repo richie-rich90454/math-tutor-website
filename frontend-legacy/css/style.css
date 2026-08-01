@@ -1,0 +1,125 @@
+/* MathTutor AI - Legacy IE6 client styles.
+   Targets Internet Explorer 6 and other old browsers.
+   Avoids CSS3 features: no flexbox, no grid, no border-radius,
+   no box-shadow, no transitions, no media queries. */
+body{margin:0;padding:0;background:#f5f5f5;color:#222;font-family:Tahoma,Arial,sans-serif;font-size:13px;}
+a{color:#1a56db;text-decoration:none;}
+a:hover{text-decoration:underline;}
+h1,h2,h3{margin:0 0 8px 0;}
+h1{font-size:22px;}
+h2{font-size:18px;}
+h3{font-size:15px;}
+p{margin:4px 0;}
+table{border-collapse:collapse;}
+
+/* Layout */
+.legacy-shell{width:100%;}
+.legacy-main{width:100%;}
+.legacy-content{padding:8px;}
+
+/* Header */
+.legacy-header{background:#0a0a0a;color:#fff;padding:6px 10px;height:26px;line-height:26px;}
+.legacy-header a{color:#fff;}
+.legacy-header .brand{font-weight:bold;font-size:14px;}
+.legacy-header .right{float:right;}
+
+/* Buttons */
+.btn{display:inline-block;padding:5px 12px;margin:2px;border:1px solid #999;background:#e8e8e8;color:#222;cursor:pointer;font-size:13px;}
+.btn:hover{background:#dcdcdc;}
+.btn-primary{background:#1a56db;border-color:#0a3a9b;color:#fff;}
+.btn-primary:hover{background:#1747b5;}
+.btn-danger{background:#c0392b;border-color:#922b21;color:#fff;}
+.btn-danger:hover{background:#a93226;}
+.btn:disabled{color:#999;cursor:default;background:#f0f0f0;}
+.btn-small{padding:2px 8px;font-size:12px;}
+
+/* Forms */
+.field{margin-bottom:10px;}
+.field label{display:block;margin-bottom:3px;font-weight:bold;}
+.field input[type=text],.field input[type=email],.field input[type=password],.field select,.field textarea{
+    width:280px;padding:5px;border:1px solid #aaa;background:#fff;font-size:13px;}
+.field textarea{height:70px;font-family:Tahoma,Arial,sans-serif;}
+.field .hint{color:#777;font-size:11px;}
+
+/* Auth pages */
+.auth-page{width:400px;margin:40px auto 0 auto;background:#fff;border:1px solid #ccc;padding:20px;}
+.auth-msg{color:#c0392b;font-size:12px;margin:6px 0;}
+.auth-ok{color:#27ae60;font-size:12px;margin:6px 0;}
+
+/* Chat */
+.chat-layout{width:100%;}
+.sidebar-cell{width:230px;vertical-align:top;background:#111;color:#eee;}
+.sidebar-cell a{color:#ccc;}
+.sidebar-inner{padding:8px;}
+.sidebar-section{margin-bottom:10px;}
+.sidebar-list{list-style:none;margin:0;padding:0;max-height:300px;overflow-y:auto;}
+.sidebar-list li{border-bottom:1px solid #222;padding:6px 4px;}
+.sidebar-list li:hover{background:#222;}
+.sidebar-chat-title{display:block;font-weight:bold;overflow:hidden;}
+.sidebar-chat-preview{display:block;color:#999;font-size:11px;overflow:hidden;white-space:nowrap;}
+.sidebar-chat-actions{font-size:11px;margin-top:3px;}
+.sidebar-chat-actions a{margin-right:6px;}
+.chat-cell{vertical-align:top;background:#fff;}
+.chat-toolbar{padding:6px 10px;background:#eee;border-bottom:1px solid #ccc;}
+.chat-toolbar .right{float:right;}
+
+/* Welcome */
+.welcome{margin:40px auto;width:520px;text-align:center;}
+.welcome h1{font-size:26px;}
+.welcome-subtitle{color:#666;margin:8px 0 16px 0;}
+.prompt-buttons{text-align:center;}
+.prompt-btn{display:inline-block;margin:4px;padding:8px 14px;border:1px solid #aaa;background:#fff;cursor:pointer;font-size:13px;}
+.prompt-btn:hover{background:#f0f0f0;}
+
+/* Messages */
+.messages{min-height:300px;max-height:480px;overflow-y:auto;padding:10px;background:#fff;}
+.msg-row{margin-bottom:12px;}
+.msg-role{font-weight:bold;font-size:12px;margin-bottom:3px;}
+.msg-user .msg-role{color:#1a56db;}
+.msg-assistant .msg-role{color:#0a7a3d;}
+.msg-body{white-space:pre-wrap;font-size:13px;line-height:1.45;}
+.msg-user .msg-body{background:#eef3fb;padding:8px;border:1px solid #c9d8f0;}
+.msg-assistant .msg-body{background:#f7faf8;padding:8px;border:1px solid #d4e8dc;}
+.msg-time{color:#999;font-size:11px;margin-top:3px;}
+.msg-actions{font-size:11px;margin-top:4px;}
+.msg-actions a{margin-right:8px;}
+.loading-dots{color:#999;}
+
+/* Input bar */
+.input-bar{padding:8px 10px;background:#fafafa;border-top:1px solid #ccc;}
+.input-bar textarea{width:100%;max-width:700px;height:50px;padding:6px;border:1px solid #aaa;font-size:13px;font-family:Tahoma,Arial,sans-serif;}
+.input-row{margin-top:6px;}
+.input-hint{color:#999;font-size:11px;}
+
+/* Image preview */
+.img-preview{margin:4px 0;}
+.img-preview img{border:1px solid #ccc;max-width:200px;}
+.img-preview .clear-img{margin-left:8px;font-size:11px;}
+
+/* Modal (used for rename/confirm) */
+.modal-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:#000;filter:alpha(opacity=40);z-index:100;}
+.modal{position:absolute;top:120px;left:50%;margin-left:-160px;width:320px;background:#fff;border:2px solid #444;padding:14px;z-index:101;}
+.modal h3{margin-bottom:8px;}
+.modal .modal-actions{margin-top:10px;text-align:right;}
+
+/* Tabs */
+.tabs{margin-bottom:8px;}
+.tab{padding:4px 10px;border:1px solid #aaa;background:#eee;margin-right:4px;cursor:pointer;}
+.tab-active{background:#fff;font-weight:bold;border-bottom-color:#fff;}
+
+/* Settings / progress cards */
+.card{background:#fff;border:1px solid #ccc;padding:12px;margin-bottom:12px;}
+.card h3{border-bottom:1px solid #eee;padding-bottom:4px;}
+.row{display:block;margin:6px 0;}
+.stat{font-size:26px;font-weight:bold;color:#1a56db;}
+.stat-label{color:#666;font-size:12px;}
+.stats-table td{padding:8px 16px 8px 0;}
+
+/* Misc */
+.right{float:right;}
+.clear{clear:both;}
+.muted{color:#999;font-size:11px;}
+.err-text{color:#c0392b;}
+.footer{padding:8px;text-align:center;color:#999;font-size:11px;border-top:1px solid #ddd;background:#fafafa;}
+.hidden{display:none;}
+.spinner{color:#666;}
