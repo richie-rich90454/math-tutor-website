@@ -10,7 +10,8 @@ public record AppProperties(
         Auth auth,
         Ai ai,
         Cors cors,
-        Prompts prompts) {
+        Prompts prompts,
+        Legacy legacy) {
 
     public record Database(String path) {
     }
@@ -29,5 +30,8 @@ public record AppProperties(
     }
 
     public record Prompts(String classpathDir) {
+    }
+
+    public record Legacy(String staticDir) {
     }
 }
