@@ -98,13 +98,13 @@ public class AiClient {
                 .put("type", "image_url")
                 .set("image_url", objectMapper.createObjectNode().put("url", imageUrl));
 
-        JsonNode messagesNode = objectMapper.createArrayNode();
+        tools.jackson.databind.node.ArrayNode messagesNode = objectMapper.createArrayNode();
         for (ContextBuilder.ContextMessage msg : textMessages) {
             messagesNode.add(objectMapper.createObjectNode()
                     .put("role", msg.role())
                     .put("content", msg.content()));
         }
-        JsonNode content = objectMapper.createArrayNode();
+        tools.jackson.databind.node.ArrayNode content = objectMapper.createArrayNode();
         content.add(objectMapper.createObjectNode().put("type", "text").put("text", userText));
         content.add(imagePart);
         messagesNode.add(objectMapper.createObjectNode()
@@ -190,7 +190,7 @@ public class AiClient {
     }
 
     private JsonNode toJsonArray(List<ContextBuilder.ContextMessage> messages) {
-        JsonNode array = objectMapper.createArrayNode();
+        tools.jackson.databind.node.ArrayNode array = objectMapper.createArrayNode();
         for (ContextBuilder.ContextMessage msg : messages) {
             array.add(objectMapper.createObjectNode()
                     .put("role", msg.role())
