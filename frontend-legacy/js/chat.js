@@ -74,7 +74,7 @@
         var html = "";
         for (var i = 0; i < chatHistory.length; i++) {
             var chat = chatHistory[i];
-            var title = chat.title || "Untitled";
+            var title = chat.title || MathTutor.t("chatUntitled");
             var preview = chat.preview || title;
             html += '<li data-chat-id="' + MathTutor.escapeHtml(chat.id) + '">'
                 + '<a href="#" class="sidebar-chat-title">' + MathTutor.escapeHtml(title) + "</a>"
@@ -470,7 +470,7 @@
         isLoading = true;
         isStreaming = true;
 
-        var caption = el("chatInput").value || "Please solve this math problem";
+        var caption = el("chatInput").value || MathTutor.t("inputImageDefaultCaption");
         var userMsg = {
             id: "u-" + new Date().getTime(),
             role: "user",
@@ -562,7 +562,7 @@
                 } else {
                     if (!done) {
                         done = true;
-                        var errMsg = "Failed to get response";
+                        var errMsg = MathTutor.t("errorNetwork");
                         try {
                             var data = JSON.parse(xhr.responseText);
                             if (data && data.error) {
