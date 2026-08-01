@@ -313,9 +313,20 @@
         var last = messages[messages.length - 1];
         if (last && last.id === currentAssistantId) {
             last.content += text;
-            var rowEl = area.querySelector(".msg-row[data-msg-id=\"" + currentAssistantId + "\"] .msg-body");
-            if (rowEl) {
-                rowEl.innerHTML = MathTutor.renderMarkdownSafe(last.content);
+            var rows = area.getElementsByTagName("div");
+            for (var i = 0; i < rows.length; i++) {
+                var row = rows[i];
+                if (row.className && row.className.indexOf("msg-row") !== -1
+                    && row.getAttribute("data-msg-id") === currentAssistantId) {
+                    var children = row.getElementsByTagName("div");
+                    for (var j = 0; j < children.length; j++) {
+                        if (children[j].className === "msg-body") {
+                            children[j].innerHTML = MathTutor.renderMarkdownSafe(last.content);
+                            break;
+                        }
+                    }
+                    break;
+                }
             }
         }
         scrollMessagesToBottom();
