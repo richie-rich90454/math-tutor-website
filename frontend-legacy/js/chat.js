@@ -89,6 +89,7 @@
             html = '<li class="muted">' + MathTutor.escapeHtml(MathTutor.t("sidebarNoConversationsYet")) + "</li>";
         }
         listEl.innerHTML = html;
+        fitSidebarList();
 
         $(listEl).off("click").on("click", "a[data-action]", function (e) {
             e.preventDefault();
@@ -155,6 +156,7 @@
                 reapplyUiTexts();
                 setIsLoading(false);
                 showChatView();
+                scrollMessagesToBottom();
             },
             error: function (msg) {
                 messages = [];
@@ -334,9 +336,14 @@
 
     function scrollMessagesToBottom() {
         var area = el("messagesArea");
-        if (area) {
-            area.scrollTop = area.scrollHeight;
+        if (!area) {
+            return;
         }
+        setTimeout(function () {
+            if (area.scrollHeight > area.clientHeight) {
+                area.scrollTop = area.scrollHeight;
+            }
+        }, 0);
     }
 
     function showChatView() {
@@ -362,6 +369,29 @@
         if (h > 160) {
             area.style.height = h + "px";
             area.style.maxHeight = "none";
+        }
+    }
+
+    function fitSidebarList() {
+        var list = el("chatList");
+        if (!list) {
+            return;
+        }
+        var inner = list.parentNode;
+        if (!inner || !inner.parentNode) {
+            return;
+        }
+        var cell = inner.parentNode;
+        var sections = cell.getElementsByTagName("div");
+        var used = 0;
+        for (var i = 0; i < sections.length; i++) {
+            if (sections[i] !== inner) {
+                used += sections[i].offsetHeight || 0;
+            }
+        }
+        var h = (cell.clientHeight || 400) - used - 16;
+        if (h > 100) {
+            list.style.height = h + "px";
         }
     }
 
@@ -557,6 +587,7 @@
             currentAssistantId = null;
         }
         renderMessages();
+        scrollMessagesToBottom();
     }
 
     function sendBtnVisible(sendVisible) {
@@ -814,10 +845,15 @@
 
         if (window.attachEvent) {
             window.attachEvent("onresize", fitMessages);
+            window.attachEvent("onresize", fitSidebarList);
         } else if (window.addEventListener) {
             window.addEventListener("resize", fitMessages);
+            window.addEventListener("resize", fitSidebarList);
         } else {
-            window.onresize = fitMessages;
+            window.onresize = function () {
+                fitMessages();
+                fitSidebarList();
+            };
         }
 
         MathTutor.refreshSession(function (ok) {
