@@ -787,6 +787,8 @@
             };
         });
 
+        initKeyboardShortcuts();
+
         MathTutor.refreshSession(function (ok) {
             reapplyUiTexts();
             renderSidebarUserArea();
@@ -795,6 +797,23 @@
                 showWelcomeView();
             } else {
                 showWelcomeView();
+            }
+        });
+    }
+
+    function initKeyboardShortcuts() {
+        $(document).on("keydown", function (e) {
+            var ctrl = e.ctrlKey || e.metaKey;
+            if (ctrl && e.keyCode === 78) { // Ctrl+N new chat
+                e.preventDefault();
+                handleNewChat();
+            } else if (ctrl && e.keyCode === 69) { // Ctrl+E export
+                e.preventDefault();
+                handleExport();
+            } else if (ctrl && e.keyCode === 191) { // Ctrl+/ help (no-op in legacy)
+                e.preventDefault();
+            } else if (ctrl && e.keyCode === 66) { // Ctrl+B toggle sidebar (no-op in legacy, two-pane)
+                e.preventDefault();
             }
         });
     }
