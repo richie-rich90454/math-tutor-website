@@ -6,6 +6,7 @@ import { useChat } from "@/contexts/ChatContext";
 import { useToast } from "@/contexts/ToastContext";
 import { exportChatAsMarkdown, exportChatAsText, downloadFile } from "@/lib/export";
 import { announcePolite } from "@/lib/aria-live";
+import { apiFetch } from "@/lib/api-client";
 
 export function useChatMessages() {
     const { t, currentLanguage } = useLanguage();
@@ -49,7 +50,7 @@ export function useChatMessages() {
         let cancelled = false;
         (async () => {
             try {
-                const res = await fetch(`/api/chats/${currentChat.id}`);
+                const res = await apiFetch(`/api/chats/${currentChat.id}`);
                 if (!res.ok || cancelled) return;
                 const data = await res.json();
                 if (cancelled) return;
@@ -112,7 +113,7 @@ export function useChatMessages() {
             const timeoutId = setTimeout(() => controller.abort(), 30_000);
 
             try {
-                const response = await fetch("/api/chat/message", {
+                const response = await apiFetch("/api/chat/message", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
@@ -233,7 +234,7 @@ export function useChatMessages() {
         const timeoutId = setTimeout(() => controller.abort(), 30_000);
 
         try {
-            const response = await fetch("/api/chat/image", {
+            const response = await apiFetch("/api/chat/image", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
