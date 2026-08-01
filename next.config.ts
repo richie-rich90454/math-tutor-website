@@ -1,5 +1,11 @@
 import type { NextConfig } from "next";
 
+const backendUrl = (
+    process.env.NEXT_PUBLIC_API_BASE_URL ||
+    process.env.NEXT_PUBLIC_BACKEND_URL ||
+    "http://localhost:8080"
+).replace(/\/$/, "");
+
 const nextConfig: NextConfig = {
     reactStrictMode: true,
     compiler: {
@@ -40,6 +46,18 @@ const nextConfig: NextConfig = {
         parallelServerCompiles: true,
         optimizeServerReact: true,
         useCache: true,
+    },
+    async rewrites() {
+        return [
+            {
+                source: "/api/:path*",
+                destination: `${backendUrl}/api/:path*`,
+            },
+            {
+                source: "/legacy/:path*",
+                destination: `${backendUrl}/legacy/:path*`,
+            },
+        ];
     },
     async headers() {
         return [
