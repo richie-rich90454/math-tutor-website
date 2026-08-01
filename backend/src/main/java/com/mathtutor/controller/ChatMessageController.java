@@ -1,7 +1,7 @@
 package com.mathtutor.controller;
 
 import com.mathtutor.dto.ChatMessageRequest;
-import com.mathtutor.dto.JsonLike;
+import com.mathtutor.dto.JsonBody;
 import com.mathtutor.service.AiClient;
 import com.mathtutor.service.ChatService;
 import com.mathtutor.service.RateLimitService;
@@ -86,7 +86,7 @@ public class ChatMessageController {
                                     .getBytes(StandardCharsets.UTF_8)));
         }
 
-        ChatMessageRequest body = ChatMessageRequest.parse(JsonLike.of(parseJson(rawBody)));
+        ChatMessageRequest body = ChatMessageRequest.parse(JsonBody.parse(rawBody));
         String sanitizedMessage = body.message().trim();
 
         ChatService.StreamSetup setup;
@@ -148,15 +148,6 @@ public class ChatMessageController {
             return realIp;
         }
         return "unknown";
-    }
-
-    private com.fasterxml.jackson.databind.JsonNode parseJson(String raw) {
-        try {
-            return new com.fasterxml.jackson.databind.ObjectMapper().readTree(raw);
-        } catch (Exception e) {
-            throw new org.springframework.http.converter.HttpMessageNotReadableException(
-                    "Invalid JSON body");
-        }
     }
 
     private String readCookie(HttpServletRequest request, String name) {
