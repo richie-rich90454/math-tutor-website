@@ -20,7 +20,8 @@ class JwtUtilTest {
                 new AppProperties.Auth("test-secret-key-for-junit-at-least-256-bits"),
                 new AppProperties.Ai("", "https://api.deepseek.com", "deepseek-v4-flash", null),
                 new AppProperties.Cors(java.util.List.of("http://localhost:3000")),
-                new AppProperties.Prompts("prompts"));
+                new AppProperties.Prompts("prompts"),
+                new AppProperties.Legacy("../frontend-legacy"));
     }
 
     @Test
@@ -66,7 +67,8 @@ class JwtUtilTest {
                 new AppProperties.Auth("a-different-secret-key-256-bits-long-xxxx"),
                 a.ai(),
                 a.cors(),
-                a.prompts());
+                a.prompts(),
+                a.legacy());
         JwtUtil signer = new JwtUtil(new SecurityUtil(), new ObjectMapper(), a);
         JwtUtil verifier = new JwtUtil(new SecurityUtil(), new ObjectMapper(), b);
         String token = signer.signToken("user123", "test@example.com");
