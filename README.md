@@ -12,8 +12,17 @@ MathTutor AI has been migrated from a monolithic Next.js application into three 
 │  Client (React 19)  │      │  (jQuery 1.12.4, IE6-safe)  │
 │  / (this repo root) │      │  /frontend-legacy           │
 └──────────┬──────────┘      └──────────────┬───────────────┘
-           │ browser API calls              │ same-origin /legacy/**
+           │ same-origin API calls          │ same-origin /legacy/**
            ▼                                ▼
+┌─────────────────────────────────────────────────────────────┐
+│  Next.js server (routes + rewrites)                        │
+│  • /api/auth/*, /api/chats/*, /api/progress  → proxy       │
+│  • /api/chat/message, /api/chat/image        → streaming   │
+│     route handlers that pipe the backend stream            │
+│     chunk by chunk (same-origin, never buffered)           │
+│  • /legacy → backend static files                          │
+└──────────────────────────────┬──────────────────────────────┘
+                               ▼
 ┌─────────────────────────────────────────────────────────────┐
 │                 Spring Boot 4.1 Backend                    │
 │                 /backend (Maven, Java 25)                  │
@@ -234,10 +243,22 @@ node scripts/generate-legacy-i18n.js
 
 The migration from the monolithic Next.js app to the Spring Boot backend +
 two frontends is documented in `docs/phase-0-analysis.md`. The old in-app
-Next.js API routes were removed; the Next.js server now proxies `/api/*` and
-`/legacy/*` to the Spring Boot backend via `beforeFiles` rewrites in
-`next.config.ts`, keeping the browser same-origin (no CORS, same behavior as
-the original monolith).
+Next.js API routes were removed; the Next.js server now routes all API traffic
+to the Spring Boot backend while keeping the browser same-origin (no CORS):
+
+- **JSON endpoints** (`/api/auth/*`, `/api/chats/*`, `/api/progress`) are
+  proxied via `beforeFiles` rewrites in `next.config.ts`.
+- **Streaming endpoints** (`/api/chat/message`, `/api/chat/image`) are served
+  by Next.js route handlers in `src/app/api/chat/*/route.ts` that pipe the
+  backend's stream chunk by chunk. This is essential: streaming through a
+  generic rewrite, or cross-origin with credentials, causes browsers and the
+  dev proxy to buffer the whole response. The same-origin route handlers keep
+  responses flowing incrementally, so the UI renders the AI output
+  character-by-character just like the original monolith.
+
+Note: `next dev` (Turbopack) requires the `critters` devDependency, which Next
+loads for CSS optimization. If streaming appears broken (the API returns 500
+with `Cannot find module 'critters'`), run `npm install` to restore it.
 
 ## License
 
