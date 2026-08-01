@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="authSignupTitle">Create account</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="legacy-shell">
+    <div class="legacy-header">
+        <span class="brand">MathTutor AI</span>
+        <span class="right">
+            <span id="langSwitcher"></span>
+            <span> | </span>
+            <a href="index.html" data-i18n="navBackToApp">Back to app</a>
+        </span>
+    </div>
+
+    <div class="auth-page">
+        <h1 class="auth-heading" data-i18n="authSignupTitle">Create your account</h1>
+
+        <form id="signupForm">
+            <div class="field">
+                <label for="name" data-i18n="authName">Name</label>
+                <input type="text" id="name" data-i18n-placeholder="authNamePlaceholder">
+            </div>
+            <div class="field">
+                <label for="email" data-i18n="authEmail">Email</label>
+                <input type="text" id="email" data-i18n-placeholder="authEmailPlaceholder">
+            </div>
+            <div class="field">
+                <label for="password" data-i18n="authPassword">Password</label>
+                <input type="password" id="password" data-i18n-placeholder="authPasswordPlaceholder">
+                <div class="hint" data-i18n="authPasswordTooShort">Password must be at least 8 characters</div>
+            </div>
+            <div class="field">
+                <label for="mathLevel" data-i18n="authMathLevel">Your math level</label>
+                <select id="mathLevel">
+                    <option value="beginner" data-i18n="authMathLevelBeginner">Beginner</option>
+                    <option value="intermediate" selected data-i18n="authMathLevelIntermediate">Intermediate</option>
+                    <option value="advanced" data-i18n="authMathLevelAdvanced">Advanced</option>
+                </select>
+            </div>
+            <div class="auth-msg hidden" id="errorBox"></div>
+            <button type="submit" class="btn btn-primary" id="submitBtn" data-i18n="authCreateAccount">Create account</button>
+        </form>
+
+        <p class="auth-footer-text" style="margin-top:16px;">
+            <span data-i18n="authHaveAccount">Already have an account?</span>
+            <a href="login.html" data-i18n="authLoginSignIn">Sign in</a>
+        </p>
+    </div>
+</div>
+
+<script src="js/json2.min.js"></script>
+<script src="js/jquery-1.12.4.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/common.js"></script>
+<script src="js/signup.js"></script>
+</body>
+</html>
