@@ -7,6 +7,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { gsap, useGSAP } from "@/lib/gsap";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
+import { apiFetch } from "@/lib/api-client";
 
 interface TopicData {
     topic: string;
@@ -60,7 +61,7 @@ export default function ProgressPage() {
 
     useEffect(() => {
         if (isAuthenticated) {
-            fetch("/api/progress")
+            apiFetch("/api/progress")
                 .then((r) => r.json())
                 .then(setData)
                 .catch(() => {})
