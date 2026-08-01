@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="progressTitle">Your Progress</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="legacy-shell">
+    <div class="legacy-header">
+        <span class="brand">MathTutor AI</span>
+        <span class="right">
+            <span id="langSwitcher"></span>
+            <span> | </span>
+            <a href="index.html" data-i18n="navBackToApp">Back to app</a>
+        </span>
+    </div>
+
+    <div class="legacy-content" style="max-width:760px;">
+        <h1 data-i18n="progressTitle">Your Progress</h1>
+        <div class="auth-msg hidden" id="errorBox"></div>
+
+        <table class="stats-table" id="statsRow">
+            <tr>
+                <td><div class="stat" id="statChats">0</div><div class="stat-label" data-i18n="progressConversations">Conversations</div></td>
+                <td><div class="stat" id="statMessages">0</div><div class="stat-label" data-i18n="progressMessages">Messages</div></td>
+                <td><div class="stat" id="statStreak">0</div><div class="stat-label" data-i18n="progressStreak">Day Streak</div></td>
+                <td><div class="stat" id="statTopics">0</div><div class="stat-label" data-i18n="progressTopics">Topics Explored</div></td>
+            </tr>
+        </table>
+
+        <div class="card" id="topicsCard">
+            <h3 data-i18n="progressTopicsExplored">Topics Explored</h3>
+            <div id="topicsList"></div>
+        </div>
+
+        <div class="card" id="recentCard">
+            <h3 data-i18n="progressRecentActivity">Recent Activity</h3>
+            <div id="recentList"></div>
+        </div>
+
+        <div class="card" id="activityCard">
+            <h3 data-i18n="progressActivity">Last 30 Days</h3>
+            <div id="activityHeatmap"></div>
+        </div>
+    </div>
+</div>
+
+<script src="js/json2.min.js"></script>
+<script src="js/jquery-1.12.4.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/common.js"></script>
+<script src="js/progress.js"></script>
+</body>
+</html>
