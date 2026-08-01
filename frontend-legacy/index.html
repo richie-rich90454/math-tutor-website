@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="title">MathTutor AI</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="legacy-shell">
+    <div class="legacy-header">
+        <span class="brand">MathTutor AI</span>
+        <span class="right">
+            <a href="#" id="headerNewChat" class="header-btn hidden" data-i18n="headerNewChat">New Chat</a>
+            <span> | </span>
+            <a href="#" id="headerExport" class="header-btn hidden" data-i18n="headerExportChat">Export</a>
+            <span> | </span>
+            <span id="langSwitcher"></span>
+            <span> | </span>
+            <a href="#" id="themeToggle" title="Toggle theme">&#9681;</a>
+            <span> | </span>
+            <a href="progress.html" data-i18n="progressTitle">Progress</a>
+            <span> | </span>
+            <a href="settings.html" data-i18n="sidebarSettings">Settings</a>
+            <span> | </span>
+            <a href="#" id="authLink">Sign in</a>
+        </span>
+    </div>
+
+    <table class="chat-layout" cellpadding="0" cellspacing="0">
+        <tr>
+            <td class="sidebar-cell">
+                <div class="sidebar-inner">
+                    <div class="sidebar-section">
+                        <a href="#" id="newChatBtn" class="btn btn-primary">+ <span data-i18n="sidebarNewChat">New Chat</span></a>
+                    </div>
+                    <div class="sidebar-section">
+                        <input type="text" id="chatSearch" style="width:200px;" data-i18n-placeholder="sidebarSearchPlaceholder">
+                    </div>
+                    <div class="sidebar-section">
+                        <div class="muted" data-i18n="sidebarRecentConversations">Recent Conversations</div>
+                        <ul class="sidebar-list" id="chatList"></ul>
+                    </div>
+                    <div class="sidebar-section" id="sidebarUserArea"></div>
+                </div>
+            </td>
+            <td class="chat-cell">
+                <div class="chat-toolbar">
+                    <span id="chatTitle" class="muted">&nbsp;</span>
+                </div>
+                <div id="welcomeSection" class="welcome">
+                    <h1 class="welcome-title" data-i18n="title">MathTutor AI</h1>
+                    <p class="welcome-subtitle" data-i18n="subtitle">What do you want to learn today?</p>
+                    <div class="prompt-buttons">
+                        <button type="button" class="prompt-btn" data-prompt-key="examplePracticeAddition" data-i18n="practiceAddition">Practice Addition</button>
+                        <button type="button" class="prompt-btn" data-prompt-key="exampleLearnGeometry" data-i18n="learnGeometry">Learn Geometry</button>
+                        <button type="button" class="prompt-btn" data-prompt-key="exampleTimesTables" data-i18n="timesTables">Times Tables</button>
+                        <button type="button" class="prompt-btn" data-prompt-key="exampleCulturalExamples" data-i18n="culturalExamples">Cultural Examples</button>
+                    </div>
+                    <div id="authPrompt" class="hidden" style="margin-top:16px;">
+                        <a href="login.html" class="btn btn-primary" data-i18n="sidebarSignIn">Sign in</a>
+                    </div>
+                </div>
+                <div class="messages hidden" id="messagesArea"></div>
+                <div class="input-bar hidden" id="inputBar">
+                    <textarea id="chatInput" rows="2"></textarea>
+                    <div class="img-preview hidden" id="imgPreview">
+                        <span data-i18n="inputDropImage">Image attached</span>
+                        <a href="#" id="clearImage" class="clear-img" data-i18n="a11yClose">Clear</a>
+                    </div>
+                    <div class="input-row">
+                        <button type="button" class="btn btn-primary" id="sendBtn" data-i18n="inputSendMessage">Send</button>
+                        <button type="button" class="btn hidden" id="stopBtn" data-i18n="inputStopGenerating">Stop</button>
+                        <input type="file" id="imageInput" accept="image/*" style="display:none;">
+                        <button type="button" class="btn" id="attachBtn" data-i18n="inputAttachImage">Attach image</button>
+                        <span class="input-hint" data-i18n="inputShiftHint">Shift + Enter for newline</span>
+                    </div>
+                </div>
+                <div class="footer" data-i18n="bottomText">AI-powered math education</div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="modal-overlay hidden" id="modalOverlay"></div>
+<div class="modal hidden" id="modal">
+    <h3 id="modalTitle"></h3>
+    <div id="modalBody"></div>
+    <div class="modal-actions">
+        <button type="button" class="btn" id="modalCancel">Cancel</button>
+        <button type="button" class="btn btn-primary" id="modalOk">OK</button>
+    </div>
+</div>
+
+<script src="js/json2.min.js"></script>
+<script src="js/jquery-1.12.4.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/common.js"></script>
+<script src="js/chat.js"></script>
+</body>
+</html>
