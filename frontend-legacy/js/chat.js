@@ -97,7 +97,7 @@
                 e.preventDefault();
                 e.stopPropagation();
                 var li = $(this).closest("li")[0];
-                var chatId = li.getAttribute("data-chat-id");
+                var chatId = MathTutor.attr(li, "data-chat-id");
                 var action = this.getAttribute("data-action");
                 handleChatAction(chatId, action);
             })
@@ -106,7 +106,7 @@
                     return;
                 }
                 e.preventDefault();
-                selectChat(this.getAttribute("data-chat-id"));
+                selectChat(MathTutor.attr(this, "data-chat-id"));
             });
     }
 
@@ -368,10 +368,11 @@
         }
         var row = el("chatBodyRow");
         var h = row ? row.clientHeight - 16 : 300;
-        if (h > 160) {
-            area.style.height = h + "px";
-            area.style.maxHeight = "none";
+        if (h < 160) {
+            h = 300;
         }
+        area.style.height = h + "px";
+        area.style.maxHeight = "none";
     }
 
     function fitSidebarList() {
@@ -381,6 +382,7 @@
         }
         var inner = list.parentNode;
         if (!inner || !inner.parentNode) {
+            list.style.height = "300px";
             return;
         }
         var cell = inner.parentNode;
@@ -392,9 +394,15 @@
             }
         }
         var h = (cell.clientHeight || 400) - used - 16;
-        if (h > 100) {
-            list.style.height = h + "px";
+        if (h < 100) {
+            h = 300;
         }
+        list.style.height = h + "px";
+    }
+
+    function fitAll() {
+        fitMessages();
+        fitSidebarList();
     }
 
     function showWelcomeView() {
@@ -548,7 +556,11 @@
             loadChatHistory();
         }
 
-        xhr = new XMLHttpRequest();
+        xhr = MathTutor.createXHR();
+        if (!xhr) {
+            finishStreaming();
+            return;
+        }
         var fullUrl = API_BASE_URL + url;
         xhr.open("POST", fullUrl, true);
         xhr.setRequestHeader("Content-Type", "application/json");
@@ -846,17 +858,15 @@
         initKeyboardShortcuts();
 
         if (window.attachEvent) {
-            window.attachEvent("onresize", fitMessages);
-            window.attachEvent("onresize", fitSidebarList);
+            window.attachEvent("onresize", fitAll);
         } else if (window.addEventListener) {
-            window.addEventListener("resize", fitMessages);
-            window.addEventListener("resize", fitSidebarList);
+            window.addEventListener("resize", fitAll);
         } else {
-            window.onresize = function () {
-                fitMessages();
-                fitSidebarList();
-            };
+            window.onresize = fitAll;
         }
+        // Re-fit once layout has settled (IE6 height chains resolve late).
+        setTimeout(fitAll, 250);
+        setTimeout(fitAll, 800);
 
         MathTutor.refreshSession(function (ok) {
             reapplyUiTexts();
