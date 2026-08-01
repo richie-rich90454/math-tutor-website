@@ -31,7 +31,12 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         String legacyDir = props.legacy().staticDir();
-        registry.addResourceHandler("/legacy", "/legacy/**")
+        registry.addResourceHandler("/legacy/**")
                 .addResourceLocations("file:" + legacyDir + "/");
+    }
+
+    @Override
+    public void addViewControllers(org.springframework.web.servlet.config.annotation.ViewControllerRegistry registry) {
+        registry.addRedirectViewController("/legacy", "/legacy/index.html");
     }
 }
