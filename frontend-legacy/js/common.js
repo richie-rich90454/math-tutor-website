@@ -31,6 +31,55 @@ if (!Array.prototype.lastIndexOf) {
         return -1;
     };
 }
+// Very old JScript engines (IE5.5/IE6) may lack the ES3 URI functions.
+if (!window.encodeURIComponent) {
+    window.encodeURIComponent = function (s) {
+        s = String(s);
+        return s.replace(/[^A-Za-z0-9_.!~*'()-]/g, function (c) {
+            return "%" + c.charCodeAt(0).toString(16).toUpperCase();
+        });
+    };
+}
+if (!window.decodeURIComponent) {
+    window.decodeURIComponent = function (s) {
+        return String(s).replace(/%[0-9A-Fa-f]{2}/g, function (m) {
+            return String.fromCharCode(parseInt(m.substring(1), 16));
+        });
+    };
+}
+
+// Create an XHR that works in IE6 (no native XMLHttpRequest).
+MathTutor.createXHR = function () {
+    if (window.XMLHttpRequest) {
+        return new XMLHttpRequest();
+    }
+    try {
+        return new ActiveXObject("Msxml2.XMLHTTP");
+    } catch (e) {
+        try {
+            return new ActiveXObject("Microsoft.XMLHTTP");
+        } catch (e2) {
+            return null;
+        }
+    }
+};
+
+// Read an attribute robustly (IE6 getAttribute quirks on custom names).
+MathTutor.attr = function (node, name) {
+    if (!node) {
+        return "";
+    }
+    var v = node.getAttribute ? node.getAttribute(name) : null;
+    if (v === null && node.attributes) {
+        for (var i = 0; i < node.attributes.length; i++) {
+            if (node.attributes[i].nodeName === name) {
+                v = node.attributes[i].nodeValue;
+                break;
+            }
+        }
+    }
+    return v === null || v === undefined ? "" : String(v);
+};
 
 MathTutor.languages = [
     { code: "en", name: "English" },
@@ -302,11 +351,23 @@ function repeat(ch, n) {
 }
 
 // ---------- AJAX wrapper (JSON bodies, error normalization) ----------
-// IE6/IE7 XHR only supports GET/POST. For PATCH/DELETE/PUT we fall back to
+// IE6-IE9 XHR only supports GET/POST. For PATCH/DELETE/PUT we fall back to
 // POST + ?_method=... which the backend translates via HiddenHttpMethodFilter.
+MathTutor.isOldIE = function () {
+    var ua = navigator.userAgent;
+    var m = /MSIE (\d+)/.exec(ua);
+    return !!m && parseInt(m[1], 10) < 10;
+};
+
 MathTutor.supportsMethod = function (method) {
+    if (MathTutor.isOldIE()) {
+        return false;
+    }
     try {
-        var x = new XMLHttpRequest();
+        var x = MathTutor.createXHR();
+        if (!x) {
+            return false;
+        }
         x.open(method, "/");
         return true;
     } catch (e) {
