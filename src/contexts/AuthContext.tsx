@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
 import { useRouter } from "next/navigation";
-import { apiFetch } from "@/lib/api-client";
+import { apiFetch, setSessionToken } from "@/lib/api-client";
 
 interface User {
     id: string;
@@ -35,11 +35,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             if (res.ok) {
                 const data = await res.json();
                 setUser(data.user);
+                const tokenRes = await apiFetch("/api/auth/token");
+                if (tokenRes.ok) {
+                    const tokenData = await tokenRes.json();
+                    setSessionToken(tokenData.token);
+                }
             } else {
                 setUser(null);
+                setSessionToken(null);
             }
         } catch {
             setUser(null);
+            setSessionToken(null);
         } finally {
             setIsLoading(false);
         }
@@ -84,6 +91,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const logout = async () => {
         await apiFetch("/api/auth/logout", { method: "POST" });
         setUser(null);
+        setSessionToken(null);
         router.push("/login");
     };
 
