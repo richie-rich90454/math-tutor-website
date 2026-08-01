@@ -33,6 +33,8 @@ public class DotEnvEnvironmentPostProcessor implements EnvironmentPostProcessor 
         if (!Files.isRegularFile(envFile)) {
             envFile = root.getParent() == null ? null : root.getParent().resolve(".env");
         }
+        System.out.println("[dotenv] cwd=" + root + " envFile=" + envFile
+                + (envFile != null && Files.isRegularFile(envFile) ? " FOUND" : " MISSING"));
         if (envFile == null || !Files.isRegularFile(envFile)) {
             return;
         }
