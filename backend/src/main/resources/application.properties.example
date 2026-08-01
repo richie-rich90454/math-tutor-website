@@ -28,3 +28,7 @@
 # ---------- Prompts ----------
 # Directory containing prompt-<lang>.txt files (classpath by default).
 # PROMPTS_CLASSPATH_DIR=prompts
+
+# ---------- Legacy client ----------
+# Filesystem directory that serves the IE6 legacy client under /legacy/**.
+# LEGACY_STATIC_DIR=../frontend-legacy
