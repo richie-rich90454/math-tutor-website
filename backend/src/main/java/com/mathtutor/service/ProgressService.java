@@ -65,7 +65,7 @@ public class ProgressService {
                 userId);
 
         String memberSince = jdbc.queryForObject(
-                "SELECT created_at FROM chat_sessions WHERE user_id = ? ORDER BY created_at ASC LIMIT 1",
+                "SELECT MIN(created_at) FROM chat_sessions WHERE user_id = ?",
                 String.class, userId);
 
         int longestStreak = calculateStreak(dailyActivity);

@@ -345,6 +345,24 @@
         el("inputBar").className = "input-bar";
         el("headerNewChat").className = "header-btn";
         el("headerExport").className = "header-btn";
+        var row = el("chatBodyRow");
+        if (row) {
+            row.valign = "top";
+        }
+        fitMessages();
+    }
+
+    function fitMessages() {
+        var area = el("messagesArea");
+        if (!area || area.className.indexOf("hidden") !== -1) {
+            return;
+        }
+        var row = el("chatBodyRow");
+        var h = row ? row.clientHeight - 16 : 300;
+        if (h > 160) {
+            area.style.height = h + "px";
+            area.style.maxHeight = "none";
+        }
     }
 
     function showWelcomeView() {
@@ -354,6 +372,10 @@
         el("inputBar").className = authenticated ? "input-bar" : "input-bar hidden";
         el("headerNewChat").className = "header-btn hidden";
         el("headerExport").className = "header-btn hidden";
+        var row = el("chatBodyRow");
+        if (row) {
+            row.valign = "middle";
+        }
         var authPrompt = el("authPrompt");
         if (!authenticated) {
             authPrompt.className = "";
@@ -789,6 +811,14 @@
         });
 
         initKeyboardShortcuts();
+
+        if (window.attachEvent) {
+            window.attachEvent("onresize", fitMessages);
+        } else if (window.addEventListener) {
+            window.addEventListener("resize", fitMessages);
+        } else {
+            window.onresize = fitMessages;
+        }
 
         MathTutor.refreshSession(function (ok) {
             reapplyUiTexts();

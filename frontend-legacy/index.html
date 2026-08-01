@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="/legacy/css/style.css">
 </head>
 <body>
-<div class="legacy-shell">
+<div class="legacy-shell shell-app">
     <div class="legacy-header">
         <span class="brand">MathTutor AI</span>
         <span class="right">
@@ -27,6 +27,7 @@
         </span>
     </div>
 
+    <div class="chat-stage">
     <table class="chat-layout" cellpadding="0" cellspacing="0">
         <tr>
             <td class="sidebar-cell">
@@ -45,41 +46,56 @@
                 </div>
             </td>
             <td class="chat-cell">
-                <div class="chat-toolbar">
-                    <span id="chatTitle" class="muted">&nbsp;</span>
-                </div>
-                <div id="welcomeSection" class="welcome">
-                    <h1 class="welcome-title" data-i18n="title">MathTutor AI</h1>
-                    <p class="welcome-subtitle" data-i18n="subtitle">What do you want to learn today?</p>
-                    <div class="prompt-buttons">
-                        <button type="button" class="prompt-btn" data-prompt-key="examplePracticeAddition" data-i18n="practiceAddition">Practice Addition</button>
-                        <button type="button" class="prompt-btn" data-prompt-key="exampleLearnGeometry" data-i18n="learnGeometry">Learn Geometry</button>
-                        <button type="button" class="prompt-btn" data-prompt-key="exampleTimesTables" data-i18n="timesTables">Times Tables</button>
-                        <button type="button" class="prompt-btn" data-prompt-key="exampleCulturalExamples" data-i18n="culturalExamples">Cultural Examples</button>
-                    </div>
-                    <div id="authPrompt" class="hidden" style="margin-top:16px;">
-                        <a href="/legacy/login.html" class="btn btn-primary" data-i18n="sidebarSignIn">Sign in</a>
-                    </div>
-                </div>
-                <div class="messages hidden" id="messagesArea"></div>
-                <div class="input-bar hidden" id="inputBar">
-                    <textarea id="chatInput" rows="2"></textarea>
-                    <div class="img-preview hidden" id="imgPreview">
-                        <span data-i18n="inputDropImage">Image attached</span>
-                        <a href="#" id="clearImage" class="clear-img" data-i18n="a11yClose">Clear</a>
-                    </div>
-                    <div class="input-row">
-                        <button type="button" class="btn btn-primary" id="sendBtn" data-i18n="inputSendMessage">Send</button>
-                        <button type="button" class="btn hidden" id="stopBtn" data-i18n="inputStopGenerating">Stop</button>
-                        <input type="file" id="imageInput" accept="image/*" style="display:none;">
-                        <button type="button" class="btn" id="attachBtn" data-i18n="inputAttachImage">Attach image</button>
-                        <span class="input-hint" data-i18n="inputShiftHint">Shift + Enter for newline</span>
-                    </div>
-                </div>
-                <div class="footer" data-i18n="bottomText">AI-powered math education</div>
+                <table class="chat-stack" width="100%" height="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        <td class="chat-toolbar-row">
+                            <div class="chat-toolbar">
+                                <span id="chatTitle" class="muted">&nbsp;</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="chat-body-row" id="chatBodyRow" height="100%" valign="middle">
+                            <div id="welcomeSection" class="welcome">
+                                <h1 class="welcome-title" data-i18n="title">MathTutor AI</h1>
+                                <p class="welcome-subtitle" data-i18n="subtitle">What do you want to learn today?</p>
+                                <div class="prompt-buttons">
+                                    <button type="button" class="prompt-btn" data-prompt-key="examplePracticeAddition" data-i18n="practiceAddition">Practice Addition</button>
+                                    <button type="button" class="prompt-btn" data-prompt-key="exampleLearnGeometry" data-i18n="learnGeometry">Learn Geometry</button>
+                                    <button type="button" class="prompt-btn" data-prompt-key="exampleTimesTables" data-i18n="timesTables">Times Tables</button>
+                                    <button type="button" class="prompt-btn" data-prompt-key="exampleCulturalExamples" data-i18n="culturalExamples">Cultural Examples</button>
+                                </div>
+                                <div id="authPrompt" class="hidden" style="margin-top:16px;">
+                                    <a href="/legacy/login.html" class="btn btn-primary" data-i18n="sidebarSignIn">Sign in</a>
+                                </div>
+                            </div>
+                            <div class="messages hidden" id="messagesArea"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="chat-footer-row">
+                            <div class="input-bar hidden" id="inputBar">
+                                <textarea id="chatInput" rows="2"></textarea>
+                                <div class="img-preview hidden" id="imgPreview">
+                                    <span data-i18n="inputDropImage">Image attached</span>
+                                    <a href="#" id="clearImage" class="clear-img" data-i18n="a11yClose">Clear</a>
+                                </div>
+                                <div class="input-row">
+                                    <button type="button" class="btn btn-primary" id="sendBtn" data-i18n="inputSendMessage">Send</button>
+                                    <button type="button" class="btn hidden" id="stopBtn" data-i18n="inputStopGenerating">Stop</button>
+                                    <input type="file" id="imageInput" accept="image/*" style="display:none;">
+                                    <button type="button" class="btn" id="attachBtn" data-i18n="inputAttachImage">Attach image</button>
+                                    <span class="input-hint" data-i18n="inputShiftHint">Shift + Enter for newline</span>
+                                </div>
+                            </div>
+                            <div class="footer" data-i18n="bottomText">AI-powered math education</div>
+                        </td>
+                    </tr>
+                </table>
             </td>
         </tr>
     </table>
+    </div>
 </div>
 
 <div class="modal-overlay hidden" id="modalOverlay"></div>

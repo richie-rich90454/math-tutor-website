@@ -13,9 +13,15 @@ p{margin:4px 0;}
 table{border-collapse:collapse;}
 
 /* Layout */
+html,body{height:100%;}
 .legacy-shell{width:100%;}
 .legacy-main{width:100%;}
 .legacy-content{padding:8px;}
+/* Chat app shell fills the viewport so the page never leaves a blank band below. */
+.shell-app{position:relative;height:100%;overflow:hidden;}
+.shell-app .legacy-header{position:absolute;top:0;left:0;right:0;z-index:5;}
+.shell-app .chat-stage{position:absolute;top:38px;left:0;right:0;bottom:0;}
+.shell-app .chat-layout{width:100%;height:100%;}
 
 /* Header */
 .legacy-header{background:#0a0a0a;color:#fff;padding:6px 10px;height:26px;line-height:26px;}
@@ -47,7 +53,11 @@ table{border-collapse:collapse;}
 .auth-ok{color:#27ae60;font-size:12px;margin:6px 0;}
 
 /* Chat */
-.chat-layout{width:100%;}
+.chat-layout{width:100%;height:100%;}
+.chat-stack{width:100%;height:100%;}
+.chat-toolbar-row{vertical-align:top;}
+.chat-body-row{vertical-align:middle;}
+.chat-footer-row{vertical-align:top;}
 .sidebar-cell{width:230px;vertical-align:top;background:#111;color:#eee;}
 .sidebar-cell a{color:#ccc;}
 .sidebar-inner{padding:8px;}
@@ -64,7 +74,7 @@ table{border-collapse:collapse;}
 .chat-toolbar .right{float:right;}
 
 /* Welcome */
-.welcome{margin:40px auto;width:520px;text-align:center;}
+.welcome{margin:0 auto;padding:20px 0;width:520px;text-align:center;}
 .welcome h1{font-size:26px;}
 .welcome-subtitle{color:#666;margin:8px 0 16px 0;}
 .prompt-buttons{text-align:center;}
@@ -72,7 +82,7 @@ table{border-collapse:collapse;}
 .prompt-btn:hover{background:#f0f0f0;}
 
 /* Messages */
-.messages{min-height:300px;max-height:480px;overflow-y:auto;padding:10px;background:#fff;}
+.messages{min-height:160px;height:100%;overflow:auto;padding:10px;background:#fff;}
 .msg-row{margin-bottom:12px;}
 .msg-role{font-weight:bold;font-size:12px;margin-bottom:3px;}
 .msg-user .msg-role{color:#1a56db;}
@@ -123,3 +133,61 @@ table{border-collapse:collapse;}
 .footer{padding:8px;text-align:center;color:#999;font-size:11px;border-top:1px solid #ddd;background:#fafafa;}
 .hidden{display:none;}
 .spinner{color:#666;}
+
+/* Header controls (dark header in both themes) */
+.legacy-header select{background:#16181f;color:#fff;border:1px solid #333;font-size:12px;padding:1px 2px;}
+.legacy-header .header-btn{color:#9db4ff;}
+.legacy-header .header-btn:hover{color:#fff;text-decoration:none;}
+
+/* Dark theme (body.theme-dark) - IE6-safe palette swap */
+body.theme-dark{background:#0e1013;color:#d7dbe3;}
+body.theme-dark a{color:#7ea6ff;}
+body.theme-dark h1,body.theme-dark h2,body.theme-dark h3{color:#e8ebf0;}
+body.theme-dark .btn{background:#2a2e37;border-color:#3a3f4b;color:#d7dbe3;}
+body.theme-dark .btn:hover{background:#333844;}
+body.theme-dark .btn-primary{background:#1a56db;border-color:#0a3a9b;color:#fff;}
+body.theme-dark .btn-primary:hover{background:#2a6df0;}
+body.theme-dark .btn-danger{background:#c0392b;border-color:#922b21;color:#fff;}
+body.theme-dark .btn-danger:hover{background:#d14332;}
+body.theme-dark .btn:disabled{color:#6b7280;background:#22262f;}
+body.theme-dark .field label{color:#c6ccd6;}
+body.theme-dark .field input[type=text],body.theme-dark .field input[type=email],body.theme-dark .field input[type=password],body.theme-dark .field select,body.theme-dark .field textarea{background:#1a1d24;border-color:#3a3f4b;color:#d7dbe3;}
+body.theme-dark .field .hint{color:#8a93a3;}
+body.theme-dark .auth-page{background:#16181f;border-color:#2a2e37;}
+body.theme-dark .auth-msg{color:#e5736a;}
+body.theme-dark .auth-ok{color:#4fae6e;}
+body.theme-dark .sidebar-cell{background:#0a0c10;}
+body.theme-dark .sidebar-cell a{color:#a9b2c1;}
+body.theme-dark .sidebar-list li{border-bottom-color:#1e222b;}
+body.theme-dark .sidebar-list li:hover{background:#161a22;}
+body.theme-dark .sidebar-chat-preview{color:#7d8694;}
+body.theme-dark .chat-cell{background:#12141a;}
+body.theme-dark .chat-toolbar{background:#1a1d24;border-bottom-color:#2a2e37;}
+body.theme-dark .welcome-subtitle{color:#9aa3b2;}
+body.theme-dark .prompt-btn{background:#1a1d24;border-color:#3a3f4b;color:#d7dbe3;}
+body.theme-dark .prompt-btn:hover{background:#22262f;}
+body.theme-dark .messages{background:#12141a;}
+body.theme-dark .msg-user .msg-role{color:#7ea6ff;}
+body.theme-dark .msg-assistant .msg-role{color:#5ec98a;}
+body.theme-dark .msg-user .msg-body{background:#16213a;border-color:#24406e;}
+body.theme-dark .msg-assistant .msg-body{background:#15241c;border-color:#245139;}
+body.theme-dark .msg-time{color:#7d8694;}
+body.theme-dark .input-bar{background:#16181f;border-top-color:#2a2e37;}
+body.theme-dark .input-bar textarea{background:#1a1d24;border-color:#3a3f4b;color:#d7dbe3;}
+body.theme-dark .input-hint{color:#8a93a3;}
+body.theme-dark .img-preview img{border-color:#3a3f4b;}
+body.theme-dark .modal{background:#16181f;border-color:#3a3f4b;}
+body.theme-dark .modal h3{color:#e8ebf0;}
+body.theme-dark .modal .modal-actions .btn{background:#2a2e37;border-color:#3a3f4b;color:#d7dbe3;}
+body.theme-dark .modal .modal-actions .btn-primary{background:#1a56db;color:#fff;}
+body.theme-dark .tab{background:#1a1d24;border-color:#3a3f4b;color:#d7dbe3;}
+body.theme-dark .tab:hover{background:#22262f;}
+body.theme-dark .tab-active{background:#12141a;color:#e8ebf0;border-bottom-color:#12141a;}
+body.theme-dark .card{background:#16181f;border-color:#2a2e37;}
+body.theme-dark .card h3{border-bottom-color:#2a2e37;}
+body.theme-dark .stat{color:#7ea6ff;}
+body.theme-dark .stat-label{color:#8a93a3;}
+body.theme-dark .muted{color:#8a93a3;}
+body.theme-dark .footer{background:#16181f;border-top-color:#2a2e37;color:#8a93a3;}
+body.theme-dark .err-text{color:#e5736a;}
+body.theme-dark .spinner{color:#9aa3b2;}
