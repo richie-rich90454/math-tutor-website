@@ -2,7 +2,7 @@ package com.mathtutor.controller;
 
 import com.mathtutor.config.AppProperties;
 import com.mathtutor.dto.ChatImageRequest;
-import com.mathtutor.dto.JsonLike;
+import com.mathtutor.dto.JsonBody;
 import com.mathtutor.service.AiClient;
 import com.mathtutor.service.RateLimitService;
 import com.mathtutor.service.SessionService;
@@ -75,7 +75,7 @@ public class ChatImageController {
                             "{\"error\":\"Vision API not configured\"}".getBytes(StandardCharsets.UTF_8)));
         }
 
-        ChatImageRequest body = ChatImageRequest.parse(JsonLike.of(parseJson(rawBody)));
+        ChatImageRequest body = ChatImageRequest.parse(JsonBody.parse(rawBody));
 
         VisionChatService.VisionStreamSetup setup;
         try {
@@ -128,15 +128,6 @@ public class ChatImageController {
             return realIp;
         }
         return "unknown";
-    }
-
-    private com.fasterxml.jackson.databind.JsonNode parseJson(String raw) {
-        try {
-            return new com.fasterxml.jackson.databind.ObjectMapper().readTree(raw);
-        } catch (Exception e) {
-            throw new org.springframework.http.converter.HttpMessageNotReadableException(
-                    "Invalid JSON body");
-        }
     }
 
     private String readCookie(HttpServletRequest request, String name) {
