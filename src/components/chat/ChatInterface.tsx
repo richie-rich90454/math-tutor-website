@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useChat } from '@/contexts/ChatContext';
+import { apiFetch } from '@/lib/api-client';
 
 interface Message {
   id: string;
@@ -43,7 +44,7 @@ export default function ChatInterface() {
     setIsLoading(true);
 
     try {
-      const response = await fetch('/api/chat/message', {
+      const response = await apiFetch('/api/chat/message', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
