@@ -263,9 +263,9 @@
         if (MathTutor.isAuthenticated()) {
             var user = MathTutor.currentUser();
             area.innerHTML = '<div class="muted">' + MathTutor.escapeHtml(user.name || user.email) + "</div>"
-                + '<a href="settings.html">' + MathTutor.escapeHtml(MathTutor.t("sidebarSettings")) + "</a>";
+                + '<a href="/legacy/settings.html">' + MathTutor.escapeHtml(MathTutor.t("sidebarSettings")) + "</a>";
         } else {
-            area.innerHTML = '<a href="login.html">' + MathTutor.escapeHtml(MathTutor.t("sidebarSignIn")) + "</a>";
+            area.innerHTML = '<a href="/legacy/login.html">' + MathTutor.escapeHtml(MathTutor.t("sidebarSignIn")) + "</a>";
         }
     }
 
@@ -350,11 +350,12 @@
     function showWelcomeView() {
         el("welcomeSection").className = "welcome";
         el("messagesArea").className = "messages hidden";
-        el("inputBar").className = "input-bar hidden";
+        var authenticated = MathTutor.isAuthenticated();
+        el("inputBar").className = authenticated ? "input-bar" : "input-bar hidden";
         el("headerNewChat").className = "header-btn hidden";
         el("headerExport").className = "header-btn hidden";
         var authPrompt = el("authPrompt");
-        if (!MathTutor.isAuthenticated()) {
+        if (!authenticated) {
             authPrompt.className = "";
         } else {
             authPrompt.className = "hidden";
@@ -693,15 +694,15 @@
                     handleNewChat();
                     reapplyUiTexts();
                     renderSidebarUserArea();
-                    location.href = "login.html";
+                    location.href = "/legacy/login.html";
                 },
                 error: function () {
                     MathTutor.session = null;
-                    location.href = "login.html";
+                    location.href = "/legacy/login.html";
                 }
             });
         } else {
-            location.href = "login.html";
+            location.href = "/legacy/login.html";
         }
     }
 

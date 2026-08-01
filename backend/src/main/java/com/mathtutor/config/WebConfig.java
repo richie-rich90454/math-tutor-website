@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
@@ -26,6 +27,12 @@ public class WebConfig implements WebMvcConfigurer {
                 .exposedHeaders("X-Chat-Id", "X-RateLimit-Limit", "X-RateLimit-Remaining", "X-RateLimit-Reset", "Retry-After")
                 .allowCredentials(true)
                 .maxAge(3600);
+    }
+
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/legacy").setViewName("forward:/legacy/index.html");
+        registry.addViewController("/legacy/").setViewName("forward:/legacy/index.html");
     }
 
     @Override

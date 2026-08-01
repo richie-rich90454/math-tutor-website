@@ -12,6 +12,7 @@
     "sortPackageJson": false,
     "sortTailwindcss": {},
     "ignorePatterns": [
+        "*.min.*",
         "node_modules/",
         ".next/",
         "dist/",
