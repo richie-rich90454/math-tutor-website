@@ -29,7 +29,6 @@ export async function POST(request: Request) {
 
     const chatId = upstream.headers.get("X-Chat-Id") || "";
     const reader = upstream.body!.getReader();
-    const encoder = new TextEncoder();
 
     const stream = new ReadableStream<Uint8Array>({
         async pull(controller) {
