@@ -13,8 +13,7 @@ import Sparkles from "@/components/ui/Sparkles";
 import VirtualizedMessages from "@/components/chat/VirtualizedMessages";
 import MessageRow from "@/components/chat/MessageRow";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useChat, ChatSession } from "@/contexts/ChatContext";
-import { useAuth } from "@/contexts/AuthContext";
+import type { ChatSession } from "@/contexts/ChatContext";
 import { gsap, useGSAP } from "@/lib/gsap";
 import { useChatMessages } from "@/hooks/useChatMessages";
 import { useChatUI } from "@/hooks/useChatUI";
@@ -30,8 +29,6 @@ const ShortcutHelp = dynamic(() => import("@/components/ui/ShortcutHelp"));
 
 export default function Home() {
     const { t } = useLanguage();
-    const { currentChat, setCurrentChat } = useChat();
-    const { isAuthenticated } = useAuth();
     const {
         input,
         setInput,
@@ -40,9 +37,7 @@ export default function Home() {
         messages,
         isLoading,
         isStreaming,
-        activeChatId,
         setActiveChatId,
-        isLoaded,
         setIsLoaded,
         sendMessage,
         sendImage,
