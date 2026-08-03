@@ -42,11 +42,11 @@ MathTutor AI has been migrated from a monolithic Next.js application into three 
 
 ### Components
 
-| Component | Location | Stack | Port |
-| --- | --- | --- | --- |
-| Modern client | repository root | Next.js 16, React 19, Tailwind CSS, GSAP | 3000 |
-| Legacy client | `frontend-legacy/` | jQuery 1.12.4, ES3, IE6-compatible | served by backend at `/legacy/**` |
-| Backend | `backend/` | Spring Boot 4.1, Java 25, Maven, SQLite | 8080 |
+| Component     | Location           | Stack                                    | Port                              |
+| ------------- | ------------------ | ---------------------------------------- | --------------------------------- |
+| Modern client | repository root    | Next.js 16, React 19, Tailwind CSS, GSAP | 3000                              |
+| Legacy client | `frontend-legacy/` | jQuery 1.12.4, ES3, IE6-compatible       | served by backend at `/legacy/**` |
+| Backend       | `backend/`         | Spring Boot 4.1, Java 25, Maven, SQLite  | 8080                              |
 
 The two frontends provide **identical functionality** (auth, streaming chat,
 chat history, image analysis, progress, settings, 12 languages, RTL, export).
@@ -114,11 +114,11 @@ separately. See `frontend-legacy/README.md` for details.
 
 ### Modern client (`.env`)
 
-| Variable                        | Description                                | Required | Default                     |
-| ------------------------------- | ------------------------------------------ | -------- | --------------------------- |
-| `NEXT_PUBLIC_API_BASE_URL`      | Spring Boot backend URL (proxied by Next)  | Yes      | `http://localhost:8080`     |
-| `NEXT_PUBLIC_SITE_URL`          | Public URL for SEO                         | No       | `https://math-tutor.ai`     |
-| `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` | Google Search Console token         | No       | -                           |
+| Variable                               | Description                               | Required | Default                 |
+| -------------------------------------- | ----------------------------------------- | -------- | ----------------------- |
+| `NEXT_PUBLIC_API_BASE_URL`             | Spring Boot backend URL (proxied by Next) | Yes      | `http://localhost:8080` |
+| `NEXT_PUBLIC_SITE_URL`                 | Public URL for SEO                        | No       | `https://math-tutor.ai` |
+| `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` | Google Search Console token               | No       | -                       |
 
 The Next.js server proxies `/api/*` and `/legacy/*` to the Spring Boot
 backend (see `next.config.ts` `rewrites`), so the browser only ever talks to
@@ -127,18 +127,18 @@ not needed; configure those on the backend instead.
 
 ### Backend (`application.properties` / env)
 
-| Variable                        | Description                                | Required | Default                     |
-| ------------------------------- | ------------------------------------------ | -------- | --------------------------- |
-| `SESSION_SECRET`                | JWT signing secret (>= 256 bits)           | Yes      | -                           |
-| `OPENAI_COMPATIBLE_API_KEY`     | OpenAI-compatible API key                  | Yes      | -                           |
-| `OPENAI_COMPATIBLE_BASE_URL`    | AI API base URL                            | No       | `https://api.deepseek.com`  |
-| `OPENAI_COMPATIBLE_MODEL`       | Chat model                                 | No       | `deepseek-v4-flash`         |
-| `OPENAI_COMPATIBLE_VISION_MODEL`| Vision model                               | No       | falls back to MODEL         |
-| `DATABASE_PATH`                 | SQLite database file                       | No       | `./data/math-tutor.db`      |
-| `SERVER_PORT`                   | HTTP port                                  | No       | `8080`                      |
-| `CORS_ALLOWED_ORIGINS`          | Comma-separated allowed origins            | No       | `http://localhost:3000`     |
-| `LEGACY_STATIC_DIR`             | Filesystem dir served at `/legacy/**`      | No       | `../frontend-legacy`        |
-| `PROMPTS_CLASSPATH_DIR`         | Classpath dir with prompt-*.txt files      | No       | `prompts`                   |
+| Variable                         | Description                           | Required | Default                    |
+| -------------------------------- | ------------------------------------- | -------- | -------------------------- |
+| `SESSION_SECRET`                 | JWT signing secret (>= 256 bits)      | Yes      | -                          |
+| `OPENAI_COMPATIBLE_API_KEY`      | OpenAI-compatible API key             | Yes      | -                          |
+| `OPENAI_COMPATIBLE_BASE_URL`     | AI API base URL                       | No       | `https://api.deepseek.com` |
+| `OPENAI_COMPATIBLE_MODEL`        | Chat model                            | No       | `deepseek-v4-flash`        |
+| `OPENAI_COMPATIBLE_VISION_MODEL` | Vision model                          | No       | falls back to MODEL        |
+| `DATABASE_PATH`                  | SQLite database file                  | No       | `./data/math-tutor.db`     |
+| `SERVER_PORT`                    | HTTP port                             | No       | `8080`                     |
+| `CORS_ALLOWED_ORIGINS`           | Comma-separated allowed origins       | No       | `http://localhost:3000`    |
+| `LEGACY_STATIC_DIR`              | Filesystem dir served at `/legacy/**` | No       | `../frontend-legacy`       |
+| `PROMPTS_CLASSPATH_DIR`          | Classpath dir with prompt-*.txt files | No       | `prompts`                  |
 
 ## API Documentation
 
@@ -148,35 +148,35 @@ All endpoints require authentication (except `POST /api/auth/login` and
 
 ### Auth
 
-| Method | Endpoint                  | Description                          |
-| ------ | ------------------------- | ------------------------------------ |
-| POST   | `/api/auth/signup`        | Create an account                    |
-| POST   | `/api/auth/login`         | Sign in                              |
-| POST   | `/api/auth/logout`        | Sign out / revoke session            |
-| GET    | `/api/auth/me`            | Get the current session user         |
+| Method | Endpoint           | Description                  |
+| ------ | ------------------ | ---------------------------- |
+| POST   | `/api/auth/signup` | Create an account            |
+| POST   | `/api/auth/login`  | Sign in                      |
+| POST   | `/api/auth/logout` | Sign out / revoke session    |
+| GET    | `/api/auth/me`     | Get the current session user |
 
 ### Chat
 
-| Method | Endpoint          | Description                                   |
-| ------ | ----------------- | --------------------------------------------- |
+| Method | Endpoint            | Description                                      |
+| ------ | ------------------- | ------------------------------------------------ |
 | POST   | `/api/chat/message` | Streamed AI response (`text/plain`, `X-Chat-Id`) |
-| POST   | `/api/chat/image`   | Streamed vision response (base64 image)         |
+| POST   | `/api/chat/image`   | Streamed vision response (base64 image)          |
 
 ### Chats
 
-| Method | Endpoint         | Description                               |
-| ------ | ---------------- | ----------------------------------------- |
-| GET    | `/api/chats`     | List the user's chats (`?q=` for search)  |
-| POST   | `/api/chats`     | Create a chat manually                    |
-| GET    | `/api/chats/:id` | Get a chat with its messages              |
-| PATCH  | `/api/chats/:id` | Update title/preview/topic/pin/archive    |
-| DELETE | `/api/chats/:id` | Delete a chat                             |
+| Method | Endpoint         | Description                              |
+| ------ | ---------------- | ---------------------------------------- |
+| GET    | `/api/chats`     | List the user's chats (`?q=` for search) |
+| POST   | `/api/chats`     | Create a chat manually                   |
+| GET    | `/api/chats/:id` | Get a chat with its messages             |
+| PATCH  | `/api/chats/:id` | Update title/preview/topic/pin/archive   |
+| DELETE | `/api/chats/:id` | Delete a chat                            |
 
 ### Progress
 
-| Method | Endpoint      | Description                             |
-| ------ | ------------- | --------------------------------------- |
-| GET    | `/api/progress` | Aggregated stats, topics, streaks      |
+| Method | Endpoint        | Description                       |
+| ------ | --------------- | --------------------------------- |
+| GET    | `/api/progress` | Aggregated stats, topics, streaks |
 
 ## Project Structure
 
