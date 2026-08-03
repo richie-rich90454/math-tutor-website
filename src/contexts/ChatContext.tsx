@@ -160,9 +160,7 @@ export function ChatProvider({ children }: { children: ReactNode }) {
                         ),
                     );
                     if (currentChat?.id === chatId) {
-                        setCurrentChat((prev) =>
-                            prev ? { ...prev, isPinned: nextPinned } : prev,
-                        );
+                        setCurrentChat((prev) => (prev ? { ...prev, isPinned: nextPinned } : prev));
                     }
                 }
             } catch {
