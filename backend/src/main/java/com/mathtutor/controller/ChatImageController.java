@@ -4,6 +4,7 @@ import com.mathtutor.config.AppProperties;
 import com.mathtutor.dto.ChatImageRequest;
 import com.mathtutor.dto.JsonBody;
 import com.mathtutor.service.AiClient;
+import com.mathtutor.service.QuotaService;
 import com.mathtutor.service.RateLimitService;
 import com.mathtutor.service.SessionService;
 import com.mathtutor.service.StreamLimiter;
@@ -32,18 +33,21 @@ public class ChatImageController {
     private final VisionChatService visionChatService;
     private final AppProperties props;
     private final StreamLimiter streamLimiter;
+    private final QuotaService quotaService;
 
     public ChatImageController(
             SessionService sessionService,
             RateLimitService rateLimit,
             VisionChatService visionChatService,
             AppProperties props,
-            StreamLimiter streamLimiter) {
+            StreamLimiter streamLimiter,
+            QuotaService quotaService) {
         this.sessionService = sessionService;
         this.rateLimit = rateLimit;
         this.visionChatService = visionChatService;
         this.props = props;
         this.streamLimiter = streamLimiter;
+        this.quotaService = quotaService;
     }
 
     @PostMapping(value = "/image", produces = MediaType.TEXT_PLAIN_VALUE)
@@ -59,6 +63,14 @@ public class ChatImageController {
         }
 
         String ip = com.mathtutor.web.RequestSecurity.clientIp(request);
+        QuotaService.QuotaResult quota = quotaService.check(session.get().id(), ip, session.get().guest());
+        quotaService.setHeaders(response, quota);
+        if (quota.hardExceeded()) {
+            response.setHeader("Retry-After", String.valueOf(secondsUntilMidnight()));
+            writeJson(response, 429, "{\"error\":\"Daily token limit reached. Try again tomorrow.\"}");
+            return;
+        }
+
         RateLimitService.RateLimitResult rl = rateLimit.check("image:" + ip, 10, 60 * 1000);
         if (!rl.allowed()) {
             response.setHeader("Retry-After", "60");
@@ -124,7 +136,7 @@ public class ChatImageController {
             }
         } finally {
             streamLimiter.release();
-            visionChatService.saveAssistantMessage(activeChatId, userId, fullResponse.toString());
+            visionChatService.saveAssistantMessage(activeChatId, userId, fullResponse.toString(), ip);
         }
     }
 
@@ -153,5 +165,11 @@ public class ChatImageController {
             return auth.substring(7);
         }
         return readCookie(request, SESSION_COOKIE);
+    }
+
+    private static long secondsUntilMidnight() {
+        java.time.ZonedDateTime now = java.time.ZonedDateTime.now();
+        java.time.ZonedDateTime midnight = now.toLocalDate().plusDays(1).atStartOfDay(now.getZone());
+        return Math.max(1, java.time.Duration.between(now, midnight).getSeconds());
     }
 }
