@@ -1,0 +1,565 @@
+[
+    {
+        "concept_id": "place_value",
+        "concept_name": "Place Value",
+        "aliases": [
+            "place value",
+            "digit place",
+            "number place",
+            "units place",
+            "tens place",
+            "hundreds place",
+            "position of digits",
+            "digit position"
+        ],
+        "miao_culture": "Silver horn headdress ring layers",
+        "explanation_text": "The Miao silver horn headdress is built from rings stacked in layers, and each layer sits in a place that shapes the whole crown. Just as each digit's place gives a number its value, each ring has a position that shapes the headdress.",
+        "image_prompt": "Illustrate a Miao silver horn headdress with ring layers labeled as ones, tens, and hundreds, showing how position affects value."
+    },
+    {
+        "concept_id": "addition_subtraction",
+        "concept_name": "Addition & Subtraction",
+        "aliases": [
+            "add",
+            "addition",
+            "plus",
+            "sum",
+            "combine",
+            "total",
+            "subtract",
+            "subtraction",
+            "minus",
+            "take away",
+            "difference"
+        ],
+        "miao_culture": "Adding silver rings to a bracelet",
+        "explanation_text": "When a Miao girl adds silver rings to her bracelet, the total number grows; when she removes some, it shrinks. This is exactly how addition increases a total and subtraction decreases it.",
+        "image_prompt": "Show a Miao bracelet gaining and losing silver rings, with the total number changing accordingly."
+    },
+    {
+        "concept_id": "multiplication_division",
+        "concept_name": "Multiplication & Division",
+        "aliases": [
+            "multiply",
+            "multiplication",
+            "times",
+            "groups of",
+            "repeated addition",
+            "divide",
+            "division",
+            "split equally",
+            "sharing"
+        ],
+        "miao_culture": "Rows of embroidered stitches",
+        "explanation_text": "Laying out identical rows of Miao embroidery stitches shows multiplication as repeated groups. Splitting the stitches evenly among different pattern sections shows division.",
+        "image_prompt": "Display rows of identical embroidered stitches arranged evenly, showing equal grouping (multiplication) and even sharing (division)."
+    },
+    {
+        "concept_id": "even_odd",
+        "concept_name": "Even and Odd Numbers",
+        "aliases": [
+            "even numbers",
+            "odd numbers",
+            "even",
+            "odd",
+            "pairs",
+            "leftover",
+            "no remainder",
+            "remains one"
+        ],
+        "miao_culture": "Silver bracelets worn in pairs",
+        "explanation_text": "Miao women often wear silver bracelets in pairs, one on each arm. Bracelets lined up in pairs represent even numbers; a single leftover bracelet represents an odd number.",
+        "image_prompt": "Show silver bracelets standing in pairs, with one single bracelet at the end to represent an odd number."
+    },
+    {
+        "concept_id": "skip_counting",
+        "concept_name": "Skip Counting / Number Patterns",
+        "aliases": [
+            "skip counting",
+            "count by 2s",
+            "count by 5s",
+            "count by 10s",
+            "jump counting",
+            "repeating numbers",
+            "number patterns"
+        ],
+        "miao_culture": "Repeating batik border motifs",
+        "explanation_text": "The geometric motifs that repeat around a batik cloth border follow rhythmic sequences. Counting every 5th motif is a natural way to see skip counting in action.",
+        "image_prompt": "Show a batik border with repeating geometric motifs, highlighting every 5th pattern to illustrate skip counting."
+    },
+    {
+        "concept_id": "comparing_numbers",
+        "concept_name": "Comparing and Ordering Numbers",
+        "aliases": [
+            "compare numbers",
+            "greater than",
+            "less than",
+            "more than",
+            "fewer than",
+            "biggest",
+            "smallest",
+            "ordering numbers",
+            "number order"
+        ],
+        "miao_culture": "Silver neck rings of different sizes",
+        "explanation_text": "The silver neck rings a Miao woman wears are stacked from smallest to largest. Comparing the sizes of the rings shows which is greater or smaller, just like comparing numbers.",
+        "image_prompt": "Show several silver neck rings of different sizes, using > and < symbols between them."
+    },
+    {
+        "concept_id": "rounding_estimation",
+        "concept_name": "Rounding & Estimation",
+        "aliases": [
+            "round",
+            "rounding",
+            "estimate",
+            "estimation",
+            "approximate",
+            "about how much",
+            "close to",
+            "nearby number"
+        ],
+        "miao_culture": "Estimating dye for batik",
+        "explanation_text": "When a batik artist estimates how much wax and indigo dye to prepare for a piece of cloth, she rounds to a convenient amount. This mirrors rounding a number to a nearby, easier value.",
+        "image_prompt": "Show a batik artist preparing indigo dye, roughly estimating the amount and labeling it with rounded amounts."
+    },
+    {
+        "concept_id": "fractions",
+        "concept_name": "Fractions",
+        "aliases": ["fraction", "part of a whole", "portion", "share", "numerator", "denominator"],
+        "miao_culture": "Sharing silver ornaments equally",
+        "explanation_text": "When silver ornaments are shared equally among sisters, each person receives a fraction of the total collection. Each share is one part of the whole.",
+        "image_prompt": "Show a collection of silver ornaments divided into equal shares among several girls, each labeled as a fraction of the whole."
+    },
+    {
+        "concept_id": "equivalent_fractions",
+        "concept_name": "Equivalent Fractions",
+        "aliases": ["equal fractions", "same value", "fraction equality", "equivalent"],
+        "miao_culture": "Cutting cloth into equal parts",
+        "explanation_text": "Dividing a piece of cloth for embroidery into 2 equal parts or into 4 smaller equal parts gives the same total amount. These are equivalent fractions.",
+        "image_prompt": "Show a cloth panel divided first into halves, then into quarters, demonstrating equal portions."
+    },
+    {
+        "concept_id": "simplifying_fractions",
+        "concept_name": "Simplifying Fractions",
+        "aliases": ["reduce fraction", "lowest terms", "simplify fraction"],
+        "miao_culture": "Combining threads into bundles",
+        "explanation_text": "If small bundles of thread are gathered into larger bundles, you simplify the count of bundles. This is like reducing a fraction to its simplest form.",
+        "image_prompt": "Depict smaller bundles of thread merging into one larger bundle, labeled with reduced fractions."
+    },
+    {
+        "concept_id": "mixed_numbers",
+        "concept_name": "Mixed Numbers",
+        "aliases": ["mixed number", "whole and fraction", "whole part and fraction part"],
+        "miao_culture": "Full and half baskets of rice",
+        "explanation_text": "If a harvest fills 3 full baskets of rice and half a basket more, that is 3½. A whole number together with a fraction is a mixed number.",
+        "image_prompt": "Show three full rice baskets and one half-full basket labeled as 3½."
+    },
+    {
+        "concept_id": "improper_fractions",
+        "concept_name": "Improper Fractions",
+        "aliases": ["top-heavy fraction", "numerator larger", "greater than one fraction"],
+        "miao_culture": "Overfilled rice baskets",
+        "explanation_text": "When harvested rice fills more than one basket but is counted in equal basket-sized parts, the total is greater than one whole. This is an improper fraction.",
+        "image_prompt": "Show several small baskets filled past one full portion, symbolizing fractions greater than 1."
+    },
+    {
+        "concept_id": "adding_fractions",
+        "concept_name": "Adding Fractions",
+        "aliases": ["fraction addition", "add fractions", "sum of fractions"],
+        "miao_culture": "Combining portions of dyed yarn",
+        "explanation_text": "Adding portions of dyed yarn from different bundles shows how fractional amounts combine into a larger amount, and eventually into a whole.",
+        "image_prompt": "Show smaller bundles of dyed yarn being combined to make one total bundle."
+    },
+    {
+        "concept_id": "subtracting_fractions",
+        "concept_name": "Subtracting Fractions",
+        "aliases": ["fraction subtraction", "take away fractions", "difference of fractions"],
+        "miao_culture": "Using part of a dye cake",
+        "explanation_text": "When a batik artist uses part of an indigo dye cake, the remaining portion is the difference. Removing a part from a whole shows fraction subtraction.",
+        "image_prompt": "Show an indigo dye cake with a portion cut away, the remainder labeled as the fraction left."
+    },
+    {
+        "concept_id": "multiplying_fractions",
+        "concept_name": "Multiplying Fractions",
+        "aliases": ["fraction multiplication", "part of a part", "multiply fractions"],
+        "miao_culture": "Half of a half portion of cloth",
+        "explanation_text": "If each piece of cloth is half of half a bolt of fabric, you are finding a fraction of a fraction. Multiplying fractions finds a part of a part.",
+        "image_prompt": "Show a bolt of cloth divided into halves, and one half divided again to show smaller portions."
+    },
+    {
+        "concept_id": "dividing_fractions",
+        "concept_name": "Dividing Fractions",
+        "aliases": ["fraction division", "divide fractions", "how many times in"],
+        "miao_culture": "Cutting rice cakes into pieces",
+        "explanation_text": "If one rice cake is cut evenly into smaller pieces, you are dividing a fraction by another fraction. Each cut asks how many smaller pieces fit into the whole.",
+        "image_prompt": "Show rice cakes being cut into smaller even pieces to illustrate fractional division."
+    },
+    {
+        "concept_id": "decimals",
+        "concept_name": "Decimals",
+        "aliases": ["decimal point", "tenths", "hundredths", "decimal number"],
+        "miao_culture": "Measuring dye in liters",
+        "explanation_text": "Measuring indigo dye and water in liters and milliliters introduces decimals. One and a half liters is written 1.5 liters.",
+        "image_prompt": "Show a measuring container marked with 1.0, 1.5, and 2.0 liters of dye."
+    },
+    {
+        "concept_id": "converting_fractions_decimals",
+        "concept_name": "Converting Fractions and Decimals",
+        "aliases": ["fraction to decimal", "decimal to fraction", "convert fractions"],
+        "miao_culture": "Half a basket or 0.5 baskets",
+        "explanation_text": "Whether you say half a basket of rice or 0.5 baskets, both describe the same amount. Fractions and decimals are just two ways to write the same value.",
+        "image_prompt": "Show two labeled baskets, one marked ½ and another 0.5, holding the same amount of rice."
+    },
+    {
+        "concept_id": "percents",
+        "concept_name": "Percents",
+        "aliases": ["percent", "percentage", "per hundred", "rate per 100"],
+        "miao_culture": "School test scores",
+        "explanation_text": "When a student scores 90 out of 100 on a Miao language class test, that is 90%. Percents express parts per hundred.",
+        "image_prompt": "Show a test paper with 90/100 written and a 90% mark beside it."
+    },
+    {
+        "concept_id": "percent_of_number",
+        "concept_name": "Percent of a Number",
+        "aliases": ["percentage of number", "find percent", "portion of total"],
+        "miao_culture": "Discounts at Xijiang stalls",
+        "explanation_text": "A 10% discount on a silver ornament at the Xijiang market shows how percents are used to find a part of a whole price.",
+        "image_prompt": "Show a market stall sign with a silver ornament marked 10% off and price tags with reduced amounts."
+    },
+    {
+        "concept_id": "variables",
+        "concept_name": "Variables",
+        "aliases": ["variable", "unknown", "letter as number", "symbol in math"],
+        "miao_culture": "Unlabeled baskets of grain",
+        "explanation_text": "If some baskets of grain are unlabeled, each one holds an unknown amount. A symbol that stands for an unknown quantity is a variable.",
+        "image_prompt": "Show labeled grain baskets (2 and 3) and an unlabeled basket marked as x."
+    },
+    {
+        "concept_id": "expressions",
+        "concept_name": "Expressions",
+        "aliases": ["math expressions", "numerical expressions", "algebraic expressions"],
+        "miao_culture": "Known and unknown grain baskets",
+        "explanation_text": "If you have 2 known baskets of grain and x more unknown ones, the total can be written as the expression 2 + x.",
+        "image_prompt": "Show two grain baskets plus an unlabeled one, symbolized as 2 + x."
+    },
+    {
+        "concept_id": "equations",
+        "concept_name": "Equations",
+        "aliases": ["math equations", "equal statements", "algebra equations"],
+        "miao_culture": "Balancing a carrying pole",
+        "explanation_text": "When two baskets hang in balance on a carrying pole, the weights are equal. Both sides of an equation represent the same balance.",
+        "image_prompt": "Show a carrying pole with equal baskets on both sides labeled as an equation."
+    },
+    {
+        "concept_id": "solving_one_step_equations",
+        "concept_name": "Solving One-Step Equations",
+        "aliases": ["one-step equations", "simple equations"],
+        "miao_culture": "Balancing a shoulder pole",
+        "explanation_text": "If one basket on a shoulder pole is heavier, you add or remove weight on that side to balance it. One adjustment solves a one-step equation.",
+        "image_prompt": "Show a shoulder pole with uneven baskets being balanced by adding or removing one load."
+    },
+    {
+        "concept_id": "solving_two_step_equations",
+        "concept_name": "Solving Two-Step Equations",
+        "aliases": ["two-step equations", "multi-step equations"],
+        "miao_culture": "Steaming rice step by step",
+        "explanation_text": "Preparing a rice dish takes two steps: washing the rice first and then steaming it. Solving a two-step equation works the same way, one operation at a time.",
+        "image_prompt": "Show the step sequence: wash rice then steam it then get the result, symbolizing step-by-step solving."
+    },
+    {
+        "concept_id": "inequalities",
+        "concept_name": "Inequalities",
+        "aliases": ["greater than", "less than", "not equal", "comparison statements"],
+        "miao_culture": "Comparing family silver collections",
+        "explanation_text": "When one family's silver collection is larger than another's, the amounts are not equal. Comparing unequal amounts is exactly what inequalities describe.",
+        "image_prompt": "Show two collections of silver ornaments of different sizes with > and < symbols between them."
+    },
+    {
+        "concept_id": "order_of_operations",
+        "concept_name": "Order of Operations (PEMDAS)",
+        "aliases": ["PEMDAS", "BODMAS", "math order", "operations order"],
+        "miao_culture": "Batik steps in order",
+        "explanation_text": "In batik you must draw the wax pattern before dyeing the cloth; the steps cannot be swapped. The order of operations follows the same idea of doing things in sequence.",
+        "image_prompt": "Show a batik sequence where steps must happen in order, labeled like parentheses, exponents, etc."
+    },
+    {
+        "concept_id": "substitution",
+        "concept_name": "Substitution",
+        "aliases": ["replace variable", "substitute value", "replace letter with number"],
+        "miao_culture": "Replacing a missing silver button",
+        "explanation_text": "If a missing silver button is replaced with an identical one, the outfit is unchanged. Replacing a letter with its number value is substitution.",
+        "image_prompt": "Show a missing silver button replaced with an identical one, representing substitution."
+    },
+    {
+        "concept_id": "points",
+        "concept_name": "Points",
+        "aliases": ["dot", "location", "coordinate point"],
+        "miao_culture": "Silver dots on a headdress",
+        "explanation_text": "Each silver dot pressed into a Miao headdress marks a fixed position, just like a point marks an exact location in geometry.",
+        "image_prompt": "Show a silver headdress with individual dots labeled as points on a coordinate grid."
+    },
+    {
+        "concept_id": "lines",
+        "concept_name": "Lines",
+        "aliases": ["straight line", "geometry line", "infinite line"],
+        "miao_culture": "Warp threads on a loom",
+        "explanation_text": "Warp threads stretched straight across a weaving loom run in both directions. These taut threads resemble geometric lines that extend without end.",
+        "image_prompt": "Show straight warp threads stretched on a loom, representing geometric lines."
+    },
+    {
+        "concept_id": "angles",
+        "concept_name": "Angles",
+        "aliases": ["angle", "degree", "corner measure"],
+        "miao_culture": "Opening the wooden door",
+        "explanation_text": "When the wooden door of a Miao stilt house opens, it forms an angle between the door and the door frame.",
+        "image_prompt": "Show a wooden stilt-house door partially open with the angle clearly marked."
+    },
+    {
+        "concept_id": "perpendicular_lines",
+        "concept_name": "Perpendicular Lines",
+        "aliases": ["right angle lines", "intersecting lines", "orthogonal lines"],
+        "miao_culture": "Crossed house frame beams",
+        "explanation_text": "The wooden beams meeting at right angles in a Miao house frame form perpendicular lines, giving the structure its strength.",
+        "image_prompt": "Show house frame beams meeting at 90° angles."
+    },
+    {
+        "concept_id": "parallel_lines",
+        "concept_name": "Parallel Lines",
+        "aliases": ["side-by-side lines", "never meet", "equal distance lines"],
+        "miao_culture": "Rows of terraced rice fields",
+        "explanation_text": "The stone edges of terraced rice fields in the mountains run side by side and never meet. They are parallel lines.",
+        "image_prompt": "Show parallel stone terraces of rice fields running side by side down a mountainside."
+    },
+    {
+        "concept_id": "polygons",
+        "concept_name": "Polygons",
+        "aliases": ["shapes", "closed figure", "many-sided shape"],
+        "miao_culture": "Village layouts from above",
+        "explanation_text": "Seen from above, the courtyards and house yards of a Miao village form closed geometric shapes. These are polygons.",
+        "image_prompt": "Show the overhead shapes of Miao village courtyards forming geometric patterns."
+    },
+    {
+        "concept_id": "triangles",
+        "concept_name": "Triangles",
+        "aliases": ["three sides", "triangular", "triangle shape"],
+        "miao_culture": "Pleats on a skirt",
+        "explanation_text": "The folds of a Miao pleated skirt create triangle shapes as the cloth narrows toward the waist. Each fold is a triangle.",
+        "image_prompt": "Show the triangular fold patterns formed by the pleats of a Miao skirt."
+    },
+    {
+        "concept_id": "quadrilaterals",
+        "concept_name": "Quadrilaterals",
+        "aliases": ["four sides", "rectangles", "squares", "trapezoids"],
+        "miao_culture": "Batik grid squares",
+        "explanation_text": "The square and rectangular motifs that fill a batik design form quadrilateral shapes with four sides each.",
+        "image_prompt": "Show a batik cloth with repeating square and rectangular motifs."
+    },
+    {
+        "concept_id": "perimeter",
+        "concept_name": "Perimeter",
+        "aliases": ["boundary length", "distance around", "outline measure"],
+        "miao_culture": "Edge of a pleated skirt",
+        "explanation_text": "Measuring the decorated border around a Miao pleated skirt is like finding the perimeter of a shape—the distance around its outside.",
+        "image_prompt": "Show a pleated skirt with a dashed line tracing its decorated edge as the perimeter."
+    },
+    {
+        "concept_id": "area",
+        "concept_name": "Area",
+        "aliases": ["surface area", "space inside", "coverage"],
+        "miao_culture": "Embroidered cloth panel",
+        "explanation_text": "The amount of cloth covered by embroidery stitches on a Miao panel represents its area—the space inside a shape.",
+        "image_prompt": "Show an embroidered cloth panel, shaded to show the area covered by stitches."
+    },
+    {
+        "concept_id": "volume",
+        "concept_name": "Volume",
+        "aliases": ["capacity", "space inside 3D shape", "liquid amount"],
+        "miao_culture": "Silver ornaments in a box",
+        "explanation_text": "The amount of silver jewelry a storage box can hold represents its volume—the space inside a 3D shape.",
+        "image_prompt": "Show wooden storage boxes filled with silver ornaments to different levels to illustrate volume."
+    },
+    {
+        "concept_id": "circle_properties",
+        "concept_name": "Circle Properties",
+        "aliases": ["radius", "diameter", "circumference", "circle geometry"],
+        "miao_culture": "Arc of the silver horn headdress",
+        "explanation_text": "The curved arc of the silver horn headdress and the round silver neck rings are circles. They illustrate radius, diameter, and circumference.",
+        "image_prompt": "Show a silver neck ring from above labeled with radius and diameter lines."
+    },
+    {
+        "concept_id": "pi",
+        "concept_name": "Pi (π)",
+        "aliases": ["pi", "ratio of circumference", "3.14"],
+        "miao_culture": "Round silver neck rings",
+        "explanation_text": "The relationship between the circumference and the diameter of a round silver neck ring is the constant ratio π, about 3.14.",
+        "image_prompt": "Show a circular silver neck ring labeled with circumference and diameter measurements."
+    },
+    {
+        "concept_id": "coordinate_plane",
+        "concept_name": "Coordinate Plane",
+        "aliases": ["x-y plane", "graph grid", "axes"],
+        "miao_culture": "Batik grid patterns",
+        "explanation_text": "A batik design divided by horizontal and vertical wax lines resembles a coordinate grid, where each cell has its own position.",
+        "image_prompt": "Show a batik grid map labeled with x and y coordinates."
+    },
+    {
+        "concept_id": "plotting_points",
+        "concept_name": "Plotting Points",
+        "aliases": ["graphing points", "coordinates", "x-y plotting"],
+        "miao_culture": "Marking village houses on a map",
+        "explanation_text": "Marking the location of each house in Xijiang village on a map is like plotting points on a coordinate plane.",
+        "image_prompt": "Show a map of Xijiang village with labeled house locations marked as points."
+    },
+    {
+        "concept_id": "symmetry",
+        "concept_name": "Symmetry",
+        "aliases": ["mirror image", "balanced halves", "reflection symmetry"],
+        "miao_culture": "Mirrored batik and embroidery patterns",
+        "explanation_text": "The batik and embroidery designs on Miao clothing often mirror each other across a center line, showing symmetry.",
+        "image_prompt": "Show a symmetrical batik and embroidery pattern split by a mirror line."
+    },
+    {
+        "concept_id": "transformations",
+        "concept_name": "Transformations",
+        "aliases": ["translate", "rotate", "reflect", "dilate"],
+        "miao_culture": "Dancers turning in a circle",
+        "explanation_text": "When lusheng dancers turn and shift positions during the Sister's Festival, they move shapes in space. These motions are geometric transformations.",
+        "image_prompt": "Show lusheng dancers turning and shifting positions to illustrate transformations."
+    },
+    {
+        "concept_id": "ratios",
+        "concept_name": "Ratios",
+        "aliases": ["comparison", "proportion of quantities", "rate"],
+        "miao_culture": "Silver to cloth ratio",
+        "explanation_text": "A festival outfit balances the amount of silver jewelry against the amount of cloth. This balance of two quantities is a ratio.",
+        "image_prompt": "Show a Miao festival outfit labeled with silver-to-cloth ratio, like 2:1."
+    },
+    {
+        "concept_id": "proportions",
+        "concept_name": "Proportions",
+        "aliases": ["equal ratios", "scaling", "balance of ratios"],
+        "miao_culture": "Scaling up a batik motif",
+        "explanation_text": "When a batik motif is scaled up for a larger cloth while every detail stays the same shape, the design keeps its proportion.",
+        "image_prompt": "Show a small and large batik motif with the same geometric proportions."
+    },
+    {
+        "concept_id": "unit_rate",
+        "concept_name": "Unit Rate",
+        "aliases": ["per unit", "rate per one", "comparison per one unit"],
+        "miao_culture": "Rice harvested per day",
+        "explanation_text": "The number of baskets of rice a family harvests in one day is a unit rate—a comparison for a single unit.",
+        "image_prompt": "Show a rice harvest with the yield measured as baskets per day."
+    },
+    {
+        "concept_id": "scale_drawings",
+        "concept_name": "Scale Drawings",
+        "aliases": ["map scale", "drawing proportion", "scaled map"],
+        "miao_culture": "Mapping Xijiang village",
+        "explanation_text": "Drawing a smaller map of the large thousand-household village while keeping all distances proportional is a scale drawing.",
+        "image_prompt": "Show Xijiang village and a smaller scaled map side by side with a scale legend."
+    },
+    {
+        "concept_id": "percent_change",
+        "concept_name": "Percent Change",
+        "aliases": ["percent increase", "percent decrease", "growth rate"],
+        "miao_culture": "Growth of the silver collection",
+        "explanation_text": "If a family's silver ornaments grow from 100 pieces to 120 pieces, that is a 20% increase—an example of percent change.",
+        "image_prompt": "Show a silver collection growing in number with a +20% label."
+    },
+    {
+        "concept_id": "data_collection",
+        "concept_name": "Data Collection",
+        "aliases": ["gather data", "record information", "collect numbers"],
+        "miao_culture": "Counting village households",
+        "explanation_text": "Recording how many households, cattle, and rice fields each part of the village has is an example of data collection.",
+        "image_prompt": "Show a villager marking tallies of households and cattle on a clipboard."
+    },
+    {
+        "concept_id": "tables_graphs",
+        "concept_name": "Tables and Graphs",
+        "aliases": ["data table", "bar graph", "chart"],
+        "miao_culture": "Festival visitor data",
+        "explanation_text": "Using a graph to show how many visitors came to the Sister's Festival each year helps visualize data trends.",
+        "image_prompt": "Show a bar graph comparing festival visitors across several years."
+    },
+    {
+        "concept_id": "mean",
+        "concept_name": "Mean",
+        "aliases": ["average", "arithmetic mean", "mean value"],
+        "miao_culture": "Average rice yield",
+        "explanation_text": "Finding the average baskets of rice a field produces per season shows the mean.",
+        "image_prompt": "Show a table of rice yields with an average value highlighted."
+    },
+    {
+        "concept_id": "median",
+        "concept_name": "Median",
+        "aliases": ["middle value", "data median"],
+        "miao_culture": "Middle income of families",
+        "explanation_text": "When family incomes are arranged from smallest to largest, the middle one is the median.",
+        "image_prompt": "Show family incomes lined up with the middle one highlighted as the median."
+    },
+    {
+        "concept_id": "mode",
+        "concept_name": "Mode",
+        "aliases": ["most frequent value", "common value"],
+        "miao_culture": "Most common silver pattern",
+        "explanation_text": "If most headdresses in an area share the same silver pattern, that pattern is the mode—the most frequent value.",
+        "image_prompt": "Show headdresses with various patterns, with one pattern being the most common."
+    },
+    {
+        "concept_id": "range",
+        "concept_name": "Range",
+        "aliases": ["difference", "spread of data", "highest minus lowest"],
+        "miao_culture": "Difference in field sizes",
+        "explanation_text": "The gap between the largest and smallest rice field shows the range of the data.",
+        "image_prompt": "Show a chart with the shortest and tallest bars marked for range."
+    },
+    {
+        "concept_id": "bar_graphs",
+        "concept_name": "Bar Graphs",
+        "aliases": ["bar chart", "column graph"],
+        "miao_culture": "Comparing family livestock counts",
+        "explanation_text": "Each bar shows how many animals each family owns, making quick comparisons easy.",
+        "image_prompt": "Show a bar graph labeled by family names with livestock totals."
+    },
+    {
+        "concept_id": "line_graphs",
+        "concept_name": "Line Graphs",
+        "aliases": ["trend graph", "line chart"],
+        "miao_culture": "Rice harvest over the seasons",
+        "explanation_text": "A line graph shows how the rice harvest changes across the seasons of the year.",
+        "image_prompt": "Show a line graph labeled with seasons and rice harvest amounts."
+    },
+    {
+        "concept_id": "pie_charts",
+        "concept_name": "Pie Charts",
+        "aliases": ["circle chart", "percentage chart"],
+        "miao_culture": "Village land distribution",
+        "explanation_text": "A pie chart can show the proportion of rice fields, forest, and housing in a Miao village.",
+        "image_prompt": "Show a pie chart divided into land-use categories with percentages."
+    },
+    {
+        "concept_id": "probability",
+        "concept_name": "Probability",
+        "aliases": ["chance", "likelihood", "odds"],
+        "miao_culture": "Predicting festival weather",
+        "explanation_text": "Estimating how likely rain is on Sister's Festival day involves probability—the chance of an event happening.",
+        "image_prompt": "Show a festival scene with a weather prediction labeled with a probability percentage."
+    },
+    {
+        "concept_id": "patterns",
+        "concept_name": "Patterns",
+        "aliases": ["repeating design", "sequence", "recurrence"],
+        "miao_culture": "Repeating silver motifs",
+        "explanation_text": "The motifs that repeat on silver bracelets and embroidered borders represent visual patterns, just as numbers repeat in sequences.",
+        "image_prompt": "Show repeating geometric designs on Miao silver bracelets and embroidery."
+    },
+    {
+        "concept_id": "functions",
+        "concept_name": "Functions",
+        "aliases": ["input-output rule", "function relation", "mapping"],
+        "miao_culture": "Rice baskets per worker",
+        "explanation_text": "If each worker carries a set number of rice baskets, every input gives one output. This one-to-one rule is a function.",
+        "image_prompt": "Show a diagram linking each worker (input) to the rice baskets they carry (output)."
+    }
+]
