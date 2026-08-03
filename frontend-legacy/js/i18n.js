@@ -9,6 +9,8 @@ var TRANSLATIONS =  {
         timesTables: "Times Tables",
         culturalExamples: "Cultural Examples",
         bottomText: "AI-powered math education that adapts to your culture and language",
+        usageToday: "Usage today",
+        usageCacheHits: "cache hits",
         examplePracticeAddition: "Help me practice addition",
         exampleLearnGeometry: "Teach me geometry",
         exampleTimesTables: "Help me with times tables",
