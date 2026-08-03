@@ -1,0 +1,565 @@
+[
+    {
+        "concept_id": "place_value",
+        "concept_name": "Place Value",
+        "aliases": [
+            "place value",
+            "digit place",
+            "number place",
+            "units place",
+            "tens place",
+            "hundreds place",
+            "position of digits",
+            "digit position"
+        ],
+        "buyi_culture": "Paddy terrace steps",
+        "explanation_text": "On the stepped rice paddies of the Buyi hillsides, each terrace sits at its own level. Just as every terrace holds its place in the slope, each digit in a number holds a place that determines its value—ones, tens, and hundreds.",
+        "image_prompt": "Show Guizhou paddy terraces stepped in levels, with each terrace labeled as ones, tens, and hundreds to illustrate place value."
+    },
+    {
+        "concept_id": "addition_subtraction",
+        "concept_name": "Addition & Subtraction",
+        "aliases": [
+            "add",
+            "addition",
+            "plus",
+            "sum",
+            "combine",
+            "total",
+            "subtract",
+            "subtraction",
+            "minus",
+            "take away",
+            "difference"
+        ],
+        "buyi_culture": "Filling and emptying rice baskets",
+        "explanation_text": "When Buyi villagers pour more rice into a bamboo basket, the amount grows; when rice is scooped out for a meal, it shrinks. These everyday actions are addition and subtraction.",
+        "image_prompt": "Show a Buyi bamboo rice basket being filled and then partially emptied, with the changing totals labeled above."
+    },
+    {
+        "concept_id": "multiplication_division",
+        "concept_name": "Multiplication & Division",
+        "aliases": [
+            "multiply",
+            "multiplication",
+            "times",
+            "groups of",
+            "repeated addition",
+            "divide",
+            "division",
+            "split equally",
+            "sharing"
+        ],
+        "buyi_culture": "Arranging rice cakes in rows",
+        "explanation_text": "For the March Third festival, glutinous rice cakes are laid out in equal rows, showing multiplication. When the same cakes are shared equally among the guests, that is division.",
+        "image_prompt": "Show rows of glutinous rice cakes arranged evenly on a Buyi table, then divided into equal shares for guests."
+    },
+    {
+        "concept_id": "even_odd",
+        "concept_name": "Even and Odd Numbers",
+        "aliases": [
+            "even numbers",
+            "odd numbers",
+            "even",
+            "odd",
+            "pairs",
+            "leftover",
+            "no remainder",
+            "remains one"
+        ],
+        "buyi_culture": "Festival dancers in pairs",
+        "explanation_text": "Pairs of dancers move together to the beat of the Buyi long drum during festival celebrations. When every dancer has a partner, the number is even; one dancer left alone makes it odd.",
+        "image_prompt": "Show Buyi festival dancers moving in pairs to the long drum, with one single dancer standing alone to represent an odd number."
+    },
+    {
+        "concept_id": "skip_counting",
+        "concept_name": "Skip Counting / Number Patterns",
+        "aliases": [
+            "skip counting",
+            "count by 2s",
+            "count by 5s",
+            "count by 10s",
+            "jump counting",
+            "repeating numbers",
+            "number patterns"
+        ],
+        "buyi_culture": "Dots in batik cloth",
+        "explanation_text": "Buyi batik cloth is decorated with repeating dot patterns that march in steady steps across the fabric. Following every fifth dot is just like counting by fives.",
+        "image_prompt": "Show a strip of Buyi batik with repeating dots, every fifth dot highlighted to illustrate skip counting."
+    },
+    {
+        "concept_id": "comparing_numbers",
+        "concept_name": "Comparing and Ordering Numbers",
+        "aliases": [
+            "compare numbers",
+            "greater than",
+            "less than",
+            "more than",
+            "fewer than",
+            "biggest",
+            "smallest",
+            "ordering numbers",
+            "number order"
+        ],
+        "buyi_culture": "Rice baskets with different amounts",
+        "explanation_text": "Rice baskets stacked in a Buyi home hold different amounts of grain. Comparing their levels shows which number is greater or smaller.",
+        "image_prompt": "Show several Buyi bamboo baskets with different rice levels, using > and < symbols between them."
+    },
+    {
+        "concept_id": "rounding_estimation",
+        "concept_name": "Rounding & Estimation",
+        "aliases": [
+            "round",
+            "rounding",
+            "estimate",
+            "estimation",
+            "approximate",
+            "about how much",
+            "close to",
+            "nearby number"
+        ],
+        "buyi_culture": "Estimating rice for New Year cakes",
+        "explanation_text": "When steaming five-color glutinous rice for the Buyi New Year, cooks estimate how much rice and water to prepare. Rounding to a nearby convenient amount works the same way.",
+        "image_prompt": "Show a cook estimating bowls of rice for five-color glutinous rice, with rounded amounts labeled."
+    },
+    {
+        "concept_id": "fractions",
+        "concept_name": "Fractions",
+        "aliases": ["fraction", "part of a whole", "portion", "share", "numerator", "denominator"],
+        "buyi_culture": "Sharing glutinous rice cakes",
+        "explanation_text": "At the March Third festival, a large glutinous rice cake is shared equally among the guests. Each person's portion is a fraction of the whole cake.",
+        "image_prompt": "Show a round Buyi rice cake cut into equal slices, each slice labeled as a fraction of the whole."
+    },
+    {
+        "concept_id": "equivalent_fractions",
+        "concept_name": "Equivalent Fractions",
+        "aliases": ["equal fractions", "same value", "fraction equality", "equivalent"],
+        "buyi_culture": "Cutting rice cakes evenly",
+        "explanation_text": "Cutting one rice cake into 2 equal halves or into 4 equal quarters still gives the same total amount. Different-sized parts can name the same portion, like equivalent fractions.",
+        "image_prompt": "Show a Buyi rice cake first cut into halves, then into quarters, demonstrating equal total portions."
+    },
+    {
+        "concept_id": "simplifying_fractions",
+        "concept_name": "Simplifying Fractions",
+        "aliases": ["reduce fraction", "lowest terms", "simplify fraction"],
+        "buyi_culture": "Bundling harvested rice",
+        "explanation_text": "Small bundles of harvested rice can be tied into fewer larger bundles without changing how much grain there is. Grouping the same amount in bigger units is like simplifying a fraction.",
+        "image_prompt": "Show small bundles of rice being tied into fewer large bundles, labeled with a reduced fraction."
+    },
+    {
+        "concept_id": "mixed_numbers",
+        "concept_name": "Mixed Numbers",
+        "aliases": ["mixed number", "whole and fraction", "whole part and fraction part"],
+        "buyi_culture": "Full and half rice-wine jars",
+        "explanation_text": "A Buyi household stores three full jars of rice wine and half a jar more. That total is 3½—a whole number plus a fraction.",
+        "image_prompt": "Show three full rice-wine jars and one half-full jar labeled as 3½."
+    },
+    {
+        "concept_id": "improper_fractions",
+        "concept_name": "Improper Fractions",
+        "aliases": ["top-heavy fraction", "numerator larger", "greater than one fraction"],
+        "buyi_culture": "Rice bowls beyond one portion",
+        "explanation_text": "When rice wine fills more than one jar but is still counted in single-jar units, the total can be written as a fraction greater than one.",
+        "image_prompt": "Show several small jars of rice wine filling more than one whole jar, labeled as an improper fraction."
+    },
+    {
+        "concept_id": "adding_fractions",
+        "concept_name": "Adding Fractions",
+        "aliases": ["fraction addition", "add fractions", "sum of fractions"],
+        "buyi_culture": "Combining batik dye portions",
+        "explanation_text": "Batik makers pour dye from several small bowls into one big vat. Combining these partial amounts makes a whole—just like adding fractions.",
+        "image_prompt": "Show bowls of indigo dye being poured together into one vat to make a whole amount."
+    },
+    {
+        "concept_id": "subtracting_fractions",
+        "concept_name": "Subtracting Fractions",
+        "aliases": ["fraction subtraction", "take away fractions", "difference of fractions"],
+        "buyi_culture": "Pouring out rice wine",
+        "explanation_text": "Pouring some rice wine out of a full jar leaves a remaining portion. Removing a part from a whole shows fraction subtraction.",
+        "image_prompt": "Show a rice-wine jar with part poured out, the remaining amount labeled as a fraction."
+    },
+    {
+        "concept_id": "multiplying_fractions",
+        "concept_name": "Multiplying Fractions",
+        "aliases": ["fraction multiplication", "part of a part", "multiply fractions"],
+        "buyi_culture": "Half of a rice cake half",
+        "explanation_text": "If each guest at the festival takes half of a half-portion of rice cake, they are finding a fraction of a fraction. That is multiplying fractions.",
+        "image_prompt": "Show a rice cake divided into halves, and one half divided again into smaller portions."
+    },
+    {
+        "concept_id": "dividing_fractions",
+        "concept_name": "Dividing Fractions",
+        "aliases": ["fraction division", "divide fractions", "how many times in"],
+        "buyi_culture": "Cutting cake dough evenly",
+        "explanation_text": "A portion of cake dough is cut into several smaller equal pieces. Asking how many small pieces fit in the portion is like dividing fractions.",
+        "image_prompt": "Show a piece of Buyi cake dough being cut into many small equal pieces."
+    },
+    {
+        "concept_id": "decimals",
+        "concept_name": "Decimals",
+        "aliases": ["decimal point", "tenths", "hundredths", "decimal number"],
+        "buyi_culture": "Measuring grain by the jin",
+        "explanation_text": "Grain and rice wine are weighed in jin and liang, and measured in liters. A measure like 1.5 liters of rice wine is a decimal number.",
+        "image_prompt": "Show a measuring container marked 1.0, 1.5, and 2.0 liters of rice wine."
+    },
+    {
+        "concept_id": "converting_fractions_decimals",
+        "concept_name": "Converting Fractions and Decimals",
+        "aliases": ["fraction to decimal", "decimal to fraction", "convert fractions"],
+        "buyi_culture": "Half jin or 0.5 jin",
+        "explanation_text": "Saying half a jin of rice or 0.5 jin describes the same amount. Moving between the two forms is converting fractions and decimals.",
+        "image_prompt": "Show two baskets of rice, one labeled ½ jin and the other 0.5 jin, holding the same amount."
+    },
+    {
+        "concept_id": "percents",
+        "concept_name": "Percents",
+        "aliases": ["percent", "percentage", "per hundred", "rate per 100"],
+        "buyi_culture": "School test scores",
+        "explanation_text": "When a Buyi student scores 90 out of 100 on a mathematics test, that is 90%. Percents express parts per hundred.",
+        "image_prompt": "Show a test paper with 90/100 written and a 90% mark beside it."
+    },
+    {
+        "concept_id": "percent_of_number",
+        "concept_name": "Percent of a Number",
+        "aliases": ["percentage of number", "find percent", "portion of total"],
+        "buyi_culture": "Batik market discounts",
+        "explanation_text": "A 10% discount on batik cloth at a Xingyi market lowers the price by a tenth. Finding such a part of a number is the percent of a number.",
+        "image_prompt": "Show a market stall in Xingyi with batik cloth marked '10% off' and reduced price tags."
+    },
+    {
+        "concept_id": "variables",
+        "concept_name": "Variables",
+        "aliases": ["variable", "unknown", "letter as number", "symbol in math"],
+        "buyi_culture": "Unlabeled storage jars",
+        "explanation_text": "In a Buyi storehouse, some jars are labeled with their contents and some are not. An unlabeled jar stands for an unknown quantity—a variable.",
+        "image_prompt": "Show labeled storage jars (2 jin, 3 jin) and one unlabeled jar marked x."
+    },
+    {
+        "concept_id": "expressions",
+        "concept_name": "Expressions",
+        "aliases": ["math expressions", "numerical expressions", "algebraic expressions"],
+        "buyi_culture": "Known baskets and unknown x",
+        "explanation_text": "If a shelf holds 2 known baskets of rice and x more unknown ones, the total is described by the expression 2 + x.",
+        "image_prompt": "Show two rice baskets plus one unlabeled basket, symbolized as 2 + x."
+    },
+    {
+        "concept_id": "equations",
+        "concept_name": "Equations",
+        "aliases": ["math equations", "equal statements", "algebra equations"],
+        "buyi_culture": "Carrying pole balance",
+        "explanation_text": "A Buyi farmer carries two baskets of rice on a shoulder pole. When both sides balance evenly, the weights are equal—like both sides of an equation.",
+        "image_prompt": "Show a shoulder pole with balanced rice baskets on both ends, labeled as an equation."
+    },
+    {
+        "concept_id": "solving_one_step_equations",
+        "concept_name": "Solving One-Step Equations",
+        "aliases": ["one-step equations", "simple equations"],
+        "buyi_culture": "Balancing a rice-carrying pole",
+        "explanation_text": "If one side of a carrying pole is heavier, the farmer adds or removes rice until it balances. One adjustment solves a one-step equation.",
+        "image_prompt": "Show a shoulder pole being balanced by adding or removing rice from one basket."
+    },
+    {
+        "concept_id": "solving_two_step_equations",
+        "concept_name": "Solving Two-Step Equations",
+        "aliases": ["two-step equations", "multi-step equations"],
+        "buyi_culture": "Making batik step by step",
+        "explanation_text": "Making batik requires drawing with wax, then dyeing the cloth, then boiling it to reveal the pattern. Each step must follow the last—like solving a two-step equation.",
+        "image_prompt": "Show the batik sequence: wax drawing, then dyeing, then boiling, as steps to a finished cloth."
+    },
+    {
+        "concept_id": "inequalities",
+        "concept_name": "Inequalities",
+        "aliases": ["greater than", "less than", "not equal", "comparison statements"],
+        "buyi_culture": "Comparing family harvests",
+        "explanation_text": "One family's paddy field may yield more rice than another's. Comparing harvest sizes shows greater-than and less-than relationships.",
+        "image_prompt": "Show two paddy fields with different rice yields and > and < symbols between them."
+    },
+    {
+        "concept_id": "order_of_operations",
+        "concept_name": "Order of Operations (PEMDAS)",
+        "aliases": ["PEMDAS", "BODMAS", "math order", "operations order"],
+        "buyi_culture": "Making five-color rice",
+        "explanation_text": "Five-color glutinous rice needs soaking, then coloring, then steaming—the order cannot be changed. Doing operations in the right order is like following PEMDAS.",
+        "image_prompt": "Show the stages of five-color glutinous rice in strict order, labeled like parentheses, exponents, and multiplication."
+    },
+    {
+        "concept_id": "substitution",
+        "concept_name": "Substitution",
+        "aliases": ["replace variable", "substitute value", "replace letter with number"],
+        "buyi_culture": "Replacing a weaving shuttle",
+        "explanation_text": "When a weaving shuttle wears out, it is replaced with another of the same size. Replacing one thing with an equal one is substitution.",
+        "image_prompt": "Show a broken weaving shuttle replaced by an identical one on a Buyi loom."
+    },
+    {
+        "concept_id": "points",
+        "concept_name": "Points",
+        "aliases": ["dot", "location", "coordinate point"],
+        "buyi_culture": "Peaks of Wanfenglin",
+        "explanation_text": "The countless peaks of Wanfenglin rise from the valley near Xingyi, each one marking a position on the land. Each peak is like a point in geometry.",
+        "image_prompt": "Show the peaks of Wanfenglin with individual summits marked as points on a coordinate grid."
+    },
+    {
+        "concept_id": "lines",
+        "concept_name": "Lines",
+        "aliases": ["straight line", "geometry line", "infinite line"],
+        "buyi_culture": "Warp threads on a loom",
+        "explanation_text": "The warp threads stretched tight on a Buyi weaving loom run straight and long. They look like geometric lines that extend in both directions.",
+        "image_prompt": "Show taut warp threads on a Buyi loom extending straight like geometric lines."
+    },
+    {
+        "concept_id": "angles",
+        "concept_name": "Angles",
+        "aliases": ["angle", "degree", "corner measure"],
+        "buyi_culture": "Opening a stone-house window",
+        "explanation_text": "When a wooden window of a stone house is opened, it forms an angle with the frame. The wider the opening, the larger the angle.",
+        "image_prompt": "Show a stone-house window opened partway with the angle between the frame and window marked."
+    },
+    {
+        "concept_id": "perpendicular_lines",
+        "concept_name": "Perpendicular Lines",
+        "aliases": ["right angle lines", "intersecting lines", "orthogonal lines"],
+        "buyi_culture": "Warp and weft on a loom",
+        "explanation_text": "On a Buyi loom, the warp and weft threads meet at right angles to form the woven cloth. Their crossing shows perpendicular lines.",
+        "image_prompt": "Show warp and weft threads on a Buyi loom meeting at right angles."
+    },
+    {
+        "concept_id": "parallel_lines",
+        "concept_name": "Parallel Lines",
+        "aliases": ["side-by-side lines", "never meet", "equal distance lines"],
+        "buyi_culture": "Stone village walls",
+        "explanation_text": "The long stone walls of a Buyi stone village run side by side without ever meeting. They are parallel lines.",
+        "image_prompt": "Show parallel stone walls of a Buyi stone village running side by side."
+    },
+    {
+        "concept_id": "polygons",
+        "concept_name": "Polygons",
+        "aliases": ["shapes", "closed figure", "many-sided shape"],
+        "buyi_culture": "Stone house roofs from above",
+        "explanation_text": "Seen from a high hillside, the roofs of a Buyi stone village form many-sided closed shapes. These layouts are polygons.",
+        "image_prompt": "Show the overhead layout of a Buyi stone village with roofs forming closed geometric shapes."
+    },
+    {
+        "concept_id": "triangles",
+        "concept_name": "Triangles",
+        "aliases": ["three sides", "triangular", "triangle shape"],
+        "buyi_culture": "Gabled stone house roofs",
+        "explanation_text": "The gabled roofs of Buyi stone houses slope down to form triangular shapes. Each roof section is a triangle.",
+        "image_prompt": "Show the triangular gables of Buyi stone houses."
+    },
+    {
+        "concept_id": "quadrilaterals",
+        "concept_name": "Quadrilaterals",
+        "aliases": ["four sides", "rectangles", "squares", "trapezoids"],
+        "buyi_culture": "Brocade square motifs",
+        "explanation_text": "The woven brocade of the Buyi is patterned with squares and rectangles. These four-sided motifs are quadrilaterals.",
+        "image_prompt": "Show Buyi brocade with repeating square and rectangular motifs."
+    },
+    {
+        "concept_id": "perimeter",
+        "concept_name": "Perimeter",
+        "aliases": ["boundary length", "distance around", "outline measure"],
+        "buyi_culture": "Walking the stone village boundary",
+        "explanation_text": "Walking all the way around the boundary of a Buyi stone village gives its full distance. That distance is the perimeter.",
+        "image_prompt": "Show a path tracing the boundary around a Buyi stone village with a dashed perimeter line."
+    },
+    {
+        "concept_id": "area",
+        "concept_name": "Area",
+        "aliases": ["surface area", "space inside", "coverage"],
+        "buyi_culture": "Paddy field size",
+        "explanation_text": "A paddy field is measured by how much ground it covers. The size of its surface is the area.",
+        "image_prompt": "Show a Buyi paddy field shaded to display its area."
+    },
+    {
+        "concept_id": "volume",
+        "concept_name": "Volume",
+        "aliases": ["capacity", "space inside 3D shape", "liquid amount"],
+        "buyi_culture": "Grain storage bins",
+        "explanation_text": "Tall grain storage bins in a Buyi home hold the year's harvest. The amount a bin can hold is its volume.",
+        "image_prompt": "Show Buyi grain storage bins filled to different levels to illustrate volume."
+    },
+    {
+        "concept_id": "circle_properties",
+        "concept_name": "Circle Properties",
+        "aliases": ["radius", "diameter", "circumference", "circle geometry"],
+        "buyi_culture": "Huangguoshu plunge pool",
+        "explanation_text": "Seen from above, the plunge pool at Huangguoshu Waterfall spreads into a wide circle. Its radius, diameter, and circumference are circle properties.",
+        "image_prompt": "Show Huangguoshu Waterfall's plunge pool from above with radius and diameter lines marked."
+    },
+    {
+        "concept_id": "pi",
+        "concept_name": "Pi (π)",
+        "aliases": ["pi", "ratio of circumference", "3.14"],
+        "buyi_culture": "Round drum faces",
+        "explanation_text": "The face of a Buyi bronze drum is a perfect circle. No matter the drum's size, the ratio of its circumference to its diameter is always the constant π.",
+        "image_prompt": "Show circular Buyi drum faces labeled with circumference and diameter measurements."
+    },
+    {
+        "concept_id": "coordinate_plane",
+        "concept_name": "Coordinate Plane",
+        "aliases": ["x-y plane", "graph grid", "axes"],
+        "buyi_culture": "Weaving grid on a loom",
+        "explanation_text": "On a Buyi loom, the warp threads run one way and the weft the other, forming a grid. Where a thread crosses, it has a position—like a coordinate plane.",
+        "image_prompt": "Show a Buyi weaving grid with vertical and horizontal threads labeled as x and y axes."
+    },
+    {
+        "concept_id": "plotting_points",
+        "concept_name": "Plotting Points",
+        "aliases": ["graphing points", "coordinates", "x-y plotting"],
+        "buyi_culture": "Mapping the stone village",
+        "explanation_text": "Locating each house in a stone village on a map places it at a specific spot. Marking each spot is plotting points.",
+        "image_prompt": "Show a map of a Buyi stone village with each house marked as a plotted point."
+    },
+    {
+        "concept_id": "symmetry",
+        "concept_name": "Symmetry",
+        "aliases": ["mirror image", "balanced halves", "reflection symmetry"],
+        "buyi_culture": "Batik and brocade mirror patterns",
+        "explanation_text": "The batik and brocade patterns of the Buyi mirror themselves across a center line. Each side balances the other—that is symmetry.",
+        "image_prompt": "Show a Buyi batik or brocade pattern split by a mirror line with matching halves."
+    },
+    {
+        "concept_id": "transformations",
+        "concept_name": "Transformations",
+        "aliases": ["translate", "rotate", "reflect", "dilate"],
+        "buyi_culture": "Buyi circle dance turns",
+        "explanation_text": "During festivals, Buyi dancers turn and shift as the long drum beats. Moving, rotating, and flipping positions are geometric transformations.",
+        "image_prompt": "Show Buyi circle dancers rotating and shifting to illustrate translations and rotations."
+    },
+    {
+        "concept_id": "ratios",
+        "concept_name": "Ratios",
+        "aliases": ["comparison", "proportion of quantities", "rate"],
+        "buyi_culture": "Mixing indigo dye",
+        "explanation_text": "Batik dyers mix indigo paste and water in a fixed balance for the right color. That balance is a ratio.",
+        "image_prompt": "Show an indigo dyeing vat with dye and water labeled in a ratio like 2:1."
+    },
+    {
+        "concept_id": "proportions",
+        "concept_name": "Proportions",
+        "aliases": ["equal ratios", "scaling", "balance of ratios"],
+        "buyi_culture": "Enlarging a brocade pattern",
+        "explanation_text": "When a brocade pattern is woven larger, every motif grows by the same factor so the design stays true. Keeping that balance is proportion.",
+        "image_prompt": "Show a small and a large Buyi brocade with identical geometric proportions."
+    },
+    {
+        "concept_id": "unit_rate",
+        "concept_name": "Unit Rate",
+        "aliases": ["per unit", "rate per one", "comparison per one unit"],
+        "buyi_culture": "Cloth woven per day",
+        "explanation_text": "A Buyi weaver counts how many feet of cloth she finishes in one day. That amount per day is a unit rate.",
+        "image_prompt": "Show a Buyi weaver at a loom with a label of cloth woven per day."
+    },
+    {
+        "concept_id": "scale_drawings",
+        "concept_name": "Scale Drawings",
+        "aliases": ["map scale", "drawing proportion", "scaled map"],
+        "buyi_culture": "Sketching the stone village map",
+        "explanation_text": "A villager sketches a small map of the large stone village, keeping every distance in the same proportion. That is a scale drawing.",
+        "image_prompt": "Show a Buyi stone village and a smaller scaled map beside it with a scale legend."
+    },
+    {
+        "concept_id": "percent_change",
+        "concept_name": "Percent Change",
+        "aliases": ["percent increase", "percent decrease", "growth rate"],
+        "buyi_culture": "Rice harvest growth",
+        "explanation_text": "If a family's rice harvest grows from 100 baskets to 120 baskets, that is a 20% increase. Such growth is percent change.",
+        "image_prompt": "Show rice baskets increasing in number with a +20% label."
+    },
+    {
+        "concept_id": "data_collection",
+        "concept_name": "Data Collection",
+        "aliases": ["gather data", "record information", "collect numbers"],
+        "buyi_culture": "Recording harvest counts",
+        "explanation_text": "After the autumn harvest, Buyi families count how many baskets of rice each field produced. Writing these counts down is data collection.",
+        "image_prompt": "Show a Buyi farmer recording rice basket tallies on a clipboard."
+    },
+    {
+        "concept_id": "tables_graphs",
+        "concept_name": "Tables and Graphs",
+        "aliases": ["data table", "bar graph", "chart"],
+        "buyi_culture": "Rice yield comparisons",
+        "explanation_text": "Villages along the Beipanjiang compare their rice yields season by season. A table or graph makes the comparisons easy to see.",
+        "image_prompt": "Show a table and bar graph comparing rice yields across seasons."
+    },
+    {
+        "concept_id": "mean",
+        "concept_name": "Mean",
+        "aliases": ["average", "arithmetic mean", "mean value"],
+        "buyi_culture": "Average daily harvest",
+        "explanation_text": "Finding the average amount of rice each field yields per day shows the mean.",
+        "image_prompt": "Show a table of paddy yields with the average value highlighted."
+    },
+    {
+        "concept_id": "median",
+        "concept_name": "Median",
+        "aliases": ["middle value", "data median"],
+        "buyi_culture": "Middle family harvest",
+        "explanation_text": "When family harvests are arranged from smallest to largest, the middle one is the median.",
+        "image_prompt": "Show family harvests lined up with the middle value highlighted as the median."
+    },
+    {
+        "concept_id": "mode",
+        "concept_name": "Mode",
+        "aliases": ["most frequent value", "common value"],
+        "buyi_culture": "Most common crop variety",
+        "explanation_text": "If most fields in the valley are planted with the same rice variety, that variety is the mode.",
+        "image_prompt": "Show paddy fields with different crops, the most common variety highlighted."
+    },
+    {
+        "concept_id": "range",
+        "concept_name": "Range",
+        "aliases": ["difference", "spread of data", "highest minus lowest"],
+        "buyi_culture": "Spread of harvests",
+        "explanation_text": "The gap between the biggest and smallest harvest in a Buyi village shows the range.",
+        "image_prompt": "Show a bar chart with the shortest and tallest harvest bars marked for the range."
+    },
+    {
+        "concept_id": "bar_graphs",
+        "concept_name": "Bar Graphs",
+        "aliases": ["bar chart", "column graph"],
+        "buyi_culture": "Family harvest bar chart",
+        "explanation_text": "Each bar in a chart can show how many baskets of rice one family harvested. Bars make quick comparisons easy.",
+        "image_prompt": "Show a bar graph labeled by family names with rice harvest totals."
+    },
+    {
+        "concept_id": "line_graphs",
+        "concept_name": "Line Graphs",
+        "aliases": ["trend graph", "line chart"],
+        "buyi_culture": "Waterfall water level over months",
+        "explanation_text": "A line graph can show how the water level of Huangguoshu Waterfall changes month by month through the year.",
+        "image_prompt": "Show a line graph labeled with months and water levels."
+    },
+    {
+        "concept_id": "pie_charts",
+        "concept_name": "Pie Charts",
+        "aliases": ["circle chart", "percentage chart"],
+        "buyi_culture": "Crop distribution pie chart",
+        "explanation_text": "A pie chart can show what share of a Buyi village's fields are planted with rice, corn, and vegetables. Each slice is a percentage.",
+        "image_prompt": "Show a pie chart divided into crop categories with percentages."
+    },
+    {
+        "concept_id": "probability",
+        "concept_name": "Probability",
+        "aliases": ["chance", "likelihood", "odds"],
+        "buyi_culture": "March Third festival games",
+        "explanation_text": "At the March Third festival, games of chance decide who receives the embroidered balls and gifts. Estimating the chance of winning is probability.",
+        "image_prompt": "Show a March Third festival game with probability labels above the possible outcomes."
+    },
+    {
+        "concept_id": "patterns",
+        "concept_name": "Patterns",
+        "aliases": ["repeating design", "sequence", "recurrence"],
+        "buyi_culture": "Brocade border motifs",
+        "explanation_text": "The geometric borders of Buyi brocade and batik repeat the same motif again and again. These repetitions are patterns.",
+        "image_prompt": "Show repeating geometric motifs in Buyi brocade borders."
+    },
+    {
+        "concept_id": "functions",
+        "concept_name": "Functions",
+        "aliases": ["input-output rule", "function relation", "mapping"],
+        "buyi_culture": "Rice bundle to grains mapping",
+        "explanation_text": "A fixed amount of rice plants always gives a certain number of grains at harvest. Each input produces one output—that is a function.",
+        "image_prompt": "Show a diagram linking rice bundles (input) to grain counts (output)."
+    }
+]
