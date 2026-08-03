@@ -1,6 +1,6 @@
 "use client";
 
-import type { ComponentPropsWithoutRef } from "react";
+import { useEffect, useRef, type ComponentPropsWithoutRef } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
@@ -83,11 +83,131 @@ function normalizeLatex(content: string): string {
         .replace(/\$\s+(.+?)\s+\$/g, (_, inner: string) => `$${inner.trim()}$`);
 }
 
+// C17: glossary terms (from the B13 sheets bank) highlighted in assistant text
+// with a Mandarin tooltip. Zero AI — a post-render DOM pass, so markdown and
+// LaTeX stay untouched.
+interface VocabTerm {
+    term: string;
+    mandarin: string;
+}
+
+let glossaryPromise: Promise<VocabTerm[]> | null = null;
+
+function loadGlossary(): Promise<VocabTerm[]> {
+    if (!glossaryPromise) {
+        glossaryPromise = fetch("/api/sheets")
+            .then((r) => (r.ok ? r.json() : { sheets: [] }))
+            .then((d) => {
+                const terms: VocabTerm[] = [];
+                for (const sheet of d.sheets || []) {
+                    for (const term of sheet.terms || []) {
+                        const name = term?.term;
+                        if (name && name.length >= 4 && term.mandarin) {
+                            terms.push({ term: name, mandarin: term.mandarin });
+                        }
+                    }
+                }
+                return terms;
+            })
+            .catch(() => []);
+    }
+    return glossaryPromise;
+}
+
+function isInsideExcluded(node: Node): boolean {
+    let el = node.parentElement;
+    while (el) {
+        const cls = el.classList;
+        if (
+            cls.contains("katex") ||
+            cls.contains("mdr-vocab") ||
+            el.tagName === "CODE" ||
+            el.tagName === "PRE" ||
+            cls.contains("mdr-code-block")
+        ) {
+            return true;
+        }
+        el = el.parentElement;
+    }
+    return false;
+}
+
+function highlightTextNode(node: Text, terms: VocabTerm[]): void {
+    const text = node.nodeValue || "";
+    if (!text || text.length < 4) return;
+    let best: { index: number; length: number; mandarin: string } | null = null;
+    for (const t of terms) {
+        const lower = text.toLowerCase();
+        const termLower = t.term.toLowerCase();
+        let idx = lower.indexOf(termLower);
+        while (idx !== -1) {
+            const before = idx === 0 ? " " : text[idx - 1];
+            const afterEnd = idx + t.term.length;
+            const after = afterEnd >= text.length ? " " : text[afterEnd];
+            if (!/[a-z]/i.test(before) && !/[a-z]/i.test(after)) {
+                if (best === null || t.term.length > best.length) {
+                    best = { index: idx, length: t.term.length, mandarin: t.mandarin };
+                }
+                break;
+            }
+            idx = lower.indexOf(termLower, idx + 1);
+        }
+    }
+    if (!best) return;
+    const fragment = document.createDocumentFragment();
+    if (best.index > 0) {
+        fragment.appendChild(document.createTextNode(text.slice(0, best.index)));
+    }
+    const mark = document.createElement("span");
+    mark.className = "mdr-vocab";
+    mark.textContent = text.slice(best.index, best.index + best.length);
+    mark.title = `${text.slice(best.index, best.index + best.length)} — ${best.mandarin}`;
+    fragment.appendChild(mark);
+    if (best.index + best.length < text.length) {
+        fragment.appendChild(document.createTextNode(text.slice(best.index + best.length)));
+    }
+    node.parentNode?.replaceChild(fragment, node);
+}
+
+function useVocabHighlight(
+    containerRef: React.RefObject<HTMLDivElement | null>,
+    content: string,
+): void {
+    useEffect(() => {
+        const container = containerRef.current;
+        if (!container) return;
+        // Already highlighted (unrelated re-render) — leave the DOM alone.
+        if (container.querySelector(".mdr-vocab")) return;
+        let cancelled = false;
+        loadGlossary().then((terms) => {
+            if (cancelled || terms.length === 0) return;
+            const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT);
+            const textNodes: Text[] = [];
+            let node: Node | null = walker.nextNode();
+            while (node) {
+                if (!isInsideExcluded(node)) {
+                    textNodes.push(node as Text);
+                }
+                node = walker.nextNode();
+            }
+            for (const tn of textNodes) {
+                highlightTextNode(tn, terms);
+            }
+        });
+        return () => {
+            cancelled = true;
+        };
+    }, [containerRef, content]);
+}
+
 export default function MarkdownRenderer({
     content,
     className = "",
     onSuggestionClick,
 }: MarkdownRendererProps) {
+    const containerRef = useRef<HTMLDivElement | null>(null);
+    useVocabHighlight(containerRef, content);
+
     if (!content) return null;
 
     const normalizedContent = normalizeLatex(content);
@@ -101,105 +221,116 @@ export default function MarkdownRenderer({
                 </div>
             }
         >
-            <div className={`markdown-content ${className}`}>
+            <div ref={containerRef} className={`markdown-content ${className}`}>
                 <ReactMarkdown
                     remarkPlugins={[remarkGfm, remarkMath]}
                     rehypePlugins={[[rehypeKatex, { throwOnError: false }]]}
-                components={{
-                    h1: ({ children }) => <h1 className="mdr-h1">{children}</h1>,
-                    h2: ({ children }) => <h2 className="mdr-h2">{children}</h2>,
-                    h3: ({ children }) => <h3 className="mdr-h3">{children}</h3>,
-                    h4: ({ children }) => <h4 className="mdr-h4">{children}</h4>,
-                    p: ({ children }) => <p className="mdr-p">{children}</p>,
-                    ul: ({ children }) => <ul className="mdr-ul">{children}</ul>,
-                    ol: ({ children }) => <ol className="mdr-ol">{children}</ol>,
-                    li: ({ children }) => <li className="mdr-li">{children}</li>,
-                    blockquote: ({ children }) => (
-                        <blockquote className="mdr-blockquote">{children}</blockquote>
-                    ),
-                    code: ({ className, children, ...props }: ComponentPropsWithoutRef<"code">) => {
-                        const match = /language-(\w+)/.exec(className || "");
-                        const language = match ? match[1] : "";
-                        const isInline = !language;
+                    components={{
+                        h1: ({ children }) => <h1 className="mdr-h1">{children}</h1>,
+                        h2: ({ children }) => <h2 className="mdr-h2">{children}</h2>,
+                        h3: ({ children }) => <h3 className="mdr-h3">{children}</h3>,
+                        h4: ({ children }) => <h4 className="mdr-h4">{children}</h4>,
+                        p: ({ children }) => <p className="mdr-p">{children}</p>,
+                        ul: ({ children }) => <ul className="mdr-ul">{children}</ul>,
+                        ol: ({ children }) => <ol className="mdr-ol">{children}</ol>,
+                        li: ({ children }) => <li className="mdr-li">{children}</li>,
+                        blockquote: ({ children }) => (
+                            <blockquote className="mdr-blockquote">{children}</blockquote>
+                        ),
+                        code: ({
+                            className,
+                            children,
+                            ...props
+                        }: ComponentPropsWithoutRef<"code">) => {
+                            const match = /language-(\w+)/.exec(className || "");
+                            const language = match ? match[1] : "";
+                            const isInline = !language;
 
-                        if (!isInline && language) {
-                            const codeText = String(children ?? "").replace(/\n$/, "");
+                            if (!isInline && language) {
+                                const codeText = String(children ?? "").replace(/\n$/, "");
+                                return (
+                                    <div className="mdr-code-block">
+                                        <div className="mdr-code-lang">{language}</div>
+                                        <SyntaxHighlighter
+                                            style={oneDark}
+                                            language={language}
+                                            PreTag="div"
+                                            className="mdr-code-pre"
+                                            showLineNumbers={true}
+                                            customStyle={{
+                                                margin: 0,
+                                                borderRadius: "0.5rem",
+                                                fontSize: "0.875rem",
+                                                padding: "1rem",
+                                            }}
+                                        >
+                                            {codeText}
+                                        </SyntaxHighlighter>
+                                        <button
+                                            onClick={(e) => {
+                                                navigator.clipboard.writeText(codeText);
+                                                const btn = e.currentTarget;
+                                                btn.textContent = "Copied!";
+                                                setTimeout(() => {
+                                                    btn.textContent = "Copy";
+                                                }, 2000);
+                                            }}
+                                            className="mdr-copy-btn"
+                                        >
+                                            Copy
+                                        </button>
+                                    </div>
+                                );
+                            }
+
                             return (
-                                <div className="mdr-code-block">
-                                    <div className="mdr-code-lang">{language}</div>
-                                    <SyntaxHighlighter
-                                        style={oneDark}
-                                        language={language}
-                                        PreTag="div"
-                                        className="mdr-code-pre"
-                                        showLineNumbers={true}
-                                        customStyle={{
-                                            margin: 0,
-                                            borderRadius: "0.5rem",
-                                            fontSize: "0.875rem",
-                                            padding: "1rem",
-                                        }}
-                                    >
-                                        {codeText}
-                                    </SyntaxHighlighter>
-                                    <button
-                                        onClick={(e) => {
-                                            navigator.clipboard.writeText(codeText);
-                                            const btn = e.currentTarget;
-                                            btn.textContent = "Copied!";
-                                            setTimeout(() => {
-                                                btn.textContent = "Copy";
-                                            }, 2000);
-                                        }}
-                                        className="mdr-copy-btn"
-                                    >
-                                        Copy
-                                    </button>
-                                </div>
+                                <code className="mdr-inline-code" {...props}>
+                                    {children}
+                                </code>
                             );
-                        }
-
-                        return (
-                            <code className="mdr-inline-code" {...props}>
+                        },
+                        table: ({ children }) => (
+                            <div className="mdr-table-wrapper">
+                                <table className="mdr-table">{children}</table>
+                            </div>
+                        ),
+                        thead: ({ children }) => <thead className="mdr-thead">{children}</thead>,
+                        tbody: ({ children }) => <tbody className="mdr-tbody">{children}</tbody>,
+                        tr: ({ children }) => <tr>{children}</tr>,
+                        th: ({ children }) => <th className="mdr-th">{children}</th>,
+                        td: ({ children }) => <td className="mdr-td">{children}</td>,
+                        a: ({ href, children }) => (
+                            <a
+                                href={href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="mdr-a"
+                            >
                                 {children}
-                            </code>
-                        );
-                    },
-                    table: ({ children }) => (
-                        <div className="mdr-table-wrapper">
-                            <table className="mdr-table">{children}</table>
-                        </div>
-                    ),
-                    thead: ({ children }) => <thead className="mdr-thead">{children}</thead>,
-                    tbody: ({ children }) => <tbody className="mdr-tbody">{children}</tbody>,
-                    tr: ({ children }) => <tr>{children}</tr>,
-                    th: ({ children }) => <th className="mdr-th">{children}</th>,
-                    td: ({ children }) => <td className="mdr-td">{children}</td>,
-                    a: ({ href, children }) => (
-                        <a href={href} target="_blank" rel="noopener noreferrer" className="mdr-a">
-                            {children}
-                        </a>
-                    ),
-                    hr: () => <hr className="mdr-hr" />,
-                    strong: ({ children }) => <strong className="mdr-strong">{children}</strong>,
-                    em: ({ children }) => <em className="mdr-em">{children}</em>,
-                }}
-            >
-                {cleanContent}
-            </ReactMarkdown>
-            {suggestions.length > 0 && onSuggestionClick && (
-                <div className="mdr-suggestions">
-                    {suggestions.map((s, i) => (
-                        <button
-                            key={i}
-                            className="mdr-suggestion-chip"
-                            onClick={() => onSuggestionClick(s)}
-                        >
-                            {s}
-                        </button>
-                    ))}
-                </div>
-            )}
+                            </a>
+                        ),
+                        hr: () => <hr className="mdr-hr" />,
+                        strong: ({ children }) => (
+                            <strong className="mdr-strong">{children}</strong>
+                        ),
+                        em: ({ children }) => <em className="mdr-em">{children}</em>,
+                    }}
+                >
+                    {cleanContent}
+                </ReactMarkdown>
+                {suggestions.length > 0 && onSuggestionClick && (
+                    <div className="mdr-suggestions">
+                        {suggestions.map((s, i) => (
+                            <button
+                                key={i}
+                                className="mdr-suggestion-chip"
+                                onClick={() => onSuggestionClick(s)}
+                            >
+                                {s}
+                            </button>
+                        ))}
+                    </div>
+                )}
             </div>
         </ErrorBoundary>
     );
