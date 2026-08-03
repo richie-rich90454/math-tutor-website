@@ -10,6 +10,7 @@ import CommandPalette from "@/components/ui/CommandPalette";
 import MessageSkeleton from "@/components/ui/MessageSkeleton";
 import BottomSheet from "@/components/ui/BottomSheet";
 import Sparkles from "@/components/ui/Sparkles";
+import UsageMeter from "@/components/ui/UsageMeter";
 import VirtualizedMessages from "@/components/chat/VirtualizedMessages";
 import MessageRow from "@/components/chat/MessageRow";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -507,6 +508,7 @@ export default function Home() {
 
                 <div className="app-footer">
                     <p className="app-footer-text">{t("bottomText")}</p>
+                    <UsageMeter refreshKey={messages.length} />
                 </div>
             </div>
 
