@@ -90,38 +90,34 @@ export default function Home() {
     const prevStreamingRef = useRef(false);
 
     // ── GSAP animations ──
-    useGSAP(
-        () => {
-            if (messages.length === 0 && welcomeRef.current) {
-                const tl = gsap.timeline();
-                const titleEl = welcomeRef.current.querySelector(".welcome-title");
-                const subtitleEl = welcomeRef.current.querySelector(".welcome-subtitle");
-                const promptBtns = welcomeRef.current.querySelectorAll(".prompt-btn");
-                const inputCard = welcomeRef.current.querySelector(".welcome-input-card");
-                if (titleEl)
-                    tl.from(titleEl, { y: 30, opacity: 0, duration: 0.6, ease: "power2.out" }, 0);
-                if (subtitleEl)
-                    tl.from(
-                        subtitleEl,
-                        { y: 30, opacity: 0, duration: 0.6, ease: "power2.out" },
-                        0.1,
-                    );
-                if (inputCard)
-                    tl.from(
-                        inputCard,
-                        { y: 30, opacity: 0, duration: 0.6, ease: "power2.out" },
-                        0.2,
-                    );
-                if (promptBtns.length)
-                    tl.from(
-                        promptBtns,
-                        { y: 20, opacity: 0, duration: 0.4, stagger: 0.08, ease: "power2.out" },
-                        0.3,
-                    );
-            }
-        },
-        { dependencies: [messages.length], scope: welcomeRef, revertOnUpdate: false },
-    );
+    useEffect(() => {
+        if (messages.length === 0 && welcomeRef.current) {
+            const titleEl = welcomeRef.current.querySelector(".welcome-title");
+            const subtitleEl = welcomeRef.current.querySelector(".welcome-subtitle");
+            const inputCard = welcomeRef.current.querySelector(".welcome-input-card");
+            const tl = gsap.timeline();
+            if (titleEl)
+                tl.from(titleEl, { y: 30, opacity: 0, duration: 0.6, ease: "power2.out" }, 0);
+            if (subtitleEl)
+                tl.from(
+                    subtitleEl,
+                    { y: 30, opacity: 0, duration: 0.6, ease: "power2.out" },
+                    0.1,
+                );
+            if (inputCard)
+                tl.from(
+                    inputCard,
+                    { y: 30, opacity: 0, duration: 0.6, ease: "power2.out" },
+                    0.2,
+                );
+            // ponytail: prompt buttons use CSS (promptBtnIn) instead of the GSAP
+            // timeline — under StrictMode double-mount the staggered tween left
+            // them stuck at opacity 0. CSS can never leave them invisible.
+            return () => {
+                tl.revert();
+            };
+        }
+    }, [messages.length]);
 
     useGSAP(
         () => {
