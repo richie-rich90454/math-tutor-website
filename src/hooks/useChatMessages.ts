@@ -22,6 +22,7 @@ export function useChatMessages() {
     const [isStreaming, setIsStreaming] = useState(false);
     const [activeChatId, setActiveChatId] = useState<string | null>(null);
     const [isLoaded, setIsLoaded] = useState(false);
+    const [quotaWarn, setQuotaWarn] = useState(false);
 
     const abortControllerRef = useRef<AbortController | null>(null);
     const prevMessagesLenRef = useRef(0);
@@ -135,6 +136,8 @@ export function useChatMessages() {
                     throw new Error(errMsg);
                 }
 
+                setQuotaWarn(response.headers.get("X-Quota-Warning") === "true");
+
                 const serverChatId = response.headers.get("X-Chat-Id");
                 if (serverChatId && serverChatId !== activeChatId) {
                     const wasNewChat = !activeChatId;
@@ -143,8 +146,7 @@ export function useChatMessages() {
                         addChatSession({
                             id: serverChatId,
                             title:
-                                currentInput.slice(0, 50) +
-                                (currentInput.length > 50 ? "..." : ""),
+                                currentInput.slice(0, 50) + (currentInput.length > 50 ? "..." : ""),
                             timestamp: new Date().toISOString(),
                             preview: currentInput.slice(0, 100),
                             messages: [],
@@ -257,6 +259,8 @@ export function useChatMessages() {
                 } catch {}
                 throw new Error(errMsg);
             }
+
+            setQuotaWarn(response.headers.get("X-Quota-Warning") === "true");
 
             const serverChatId = response.headers.get("X-Chat-Id");
             if (serverChatId && serverChatId !== activeChatId) {
@@ -420,5 +424,6 @@ export function useChatMessages() {
         chatMessagesRef,
         messagesEndRef,
         prevMessagesLenRef,
+        quotaWarn,
     };
 }
