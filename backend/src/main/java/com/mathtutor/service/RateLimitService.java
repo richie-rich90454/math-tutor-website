@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicReference;
 
 @Service
 public class RateLimitService {
@@ -22,19 +23,20 @@ public class RateLimitService {
 
     public RateLimitResult check(String key, int maxRequests, long windowMs) {
         long now = System.currentTimeMillis();
-        Entry existing = store.get(key);
-
-        if (existing == null || now > existing.resetAt()) {
-            store.put(key, new Entry(1, now + windowMs));
-            return new RateLimitResult(true, maxRequests - 1, now + windowMs);
-        }
-
-        if (existing.count() >= maxRequests) {
-            return new RateLimitResult(false, 0, existing.resetAt());
-        }
-
-        store.put(key, new Entry(existing.count() + 1, existing.resetAt()));
-        return new RateLimitResult(true, maxRequests - existing.count() - 1, existing.resetAt());
+        AtomicReference<RateLimitResult> resultRef = new AtomicReference<>();
+        store.compute(key, (k, existing) -> {
+            if (existing == null || now > existing.resetAt()) {
+                resultRef.set(new RateLimitResult(true, maxRequests - 1, now + windowMs));
+                return new Entry(1, now + windowMs);
+            }
+            if (existing.count() >= maxRequests) {
+                resultRef.set(new RateLimitResult(false, 0, existing.resetAt()));
+                return existing;
+            }
+            resultRef.set(new RateLimitResult(true, maxRequests - existing.count() - 1, existing.resetAt()));
+            return new Entry(existing.count() + 1, existing.resetAt());
+        });
+        return resultRef.get();
     }
 
     public Map<String, String> getHeaders(RateLimitResult result) {
