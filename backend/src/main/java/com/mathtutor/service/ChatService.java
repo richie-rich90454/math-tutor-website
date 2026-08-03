@@ -7,11 +7,22 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
 
 @Service
 public class ChatService {
+
+    private static final int CHECK_MAX_TOKENS = 2048;
+    private static final Map<String, String> CULTURE_KEYS = Map.of(
+            "mn-cyrl", "mn",
+            "mn-mong", "mn",
+            "bo", "bo",
+            "kk", "kk",
+            "ug", "ug",
+            "ko", "ko",
+            "za", "za");
 
     private final ChatRepository chats;
     private final MessageRepository messages;
@@ -21,6 +32,7 @@ public class ChatService {
     private final ContextBuilder contextBuilder;
     private final AiClient aiClient;
     private final AnswerCache answerCache;
+    private final CultureService culture;
 
     public ChatService(
             ChatRepository chats,
@@ -30,7 +42,8 @@ public class ChatService {
             TopicExtractor topicExtractor,
             ContextBuilder contextBuilder,
             AiClient aiClient,
-            AnswerCache answerCache) {
+            AnswerCache answerCache,
+            CultureService culture) {
         this.chats = chats;
         this.messages = messages;
         this.usage = usage;
@@ -39,23 +52,32 @@ public class ChatService {
         this.contextBuilder = contextBuilder;
         this.aiClient = aiClient;
         this.answerCache = answerCache;
+        this.culture = culture;
     }
 
     public record StreamSetup(
             String activeChatId,
             AiClient.AiStream stream,
-            boolean cacheHit) {
+            boolean cacheHit,
+            boolean checkMode) {
     }
 
     public StreamSetup prepareMessageStream(String userId, String message, String chatId, String preferredLanguage)
             throws java.io.IOException {
-        String sanitized = message.trim();
-        String activeChatId = chatId;
-
         String language = preferredLanguage == null || preferredLanguage.isBlank()
                 ? "en"
                 : preferredLanguage;
         String systemPrompt = prompts.getSystemPrompt(language);
+
+        String trimmed = message.trim();
+        boolean checkMode = trimmed.startsWith("/check ");
+        String content = checkMode ? trimmed.substring("/check ".length()).trim() : trimmed;
+        if (content.isEmpty()) {
+            content = trimmed;
+            checkMode = false;
+        }
+
+        String activeChatId = chatId;
 
         String topic = null;
         if (activeChatId != null && !activeChatId.isBlank()) {
@@ -63,20 +85,27 @@ public class ChatService {
             if (existing.isEmpty() || !existing.get().user_id().equals(userId)) {
                 throw new com.mathtutor.web.ForbiddenException();
             }
-            messages.addMessage(activeChatId, "user", sanitized, 0);
-            chats.updateChat(activeChatId, "preview", truncate(sanitized, 100));
-            topic = topicExtractor.extractTopic(sanitized);
+            messages.addMessage(activeChatId, "user", content, 0);
+            chats.updateChat(activeChatId, "preview", truncate(content, 100));
+            topic = topicExtractor.extractTopic(content);
             if (topic != null) {
                 chats.updateChat(activeChatId, "topic", topic);
             }
         } else {
-            activeChatId = createNewChat(userId, sanitized);
+            activeChatId = createNewChat(userId, content);
         }
 
-        Optional<String> cached = answerCache.lookup(sanitized, language, topic);
+        // B12 /check: validate-only turn — no history, tiny prompt, capped tokens.
+        if (checkMode) {
+            AiClient.AiStream stream = aiClient.streamChat(
+                    contextBuilder.buildCheckContext(content), CHECK_MAX_TOKENS);
+            return new StreamSetup(activeChatId, stream, false, true);
+        }
+
+        Optional<String> cached = answerCache.lookup(content, language, topic);
         if (cached.isPresent()) {
-            answerCache.store(sanitized, language, topic, cached.get());
-            return new StreamSetup(activeChatId, new CachedStream(cached.get()), true);
+            answerCache.store(content, language, topic, cached.get());
+            return new StreamSetup(activeChatId, new CachedStream(cached.get()), true, false);
         }
 
         List<MessageRepository.MessageRecord> history =
@@ -101,8 +130,21 @@ public class ChatService {
             }
         }
 
-        AiClient.AiStream stream = aiClient.streamChat(buildFullContext(systemPrompt, contextMessages, sanitized));
-        return new StreamSetup(activeChatId, stream, false);
+        List<String> tailBlocks = new ArrayList<>();
+        // C16: culture keyword packs are appended as a tail user block so the
+        // system-prompt prefix stays byte-identical (A2 cache invariant).
+        String cultureKey = CULTURE_KEYS.get(language);
+        if (cultureKey != null) {
+            List<String> keywords = culture.keywords(cultureKey).orElse(List.of());
+            if (!keywords.isEmpty()) {
+                tailBlocks.add("When giving examples or word problems, where natural, include these "
+                        + "cultural references from the student's community: "
+                        + String.join(", ", keywords) + ".");
+            }
+        }
+
+        AiClient.AiStream stream = aiClient.streamChat(buildFullContext(systemPrompt, contextMessages, content, tailBlocks));
+        return new StreamSetup(activeChatId, stream, false, false);
     }
 
     private ContextBuilder.ContextMessage toContextMessage(MessageRepository.MessageRecord msg) {
@@ -110,14 +152,14 @@ public class ChatService {
     }
 
     public void saveAssistantMessage(String chatId, String userId, String fullResponse, String question, String language,
-            AiClient.Usage tokenUsage) {
+            AiClient.Usage tokenUsage, String ip) {
         if (fullResponse == null || fullResponse.trim().isEmpty()) {
             return;
         }
         messages.addMessage(chatId, "assistant", fullResponse, 0);
         int request = tokenUsage == null ? 0 : tokenUsage.requestTokens();
         int response = tokenUsage == null ? 0 : tokenUsage.responseTokens();
-        usage.logUsage(userId, chatId, request, response, "deepseek-v4-flash");
+        usage.logUsage(userId, chatId, request, response, "deepseek-v4-flash", ip);
         if (question != null && !question.isBlank()) {
             answerCache.store(question, language == null ? "en" : language, null, fullResponse);
         }
@@ -165,8 +207,9 @@ public class ChatService {
     private List<ContextBuilder.ContextMessage> buildFullContext(
             String systemPrompt,
             List<ContextBuilder.ContextMessage> history,
-            String newMessage) {
-        return contextBuilder.buildContext(systemPrompt, history, newMessage);
+            String newMessage,
+            List<String> tailBlocks) {
+        return contextBuilder.buildContext(systemPrompt, history, newMessage, tailBlocks);
     }
 
     private String truncateTitle(String message) {
