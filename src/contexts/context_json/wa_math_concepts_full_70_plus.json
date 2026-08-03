@@ -1,0 +1,790 @@
+[
+    {
+        "concept_id": "place_value",
+        "concept_name": "Place Value",
+        "aliases": [
+            "place value",
+            "digit place",
+            "number place",
+            "units place",
+            "tens place",
+            "hundreds place",
+            "position of digits",
+            "digit position"
+        ],
+        "wa_culture": "Wooden drum string pitch positions",
+        "explanation_text": "The strings stretched across the Wa wooden drum (mu ghraung, 木鼓) are tuned to different pitches, and each string sits at its own position on the drum. Just as a digit's position determines its value, each string's place on the drum gives it a distinct sound.",
+        "image_prompt": "Illustrate a Wa wooden drum with its strings labeled as ones, tens, and hundreds, showing how position on the drum affects pitch and value."
+    },
+    {
+        "concept_id": "addition_subtraction",
+        "concept_name": "Addition & Subtraction",
+        "aliases": [
+            "add",
+            "addition",
+            "plus",
+            "sum",
+            "combine",
+            "total",
+            "subtract",
+            "subtraction",
+            "minus",
+            "take away",
+            "difference"
+        ],
+        "wa_culture": "Filling and serving festival rice bowls",
+        "explanation_text": "When more cooked rice is scooped into a bamboo basket, the amount grows, which is addition. When bowls are served out to guests at the Wa festival, the amount shrinks, which is subtraction.",
+        "image_prompt": "Show Wa villagers filling and serving bowls of festival rice, with the total changing as rice is added to or taken away from the basket."
+    },
+    {
+        "concept_id": "multiplication_division",
+        "concept_name": "Multiplication & Division",
+        "aliases": [
+            "multiply",
+            "multiplication",
+            "times",
+            "groups of",
+            "repeated addition",
+            "divide",
+            "division",
+            "split equally",
+            "sharing"
+        ],
+        "wa_culture": "Rows of silver ornaments",
+        "explanation_text": "Arranging silver ornaments in equal rows at a Wa market shows multiplication. Splitting the ornaments evenly among several stalls shows division.",
+        "image_prompt": "Display rows of identical Wa silver ornaments arranged evenly at a market, showing equal grouping (multiplication) and even sharing (division)."
+    },
+    {
+        "concept_id": "even_odd",
+        "concept_name": "Even and Odd Numbers",
+        "aliases": [
+            "even numbers",
+            "odd numbers",
+            "even",
+            "odd",
+            "pairs",
+            "leftover",
+            "no remainder",
+            "remains one"
+        ],
+        "wa_culture": "Dancers in pairs",
+        "explanation_text": "Wa dancers line up in pairs during the wooden drum festival. If every dancer has a partner, the number is even; one dancer left without a partner makes it odd.",
+        "image_prompt": "Show Wa dancers standing in pairs at the wooden drum festival, with one single dancer at the end to represent an odd number."
+    },
+    {
+        "concept_id": "skip_counting",
+        "concept_name": "Skip Counting / Number Patterns",
+        "aliases": [
+            "skip counting",
+            "count by 2s",
+            "count by 5s",
+            "count by 10s",
+            "jump counting",
+            "repeating numbers",
+            "number patterns"
+        ],
+        "wa_culture": "Wooden drum rhythms",
+        "explanation_text": "The beats of the Wa wooden drum follow repeating patterns, such as striking every second or every third beat. Counting these drum rhythms is like skip counting by 2s, 3s, or 5s.",
+        "image_prompt": "Show a Wa drummer striking a wooden drum, with beat counts highlighted on every 5th strike to illustrate skip counting."
+    },
+    {
+        "concept_id": "comparing_numbers",
+        "concept_name": "Comparing and Ordering Numbers",
+        "aliases": [
+            "compare numbers",
+            "greater than",
+            "less than",
+            "more than",
+            "fewer than",
+            "biggest",
+            "smallest",
+            "ordering numbers",
+            "number order"
+        ],
+        "wa_culture": "Rice bowls with different amounts",
+        "explanation_text": "During the New Rice Festival, comparing how much rice fills each bowl shows which is greater or smaller. This is exactly like comparing and ordering numbers.",
+        "image_prompt": "Show several bowls with different amounts of New Rice Festival rice, using greater-than and less-than symbols between them."
+    },
+    {
+        "concept_id": "rounding_estimation",
+        "concept_name": "Rounding & Estimation",
+        "aliases": [
+            "round",
+            "rounding",
+            "estimate",
+            "estimation",
+            "approximate",
+            "about how much",
+            "close to",
+            "nearby number"
+        ],
+        "wa_culture": "Estimating festival rice",
+        "explanation_text": "When cooks prepare rice for the Wooden Drum Festival, they estimate roughly how many bowls the guests will eat. Rounding the amount to a nearby convenient number works the same way.",
+        "image_prompt": "Show Wa cooks estimating the amount of rice needed for the Wooden Drum Festival, with the amount rounded to the nearest convenient quantity."
+    },
+    {
+        "concept_id": "fractions",
+        "concept_name": "Fractions",
+        "aliases": [
+            "fraction",
+            "part of a whole",
+            "portion",
+            "share",
+            "numerator",
+            "denominator"
+        ],
+        "wa_culture": "Sharing festival rice",
+        "explanation_text": "When a large basket of festival rice is shared equally among several families, each family receives a fraction of the whole. The basket is the whole, and each share is one part of it.",
+        "image_prompt": "Show a basket of festival rice being divided into equal portions for several families, each portion labeled as a fraction of the whole."
+    },
+    {
+        "concept_id": "equivalent_fractions",
+        "concept_name": "Equivalent Fractions",
+        "aliases": [
+            "equal fractions",
+            "same value",
+            "fraction equality",
+            "equivalent"
+        ],
+        "wa_culture": "Cutting rice cakes equally",
+        "explanation_text": "Cutting a Wa rice cake into 2 equal parts or into 4 smaller equal parts gives the same total amount. Two halves and four quarters are equivalent fractions.",
+        "image_prompt": "Show a Wa rice cake cut first into halves and then into quarters, demonstrating that both ways give equal portions."
+    },
+    {
+        "concept_id": "simplifying_fractions",
+        "concept_name": "Simplifying Fractions",
+        "aliases": [
+            "reduce fraction",
+            "lowest terms",
+            "simplify fraction"
+        ],
+        "wa_culture": "Combining village groups",
+        "explanation_text": "If two smaller groups of villagers combine into one big group for the festival dance, the count becomes simpler. Reducing a fraction to its lowest terms works the same way.",
+        "image_prompt": "Depict smaller groups of Wa villagers merging into one larger dancing group, labeled with reduced fractions."
+    },
+    {
+        "concept_id": "mixed_numbers",
+        "concept_name": "Mixed Numbers",
+        "aliases": [
+            "mixed number",
+            "whole and fraction",
+            "whole part and fraction part"
+        ],
+        "wa_culture": "Full and half rice baskets",
+        "explanation_text": "If the harvest fills 3 full rice baskets and half a basket more, that is 3½ baskets. A whole number together with a fraction is a mixed number.",
+        "image_prompt": "Show three full rice baskets and one half-full basket labeled as 3½."
+    },
+    {
+        "concept_id": "improper_fractions",
+        "concept_name": "Improper Fractions",
+        "aliases": [
+            "top-heavy fraction",
+            "numerator larger",
+            "greater than one fraction"
+        ],
+        "wa_culture": "Overflowing rice baskets",
+        "explanation_text": "When festival rice fills more baskets than expected but is still counted in same-sized portions, the total is an improper fraction. The top number is larger than the bottom number.",
+        "image_prompt": "Show several rice baskets filled past one full portion, symbolizing fractions greater than 1."
+    },
+    {
+        "concept_id": "adding_fractions",
+        "concept_name": "Adding Fractions",
+        "aliases": [
+            "fraction addition",
+            "add fractions",
+            "sum of fractions"
+        ],
+        "wa_culture": "Combining bowls of festival rice",
+        "explanation_text": "Pouring leftover festival rice from several small bowls into one big bowl shows how fractional parts add together. The combined amount is the sum of the fractions.",
+        "image_prompt": "Show smaller bowls of festival rice being combined into one large bowl to make a total."
+    },
+    {
+        "concept_id": "subtracting_fractions",
+        "concept_name": "Subtracting Fractions",
+        "aliases": [
+            "fraction subtraction",
+            "take away fractions",
+            "difference of fractions"
+        ],
+        "wa_culture": "Serving out festival rice",
+        "explanation_text": "When rice is served out of a large basket for the festival meal, the amount left is the difference. Taking one fraction away from a whole shows subtraction of fractions.",
+        "image_prompt": "Show a basket of festival rice with a portion being served out, the remainder labeled as the fraction left."
+    },
+    {
+        "concept_id": "multiplying_fractions",
+        "concept_name": "Multiplying Fractions",
+        "aliases": [
+            "fraction multiplication",
+            "part of a part",
+            "multiply fractions"
+        ],
+        "wa_culture": "Halves of rice portions",
+        "explanation_text": "If each guest takes half of a half portion of festival food, you are finding a fraction of a fraction. Multiplying fractions finds how much that part is.",
+        "image_prompt": "Show a plate of festival food divided into halves, with one half divided again to show smaller portions."
+    },
+    {
+        "concept_id": "dividing_fractions",
+        "concept_name": "Dividing Fractions",
+        "aliases": [
+            "fraction division",
+            "divide fractions",
+            "how many times in"
+        ],
+        "wa_culture": "Splitting bamboo food tubes",
+        "explanation_text": "If a portion of festival food in a bamboo tube is shared into even smaller portions, you divide one fraction by another. The question is how many smaller shares fit inside.",
+        "image_prompt": "Show bamboo food tubes being cut into smaller even shares to illustrate fractional division."
+    },
+    {
+        "concept_id": "decimals",
+        "concept_name": "Decimals",
+        "aliases": [
+            "decimal point",
+            "tenths",
+            "hundredths",
+            "decimal number"
+        ],
+        "wa_culture": "Measuring rice in liters",
+        "explanation_text": "At the Ximeng market, rice is measured in liters and half liters, such as 1.5 liters. Measurements with a decimal point express parts of a liter.",
+        "image_prompt": "Show a Ximeng market measuring container marked with 1.0, 1.5, and 2.0 liters of rice."
+    },
+    {
+        "concept_id": "converting_fractions_decimals",
+        "concept_name": "Converting Fractions and Decimals",
+        "aliases": [
+            "fraction to decimal",
+            "decimal to fraction",
+            "convert fractions"
+        ],
+        "wa_culture": "Half liter and 0.5 liter",
+        "explanation_text": "Whether you say half a liter or 0.5 liters of rice, both describe the same amount. Fractions and decimals can express the same value.",
+        "image_prompt": "Show two labeled containers of rice, one marked ½ and the other 0.5, filled to the same level."
+    },
+    {
+        "concept_id": "percents",
+        "concept_name": "Percents",
+        "aliases": [
+            "percent",
+            "percentage",
+            "per hundred",
+            "rate per 100"
+        ],
+        "wa_culture": "School test scores",
+        "explanation_text": "When a student scores 90 out of 100 on a Chinese language test at school, that is 90%. Percents are a way to express parts per hundred.",
+        "image_prompt": "Show a test paper with 90/100 written and a 90% mark beside it."
+    },
+    {
+        "concept_id": "percent_of_number",
+        "concept_name": "Percent of a Number",
+        "aliases": [
+            "percentage of number",
+            "find percent",
+            "portion of total"
+        ],
+        "wa_culture": "Discounts at Ximeng market",
+        "explanation_text": "A 10% discount on silver ornaments at the Ximeng market shows how percents find a part of a number. The discount is a portion of the original price.",
+        "image_prompt": "Show a market stall in Ximeng with a sign reading 10% off silver ornaments and price tags with reduced amounts."
+    },
+    {
+        "concept_id": "variables",
+        "concept_name": "Variables",
+        "aliases": [
+            "variable",
+            "unknown",
+            "letter as number",
+            "symbol in math"
+        ],
+        "wa_culture": "Unlabeled rice baskets",
+        "explanation_text": "If some harvest baskets are not yet counted, each stands for an unknown quantity. An unknown amount written as a letter is a variable.",
+        "image_prompt": "Show labeled rice baskets (2, 3) and an unlabeled basket marked as x."
+    },
+    {
+        "concept_id": "expressions",
+        "concept_name": "Expressions",
+        "aliases": [
+            "math expressions",
+            "numerical expressions",
+            "algebraic expressions"
+        ],
+        "wa_culture": "Known and unknown rice baskets",
+        "explanation_text": "If the harvest gives 2 counted baskets plus x baskets not yet counted, that is written as the expression 2 + x. Expressions combine known and unknown amounts.",
+        "image_prompt": "Show two rice baskets plus an unlabeled basket, symbolized as 2 + x."
+    },
+    {
+        "concept_id": "equations",
+        "concept_name": "Equations",
+        "aliases": [
+            "math equations",
+            "equal statements",
+            "algebra equations"
+        ],
+        "wa_culture": "Balancing a carrying pole",
+        "explanation_text": "When a Wa farmer carries two equal loads on a shoulder pole, both sides balance. Two sides that balance are like both sides of an equation.",
+        "image_prompt": "Show a shoulder carrying pole with equal loads on both sides, labeled as an equation."
+    },
+    {
+        "concept_id": "solving_one_step_equations",
+        "concept_name": "Solving One-Step Equations",
+        "aliases": [
+            "one-step equations",
+            "simple equations"
+        ],
+        "wa_culture": "Balancing a shoulder pole",
+        "explanation_text": "If one side of a carrying pole is heavier, the farmer adjusts it by adding or removing weight on one side. Undoing one change on one side solves a one-step equation.",
+        "image_prompt": "Show a shoulder pole with balanced loads, illustrating how one small change keeps both sides equal."
+    },
+    {
+        "concept_id": "solving_two_step_equations",
+        "concept_name": "Solving Two-Step Equations",
+        "aliases": [
+            "two-step equations",
+            "multi-step equations"
+        ],
+        "wa_culture": "Cooking festival rice step-by-step",
+        "explanation_text": "Cooking festival rice requires washing the rice first and then steaming it over the fire. Following two steps in order is like solving a two-step equation.",
+        "image_prompt": "Show the step sequence: wash the rice, then steam it, then serve it, symbolizing step-by-step solving."
+    },
+    {
+        "concept_id": "inequalities",
+        "concept_name": "Inequalities",
+        "aliases": [
+            "greater than",
+            "less than",
+            "not equal",
+            "comparison statements"
+        ],
+        "wa_culture": "Comparing village rice stores",
+        "explanation_text": "When one village household's rice store is larger than another's, the two amounts are unequal. Greater-than and less-than symbols show this relationship in math.",
+        "image_prompt": "Show two village rice stores of different sizes with greater-than and less-than symbols between them."
+    },
+    {
+        "concept_id": "order_of_operations",
+        "concept_name": "Order of Operations (PEMDAS)",
+        "aliases": [
+            "PEMDAS",
+            "BODMAS",
+            "math order",
+            "operations order"
+        ],
+        "wa_culture": "Wooden drum festival ritual order",
+        "explanation_text": "During the Wooden Drum Festival, the village performs the drum rituals in a fixed order before the dancing begins. Doing operations in the right order works the same way in math.",
+        "image_prompt": "Show a festival sequence where ritual steps must happen in order, labeled like parentheses, exponents, and other operations."
+    },
+    {
+        "concept_id": "substitution",
+        "concept_name": "Substitution",
+        "aliases": [
+            "replace variable",
+            "substitute value",
+            "replace letter with number"
+        ],
+        "wa_culture": "Replacing a drumstick",
+        "explanation_text": "If a broken drumstick is replaced with an identical one, the rhythm continues unchanged. Putting a value in place of a letter is substitution.",
+        "image_prompt": "Show a broken wooden drum drumstick being replaced by an identical new one, representing substitution."
+    },
+    {
+        "concept_id": "points",
+        "concept_name": "Points",
+        "aliases": [
+            "dot",
+            "location",
+            "coordinate point"
+        ],
+        "wa_culture": "Stars over the Awa Mountains",
+        "explanation_text": "Each star above the Awa Mountains at night marks a single position in the sky. A position with no size is a point in geometry.",
+        "image_prompt": "Show a starry night sky over the Awa Mountains with individual stars labeled as points on a coordinate grid."
+    },
+    {
+        "concept_id": "lines",
+        "concept_name": "Lines",
+        "aliases": [
+            "straight line",
+            "geometry line",
+            "infinite line"
+        ],
+        "wa_culture": "Threads on a Wa loom",
+        "explanation_text": "The threads stretched across a Wa weaving loom run straight and continue in both directions. These straight threads resemble geometric lines.",
+        "image_prompt": "Show straight warp threads stretched on a Wa weaving loom, representing geometric lines."
+    },
+    {
+        "concept_id": "angles",
+        "concept_name": "Angles",
+        "aliases": [
+            "angle",
+            "degree",
+            "corner measure"
+        ],
+        "wa_culture": "Opening a Wa house door",
+        "explanation_text": "When the door of a Wa house is opened partway, it forms an angle with the door frame. The size of the opening is measured in degrees.",
+        "image_prompt": "Show a Wa house door partially open with the angle between the door and the frame clearly marked."
+    },
+    {
+        "concept_id": "perpendicular_lines",
+        "concept_name": "Perpendicular Lines",
+        "aliases": [
+            "right angle lines",
+            "intersecting lines",
+            "orthogonal lines"
+        ],
+        "wa_culture": "Beams of the Wa drum house",
+        "explanation_text": "The wooden beams that meet the frame of the Wa drum house cross at right angles. Lines that meet at 90 degrees are perpendicular.",
+        "image_prompt": "Show the wooden beams of a Wa drum house meeting at 90-degree angles."
+    },
+    {
+        "concept_id": "parallel_lines",
+        "concept_name": "Parallel Lines",
+        "aliases": [
+            "side-by-side lines",
+            "never meet",
+            "equal distance lines"
+        ],
+        "wa_culture": "Bamboo fence rails",
+        "explanation_text": "The long bamboo rails of a Wa village fence run side by side and never meet. Lines that always stay the same distance apart are parallel.",
+        "image_prompt": "Show two bamboo fence rails running side by side around a Wa village."
+    },
+    {
+        "concept_id": "polygons",
+        "concept_name": "Polygons",
+        "aliases": [
+            "shapes",
+            "closed figure",
+            "many-sided shape"
+        ],
+        "wa_culture": "Roof shapes of Wa houses",
+        "explanation_text": "Seen from the mountain, the roofs and platforms of Wa houses form many closed geometric shapes. Closed figures made of straight sides are polygons.",
+        "image_prompt": "Show the overhead shapes of Wa village roofs and platforms forming geometric polygon patterns."
+    },
+    {
+        "concept_id": "triangles",
+        "concept_name": "Triangles",
+        "aliases": [
+            "three sides",
+            "triangular",
+            "triangle shape"
+        ],
+        "wa_culture": "Roof beams of Wa houses",
+        "explanation_text": "The wooden roof supports of a Wa house form triangular frames. A shape with three straight sides is a triangle.",
+        "image_prompt": "Show triangular frames formed by the roof beams of a Wa house."
+    },
+    {
+        "concept_id": "quadrilaterals",
+        "concept_name": "Quadrilaterals",
+        "aliases": [
+            "four sides",
+            "rectangles",
+            "squares",
+            "trapezoids"
+        ],
+        "wa_culture": "Woven blanket patterns",
+        "explanation_text": "The woven patterns on Wa blankets and mats often form rectangles and squares. A four-sided shape is a quadrilateral.",
+        "image_prompt": "Show a Wa woven blanket with repeating square and rectangular motifs."
+    },
+    {
+        "concept_id": "perimeter",
+        "concept_name": "Perimeter",
+        "aliases": [
+            "boundary length",
+            "distance around",
+            "outline measure"
+        ],
+        "wa_culture": "Walking around village fences",
+        "explanation_text": "Walking the full distance around a Wa village's bamboo fence measures its total boundary. The distance around the outside of a shape is its perimeter.",
+        "image_prompt": "Show villagers walking around the bamboo fence of a Wa village with a dashed perimeter line."
+    },
+    {
+        "concept_id": "area",
+        "concept_name": "Area",
+        "aliases": [
+            "surface area",
+            "space inside",
+            "coverage"
+        ],
+        "wa_culture": "Mountain terraces",
+        "explanation_text": "The amount of rice that can grow on a mountain terrace depends on how much ground it covers. The space inside a shape is its area.",
+        "image_prompt": "Show Wa mountain terraces in Yunnan, with one terrace shaded to show its area."
+    },
+    {
+        "concept_id": "volume",
+        "concept_name": "Volume",
+        "aliases": [
+            "capacity",
+            "space inside 3D shape",
+            "liquid amount"
+        ],
+        "wa_culture": "Rice storage baskets",
+        "explanation_text": "The amount of harvested rice a big bamboo storage basket can hold is its volume. Volume measures the space inside a three-dimensional container.",
+        "image_prompt": "Show Wa bamboo rice storage baskets filled to different levels to illustrate volume."
+    },
+    {
+        "concept_id": "circle_properties",
+        "concept_name": "Circle Properties",
+        "aliases": [
+            "radius",
+            "diameter",
+            "circumference",
+            "circle geometry"
+        ],
+        "wa_culture": "Top of a wooden drum",
+        "explanation_text": "Looking at the round top of a Wa wooden drum from above shows a perfect circle. Its radius, diameter, and circumference are parts of a circle.",
+        "image_prompt": "Show a wooden drum viewed from above with the radius and diameter drawn and labeled."
+    },
+    {
+        "concept_id": "pi",
+        "concept_name": "Pi (π)",
+        "aliases": [
+            "pi",
+            "ratio of circumference",
+            "3.14"
+        ],
+        "wa_culture": "Round drumheads",
+        "explanation_text": "The distance around a wooden drum's round head compared with its width is always the same ratio. That fixed ratio is pi (π).",
+        "image_prompt": "Show a circular wooden drumhead labeled with circumference and diameter measurements."
+    },
+    {
+        "concept_id": "coordinate_plane",
+        "concept_name": "Coordinate Plane",
+        "aliases": [
+            "x-y plane",
+            "graph grid",
+            "axes"
+        ],
+        "wa_culture": "Cangyuan cliff painting layout",
+        "explanation_text": "The red figures in the Cangyuan cliff paintings are arranged in rows and columns across the rock face. A grid with rows and columns is a coordinate plane.",
+        "image_prompt": "Show a Cangyuan cliff painting with figures arranged in rows and columns, labeled with x and y coordinates."
+    },
+    {
+        "concept_id": "plotting_points",
+        "concept_name": "Plotting Points",
+        "aliases": [
+            "graphing points",
+            "coordinates",
+            "x-y plotting"
+        ],
+        "wa_culture": "Marking village households",
+        "explanation_text": "Marking each household of a Wa village on a map by its position is like plotting points. Each mark has a specific location on the grid.",
+        "image_prompt": "Show a map of a Wa village with labeled households marked as points."
+    },
+    {
+        "concept_id": "symmetry",
+        "concept_name": "Symmetry",
+        "aliases": [
+            "mirror image",
+            "balanced halves",
+            "reflection symmetry"
+        ],
+        "wa_culture": "Ox totem designs",
+        "explanation_text": "The carved ox and dragon totems of the Wa people are designed so both halves mirror each other. A design that mirrors across a center line has symmetry.",
+        "image_prompt": "Show a Wa ox totem design split by a mirror line, with both halves matching."
+    },
+    {
+        "concept_id": "transformations",
+        "concept_name": "Transformations",
+        "aliases": [
+            "translate",
+            "rotate",
+            "reflect",
+            "dilate"
+        ],
+        "wa_culture": "Wa dance steps",
+        "explanation_text": "During festival dances, Wa dancers turn, step sideways, and change positions on the dance ground. Moving shapes by sliding, rotating, or reflecting is transformation.",
+        "image_prompt": "Show Wa dancers turning and shifting positions during the wooden drum dance to illustrate transformations."
+    },
+    {
+        "concept_id": "ratios",
+        "concept_name": "Ratios",
+        "aliases": [
+            "comparison",
+            "proportion of quantities",
+            "rate"
+        ],
+        "wa_culture": "Mixing rice and water",
+        "explanation_text": "When cooking festival rice, the cook mixes a set amount of water for each part of rice. A comparison of two amounts is a ratio.",
+        "image_prompt": "Show a cooking pot labeled with a rice-to-water ratio, like 1:2."
+    },
+    {
+        "concept_id": "proportions",
+        "concept_name": "Proportions",
+        "aliases": [
+            "equal ratios",
+            "scaling",
+            "balance of ratios"
+        ],
+        "wa_culture": "Scaling up drum patterns",
+        "explanation_text": "When a larger wooden drum is carved with the same pattern as a small one, the design keeps the same proportions. Equal ratios are proportions.",
+        "image_prompt": "Show a small and a large wooden drum carved with the same proportional pattern."
+    },
+    {
+        "concept_id": "unit_rate",
+        "concept_name": "Unit Rate",
+        "aliases": [
+            "per unit",
+            "rate per one",
+            "comparison per one unit"
+        ],
+        "wa_culture": "Rice used per day",
+        "explanation_text": "If a family uses the same amount of festival rice each day, the amount for one day is a unit rate. Unit rates compare a quantity to one unit.",
+        "image_prompt": "Show a family's rice basket with the daily use measured as bowls of rice per day."
+    },
+    {
+        "concept_id": "scale_drawings",
+        "concept_name": "Scale Drawings",
+        "aliases": [
+            "map scale",
+            "drawing proportion",
+            "scaled map"
+        ],
+        "wa_culture": "Mapping a Wa village",
+        "explanation_text": "Drawing a small map of a large Wa village while keeping all distances in proportion is a scale drawing. The map shrinks every distance by the same amount.",
+        "image_prompt": "Show a Wa village and a smaller scaled map side by side with a scale legend."
+    },
+    {
+        "concept_id": "percent_change",
+        "concept_name": "Percent Change",
+        "aliases": [
+            "percent increase",
+            "percent decrease",
+            "growth rate"
+        ],
+        "wa_culture": "Growth in terraced harvest",
+        "explanation_text": "If a village's terraced rice harvest grows from 100 to 120 baskets, that is a 20% increase. Comparing the change to the starting amount gives percent change.",
+        "image_prompt": "Show a terraced harvest growing in size with a +20% label."
+    },
+    {
+        "concept_id": "data_collection",
+        "concept_name": "Data Collection",
+        "aliases": [
+            "gather data",
+            "record information",
+            "collect numbers"
+        ],
+        "wa_culture": "Counting village households",
+        "explanation_text": "Village leaders record how many households, cattle, and rice baskets each family has. Writing down counted numbers is data collection.",
+        "image_prompt": "Show a village elder marking tallies of households and cattle on a wooden board."
+    },
+    {
+        "concept_id": "tables_graphs",
+        "concept_name": "Tables and Graphs",
+        "aliases": [
+            "data table",
+            "bar graph",
+            "chart"
+        ],
+        "wa_culture": "Harvest data comparison",
+        "explanation_text": "A table or graph showing how many rice baskets each household harvested helps compare the results. Tables and graphs make data easy to read.",
+        "image_prompt": "Show a bar graph comparing rice harvests across several Wa village households."
+    },
+    {
+        "concept_id": "mean",
+        "concept_name": "Mean",
+        "aliases": [
+            "average",
+            "arithmetic mean",
+            "mean value"
+        ],
+        "wa_culture": "Average rice yield",
+        "explanation_text": "To find the average rice yield per terrace, add all the yields and divide by the number of terraces. The average is the mean.",
+        "image_prompt": "Show a table of terrace rice yields with the average value highlighted."
+    },
+    {
+        "concept_id": "median",
+        "concept_name": "Median",
+        "aliases": [
+            "middle value",
+            "data median"
+        ],
+        "wa_culture": "Middle household income",
+        "explanation_text": "When the incomes of village households are lined up from smallest to largest, the one in the middle is the median. The median sits at the center of ordered data.",
+        "image_prompt": "Show household incomes lined up from low to high with the middle one highlighted as the median."
+    },
+    {
+        "concept_id": "mode",
+        "concept_name": "Mode",
+        "aliases": [
+            "most frequent value",
+            "common value"
+        ],
+        "wa_culture": "Most common crop",
+        "explanation_text": "If most village fields grow rice, then rice is the most common crop. The value that appears most often in data is the mode.",
+        "image_prompt": "Show village fields of different crops with rice being the most common."
+    },
+    {
+        "concept_id": "range",
+        "concept_name": "Range",
+        "aliases": [
+            "difference",
+            "spread of data",
+            "highest minus lowest"
+        ],
+        "wa_culture": "Difference in harvests",
+        "explanation_text": "The gap between the largest and smallest harvest in the village shows the spread of the data. The highest value minus the lowest is the range.",
+        "image_prompt": "Show a chart with the shortest and tallest harvest bars marked to show the range."
+    },
+    {
+        "concept_id": "bar_graphs",
+        "concept_name": "Bar Graphs",
+        "aliases": [
+            "bar chart",
+            "column graph"
+        ],
+        "wa_culture": "Comparing household harvests",
+        "explanation_text": "Each bar on a village chart shows how many rice baskets one household harvested. Bars make it easy to compare the households at a glance.",
+        "image_prompt": "Show a bar graph labeled by household names with their rice harvest totals."
+    },
+    {
+        "concept_id": "line_graphs",
+        "concept_name": "Line Graphs",
+        "aliases": [
+            "trend graph",
+            "line chart"
+        ],
+        "wa_culture": "Tracking rainfall over months",
+        "explanation_text": "A line graph can show how much rain falls on the Awa Mountains each month of the year. The rising and falling line shows the trend.",
+        "image_prompt": "Show a line graph labeled with months and rainfall amounts in the Awa Mountains."
+    },
+    {
+        "concept_id": "pie_charts",
+        "concept_name": "Pie Charts",
+        "aliases": [
+            "circle chart",
+            "percentage chart"
+        ],
+        "wa_culture": "Crop distribution",
+        "explanation_text": "A pie chart can show what portion of a village's fields is rice, tea, and other crops. Each slice is a percentage of the whole.",
+        "image_prompt": "Show a pie chart divided into crop categories with percentages."
+    },
+    {
+        "concept_id": "probability",
+        "concept_name": "Probability",
+        "aliases": [
+            "chance",
+            "likelihood",
+            "odds"
+        ],
+        "wa_culture": "Wooden drum beating contests",
+        "explanation_text": "Before a wooden drum beating contest, people guess which drummer will win. The chance of an outcome is its probability.",
+        "image_prompt": "Show wooden drum contest drummers at the start line with probability labels above each."
+    },
+    {
+        "concept_id": "patterns",
+        "concept_name": "Patterns",
+        "aliases": [
+            "repeating design",
+            "sequence",
+            "recurrence"
+        ],
+        "wa_culture": "Wooden drum rhythms",
+        "explanation_text": "The beats of the Wa wooden drum follow repeating rhythm patterns that dancers follow. Repeating sequences are patterns, whether in sound or in numbers.",
+        "image_prompt": "Show a repeating wooden drum rhythm sequence represented as beats and numbers."
+    },
+    {
+        "concept_id": "functions",
+        "concept_name": "Functions",
+        "aliases": [
+            "input-output rule",
+            "function relation",
+            "mapping"
+        ],
+        "wa_culture": "Drumbeats over time",
+        "explanation_text": "If each minute of drumming gives a fixed number of beats, every input time has exactly one output count. A rule that gives one output for each input is a function.",
+        "image_prompt": "Show a graph linking drumming time (input) to the number of beats produced (output)."
+    }
+]
