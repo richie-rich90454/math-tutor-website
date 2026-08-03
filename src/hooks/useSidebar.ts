@@ -32,7 +32,7 @@ interface UseSidebarProps {
 
 export function useSidebar({ isOpen, onToggle, onChatSelect, onShowShortcuts }: UseSidebarProps) {
     const { t } = useLanguage();
-    const { chatHistory, setCurrentChat, currentChat, deleteChat, renameChat, isHistoryLoading } =
+    const { chatHistory, setCurrentChat, currentChat, deleteChat, renameChat, togglePinChat, isHistoryLoading } =
         useChat();
     const { user, isAuthenticated, logout } = useAuth();
     const router = useRouter();
@@ -43,7 +43,6 @@ export function useSidebar({ isOpen, onToggle, onChatSelect, onShowShortcuts }: 
     const [showHistoryTooltip, setShowHistoryTooltip] = useState(false);
     const [contextMenu, setContextMenu] = useState<ContextMenuState | null>(null);
     const [showUserDropdown, setShowUserDropdown] = useState(false);
-    const [pinnedChats, setPinnedChats] = useState<Set<string>>(new Set());
 
     // ── Responsive: track window width ────────────────────────────────────
     const [windowWidth, setWindowWidth] = useState<number>(1024);
@@ -141,10 +140,10 @@ export function useSidebar({ isOpen, onToggle, onChatSelect, onShowShortcuts }: 
     }, [chatHistory, searchQuery]);
 
     const { pinned, unpinned } = useMemo(() => {
-        const p = filteredChats.filter((c) => pinnedChats.has(c.id));
-        const u = filteredChats.filter((c) => !pinnedChats.has(c.id));
+        const p = filteredChats.filter((c) => c.isPinned);
+        const u = filteredChats.filter((c) => !c.isPinned);
         return { pinned: p, unpinned: u };
-    }, [filteredChats, pinnedChats]);
+    }, [filteredChats]);
 
     // ── Handlers ──────────────────────────────────────────────────────────
     const handleChatSelect = useCallback(
@@ -197,15 +196,13 @@ export function useSidebar({ isOpen, onToggle, onChatSelect, onShowShortcuts }: 
         setContextMenu(null);
     }, [pendingDelete, deleteChat]);
 
-    const handlePinChat = useCallback((chatId: string) => {
-        setPinnedChats((prev) => {
-            const next = new Set(prev);
-            if (next.has(chatId)) next.delete(chatId);
-            else next.add(chatId);
-            return next;
-        });
-        setContextMenu(null);
-    }, []);
+    const handlePinChat = useCallback(
+        (chatId: string) => {
+            togglePinChat(chatId);
+            setContextMenu(null);
+        },
+        [togglePinChat],
+    );
 
     // Close context menu on outside click
     useEffect(() => {
@@ -276,8 +273,6 @@ export function useSidebar({ isOpen, onToggle, onChatSelect, onShowShortcuts }: 
         setContextMenu,
         showUserDropdown,
         setShowUserDropdown,
-        pinnedChats,
-        setPinnedChats,
         pendingDelete,
         setPendingDelete,
         pendingRename,
