@@ -1,0 +1,790 @@
+[
+    {
+        "concept_id": "place_value",
+        "concept_name": "Place Value",
+        "aliases": [
+            "place value",
+            "digit place",
+            "number place",
+            "units place",
+            "tens place",
+            "hundreds place",
+            "position of digits",
+            "digit position"
+        ],
+        "hebrew_culture": "Gematria letter values",
+        "explanation_text": "In gematria, each Hebrew letter carries a fixed value—alef is 1, yod is 10, and kuf is 100. Where a digit sits in a number (ones, tens, hundreds) gives it its value, just as each letter's place helps build the total.",
+        "image_prompt": "Show Hebrew letters alef, yod, and kuf labeled with values 1, 10, and 100, arranged like a place value chart."
+    },
+    {
+        "concept_id": "addition_subtraction",
+        "concept_name": "Addition & Subtraction",
+        "aliases": [
+            "add",
+            "addition",
+            "plus",
+            "sum",
+            "combine",
+            "total",
+            "subtract",
+            "subtraction",
+            "minus",
+            "take away",
+            "difference"
+        ],
+        "hebrew_culture": "Challah loaves for Shabbat",
+        "explanation_text": "When you set out two challah loaves for Shabbat and a guest brings two more, the total grows. When loaves are shared or eaten, the count shrinks—just like addition and subtraction.",
+        "image_prompt": "Show challah loaves being added to a Shabbat table and then taken away, with the count changing accordingly."
+    },
+    {
+        "concept_id": "multiplication_division",
+        "concept_name": "Multiplication & Division",
+        "aliases": [
+            "multiply",
+            "multiplication",
+            "times",
+            "groups of",
+            "repeated addition",
+            "divide",
+            "division",
+            "split equally",
+            "sharing"
+        ],
+        "hebrew_culture": "Rows of Hanukkah candles",
+        "explanation_text": "Arranging Hanukkah candles in 2 rows of 4 makes 2 × 4 = 8 candles, which is multiplication. Splitting 8 candles evenly into 4 groups of 2 shows division.",
+        "image_prompt": "Show Hanukkah candles arranged in equal rows, demonstrating equal grouping (multiplication) and even sharing (division)."
+    },
+    {
+        "concept_id": "even_odd",
+        "concept_name": "Even and Odd Numbers",
+        "aliases": [
+            "even numbers",
+            "odd numbers",
+            "even",
+            "odd",
+            "pairs",
+            "leftover",
+            "no remainder",
+            "remains one"
+        ],
+        "hebrew_culture": "Menorah candles and the shammash",
+        "explanation_text": "The 8 Hanukkah candles pair up evenly into 4 pairs, so 8 is even. The shammash helper candle stands alone with one left over, just like an odd number.",
+        "image_prompt": "Show a menorah with its 8 candles paired evenly and the single shammash candle standing apart."
+    },
+    {
+        "concept_id": "skip_counting",
+        "concept_name": "Skip Counting / Number Patterns",
+        "aliases": [
+            "skip counting",
+            "count by 2s",
+            "count by 5s",
+            "count by 10s",
+            "jump counting",
+            "repeating numbers",
+            "number patterns"
+        ],
+        "hebrew_culture": "Candles lit each Hanukkah night",
+        "explanation_text": "Each night of Hanukkah one more candle is lit, following a steady pattern. Counting the lit candles by twos—2, 4, 6, 8—is skip counting.",
+        "image_prompt": "Show a menorah across eight nights with the number of lit candles rising, highlighting counting by 2s."
+    },
+    {
+        "concept_id": "comparing_numbers",
+        "concept_name": "Comparing and Ordering Numbers",
+        "aliases": [
+            "compare numbers",
+            "greater than",
+            "less than",
+            "more than",
+            "fewer than",
+            "biggest",
+            "smallest",
+            "ordering numbers",
+            "number order"
+        ],
+        "hebrew_culture": "Honey cake slices served",
+        "explanation_text": "Comparing how many slices of honey cake each guest is served shows which amount is greater or smaller, just like comparing numbers.",
+        "image_prompt": "Show plates holding different numbers of honey cake slices connected by > and < symbols."
+    },
+    {
+        "concept_id": "rounding_estimation",
+        "concept_name": "Rounding & Estimation",
+        "aliases": [
+            "round",
+            "rounding",
+            "estimate",
+            "estimation",
+            "approximate",
+            "about how much",
+            "close to",
+            "nearby number"
+        ],
+        "hebrew_culture": "Estimating Shabbat dinner guests",
+        "explanation_text": "When planning a Shabbat dinner, a host estimates about how many guests will come and orders close to that number—similar to rounding to a convenient value.",
+        "image_prompt": "Show a host planning a Shabbat table, estimating 'about 10 guests' when ordering challah."
+    },
+    {
+        "concept_id": "fractions",
+        "concept_name": "Fractions",
+        "aliases": [
+            "fraction",
+            "part of a whole",
+            "portion",
+            "share",
+            "numerator",
+            "denominator"
+        ],
+        "hebrew_culture": "Breaking the middle matzah",
+        "explanation_text": "At the Seder, the middle of three matzot is broken in two: one half becomes the hidden afikoman. Each piece is a fraction of the whole matzah.",
+        "image_prompt": "Show three matzot on a Seder plate with the middle one broken into two equal halves."
+    },
+    {
+        "concept_id": "equivalent_fractions",
+        "concept_name": "Equivalent Fractions",
+        "aliases": [
+            "equal fractions",
+            "same value",
+            "fraction equality",
+            "equivalent"
+        ],
+        "hebrew_culture": "Halves and quarters of matzah",
+        "explanation_text": "Whether a matzah is broken into 2 equal halves or 4 equal quarters, the total amount is the same—like equivalent fractions.",
+        "image_prompt": "Show one matzah broken into halves beside another broken into quarters, shaded to show equal total amounts."
+    },
+    {
+        "concept_id": "simplifying_fractions",
+        "concept_name": "Simplifying Fractions",
+        "aliases": [
+            "reduce fraction",
+            "lowest terms",
+            "simplify fraction"
+        ],
+        "hebrew_culture": "Joining matzah pieces",
+        "explanation_text": "Two halves of matzah joined back together make one whole—just like simplifying the fraction 2/2 to 1.",
+        "image_prompt": "Show two matzah halves coming together to form one whole matzah, labeled 2/2 = 1."
+    },
+    {
+        "concept_id": "mixed_numbers",
+        "concept_name": "Mixed Numbers",
+        "aliases": [
+            "mixed number",
+            "whole and fraction",
+            "whole part and fraction part"
+        ],
+        "hebrew_culture": "Challah loaves and a half",
+        "explanation_text": "If you set out 3 full challah loaves and half a loaf more, that is 3½—a mixed number with a whole part and a fractional part.",
+        "image_prompt": "Show three whole challah loaves and one half loaf, labeled 3½."
+    },
+    {
+        "concept_id": "improper_fractions",
+        "concept_name": "Improper Fractions",
+        "aliases": [
+            "top-heavy fraction",
+            "numerator larger",
+            "greater than one fraction"
+        ],
+        "hebrew_culture": "Matzah piled past one plate",
+        "explanation_text": "When broken matzah fills one plate and spills onto a second, the pieces can still be counted in equal parts—more than one whole, like an improper fraction.",
+        "image_prompt": "Show matzah pieces overflowing from one plate onto a second, counted as equal parts of a whole."
+    },
+    {
+        "concept_id": "adding_fractions",
+        "concept_name": "Adding Fractions",
+        "aliases": [
+            "fraction addition",
+            "add fractions",
+            "sum of fractions"
+        ],
+        "hebrew_culture": "Combining matzah portions",
+        "explanation_text": "Gathering leftover matzah pieces from two plates into one bowl shows how fractional parts combine into a larger amount.",
+        "image_prompt": "Show matzah pieces from two plates being combined into one bowl."
+    },
+    {
+        "concept_id": "subtracting_fractions",
+        "concept_name": "Subtracting Fractions",
+        "aliases": [
+            "fraction subtraction",
+            "take away fractions",
+            "difference of fractions"
+        ],
+        "hebrew_culture": "Eating part of a matzah",
+        "explanation_text": "Biting off a portion of a matzah and seeing what remains shows subtraction of a fractional part.",
+        "image_prompt": "Show a matzah with one piece broken off, the remaining portion labeled as a fraction."
+    },
+    {
+        "concept_id": "multiplying_fractions",
+        "concept_name": "Multiplying Fractions",
+        "aliases": [
+            "fraction multiplication",
+            "part of a part",
+            "multiply fractions"
+        ],
+        "hebrew_culture": "Half of a honey cake slice",
+        "explanation_text": "If you take half of a half slice of honey cake, you find a fraction of a fraction—multiplying fractions like 1/2 × 1/2 = 1/4.",
+        "image_prompt": "Show a honey cake slice cut in half, with one half cut in half again to reveal a quarter."
+    },
+    {
+        "concept_id": "dividing_fractions",
+        "concept_name": "Dividing Fractions",
+        "aliases": [
+            "fraction division",
+            "divide fractions",
+            "how many times in"
+        ],
+        "hebrew_culture": "Sharing matzah at the Seder",
+        "explanation_text": "If half a matzah is shared equally among Seder guests so each person gets a quarter, you are dividing one fraction by another.",
+        "image_prompt": "Show half a matzah being divided into equal smaller pieces for the Seder guests."
+    },
+    {
+        "concept_id": "decimals",
+        "concept_name": "Decimals",
+        "aliases": [
+            "decimal point",
+            "tenths",
+            "hundredths",
+            "decimal number"
+        ],
+        "hebrew_culture": "Measuring olive oil in liters",
+        "explanation_text": "Measuring olive oil for the menorah in liters introduces decimals, like 1.5 liters meaning one and a half liters.",
+        "image_prompt": "Show a measuring flask of olive oil marked at 1.0, 1.5, and 2.0 liters."
+    },
+    {
+        "concept_id": "converting_fractions_decimals",
+        "concept_name": "Converting Fractions and Decimals",
+        "aliases": [
+            "fraction to decimal",
+            "decimal to fraction",
+            "convert fractions"
+        ],
+        "hebrew_culture": "Half a liter of olive oil",
+        "explanation_text": "Half a liter of olive oil and 0.5 liters are the same amount—just like converting between fractions and decimals.",
+        "image_prompt": "Show two flasks, one labeled ½ liter and the other 0.5 liters, holding the same amount of oil."
+    },
+    {
+        "concept_id": "percents",
+        "concept_name": "Percents",
+        "aliases": [
+            "percent",
+            "percentage",
+            "per hundred",
+            "rate per 100"
+        ],
+        "hebrew_culture": "Hebrew school test scores",
+        "explanation_text": "When a student scores 90 out of 100 on a Hebrew school test, that is 90%—a way to express parts per hundred.",
+        "image_prompt": "Show a Hebrew school test paper marked 90/100 with a 90% grade beside it."
+    },
+    {
+        "concept_id": "percent_of_number",
+        "concept_name": "Percent of a Number",
+        "aliases": [
+            "percentage of number",
+            "find percent",
+            "portion of total"
+        ],
+        "hebrew_culture": "Discounts at the challah bakery",
+        "explanation_text": "A 10% discount on a challah at the bakery shows how percents are used to find a part of a number.",
+        "image_prompt": "Show a bakery sign reading '10% off challah' with a reduced price tag."
+    },
+    {
+        "concept_id": "variables",
+        "concept_name": "Variables",
+        "aliases": [
+            "variable",
+            "unknown",
+            "letter as number",
+            "symbol in math"
+        ],
+        "hebrew_culture": "Unlabeled Havdalah spice jars",
+        "explanation_text": "If some spice jars in a Havdalah spice box are unlabeled, each holds an unknown amount—like a variable in math.",
+        "image_prompt": "Show labeled spice jars (5g, 10g) and one unlabeled jar marked x."
+    },
+    {
+        "concept_id": "expressions",
+        "concept_name": "Expressions",
+        "aliases": [
+            "math expressions",
+            "numerical expressions",
+            "algebraic expressions"
+        ],
+        "hebrew_culture": "Known and unknown spice jars",
+        "explanation_text": "Two labeled spice jars plus one unlabeled jar can be written as 2 + x—an expression combining a known amount and an unknown one.",
+        "image_prompt": "Show two spice jars plus one unlabeled jar, written as 2 + x."
+    },
+    {
+        "concept_id": "equations",
+        "concept_name": "Equations",
+        "aliases": [
+            "math equations",
+            "equal statements",
+            "algebra equations"
+        ],
+        "hebrew_culture": "Balancing a scale",
+        "explanation_text": "When the two pans of a balance hold equal weight, it represents equality—just like both sides of an equation.",
+        "image_prompt": "Show a balance scale with equal weights on both sides, labeled like an equation."
+    },
+    {
+        "concept_id": "solving_one_step_equations",
+        "concept_name": "Solving One-Step Equations",
+        "aliases": [
+            "one-step equations",
+            "simple equations"
+        ],
+        "hebrew_culture": "Adjusting challah dough",
+        "explanation_text": "If challah dough is too sticky, a baker adds flour in one measured step to restore the balance—like solving a one-step equation.",
+        "image_prompt": "Show a baker adding a measured amount of flour to challah dough to restore the right consistency."
+    },
+    {
+        "concept_id": "solving_two_step_equations",
+        "concept_name": "Solving Two-Step Equations",
+        "aliases": [
+            "two-step equations",
+            "multi-step equations"
+        ],
+        "hebrew_culture": "Baking challah step by step",
+        "explanation_text": "Baking challah needs two steps in order: first knead the dough, then let it rise—just like solving an equation with two steps.",
+        "image_prompt": "Show the step sequence of baking challah—knead, then rise—symbolizing step-by-step solving."
+    },
+    {
+        "concept_id": "inequalities",
+        "concept_name": "Inequalities",
+        "aliases": [
+            "greater than",
+            "less than",
+            "not equal",
+            "comparison statements"
+        ],
+        "hebrew_culture": "Comparing Torah scroll sizes",
+        "explanation_text": "When one Torah scroll is longer than another, it shows an inequality—greater than or less than in math.",
+        "image_prompt": "Show two Torah scrolls of different heights with > and < symbols between them."
+    },
+    {
+        "concept_id": "order_of_operations",
+        "concept_name": "Order of Operations (PEMDAS)",
+        "aliases": [
+            "PEMDAS",
+            "BODMAS",
+            "math order",
+            "operations order"
+        ],
+        "hebrew_culture": "The fixed order of the Seder",
+        "explanation_text": "The Seder follows a fixed sequence of fifteen steps, from kadesh to nirtzah, and each step must come in its proper order—just like the order of operations in math.",
+        "image_prompt": "Show the Seder plate with numbered steps in sequence, arranged like parentheses, exponents, and other operations."
+    },
+    {
+        "concept_id": "substitution",
+        "concept_name": "Substitution",
+        "aliases": [
+            "replace variable",
+            "substitute value",
+            "replace letter with number"
+        ],
+        "hebrew_culture": "Replacing a Havdalah spice",
+        "explanation_text": "If one spice in the Havdalah blend is missing, another of the same amount is substituted in its place—like substituting a value for a variable.",
+        "image_prompt": "Show a missing spice jar replaced by an identical jar of the same measure, representing substitution."
+    },
+    {
+        "concept_id": "points",
+        "concept_name": "Points",
+        "aliases": [
+            "dot",
+            "location",
+            "coordinate point"
+        ],
+        "hebrew_culture": "Stars over Jerusalem",
+        "explanation_text": "Each star in the night sky over Jerusalem marks a single location, like a point in geometry.",
+        "image_prompt": "Show a starry sky over Jerusalem with individual stars marked as points on a coordinate grid."
+    },
+    {
+        "concept_id": "lines",
+        "concept_name": "Lines",
+        "aliases": [
+            "straight line",
+            "geometry line",
+            "infinite line"
+        ],
+        "hebrew_culture": "Rays of light from the menorah",
+        "explanation_text": "The straight rays of light streaming from a menorah extend outward in both directions, like geometric lines.",
+        "image_prompt": "Show straight light rays extending from a menorah, representing geometric lines."
+    },
+    {
+        "concept_id": "angles",
+        "concept_name": "Angles",
+        "aliases": [
+            "angle",
+            "degree",
+            "corner measure"
+        ],
+        "hebrew_culture": "Opening a door for the mezuzah",
+        "explanation_text": "When a door opens on its frame where a mezuzah hangs, it forms an angle between the door and the frame.",
+        "image_prompt": "Show a door with a mezuzah, partly open, with the angle between door and frame clearly marked."
+    },
+    {
+        "concept_id": "perpendicular_lines",
+        "concept_name": "Perpendicular Lines",
+        "aliases": [
+            "right angle lines",
+            "intersecting lines",
+            "orthogonal lines"
+        ],
+        "hebrew_culture": "Sukkah beams at right angles",
+        "explanation_text": "The wooden beams that frame a sukkah meet at right angles, forming strong perpendicular lines.",
+        "image_prompt": "Show sukkah frame beams meeting at 90° angles."
+    },
+    {
+        "concept_id": "parallel_lines",
+        "concept_name": "Parallel Lines",
+        "aliases": [
+            "side-by-side lines",
+            "never meet",
+            "equal distance lines"
+        ],
+        "hebrew_culture": "The stripes of a tallit",
+        "explanation_text": "The straight stripes on a tallit run side by side and never meet—like parallel lines.",
+        "image_prompt": "Show a tallit with parallel stripes running along its length."
+    },
+    {
+        "concept_id": "polygons",
+        "concept_name": "Polygons",
+        "aliases": [
+            "shapes",
+            "closed figure",
+            "many-sided shape"
+        ],
+        "hebrew_culture": "Shapes of hamantaschen",
+        "explanation_text": "Hamantaschen with their three corners, and other pastries, form closed geometric shapes known as polygons.",
+        "image_prompt": "Show hamantaschen and other pastries shaped like triangles, squares, and pentagons."
+    },
+    {
+        "concept_id": "triangles",
+        "concept_name": "Triangles",
+        "aliases": [
+            "three sides",
+            "triangular",
+            "triangle shape"
+        ],
+        "hebrew_culture": "Triangles of the Star of David",
+        "explanation_text": "The Star of David is made of two overlapping triangles—one pointing up and one pointing down.",
+        "image_prompt": "Show a Star of David with its two component triangles outlined in different colors."
+    },
+    {
+        "concept_id": "quadrilaterals",
+        "concept_name": "Quadrilaterals",
+        "aliases": [
+            "four sides",
+            "rectangles",
+            "squares",
+            "trapezoids"
+        ],
+        "hebrew_culture": "The faces of a dreidel",
+        "explanation_text": "A dreidel is a four-sided top; each of its four faces is a quadrilateral, and together they help it spin.",
+        "image_prompt": "Show a dreidel with its four quadrilateral faces labeled."
+    },
+    {
+        "concept_id": "perimeter",
+        "concept_name": "Perimeter",
+        "aliases": [
+            "boundary length",
+            "distance around",
+            "outline measure"
+        ],
+        "hebrew_culture": "Walking around the sukkah",
+        "explanation_text": "Measuring the distance all the way around a sukkah is like finding the perimeter of a shape.",
+        "image_prompt": "Show people walking around a sukkah with a dashed line tracing its perimeter."
+    },
+    {
+        "concept_id": "area",
+        "concept_name": "Area",
+        "aliases": [
+            "surface area",
+            "space inside",
+            "coverage"
+        ],
+        "hebrew_culture": "Floor space of the sukkah",
+        "explanation_text": "The amount of floor covered inside a sukkah represents its area.",
+        "image_prompt": "Show the floor of a sukkah shaded to show its area."
+    },
+    {
+        "concept_id": "volume",
+        "concept_name": "Volume",
+        "aliases": [
+            "capacity",
+            "space inside 3D shape",
+            "liquid amount"
+        ],
+        "hebrew_culture": "Water in the mikveh",
+        "explanation_text": "The amount of water a mikveh pool can hold represents its volume.",
+        "image_prompt": "Show a mikveh pool filled with water, labeled to illustrate volume."
+    },
+    {
+        "concept_id": "circle_properties",
+        "concept_name": "Circle Properties",
+        "aliases": [
+            "radius",
+            "diameter",
+            "circumference",
+            "circle geometry"
+        ],
+        "hebrew_culture": "Round Rosh Hashanah challah",
+        "explanation_text": "A round challah baked for Rosh Hashanah, seen from above, is a perfect circle illustrating radius, diameter, and circumference.",
+        "image_prompt": "Show a round challah from above with radius and diameter lines drawn."
+    },
+    {
+        "concept_id": "pi",
+        "concept_name": "Pi (π)",
+        "aliases": [
+            "pi",
+            "ratio of circumference",
+            "3.14"
+        ],
+        "hebrew_culture": "Round challah proportions",
+        "explanation_text": "The ratio of a round challah's circumference to its diameter is always the constant π, about 3.14.",
+        "image_prompt": "Show a circular challah labeled with circumference and diameter measurements."
+    },
+    {
+        "concept_id": "coordinate_plane",
+        "concept_name": "Coordinate Plane",
+        "aliases": [
+            "x-y plane",
+            "graph grid",
+            "axes"
+        ],
+        "hebrew_culture": "Synagogue seating grid",
+        "explanation_text": "Rows and columns of seats in a synagogue form a grid, where each seat has a row and a column, like coordinates.",
+        "image_prompt": "Show a synagogue seating map labeled with row and column coordinates."
+    },
+    {
+        "concept_id": "plotting_points",
+        "concept_name": "Plotting Points",
+        "aliases": [
+            "graphing points",
+            "coordinates",
+            "x-y plotting"
+        ],
+        "hebrew_culture": "Marking cities on a map of Israel",
+        "explanation_text": "Plotting the location of each city on a map of Israel is like plotting points on a coordinate plane.",
+        "image_prompt": "Show a map of Israel with city locations marked as points with coordinates."
+    },
+    {
+        "concept_id": "symmetry",
+        "concept_name": "Symmetry",
+        "aliases": [
+            "mirror image",
+            "balanced halves",
+            "reflection symmetry"
+        ],
+        "hebrew_culture": "Embroidery on a challah cover",
+        "explanation_text": "The embroidered designs on a challah cover mirror each other across a center line, showing symmetry.",
+        "image_prompt": "Show a challah cover pattern split by a mirror line showing matching halves."
+    },
+    {
+        "concept_id": "transformations",
+        "concept_name": "Transformations",
+        "aliases": [
+            "translate",
+            "rotate",
+            "reflect",
+            "dilate"
+        ],
+        "hebrew_culture": "Dancers turning at a wedding",
+        "explanation_text": "When dancers at a Jewish wedding rotate and shift across the floor, they demonstrate geometric transformations.",
+        "image_prompt": "Show wedding dancers rotating and shifting positions to illustrate transformations."
+    },
+    {
+        "concept_id": "ratios",
+        "concept_name": "Ratios",
+        "aliases": [
+            "comparison",
+            "proportion of quantities",
+            "rate"
+        ],
+        "hebrew_culture": "Flour and water in matzah",
+        "explanation_text": "Unleavened matzah is made from just flour and water; keeping the mix at 3 parts flour to 1 part water uses a ratio.",
+        "image_prompt": "Show a bowl labeled with a flour-to-water ratio like 3:1."
+    },
+    {
+        "concept_id": "proportions",
+        "concept_name": "Proportions",
+        "aliases": [
+            "equal ratios",
+            "scaling",
+            "balance of ratios"
+        ],
+        "hebrew_culture": "Scaling up a challah recipe",
+        "explanation_text": "Doubling a challah recipe for more Shabbat guests keeps every ingredient in the same proportion.",
+        "image_prompt": "Show a small challah recipe beside a doubled version with matching proportions."
+    },
+    {
+        "concept_id": "unit_rate",
+        "concept_name": "Unit Rate",
+        "aliases": [
+            "per unit",
+            "rate per one",
+            "comparison per one unit"
+        ],
+        "hebrew_culture": "Matzot baked per minute",
+        "explanation_text": "The number of matzot a bakery bakes in one minute is a unit rate.",
+        "image_prompt": "Show matzot coming off a baking line, labeled 'matzot per minute'."
+    },
+    {
+        "concept_id": "scale_drawings",
+        "concept_name": "Scale Drawings",
+        "aliases": [
+            "map scale",
+            "drawing proportion",
+            "scaled map"
+        ],
+        "hebrew_culture": "Mapping the land of Israel",
+        "explanation_text": "Drawing a smaller map of Israel while keeping all distances proportional is a scale drawing.",
+        "image_prompt": "Show Israel and a smaller scaled map side by side with a scale legend."
+    },
+    {
+        "concept_id": "percent_change",
+        "concept_name": "Percent Change",
+        "aliases": [
+            "percent increase",
+            "percent decrease",
+            "growth rate"
+        ],
+        "hebrew_culture": "Growing Seder guest list",
+        "explanation_text": "If a family's Seder guests grow from 100 to 120 people, that is a 20% increase—an example of percent change.",
+        "image_prompt": "Show a Seder table with guest numbers growing, labeled +20%."
+    },
+    {
+        "concept_id": "data_collection",
+        "concept_name": "Data Collection",
+        "aliases": [
+            "gather data",
+            "record information",
+            "collect numbers"
+        ],
+        "hebrew_culture": "Counting Seder guests",
+        "explanation_text": "Recording how many guests attend the Seder each year is an example of data collection.",
+        "image_prompt": "Show a host marking tallies of Seder guests on a card."
+    },
+    {
+        "concept_id": "tables_graphs",
+        "concept_name": "Tables and Graphs",
+        "aliases": [
+            "data table",
+            "bar graph",
+            "chart"
+        ],
+        "hebrew_culture": "Attendance across the holidays",
+        "explanation_text": "Using a graph to show how many people came to synagogue each holiday helps visualize the data trends.",
+        "image_prompt": "Show a bar graph comparing attendance across Jewish holidays."
+    },
+    {
+        "concept_id": "mean",
+        "concept_name": "Mean",
+        "aliases": [
+            "average",
+            "arithmetic mean",
+            "mean value"
+        ],
+        "hebrew_culture": "Average tzedakah per week",
+        "explanation_text": "Finding the average amount of tzedakah collected each week gives the mean.",
+        "image_prompt": "Show a tzedakah box with weekly totals and the average value highlighted."
+    },
+    {
+        "concept_id": "median",
+        "concept_name": "Median",
+        "aliases": [
+            "middle value",
+            "data median"
+        ],
+        "hebrew_culture": "Middle donation in the box",
+        "explanation_text": "When the donations in a tzedakah box are lined up from smallest to largest, the middle one is the median.",
+        "image_prompt": "Show donation amounts lined up with the middle one highlighted as the median."
+    },
+    {
+        "concept_id": "mode",
+        "concept_name": "Mode",
+        "aliases": [
+            "most frequent value",
+            "common value"
+        ],
+        "hebrew_culture": "Most common kippah color",
+        "explanation_text": "If more people in the congregation wear blue kippot than any other color, blue is the mode.",
+        "image_prompt": "Show a group of kippot in various colors with blue being the most common."
+    },
+    {
+        "concept_id": "range",
+        "concept_name": "Range",
+        "aliases": [
+            "difference",
+            "spread of data",
+            "highest minus lowest"
+        ],
+        "hebrew_culture": "Ages at the Seder table",
+        "explanation_text": "The spread between the youngest and the oldest guest at the Seder table shows the range.",
+        "image_prompt": "Show a Seder table with the youngest and oldest guests marked, illustrating the range."
+    },
+    {
+        "concept_id": "bar_graphs",
+        "concept_name": "Bar Graphs",
+        "aliases": [
+            "bar chart",
+            "column graph"
+        ],
+        "hebrew_culture": "Comparing holiday attendance",
+        "explanation_text": "Each bar shows how many people attended each Jewish holiday, making the numbers easy to compare.",
+        "image_prompt": "Show a bar graph with a bar for each Jewish holiday's attendance."
+    },
+    {
+        "concept_id": "line_graphs",
+        "concept_name": "Line Graphs",
+        "aliases": [
+            "trend graph",
+            "line chart"
+        ],
+        "hebrew_culture": "Honey cake sales through the fall",
+        "explanation_text": "A line graph shows how honey cake sales rise from Rosh Hashanah through Sukkot.",
+        "image_prompt": "Show a line graph labeled with fall months and honey cake sales."
+    },
+    {
+        "concept_id": "pie_charts",
+        "concept_name": "Pie Charts",
+        "aliases": [
+            "circle chart",
+            "percentage chart"
+        ],
+        "hebrew_culture": "Tzedakah given to causes",
+        "explanation_text": "A pie chart can show what share of tzedakah goes to each cause—every slice a part of the whole.",
+        "image_prompt": "Show a pie chart divided into slices for different tzedakah causes with percentages."
+    },
+    {
+        "concept_id": "probability",
+        "concept_name": "Probability",
+        "aliases": [
+            "chance",
+            "likelihood",
+            "odds"
+        ],
+        "hebrew_culture": "Spinning the dreidel",
+        "explanation_text": "A dreidel has four sides—nun, gimel, hey, and shin—each equally likely to land up, so each outcome has a 1 in 4 chance, or 25% probability.",
+        "image_prompt": "Show a dreidel with its four letters labeled, each marked with a 25% chance."
+    },
+    {
+        "concept_id": "patterns",
+        "concept_name": "Patterns",
+        "aliases": [
+            "repeating design",
+            "sequence",
+            "recurrence"
+        ],
+        "hebrew_culture": "Borders on a challah cover",
+        "explanation_text": "Repeating geometric motifs along the border of a challah cover or Torah binder form patterns.",
+        "image_prompt": "Show repeating geometric designs along the border of a challah cover."
+    },
+    {
+        "concept_id": "functions",
+        "concept_name": "Functions",
+        "aliases": [
+            "input-output rule",
+            "function relation",
+            "mapping"
+        ],
+        "hebrew_culture": "Oven heat and baking time",
+        "explanation_text": "Each oven temperature for baking challah produces one corresponding baking time—each input gives exactly one output, like a function.",
+        "image_prompt": "Show a graph linking oven temperature (input) to baking time (output)."
+    }
+]
