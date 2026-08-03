@@ -1,6 +1,7 @@
 package com.mathtutor.controller;
 
 import com.mathtutor.dto.JsonBody;
+import com.mathtutor.dto.JsonLike;
 import com.mathtutor.dto.LoginRequest;
 import com.mathtutor.dto.SignupRequest;
 import com.mathtutor.service.AuthService;
