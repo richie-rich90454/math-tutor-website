@@ -4,6 +4,7 @@ import com.mathtutor.dto.ChatMessageRequest;
 import com.mathtutor.dto.JsonBody;
 import com.mathtutor.service.AiClient;
 import com.mathtutor.service.ChatService;
+import com.mathtutor.service.QuotaService;
 import com.mathtutor.service.RateLimitService;
 import com.mathtutor.service.SessionService;
 import com.mathtutor.service.StreamLimiter;
@@ -33,16 +34,19 @@ public class ChatMessageController {
     private final RateLimitService rateLimit;
     private final ChatService chatService;
     private final StreamLimiter streamLimiter;
+    private final QuotaService quotaService;
 
     public ChatMessageController(
             SessionService sessionService,
             RateLimitService rateLimit,
             ChatService chatService,
-            StreamLimiter streamLimiter) {
+            StreamLimiter streamLimiter,
+            QuotaService quotaService) {
         this.sessionService = sessionService;
         this.rateLimit = rateLimit;
         this.chatService = chatService;
         this.streamLimiter = streamLimiter;
+        this.quotaService = quotaService;
     }
 
     @PostMapping(value = "/message", produces = MediaType.TEXT_PLAIN_VALUE)
@@ -58,6 +62,14 @@ public class ChatMessageController {
         }
 
         String ip = com.mathtutor.web.RequestSecurity.clientIp(request);
+        QuotaService.QuotaResult quota = quotaService.check(session.get().id(), ip, session.get().guest());
+        quotaService.setHeaders(response, quota);
+        if (quota.hardExceeded()) {
+            response.setHeader("Retry-After", String.valueOf(secondsUntilMidnight()));
+            writeJson(response, 429, "{\"error\":\"Daily token limit reached. Try again tomorrow.\"}");
+            return;
+        }
+
         RateLimitService.RateLimitResult ipRl =
                 rateLimit.check("chat:ip:" + ip, 60, RATE_WINDOW_MS);
         if (!ipRl.allowed()) {
@@ -140,9 +152,10 @@ public class ChatMessageController {
                     chatId(activeChatId),
                     userId,
                     fullResponse.toString(),
-                    sanitizedMessage,
+                    setup.checkMode() ? null : sanitizedMessage,
                     body.preferredLanguage(),
-                    stream.usage());
+                    stream.usage(),
+                    ip);
         }
     }
 
@@ -160,6 +173,12 @@ public class ChatMessageController {
 
     private String chatId(String activeChatId) {
         return activeChatId;
+    }
+
+    private static long secondsUntilMidnight() {
+        java.time.ZonedDateTime now = java.time.ZonedDateTime.now();
+        java.time.ZonedDateTime midnight = now.toLocalDate().plusDays(1).atStartOfDay(now.getZone());
+        return Math.max(1, java.time.Duration.between(now, midnight).getSeconds());
     }
 
     private String readCookie(HttpServletRequest request, String name) {
