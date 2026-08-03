@@ -36,6 +36,10 @@ const languages: Language[] = [
     { code: "ja", name: "日本語" },
     { code: "ar", name: "العربية" },
     { code: "he", name: "עברית" },
+    { code: "kk", name: "Қазақша" },
+    { code: "ug", name: "ئۇيغۇرچە" },
+    { code: "ko", name: "한국어" },
+    { code: "za", name: "Vahcuengh" },
 ];
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
