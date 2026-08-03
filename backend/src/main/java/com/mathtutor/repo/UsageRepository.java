@@ -83,6 +83,14 @@ public class UsageRepository {
         return hits == null ? 0 : hits;
     }
 
+    public long cacheHitsSince(String userId, String since) {
+        Long hits = jdbc.query(
+                "SELECT COUNT(*) FROM usage_logs WHERE user_id = ? AND model = 'answer-cache' AND created_at >= ?",
+                rs -> rs.next() ? rs.getLong(1) : 0L,
+                userId, since);
+        return hits == null ? 0 : hits;
+    }
+
     public record TokenSum(long request, long response) {
         public long total() {
             return request + response;
