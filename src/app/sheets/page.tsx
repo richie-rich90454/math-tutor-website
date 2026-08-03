@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { apiFetch } from "@/lib/api-client";
+import type { Translations } from "@/lib/translations";
 
 interface Formula {
     name: string;
@@ -25,6 +26,20 @@ interface SheetTopic {
 }
 
 const TOPICS = ["arithmetic", "algebra", "geometry", "calculus", "trigonometry", "statistics"];
+
+const TOPIC_KEYS: Record<string, string> = {
+    arithmetic: "topicArithmetic",
+    algebra: "topicAlgebra",
+    geometry: "topicGeometry",
+    calculus: "topicCalculus",
+    trigonometry: "topicTrigonometry",
+    statistics: "topicStatistics",
+};
+
+function topicLabel(topic: string, t: (key: keyof Translations) => string): string {
+    const key = TOPIC_KEYS[topic];
+    return key ? t(key as keyof Translations) || topic : topic;
+}
 
 export default function SheetsPage() {
     const { t } = useLanguage();
@@ -90,7 +105,7 @@ export default function SheetsPage() {
                                 className={`practice-chip ${tp === active ? "is-active" : ""}`}
                                 onClick={() => setActive(tp)}
                             >
-                                {tp}
+                                {topicLabel(tp, t)}
                             </button>
                         ))}
                     </div>
@@ -103,7 +118,7 @@ export default function SheetsPage() {
                 ) : error ? (
                     <div className="settings-card" role="alert">
                         <p style={{ color: "var(--danger)" }}>
-                            Could not load sheets. Please try again.
+                            {t("sheetsLoadError") || "Could not load sheets. Please try again."}
                         </p>
                     </div>
                 ) : current ? (
