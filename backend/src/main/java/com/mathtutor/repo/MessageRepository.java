@@ -60,6 +60,17 @@ public class MessageRepository {
         jdbc.update("DELETE FROM chat_messages WHERE chat_session_id = ?", chatSessionId);
     }
 
+    public void setPinned(String messageId, boolean pinned) {
+        jdbc.update("UPDATE chat_messages SET is_pinned = ? WHERE id = ?", pinned ? 1 : 0, messageId);
+    }
+
+    public List<MessageRecord> findPinned(String chatSessionId) {
+        return jdbc.query(
+                "SELECT * FROM chat_messages WHERE chat_session_id = ? AND is_pinned = 1 ORDER BY created_at ASC",
+                (rs, rowNum) -> mapRow(rs),
+                chatSessionId);
+    }
+
     private MessageRecord mapRow(java.sql.ResultSet rs) throws java.sql.SQLException {
         return new MessageRecord(
                 rs.getString("id"),
@@ -67,6 +78,7 @@ public class MessageRepository {
                 rs.getString("role"),
                 rs.getString("content"),
                 rs.getInt("token_count"),
+                rs.getInt("is_pinned"),
                 rs.getString("created_at"));
     }
 
@@ -76,6 +88,7 @@ public class MessageRepository {
             String role,
             String content,
             int token_count,
+            int is_pinned,
             String created_at) {
     }
 }
