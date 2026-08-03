@@ -42,7 +42,7 @@ async function loadConcepts(culture: "mongolian" | "tibetan"): Promise<MathConce
 export function ConceptProvider({ children }: { children: ReactNode }) {
     const [concepts, setConcepts] = useState<MathConcept[]>([]);
     const [currentCulture, setCurrentCulture] = useState<"mongolian" | "tibetan">("mongolian");
-    const [isLoading, setIsLoading] = useState(true);
+    const [, setIsLoading] = useState(true);
 
     useEffect(() => {
         setIsLoading(true);
