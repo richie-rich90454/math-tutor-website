@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useToast } from "@/contexts/ToastContext";
 import { apiFetch } from "@/lib/api-client";
@@ -14,6 +14,15 @@ export default function ChatTools({ chatId }: ChatToolsProps) {
     const { addToast } = useToast();
     const [note, setNote] = useState<string | null>(null);
     const [generatingNote, setGeneratingNote] = useState(false);
+    const [shared, setShared] = useState(false);
+
+    useEffect(() => {
+        if (!chatId) return;
+        apiFetch(`/api/chats/${chatId}/share`)
+            .then((r) => (r.ok ? r.json() : { token: null }))
+            .then((d) => setShared(!!d.token))
+            .catch(() => {});
+    }, [chatId]);
 
     const handleShare = useCallback(async () => {
         if (!chatId) return;
@@ -25,6 +34,7 @@ export default function ChatTools({ chatId }: ChatToolsProps) {
             });
             const data = await res.json();
             if (!res.ok) throw new Error(data?.error || "Share failed");
+            setShared(true);
             const url = `${window.location.origin}${data.url}`;
             try {
                 await navigator.clipboard.writeText(url);
@@ -34,6 +44,16 @@ export default function ChatTools({ chatId }: ChatToolsProps) {
             addToast("success", t("shareCopied") || "Link copied");
         } catch {
             addToast("error", t("errorNetwork") || "Failed to share");
+        }
+    }, [chatId, addToast, t]);
+
+    const handleRevoke = useCallback(async () => {
+        if (!chatId) return;
+        try {
+            await apiFetch(`/api/chats/${chatId}/share`, { method: "DELETE" });
+            setShared(false);
+        } catch {
+            addToast("error", t("errorNetwork") || "Failed to stop sharing");
         }
     }, [chatId, addToast, t]);
 
@@ -83,10 +103,10 @@ export default function ChatTools({ chatId }: ChatToolsProps) {
                 </svg>
             </button>
             <button
-                onClick={handleShare}
+                onClick={shared ? handleRevoke : handleShare}
                 className="app-header-btn"
-                aria-label={t("share") || "Share chat"}
-                title={t("share") || "Share chat"}
+                aria-label={shared ? t("shareRevoke") || "Stop sharing" : t("share") || "Share chat"}
+                title={shared ? t("shareRevoke") || "Stop sharing" : t("share") || "Share chat"}
             >
                 <svg
                     width="18"
@@ -98,11 +118,20 @@ export default function ChatTools({ chatId }: ChatToolsProps) {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                 >
-                    <circle cx="18" cy="5" r="3" />
-                    <circle cx="6" cy="12" r="3" />
-                    <circle cx="18" cy="19" r="3" />
-                    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
-                    <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+                    {shared ? (
+                        <>
+                            <line x1="18" y1="6" x2="6" y2="18" />
+                            <line x1="6" y1="6" x2="18" y2="18" />
+                        </>
+                    ) : (
+                        <>
+                            <circle cx="18" cy="5" r="3" />
+                            <circle cx="6" cy="12" r="3" />
+                            <circle cx="18" cy="19" r="3" />
+                            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+                            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+                        </>
+                    )}
                 </svg>
             </button>
 
