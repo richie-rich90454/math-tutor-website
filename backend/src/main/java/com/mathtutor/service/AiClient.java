@@ -50,6 +50,7 @@ public class AiClient {
                     .put("temperature", 0.7)
                     .put("max_tokens", 5000)
                     .set("thinking", objectMapper.createObjectNode().put("type", "disabled"))
+                    .set("stream_options", objectMapper.createObjectNode().put("include_usage", true))
                     .set("messages", toJsonArray(messages));
             body = objectMapper.writeValueAsString(payload);
         } catch (Exception e) {
@@ -119,6 +120,7 @@ public class AiClient {
                     .put("temperature", 0.7)
                     .put("max_tokens", 4096)
                     .set("thinking", objectMapper.createObjectNode().put("type", "disabled"))
+                    .set("stream_options", objectMapper.createObjectNode().put("include_usage", true))
                     .set("messages", messagesNode);
             body = objectMapper.writeValueAsString(payload);
         } catch (Exception e) {
@@ -199,9 +201,18 @@ public class AiClient {
         return array;
     }
 
+    public record Usage(int requestTokens, int responseTokens, int cachedTokens) {
+        public int total() {
+            return requestTokens + responseTokens;
+        }
+    }
+
     public interface AiStream extends AutoCloseable {
         /** Returns the next text chunk, or null when the stream is complete. */
         String next() throws IOException;
+
+        /** Token usage reported by the provider for this stream, or null if unknown. */
+        Usage usage();
 
         @Override
         void close();
@@ -212,10 +223,16 @@ public class AiClient {
         private final StringBuilder buffer = new StringBuilder();
         private boolean done = false;
         private boolean closed = false;
+        private Usage usage;
 
         SseStream(InputStream input) {
             this.reader = new BufferedReader(
                     new InputStreamReader(input, StandardCharsets.UTF_8));
+        }
+
+        @Override
+        public Usage usage() {
+            return usage;
         }
 
         @Override
@@ -267,11 +284,25 @@ public class AiClient {
             }
             try {
                 JsonNode parsed = objectMapper.readTree(data);
+                JsonNode usageNode = parsed.path("usage");
+                if (!usageNode.isMissingNode() && !usageNode.isNull()) {
+                    this.usage = parseUsage(usageNode);
+                }
                 JsonNode content = parsed.path("choices").path(0).path("delta").path("content");
                 return content.isValueNode() ? content.asText() : null;
             } catch (Exception e) {
                 return null;
             }
+        }
+
+        private Usage parseUsage(JsonNode usage) {
+            int request = usage.path("prompt_tokens").asInt(
+                    usage.path("request_tokens").asInt(0));
+            int response = usage.path("completion_tokens").asInt(
+                    usage.path("response_tokens").asInt(0));
+            int cached = usage.path("prompt_cache_hit_tokens").asInt(
+                    usage.path("prompt_tokens_details").path("cached_tokens").asInt(0));
+            return new Usage(request, response, cached);
         }
 
         @Override
