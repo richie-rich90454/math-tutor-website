@@ -1,0 +1,565 @@
+[
+    {
+        "concept_id": "place_value",
+        "concept_name": "Place Value",
+        "aliases": [
+            "place value",
+            "digit place",
+            "number place",
+            "units place",
+            "tens place",
+            "hundreds place",
+            "position of digits",
+            "digit position"
+        ],
+        "spanish_culture": "Guitar fret positions",
+        "explanation_text": "On a Spanish guitar, the same string changes pitch as your finger moves to a different fret—just like a digit changes value when it moves to a different place.",
+        "image_prompt": "Illustrate a Spanish guitar neck with frets labeled as ones, tens, and hundreds, showing how position changes the note's pitch and a digit's value."
+    },
+    {
+        "concept_id": "addition_subtraction",
+        "concept_name": "Addition & Subtraction",
+        "aliases": [
+            "add",
+            "addition",
+            "plus",
+            "sum",
+            "combine",
+            "total",
+            "subtract",
+            "subtraction",
+            "minus",
+            "take away",
+            "difference"
+        ],
+        "spanish_culture": "Tapas arriving and being cleared",
+        "explanation_text": "When the waiter sets more tapas plates on the table, the total grows; when empty plates are cleared away, the total shrinks—exactly like addition and subtraction.",
+        "image_prompt": "Show a Spanish tapas table gaining plates one by one, then plates being cleared away, with the running total changing."
+    },
+    {
+        "concept_id": "multiplication_division",
+        "concept_name": "Multiplication & Division",
+        "aliases": [
+            "multiply",
+            "multiplication",
+            "times",
+            "groups of",
+            "repeated addition",
+            "divide",
+            "division",
+            "split equally",
+            "sharing"
+        ],
+        "spanish_culture": "Paella servings arranged in rows",
+        "explanation_text": "Placing equal rows of paella servings across the table shows multiplication; splitting the servings evenly among guests shows division.",
+        "image_prompt": "Display a long paella pan with identical servings arranged in equal rows, then shared equally among diners."
+    },
+    {
+        "concept_id": "even_odd",
+        "concept_name": "Even and Odd Numbers",
+        "aliases": [
+            "even numbers",
+            "odd numbers",
+            "even",
+            "odd",
+            "pairs",
+            "leftover",
+            "no remainder",
+            "remains one"
+        ],
+        "spanish_culture": "Casteller pairs in human towers",
+        "explanation_text": "Castellers stand in pairs to build their human towers; when every person has a partner the number is even, and one leftover person makes it odd.",
+        "image_prompt": "Show castellers paired up at the base of a human tower, with one single casteller left over to represent an odd number."
+    },
+    {
+        "concept_id": "skip_counting",
+        "concept_name": "Skip Counting / Number Patterns",
+        "aliases": [
+            "skip counting",
+            "count by 2s",
+            "count by 5s",
+            "count by 10s",
+            "jump counting",
+            "repeating numbers",
+            "number patterns"
+        ],
+        "spanish_culture": "Gaudi mosaic tile patterns",
+        "explanation_text": "The repeating tile patterns on Gaudi's mosaics follow rhythmic sequences of color and shape, much like skip counting by 2s, 5s, or 10s.",
+        "image_prompt": "Show a Gaudi mosaic with repeating colored tiles, highlighting every 5th tile to illustrate skip counting."
+    },
+    {
+        "concept_id": "comparing_numbers",
+        "concept_name": "Comparing and Ordering Numbers",
+        "aliases": [
+            "compare numbers",
+            "greater than",
+            "less than",
+            "more than",
+            "fewer than",
+            "biggest",
+            "smallest",
+            "ordering numbers",
+            "number order"
+        ],
+        "spanish_culture": "Olive oil bottles with different levels",
+        "explanation_text": "Comparing the levels of oil in different bottles of olive oil shows which is greater or smaller—just like comparing numbers.",
+        "image_prompt": "Show several olive oil bottles filled to different levels, with > and < symbols placed between them."
+    },
+    {
+        "concept_id": "rounding_estimation",
+        "concept_name": "Rounding & Estimation",
+        "aliases": [
+            "round",
+            "rounding",
+            "estimate",
+            "estimation",
+            "approximate",
+            "about how much",
+            "close to",
+            "nearby number"
+        ],
+        "spanish_culture": "Estimating rice for paella",
+        "explanation_text": "A cook estimates about how much rice and stock the paella pan needs before measuring exactly—similar to rounding to a convenient nearby number.",
+        "image_prompt": "Show a cook adding rice to a paella pan and estimating quantities, labeling them with rounded amounts."
+    },
+    {
+        "concept_id": "fractions",
+        "concept_name": "Fractions",
+        "aliases": ["fraction", "part of a whole", "portion", "share", "numerator", "denominator"],
+        "spanish_culture": "Sharing a tortilla espanola",
+        "explanation_text": "When a round tortilla espanola is cut into equal wedges and shared among friends, each person receives a fraction of the whole.",
+        "image_prompt": "Show a tortilla espanola divided into equal wedges, each wedge labeled as a fraction of the whole."
+    },
+    {
+        "concept_id": "equivalent_fractions",
+        "concept_name": "Equivalent Fractions",
+        "aliases": ["equal fractions", "same value", "fraction equality", "equivalent"],
+        "spanish_culture": "Cutting tortilla slices differently",
+        "explanation_text": "Cutting a tortilla into 2 equal halves or into 4 equal quarters gives the same total amount—like equivalent fractions.",
+        "image_prompt": "Show a tortilla divided first into 2 halves and then into 4 quarters, demonstrating equal total portions."
+    },
+    {
+        "concept_id": "simplifying_fractions",
+        "concept_name": "Simplifying Fractions",
+        "aliases": ["reduce fraction", "lowest terms", "simplify fraction"],
+        "spanish_culture": "Halving a paella recipe",
+        "explanation_text": "Halving a paella recipe keeps the same flavor ratio of rice to stock, just as reducing a fraction keeps the same value.",
+        "image_prompt": "Depict a full paella recipe and a halved version with identical ratios, labeled with a reduced fraction."
+    },
+    {
+        "concept_id": "mixed_numbers",
+        "concept_name": "Mixed Numbers",
+        "aliases": ["mixed number", "whole and fraction", "whole part and fraction part"],
+        "spanish_culture": "Full and half jugs of sangria",
+        "explanation_text": "If you have 3 full jugs of sangria and one half-full jug more, that is 3½—exactly a mixed number.",
+        "image_prompt": "Show three full jugs of sangria beside one half-full jug, labeled as 3½."
+    },
+    {
+        "concept_id": "improper_fractions",
+        "concept_name": "Improper Fractions",
+        "aliases": ["top-heavy fraction", "numerator larger", "greater than one fraction"],
+        "spanish_culture": "Jamon slices exceeding one plate",
+        "explanation_text": "When slices of jamon iberico fill more than one plate but are still counted as portions of the same size, the amount is an improper fraction.",
+        "image_prompt": "Show several plates holding more than one full portion of jamon slices, symbolizing fractions greater than 1."
+    },
+    {
+        "concept_id": "adding_fractions",
+        "concept_name": "Adding Fractions",
+        "aliases": ["fraction addition", "add fractions", "sum of fractions"],
+        "spanish_culture": "Combining olive oil portions",
+        "explanation_text": "Pouring portions of olive oil from several small bottles into one container shows how fractional amounts add up to a whole.",
+        "image_prompt": "Show small bottles of olive oil being poured together to fill one single container."
+    },
+    {
+        "concept_id": "subtracting_fractions",
+        "concept_name": "Subtracting Fractions",
+        "aliases": ["fraction subtraction", "take away fractions", "difference of fractions"],
+        "spanish_culture": "Serving out part of the gazpacho",
+        "explanation_text": "Ladling out a portion of gazpacho from a full bowl leaves a remainder—subtracting a fraction from a whole.",
+        "image_prompt": "Show a bowl of gazpacho with part being ladled out, the remaining portion labeled with the fraction left."
+    },
+    {
+        "concept_id": "multiplying_fractions",
+        "concept_name": "Multiplying Fractions",
+        "aliases": ["fraction multiplication", "part of a part", "multiply fractions"],
+        "spanish_culture": "Half of a half tapa",
+        "explanation_text": "If each guest takes half of a half portion of tortilla, you are finding a fraction of a fraction—like multiplying fractions.",
+        "image_prompt": "Show a tortilla wedge divided in half, then that half divided again to show a smaller portion."
+    },
+    {
+        "concept_id": "dividing_fractions",
+        "concept_name": "Dividing Fractions",
+        "aliases": ["fraction division", "divide fractions", "how many times in"],
+        "spanish_culture": "Splitting churros into small pieces",
+        "explanation_text": "Dividing a churro into smaller equal pieces, or asking how many small pieces fit inside a larger one, shows dividing fractions.",
+        "image_prompt": "Show a churro being cut into smaller equal pieces to illustrate fractional division."
+    },
+    {
+        "concept_id": "decimals",
+        "concept_name": "Decimals",
+        "aliases": ["decimal point", "tenths", "hundredths", "decimal number"],
+        "spanish_culture": "Measuring sangria in liters",
+        "explanation_text": "Measuring sangria in liters and milliliters introduces decimals, such as 1.5 liters meaning one and a half liters.",
+        "image_prompt": "Show a glass jar marked with 1.0, 1.5, and 2.0 liters of sangria."
+    },
+    {
+        "concept_id": "converting_fractions_decimals",
+        "concept_name": "Converting Fractions and Decimals",
+        "aliases": ["fraction to decimal", "decimal to fraction", "convert fractions"],
+        "spanish_culture": "Half liter or 0.5 of sangria",
+        "explanation_text": "Whether you say half a liter of sangria or 0.5 liters, both describe the same amount—like converting between fractions and decimals.",
+        "image_prompt": "Show two jugs of sangria, one marked ½ and the other 0.5, filled with the same amount."
+    },
+    {
+        "concept_id": "percents",
+        "concept_name": "Percents",
+        "aliases": ["percent", "percentage", "per hundred", "rate per 100"],
+        "spanish_culture": "Spanish language exam scores",
+        "explanation_text": "When a student scores 90 out of 100 on a Spanish language exam, that is 90%—a way to express parts per hundred.",
+        "image_prompt": "Show a Spanish exam paper with 90/100 written and a 90% mark beside it."
+    },
+    {
+        "concept_id": "percent_of_number",
+        "concept_name": "Percent of a Number",
+        "aliases": ["percentage of number", "find percent", "portion of total"],
+        "spanish_culture": "Discounts at the mercado",
+        "explanation_text": "A 20% discount on jamon iberico at the market shows how percents are used to find a part of a price.",
+        "image_prompt": "Show a mercado stall sign offering 20% off jamon iberico, with the reduced price tags shown."
+    },
+    {
+        "concept_id": "variables",
+        "concept_name": "Variables",
+        "aliases": ["variable", "unknown", "letter as number", "symbol in math"],
+        "spanish_culture": "Unlabeled olive oil jars",
+        "explanation_text": "If some jars of oil in the bodega have no labels, each represents an unknown quantity—like a variable in math.",
+        "image_prompt": "Show labeled jars (1L, 2L) and an unlabeled jar marked as x."
+    },
+    {
+        "concept_id": "expressions",
+        "concept_name": "Expressions",
+        "aliases": ["math expressions", "numerical expressions", "algebraic expressions"],
+        "spanish_culture": "Known and unknown tapas orders",
+        "explanation_text": "If the kitchen has 3 prepared tapas and x more still cooking, that can be written as the expression 3 + x.",
+        "image_prompt": "Show three tapas plates plus an unseen order, symbolized as 3 + x."
+    },
+    {
+        "concept_id": "equations",
+        "concept_name": "Equations",
+        "aliases": ["math equations", "equal statements", "algebra equations"],
+        "spanish_culture": "Balanced market scale",
+        "explanation_text": "When both pans of a market scale hold equal weight, the two sides balance—just like both sides of an equation.",
+        "image_prompt": "Show a balance scale at a Spanish market with equal-weight goods on both sides, labeled as an equation."
+    },
+    {
+        "concept_id": "solving_one_step_equations",
+        "concept_name": "Solving One-Step Equations",
+        "aliases": ["one-step equations", "simple equations"],
+        "spanish_culture": "Adjusting a scale with one weight",
+        "explanation_text": "If one side of a market scale is lighter, adding or removing a single weight balances it—like solving a one-step equation.",
+        "image_prompt": "Show a market scale where one added or removed weight restores balance, illustrating one-step solving."
+    },
+    {
+        "concept_id": "solving_two_step_equations",
+        "concept_name": "Solving Two-Step Equations",
+        "aliases": ["two-step equations", "multi-step equations"],
+        "spanish_culture": "Cooking paella step by step",
+        "explanation_text": "Making paella requires cooking the rice first and then adding the seafood—two ordered steps, like solving a two-step equation.",
+        "image_prompt": "Show the two-step sequence of cooking paella: prepare the rice, then add the seafood, then get the finished dish."
+    },
+    {
+        "concept_id": "inequalities",
+        "concept_name": "Inequalities",
+        "aliases": ["greater than", "less than", "not equal", "comparison statements"],
+        "spanish_culture": "Churro portions of different sizes",
+        "explanation_text": "When one plate of churros holds more than another, the two amounts are unequal—like greater than or less than in math.",
+        "image_prompt": "Show two plates of churros of different sizes with > and < symbols between them."
+    },
+    {
+        "concept_id": "order_of_operations",
+        "concept_name": "Order of Operations (PEMDAS)",
+        "aliases": ["PEMDAS", "BODMAS", "math order", "operations order"],
+        "spanish_culture": "Cooking order for paella",
+        "explanation_text": "Paella follows a strict order—soffritto, then rice, then stock, then seafood—and what you do first matters, just as it does in math.",
+        "image_prompt": "Show a paella cooking sequence where steps must happen in order, labeled like parentheses, exponents, and other operations."
+    },
+    {
+        "concept_id": "substitution",
+        "concept_name": "Substitution",
+        "aliases": ["replace variable", "substitute value", "replace letter with number"],
+        "spanish_culture": "Swapping an ingredient in a recipe",
+        "explanation_text": "If chorizo is unavailable, substituting the same amount of another sausage in the recipe is like substituting a value for a variable.",
+        "image_prompt": "Show a recipe where one ingredient is swapped for an equal amount of another, representing substitution."
+    },
+    {
+        "concept_id": "points",
+        "concept_name": "Points",
+        "aliases": ["dot", "location", "coordinate point"],
+        "spanish_culture": "Stages along the Camino de Santiago",
+        "explanation_text": "Each town and marker along the Camino de Santiago is a stopping point on the route, just as each point marks a location in geometry.",
+        "image_prompt": "Show a map of the Camino de Santiago with towns marked as points along the route."
+    },
+    {
+        "concept_id": "lines",
+        "concept_name": "Lines",
+        "aliases": ["straight line", "geometry line", "infinite line"],
+        "spanish_culture": "Rows of olive trees",
+        "explanation_text": "The straight rows of olive trees across an Andalusian grove extend in both directions, like geometric lines.",
+        "image_prompt": "Show long straight rows of olive trees stretching across a grove, representing geometric lines."
+    },
+    {
+        "concept_id": "angles",
+        "concept_name": "Angles",
+        "aliases": ["angle", "degree", "corner measure"],
+        "spanish_culture": "Opening a flamenco fan",
+        "explanation_text": "As a flamenco fan opens, the angle between its edges grows—the same way angles are measured in geometry.",
+        "image_prompt": "Show a flamenco fan opening at different positions with the angle clearly marked."
+    },
+    {
+        "concept_id": "perpendicular_lines",
+        "concept_name": "Perpendicular Lines",
+        "aliases": ["right angle lines", "intersecting lines", "orthogonal lines"],
+        "spanish_culture": "Right-angle streets in the Eixample",
+        "explanation_text": "The streets of Barcelona's Eixample district cross at right angles, forming perpendicular lines.",
+        "image_prompt": "Show Barcelona's Eixample street grid where streets meet at 90° angles."
+    },
+    {
+        "concept_id": "parallel_lines",
+        "concept_name": "Parallel Lines",
+        "aliases": ["side-by-side lines", "never meet", "equal distance lines"],
+        "spanish_culture": "Rows of grapevines",
+        "explanation_text": "The parallel rows of grapevines in a Spanish vineyard run side by side and never meet—like parallel lines.",
+        "image_prompt": "Show straight rows of grapevines running side by side through a vineyard."
+    },
+    {
+        "concept_id": "polygons",
+        "concept_name": "Polygons",
+        "aliases": ["shapes", "closed figure", "many-sided shape"],
+        "spanish_culture": "Tiles of a Spanish plaza",
+        "explanation_text": "The patterned stones and tiles laid across a Spanish plaza form closed many-sided shapes, or polygons.",
+        "image_prompt": "Show the overhead view of a Spanish plaza whose tiles form geometric polygon shapes."
+    },
+    {
+        "concept_id": "triangles",
+        "concept_name": "Triangles",
+        "aliases": ["three sides", "triangular", "triangle shape"],
+        "spanish_culture": "Wedges of tortilla espanola",
+        "explanation_text": "A round tortilla espanola cut into wedges creates triangular slices, each with three sides.",
+        "image_prompt": "Show tortilla espanola wedges arranged to highlight their triangular shape."
+    },
+    {
+        "concept_id": "quadrilaterals",
+        "concept_name": "Quadrilaterals",
+        "aliases": ["four sides", "rectangles", "squares", "trapezoids"],
+        "spanish_culture": "Andalusian azulejo tiles",
+        "explanation_text": "The square and rectangular azulejo tiles decorating Andalusian walls form quadrilaterals.",
+        "image_prompt": "Show azulejo tiles with repeating square and rectangular motifs."
+    },
+    {
+        "concept_id": "perimeter",
+        "concept_name": "Perimeter",
+        "aliases": ["boundary length", "distance around", "outline measure"],
+        "spanish_culture": "Walking around the Plaza Mayor",
+        "explanation_text": "Measuring the distance you walk around the edge of Madrid's Plaza Mayor is like finding the perimeter of a shape.",
+        "image_prompt": "Show people walking around the perimeter of a Spanish plaza with a dashed boundary line."
+    },
+    {
+        "concept_id": "area",
+        "concept_name": "Area",
+        "aliases": ["surface area", "space inside", "coverage"],
+        "spanish_culture": "Tiling a Spanish patio floor",
+        "explanation_text": "The amount of floor a tile pattern covers inside a Spanish patio represents its area.",
+        "image_prompt": "Show a patio floor covered in tiles, shaded to show its area."
+    },
+    {
+        "concept_id": "volume",
+        "concept_name": "Volume",
+        "aliases": ["capacity", "space inside 3D shape", "liquid amount"],
+        "spanish_culture": "Sherry casks in a bodega",
+        "explanation_text": "The amount of sherry a wooden cask can hold represents its volume.",
+        "image_prompt": "Show sherry casks in a bodega filled to different levels to illustrate volume."
+    },
+    {
+        "concept_id": "circle_properties",
+        "concept_name": "Circle Properties",
+        "aliases": ["radius", "diameter", "circumference", "circle geometry"],
+        "spanish_culture": "Top view of a paella pan",
+        "explanation_text": "Looking straight down at a round paella pan shows a perfect circle, illustrating its radius, diameter, and circumference.",
+        "image_prompt": "Show a paella pan from above labeled with its radius and diameter lines."
+    },
+    {
+        "concept_id": "pi",
+        "concept_name": "Pi (π)",
+        "aliases": ["pi", "ratio of circumference", "3.14"],
+        "spanish_culture": "Round tortilla espanola",
+        "explanation_text": "The relationship between a round tortilla's circumference and its diameter is always the same constant, π.",
+        "image_prompt": "Show a circular tortilla espanola labeled with circumference and diameter measurements."
+    },
+    {
+        "concept_id": "coordinate_plane",
+        "concept_name": "Coordinate Plane",
+        "aliases": ["x-y plane", "graph grid", "axes"],
+        "spanish_culture": "Mercado stall grid",
+        "explanation_text": "A Spanish mercado arranged in rows and columns resembles a coordinate grid, where each stall has its own coordinates.",
+        "image_prompt": "Show a mercado floor plan labeled with x and y coordinates for each stall."
+    },
+    {
+        "concept_id": "plotting_points",
+        "concept_name": "Plotting Points",
+        "aliases": ["graphing points", "coordinates", "x-y plotting"],
+        "spanish_culture": "Marking Camino towns on a map",
+        "explanation_text": "Plotting the location of each town on a map of the Camino de Santiago is like plotting points on a coordinate plane.",
+        "image_prompt": "Show a map of the Camino de Santiago with towns marked as points on a coordinate grid."
+    },
+    {
+        "concept_id": "symmetry",
+        "concept_name": "Symmetry",
+        "aliases": ["mirror image", "balanced halves", "reflection symmetry"],
+        "spanish_culture": "Alhambra tile patterns",
+        "explanation_text": "The geometric tile designs of the Alhambra mirror each other across a center line, showing perfect symmetry.",
+        "image_prompt": "Show an Alhambra tile pattern split by a mirror line."
+    },
+    {
+        "concept_id": "transformations",
+        "concept_name": "Transformations",
+        "aliases": ["translate", "rotate", "reflect", "dilate"],
+        "spanish_culture": "Flamenco dancers in motion",
+        "explanation_text": "When flamenco dancers turn, shift, and mirror each other's moves on stage, they demonstrate geometric transformations.",
+        "image_prompt": "Show flamenco dancers turning and shifting positions to illustrate geometric transformations."
+    },
+    {
+        "concept_id": "ratios",
+        "concept_name": "Ratios",
+        "aliases": ["comparison", "proportion of quantities", "rate"],
+        "spanish_culture": "Mixing sangria",
+        "explanation_text": "The balance of wine, fruit, and sweetener when mixing sangria is a ratio, like 3 parts wine to 1 part fruit.",
+        "image_prompt": "Show a sangria pitcher labeled with the ratio of wine to fruit, like 3:1."
+    },
+    {
+        "concept_id": "proportions",
+        "concept_name": "Proportions",
+        "aliases": ["equal ratios", "scaling", "balance of ratios"],
+        "spanish_culture": "Scaling an Alhambra tile design",
+        "explanation_text": "Enlarging an Alhambra tile design while keeping every element identical maintains the same proportion.",
+        "image_prompt": "Show a small and a large Alhambra tile pattern with identical proportions."
+    },
+    {
+        "concept_id": "unit_rate",
+        "concept_name": "Unit Rate",
+        "aliases": ["per unit", "rate per one", "comparison per one unit"],
+        "spanish_culture": "Walking pace on the Camino",
+        "explanation_text": "The distance a pilgrim covers in one hour while walking the Camino de Santiago is a unit rate.",
+        "image_prompt": "Show a pilgrim walking the Camino with a pace labeled in kilometers per hour."
+    },
+    {
+        "concept_id": "scale_drawings",
+        "concept_name": "Scale Drawings",
+        "aliases": ["map scale", "drawing proportion", "scaled map"],
+        "spanish_culture": "Mapping the Camino de Santiago",
+        "explanation_text": "Drawing a smaller map of the long Camino de Santiago route while keeping distances proportional is a scale drawing.",
+        "image_prompt": "Show the Camino de Santiago and a smaller scaled map side by side with a scale legend."
+    },
+    {
+        "concept_id": "percent_change",
+        "concept_name": "Percent Change",
+        "aliases": ["percent increase", "percent decrease", "growth rate"],
+        "spanish_culture": "Growth of the olive harvest",
+        "explanation_text": "If a family's olive harvest grows from 100 to 120 kilos, that is a 20% increase—an example of percent change.",
+        "image_prompt": "Show an olive harvest growing in quantity with a +20% label."
+    },
+    {
+        "concept_id": "data_collection",
+        "concept_name": "Data Collection",
+        "aliases": ["gather data", "record information", "collect numbers"],
+        "spanish_culture": "Counting Valencia oranges",
+        "explanation_text": "Recording how many oranges each tree in a Valencia grove produces is an example of data collection.",
+        "image_prompt": "Show a farmer tallying orange harvests on a clipboard."
+    },
+    {
+        "concept_id": "tables_graphs",
+        "concept_name": "Tables and Graphs",
+        "aliases": ["data table", "bar graph", "chart"],
+        "spanish_culture": "Orange harvest comparisons",
+        "explanation_text": "Using a graph to show how many oranges were harvested each month helps visualize data trends.",
+        "image_prompt": "Show a bar graph comparing orange harvests across several months."
+    },
+    {
+        "concept_id": "mean",
+        "concept_name": "Mean",
+        "aliases": ["average", "arithmetic mean", "mean value"],
+        "spanish_culture": "Average daily Alhambra visitors",
+        "explanation_text": "Adding up the number of daily visitors to the Alhambra and dividing by the number of days gives the mean.",
+        "image_prompt": "Show a table of daily visitor counts with the average value highlighted."
+    },
+    {
+        "concept_id": "median",
+        "concept_name": "Median",
+        "aliases": ["middle value", "data median"],
+        "spanish_culture": "Middle price of tapas",
+        "explanation_text": "When tapas prices are arranged from smallest to largest, the price in the middle is the median.",
+        "image_prompt": "Show tapas prices lined up in order with the middle price highlighted as the median."
+    },
+    {
+        "concept_id": "mode",
+        "concept_name": "Mode",
+        "aliases": ["most frequent value", "common value"],
+        "spanish_culture": "Most ordered tapa",
+        "explanation_text": "If more guests order patatas bravas than any other tapa, patatas bravas is the mode.",
+        "image_prompt": "Show a count of tapas orders with patatas bravas being the most frequent."
+    },
+    {
+        "concept_id": "range",
+        "concept_name": "Range",
+        "aliases": ["difference", "spread of data", "highest minus lowest"],
+        "spanish_culture": "Gap between cheapest and priciest tapas",
+        "explanation_text": "The gap between the cheapest and the most expensive tapa on the menu shows the range.",
+        "image_prompt": "Show a bar chart with the shortest and tallest bars marked to show the range."
+    },
+    {
+        "concept_id": "bar_graphs",
+        "concept_name": "Bar Graphs",
+        "aliases": ["bar chart", "column graph"],
+        "spanish_culture": "Tapas prices at the bar",
+        "explanation_text": "Each bar can show the price of a different tapa at a Spanish bar, making comparison easy.",
+        "image_prompt": "Show a bar graph labeled by tapa name with each price shown as a bar."
+    },
+    {
+        "concept_id": "line_graphs",
+        "concept_name": "Line Graphs",
+        "aliases": ["trend graph", "line chart"],
+        "spanish_culture": "Monthly visitors to the Sagrada Familia",
+        "explanation_text": "A line graph shows how visitor numbers at the Sagrada Familia change across the months.",
+        "image_prompt": "Show a line graph labeled with months and visitor counts."
+    },
+    {
+        "concept_id": "pie_charts",
+        "concept_name": "Pie Charts",
+        "aliases": ["circle chart", "percentage chart"],
+        "spanish_culture": "Paella ingredient proportions",
+        "explanation_text": "A pie chart can show the proportion of rice, seafood, and vegetables in a paella.",
+        "image_prompt": "Show a pie chart divided into paella ingredients with percentages."
+    },
+    {
+        "concept_id": "probability",
+        "concept_name": "Probability",
+        "aliases": ["chance", "likelihood", "odds"],
+        "spanish_culture": "La Liga match outcomes",
+        "explanation_text": "Estimating which team is most likely to win a La Liga match is using probability.",
+        "image_prompt": "Show two football teams facing off with probability labels above each."
+    },
+    {
+        "concept_id": "patterns",
+        "concept_name": "Patterns",
+        "aliases": ["repeating design", "sequence", "recurrence"],
+        "spanish_culture": "Azulejo arabesque motifs",
+        "explanation_text": "The repeating arabesque and geometric motifs on azulejo tiles form visual patterns.",
+        "image_prompt": "Show repeating geometric designs in traditional Spanish azulejo tiles."
+    },
+    {
+        "concept_id": "functions",
+        "concept_name": "Functions",
+        "aliases": ["input-output rule", "function relation", "mapping"],
+        "spanish_culture": "Tapas cost from plates ordered",
+        "explanation_text": "If each tapa plate costs 4 euros, every number of plates gives exactly one total cost—each input maps to one output, like a function.",
+        "image_prompt": "Show a graph linking the number of tapa plates (input) to the total cost in euros (output)."
+    }
+]
