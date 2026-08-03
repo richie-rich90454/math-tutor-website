@@ -72,7 +72,8 @@ public class WebConfig implements WebMvcConfigurer {
                 .allowedOrigins(origins)
                 .allowedMethods("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
-                .exposedHeaders("X-Chat-Id", "X-RateLimit-Limit", "X-RateLimit-Remaining", "X-RateLimit-Reset", "Retry-After")
+                .exposedHeaders("X-Chat-Id", "X-RateLimit-Limit", "X-RateLimit-Remaining", "X-RateLimit-Reset", "Retry-After",
+                        "X-Quota-Limit", "X-Quota-Used", "X-Quota-Remaining", "X-Quota-Warning", "X-Cache")
                 .allowCredentials(true)
                 .maxAge(3600);
     }
