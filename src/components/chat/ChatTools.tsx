@@ -105,7 +105,9 @@ export default function ChatTools({ chatId }: ChatToolsProps) {
             <button
                 onClick={shared ? handleRevoke : handleShare}
                 className="app-header-btn"
-                aria-label={shared ? t("shareRevoke") || "Stop sharing" : t("share") || "Share chat"}
+                aria-label={
+                    shared ? t("shareRevoke") || "Stop sharing" : t("share") || "Share chat"
+                }
                 title={shared ? t("shareRevoke") || "Stop sharing" : t("share") || "Share chat"}
             >
                 <svg
