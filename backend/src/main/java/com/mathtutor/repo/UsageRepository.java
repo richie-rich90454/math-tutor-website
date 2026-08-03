@@ -19,15 +19,17 @@ public class UsageRepository {
             String chatSessionId,
             int requestTokens,
             int responseTokens,
-            String model) {
+            String model,
+            String ip) {
         jdbc.update(
-                "INSERT INTO usage_logs (id, user_id, chat_session_id, request_tokens, response_tokens, model) VALUES (?, ?, ?, ?, ?, ?)",
+                "INSERT INTO usage_logs (id, user_id, chat_session_id, request_tokens, response_tokens, model, ip) VALUES (?, ?, ?, ?, ?, ?, ?)",
                 java.util.UUID.randomUUID().toString(),
                 userId,
                 chatSessionId,
                 requestTokens,
                 responseTokens,
-                model);
+                model,
+                ip);
     }
 
     public long countSince(String userId, String since) {
@@ -51,6 +53,13 @@ public class UsageRepository {
                 "SELECT COALESCE(SUM(request_tokens),0) AS r, COALESCE(SUM(response_tokens),0) AS o FROM usage_logs WHERE user_id = ? AND created_at >= ?",
                 rs -> rs.next() ? new TokenSum(rs.getLong("r"), rs.getLong("o")) : new TokenSum(0, 0),
                 userId, since);
+    }
+
+    public TokenSum sumByIpSince(String ip, String since) {
+        return jdbc.query(
+                "SELECT COALESCE(SUM(request_tokens),0) AS r, COALESCE(SUM(response_tokens),0) AS o FROM usage_logs WHERE ip = ? AND created_at >= ?",
+                rs -> rs.next() ? new TokenSum(rs.getLong("r"), rs.getLong("o")) : new TokenSum(0, 0),
+                ip, since);
     }
 
     public TokenSum sumByTypeForChat(String userId, String chatId) {
