@@ -1,0 +1,565 @@
+[
+    {
+        "concept_id": "place_value",
+        "concept_name": "Place Value",
+        "aliases": [
+            "place value",
+            "digit place",
+            "number place",
+            "units place",
+            "tens place",
+            "hundreds place",
+            "position of digits",
+            "digit position"
+        ],
+        "tujia_culture": "Xilankapu warp threads",
+        "explanation_text": "In xilankapu weaving, each warp thread has its own fixed position in the loom, and a thread moved to a new position changes the whole design. Just like digits, whose value depends on the place they occupy.",
+        "image_prompt": "Illustrate a xilankapu loom with warp threads labeled as ones, tens, and hundreds, showing how position in the weave affects the value and pattern."
+    },
+    {
+        "concept_id": "addition_subtraction",
+        "concept_name": "Addition & Subtraction",
+        "aliases": [
+            "add",
+            "addition",
+            "plus",
+            "sum",
+            "combine",
+            "total",
+            "subtract",
+            "subtraction",
+            "minus",
+            "take away",
+            "difference"
+        ],
+        "tujia_culture": "Serving corn cakes at a meal",
+        "explanation_text": "When a grandmother stacks more corn cakes (baba) on a bamboo tray, the total increases. When some are taken away for guests to eat, the number decreases—just like addition and subtraction.",
+        "image_prompt": "Show a bamboo tray with Tujia corn cakes being added and removed, with the total count changing accordingly."
+    },
+    {
+        "concept_id": "multiplication_division",
+        "concept_name": "Multiplication & Division",
+        "aliases": [
+            "multiply",
+            "multiplication",
+            "times",
+            "groups of",
+            "repeated addition",
+            "divide",
+            "division",
+            "split equally",
+            "sharing"
+        ],
+        "tujia_culture": "Baishou dance rows",
+        "explanation_text": "Arranging dancers of the Baishou (hand-waving) dance into equal rows shows multiplication. Splitting the dancers evenly into teams shows division.",
+        "image_prompt": "Display rows of identical Baishou dancers in the village square, showing equal grouping (multiplication) and even sharing into teams (division)."
+    },
+    {
+        "concept_id": "even_odd",
+        "concept_name": "Even and Odd Numbers",
+        "aliases": [
+            "even numbers",
+            "odd numbers",
+            "even",
+            "odd",
+            "pairs",
+            "leftover",
+            "no remainder",
+            "remains one"
+        ],
+        "tujia_culture": "Baishou dancers paired",
+        "explanation_text": "Baishou dancers standing in pairs represent even numbers. If one dancer is left without a partner, that is an odd number.",
+        "image_prompt": "Show Baishou dancers standing in pairs in a mountain village square, with one single dancer at the end to represent an odd number."
+    },
+    {
+        "concept_id": "skip_counting",
+        "concept_name": "Skip Counting / Number Patterns",
+        "aliases": [
+            "skip counting",
+            "count by 2s",
+            "count by 5s",
+            "count by 10s",
+            "jump counting",
+            "repeating numbers",
+            "number patterns"
+        ],
+        "tujia_culture": "Geometric borders of xilankapu",
+        "explanation_text": "The repeating geometric borders woven into xilankapu brocade follow rhythmic color and shape sequences—similar to number patterns or skip counting.",
+        "image_prompt": "Show a xilankapu border with repeating geometric shapes, highlighting every 5th motif to illustrate skip counting."
+    },
+    {
+        "concept_id": "comparing_numbers",
+        "concept_name": "Comparing and Ordering Numbers",
+        "aliases": [
+            "compare numbers",
+            "greater than",
+            "less than",
+            "more than",
+            "fewer than",
+            "biggest",
+            "smallest",
+            "ordering numbers",
+            "number order"
+        ],
+        "tujia_culture": "Baskets of corn by weight",
+        "explanation_text": "Comparing how full the corn baskets from a mountain harvest are shows which is greater or smaller—just like comparing numbers.",
+        "image_prompt": "Show several woven corn baskets holding different amounts, using > and < symbols between them."
+    },
+    {
+        "concept_id": "rounding_estimation",
+        "concept_name": "Rounding & Estimation",
+        "aliases": [
+            "round",
+            "rounding",
+            "estimate",
+            "estimation",
+            "approximate",
+            "about how much",
+            "close to",
+            "nearby number"
+        ],
+        "tujia_culture": "Estimating cornmeal for baba",
+        "explanation_text": "When making corn baba, cooks estimate roughly how many handfuls of cornmeal they need—similar to rounding to the nearest convenient number.",
+        "image_prompt": "Show a Tujia cook estimating cornmeal for steaming baba, labeling approximate amounts like 'about 10 cups'."
+    },
+    {
+        "concept_id": "fractions",
+        "concept_name": "Fractions",
+        "aliases": ["fraction", "part of a whole", "portion", "share", "numerator", "denominator"],
+        "tujia_culture": "Sharing corn cakes",
+        "explanation_text": "When a big steamed corn cake is cut and shared equally among the children, each person gets a fraction of the whole cake.",
+        "image_prompt": "Show a round Tujia corn cake cut into equal slices shared among children, each slice labeled as a fraction of the whole."
+    },
+    {
+        "concept_id": "equivalent_fractions",
+        "concept_name": "Equivalent Fractions",
+        "aliases": ["equal fractions", "same value", "fraction equality", "equivalent"],
+        "tujia_culture": "Cutting a corn cake evenly",
+        "explanation_text": "Cutting one corn cake into 2 equal halves or into 4 equal quarters gives the same amount each time—like equivalent fractions.",
+        "image_prompt": "Show a corn cake divided first into halves, then into quarters, demonstrating equal portions."
+    },
+    {
+        "concept_id": "simplifying_fractions",
+        "concept_name": "Simplifying Fractions",
+        "aliases": ["reduce fraction", "lowest terms", "simplify fraction"],
+        "tujia_culture": "Combining small bamboo bundles",
+        "explanation_text": "If two small bundles of bamboo twigs are tied into one bigger bundle, you simplify the count—like reducing a fraction to its simplest form.",
+        "image_prompt": "Depict smaller bundles of bamboo twigs being tied into one larger bundle, labeled with reduced fractions."
+    },
+    {
+        "concept_id": "mixed_numbers",
+        "concept_name": "Mixed Numbers",
+        "aliases": ["mixed number", "whole and fraction", "whole part and fraction part"],
+        "tujia_culture": "Counting full and half grain baskets",
+        "explanation_text": "If you have 3 full baskets of rice and half a basket more, that is 3½—just like a mixed number.",
+        "image_prompt": "Show three full woven grain baskets and one half-full basket labeled as 3½."
+    },
+    {
+        "concept_id": "improper_fractions",
+        "concept_name": "Improper Fractions",
+        "aliases": ["top-heavy fraction", "numerator larger", "greater than one fraction"],
+        "tujia_culture": "Overflowing grain baskets",
+        "explanation_text": "When rice fills more than one basket but is still counted in basketfuls of the same size, it represents an improper fraction.",
+        "image_prompt": "Show several woven baskets heaped past one full basket's worth, symbolizing fractions greater than 1."
+    },
+    {
+        "concept_id": "adding_fractions",
+        "concept_name": "Adding Fractions",
+        "aliases": ["fraction addition", "add fractions", "sum of fractions"],
+        "tujia_culture": "Combining portions of cornmeal",
+        "explanation_text": "Adding leftover portions of cornmeal from different bowls shows how fractional amounts combine to make a whole.",
+        "image_prompt": "Show smaller bowls of cornmeal being emptied together into one full bowl."
+    },
+    {
+        "concept_id": "subtracting_fractions",
+        "concept_name": "Subtracting Fractions",
+        "aliases": ["fraction subtraction", "take away fractions", "difference of fractions"],
+        "tujia_culture": "Scooping out rice for the family",
+        "explanation_text": "Scooping a portion of rice out of a steaming pot shows subtraction of a fractional part.",
+        "image_prompt": "Show a pot of steaming rice with a portion being scooped out, the remainder labeled as the fraction left."
+    },
+    {
+        "concept_id": "multiplying_fractions",
+        "concept_name": "Multiplying Fractions",
+        "aliases": ["fraction multiplication", "part of a part", "multiply fractions"],
+        "tujia_culture": "Halves of corn cake servings",
+        "explanation_text": "If each child takes half of a half piece of corn cake, you are finding a fraction of a fraction—like multiplying fractions.",
+        "image_prompt": "Show a plate with a corn cake divided into halves, and one half divided again to show smaller portions."
+    },
+    {
+        "concept_id": "dividing_fractions",
+        "concept_name": "Dividing Fractions",
+        "aliases": ["fraction division", "divide fractions", "how many times in"],
+        "tujia_culture": "Splitting dough pieces",
+        "explanation_text": "If one portion of glutinous rice dough is divided evenly into smaller pieces, it represents dividing a fraction by another fraction.",
+        "image_prompt": "Show rice dough being cut into smaller even pieces to illustrate fractional division."
+    },
+    {
+        "concept_id": "decimals",
+        "concept_name": "Decimals",
+        "aliases": ["decimal point", "tenths", "hundredths", "decimal number"],
+        "tujia_culture": "Measuring rice by the jin",
+        "explanation_text": "Using jin and liang when weighing rice introduces decimals, like 1.5 jin meaning one and a half jin.",
+        "image_prompt": "Show a weighing scale marked with 1.0, 1.5, and 2.0 jin of rice."
+    },
+    {
+        "concept_id": "converting_fractions_decimals",
+        "concept_name": "Converting Fractions and Decimals",
+        "aliases": ["fraction to decimal", "decimal to fraction", "convert fractions"],
+        "tujia_culture": "Comparing weighed grain",
+        "explanation_text": "Whether you say half a jin or 0.5 jin, both describe the same weight—like converting between fractions and decimals.",
+        "image_prompt": "Show two labeled bags of grain, one marked ½ jin and another 0.5 jin, holding the same amount."
+    },
+    {
+        "concept_id": "percents",
+        "concept_name": "Percents",
+        "aliases": ["percent", "percentage", "per hundred", "rate per 100"],
+        "tujia_culture": "School test scores",
+        "explanation_text": "When a student scores 90 out of 100 on a Tujia language test at school, that is 90%—a way to express parts per hundred.",
+        "image_prompt": "Show a test paper with 90/100 written and a 90% mark beside it."
+    },
+    {
+        "concept_id": "percent_of_number",
+        "concept_name": "Percent of a Number",
+        "aliases": ["percentage of number", "find percent", "portion of total"],
+        "tujia_culture": "Discounts at the Fenghuang market",
+        "explanation_text": "A 10% discount on a xilankapu cloth at the market in Fenghuang shows how percents are used to find parts of a number.",
+        "image_prompt": "Show a market stall sign with a xilankapu brocade marked '10% off' and price tags with reduced amounts."
+    },
+    {
+        "concept_id": "variables",
+        "concept_name": "Variables",
+        "aliases": ["variable", "unknown", "letter as number", "symbol in math"],
+        "tujia_culture": "Unlabeled grain baskets",
+        "explanation_text": "If some harvest baskets are unlabeled, each represents an unknown quantity—like variables in math.",
+        "image_prompt": "Show labeled baskets (10 jin, 15 jin) and an unlabeled basket marked as x."
+    },
+    {
+        "concept_id": "expressions",
+        "concept_name": "Expressions",
+        "aliases": ["math expressions", "numerical expressions", "algebraic expressions"],
+        "tujia_culture": "Combining known and unknown grain",
+        "explanation_text": "If you have 2 known baskets of rice and x more unknown ones, that is like writing the expression 2 + x.",
+        "image_prompt": "Show two rice baskets plus an unlabeled one, symbolized as 2 + x."
+    },
+    {
+        "concept_id": "equations",
+        "concept_name": "Equations",
+        "aliases": ["math equations", "equal statements", "algebra equations"],
+        "tujia_culture": "Balancing a carrying pole",
+        "explanation_text": "When two baskets hang in balance on a shoulder-carrying pole, it represents equality—just like both sides of an equation.",
+        "image_prompt": "Show a balanced carrying pole with equal baskets on both sides labeled as an equation."
+    },
+    {
+        "concept_id": "solving_one_step_equations",
+        "concept_name": "Solving One-Step Equations",
+        "aliases": ["one-step equations", "simple equations"],
+        "tujia_culture": "Balancing basket loads",
+        "explanation_text": "If one side of a carrying pole is heavier, you add or remove a basket to make it even—like solving one-step equations.",
+        "image_prompt": "Show a carrying pole with baskets being adjusted until both sides balance."
+    },
+    {
+        "concept_id": "solving_two_step_equations",
+        "concept_name": "Solving Two-Step Equations",
+        "aliases": ["two-step equations", "multi-step equations"],
+        "tujia_culture": "Making oil-tea step by step",
+        "explanation_text": "Making oil-tea (youlacha) requires frying the tea leaves first and then adding the broth—like solving an equation with two steps.",
+        "image_prompt": "Show the step sequence: fry tea leaves, add broth, then serve, symbolizing step-by-step solving."
+    },
+    {
+        "concept_id": "inequalities",
+        "concept_name": "Inequalities",
+        "aliases": ["greater than", "less than", "not equal", "comparison statements"],
+        "tujia_culture": "Comparing mountain harvests",
+        "explanation_text": "When one family's corn harvest is larger than another's, it shows inequality—like greater than or less than in math.",
+        "image_prompt": "Show two stacks of corn baskets of different sizes with > and < symbols between them."
+    },
+    {
+        "concept_id": "order_of_operations",
+        "concept_name": "Order of Operations (PEMDAS)",
+        "aliases": ["PEMDAS", "BODMAS", "math order", "operations order"],
+        "tujia_culture": "Cooking sequence in the kitchen",
+        "explanation_text": "When preparing a Tujia meal, you must steam the rice before seasoning the vegetables—it matters what you do first, just like in math order.",
+        "image_prompt": "Show a cooking sequence in a Tujia kitchen where steps must happen in order, labeled like parentheses, exponents, etc."
+    },
+    {
+        "concept_id": "substitution",
+        "concept_name": "Substitution",
+        "aliases": ["replace variable", "substitute value", "replace letter with number"],
+        "tujia_culture": "Replacing a broken shuttle",
+        "explanation_text": "If a broken weaving shuttle is replaced with another of the same size, that is like substituting a value for a variable.",
+        "image_prompt": "Show a missing weaving shuttle replaced with an identical one at a loom, representing substitution."
+    },
+    {
+        "concept_id": "points",
+        "concept_name": "Points",
+        "aliases": ["dot", "location", "coordinate point"],
+        "tujia_culture": "Stars over the Wuling Mountains",
+        "explanation_text": "Each star in the night sky above the Wuling Mountains marks a position, like a point in geometry.",
+        "image_prompt": "Show a starry sky over mountain ridges with individual stars labeled as points on a coordinate grid."
+    },
+    {
+        "concept_id": "lines",
+        "concept_name": "Lines",
+        "aliases": ["straight line", "geometry line", "infinite line"],
+        "tujia_culture": "Warp threads on the loom",
+        "explanation_text": "The warp threads stretched straight across a xilankapu loom resemble geometric lines that extend in both directions.",
+        "image_prompt": "Show straight warp threads extending across a weaving loom, representing geometric lines."
+    },
+    {
+        "concept_id": "angles",
+        "concept_name": "Angles",
+        "aliases": ["angle", "degree", "corner measure"],
+        "tujia_culture": "Opening a diaojiaolou window",
+        "explanation_text": "When the wooden window of a diaojiaolou stilted house opens, it forms an angle between the window and its frame.",
+        "image_prompt": "Show a wooden window of a stilted house partially open with the angle clearly marked."
+    },
+    {
+        "concept_id": "perpendicular_lines",
+        "concept_name": "Perpendicular Lines",
+        "aliases": ["right angle lines", "intersecting lines", "orthogonal lines"],
+        "tujia_culture": "Diaojiaolou timber frame",
+        "explanation_text": "The vertical posts and horizontal beams of a diaojiaolou meet at right angles, forming perpendicular lines that keep the house strong.",
+        "image_prompt": "Show the timber posts and beams of a stilted house meeting at 90° angles."
+    },
+    {
+        "concept_id": "parallel_lines",
+        "concept_name": "Parallel Lines",
+        "aliases": ["side-by-side lines", "never meet", "equal distance lines"],
+        "tujia_culture": "Beams of a diaojiaolou",
+        "explanation_text": "The long wooden floor beams of a diaojiaolou run side by side at equal distance and never meet—like parallel lines.",
+        "image_prompt": "Show parallel wooden beams running beneath a stilted house floor."
+    },
+    {
+        "concept_id": "polygons",
+        "concept_name": "Polygons",
+        "aliases": ["shapes", "closed figure", "many-sided shape"],
+        "tujia_culture": "Geometric motifs of xilankapu",
+        "explanation_text": "The diamonds, squares, and stepped triangles woven into xilankapu brocade are closed geometric shapes with straight sides.",
+        "image_prompt": "Show close-ups of xilankapu weaving forming polygonal motifs."
+    },
+    {
+        "concept_id": "triangles",
+        "concept_name": "Triangles",
+        "aliases": ["three sides", "triangular", "triangle shape"],
+        "tujia_culture": "Roof trusses of stilted houses",
+        "explanation_text": "Each section of a diaojiaolou roof frame creates a triangle between the rafters and the ridge beam.",
+        "image_prompt": "Show triangular segments formed by the roof beams of a stilted house."
+    },
+    {
+        "concept_id": "quadrilaterals",
+        "concept_name": "Quadrilaterals",
+        "aliases": ["four sides", "rectangles", "squares", "trapezoids"],
+        "tujia_culture": "Woven squares in brocade",
+        "explanation_text": "The decorative square and rectangular panels of xilankapu brocade form quadrilateral shapes.",
+        "image_prompt": "Show a piece of xilankapu with repeating square and rectangular woven panels."
+    },
+    {
+        "concept_id": "perimeter",
+        "concept_name": "Perimeter",
+        "aliases": ["boundary length", "distance around", "outline measure"],
+        "tujia_culture": "Walking around a courtyard",
+        "explanation_text": "Measuring the distance around the courtyard of a stilted house is like finding the perimeter of a shape.",
+        "image_prompt": "Show people walking around the courtyard of a Tujia stilted house with a dashed perimeter line."
+    },
+    {
+        "concept_id": "area",
+        "concept_name": "Area",
+        "aliases": ["surface area", "space inside", "coverage"],
+        "tujia_culture": "Terraced field plots",
+        "explanation_text": "The ground covered by each terraced field cut into the mountainside represents its area.",
+        "image_prompt": "Show terraced fields on a mountainside, one plot shaded to show its area."
+    },
+    {
+        "concept_id": "volume",
+        "concept_name": "Volume",
+        "aliases": ["capacity", "space inside 3D shape", "liquid amount"],
+        "tujia_culture": "Grain storage barrels",
+        "explanation_text": "The amount of grain a wooden storage barrel can hold represents its volume.",
+        "image_prompt": "Show wooden grain barrels filled to different levels to illustrate volume."
+    },
+    {
+        "concept_id": "circle_properties",
+        "concept_name": "Circle Properties",
+        "aliases": ["radius", "diameter", "circumference", "circle geometry"],
+        "tujia_culture": "Top view of a round millstone",
+        "explanation_text": "Looking down at a round stone mill from above shows a perfect circle, illustrating diameter, radius, and circumference.",
+        "image_prompt": "Show a round stone mill from above labeled with radius and diameter lines."
+    },
+    {
+        "concept_id": "pi",
+        "concept_name": "Pi (π)",
+        "aliases": ["pi", "ratio of circumference", "3.14"],
+        "tujia_culture": "Round millstone wheels",
+        "explanation_text": "The relationship between a round millstone's circumference and diameter shows the constant ratio π.",
+        "image_prompt": "Show a circular stone mill labeled with circumference and diameter measurements."
+    },
+    {
+        "concept_id": "coordinate_plane",
+        "concept_name": "Coordinate Plane",
+        "aliases": ["x-y plane", "graph grid", "axes"],
+        "tujia_culture": "Weaving grid of the loom",
+        "explanation_text": "The warp and weft threads of a xilankapu loom cross like a grid, and each thread crossing has its own position—just like coordinates.",
+        "image_prompt": "Show a weaving grid of warp and weft threads labeled with x and y coordinates."
+    },
+    {
+        "concept_id": "plotting_points",
+        "concept_name": "Plotting Points",
+        "aliases": ["graphing points", "coordinates", "x-y plotting"],
+        "tujia_culture": "Marking village houses on a map",
+        "explanation_text": "Plotting the location of each stilted house in a mountain village on a map is like plotting points on a coordinate plane.",
+        "image_prompt": "Show a map of a mountain village with labeled stilted houses marked as points."
+    },
+    {
+        "concept_id": "symmetry",
+        "concept_name": "Symmetry",
+        "aliases": ["mirror image", "balanced halves", "reflection symmetry"],
+        "tujia_culture": "Mirrored xilankapu patterns",
+        "explanation_text": "The geometric designs of xilankapu brocade often mirror each other across the center line of the cloth, showing symmetry.",
+        "image_prompt": "Show a symmetrical xilankapu pattern split by a mirror line."
+    },
+    {
+        "concept_id": "transformations",
+        "concept_name": "Transformations",
+        "aliases": ["translate", "rotate", "reflect", "dilate"],
+        "tujia_culture": "Rotating Baishou dancers",
+        "explanation_text": "When Baishou dancers turn, shift sideways, and mirror one another's movements, it represents geometric transformations.",
+        "image_prompt": "Show Baishou dancers turning and shifting positions in the village square to illustrate transformations."
+    },
+    {
+        "concept_id": "ratios",
+        "concept_name": "Ratios",
+        "aliases": ["comparison", "proportion of quantities", "rate"],
+        "tujia_culture": "Mixing corn and rice",
+        "explanation_text": "When preparing a Tujia meal, the balance of corn to rice represents a ratio.",
+        "image_prompt": "Show bowls labeled with corn and rice ratios, like 2:1."
+    },
+    {
+        "concept_id": "proportions",
+        "concept_name": "Proportions",
+        "aliases": ["equal ratios", "scaling", "balance of ratios"],
+        "tujia_culture": "Enlarging a brocade design",
+        "explanation_text": "When a weaver scales up a xilankapu design while keeping the pattern identical, that is maintaining proportion.",
+        "image_prompt": "Show a small and large xilankapu cloth with the same geometric proportions."
+    },
+    {
+        "concept_id": "unit_rate",
+        "concept_name": "Unit Rate",
+        "aliases": ["per unit", "rate per one", "comparison per one unit"],
+        "tujia_culture": "Rice harvested per day",
+        "explanation_text": "The amount of rice one farmer harvests in a single day of terraced-field work is a unit rate.",
+        "image_prompt": "Show a farmer harvesting terraced rice fields with output measured as jin per day."
+    },
+    {
+        "concept_id": "scale_drawings",
+        "concept_name": "Scale Drawings",
+        "aliases": ["map scale", "drawing proportion", "scaled map"],
+        "tujia_culture": "Mapping a mountain village",
+        "explanation_text": "Drawing a smaller map of a large mountain village while keeping distances proportional is a scale drawing.",
+        "image_prompt": "Show a mountain village and a smaller scaled map side by side with a scale legend."
+    },
+    {
+        "concept_id": "percent_change",
+        "concept_name": "Percent Change",
+        "aliases": ["percent increase", "percent decrease", "growth rate"],
+        "tujia_culture": "Growth of the corn harvest",
+        "explanation_text": "If a family's corn harvest grows from 100 jin to 120 jin, that is a 20% increase—an example of percent change.",
+        "image_prompt": "Show corn harvest stacks growing in size with a +20% label."
+    },
+    {
+        "concept_id": "data_collection",
+        "concept_name": "Data Collection",
+        "aliases": ["gather data", "record information", "collect numbers"],
+        "tujia_culture": "Tallying the harvest",
+        "explanation_text": "Recording how many baskets of corn, rice, and potatoes a family brings in from the fields is an example of data collection.",
+        "image_prompt": "Show a farmer marking tallies of harvest baskets on a wooden tablet."
+    },
+    {
+        "concept_id": "tables_graphs",
+        "concept_name": "Tables and Graphs",
+        "aliases": ["data table", "bar graph", "chart"],
+        "tujia_culture": "Harvest data comparison",
+        "explanation_text": "Using a graph to show how much grain each family stored each season helps visualize data trends.",
+        "image_prompt": "Show a bar graph comparing harvest yields across four seasons."
+    },
+    {
+        "concept_id": "mean",
+        "concept_name": "Mean",
+        "aliases": ["average", "arithmetic mean", "mean value"],
+        "tujia_culture": "Average corn yield per field",
+        "explanation_text": "Finding the average amount of corn one terraced field produces per year shows the mean.",
+        "image_prompt": "Show a table of corn field outputs with an average value highlighted."
+    },
+    {
+        "concept_id": "median",
+        "concept_name": "Median",
+        "aliases": ["middle value", "data median"],
+        "tujia_culture": "Middle harvest of the families",
+        "explanation_text": "When family harvests are arranged from smallest to largest, the middle one is the median.",
+        "image_prompt": "Show harvest baskets lined up in order with the middle one highlighted as the median."
+    },
+    {
+        "concept_id": "mode",
+        "concept_name": "Mode",
+        "aliases": ["most frequent value", "common value"],
+        "tujia_culture": "Most common crop",
+        "explanation_text": "If most families in the village grow corn as their main crop, corn is the mode.",
+        "image_prompt": "Show baskets of different crops with corn being the most common."
+    },
+    {
+        "concept_id": "range",
+        "concept_name": "Range",
+        "aliases": ["difference", "spread of data", "highest minus lowest"],
+        "tujia_culture": "Difference in harvest sizes",
+        "explanation_text": "The gap between the largest and smallest family harvest shows the range.",
+        "image_prompt": "Show a bar chart with shortest and tallest harvest bars marked for range."
+    },
+    {
+        "concept_id": "bar_graphs",
+        "concept_name": "Bar Graphs",
+        "aliases": ["bar chart", "column graph"],
+        "tujia_culture": "Comparing family harvest counts",
+        "explanation_text": "Each bar represents how many baskets each family harvested—useful for quick comparisons.",
+        "image_prompt": "Show a bar graph labeled by family names with harvest basket totals."
+    },
+    {
+        "concept_id": "line_graphs",
+        "concept_name": "Line Graphs",
+        "aliases": ["trend graph", "line chart"],
+        "tujia_culture": "Tracking grain over the months",
+        "explanation_text": "A line graph shows how stored grain is used up over the months of the year.",
+        "image_prompt": "Show a line graph labeled with months and stored grain amounts."
+    },
+    {
+        "concept_id": "pie_charts",
+        "concept_name": "Pie Charts",
+        "aliases": ["circle chart", "percentage chart"],
+        "tujia_culture": "Distribution of mountain crops",
+        "explanation_text": "A pie chart can show the proportion of corn, rice, potatoes, and tea produced on a mountain farm.",
+        "image_prompt": "Show a pie chart divided into crop categories with percentages."
+    },
+    {
+        "concept_id": "probability",
+        "concept_name": "Probability",
+        "aliases": ["chance", "likelihood", "odds"],
+        "tujia_culture": "Guessing in Baishou games",
+        "explanation_text": "Estimating which hand a playmate will choose during a village game involves probability.",
+        "image_prompt": "Show children in a Tujia village playing a guessing game with probability labels above each choice."
+    },
+    {
+        "concept_id": "patterns",
+        "concept_name": "Patterns",
+        "aliases": ["repeating design", "sequence", "recurrence"],
+        "tujia_culture": "Geometric border designs",
+        "explanation_text": "Repeated geometric motifs woven into xilankapu borders represent visual patterns.",
+        "image_prompt": "Show repeating geometric designs woven in traditional xilankapu brocade."
+    },
+    {
+        "concept_id": "functions",
+        "concept_name": "Functions",
+        "aliases": ["input-output rule", "function relation", "mapping"],
+        "tujia_culture": "Harvest area vs yield",
+        "explanation_text": "If each size of terraced field gives a specific harvest amount, it is like a function—each input gives one output.",
+        "image_prompt": "Show a graph linking field size (input) to harvest amount (output)."
+    }
+]
