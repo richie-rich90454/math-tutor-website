@@ -6,19 +6,19 @@
         "dev": "node scripts/run-all.js frontend:dev backend:dev",
         "start": "node scripts/run-all.js frontend:start backend:start",
         "build": "node scripts/run-all.js frontend:build backend:build",
+        "test": "npm run frontend:test && npm run backend:test",
+        "format": "oxfmt --write .",
         "frontend:dev": "next dev --turbopack",
         "frontend:build": "next build",
         "frontend:start": "next start",
         "frontend:lint": "eslint src/",
-        "frontend:format": "prettier --write .",
         "frontend:test": "vitest run",
         "frontend:typecheck": "tsc --noEmit",
+        "frontend:legacy:i18n": "node scripts/generate-legacy-i18n.js",
         "backend:dev": "cd backend && mvn spring-boot:run",
         "backend:build": "cd backend && mvn package",
         "backend:start": "cd backend && java -jar target/math-tutor-backend-1.0.0.jar",
-        "backend:test": "cd backend && mvn test",
-        "legacy:i18n": "node scripts/generate-legacy-i18n.js",
-        "test": "npm run frontend:test && npm run backend:test"
+        "backend:test": "cd backend && mvn test"
     },
     "dependencies": {
         "@gsap/react": "^2.1.2",
