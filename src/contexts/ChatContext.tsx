@@ -10,6 +10,7 @@ export interface ChatSession {
     timestamp: string;
     preview: string;
     topic?: string | null;
+    isPinned?: boolean;
     messages: ChatMessage[];
 }
 
@@ -29,6 +30,7 @@ interface ChatContextType {
     addMessage: (chatId: string, message: ChatMessage) => void;
     deleteChat: (chatId: string) => Promise<void>;
     renameChat: (chatId: string, newTitle: string) => Promise<void>;
+    togglePinChat: (chatId: string) => Promise<void>;
     loadChatHistory: () => Promise<void>;
     syncChatId: (oldId: string, newId: string) => void;
 }
@@ -120,7 +122,7 @@ export function ChatProvider({ children }: { children: ReactNode }) {
                 const res = await apiFetch(`/api/chats/${chatId}`, {
                     method: "PATCH",
                     headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ title: newTitle }),
+                    body: JSON.stringify({ title: newTitle, preview: newTitle }),
                 });
                 if (res.ok) {
                     setChatHistory((prev) =>
@@ -141,6 +143,35 @@ export function ChatProvider({ children }: { children: ReactNode }) {
         [currentChat],
     );
 
+    const togglePinChat = useCallback(
+        async (chatId: string) => {
+            try {
+                const chat = chatHistory.find((c) => c.id === chatId);
+                const nextPinned = !(chat?.isPinned ?? false);
+                const res = await apiFetch(`/api/chats/${chatId}`, {
+                    method: "PATCH",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ is_pinned: nextPinned }),
+                });
+                if (res.ok) {
+                    setChatHistory((prev) =>
+                        prev.map((chat) =>
+                            chat.id === chatId ? { ...chat, isPinned: nextPinned } : chat,
+                        ),
+                    );
+                    if (currentChat?.id === chatId) {
+                        setCurrentChat((prev) =>
+                            prev ? { ...prev, isPinned: nextPinned } : prev,
+                        );
+                    }
+                }
+            } catch {
+                // Silently fail
+            }
+        },
+        [chatHistory, currentChat],
+    );
+
     return (
         <ChatContext.Provider
             value={{
@@ -152,6 +183,7 @@ export function ChatProvider({ children }: { children: ReactNode }) {
                 addMessage,
                 deleteChat,
                 renameChat,
+                togglePinChat,
                 loadChatHistory,
                 syncChatId,
             }}
