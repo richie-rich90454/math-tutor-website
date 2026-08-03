@@ -1,0 +1,565 @@
+[
+    {
+        "concept_id": "place_value",
+        "concept_name": "Place Value",
+        "aliases": [
+            "place value",
+            "digit place",
+            "number place",
+            "units place",
+            "tens place",
+            "hundreds place",
+            "position of digits",
+            "digit position"
+        ],
+        "arabic_culture": "Souk stalls in numbered lanes",
+        "explanation_text": "In a souk, a stall's lane number tells you which section it is in, just as the position of a digit tells you its value: a 3 in the tens lane means three tens.",
+        "image_prompt": "Illustrate a souk with lanes labeled ones, tens, and hundreds, showing how a stall's position in its lane gives it its value."
+    },
+    {
+        "concept_id": "addition_subtraction",
+        "concept_name": "Addition & Subtraction",
+        "aliases": [
+            "add",
+            "addition",
+            "plus",
+            "sum",
+            "combine",
+            "total",
+            "subtract",
+            "subtraction",
+            "minus",
+            "take away",
+            "difference"
+        ],
+        "arabic_culture": "Loading date sacks onto camels",
+        "explanation_text": "Loading more sacks of dates onto a caravan camel increases the load; unloading sacks decreases it, just like addition and subtraction.",
+        "image_prompt": "Show caravan workers loading and unloading date sacks onto camels, with the count of sacks increasing and decreasing."
+    },
+    {
+        "concept_id": "multiplication_division",
+        "concept_name": "Multiplication & Division",
+        "aliases": [
+            "multiply",
+            "multiplication",
+            "times",
+            "groups of",
+            "repeated addition",
+            "divide",
+            "division",
+            "split equally",
+            "sharing"
+        ],
+        "arabic_culture": "Rows of date trays at the souk",
+        "explanation_text": "Rows of identical date trays in a souk show multiplication as repeated equal groups, and splitting the trays evenly among stalls shows division.",
+        "image_prompt": "Display equal rows of date trays at a souk stall, showing equal grouping for multiplication and even sharing for division."
+    },
+    {
+        "concept_id": "even_odd",
+        "concept_name": "Even and Odd Numbers",
+        "aliases": [
+            "even numbers",
+            "odd numbers",
+            "even",
+            "odd",
+            "pairs",
+            "leftover",
+            "no remainder",
+            "remains one"
+        ],
+        "arabic_culture": "Pairs of slippers at a mosque door",
+        "explanation_text": "Slippers left in pairs at a mosque entrance show even numbers; a single slipper left over makes the count odd.",
+        "image_prompt": "Show pairs of slippers lined up at a mosque entrance with one single slipper left over to represent an odd number."
+    },
+    {
+        "concept_id": "skip_counting",
+        "concept_name": "Skip Counting / Number Patterns",
+        "aliases": [
+            "skip counting",
+            "count by 2s",
+            "count by 5s",
+            "count by 10s",
+            "jump counting",
+            "repeating numbers",
+            "number patterns"
+        ],
+        "arabic_culture": "Zellige tile sequences",
+        "explanation_text": "Zellige tiles repeat in rhythmical color sequences, and counting every fifth tile follows the same idea as skip counting by fives.",
+        "image_prompt": "Show a zellige tile pattern with every fifth tile highlighted to illustrate skip counting."
+    },
+    {
+        "concept_id": "comparing_numbers",
+        "concept_name": "Comparing and Ordering Numbers",
+        "aliases": [
+            "compare numbers",
+            "greater than",
+            "less than",
+            "more than",
+            "fewer than",
+            "biggest",
+            "smallest",
+            "ordering numbers",
+            "number order"
+        ],
+        "arabic_culture": "Minaret heights on the skyline",
+        "explanation_text": "Comparing the heights of minarets against the sky shows which is greater and which is smaller, like comparing numbers.",
+        "image_prompt": "Show several minarets of different heights with greater-than and less-than symbols placed between them."
+    },
+    {
+        "concept_id": "rounding_estimation",
+        "concept_name": "Rounding & Estimation",
+        "aliases": [
+            "round",
+            "rounding",
+            "estimate",
+            "estimation",
+            "approximate",
+            "about how much",
+            "close to",
+            "nearby number"
+        ],
+        "arabic_culture": "Estimating rice for kabsa",
+        "explanation_text": "A cook estimating how many handfuls of rice fill a pot of kabsa is rounding to a convenient amount, just like rounding and estimation.",
+        "image_prompt": "Show a cook scooping rice for kabsa while estimating, with the nearest rounded amounts labeled beside the pot."
+    },
+    {
+        "concept_id": "fractions",
+        "concept_name": "Fractions",
+        "aliases": ["fraction", "part of a whole", "portion", "share", "numerator", "denominator"],
+        "arabic_culture": "Sharing flatbread equally",
+        "explanation_text": "When a round khubz flatbread is shared equally among diners, each person receives a fraction of the whole loaf.",
+        "image_prompt": "Show a round flatbread divided into equal slices among diners, each slice labeled as a fraction of the whole."
+    },
+    {
+        "concept_id": "equivalent_fractions",
+        "concept_name": "Equivalent Fractions",
+        "aliases": ["equal fractions", "same value", "fraction equality", "equivalent"],
+        "arabic_culture": "Cutting knafeh two ways",
+        "explanation_text": "Cutting a tray of knafeh into 2 halves or into 4 quarters gives the same total amount, just as equivalent fractions have equal value.",
+        "image_prompt": "Show a tray of knafeh cut first into halves and then into quarters, demonstrating equal amounts."
+    },
+    {
+        "concept_id": "simplifying_fractions",
+        "concept_name": "Simplifying Fractions",
+        "aliases": ["reduce fraction", "lowest terms", "simplify fraction"],
+        "arabic_culture": "Combining small piles of spice",
+        "explanation_text": "When small piles of the same spice are combined into one pile, the count is simplified, just like reducing a fraction to its lowest terms.",
+        "image_prompt": "Depict small piles of spice merging into one larger pile, with fractions shown in their reduced form."
+    },
+    {
+        "concept_id": "mixed_numbers",
+        "concept_name": "Mixed Numbers",
+        "aliases": ["mixed number", "whole and fraction", "whole part and fraction part"],
+        "arabic_culture": "Full and half jars of honey",
+        "explanation_text": "Three full jars of honey and one half jar make three and a half jars, which is a mixed number.",
+        "image_prompt": "Show three full honey jars and one half-full jar labeled as 3½."
+    },
+    {
+        "concept_id": "improper_fractions",
+        "concept_name": "Improper Fractions",
+        "aliases": ["top-heavy fraction", "numerator larger", "greater than one fraction"],
+        "arabic_culture": "Honey jars beyond a full tray",
+        "explanation_text": "When honey fills more than one full portion but each serving is measured in the same size, the amount is an improper fraction.",
+        "image_prompt": "Show small honey jars filled past one whole portion, symbolizing fractions greater than one."
+    },
+    {
+        "concept_id": "adding_fractions",
+        "concept_name": "Adding Fractions",
+        "aliases": ["fraction addition", "add fractions", "sum of fractions"],
+        "arabic_culture": "Combining olive oil portions",
+        "explanation_text": "Pouring portions of olive oil from different small jugs into one larger jar shows how fractional amounts combine to make a whole.",
+        "image_prompt": "Show small jugs of olive oil being poured together into one large jar to make a whole amount."
+    },
+    {
+        "concept_id": "subtracting_fractions",
+        "concept_name": "Subtracting Fractions",
+        "aliases": ["fraction subtraction", "take away fractions", "difference of fractions"],
+        "arabic_culture": "Sipping from a cup of mint tea",
+        "explanation_text": "Sipping part of a cup of mint tea leaves less tea, which shows subtracting a fractional part.",
+        "image_prompt": "Show a glass of mint tea with part of it sipped or poured away, with the remaining fraction labeled."
+    },
+    {
+        "concept_id": "multiplying_fractions",
+        "concept_name": "Multiplying Fractions",
+        "aliases": ["fraction multiplication", "part of a part", "multiply fractions"],
+        "arabic_culture": "Half of a half bowl of hummus",
+        "explanation_text": "Taking half of a half bowl of hummus means finding a fraction of a fraction, which is multiplying fractions.",
+        "image_prompt": "Show a bowl of hummus halved, and one half divided again, revealing the smaller portions."
+    },
+    {
+        "concept_id": "dividing_fractions",
+        "concept_name": "Dividing Fractions",
+        "aliases": ["fraction division", "divide fractions", "how many times in"],
+        "arabic_culture": "Splitting dough for pastries",
+        "explanation_text": "Dividing one portion of pastry dough into smaller equal pieces represents dividing a fraction by another fraction.",
+        "image_prompt": "Show a ball of dough being cut into smaller equal pieces to illustrate fractional division."
+    },
+    {
+        "concept_id": "decimals",
+        "concept_name": "Decimals",
+        "aliases": ["decimal point", "tenths", "hundredths", "decimal number"],
+        "arabic_culture": "Measuring olive oil in liters",
+        "explanation_text": "Measuring olive oil in liters and milliliters uses decimals, so 1.5 liters means one and a half liters.",
+        "image_prompt": "Show a measuring jug marked 1.0, 1.5, and 2.0 liters of olive oil."
+    },
+    {
+        "concept_id": "converting_fractions_decimals",
+        "concept_name": "Converting Fractions and Decimals",
+        "aliases": ["fraction to decimal", "decimal to fraction", "convert fractions"],
+        "arabic_culture": "Half liter or 0.5 of tea",
+        "explanation_text": "Saying half a liter or 0.5 liters describes the same amount, just as fractions and decimals can name the same value.",
+        "image_prompt": "Show two glasses, one labeled ½ and the other 0.5, holding the same amount of tea."
+    },
+    {
+        "concept_id": "percents",
+        "concept_name": "Percents",
+        "aliases": ["percent", "percentage", "per hundred", "rate per 100"],
+        "arabic_culture": "Dates per hundred at harvest",
+        "explanation_text": "If 90 out of every 100 dates ripen first, that is 90 percent, because percents express parts per hundred.",
+        "image_prompt": "Show a date harvest where 90 of 100 labeled dates are ripe, marked with a 90 percent label."
+    },
+    {
+        "concept_id": "percent_of_number",
+        "concept_name": "Percent of a Number",
+        "aliases": ["percentage of number", "find percent", "portion of total"],
+        "arabic_culture": "Bargaining discounts at the souk",
+        "explanation_text": "A 10 percent discount when bargaining for a rug at the souk shows how percents are used to find a part of a number.",
+        "image_prompt": "Show a souk stall sign reading 10 percent off with price tags showing the reduced amounts."
+    },
+    {
+        "concept_id": "variables",
+        "concept_name": "Variables",
+        "aliases": ["variable", "unknown", "letter as number", "symbol in math"],
+        "arabic_culture": "Unlabeled spice jars",
+        "explanation_text": "A spice jar without a label stands for an unknown quantity, just like a variable in mathematics.",
+        "image_prompt": "Show labeled spice jars alongside an unlabeled jar marked with x."
+    },
+    {
+        "concept_id": "expressions",
+        "concept_name": "Expressions",
+        "aliases": ["math expressions", "numerical expressions", "algebraic expressions"],
+        "arabic_culture": "Known and unlabeled spice jars",
+        "explanation_text": "Two known jars of spice plus an unknown number more can be written as the expression 2 + x.",
+        "image_prompt": "Show two labeled spice jars plus an unlabeled one, represented as 2 + x."
+    },
+    {
+        "concept_id": "equations",
+        "concept_name": "Equations",
+        "aliases": ["math equations", "equal statements", "algebra equations"],
+        "arabic_culture": "Balance scale in the souk",
+        "explanation_text": "When both pans of a trader's balance scale hold equal weight, the scale is level, just like both sides of an equation.",
+        "image_prompt": "Show a traditional balance scale with equal goods on both pans, labeled as an equation."
+    },
+    {
+        "concept_id": "solving_one_step_equations",
+        "concept_name": "Solving One-Step Equations",
+        "aliases": ["one-step equations", "simple equations"],
+        "arabic_culture": "Balancing goods on the scale",
+        "explanation_text": "Adding or removing a weight on one pan of a balance until both sides match is like solving a one-step equation.",
+        "image_prompt": "Show a balance scale being balanced by adding a single weight to one pan, like solving a one-step equation."
+    },
+    {
+        "concept_id": "solving_two_step_equations",
+        "concept_name": "Solving Two-Step Equations",
+        "aliases": ["two-step equations", "multi-step equations"],
+        "arabic_culture": "Brewing mint tea step by step",
+        "explanation_text": "Brewing mint tea needs two steps, boiling the water and then adding the mint, just as solving a two-step equation requires two moves.",
+        "image_prompt": "Show the two steps of making mint tea, boiling water then adding mint, mirroring step-by-step equation solving."
+    },
+    {
+        "concept_id": "inequalities",
+        "concept_name": "Inequalities",
+        "aliases": ["greater than", "less than", "not equal", "comparison statements"],
+        "arabic_culture": "Comparing camel caravans",
+        "explanation_text": "When one caravan has more camels than another, the comparison is an inequality, like greater than or less than.",
+        "image_prompt": "Show two camel caravans of different sizes with greater-than and less-than symbols between them."
+    },
+    {
+        "concept_id": "order_of_operations",
+        "concept_name": "Order of Operations (PEMDAS)",
+        "aliases": ["PEMDAS", "BODMAS", "math order", "operations order"],
+        "arabic_culture": "Brewing Arabic coffee in order",
+        "explanation_text": "Arabic coffee is brewed in a fixed order, roasting, grinding, then brewing, so following the correct sequence matters just as in the order of operations.",
+        "image_prompt": "Show the fixed steps of brewing Arabic coffee, labeled like the parentheses, exponents, and multiplication steps of the order of operations."
+    },
+    {
+        "concept_id": "substitution",
+        "concept_name": "Substitution",
+        "aliases": ["replace variable", "substitute value", "replace letter with number"],
+        "arabic_culture": "Replacing a missing mosaic tile",
+        "explanation_text": "Fitting an identical replacement tile into an empty spot in a mosaic is like substituting a value for a variable.",
+        "image_prompt": "Show an empty spot in a mosaic being filled with an identical tile, representing substitution."
+    },
+    {
+        "concept_id": "points",
+        "concept_name": "Points",
+        "aliases": ["dot", "location", "coordinate point"],
+        "arabic_culture": "Stars over the desert night",
+        "explanation_text": "Each star in the desert sky marks a fixed position, like a point in geometry.",
+        "image_prompt": "Show a starry desert sky with individual stars labeled as points on a coordinate grid."
+    },
+    {
+        "concept_id": "lines",
+        "concept_name": "Lines",
+        "aliases": ["straight line", "geometry line", "infinite line"],
+        "arabic_culture": "Calligraphy strokes of a qalam",
+        "explanation_text": "The long straight strokes drawn by a calligrapher's qalam pen follow a line that extends in both directions, like a geometric line.",
+        "image_prompt": "Show calligraphy strokes extending straight across parchment, representing geometric lines."
+    },
+    {
+        "concept_id": "angles",
+        "concept_name": "Angles",
+        "aliases": ["angle", "degree", "corner measure"],
+        "arabic_culture": "Fold of a Bedouin tent",
+        "explanation_text": "Where two walls of a Bedouin tent meet, a fold forms an angle between them.",
+        "image_prompt": "Show a Bedouin tent with the fold between two walls clearly marked as an angle."
+    },
+    {
+        "concept_id": "perpendicular_lines",
+        "concept_name": "Perpendicular Lines",
+        "aliases": ["right angle lines", "intersecting lines", "orthogonal lines"],
+        "arabic_culture": "Mashrabiya lattice intersections",
+        "explanation_text": "The wooden strips of a mashrabiya lattice cross at right angles, forming perpendicular lines.",
+        "image_prompt": "Show mashrabiya latticework with its wooden strips meeting at 90-degree angles."
+    },
+    {
+        "concept_id": "parallel_lines",
+        "concept_name": "Parallel Lines",
+        "aliases": ["side-by-side lines", "never meet", "equal distance lines"],
+        "arabic_culture": "Caravan tracks across the dunes",
+        "explanation_text": "The twin tracks left by a camel caravan across the desert never meet, like parallel lines.",
+        "image_prompt": "Show two camel caravan tracks running side by side across desert dunes."
+    },
+    {
+        "concept_id": "polygons",
+        "concept_name": "Polygons",
+        "aliases": ["shapes", "closed figure", "many-sided shape"],
+        "arabic_culture": "Star polygons in Islamic art",
+        "explanation_text": "The eight-pointed and twelve-pointed stars in Islamic geometric art are closed many-sided shapes, or polygons.",
+        "image_prompt": "Show eight-pointed and twelve-pointed star polygons in an Islamic geometric pattern."
+    },
+    {
+        "concept_id": "triangles",
+        "concept_name": "Triangles",
+        "aliases": ["three sides", "triangular", "triangle shape"],
+        "arabic_culture": "Triangular sails of dhows",
+        "explanation_text": "The triangular lateen sails of a dhow form a three-sided shape, a triangle.",
+        "image_prompt": "Show dhows with triangular lateen sails on the open sea."
+    },
+    {
+        "concept_id": "quadrilaterals",
+        "concept_name": "Quadrilaterals",
+        "aliases": ["four sides", "rectangles", "squares", "trapezoids"],
+        "arabic_culture": "Rectangular courtyard tiles",
+        "explanation_text": "The rectangular tiles laid across a courtyard are four-sided shapes, quadrilaterals.",
+        "image_prompt": "Show a courtyard floor tiled with squares and rectangles."
+    },
+    {
+        "concept_id": "perimeter",
+        "concept_name": "Perimeter",
+        "aliases": ["boundary length", "distance around", "outline measure"],
+        "arabic_culture": "Walking the medina walls",
+        "explanation_text": "Measuring the distance all the way around the walls of a medina is finding the perimeter of the old city.",
+        "image_prompt": "Show a medina with a dashed line tracing the perimeter of its city walls."
+    },
+    {
+        "concept_id": "area",
+        "concept_name": "Area",
+        "aliases": ["surface area", "space inside", "coverage"],
+        "arabic_culture": "Prayer rug covering the floor",
+        "explanation_text": "The amount of floor a prayer rug covers is its area.",
+        "image_prompt": "Show a prayer rug spread across a floor, shaded to show its area."
+    },
+    {
+        "concept_id": "volume",
+        "concept_name": "Volume",
+        "aliases": ["capacity", "space inside 3D shape", "liquid amount"],
+        "arabic_culture": "Water jars from the well",
+        "explanation_text": "The amount of water an earthenware jar can hold is its volume.",
+        "image_prompt": "Show earthenware water jars filled to different levels to illustrate volume."
+    },
+    {
+        "concept_id": "circle_properties",
+        "concept_name": "Circle Properties",
+        "aliases": ["radius", "diameter", "circumference", "circle geometry"],
+        "arabic_culture": "Dome of a mosque",
+        "explanation_text": "Seen from below, the dome of a mosque is a perfect circle, showing its radius, diameter, and circumference.",
+        "image_prompt": "Show a mosque dome from below, labeled with radius and diameter lines."
+    },
+    {
+        "concept_id": "pi",
+        "concept_name": "Pi (π)",
+        "aliases": ["pi", "ratio of circumference", "3.14"],
+        "arabic_culture": "Round knafeh tray",
+        "explanation_text": "Measuring the rim of a round knafeh tray and comparing it to its width across shows the constant ratio pi.",
+        "image_prompt": "Show a round knafeh tray labeled with circumference and diameter measurements."
+    },
+    {
+        "concept_id": "coordinate_plane",
+        "concept_name": "Coordinate Plane",
+        "aliases": ["x-y plane", "graph grid", "axes"],
+        "arabic_culture": "Souk lanes in a grid",
+        "explanation_text": "A souk laid out in lanes and cross-lanes forms a grid, where every stall has a position like a coordinate.",
+        "image_prompt": "Show a souk map laid out on a grid labeled with x and y axes."
+    },
+    {
+        "concept_id": "plotting_points",
+        "concept_name": "Plotting Points",
+        "aliases": ["graphing points", "coordinates", "x-y plotting"],
+        "arabic_culture": "Mapping caravan oases",
+        "explanation_text": "Marking each oasis on a caravan route map is like plotting points on a coordinate plane.",
+        "image_prompt": "Show a desert map with oasis locations marked as points on a grid."
+    },
+    {
+        "concept_id": "symmetry",
+        "concept_name": "Symmetry",
+        "aliases": ["mirror image", "balanced halves", "reflection symmetry"],
+        "arabic_culture": "Mirrored tile patterns",
+        "explanation_text": "Islamic geometric tiles mirror across a central line so the two halves match exactly, and that is symmetry.",
+        "image_prompt": "Show a symmetrical Islamic tile pattern split by a mirror line."
+    },
+    {
+        "concept_id": "transformations",
+        "concept_name": "Transformations",
+        "aliases": ["translate", "rotate", "reflect", "dilate"],
+        "arabic_culture": "Rotating tiles in girih patterns",
+        "explanation_text": "Rotating and reflecting the same tile to build a girih pattern is applying geometric transformations.",
+        "image_prompt": "Show a single girih tile being rotated and reflected to build a larger pattern."
+    },
+    {
+        "concept_id": "ratios",
+        "concept_name": "Ratios",
+        "aliases": ["comparison", "proportion of quantities", "rate"],
+        "arabic_culture": "Blending coffee and cardamom",
+        "explanation_text": "Brewing Arabic coffee uses a set balance of coffee to cardamom, a ratio of ingredients.",
+        "image_prompt": "Show a pot with coffee and cardamom in the ratio 2:1."
+    },
+    {
+        "concept_id": "proportions",
+        "concept_name": "Proportions",
+        "aliases": ["equal ratios", "scaling", "balance of ratios"],
+        "arabic_culture": "Scaling a carpet pattern",
+        "explanation_text": "Weaving a carpet pattern larger while keeping every part in the same relation keeps the proportion unchanged.",
+        "image_prompt": "Show a small and a large carpet with the same pattern and proportions."
+    },
+    {
+        "concept_id": "unit_rate",
+        "concept_name": "Unit Rate",
+        "aliases": ["per unit", "rate per one", "comparison per one unit"],
+        "arabic_culture": "Camel caravan daily pace",
+        "explanation_text": "The distance a caravan camel travels in one day is a unit rate, such as 30 kilometers per day.",
+        "image_prompt": "Show a camel caravan with its pace labeled as kilometers per day."
+    },
+    {
+        "concept_id": "scale_drawings",
+        "concept_name": "Scale Drawings",
+        "aliases": ["map scale", "drawing proportion", "scaled map"],
+        "arabic_culture": "Al-Idrisi's world map",
+        "explanation_text": "Like the world map drawn by the Andalusian geographer al-Idrisi, a smaller map keeps distances proportional to the real land, making it a scale drawing.",
+        "image_prompt": "Show al-Idrisi's world map alongside a compass and a scale legend."
+    },
+    {
+        "concept_id": "percent_change",
+        "concept_name": "Percent Change",
+        "aliases": ["percent increase", "percent decrease", "growth rate"],
+        "arabic_culture": "Growing date harvest",
+        "explanation_text": "If a palm grove yields 100 baskets of dates one year and 120 the next, that is a 20 percent increase, an example of percent change.",
+        "image_prompt": "Show baskets of dates increasing in number with a +20 percent label."
+    },
+    {
+        "concept_id": "data_collection",
+        "concept_name": "Data Collection",
+        "aliases": ["gather data", "record information", "collect numbers"],
+        "arabic_culture": "Tallying caravan goods in a ledger",
+        "explanation_text": "Recording how many sacks of spices, dates, and textiles a caravan carries is an example of data collection.",
+        "image_prompt": "Show a trader marking tallies of caravan goods in a ledger."
+    },
+    {
+        "concept_id": "tables_graphs",
+        "concept_name": "Tables and Graphs",
+        "aliases": ["data table", "bar graph", "chart"],
+        "arabic_culture": "Camel sale charts",
+        "explanation_text": "A graph comparing camel sales from month to month helps traders see trends in the data.",
+        "image_prompt": "Show a bar graph comparing camel sales across the months."
+    },
+    {
+        "concept_id": "mean",
+        "concept_name": "Mean",
+        "aliases": ["average", "arithmetic mean", "mean value"],
+        "arabic_culture": "Average date yield per palm",
+        "explanation_text": "Adding the baskets of dates from several palm trees and dividing by the number of trees gives the mean yield.",
+        "image_prompt": "Show a table of date yields from palm trees with the average value highlighted."
+    },
+    {
+        "concept_id": "median",
+        "concept_name": "Median",
+        "aliases": ["middle value", "data median"],
+        "arabic_culture": "Middle price at the souk",
+        "explanation_text": "When stall prices are arranged from lowest to highest, the middle price is the median.",
+        "image_prompt": "Show stall prices lined up in order with the middle one highlighted as the median."
+    },
+    {
+        "concept_id": "mode",
+        "concept_name": "Mode",
+        "aliases": ["most frequent value", "common value"],
+        "arabic_culture": "Most common Arabian horse color",
+        "explanation_text": "If most Arabian horses in a herd are bay, that color is the mode of the herd.",
+        "image_prompt": "Show Arabian horses of several colors with bay being the most common."
+    },
+    {
+        "concept_id": "range",
+        "concept_name": "Range",
+        "aliases": ["difference", "spread of data", "highest minus lowest"],
+        "arabic_culture": "Tallest to shortest minaret",
+        "explanation_text": "The difference between the tallest and shortest minaret in a city is the range of their heights.",
+        "image_prompt": "Show a chart of minaret heights with the tallest and shortest marked to show the range."
+    },
+    {
+        "concept_id": "bar_graphs",
+        "concept_name": "Bar Graphs",
+        "aliases": ["bar chart", "column graph"],
+        "arabic_culture": "Oasis water use by family",
+        "explanation_text": "A bar graph showing how much water each family draws from the oasis well makes the amounts easy to compare.",
+        "image_prompt": "Show a bar graph labeled by family names with their water amounts."
+    },
+    {
+        "concept_id": "line_graphs",
+        "concept_name": "Line Graphs",
+        "aliases": ["trend graph", "line chart"],
+        "arabic_culture": "Desert temperatures by month",
+        "explanation_text": "A line graph tracing how desert temperatures change from month to month shows the yearly trend.",
+        "image_prompt": "Show a line graph labeled with months and desert temperatures."
+    },
+    {
+        "concept_id": "pie_charts",
+        "concept_name": "Pie Charts",
+        "aliases": ["circle chart", "percentage chart"],
+        "arabic_culture": "Caravan cargo proportions",
+        "explanation_text": "A pie chart shows the share of each good in a caravan's cargo, such as spices, dates, textiles, and oil.",
+        "image_prompt": "Show a pie chart divided into caravan cargo categories with percentages."
+    },
+    {
+        "concept_id": "probability",
+        "concept_name": "Probability",
+        "aliases": ["chance", "likelihood", "odds"],
+        "arabic_culture": "Odds in a camel race",
+        "explanation_text": "Estimating which camel is most likely to win a race is a question of probability.",
+        "image_prompt": "Show camels at a race start line with probability labels above each."
+    },
+    {
+        "concept_id": "patterns",
+        "concept_name": "Patterns",
+        "aliases": ["repeating design", "sequence", "recurrence"],
+        "arabic_culture": "Repeating Islamic geometric designs",
+        "explanation_text": "The endlessly repeating geometric motifs in Islamic art are visual patterns.",
+        "image_prompt": "Show repeating geometric designs in Islamic art across a wall of tiles."
+    },
+    {
+        "concept_id": "functions",
+        "concept_name": "Functions",
+        "aliases": ["input-output rule", "function relation", "mapping"],
+        "arabic_culture": "Artisan tiles per hour",
+        "explanation_text": "If each hour an artisan works produces a set number of tiles, then each input, the hours, gives one output, the tiles, which is a function.",
+        "image_prompt": "Show a graph linking hours worked as input to tiles produced as output."
+    }
+]
