@@ -13,10 +13,11 @@ import java.util.List;
  * socket remote address, which clients cannot spoof. This prevents both
  * rate-limit bypass via forged headers and the shared "unknown" bucket.
  *
- * Origin checks: state-changing requests from a browser carry an Origin
- * header on cross-origin requests; same-origin requests do not. Verifying the
- * Origin (when present) against the configured allowed origins is a CSRF
- * defense in depth on top of SameSite cookies.
+ * Origin checks: browsers send an Origin header on mutating requests even
+ * when same-origin (e.g. the legacy client served from the backend itself),
+ * so a request whose Origin matches the request's own host is treated as
+ * same-origin and allowed. Anything else is verified against the configured
+ * allowed origins as a CSRF defense in depth on top of SameSite cookies.
  */
 public final class RequestSecurity {
 
@@ -45,7 +46,19 @@ public final class RequestSecurity {
         if (origin == null || origin.isBlank()) {
             return true;
         }
-        return allowedOrigins.contains(origin);
+        return isSameOrigin(request, origin) || allowedOrigins.contains(origin);
+    }
+
+    private static boolean isSameOrigin(HttpServletRequest request, String origin) {
+        String scheme = request.getScheme();
+        String host = request.getServerName();
+        int port = request.getServerPort();
+        boolean defaultPort = ("http".equals(scheme) && port == 80)
+                || ("https".equals(scheme) && port == 443);
+        String self = defaultPort
+                ? scheme + "://" + host
+                : scheme + "://" + host + ":" + port;
+        return origin.equalsIgnoreCase(self);
     }
 
     private static boolean isTrustProxy() {
