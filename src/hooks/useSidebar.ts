@@ -30,7 +30,7 @@ interface UseSidebarProps {
     onShowShortcuts?: () => void;
 }
 
-export function useSidebar({ isOpen, onToggle, onChatSelect, onShowShortcuts }: UseSidebarProps) {
+export function useSidebar({ isOpen, onToggle, onChatSelect }: UseSidebarProps) {
     const { t } = useLanguage();
     const { chatHistory, setCurrentChat, currentChat, deleteChat, renameChat, togglePinChat, isHistoryLoading } =
         useChat();
