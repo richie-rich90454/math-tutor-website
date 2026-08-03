@@ -387,6 +387,8 @@
         el("inputBar").className = "input-bar";
         el("headerNewChat").className = "header-btn";
         el("headerExport").className = "header-btn";
+        el("headerNotes").className = "header-btn";
+        el("headerShare").className = "header-btn";
         var row = el("chatBodyRow");
         if (row) {
             row.valign = "top";
@@ -445,6 +447,8 @@
         el("inputBar").className = authenticated ? "input-bar" : "input-bar hidden";
         el("headerNewChat").className = "header-btn hidden";
         el("headerExport").className = "header-btn hidden";
+        el("headerNotes").className = "header-btn hidden";
+        el("headerShare").className = "header-btn hidden";
         var row = el("chatBodyRow");
         if (row) {
             row.valign = "middle";
@@ -455,6 +459,113 @@
         } else {
             authPrompt.className = "hidden";
         }
+        loadLearningCards();
+    }
+
+    // ---------- Quota banner (E) ----------
+    function refreshQuota(xhr) {
+        var banner = el("quotaBanner");
+        if (!banner) {
+            return;
+        }
+        var warn = false;
+        try {
+            warn = xhr.getResponseHeader && xhr.getResponseHeader("X-Quota-Warning") === "true";
+        } catch (e) {
+        }
+        if (warn) {
+            banner.className = "quota-banner";
+        } else {
+            banner.className = "quota-banner hidden";
+        }
+    }
+
+    // ---------- Learning cards (B11 + B9) ----------
+    function loadLearningCards() {
+        var host = el("learningCards");
+        if (!host) {
+            return;
+        }
+        var html = "";
+        $.ajax({
+            url: API_BASE_URL + "/api/problem-of-day?language=" + encodeURIComponent(MathTutor.currentLanguage),
+            dataType: "json",
+            success: function (data) {
+                var p = data && data.problem;
+                if (p && p.question) {
+                    html += '<a class="learning-card" href="/legacy/practice.html">'
+                        + '<span class="learning-card-tag">' + MathTutor.escapeHtml(MathTutor.t("problemOfDay")) + "</span>"
+                        + '<span class="learning-card-text">' + MathTutor.escapeHtml(p.question) + "</span></a>";
+                }
+                if (MathTutor.isAuthenticated()) {
+                    $.ajax({
+                        url: API_BASE_URL + "/api/review",
+                        dataType: "json",
+                        success: function (rd) {
+                            var n = (rd && rd.items) ? rd.items.length : 0;
+                            if (n > 0) {
+                                html += '<a class="learning-card" href="/legacy/practice.html">'
+                                    + '<span class="learning-card-tag">' + MathTutor.escapeHtml(MathTutor.t("reviewDue")) + "</span>"
+                                    + '<span class="learning-card-text">' + n + " " + MathTutor.escapeHtml(MathTutor.t("reviewDueToday")) + "</span></a>";
+                            }
+                            host.innerHTML = html;
+                        },
+                        error: function () {
+                            host.innerHTML = html;
+                        }
+                    });
+                } else {
+                    host.innerHTML = html;
+                }
+            },
+            error: function () {
+            }
+        });
+    }
+
+    // ---------- Notes + Share (D18 + D19) ----------
+    function handleNotes() {
+        if (!activeChatId) {
+            return;
+        }
+        MathTutor.api({
+            url: "/api/chats/" + encodeURIComponent(activeChatId) + "/notes",
+            method: "POST",
+            data: { language: MathTutor.currentLanguage },
+            success: function (data) {
+                var note = data && data.note ? data.note : "";
+                showModal(MathTutor.t("notes"), '<div class="note-text">' + MathTutor.escapeHtml(note) + "</div>",
+                    function () {
+                        hideModal();
+                    });
+            },
+            error: function (msg) {
+                alert(msg);
+            }
+        });
+    }
+
+    function handleShare() {
+        if (!activeChatId) {
+            return;
+        }
+        MathTutor.api({
+            url: "/api/chats/" + encodeURIComponent(activeChatId) + "/share",
+            method: "POST",
+            data: {},
+            success: function (data) {
+                var url = (window.location.origin || "") + (data.url || "");
+                if (window.clipboardData && window.clipboardData.setData) {
+                    window.clipboardData.setData("Text", url);
+                    alert(MathTutor.t("shareCopied"));
+                } else {
+                    prompt(MathTutor.t("shareCopied"), url);
+                }
+            },
+            error: function (msg) {
+                alert(msg);
+            }
+        });
     }
 
     function setIsLoading(value) {
@@ -586,6 +697,7 @@
                 }
             }
             finishStreaming();
+            refreshQuota(xhr);
             MathTutor.refreshUsage();
             loadChatHistory();
         }
@@ -835,6 +947,23 @@
         };
         el("headerExport").onclick = function () {
             handleExport();
+            return false;
+        };
+        el("headerNotes").onclick = function () {
+            handleNotes();
+            return false;
+        };
+        el("headerShare").onclick = function () {
+            handleShare();
+            return false;
+        };
+        el("checkBtn").onclick = function () {
+            var inputEl = el("chatInput");
+            var v = inputEl.value.trim();
+            if (v.indexOf("/check ") !== 0) {
+                inputEl.value = "/check " + v;
+            }
+            inputEl.focus();
             return false;
         };
         el("themeToggle").onclick = function () {
