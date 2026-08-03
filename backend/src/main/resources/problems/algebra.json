@@ -1,0 +1,365 @@
+{
+    "topic": "algebra",
+    "problems": [
+        {
+            "id": "algb-001-en",
+            "topic": "algebra",
+            "grade": 6,
+            "question": "Solve: x + 5 = 12.",
+            "options": ["5", "7", "17", "12"],
+            "answerIndex": 1,
+            "explanation": "x = 12 - 5 = 7.",
+            "language": "en"
+        },
+        {
+            "id": "algb-002-en",
+            "topic": "algebra",
+            "grade": 6,
+            "question": "Solve: 3x = 21.",
+            "options": ["6", "7", "8", "9"],
+            "answerIndex": 1,
+            "explanation": "x = 21 ÷ 3 = 7.",
+            "language": "en"
+        },
+        {
+            "id": "algb-003-en",
+            "topic": "algebra",
+            "grade": 6,
+            "question": "Simplify: 2x + 3x.",
+            "options": ["5x", "6x", "5", "6x²"],
+            "answerIndex": 0,
+            "explanation": "2x + 3x = (2 + 3)x = 5x.",
+            "language": "en"
+        },
+        {
+            "id": "algb-004-en",
+            "topic": "algebra",
+            "grade": 7,
+            "question": "Solve: 2x - 4 = 10.",
+            "options": ["3", "6", "7", "10"],
+            "answerIndex": 2,
+            "explanation": "2x = 14, so x = 7.",
+            "language": "en"
+        },
+        {
+            "id": "algb-005-en",
+            "topic": "algebra",
+            "grade": 7,
+            "question": "Solve: 2(x + 3) = 14.",
+            "options": ["4", "5", "7", "11"],
+            "answerIndex": 0,
+            "explanation": "2(x + 3) = 14, so x + 3 = 7, and x = 4.",
+            "language": "en"
+        },
+        {
+            "id": "algb-006-en",
+            "topic": "algebra",
+            "grade": 6,
+            "question": "Solve: x/4 = 6.",
+            "options": ["2", "10", "24", "12"],
+            "answerIndex": 2,
+            "explanation": "x = 4 × 6 = 24.",
+            "language": "en"
+        },
+        {
+            "id": "algb-007-en",
+            "topic": "algebra",
+            "grade": 8,
+            "question": "Solve: 2x + 3 = x + 8.",
+            "options": ["3", "5", "8", "11"],
+            "answerIndex": 1,
+            "explanation": "2x - x = 8 - 3, so x = 5.",
+            "language": "en"
+        },
+        {
+            "id": "algb-008-en",
+            "topic": "algebra",
+            "grade": 7,
+            "question": "Solve: x - 7 > 3.",
+            "options": ["x > 10", "x > 4", "x < 10", "x < 4"],
+            "answerIndex": 0,
+            "explanation": "x - 7 > 3, so x > 10.",
+            "language": "en"
+        },
+        {
+            "id": "algb-009-en",
+            "topic": "algebra",
+            "grade": 8,
+            "question": "Solve the system: x + y = 10 and x - y = 4.",
+            "options": ["x = 7, y = 3", "x = 6, y = 4", "x = 8, y = 2", "x = 5, y = 5"],
+            "answerIndex": 0,
+            "explanation": "Add the equations: 2x = 14, x = 7, then y = 3.",
+            "language": "en"
+        },
+        {
+            "id": "algb-010-en",
+            "topic": "algebra",
+            "grade": 8,
+            "question": "What is the value of 3x² when x = 4?",
+            "options": ["36", "48", "144", "12"],
+            "answerIndex": 1,
+            "explanation": "3 × 4² = 3 × 16 = 48.",
+            "language": "en"
+        },
+        {
+            "id": "algb-011-en",
+            "topic": "algebra",
+            "grade": 8,
+            "question": "Simplify: x³ · x².",
+            "options": ["x⁵", "x⁶", "x", "x⁹"],
+            "answerIndex": 0,
+            "explanation": "x³ · x² = x⁵.",
+            "language": "en"
+        },
+        {
+            "id": "algb-012-en",
+            "topic": "algebra",
+            "grade": 6,
+            "question": "The sum of a number and 8 is 20. What is the number?",
+            "options": ["8", "12", "28", "10"],
+            "answerIndex": 1,
+            "explanation": "n + 8 = 20, so n = 12.",
+            "language": "en"
+        },
+        {
+            "id": "algb-001-zh-hans",
+            "topic": "algebra",
+            "grade": 6,
+            "question": "解方程：x + 5 = 12。",
+            "options": ["5", "7", "17", "12"],
+            "answerIndex": 1,
+            "explanation": "x = 12 - 5 = 7。",
+            "language": "zh-hans"
+        },
+        {
+            "id": "algb-002-zh-hans",
+            "topic": "algebra",
+            "grade": 6,
+            "question": "解方程：3x = 21。",
+            "options": ["6", "7", "8", "9"],
+            "answerIndex": 1,
+            "explanation": "x = 21 ÷ 3 = 7。",
+            "language": "zh-hans"
+        },
+        {
+            "id": "algb-003-zh-hans",
+            "topic": "algebra",
+            "grade": 6,
+            "question": "化简：2x + 3x。",
+            "options": ["5x", "6x", "5", "6x²"],
+            "answerIndex": 0,
+            "explanation": "2x + 3x = (2 + 3)x = 5x。",
+            "language": "zh-hans"
+        },
+        {
+            "id": "algb-004-zh-hans",
+            "topic": "algebra",
+            "grade": 7,
+            "question": "解方程：2x - 4 = 10。",
+            "options": ["3", "6", "7", "10"],
+            "answerIndex": 2,
+            "explanation": "2x = 14，所以 x = 7。",
+            "language": "zh-hans"
+        },
+        {
+            "id": "algb-005-zh-hans",
+            "topic": "algebra",
+            "grade": 7,
+            "question": "解方程：2(x + 3) = 14。",
+            "options": ["4", "5", "7", "11"],
+            "answerIndex": 0,
+            "explanation": "2(x + 3) = 14，所以 x + 3 = 7，x = 4。",
+            "language": "zh-hans"
+        },
+        {
+            "id": "algb-006-zh-hans",
+            "topic": "algebra",
+            "grade": 6,
+            "question": "解方程：x/4 = 6。",
+            "options": ["2", "10", "24", "12"],
+            "answerIndex": 2,
+            "explanation": "x = 4 × 6 = 24。",
+            "language": "zh-hans"
+        },
+        {
+            "id": "algb-007-zh-hans",
+            "topic": "algebra",
+            "grade": 8,
+            "question": "解方程：2x + 3 = x + 8。",
+            "options": ["3", "5", "8", "11"],
+            "answerIndex": 1,
+            "explanation": "2x - x = 8 - 3，所以 x = 5。",
+            "language": "zh-hans"
+        },
+        {
+            "id": "algb-008-zh-hans",
+            "topic": "algebra",
+            "grade": 7,
+            "question": "解不等式：x - 7 > 3。",
+            "options": ["x > 10", "x > 4", "x < 10", "x < 4"],
+            "answerIndex": 0,
+            "explanation": "x - 7 > 3，所以 x > 10。",
+            "language": "zh-hans"
+        },
+        {
+            "id": "algb-009-zh-hans",
+            "topic": "algebra",
+            "grade": 8,
+            "question": "解方程组：x + y = 10 且 x - y = 4。",
+            "options": ["x = 7, y = 3", "x = 6, y = 4", "x = 8, y = 2", "x = 5, y = 5"],
+            "answerIndex": 0,
+            "explanation": "两式相加：2x = 14，x = 7，则 y = 3。",
+            "language": "zh-hans"
+        },
+        {
+            "id": "algb-010-zh-hans",
+            "topic": "algebra",
+            "grade": 8,
+            "question": "当 x = 4 时，3x² 的值是多少？",
+            "options": ["36", "48", "144", "12"],
+            "answerIndex": 1,
+            "explanation": "3 × 4² = 3 × 16 = 48。",
+            "language": "zh-hans"
+        },
+        {
+            "id": "algb-011-zh-hans",
+            "topic": "algebra",
+            "grade": 8,
+            "question": "化简：x³ · x²。",
+            "options": ["x⁵", "x⁶", "x", "x⁹"],
+            "answerIndex": 0,
+            "explanation": "x³ · x² = x⁵。",
+            "language": "zh-hans"
+        },
+        {
+            "id": "algb-012-zh-hans",
+            "topic": "algebra",
+            "grade": 6,
+            "question": "一个数与 8 的和是 20。这个数是多少？",
+            "options": ["8", "12", "28", "10"],
+            "answerIndex": 1,
+            "explanation": "n + 8 = 20，所以 n = 12。",
+            "language": "zh-hans"
+        },
+        {
+            "id": "algb-001-mn-cyrl",
+            "topic": "algebra",
+            "grade": 6,
+            "question": "Бод: x + 5 = 12.",
+            "options": ["5", "7", "17", "12"],
+            "answerIndex": 1,
+            "explanation": "x = 12 - 5 = 7.",
+            "language": "mn-cyrl"
+        },
+        {
+            "id": "algb-002-mn-cyrl",
+            "topic": "algebra",
+            "grade": 6,
+            "question": "Бод: 3x = 21.",
+            "options": ["6", "7", "8", "9"],
+            "answerIndex": 1,
+            "explanation": "x = 21 ÷ 3 = 7.",
+            "language": "mn-cyrl"
+        },
+        {
+            "id": "algb-003-mn-cyrl",
+            "topic": "algebra",
+            "grade": 6,
+            "question": "Хялбарчил: 2x + 3x.",
+            "options": ["5x", "6x", "5", "6x²"],
+            "answerIndex": 0,
+            "explanation": "2x + 3x = (2 + 3)x = 5x.",
+            "language": "mn-cyrl"
+        },
+        {
+            "id": "algb-004-mn-cyrl",
+            "topic": "algebra",
+            "grade": 7,
+            "question": "Бод: 2x - 4 = 10.",
+            "options": ["3", "6", "7", "10"],
+            "answerIndex": 2,
+            "explanation": "2x = 14 тул x = 7.",
+            "language": "mn-cyrl"
+        },
+        {
+            "id": "algb-005-mn-cyrl",
+            "topic": "algebra",
+            "grade": 7,
+            "question": "Бод: 2(x + 3) = 14.",
+            "options": ["4", "5", "7", "11"],
+            "answerIndex": 0,
+            "explanation": "2(x + 3) = 14 тул x + 3 = 7, x = 4.",
+            "language": "mn-cyrl"
+        },
+        {
+            "id": "algb-006-mn-cyrl",
+            "topic": "algebra",
+            "grade": 6,
+            "question": "Бод: x/4 = 6.",
+            "options": ["2", "10", "24", "12"],
+            "answerIndex": 2,
+            "explanation": "x = 4 × 6 = 24.",
+            "language": "mn-cyrl"
+        },
+        {
+            "id": "algb-007-mn-cyrl",
+            "topic": "algebra",
+            "grade": 8,
+            "question": "Бод: 2x + 3 = x + 8.",
+            "options": ["3", "5", "8", "11"],
+            "answerIndex": 1,
+            "explanation": "2x - x = 8 - 3 тул x = 5.",
+            "language": "mn-cyrl"
+        },
+        {
+            "id": "algb-008-mn-cyrl",
+            "topic": "algebra",
+            "grade": 7,
+            "question": "Бод: x - 7 > 3.",
+            "options": ["x > 10", "x > 4", "x < 10", "x < 4"],
+            "answerIndex": 0,
+            "explanation": "x - 7 > 3 тул x > 10.",
+            "language": "mn-cyrl"
+        },
+        {
+            "id": "algb-009-mn-cyrl",
+            "topic": "algebra",
+            "grade": 8,
+            "question": "Системийг бод: x + y = 10 ба x - y = 4.",
+            "options": ["x = 7, y = 3", "x = 6, y = 4", "x = 8, y = 2", "x = 5, y = 5"],
+            "answerIndex": 0,
+            "explanation": "Тэгшитгэлүүдийг нэмвэл: 2x = 14, x = 7, дараа нь y = 3.",
+            "language": "mn-cyrl"
+        },
+        {
+            "id": "algb-010-mn-cyrl",
+            "topic": "algebra",
+            "grade": 8,
+            "question": "x = 4 үед 3x² илэрхийллийн утга хэд вэ?",
+            "options": ["36", "48", "144", "12"],
+            "answerIndex": 1,
+            "explanation": "3 × 4² = 3 × 16 = 48.",
+            "language": "mn-cyrl"
+        },
+        {
+            "id": "algb-011-mn-cyrl",
+            "topic": "algebra",
+            "grade": 8,
+            "question": "Хялбарчил: x³ · x².",
+            "options": ["x⁵", "x⁶", "x", "x⁹"],
+            "answerIndex": 0,
+            "explanation": "x³ · x² = x⁵.",
+            "language": "mn-cyrl"
+        },
+        {
+            "id": "algb-012-mn-cyrl",
+            "topic": "algebra",
+            "grade": 6,
+            "question": "Нэг тоо ба 8-ийн нийлбэр 20. Тэр тоо хэд вэ?",
+            "options": ["8", "12", "28", "10"],
+            "answerIndex": 1,
+            "explanation": "n + 8 = 20 тул n = 12.",
+            "language": "mn-cyrl"
+        }
+    ]
+}

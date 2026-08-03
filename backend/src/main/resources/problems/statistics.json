@@ -1,0 +1,365 @@
+{
+    "topic": "statistics",
+    "problems": [
+        {
+            "id": "stat-001-en",
+            "topic": "statistics",
+            "grade": 6,
+            "question": "What is the mean of 4, 6, 8, and 10?",
+            "options": ["7", "6", "8", "9"],
+            "answerIndex": 0,
+            "explanation": "Mean = (4 + 6 + 8 + 10)/4 = 28/4 = 7.",
+            "language": "en"
+        },
+        {
+            "id": "stat-002-en",
+            "topic": "statistics",
+            "grade": 6,
+            "question": "What is the median of 3, 5, 7, 9, and 11?",
+            "options": ["7", "5", "9", "6"],
+            "answerIndex": 0,
+            "explanation": "The middle value of the ordered list is 7.",
+            "language": "en"
+        },
+        {
+            "id": "stat-003-en",
+            "topic": "statistics",
+            "grade": 6,
+            "question": "What is the mode of 2, 3, 3, 5, and 7?",
+            "options": ["3", "2", "5", "7"],
+            "answerIndex": 0,
+            "explanation": "The number 3 appears most often.",
+            "language": "en"
+        },
+        {
+            "id": "stat-004-en",
+            "topic": "statistics",
+            "grade": 7,
+            "question": "What is the probability of rolling a 3 with one fair die?",
+            "options": ["1/6", "1/3", "1/2", "3/6"],
+            "answerIndex": 0,
+            "explanation": "There is one 3 on a six-sided die.",
+            "language": "en"
+        },
+        {
+            "id": "stat-005-en",
+            "topic": "statistics",
+            "grade": 7,
+            "question": "What is the probability of getting heads when flipping a fair coin?",
+            "options": ["1/2", "1/4", "1", "0"],
+            "answerIndex": 0,
+            "explanation": "One head out of two equally likely outcomes.",
+            "language": "en"
+        },
+        {
+            "id": "stat-006-en",
+            "topic": "statistics",
+            "grade": 6,
+            "question": "What is the mean of 1, 2, 3, 4, and 5?",
+            "options": ["3", "4", "2.5", "5"],
+            "answerIndex": 0,
+            "explanation": "Mean = (1 + 2 + 3 + 4 + 5)/5 = 3.",
+            "language": "en"
+        },
+        {
+            "id": "stat-007-en",
+            "topic": "statistics",
+            "grade": 6,
+            "question": "What is the median of 2, 4, 6, and 8?",
+            "options": ["5", "6", "4", "7"],
+            "answerIndex": 0,
+            "explanation": "Median = (4 + 6)/2 = 5.",
+            "language": "en"
+        },
+        {
+            "id": "stat-008-en",
+            "topic": "statistics",
+            "grade": 7,
+            "question": "What is the probability of drawing a red card from a standard 52-card deck?",
+            "options": ["1/2", "1/4", "1/13", "2/13"],
+            "answerIndex": 0,
+            "explanation": "26 red cards out of 52: 26/52 = 1/2.",
+            "language": "en"
+        },
+        {
+            "id": "stat-009-en",
+            "topic": "statistics",
+            "grade": 6,
+            "question": "What is the range of 12, 7, 15, 9, and 20?",
+            "options": ["13", "8", "7", "15"],
+            "answerIndex": 0,
+            "explanation": "Range = 20 - 7 = 13.",
+            "language": "en"
+        },
+        {
+            "id": "stat-010-en",
+            "topic": "statistics",
+            "grade": 7,
+            "question": "What is the probability of rolling an even number with one fair die?",
+            "options": ["1/2", "1/3", "2/3", "1/6"],
+            "answerIndex": 0,
+            "explanation": "Three even numbers out of six: 3/6 = 1/2.",
+            "language": "en"
+        },
+        {
+            "id": "stat-011-en",
+            "topic": "statistics",
+            "grade": 7,
+            "question": "A bag contains 3 red and 2 blue marbles. What is the probability of picking a red marble?",
+            "options": ["3/5", "2/5", "3/2", "1/2"],
+            "answerIndex": 0,
+            "explanation": "3 red out of 5 marbles.",
+            "language": "en"
+        },
+        {
+            "id": "stat-012-en",
+            "topic": "statistics",
+            "grade": 6,
+            "question": "What is the mean of 10, 20, 30, and 40?",
+            "options": ["25", "20", "30", "35"],
+            "answerIndex": 0,
+            "explanation": "Mean = (10 + 20 + 30 + 40)/4 = 25.",
+            "language": "en"
+        },
+        {
+            "id": "stat-001-zh-hans",
+            "topic": "statistics",
+            "grade": 6,
+            "question": "4、6、8、10 的平均数是多少？",
+            "options": ["7", "6", "8", "9"],
+            "answerIndex": 0,
+            "explanation": "平均数 = (4 + 6 + 8 + 10) ÷ 4 = 28 ÷ 4 = 7。",
+            "language": "zh-hans"
+        },
+        {
+            "id": "stat-002-zh-hans",
+            "topic": "statistics",
+            "grade": 6,
+            "question": "3、5、7、9、11 的中位数是多少？",
+            "options": ["7", "5", "9", "6"],
+            "answerIndex": 0,
+            "explanation": "按顺序排列后，中间的数（中位数）是 7。",
+            "language": "zh-hans"
+        },
+        {
+            "id": "stat-003-zh-hans",
+            "topic": "statistics",
+            "grade": 6,
+            "question": "2、3、3、5、7 的众数是多少？",
+            "options": ["3", "2", "5", "7"],
+            "answerIndex": 0,
+            "explanation": "数字 3 出现次数最多。",
+            "language": "zh-hans"
+        },
+        {
+            "id": "stat-004-zh-hans",
+            "topic": "statistics",
+            "grade": 7,
+            "question": "掷一次公平骰子得到 3 的概率是多少？",
+            "options": ["1/6", "1/3", "1/2", "3/6"],
+            "answerIndex": 0,
+            "explanation": "一个六面骰子上只有一个 3。",
+            "language": "zh-hans"
+        },
+        {
+            "id": "stat-005-zh-hans",
+            "topic": "statistics",
+            "grade": 7,
+            "question": "掷一枚公平硬币出现正面的概率是多少？",
+            "options": ["1/2", "1/4", "1", "0"],
+            "answerIndex": 0,
+            "explanation": "两个等可能的结果中有一个是正面。",
+            "language": "zh-hans"
+        },
+        {
+            "id": "stat-006-zh-hans",
+            "topic": "statistics",
+            "grade": 6,
+            "question": "1、2、3、4、5 的平均数是多少？",
+            "options": ["3", "4", "2.5", "5"],
+            "answerIndex": 0,
+            "explanation": "平均数 = (1 + 2 + 3 + 4 + 5) ÷ 5 = 3。",
+            "language": "zh-hans"
+        },
+        {
+            "id": "stat-007-zh-hans",
+            "topic": "statistics",
+            "grade": 6,
+            "question": "2、4、6、8 的中位数是多少？",
+            "options": ["5", "6", "4", "7"],
+            "answerIndex": 0,
+            "explanation": "中位数 = (4 + 6) ÷ 2 = 5。",
+            "language": "zh-hans"
+        },
+        {
+            "id": "stat-008-zh-hans",
+            "topic": "statistics",
+            "grade": 7,
+            "question": "从一副标准的 52 张扑克牌中抽到红牌的概率是多少？",
+            "options": ["1/2", "1/4", "1/13", "2/13"],
+            "answerIndex": 0,
+            "explanation": "52 张牌中有 26 张红牌：26/52 = 1/2。",
+            "language": "zh-hans"
+        },
+        {
+            "id": "stat-009-zh-hans",
+            "topic": "statistics",
+            "grade": 6,
+            "question": "12、7、15、9、20 的极差是多少？",
+            "options": ["13", "8", "7", "15"],
+            "answerIndex": 0,
+            "explanation": "极差 = 20 - 7 = 13。",
+            "language": "zh-hans"
+        },
+        {
+            "id": "stat-010-zh-hans",
+            "topic": "statistics",
+            "grade": 7,
+            "question": "掷一次公平骰子得到偶数的概率是多少？",
+            "options": ["1/2", "1/3", "2/3", "1/6"],
+            "answerIndex": 0,
+            "explanation": "六个面中有三个是偶数：3/6 = 1/2。",
+            "language": "zh-hans"
+        },
+        {
+            "id": "stat-011-zh-hans",
+            "topic": "statistics",
+            "grade": 7,
+            "question": "一个袋子里有 3 个红球和 2 个蓝球。摸到红球的概率是多少？",
+            "options": ["3/5", "2/5", "3/2", "1/2"],
+            "answerIndex": 0,
+            "explanation": "5 个弹珠中有 3 个是红色。",
+            "language": "zh-hans"
+        },
+        {
+            "id": "stat-012-zh-hans",
+            "topic": "statistics",
+            "grade": 6,
+            "question": "10、20、30、40 的平均数是多少？",
+            "options": ["25", "20", "30", "35"],
+            "answerIndex": 0,
+            "explanation": "平均数 = (10 + 20 + 30 + 40) ÷ 4 = 25。",
+            "language": "zh-hans"
+        },
+        {
+            "id": "stat-001-mn-cyrl",
+            "topic": "statistics",
+            "grade": 6,
+            "question": "4, 6, 8, 10-ын дундаж хэд вэ?",
+            "options": ["7", "6", "8", "9"],
+            "answerIndex": 0,
+            "explanation": "Дундаж = (4 + 6 + 8 + 10)/4 = 28/4 = 7.",
+            "language": "mn-cyrl"
+        },
+        {
+            "id": "stat-002-mn-cyrl",
+            "topic": "statistics",
+            "grade": 6,
+            "question": "3, 5, 7, 9, 11-ийн медиан хэд вэ?",
+            "options": ["7", "5", "9", "6"],
+            "answerIndex": 0,
+            "explanation": "Эрэмбэлсэн жагсаалтын дундах утга нь 7.",
+            "language": "mn-cyrl"
+        },
+        {
+            "id": "stat-003-mn-cyrl",
+            "topic": "statistics",
+            "grade": 6,
+            "question": "2, 3, 3, 5, 7-ийн мода хэд вэ?",
+            "options": ["3", "2", "5", "7"],
+            "answerIndex": 0,
+            "explanation": "3 тоо хамгийн олон удаа гарч байна.",
+            "language": "mn-cyrl"
+        },
+        {
+            "id": "stat-004-mn-cyrl",
+            "topic": "statistics",
+            "grade": 7,
+            "question": "Шударга шоог нэг удаа шидэхэд 3 гарах магадлал хэд вэ?",
+            "options": ["1/6", "1/3", "1/2", "3/6"],
+            "answerIndex": 0,
+            "explanation": "Зургаан талт шоонд зөвхөн нэг л 3 байна.",
+            "language": "mn-cyrl"
+        },
+        {
+            "id": "stat-005-mn-cyrl",
+            "topic": "statistics",
+            "grade": 7,
+            "question": "Шударга зоос шидэхэд толгой гарах магадлал хэд вэ?",
+            "options": ["1/2", "1/4", "1", "0"],
+            "answerIndex": 0,
+            "explanation": "Хоёр ижил боломжтой үр дүнгийн нэг нь толгой.",
+            "language": "mn-cyrl"
+        },
+        {
+            "id": "stat-006-mn-cyrl",
+            "topic": "statistics",
+            "grade": 6,
+            "question": "1, 2, 3, 4, 5-ын дундаж хэд вэ?",
+            "options": ["3", "4", "2.5", "5"],
+            "answerIndex": 0,
+            "explanation": "Дундаж = (1 + 2 + 3 + 4 + 5)/5 = 3.",
+            "language": "mn-cyrl"
+        },
+        {
+            "id": "stat-007-mn-cyrl",
+            "topic": "statistics",
+            "grade": 6,
+            "question": "2, 4, 6, 8-ийн медиан хэд вэ?",
+            "options": ["5", "6", "4", "7"],
+            "answerIndex": 0,
+            "explanation": "Медиан = (4 + 6)/2 = 5.",
+            "language": "mn-cyrl"
+        },
+        {
+            "id": "stat-008-mn-cyrl",
+            "topic": "statistics",
+            "grade": 7,
+            "question": "Стандарт 52 карттай тавцангаас улаан карт авах магадлал хэд вэ?",
+            "options": ["1/2", "1/4", "1/13", "2/13"],
+            "answerIndex": 0,
+            "explanation": "52 картаас 26 нь улаан: 26/52 = 1/2.",
+            "language": "mn-cyrl"
+        },
+        {
+            "id": "stat-009-mn-cyrl",
+            "topic": "statistics",
+            "grade": 6,
+            "question": "12, 7, 15, 9, 20-ийн хүрээ хэд вэ?",
+            "options": ["13", "8", "7", "15"],
+            "answerIndex": 0,
+            "explanation": "Хүрээ = 20 - 7 = 13.",
+            "language": "mn-cyrl"
+        },
+        {
+            "id": "stat-010-mn-cyrl",
+            "topic": "statistics",
+            "grade": 7,
+            "question": "Шударга шоог нэг удаа шидэхэд тэгш тоо гарах магадлал хэд вэ?",
+            "options": ["1/2", "1/3", "2/3", "1/6"],
+            "answerIndex": 0,
+            "explanation": "Зургаан талаас гурав нь тэгш: 3/6 = 1/2.",
+            "language": "mn-cyrl"
+        },
+        {
+            "id": "stat-011-mn-cyrl",
+            "topic": "statistics",
+            "grade": 7,
+            "question": "Уутанд 3 улаан, 2 цэнхэр бөмбөг байна. Улаан бөмбөг авах магадлал хэд вэ?",
+            "options": ["3/5", "2/5", "3/2", "1/2"],
+            "answerIndex": 0,
+            "explanation": "5 бөмбөгнөөс 3 нь улаан.",
+            "language": "mn-cyrl"
+        },
+        {
+            "id": "stat-012-mn-cyrl",
+            "topic": "statistics",
+            "grade": 6,
+            "question": "10, 20, 30, 40-ийн дундаж хэд вэ?",
+            "options": ["25", "20", "30", "35"],
+            "answerIndex": 0,
+            "explanation": "Дундаж = (10 + 20 + 30 + 40)/4 = 25.",
+            "language": "mn-cyrl"
+        }
+    ]
+}
