@@ -7,7 +7,7 @@ import gsap from "gsap";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage, languages } from "@/contexts/LanguageContext";
 import { Translations } from "@/lib/translations";
-import { particleBurst, useGSAP, ScrollTrigger } from "@/lib/gsap";
+import { particleBurst, useGSAP } from "@/lib/gsap";
 import { APP_VERSION } from "@/lib/config";
 
 type Theme = "light" | "dark" | "system";
