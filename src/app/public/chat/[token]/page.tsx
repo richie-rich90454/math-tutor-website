@@ -40,13 +40,22 @@ export default function PublicChatPage() {
             <div className="settings-container">
                 <div className="settings-header">
                     <Link href="/" className="settings-back-link">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                        >
                             <line x1="19" y1="12" x2="5" y2="12" />
                             <polyline points="12 19 5 12 12 5" />
                         </svg>
                         {t("settingsBackToApp")}
                     </Link>
-                    <h1 className="settings-title">{title || (t("share") || "Shared chat")}</h1>
+                    <h1 className="settings-title">{title || t("share") || "Shared chat"}</h1>
                 </div>
 
                 {loading ? (
