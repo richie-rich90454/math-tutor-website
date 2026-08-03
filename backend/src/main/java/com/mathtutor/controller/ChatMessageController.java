@@ -155,7 +155,8 @@ public class ChatMessageController {
                     setup.checkMode() ? null : sanitizedMessage,
                     body.preferredLanguage(),
                     stream.usage(),
-                    ip);
+                    ip,
+                    setup.cacheHit());
         }
     }
 
