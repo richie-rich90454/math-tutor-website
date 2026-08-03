@@ -32,6 +32,16 @@ public class UserRepository {
                 id);
     }
 
+    public void updatePassword(String id, String passwordHash) {
+        jdbc.update(
+                "UPDATE users SET password_hash = ?, updated_at = datetime('now') WHERE id = ?",
+                passwordHash, id);
+    }
+
+    public void delete(String id) {
+        jdbc.update("DELETE FROM users WHERE id = ?", id);
+    }
+
     private Optional<UserRecord> queryOne(String sql, Object... args) {
         return jdbc.query(sql, rs -> {
             if (!rs.next()) {
