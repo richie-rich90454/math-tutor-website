@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.UUID;
 
 @Repository
@@ -65,7 +66,13 @@ public class ChatRepository {
         }, chatId);
     }
 
+    private static final Set<String> UPDATABLE_COLUMNS = Set.of(
+            "title", "preview", "topic", "is_archived", "is_pinned");
+
     public void updateChat(String chatId, String column, Object value) {
+        if (!UPDATABLE_COLUMNS.contains(column)) {
+            throw new IllegalArgumentException("Illegal chat column: " + column);
+        }
         jdbc.update(
                 "UPDATE chat_sessions SET " + column + " = ?, updated_at = datetime('now') WHERE id = ?",
                 value, chatId);
