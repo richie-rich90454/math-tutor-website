@@ -11,13 +11,14 @@ import { useLanguage } from "@/contexts/LanguageContext";
 export default function LoginPage() {
     const router = useRouter();
     const { t } = useLanguage();
-    const { login, isAuthenticated } = useAuth();
+    const { login, startGuest, isAuthenticated } = useAuth();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
     const [remember, setRemember] = useState(false);
     const [error, setError] = useState("");
     const [isLoading, setIsLoading] = useState(false);
+    const [guestLoading, setGuestLoading] = useState(false);
     const cardRef = useRef<HTMLDivElement>(null);
     const formRef = useRef<HTMLFormElement>(null);
 
@@ -215,6 +216,30 @@ export default function LoginPage() {
                             {isLoading ? <span className="auth-spinner" /> : t("authSignIn")}
                         </button>
                     </form>
+
+                    <button
+                        type="button"
+                        onClick={async () => {
+                            setGuestLoading(true);
+                            setError("");
+                            try {
+                                await startGuest();
+                                router.push("/");
+                            } catch (err: unknown) {
+                                const msg =
+                                    err instanceof Error
+                                        ? err.message
+                                        : t("authInvalidCredentials");
+                                setError(msg);
+                            } finally {
+                                setGuestLoading(false);
+                            }
+                        }}
+                        disabled={guestLoading}
+                        className="auth-guest-btn"
+                    >
+                        {guestLoading ? <span className="auth-spinner" /> : t("tryGuest")}
+                    </button>
 
                     <p className="auth-footer-text">
                         {t("authNoAccount")}{" "}
