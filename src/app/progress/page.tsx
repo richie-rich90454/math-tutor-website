@@ -29,6 +29,26 @@ interface ProgressData {
     dailyActivity: { date: string; count: number }[];
     memberSince: string | null;
     longestStreak: number;
+    topicAccuracy?: { topic: string; correct: number; total: number; accuracy: number }[];
+}
+
+interface WeakTopic {
+    topic: string;
+    accuracy: number;
+    correct: number;
+    total: number;
+    problems: Problem[];
+}
+
+interface Problem {
+    id: string;
+    topic: string;
+    grade: number;
+    question: string;
+    options: string[];
+    answerIndex: number;
+    explanation: string;
+    language: string;
 }
 
 const TOPIC_COLORS: Record<string, string> = {
@@ -47,8 +67,9 @@ const TOPIC_COLORS: Record<string, string> = {
 export default function ProgressPage() {
     const router = useRouter();
     const { isAuthenticated, isLoading } = useAuth();
-    const { t } = useLanguage();
+    const { t, currentLanguage } = useLanguage();
     const [data, setData] = useState<ProgressData | null>(null);
+    const [weakTopics, setWeakTopics] = useState<WeakTopic[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
     const pageRef = useRef<HTMLDivElement>(null);
@@ -70,8 +91,14 @@ export default function ProgressPage() {
                 .then(setData)
                 .catch(() => setError(true))
                 .finally(() => setLoading(false));
+            apiFetch(
+                `/api/progress/suggestions?language=${encodeURIComponent(currentLanguage.code)}`,
+            )
+                .then((r) => (r.ok ? r.json() : { weakTopics: [] }))
+                .then((d) => setWeakTopics(d.weakTopics || []))
+                .catch(() => {});
         }
-    }, [isAuthenticated]);
+    }, [isAuthenticated, currentLanguage.code]);
 
     // Scroll-triggered entrance animations
     useGSAP(
@@ -266,6 +293,32 @@ export default function ProgressPage() {
                                             </div>
                                             <span className="progress-topic-count">
                                                 {topic.count}
+                                            </span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </section>
+                        )}
+
+                        {/* Weak topics */}
+                        {weakTopics.length > 0 && (
+                            <section className="settings-section">
+                                <h2 className="settings-section-title">
+                                    {t("weakTopics") || "Weak topics"}
+                                </h2>
+                                <div className="settings-card">
+                                    {weakTopics.map((weak) => (
+                                        <div key={weak.topic} className="progress-activity-row">
+                                            <div className="progress-activity-info">
+                                                <span className="progress-activity-title">
+                                                    {weak.topic}
+                                                </span>
+                                                <span className="progress-activity-topic">
+                                                    {Math.round(weak.accuracy * 100)}%
+                                                </span>
+                                            </div>
+                                            <span className="progress-activity-date">
+                                                {t("reviewNext") || "Review next"} →
                                             </span>
                                         </div>
                                     ))}
