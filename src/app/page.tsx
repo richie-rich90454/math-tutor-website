@@ -55,6 +55,7 @@ export default function Home() {
         prevMessagesLenRef,
         quotaWarn,
         activeChatId,
+        togglePin,
     } = useChatMessages();
 
     const {
@@ -224,6 +225,8 @@ export default function Home() {
                 onSuggestionClick={(text: string) => setInput(text)}
                 onMouseEnter={() => setHoveredMsgId(message.id)}
                 onMouseLeave={() => setHoveredMsgId(null)}
+                onTogglePin={togglePin}
+                isPinned={!!message.isPinned}
             />
         ));
     }, [
@@ -236,6 +239,7 @@ export default function Home() {
         handleRegenerate,
         handleFeedback,
         handleEdit,
+        togglePin,
         t,
         setHoveredMsgId,
         setInput,
