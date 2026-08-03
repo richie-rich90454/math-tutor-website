@@ -58,6 +58,31 @@
             <h3 data-i18n="settingsVersion">Version</h3>
             <div class="row muted" id="versionText">MathTutor AI - Legacy Client</div>
         </div>
+
+        <div class="card">
+            <h3 data-i18n="settingsPassword">Password</h3>
+            <div class="row">
+                <span class="stat-label" data-i18n="settingsCurrentPassword">Current password</span>:
+                <input type="password" id="currentPassword" style="width:200px;">
+            </div>
+            <div class="row">
+                <span class="stat-label" data-i18n="settingsNewPassword">New password</span>:
+                <input type="password" id="newPassword" style="width:200px;">
+            </div>
+            <div class="row">
+                <a href="#" id="changePwBtn" class="btn btn-primary" data-i18n="settingsChangePassword">Change password</a>
+                <span class="auth-ok hidden" id="pwOk"></span>
+                <span class="auth-msg hidden" id="pwError"></span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 data-i18n="settingsSessions">Active sessions</h3>
+            <div class="row">
+                <span id="sessionCountText"></span>
+                <a href="#" id="revokeAllBtn" class="btn" data-i18n="settingsRevokeAll">Sign out everywhere else</a>
+            </div>
+        </div>
     </div>
 </div>
 
