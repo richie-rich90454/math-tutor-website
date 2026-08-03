@@ -191,3 +191,21 @@ body.theme-dark .muted{color:#8a93a3;}
 body.theme-dark .footer{background:#16181f;border-top-color:#2a2e37;color:#8a93a3;}
 body.theme-dark .err-text{color:#e5736a;}
 body.theme-dark .spinner{color:#9aa3b2;}
+
+.quota-banner{background:#fff7e6;border-bottom:1px solid #f5c518;color:#7a5b00;padding:6px 12px;font-size:12px;text-align:center;}
+body.theme-dark .quota-banner{background:#33270a;border-bottom-color:#8a6d1a;color:#e9c55c;}
+.learning-cards{margin-top:14px;}
+.learning-card{display:block;border:1px solid #d0d5dd;border-radius:8px;padding:10px 12px;margin-bottom:8px;text-decoration:none;color:#111827;background:#fff;}
+.learning-card:hover{border-color:#6366f1;}
+body.theme-dark .learning-card{background:#16181f;border-color:#2a2e37;color:#e5e7eb;}
+.learning-card-tag{display:block;font-size:11px;text-transform:uppercase;color:#6366f1;font-weight:700;margin-bottom:4px;}
+.learning-card-text{display:block;font-size:14px;}
+.chip{display:inline-block;border:1px solid #d0d5dd;border-radius:6px;padding:3px 10px;margin-right:6px;font-size:12px;text-decoration:none;color:#374151;background:#fff;}
+.chip-active{background:#6366f1;border-color:#6366f1;color:#fff;}
+body.theme-dark .chip{background:#16181f;border-color:#2a2e37;color:#c9ced6;}
+body.theme-dark .chip-active{background:#6366f1;color:#fff;}
+.option-btn{display:block;border:1px solid #d0d5dd;border-radius:6px;padding:8px 12px;margin-bottom:6px;text-decoration:none;color:#111827;background:#fff;}
+.option-btn:hover{border-color:#6366f1;}
+body.theme-dark .option-btn{background:#16181f;border-color:#2a2e37;color:#e5e7eb;}
+.note-text{white-space:pre-wrap;color:#374151;}
+body.theme-dark .note-text{color:#c9ced6;}
