@@ -71,7 +71,7 @@ public class JwtUtil {
             byte[] bodyBytes = Base64.getUrlDecoder().decode(body);
             JsonNode payload = objectMapper.readTree(bodyBytes);
 
-            if (payload.has("exp") && payload.get("exp").asLong() < System.currentTimeMillis() / 1000) {
+            if (!payload.has("exp") || payload.get("exp").asLong() < System.currentTimeMillis() / 1000) {
                 return null;
             }
             return payload;
