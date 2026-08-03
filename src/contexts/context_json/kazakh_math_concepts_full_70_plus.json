@@ -1,0 +1,565 @@
+[
+    {
+        "concept_id": "place_value",
+        "concept_name": "Place Value",
+        "aliases": [
+            "place value",
+            "digit place",
+            "number place",
+            "units place",
+            "tens place",
+            "hundreds place",
+            "position of digits",
+            "digit position"
+        ],
+        "kazakh_culture": "Dombra fret positions",
+        "explanation_text": "Each fret position along a dombra's neck produces a different note, just as each digit's place determines its value—a 3 in the tens place means 30, not 3.",
+        "image_prompt": "Illustrate a dombra with neck positions labeled as ones, tens, and hundreds, showing how position changes the note and the value."
+    },
+    {
+        "concept_id": "addition_subtraction",
+        "concept_name": "Addition & Subtraction",
+        "aliases": [
+            "add",
+            "addition",
+            "plus",
+            "sum",
+            "combine",
+            "total",
+            "subtract",
+            "subtraction",
+            "minus",
+            "take away",
+            "difference"
+        ],
+        "kazakh_culture": "Pouring kumis at the dastarkhan",
+        "explanation_text": "Pouring more kumis (fermented mare's milk) into a bowl adds to the total, while pouring some out or drinking it subtracts—like addition and subtraction.",
+        "image_prompt": "Show bowls of kumis being filled and emptied at a dastarkhan, with the total amount changing accordingly."
+    },
+    {
+        "concept_id": "multiplication_division",
+        "concept_name": "Multiplication & Division",
+        "aliases": [
+            "multiply",
+            "multiplication",
+            "times",
+            "groups of",
+            "repeated addition",
+            "divide",
+            "division",
+            "split equally",
+            "sharing"
+        ],
+        "kazakh_culture": "Baursak rows on a platter",
+        "explanation_text": "Setting baursak (fried bread) into equal rows is multiplication—4 rows of 5 gives 20. Handing them out evenly among guests is division.",
+        "image_prompt": "Display rows of identical baursak on a platter, showing equal grouping (multiplication) and even sharing (division)."
+    },
+    {
+        "concept_id": "even_odd",
+        "concept_name": "Even and Odd Numbers",
+        "aliases": [
+            "even numbers",
+            "odd numbers",
+            "even",
+            "odd",
+            "pairs",
+            "leftover",
+            "no remainder",
+            "remains one"
+        ],
+        "kazakh_culture": "Paired riders at a horse race",
+        "explanation_text": "Riders lined up in pairs are like even numbers. When one rider is left unmatched, the number is odd.",
+        "image_prompt": "Show riders paired up at a steppe race, with one lone rider at the end to represent an odd number."
+    },
+    {
+        "concept_id": "skip_counting",
+        "concept_name": "Skip Counting / Number Patterns",
+        "aliases": [
+            "skip counting",
+            "count by 2s",
+            "count by 5s",
+            "count by 10s",
+            "jump counting",
+            "repeating numbers",
+            "number patterns"
+        ],
+        "kazakh_culture": "Oq-yrhek ornament repeats",
+        "explanation_text": "The oq-yrhek pattern repeats across a Kazakh carpet or felt at regular intervals—each repeat lands on a predictable position, like counting by 2s, 5s, or 10s.",
+        "image_prompt": "Show a Kazakh ornament border with repeating oq-yrhek motifs, highlighting every 5th motif to illustrate skip counting."
+    },
+    {
+        "concept_id": "comparing_numbers",
+        "concept_name": "Comparing and Ordering Numbers",
+        "aliases": [
+            "compare numbers",
+            "greater than",
+            "less than",
+            "more than",
+            "fewer than",
+            "biggest",
+            "smallest",
+            "ordering numbers",
+            "number order"
+        ],
+        "kazakh_culture": "Kumis levels in bowls",
+        "explanation_text": "Comparing the levels of kumis in different bowls shows which holds more or less—just like comparing numbers.",
+        "image_prompt": "Show several bowls with different kumis levels, using > and < symbols between them."
+    },
+    {
+        "concept_id": "rounding_estimation",
+        "concept_name": "Rounding & Estimation",
+        "aliases": [
+            "round",
+            "rounding",
+            "estimate",
+            "estimation",
+            "approximate",
+            "about how much",
+            "close to",
+            "nearby number"
+        ],
+        "kazakh_culture": "Estimating flour for baursak",
+        "explanation_text": "A cook estimates flour by the handful when making baursak, aiming for a close, convenient amount—similar to rounding to the nearest whole number.",
+        "image_prompt": "Show a baker estimating a rough amount of flour for baursak, with rounded amounts labeled nearby."
+    },
+    {
+        "concept_id": "fractions",
+        "concept_name": "Fractions",
+        "aliases": ["fraction", "part of a whole", "portion", "share", "numerator", "denominator"],
+        "kazakh_culture": "Sharing beshbarmak portions",
+        "explanation_text": "When a platter of beshbarmak is shared equally among guests, each person receives a fraction of the whole dish.",
+        "image_prompt": "Show a platter of beshbarmak divided into equal portions, each labeled as a fraction of the whole."
+    },
+    {
+        "concept_id": "equivalent_fractions",
+        "concept_name": "Equivalent Fractions",
+        "aliases": ["equal fractions", "same value", "fraction equality", "equivalent"],
+        "kazakh_culture": "Cutting a flatbread evenly",
+        "explanation_text": "Cutting one round nan (bread) into 2 equal halves or into 4 equal quarters still makes the same whole—showing that 1/2 and 2/4 are equivalent fractions.",
+        "image_prompt": "Show one round nan cut first into halves, then into quarters, demonstrating equal portions."
+    },
+    {
+        "concept_id": "simplifying_fractions",
+        "concept_name": "Simplifying Fractions",
+        "aliases": ["reduce fraction", "lowest terms", "simplify fraction"],
+        "kazakh_culture": "Combining small flocks",
+        "explanation_text": "Two small flocks that graze together form one larger group, just as a fraction is reduced to its simplest form while keeping the same value.",
+        "image_prompt": "Depict small sheep flocks merging into one larger group, labeled with a reduced fraction."
+    },
+    {
+        "concept_id": "mixed_numbers",
+        "concept_name": "Mixed Numbers",
+        "aliases": ["mixed number", "whole and fraction", "whole part and fraction part"],
+        "kazakh_culture": "Full and half kumis bowls",
+        "explanation_text": "Three full bowls of kumis and one half-full bowl make 3½—a whole number combined with a fraction, like a mixed number.",
+        "image_prompt": "Show three full bowls and one half-full bowl of kumis, labeled as 3½."
+    },
+    {
+        "concept_id": "improper_fractions",
+        "concept_name": "Improper Fractions",
+        "aliases": ["top-heavy fraction", "numerator larger", "greater than one fraction"],
+        "kazakh_culture": "More kumis than one bowl holds",
+        "explanation_text": "When kumis fills one bowl and spills into a second, counting the same-size parts gives a fraction greater than one—an improper fraction.",
+        "image_prompt": "Show kumis filling one bowl and overflowing into a second, each labeled as an equal-sized part."
+    },
+    {
+        "concept_id": "adding_fractions",
+        "concept_name": "Adding Fractions",
+        "aliases": ["fraction addition", "add fractions", "sum of fractions"],
+        "kazakh_culture": "Combining kaymak portions",
+        "explanation_text": "Scooping kaymak (clotted cream) from several bowls into one shows how fractional amounts combine to make a whole.",
+        "image_prompt": "Show small bowls of kaymak being combined into one full bowl."
+    },
+    {
+        "concept_id": "subtracting_fractions",
+        "concept_name": "Subtracting Fractions",
+        "aliases": ["fraction subtraction", "take away fractions", "difference of fractions"],
+        "kazakh_culture": "Pouring out part of the kumis",
+        "explanation_text": "Pouring out part of a bowl of kumis leaves a smaller portion—showing subtraction of a fractional amount.",
+        "image_prompt": "Show a bowl of kumis with part poured out, the remaining portion labeled as a fraction."
+    },
+    {
+        "concept_id": "multiplying_fractions",
+        "concept_name": "Multiplying Fractions",
+        "aliases": ["fraction multiplication", "part of a part", "multiply fractions"],
+        "kazakh_culture": "Half of a shashlik portion",
+        "explanation_text": "Taking half of a half-portion of shashlik finds a fraction of a fraction—exactly how multiplying fractions works.",
+        "image_prompt": "Show a skewer of shashlik divided into halves, and one half divided again to show smaller portions."
+    },
+    {
+        "concept_id": "dividing_fractions",
+        "concept_name": "Dividing Fractions",
+        "aliases": ["fraction division", "divide fractions", "how many times in"],
+        "kazakh_culture": "Cutting baursak dough",
+        "explanation_text": "Dividing a portion of dough into smaller equal pieces shows how many small parts fit inside one—like dividing by a fraction.",
+        "image_prompt": "Show baursak dough being cut into smaller equal pieces to illustrate fractional division."
+    },
+    {
+        "concept_id": "decimals",
+        "concept_name": "Decimals",
+        "aliases": ["decimal point", "tenths", "hundredths", "decimal number"],
+        "kazakh_culture": "Measuring kumis in liters",
+        "explanation_text": "Selling kumis by the liter at the bazaar introduces decimals—1.5 liters means one and a half liters.",
+        "image_prompt": "Show a measuring container marked 1.0, 1.5, and 2.0 liters of kumis."
+    },
+    {
+        "concept_id": "converting_fractions_decimals",
+        "concept_name": "Converting Fractions and Decimals",
+        "aliases": ["fraction to decimal", "decimal to fraction", "convert fractions"],
+        "kazakh_culture": "Half liter or 0.5 liter",
+        "explanation_text": "Saying half a liter or 0.5 liters describes the same amount of kumis—like converting between fractions and decimals.",
+        "image_prompt": "Show two containers, one marked ½ and another 0.5, holding the same amount."
+    },
+    {
+        "concept_id": "percents",
+        "concept_name": "Percents",
+        "aliases": ["percent", "percentage", "per hundred", "rate per 100"],
+        "kazakh_culture": "Kazakh language test scores",
+        "explanation_text": "Scoring 90 out of 100 on a Kazakh language exam is 90%—expressing parts out of a hundred.",
+        "image_prompt": "Show an exam paper with 90/100 written and a 90% mark beside it."
+    },
+    {
+        "concept_id": "percent_of_number",
+        "concept_name": "Percent of a Number",
+        "aliases": ["percentage of number", "find percent", "portion of total"],
+        "kazakh_culture": "Chapan discount at the bazaar",
+        "explanation_text": "A 10% discount on a chapan (traditional robe) at the bazaar shows how percents are used to find a part of a price.",
+        "image_prompt": "Show a bazaar sign with a chapan marked 10% off and reduced price tags."
+    },
+    {
+        "concept_id": "variables",
+        "concept_name": "Variables",
+        "aliases": ["variable", "unknown", "letter as number", "symbol in math"],
+        "kazakh_culture": "Unlabeled kumis jars",
+        "explanation_text": "If a jar of kumis has no label, its amount is unknown—like a variable that stands for a number we do not know yet.",
+        "image_prompt": "Show labeled jars (2L, 3L) and an unlabeled jar marked as x."
+    },
+    {
+        "concept_id": "expressions",
+        "concept_name": "Expressions",
+        "aliases": ["math expressions", "numerical expressions", "algebraic expressions"],
+        "kazakh_culture": "Known and unknown kumis jars",
+        "explanation_text": "Two labeled jars of kumis plus an unknown one can be written as 2 + x—a mathematical expression.",
+        "image_prompt": "Show two kumis jars plus an unlabeled one, symbolized as 2 + x."
+    },
+    {
+        "concept_id": "equations",
+        "concept_name": "Equations",
+        "aliases": ["math equations", "equal statements", "algebra equations"],
+        "kazakh_culture": "Balancing a trader's scale",
+        "explanation_text": "When both pans of a trader's scale hold equal weight, the balance stands level—just as both sides of an equation are equal.",
+        "image_prompt": "Show a balance scale with equal bales on both sides, labeled as an equation."
+    },
+    {
+        "concept_id": "solving_one_step_equations",
+        "concept_name": "Solving One-Step Equations",
+        "aliases": ["one-step equations", "simple equations"],
+        "kazakh_culture": "Balancing a horse's load",
+        "explanation_text": "If one side of a horse's load is heavier, a rider adds or removes weight until it balances—like solving a one-step equation.",
+        "image_prompt": "Show a pack horse with balanced saddlebags illustrating equal sides."
+    },
+    {
+        "concept_id": "solving_two_step_equations",
+        "concept_name": "Solving Two-Step Equations",
+        "aliases": ["two-step equations", "multi-step equations"],
+        "kazakh_culture": "Brewing tea in two steps",
+        "explanation_text": "Brewing tea takes two steps: boiling the water, then adding the tea leaves—like solving an equation with two steps.",
+        "image_prompt": "Show the sequence: boil water, add tea, get the brew—symbolizing step-by-step solving."
+    },
+    {
+        "concept_id": "inequalities",
+        "concept_name": "Inequalities",
+        "aliases": ["greater than", "less than", "not equal", "comparison statements"],
+        "kazakh_culture": "Comparing herd sizes",
+        "explanation_text": "When one family's herd is larger than another's, the comparison is an inequality—greater than or less than in math.",
+        "image_prompt": "Show two herds of different sizes with > and < symbols between them."
+    },
+    {
+        "concept_id": "order_of_operations",
+        "concept_name": "Order of Operations (PEMDAS)",
+        "aliases": ["PEMDAS", "BODMAS", "math order", "operations order"],
+        "kazakh_culture": "Beshbarmak cooking sequence",
+        "explanation_text": "Beshbarmak must follow a set order—meat boils first, then the dough is added—just like math operations follow a fixed order.",
+        "image_prompt": "Show the cooking sequence for beshbarmak with steps in order, labeled like the order of operations."
+    },
+    {
+        "concept_id": "substitution",
+        "concept_name": "Substitution",
+        "aliases": ["replace variable", "substitute value", "replace letter with number"],
+        "kazakh_culture": "Replacing a worn tool",
+        "explanation_text": "Replacing a worn saddle strap with a new one of the same size is like substituting a number for a variable.",
+        "image_prompt": "Show a worn strap replaced with an identical new one, representing substitution."
+    },
+    {
+        "concept_id": "points",
+        "concept_name": "Points",
+        "aliases": ["dot", "location", "coordinate point"],
+        "kazakh_culture": "Stars over the steppe",
+        "explanation_text": "Each star in the night sky over the steppe marks a single location—like a point in geometry.",
+        "image_prompt": "Show a starry steppe sky with individual stars labeled as points on a grid."
+    },
+    {
+        "concept_id": "lines",
+        "concept_name": "Lines",
+        "aliases": ["straight line", "geometry line", "infinite line"],
+        "kazakh_culture": "Yurt roof poles (uyq)",
+        "explanation_text": "The straight uyq poles radiating from a yurt's crown look like geometric lines extending outward.",
+        "image_prompt": "Show straight uyq poles radiating from a yurt's shanyrak, representing geometric lines."
+    },
+    {
+        "concept_id": "angles",
+        "concept_name": "Angles",
+        "aliases": ["angle", "degree", "corner measure"],
+        "kazakh_culture": "Opening the yurt door",
+        "explanation_text": "When the wooden yurt door swings open, the door and frame form an angle.",
+        "image_prompt": "Show a yurt door partially open with the angle clearly marked."
+    },
+    {
+        "concept_id": "perpendicular_lines",
+        "concept_name": "Perpendicular Lines",
+        "aliases": ["right angle lines", "intersecting lines", "orthogonal lines"],
+        "kazakh_culture": "Kerege lattice crossings",
+        "explanation_text": "The crossed wooden struts of the kerege lattice form right angles, giving the yurt wall its strength.",
+        "image_prompt": "Show kerege lattice struts crossing at 90° angles."
+    },
+    {
+        "concept_id": "parallel_lines",
+        "concept_name": "Parallel Lines",
+        "aliases": ["side-by-side lines", "never meet", "equal distance lines"],
+        "kazakh_culture": "Kerege lattice struts",
+        "explanation_text": "The parallel struts of the kerege wall run side by side and never meet—like parallel lines.",
+        "image_prompt": "Show the parallel struts of a kerege lattice wall with marked equal spacing."
+    },
+    {
+        "concept_id": "polygons",
+        "concept_name": "Polygons",
+        "aliases": ["shapes", "closed figure", "many-sided shape"],
+        "kazakh_culture": "Yurt camp from above",
+        "explanation_text": "Seen from above, the circular yurts and the rectangular felt mats of a camp form closed geometric shapes.",
+        "image_prompt": "Show an overhead view of a yurt camp forming closed geometric shapes."
+    },
+    {
+        "concept_id": "triangles",
+        "concept_name": "Triangles",
+        "aliases": ["three sides", "triangular", "triangle shape"],
+        "kazakh_culture": "Yurt roof triangles",
+        "explanation_text": "Each section of the yurt roof, between two uyq poles and the shanyrak, forms a triangle.",
+        "image_prompt": "Show triangular segments formed by the yurt's roof poles and crown."
+    },
+    {
+        "concept_id": "quadrilaterals",
+        "concept_name": "Quadrilaterals",
+        "aliases": ["four sides", "rectangles", "squares", "trapezoids"],
+        "kazakh_culture": "Syrmak carpet motifs",
+        "explanation_text": "The bold motifs on a syrmak felt carpet often form squares, rectangles, and trapezoids.",
+        "image_prompt": "Show a syrmak felt carpet with repeating square and rectangular motifs."
+    },
+    {
+        "concept_id": "perimeter",
+        "concept_name": "Perimeter",
+        "aliases": ["boundary length", "distance around", "outline measure"],
+        "kazakh_culture": "Walking around the yurt camp",
+        "explanation_text": "Measuring the distance around the ring of yurts at a camp is like finding the perimeter of a shape.",
+        "image_prompt": "Show people walking around a ring of yurts with a dashed perimeter line."
+    },
+    {
+        "concept_id": "area",
+        "concept_name": "Area",
+        "aliases": ["surface area", "space inside", "coverage"],
+        "kazakh_culture": "Felt rug covering the yurt floor",
+        "explanation_text": "The floor space covered by a felt rug inside a yurt represents its area.",
+        "image_prompt": "Show a felt rug spread on the yurt floor, shaded to show its area."
+    },
+    {
+        "concept_id": "volume",
+        "concept_name": "Volume",
+        "aliases": ["capacity", "space inside 3D shape", "liquid amount"],
+        "kazakh_culture": "Saba kumis bags",
+        "explanation_text": "The amount of kumis a leather saba bag can hold represents its volume.",
+        "image_prompt": "Show leather saba bags filled to different levels to illustrate volume."
+    },
+    {
+        "concept_id": "circle_properties",
+        "concept_name": "Circle Properties",
+        "aliases": ["radius", "diameter", "circumference", "circle geometry"],
+        "kazakh_culture": "Shanyrak seen from below",
+        "explanation_text": "Looking up at the shanyrak, the yurt's circular crown, shows a perfect circle with a clear radius and diameter.",
+        "image_prompt": "Show the shanyrak from below labeled with radius and diameter lines."
+    },
+    {
+        "concept_id": "pi",
+        "concept_name": "Pi (π)",
+        "aliases": ["pi", "ratio of circumference", "3.14"],
+        "kazakh_culture": "Round nan bread",
+        "explanation_text": "Dividing a round nan's circumference by its diameter always gives the same constant, pi (π).",
+        "image_prompt": "Show a round nan labeled with its circumference and diameter measurements."
+    },
+    {
+        "concept_id": "coordinate_plane",
+        "concept_name": "Coordinate Plane",
+        "aliases": ["x-y plane", "graph grid", "axes"],
+        "kazakh_culture": "Bazaar stall grid",
+        "explanation_text": "A bazaar laid out in rows and columns is like a coordinate grid, where every stall has its own position.",
+        "image_prompt": "Show a bazaar map labeled with x and y coordinates."
+    },
+    {
+        "concept_id": "plotting_points",
+        "concept_name": "Plotting Points",
+        "aliases": ["graphing points", "coordinates", "x-y plotting"],
+        "kazakh_culture": "Marking yurt locations",
+        "explanation_text": "Plotting each family's yurt on a camp map is like plotting points on a coordinate plane.",
+        "image_prompt": "Show a map of a steppe camp with yurt locations marked as points."
+    },
+    {
+        "concept_id": "symmetry",
+        "concept_name": "Symmetry",
+        "aliases": ["mirror image", "balanced halves", "reflection symmetry"],
+        "kazakh_culture": "Kazakh ornament symmetry",
+        "explanation_text": "Kazakh ornament designs mirror themselves across a center line, showing reflection symmetry.",
+        "image_prompt": "Show a symmetrical Kazakh ornament split by a mirror line."
+    },
+    {
+        "concept_id": "transformations",
+        "concept_name": "Transformations",
+        "aliases": ["translate", "rotate", "reflect", "dilate"],
+        "kazakh_culture": "Kara zhorga circle dance",
+        "explanation_text": "As dancers in the kara zhorga circle dance rotate and shift positions, they show geometric transformations.",
+        "image_prompt": "Show kara zhorga dancers turning and shifting positions to illustrate transformations."
+    },
+    {
+        "concept_id": "ratios",
+        "concept_name": "Ratios",
+        "aliases": ["comparison", "proportion of quantities", "rate"],
+        "kazakh_culture": "Mixing mare's milk and water",
+        "explanation_text": "When making kumis, the balance of mare's milk and water or starter is expressed as a ratio.",
+        "image_prompt": "Show a kumis jar labeled with a milk-to-water ratio, like 2:1."
+    },
+    {
+        "concept_id": "proportions",
+        "concept_name": "Proportions",
+        "aliases": ["equal ratios", "scaling", "balance of ratios"],
+        "kazakh_culture": "Enlarging a syrmak design",
+        "explanation_text": "Scaling up a syrmak pattern while keeping the shapes identical maintains proportion.",
+        "image_prompt": "Show a small and a large syrmak with the same geometric proportions."
+    },
+    {
+        "concept_id": "unit_rate",
+        "concept_name": "Unit Rate",
+        "aliases": ["per unit", "rate per one", "comparison per one unit"],
+        "kazakh_culture": "Horse speed in the baiga",
+        "explanation_text": "The distance a horse covers in one minute during a baiga race is a unit rate.",
+        "image_prompt": "Show a baiga race with speed measured as kilometers per minute."
+    },
+    {
+        "concept_id": "scale_drawings",
+        "concept_name": "Scale Drawings",
+        "aliases": ["map scale", "drawing proportion", "scaled map"],
+        "kazakh_culture": "Mapping the yurt camp",
+        "explanation_text": "Drawing a small map of a large yurt camp while keeping distances proportional is a scale drawing.",
+        "image_prompt": "Show a yurt camp and a smaller scaled map side by side with a scale legend."
+    },
+    {
+        "concept_id": "percent_change",
+        "concept_name": "Percent Change",
+        "aliases": ["percent increase", "percent decrease", "growth rate"],
+        "kazakh_culture": "Herd growth on the steppe",
+        "explanation_text": "If a family's herd grows from 100 to 120 animals, that is a 20% increase—an example of percent change.",
+        "image_prompt": "Show a herd growing in number with a +20% label."
+    },
+    {
+        "concept_id": "data_collection",
+        "concept_name": "Data Collection",
+        "aliases": ["gather data", "record information", "collect numbers"],
+        "kazakh_culture": "Tallying the livestock",
+        "explanation_text": "Recording how many horses, sheep, and camels a family owns is an example of data collection.",
+        "image_prompt": "Show a herder marking tallies of animals on a clipboard."
+    },
+    {
+        "concept_id": "tables_graphs",
+        "concept_name": "Tables and Graphs",
+        "aliases": ["data table", "bar graph", "chart"],
+        "kazakh_culture": "Seasonal livestock graphs",
+        "explanation_text": "A graph showing how many lambs were born each season helps visualize the trend in livestock data.",
+        "image_prompt": "Show a bar graph comparing livestock births across the four seasons."
+    },
+    {
+        "concept_id": "mean",
+        "concept_name": "Mean",
+        "aliases": ["average", "arithmetic mean", "mean value"],
+        "kazakh_culture": "Average kumis yield",
+        "explanation_text": "Finding the average amount of kumis a mare produces per day is finding the mean.",
+        "image_prompt": "Show a table of daily kumis yields with the average value highlighted."
+    },
+    {
+        "concept_id": "median",
+        "concept_name": "Median",
+        "aliases": ["middle value", "data median"],
+        "kazakh_culture": "Middle family income",
+        "explanation_text": "When family incomes are ordered from smallest to largest, the middle value is the median.",
+        "image_prompt": "Show incomes lined up with the middle one highlighted as the median."
+    },
+    {
+        "concept_id": "mode",
+        "concept_name": "Mode",
+        "aliases": ["most frequent value", "common value"],
+        "kazakh_culture": "Most common horse color",
+        "explanation_text": "If most horses on the steppe are bay, that color is the mode of the herd.",
+        "image_prompt": "Show horses of various colors with bay being the most common."
+    },
+    {
+        "concept_id": "range",
+        "concept_name": "Range",
+        "aliases": ["difference", "spread of data", "highest minus lowest"],
+        "kazakh_culture": "Herd size spread",
+        "explanation_text": "The gap between the largest and smallest herd in the area shows the range of the data.",
+        "image_prompt": "Show a bar chart with the tallest and shortest bars marked for range."
+    },
+    {
+        "concept_id": "bar_graphs",
+        "concept_name": "Bar Graphs",
+        "aliases": ["bar chart", "column graph"],
+        "kazakh_culture": "Family livestock bar graph",
+        "explanation_text": "Each bar shows how many animals one family owns—a quick way to compare the families.",
+        "image_prompt": "Show a bar graph labeled by family names with livestock totals."
+    },
+    {
+        "concept_id": "line_graphs",
+        "concept_name": "Line Graphs",
+        "aliases": ["trend graph", "line chart"],
+        "kazakh_culture": "Kumis production over months",
+        "explanation_text": "A line graph shows how kumis production rises and falls across the year.",
+        "image_prompt": "Show a line graph labeled with months and kumis production."
+    },
+    {
+        "concept_id": "pie_charts",
+        "concept_name": "Pie Charts",
+        "aliases": ["circle chart", "percentage chart"],
+        "kazakh_culture": "Livestock type distribution",
+        "explanation_text": "A pie chart shows the share of horses, sheep, goats, and camels in a family's herd.",
+        "image_prompt": "Show a pie chart divided into livestock categories with percentages."
+    },
+    {
+        "concept_id": "probability",
+        "concept_name": "Probability",
+        "aliases": ["chance", "likelihood", "odds"],
+        "kazakh_culture": "Baiga race odds",
+        "explanation_text": "Estimating which horse is most likely to win a baiga race involves probability.",
+        "image_prompt": "Show horses at a baiga starting line with probability labels above each."
+    },
+    {
+        "concept_id": "patterns",
+        "concept_name": "Patterns",
+        "aliases": ["repeating design", "sequence", "recurrence"],
+        "kazakh_culture": "Ornament border repeats",
+        "explanation_text": "The repeated geometric motifs on a Kazakh carpet or chapan border form visual patterns.",
+        "image_prompt": "Show repeating geometric motifs in traditional Kazakh ornament."
+    },
+    {
+        "concept_id": "functions",
+        "concept_name": "Functions",
+        "aliases": ["input-output rule", "function relation", "mapping"],
+        "kazakh_culture": "Horse speed and distance",
+        "explanation_text": "For each speed a horse gallops, there is one corresponding distance over time—each input gives a single output, like a function.",
+        "image_prompt": "Show a graph linking horse speed (input) to distance traveled (output)."
+    }
+]
