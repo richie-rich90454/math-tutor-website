@@ -34,7 +34,10 @@ public class AiClient {
     }
 
     public AiStream streamChat(List<ContextBuilder.ContextMessage> messages) throws IOException {
-        String apiKey = props.ai().apiKey();
+        return streamChat(messages, 5000);
+    }
+
+    public AiStream streamChat(List<ContextBuilder.ContextMessage> messages, int maxTokens) throws IOException {        String apiKey = props.ai().apiKey();
         if (apiKey == null || apiKey.isBlank()) {
             throw new IOException("API key not configured");
         }
@@ -48,7 +51,7 @@ public class AiClient {
                     .put("model", model)
                     .put("stream", true)
                     .put("temperature", 0.7)
-                    .put("max_tokens", 5000)
+                    .put("max_tokens", maxTokens)
                     .set("thinking", objectMapper.createObjectNode().put("type", "disabled"))
                     .set("stream_options", objectMapper.createObjectNode().put("include_usage", true))
                     .set("messages", toJsonArray(messages));
@@ -155,6 +158,19 @@ public class AiClient {
         }
 
         return new SseStream(response.body());
+    }
+
+    // Convenience for one-shot generation (notes, study plans): consume the
+    // whole stream and return the assembled text. Not for the chat path.
+    public String complete(List<ContextBuilder.ContextMessage> messages, int maxTokens) throws IOException {
+        try (AiStream stream = streamChat(messages, maxTokens)) {
+            StringBuilder out = new StringBuilder();
+            String chunk;
+            while ((chunk = stream.next()) != null) {
+                out.append(chunk);
+            }
+            return out.toString();
+        }
     }
 
     private HttpResponse<InputStream> sendWithRetry(HttpRequest request) throws IOException {
