@@ -4,6 +4,7 @@ import com.mathtutor.dto.JsonBody;
 import com.mathtutor.dto.LoginRequest;
 import com.mathtutor.dto.SignupRequest;
 import com.mathtutor.service.AuthService;
+import com.mathtutor.service.AuthThrottleService;
 import com.mathtutor.service.RateLimitService;
 import com.mathtutor.service.SessionService;
 import jakarta.servlet.http.Cookie;
@@ -31,16 +32,19 @@ public class AuthController {
     private final SessionService sessionService;
     private final RateLimitService rateLimit;
     private final AuthThrottleService authThrottle;
+    private final com.mathtutor.repo.SessionRepository sessions;
 
     public AuthController(
             AuthService authService,
             SessionService sessionService,
             RateLimitService rateLimit,
-            AuthThrottleService authThrottle) {
+            AuthThrottleService authThrottle,
+            com.mathtutor.repo.SessionRepository sessions) {
         this.authService = authService;
         this.sessionService = sessionService;
         this.rateLimit = rateLimit;
         this.authThrottle = authThrottle;
+        this.sessions = sessions;
     }
 
     @PostMapping("/signup")
@@ -56,9 +60,19 @@ public class AuthController {
 
         SignupRequest body = SignupRequest.parse(JsonBody.parse(rawBody));
 
+        // D21: if the visitor is currently a guest, their chats carry over.
+        String guestUserId = null;
+        String guestToken = readCookie(request, SESSION_COOKIE);
+        if (guestToken != null) {
+            var guestSession = sessionService.getSession(guestToken);
+            if (guestSession.isPresent() && guestSession.get().guest()) {
+                guestUserId = guestSession.get().id();
+            }
+        }
+
         AuthService.AuthResult result;
         try {
-            result = authService.signup(body.email(), body.name(), body.password());
+            result = authService.signup(body.email(), body.name(), body.password(), guestUserId);
         } catch (AuthService.EmailExistsException e) {
             return ResponseEntity.status(409)
                     .body(Map.of("error", "An account with this email already exists"));
@@ -67,6 +81,14 @@ public class AuthController {
         response.addHeader(HttpHeaders.SET_COOKIE,
                 sessionCookie(result.token(), false).toString());
 
+        return ResponseEntity.status(201).body(Map.of("user", userPayload(result)));
+    }
+
+    @PostMapping("/guest")
+    public ResponseEntity<?> guest(HttpServletResponse response) {
+        AuthService.AuthResult result = authService.createGuest();
+        response.addHeader(HttpHeaders.SET_COOKIE,
+                sessionCookie(result.token(), true).toString());
         return ResponseEntity.status(201).body(Map.of("user", userPayload(result)));
     }
 
@@ -135,6 +157,60 @@ public class AuthController {
         return ResponseEntity.ok(Map.of("user", session.get()));
     }
 
+    @GetMapping("/sessions")
+    public ResponseEntity<?> sessions(HttpServletRequest request) {
+        String token = readCookie(request, SESSION_COOKIE);
+        var session = sessionService.getSession(token);
+        if (session.isEmpty()) {
+            return ResponseEntity.status(401).body(Map.of("error", "Not authenticated"));
+        }
+        java.util.List<Map<String, Object>> list = new java.util.ArrayList<>();
+        for (com.mathtutor.repo.SessionRepository.SessionRecord s
+                : sessions.findByUser(session.get().id())) {
+            Map<String, Object> item = new LinkedHashMap<>();
+            item.put("id", s.id());
+            item.put("created_at", s.created_at());
+            item.put("expires_at", s.expires_at());
+            item.put("current", token != null && token.equals(s.token()));
+            list.add(item);
+        }
+        return ResponseEntity.ok(Map.of("sessions", list));
+    }
+
+    @PostMapping("/sessions/revoke-all")
+    public ResponseEntity<?> revokeAll(HttpServletRequest request) {
+        String token = readCookie(request, SESSION_COOKIE);
+        var session = sessionService.getSession(token);
+        if (session.isEmpty()) {
+            return ResponseEntity.status(401).body(Map.of("error", "Not authenticated"));
+        }
+        sessions.deleteByUserExcept(session.get().id(), token);
+        return ResponseEntity.ok(Map.of("success", true));
+    }
+
+    @PostMapping("/change-password")
+    public ResponseEntity<?> changePassword(
+            @RequestBody String rawBody,
+            HttpServletRequest request) {
+        String token = readCookie(request, SESSION_COOKIE);
+        var session = sessionService.getSession(token);
+        if (session.isEmpty()) {
+            return ResponseEntity.status(401).body(Map.of("error", "Not authenticated"));
+        }
+        JsonLike body = JsonBody.parse(rawBody);
+        String current = body.node().get("currentPassword") == null ? "" : body.node().get("currentPassword").asText();
+        String next = body.node().get("newPassword") == null ? "" : body.node().get("newPassword").asText();
+        if (next.length() < 8) {
+            return ResponseEntity.badRequest().body(Map.of("error", "New password must be at least 8 characters"));
+        }
+        try {
+            authService.changePassword(session.get().id(), current, next, token);
+        } catch (AuthService.BadCredentialsException e) {
+            return ResponseEntity.status(401).body(Map.of("error", "Current password is incorrect"));
+        }
+        return ResponseEntity.ok(Map.of("success", true));
+    }
+
     private Map<String, Object> userPayload(AuthService.AuthResult result) {
         Map<String, Object> user = new LinkedHashMap<>();
         user.put("id", result.user().id());
@@ -142,6 +218,7 @@ public class AuthController {
         user.put("name", result.user().name());
         user.put("preferred_language", result.user().preferred_language());
         user.put("math_level", result.user().math_level());
+        user.put("guest", SessionService.isGuest(result.user().email()));
         return user;
     }
 
