@@ -21,7 +21,8 @@ class JwtUtilTest {
                 new AppProperties.Ai("", "https://api.deepseek.com", "deepseek-v4-flash", null),
                 new AppProperties.Cors(java.util.List.of("http://localhost:3000")),
                 new AppProperties.Prompts("prompts"),
-                new AppProperties.Legacy("../frontend-legacy"));
+                new AppProperties.Legacy("../frontend-legacy"),
+                new AppProperties.Quota(200000, 0.80, 0));
     }
 
     @Test
@@ -68,7 +69,8 @@ class JwtUtilTest {
                 a.ai(),
                 a.cors(),
                 a.prompts(),
-                a.legacy());
+                a.legacy(),
+                a.quota());
         JwtUtil signer = new JwtUtil(new SecurityUtil(), new ObjectMapper(), a);
         JwtUtil verifier = new JwtUtil(new SecurityUtil(), new ObjectMapper(), b);
         String token = signer.signToken("user123", "test@example.com");
