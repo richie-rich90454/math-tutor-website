@@ -28,7 +28,8 @@ public class SessionService {
             String name,
             String avatar_url,
             String preferred_language,
-            String math_level) {
+            String math_level,
+            boolean guest) {
     }
 
     public Optional<SessionUser> getSession(String token) {
@@ -73,7 +74,8 @@ public class SessionService {
                     u.name(),
                     u.avatar_url(),
                     u.preferred_language(),
-                    u.math_level()));
+                    u.math_level(),
+                    isGuest(u.email())));
         } catch (Exception e) {
             return Optional.empty();
         }
@@ -85,5 +87,9 @@ public class SessionService {
         } catch (Exception e) {
             return true;
         }
+    }
+
+    public static boolean isGuest(String email) {
+        return email != null && email.startsWith("guest:");
     }
 }
