@@ -147,8 +147,7 @@ const InputArea = memo(function InputArea({
             return;
         }
 
-        const SpeechRecognition =
-            window.SpeechRecognition || window.webkitSpeechRecognition;
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
         if (!SpeechRecognition) return;
 
         const recognition = new SpeechRecognition();
