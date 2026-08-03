@@ -279,7 +279,9 @@ public class ChatsController {
         if (!ownsChat(session.id(), chatId)) {
             return ResponseEntity.status(403).body(Map.of("error", "Not authorized"));
         }
-        return ResponseEntity.ok(Map.of("token", shareService.tokenFor(chatId).orElse(null)));
+        Map<String, Object> body = new LinkedHashMap<>();
+        body.put("token", shareService.tokenFor(chatId).orElse(null));
+        return ResponseEntity.ok(body);
     }
 
     private boolean ownsChat(String userId, String chatId) {
