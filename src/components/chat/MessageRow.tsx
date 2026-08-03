@@ -23,6 +23,8 @@ interface MessageRowProps {
     onSuggestionClick?: (text: string) => void;
     onMouseEnter: () => void;
     onMouseLeave: () => void;
+    onTogglePin?: (messageId: string) => void;
+    isPinned?: boolean;
 }
 
 const MessageRow = memo(function MessageRow({
@@ -39,6 +41,8 @@ const MessageRow = memo(function MessageRow({
     onSuggestionClick,
     onMouseEnter,
     onMouseLeave,
+    onTogglePin,
+    isPinned,
 }: MessageRowProps) {
     return (
         <div
@@ -96,6 +100,8 @@ const MessageRow = memo(function MessageRow({
                             onFeedback={(type) => onFeedback(message.id, type)}
                             feedback={feedbackValue}
                             isVisible={isHovered}
+                            onTogglePin={onTogglePin ? () => onTogglePin(message.id) : undefined}
+                            isPinned={isPinned}
                         />
                         <div
                             className="message-bubble-assistant"
