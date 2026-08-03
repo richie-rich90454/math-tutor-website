@@ -155,6 +155,76 @@ public class SchemaInitializer {
             }
             recordMigration(4, "add_message_pinned");
         }
+
+        if (!applied.contains(5)) {
+            jdbc.execute("""
+                    CREATE TABLE IF NOT EXISTS review_items (
+                        id TEXT PRIMARY KEY,
+                        user_id TEXT NOT NULL REFERENCES users(id),
+                        problem_id TEXT NOT NULL,
+                        ease REAL DEFAULT 2.5,
+                        interval_days INTEGER DEFAULT 1,
+                        next_review TEXT NOT NULL,
+                        last_review TEXT,
+                        repetitions INTEGER DEFAULT 0,
+                        UNIQUE(user_id, problem_id)
+                    )
+                    """);
+            jdbc.execute("CREATE INDEX IF NOT EXISTS idx_review_items_user ON review_items(user_id, next_review)");
+            recordMigration(5, "add_review_items");
+        }
+
+        if (!applied.contains(6)) {
+            jdbc.execute("""
+                    CREATE TABLE IF NOT EXISTS chat_notes (
+                        chat_session_id TEXT PRIMARY KEY REFERENCES chat_sessions(id) ON DELETE CASCADE,
+                        note TEXT NOT NULL,
+                        updated_at TEXT DEFAULT (datetime('now'))
+                    )
+                    """);
+            jdbc.execute("""
+                    CREATE TABLE IF NOT EXISTS shared_chats (
+                        id TEXT PRIMARY KEY,
+                        chat_session_id TEXT NOT NULL REFERENCES chat_sessions(id) ON DELETE CASCADE,
+                        token TEXT UNIQUE NOT NULL,
+                        created_at TEXT DEFAULT (datetime('now'))
+                    )
+                    """);
+            jdbc.execute("CREATE INDEX IF NOT EXISTS idx_shared_chats_token ON shared_chats(token)");
+            jdbc.execute("""
+                    CREATE TABLE IF NOT EXISTS study_plans (
+                        user_id TEXT PRIMARY KEY REFERENCES users(id),
+                        plan TEXT NOT NULL,
+                        created_at TEXT DEFAULT (datetime('now'))
+                    )
+                    """);
+            recordMigration(6, "add_notes_share_plans");
+        }
+
+        if (!applied.contains(7)) {
+            jdbc.execute("""
+                    CREATE TABLE IF NOT EXISTS practice_stats (
+                        user_id TEXT NOT NULL REFERENCES users(id),
+                        topic TEXT NOT NULL,
+                        correct INTEGER DEFAULT 0,
+                        total INTEGER DEFAULT 0,
+                        PRIMARY KEY(user_id, topic)
+                    )
+                    """);
+            recordMigration(7, "add_practice_stats");
+        }
+
+        if (!applied.contains(8)) {
+            try {
+                jdbc.execute("ALTER TABLE usage_logs ADD COLUMN ip TEXT");
+            } catch (Exception e) {
+                if (!e.getMessage().contains("duplicate column")) {
+                    throw e;
+                }
+            }
+            jdbc.execute("CREATE INDEX IF NOT EXISTS idx_usage_logs_ip ON usage_logs(ip)");
+            recordMigration(8, "add_usage_ip");
+        }
     }
 
     private Set<Integer> applyVersions() {
