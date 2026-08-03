@@ -1,0 +1,127 @@
+{
+    "topic": "trigonometry",
+    "formulas": [
+        {
+            "name": "Sine",
+            "formula": "\\sin \\theta = \\frac{\\text{opposite}}{\\text{hypotenuse}}",
+            "native": "sine",
+            "mandarin": "正弦"
+        },
+        {
+            "name": "Cosine",
+            "formula": "\\cos \\theta = \\frac{\\text{adjacent}}{\\text{hypotenuse}}",
+            "native": "cosine",
+            "mandarin": "余弦"
+        },
+        {
+            "name": "Tangent",
+            "formula": "\\tan \\theta = \\frac{\\text{opposite}}{\\text{adjacent}}",
+            "native": "tangent",
+            "mandarin": "正切"
+        },
+        {
+            "name": "Unit circle",
+            "formula": "x^2 + y^2 = 1",
+            "native": "unit circle",
+            "mandarin": "单位圆"
+        },
+        {
+            "name": "Pythagorean identity",
+            "formula": "\\sin^2 \\theta + \\cos^2 \\theta = 1",
+            "native": "Pythagorean identity",
+            "mandarin": "勾股恒等式"
+        },
+        {
+            "name": "Law of sines",
+            "formula": "\\frac{a}{\\sin A} = \\frac{b}{\\sin B} = \\frac{c}{\\sin C}",
+            "native": "law of sines",
+            "mandarin": "正弦定理"
+        },
+        {
+            "name": "Law of cosines",
+            "formula": "c^2 = a^2 + b^2 - 2ab\\cos C",
+            "native": "law of cosines",
+            "mandarin": "余弦定理"
+        },
+        {
+            "name": "Double angle sine",
+            "formula": "\\sin 2\\theta = 2\\sin \\theta \\cos \\theta",
+            "native": "double angle sine",
+            "mandarin": "正弦二倍角公式"
+        },
+        {
+            "name": "Tangent identity",
+            "formula": "\\tan \\theta = \\frac{\\sin \\theta}{\\cos \\theta}",
+            "native": "tangent identity",
+            "mandarin": "正切恒等式"
+        },
+        {
+            "name": "Angle sum cosine",
+            "formula": "\\cos(A + B) = \\cos A \\cos B - \\sin A \\sin B",
+            "native": "angle sum cosine",
+            "mandarin": "余弦和角公式"
+        }
+    ],
+    "terms": [
+        {
+            "term": "angle",
+            "native": "angle",
+            "mandarin": "角"
+        },
+        {
+            "term": "radian",
+            "native": "radian",
+            "mandarin": "弧度"
+        },
+        {
+            "term": "degree",
+            "native": "degree",
+            "mandarin": "度"
+        },
+        {
+            "term": "hypotenuse",
+            "native": "hypotenuse",
+            "mandarin": "斜边"
+        },
+        {
+            "term": "opposite side",
+            "native": "opposite side",
+            "mandarin": "对边"
+        },
+        {
+            "term": "adjacent side",
+            "native": "adjacent side",
+            "mandarin": "邻边"
+        },
+        {
+            "term": "sine",
+            "native": "sine",
+            "mandarin": "正弦"
+        },
+        {
+            "term": "cosine",
+            "native": "cosine",
+            "mandarin": "余弦"
+        },
+        {
+            "term": "tangent",
+            "native": "tangent",
+            "mandarin": "正切"
+        },
+        {
+            "term": "unit circle",
+            "native": "unit circle",
+            "mandarin": "单位圆"
+        },
+        {
+            "term": "amplitude",
+            "native": "amplitude",
+            "mandarin": "振幅"
+        },
+        {
+            "term": "period",
+            "native": "period",
+            "mandarin": "周期"
+        }
+    ]
+}

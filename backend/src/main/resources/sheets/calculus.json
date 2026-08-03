@@ -1,0 +1,127 @@
+{
+    "topic": "calculus",
+    "formulas": [
+        {
+            "name": "Power rule",
+            "formula": "\\frac{d}{dx}x^n = nx^{n-1}",
+            "native": "power rule",
+            "mandarin": "幂法则"
+        },
+        {
+            "name": "Constant rule",
+            "formula": "\\frac{d}{dx}c = 0",
+            "native": "constant rule",
+            "mandarin": "常数法则"
+        },
+        {
+            "name": "Sum rule",
+            "formula": "\\frac{d}{dx}(u + v) = \\frac{du}{dx} + \\frac{dv}{dx}",
+            "native": "sum rule",
+            "mandarin": "和法则"
+        },
+        {
+            "name": "Product rule",
+            "formula": "\\frac{d}{dx}(uv) = u\\frac{dv}{dx} + v\\frac{du}{dx}",
+            "native": "product rule",
+            "mandarin": "乘积法则"
+        },
+        {
+            "name": "Quotient rule",
+            "formula": "\\frac{d}{dx}\\left(\\frac{u}{v}\\right) = \\frac{v\\frac{du}{dx} - u\\frac{dv}{dx}}{v^2}",
+            "native": "quotient rule",
+            "mandarin": "商法则"
+        },
+        {
+            "name": "Chain rule",
+            "formula": "\\frac{d}{dx}f(g(x)) = f'(g(x))g'(x)",
+            "native": "chain rule",
+            "mandarin": "链式法则"
+        },
+        {
+            "name": "Limit definition of derivative",
+            "formula": "f'(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h}",
+            "native": "limit definition of derivative",
+            "mandarin": "导数的极限定义"
+        },
+        {
+            "name": "Power rule for integrals",
+            "formula": "\\int x^n\\,dx = \\frac{x^{n+1}}{n+1} + C",
+            "native": "power rule for integrals",
+            "mandarin": "幂函数积分"
+        },
+        {
+            "name": "Fundamental theorem of calculus",
+            "formula": "\\int_a^b f(x)\\,dx = F(b) - F(a)",
+            "native": "fundamental theorem of calculus",
+            "mandarin": "微积分基本定理"
+        },
+        {
+            "name": "Definition of a limit",
+            "formula": "\\lim_{x \\to a} f(x) = L",
+            "native": "definition of a limit",
+            "mandarin": "极限定义"
+        }
+    ],
+    "terms": [
+        {
+            "term": "derivative",
+            "native": "derivative",
+            "mandarin": "导数"
+        },
+        {
+            "term": "integral",
+            "native": "integral",
+            "mandarin": "积分"
+        },
+        {
+            "term": "limit",
+            "native": "limit",
+            "mandarin": "极限"
+        },
+        {
+            "term": "function",
+            "native": "function",
+            "mandarin": "函数"
+        },
+        {
+            "term": "continuous",
+            "native": "continuous",
+            "mandarin": "连续"
+        },
+        {
+            "term": "differentiable",
+            "native": "differentiable",
+            "mandarin": "可导"
+        },
+        {
+            "term": "slope",
+            "native": "slope",
+            "mandarin": "斜率"
+        },
+        {
+            "term": "tangent line",
+            "native": "tangent line",
+            "mandarin": "切线"
+        },
+        {
+            "term": "antiderivative",
+            "native": "antiderivative",
+            "mandarin": "原函数"
+        },
+        {
+            "term": "definite integral",
+            "native": "definite integral",
+            "mandarin": "定积分"
+        },
+        {
+            "term": "indefinite integral",
+            "native": "indefinite integral",
+            "mandarin": "不定积分"
+        },
+        {
+            "term": "area under the curve",
+            "native": "area under the curve",
+            "mandarin": "曲线下面积"
+        }
+    ]
+}
