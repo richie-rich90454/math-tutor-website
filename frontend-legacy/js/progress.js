@@ -49,6 +49,7 @@
                 renderTopics(data.topics || []);
                 renderRecent(data.recentChats || []);
                 renderHeatmap(data.dailyActivity || []);
+                loadWeakTopics();
             },
             error: function (msg) {
                 var box = el("errorBox");
@@ -89,8 +90,41 @@
         host.innerHTML = html;
     }
 
-    function renderRecent(recentChats) {
-        var host = el("recentList");
+    function loadWeakTopics() {
+        MathTutor.api({
+            url: "/api/progress/suggestions?language=" + encodeURIComponent(MathTutor.currentLanguage),
+            method: "GET",
+            success: function (data) {
+                renderWeakTopics((data.weakTopics || []));
+            },
+            error: function () {
+            }
+        });
+    }
+
+    function renderWeakTopics(weakTopics) {
+        var card = el("weakCard");
+        var host = el("weakList");
+        if (!card || !weakTopics.length) {
+            if (card) {
+                card.className = "card hidden";
+            }
+            return;
+        }
+        card.className = "card";
+        var html = "";
+        for (var i = 0; i < weakTopics.length; i++) {
+            var weak = weakTopics[i];
+            var accuracy = Math.round((weak.accuracy || 0) * 100);
+            html += '<div class="row"><strong>' + MathTutor.escapeHtml(weak.topic) + "</strong>"
+                + " <span class=\"muted\">" + accuracy + "%</span>"
+                + " <a href=\"/legacy/practice.html?topic=" + encodeURIComponent(weak.topic) + "\">"
+                + MathTutor.escapeHtml(MathTutor.t("reviewNext")) + " &rarr;</a></div>";
+        }
+        host.innerHTML = html;
+    }
+
+    function renderRecent(recentChats) {        var host = el("recentList");
         if (!recentChats.length) {
             host.innerHTML = '<span class="muted">' + MathTutor.escapeHtml(MathTutor.t("sidebarNoConversationsYet")) + "</span>";
             return;
