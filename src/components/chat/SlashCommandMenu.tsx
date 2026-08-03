@@ -30,6 +30,11 @@ const COMMANDS = [
         label: "Take a quiz",
         description: "Test your knowledge with a quick quiz",
     },
+    {
+        command: "/check",
+        label: "Check my answer",
+        description: "Quickly check if your working is correct",
+    },
 ];
 
 export default function SlashCommandMenu({
