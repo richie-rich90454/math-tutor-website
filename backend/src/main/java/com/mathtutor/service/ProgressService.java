@@ -105,4 +105,35 @@ public class ProgressService {
         }
         return streak;
     }
+
+    public void recordPractice(String userId, String topic, boolean correct) {
+        jdbc.update("""
+                INSERT INTO practice_stats (user_id, topic, correct, total) VALUES (?, ?, ?, 1)
+                ON CONFLICT(user_id, topic) DO UPDATE SET
+                    correct = correct + ?,
+                    total = total + 1
+                """, userId, topic, correct ? 1 : 0, correct ? 1 : 0);
+    }
+
+    // B10: topics with < 60% accuracy (and at least a few attempts) are "weak";
+    // the caller pairs them with problem suggestions from the bank.
+    public List<Map<String, Object>> weakTopics(String userId) {
+        return jdbc.queryForList("""
+                SELECT topic, correct, total,
+                       ROUND(CAST(correct AS REAL) / total, 2) AS accuracy
+                FROM practice_stats
+                WHERE user_id = ? AND total >= 3
+                ORDER BY accuracy ASC
+                """, userId);
+    }
+
+    public List<Map<String, Object>> topicAccuracy(String userId) {
+        return jdbc.queryForList("""
+                SELECT topic, correct, total,
+                       ROUND(CAST(correct AS REAL) / total, 2) AS accuracy
+                FROM practice_stats
+                WHERE user_id = ?
+                ORDER BY total DESC
+                """, userId);
+    }
 }
