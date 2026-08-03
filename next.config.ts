@@ -59,8 +59,44 @@ const nextConfig: NextConfig = {
                     destination: `${backendUrl}/api/chats/:path*`,
                 },
                 {
-                    source: "/api/progress",
-                    destination: `${backendUrl}/api/progress`,
+                    source: "/api/progress/:path*",
+                    destination: `${backendUrl}/api/progress/:path*`,
+                },
+                {
+                    source: "/api/usage",
+                    destination: `${backendUrl}/api/usage`,
+                },
+                {
+                    source: "/api/problems/:path*",
+                    destination: `${backendUrl}/api/problems/:path*`,
+                },
+                {
+                    source: "/api/problem-of-day",
+                    destination: `${backendUrl}/api/problem-of-day`,
+                },
+                {
+                    source: "/api/review",
+                    destination: `${backendUrl}/api/review`,
+                },
+                {
+                    source: "/api/sheets",
+                    destination: `${backendUrl}/api/sheets`,
+                },
+                {
+                    source: "/api/study-plan/:path*",
+                    destination: `${backendUrl}/api/study-plan/:path*`,
+                },
+                {
+                    source: "/api/public/chat/:path*",
+                    destination: `${backendUrl}/api/public/chat/:path*`,
+                },
+                {
+                    source: "/api/culture/:path*",
+                    destination: `${backendUrl}/api/culture/:path*`,
+                },
+                {
+                    source: "/api/chat/translate",
+                    destination: `${backendUrl}/api/chat/translate`,
                 },
                 {
                     source: "/legacy",
