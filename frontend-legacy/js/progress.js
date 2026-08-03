@@ -140,8 +140,12 @@
     }
 
     function rgba(r, g, b, a) {
-        var alpha = Math.round(a * 255);
-        return "rgb(" + r + "," + g + "," + b + ")";
+        // Blend over the card background (IE6 has no rgba() support).
+        var bg = document.body.className.indexOf("theme-dark") !== -1 ? 22 : 255;
+        var r2 = Math.round(r * a + bg * (1 - a));
+        var g2 = Math.round(g * a + bg * (1 - a));
+        var b2 = Math.round(b * a + bg * (1 - a));
+        return "rgb(" + r2 + "," + g2 + "," + b2 + ")";
     }
 
     function formatDate(sqlOrIso) {
