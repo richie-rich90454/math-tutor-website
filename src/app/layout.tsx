@@ -1,6 +1,26 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Geist, Geist_Mono } from "next/font/google";
+import {
+    Noto_Sans,
+    Noto_Serif,
+    Noto_Sans_SC,
+    Noto_Serif_SC,
+    Noto_Sans_TC,
+    Noto_Serif_TC,
+    Noto_Sans_JP,
+    Noto_Serif_JP,
+    Noto_Sans_KR,
+    Noto_Serif_KR,
+    Noto_Sans_Arabic,
+    Noto_Naskh_Arabic,
+    Noto_Sans_Hebrew,
+    Noto_Serif_Tibetan,
+    Noto_Sans_Mongolian,
+    Noto_Sans_Tai_Le,
+    Noto_Sans_Yi,
+    Noto_Sans_Lisu,
+    Noto_Sans_Mono,
+} from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { ChatProvider } from "@/contexts/ChatContext";
@@ -10,15 +30,121 @@ import { ToastProvider } from "@/contexts/ToastContext";
 import SkipLink from "@/components/ui/SkipLink";
 import HtmlAttributes from "@/components/ui/HtmlAttributes";
 
-const geistSans = Geist({
-    variable: "--font-geist-sans",
+const notoSans = Noto_Sans({
+    variable: "--font-noto-sans",
+    subsets: ["latin", "latin-ext", "cyrillic", "cyrillic-ext", "greek", "greek-ext", "vietnamese"],
+    display: "swap",
+});
+
+const notoSerif = Noto_Serif({
+    variable: "--font-noto-serif",
+    subsets: ["latin", "latin-ext", "cyrillic", "cyrillic-ext", "greek", "greek-ext", "vietnamese"],
+    display: "swap",
+});
+
+const notoSansSC = Noto_Sans_SC({
+    variable: "--font-noto-sans-sc",
     subsets: ["latin"],
     display: "swap",
 });
 
-const geistMono = Geist_Mono({
-    variable: "--font-geist-mono",
+const notoSerifSC = Noto_Serif_SC({
+    variable: "--font-noto-serif-sc",
     subsets: ["latin"],
+    display: "swap",
+});
+
+const notoSansTC = Noto_Sans_TC({
+    variable: "--font-noto-sans-tc",
+    subsets: ["latin"],
+    display: "swap",
+});
+
+const notoSerifTC = Noto_Serif_TC({
+    variable: "--font-noto-serif-tc",
+    subsets: ["latin"],
+    display: "swap",
+});
+
+const notoSansJP = Noto_Sans_JP({
+    variable: "--font-noto-sans-jp",
+    subsets: ["latin"],
+    display: "swap",
+});
+
+const notoSerifJP = Noto_Serif_JP({
+    variable: "--font-noto-serif-jp",
+    subsets: ["latin"],
+    display: "swap",
+});
+
+const notoSansKR = Noto_Sans_KR({
+    variable: "--font-noto-sans-kr",
+    subsets: ["latin"],
+    display: "swap",
+});
+
+const notoSerifKR = Noto_Serif_KR({
+    variable: "--font-noto-serif-kr",
+    subsets: ["latin"],
+    display: "swap",
+});
+
+const notoSansArabic = Noto_Sans_Arabic({
+    variable: "--font-noto-sans-arabic",
+    subsets: ["arabic"],
+    display: "swap",
+});
+
+const notoSerifArabic = Noto_Naskh_Arabic({
+    variable: "--font-noto-serif-arabic",
+    subsets: ["arabic"],
+    display: "swap",
+});
+
+const notoSansHebrew = Noto_Sans_Hebrew({
+    variable: "--font-noto-sans-hebrew",
+    subsets: ["hebrew"],
+    display: "swap",
+});
+
+const notoSansTibetan = Noto_Serif_Tibetan({
+    variable: "--font-noto-sans-tibetan",
+    subsets: ["tibetan"],
+    display: "swap",
+});
+
+const notoSansMongolian = Noto_Sans_Mongolian({
+    variable: "--font-noto-sans-mongolian",
+    subsets: ["mongolian"],
+    weight: "400",
+    display: "swap",
+});
+
+const notoSansTaiLe = Noto_Sans_Tai_Le({
+    variable: "--font-noto-sans-taile",
+    subsets: ["tai-le"],
+    weight: "400",
+    display: "swap",
+});
+
+const notoSansYi = Noto_Sans_Yi({
+    variable: "--font-noto-sans-yi",
+    subsets: ["yi"],
+    weight: "400",
+    display: "swap",
+});
+
+const notoSansLisu = Noto_Sans_Lisu({
+    variable: "--font-noto-sans-lisu",
+    subsets: ["lisu"],
+    weight: "400",
+    display: "swap",
+});
+
+const notoSansMono = Noto_Sans_Mono({
+    variable: "--font-noto-mono",
+    subsets: ["latin", "latin-ext", "cyrillic", "cyrillic-ext", "greek", "greek-ext", "vietnamese"],
     display: "swap",
 });
 
@@ -295,7 +421,29 @@ export default function RootLayout({
                     }}
                 />
             </head>
-            <body className={`${geistSans.variable} ${geistMono.variable}`}>
+            <body
+                className={[
+                    notoSans.variable,
+                    notoSerif.variable,
+                    notoSansSC.variable,
+                    notoSerifSC.variable,
+                    notoSansTC.variable,
+                    notoSerifTC.variable,
+                    notoSansJP.variable,
+                    notoSerifJP.variable,
+                    notoSansKR.variable,
+                    notoSerifKR.variable,
+                    notoSansArabic.variable,
+                    notoSerifArabic.variable,
+                    notoSansHebrew.variable,
+                    notoSansTibetan.variable,
+                    notoSansMongolian.variable,
+                    notoSansTaiLe.variable,
+                    notoSansYi.variable,
+                    notoSansLisu.variable,
+                    notoSansMono.variable,
+                ].join(" ")}
+            >
                 <div
                     id="aria-live-polite"
                     className="sr-only"
