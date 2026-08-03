@@ -22,7 +22,7 @@ public class DatabaseConfig {
         }
         DriverManagerDataSource ds = new DriverManagerDataSource();
         ds.setDriverClassName("org.sqlite.JDBC");
-        ds.setUrl("jdbc:sqlite:" + dbPath.toAbsolutePath());
+        ds.setUrl("jdbc:sqlite:" + dbPath.toAbsolutePath() + "?busy_timeout=5000");
         return ds;
     }
 
