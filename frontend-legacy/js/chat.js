@@ -586,6 +586,7 @@
                 }
             }
             finishStreaming();
+            MathTutor.refreshUsage();
             loadChatHistory();
         }
 
@@ -907,6 +908,7 @@
             renderSidebarUserArea();
             if (ok) {
                 loadChatHistory();
+                MathTutor.refreshUsage();
                 showWelcomeView();
             } else {
                 showWelcomeView();
