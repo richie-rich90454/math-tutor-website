@@ -35,14 +35,20 @@ public class ChatsController {
     private final SessionService sessionService;
     private final ChatRepository chats;
     private final MessageRepository messages;
+    private final com.mathtutor.service.NotesService notesService;
+    private final com.mathtutor.service.ShareService shareService;
 
     public ChatsController(
             SessionService sessionService,
             ChatRepository chats,
-            MessageRepository messages) {
+            MessageRepository messages,
+            com.mathtutor.service.NotesService notesService,
+            com.mathtutor.service.ShareService shareService) {
         this.sessionService = sessionService;
         this.chats = chats;
         this.messages = messages;
+        this.notesService = notesService;
+        this.shareService = shareService;
     }
 
     @GetMapping
@@ -186,6 +192,99 @@ public class ChatsController {
         boolean pinned = pinnedValue == null || pinnedValue;
         messages.setPinned(messageId, pinned);
         return ResponseEntity.ok(Map.of("message", messages.findById(messageId).get()));
+    }
+
+    @GetMapping("/{chatId}/notes")
+    public ResponseEntity<?> getNotes(
+            @PathVariable String chatId,
+            HttpServletRequest request) {
+        var session = requireSession(request);
+        if (session == null) {
+            return unauthenticated();
+        }
+        if (!ownsChat(session.id(), chatId)) {
+            return ResponseEntity.status(403).body(Map.of("error", "Not authorized"));
+        }
+        return ResponseEntity.ok(Map.of("note", notesService.get(chatId).orElse("")));
+    }
+
+    @PostMapping("/{chatId}/notes")
+    public ResponseEntity<?> generateNotes(
+            @PathVariable String chatId,
+            @RequestBody String rawBody,
+            HttpServletRequest request) {
+        var session = requireSession(request);
+        if (session == null) {
+            return unauthenticated();
+        }
+        if (!ownsChat(session.id(), chatId)) {
+            return ResponseEntity.status(403).body(Map.of("error", "Not authorized"));
+        }
+        String language = null;
+        try {
+            JsonLike body = JsonBody.parse(rawBody);
+            language = body.string("language");
+        } catch (Exception ignored) {
+            // optional body; language falls back to English
+        }
+        try {
+            String note = notesService.generate(chatId, language);
+            if (note.isEmpty()) {
+                return ResponseEntity.badRequest().body(Map.of("error", "No messages to summarize"));
+            }
+            return ResponseEntity.ok(Map.of("note", note));
+        } catch (java.io.IOException e) {
+            return ResponseEntity.status(502).body(Map.of("error", "Failed to generate note"));
+        }
+    }
+
+    @PostMapping("/{chatId}/share")
+    public ResponseEntity<?> share(
+            @PathVariable String chatId,
+            HttpServletRequest request) {
+        var session = requireSession(request);
+        if (session == null) {
+            return unauthenticated();
+        }
+        if (!ownsChat(session.id(), chatId)) {
+            return ResponseEntity.status(403).body(Map.of("error", "Not authorized"));
+        }
+        String token = shareService.tokenFor(chatId).orElseGet(() -> shareService.create(chatId));
+        return ResponseEntity.ok(Map.of("token", token, "url", "/public/chat/" + token));
+    }
+
+    @DeleteMapping("/{chatId}/share")
+    public ResponseEntity<?> revokeShare(
+            @PathVariable String chatId,
+            HttpServletRequest request) {
+        var session = requireSession(request);
+        if (session == null) {
+            return unauthenticated();
+        }
+        if (!ownsChat(session.id(), chatId)) {
+            return ResponseEntity.status(403).body(Map.of("error", "Not authorized"));
+        }
+        shareService.revoke(chatId);
+        return ResponseEntity.ok(Map.of("success", true));
+    }
+
+    @GetMapping("/{chatId}/share")
+    public ResponseEntity<?> shareStatus(
+            @PathVariable String chatId,
+            HttpServletRequest request) {
+        var session = requireSession(request);
+        if (session == null) {
+            return unauthenticated();
+        }
+        if (!ownsChat(session.id(), chatId)) {
+            return ResponseEntity.status(403).body(Map.of("error", "Not authorized"));
+        }
+        return ResponseEntity.ok(Map.of("token", shareService.tokenFor(chatId).orElse(null)));
+    }
+
+    private boolean ownsChat(String userId, String chatId) {
+        Optional<ChatRepository.ChatRecord> existing = chats.findById(chatId);
+        return existing.isPresent() && existing.get().user_id().equals(userId);
     }
 
     private SessionService.SessionUser requireSession(HttpServletRequest request) {
