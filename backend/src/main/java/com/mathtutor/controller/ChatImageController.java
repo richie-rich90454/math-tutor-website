@@ -54,7 +54,7 @@ public class ChatImageController {
             return;
         }
 
-        String ip = clientIp(request);
+        String ip = com.mathtutor.web.RequestSecurity.clientIp(request);
         RateLimitService.RateLimitResult rl = rateLimit.check("image:" + ip, 10, 60 * 1000);
         if (!rl.allowed()) {
             response.setHeader("Retry-After", "60");
@@ -76,9 +76,13 @@ public class ChatImageController {
                     body.image(),
                     body.message(),
                     body.chatId());
+        } catch (com.mathtutor.web.ForbiddenException e) {
+            writeJson(response, 403, "{\"error\":\"Not authorized to access this chat\"}");
+            return;
         } catch (IOException e) {
-            writeJson(response, 500,
-                    "{\"error\":\"" + escapeJson(e.getMessage()) + "\"}");
+            org.slf4j.LoggerFactory.getLogger(ChatImageController.class)
+                    .error("Failed to prepare vision stream", e);
+            writeJson(response, 500, "{\"error\":\"Failed to prepare response\"}");
             return;
         }
 
@@ -112,18 +116,6 @@ public class ChatImageController {
         response.getOutputStream().write(json.getBytes(StandardCharsets.UTF_8));
     }
 
-    private String clientIp(HttpServletRequest request) {
-        String forwarded = request.getHeader("x-forwarded-for");
-        if (forwarded != null && !forwarded.isBlank()) {
-            return forwarded;
-        }
-        String realIp = request.getHeader("x-real-ip");
-        if (realIp != null && !realIp.isBlank()) {
-            return realIp;
-        }
-        return "unknown";
-    }
-
     private String readCookie(HttpServletRequest request, String name) {
         Cookie[] cookies = request.getCookies();
         if (cookies == null) {
@@ -143,15 +135,5 @@ public class ChatImageController {
             return auth.substring(7);
         }
         return readCookie(request, SESSION_COOKIE);
-    }
-
-    private String escapeJson(String value) {
-        if (value == null) {
-            return "";
-        }
-        return value.replace("\\", "\\\\")
-                .replace("\"", "\\\"")
-                .replace("\n", "\\n")
-                .replace("\r", "\\r");
     }
 }
