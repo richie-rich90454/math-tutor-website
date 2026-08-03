@@ -4746,3 +4746,30 @@ select,
     opacity: 0.6;
     cursor: default;
 }
+
+/* ---------- Public shared chat ---------- */
+.public-msg {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: var(--space-3) 0;
+    border-bottom: 1px solid var(--border-default);
+}
+.public-msg:last-child {
+    border-bottom: none;
+}
+.public-msg-user .public-msg-content {
+    text-align: right;
+}
+.public-msg-role {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--fg-secondary);
+}
+.public-msg-content {
+    margin: 0;
+    color: var(--fg-primary);
+    white-space: pre-wrap;
+    font-size: 0.95rem;
+}
