@@ -64,6 +64,25 @@
             });
             return false;
         };
+
+        // D21 guest mode: try without an account; chats transfer on signup.
+        el("guestBtn").onclick = function () {
+            el("guestBtn").disabled = true;
+            MathTutor.api({
+                url: "/api/auth/guest",
+                method: "POST",
+                data: {},
+                success: function (data) {
+                    MathTutor.session = { user: data.user };
+                    location.href = "index.html";
+                },
+                error: function (msg) {
+                    showError(msg || MathTutor.t("authInvalidCredentials"));
+                    el("guestBtn").disabled = false;
+                }
+            });
+            return false;
+        };
     }
 
     function showError(msg) {
