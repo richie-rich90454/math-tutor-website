@@ -10,6 +10,7 @@ interface User {
     name: string;
     preferred_language: string;
     math_level: string;
+    guest?: boolean;
 }
 
 interface AuthContextType {
@@ -20,6 +21,7 @@ interface AuthContextType {
     signup: (name: string, email: string, password: string, mathLevel: string) => Promise<void>;
     logout: () => Promise<void>;
     refreshUser: () => Promise<void>;
+    startGuest: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -87,6 +89,16 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         router.push("/login");
     };
 
+    const startGuest = async () => {
+        const res = await apiFetch("/api/auth/guest", { method: "POST" });
+        if (!res.ok) {
+            const data = await res.json();
+            throw new Error(data.error || "Failed to start guest session");
+        }
+        const data = await res.json();
+        setUser(data.user);
+    };
+
     return (
         <AuthContext.Provider
             value={{
@@ -97,6 +109,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
                 signup,
                 logout,
                 refreshUser,
+                startGuest,
             }}
         >
             {children}
