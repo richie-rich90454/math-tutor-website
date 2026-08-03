@@ -1,0 +1,790 @@
+[
+    {
+        "concept_id": "place_value",
+        "concept_name": "Place Value",
+        "aliases": [
+            "place value",
+            "digit place",
+            "number place",
+            "units place",
+            "tens place",
+            "hundreds place",
+            "position of digits",
+            "digit position"
+        ],
+        "french_culture": "Baguette price tags in a boulangerie",
+        "explanation_text": "Each digit in a price like 245 euros has a place that tells its value, just as the numbered shelves in a French boulangerie order baguettes from cheapest to most expensive.",
+        "image_prompt": "Illustrate a French boulangerie counter with labeled shelves marking ones, tens, and hundreds for baguette prices."
+    },
+    {
+        "concept_id": "addition_subtraction",
+        "concept_name": "Addition & Subtraction",
+        "aliases": [
+            "add",
+            "addition",
+            "plus",
+            "sum",
+            "combine",
+            "total",
+            "subtract",
+            "subtraction",
+            "minus",
+            "take away",
+            "difference"
+        ],
+        "french_culture": "Croissants being added or taken from a tray",
+        "explanation_text": "When the baker adds more croissants to the morning tray the count grows, and when customers buy them it shrinks — just like addition and subtraction.",
+        "image_prompt": "Show a tray of croissants with more being added on one side and some being taken away on the other, with the total count changing."
+    },
+    {
+        "concept_id": "multiplication_division",
+        "concept_name": "Multiplication & Division",
+        "aliases": [
+            "multiply",
+            "multiplication",
+            "times",
+            "groups of",
+            "repeated addition",
+            "divide",
+            "division",
+            "split equally",
+            "sharing"
+        ],
+        "french_culture": "Pétanque balls arranged in rows",
+        "explanation_text": "Placing identical pétanque balls into equal rows shows multiplication, and splitting them evenly between players shows division.",
+        "image_prompt": "Display rows of identical pétanque balls arranged evenly to show equal grouping and even sharing."
+    },
+    {
+        "concept_id": "even_odd",
+        "concept_name": "Even and Odd Numbers",
+        "aliases": [
+            "even numbers",
+            "odd numbers",
+            "even",
+            "odd",
+            "pairs",
+            "leftover",
+            "no remainder",
+            "remains one"
+        ],
+        "french_culture": "Pairs of pétanque boules",
+        "explanation_text": "Pétanque players team up in pairs of boules; if every boule has a partner the number is even, and a lone boule left over makes it odd.",
+        "image_prompt": "Show pétanque boules in pairs with one single boule at the end to represent an odd number."
+    },
+    {
+        "concept_id": "skip_counting",
+        "concept_name": "Skip Counting / Number Patterns",
+        "aliases": [
+            "skip counting",
+            "count by 2s",
+            "count by 5s",
+            "count by 10s",
+            "jump counting",
+            "repeating numbers",
+            "number patterns"
+        ],
+        "french_culture": "Repeated stripes on the tricolore",
+        "explanation_text": "The blue, white, and red bands of the French flag repeat in a fixed rhythm — counting every third stripe shows skip counting.",
+        "image_prompt": "Show the stripes of the French flag with every third stripe highlighted to illustrate skip counting."
+    },
+    {
+        "concept_id": "comparing_numbers",
+        "concept_name": "Comparing and Ordering Numbers",
+        "aliases": [
+            "compare numbers",
+            "greater than",
+            "less than",
+            "more than",
+            "fewer than",
+            "biggest",
+            "smallest",
+            "ordering numbers",
+            "number order"
+        ],
+        "french_culture": "Crêpes stacked to different heights",
+        "explanation_text": "Comparing stacks of crêpes of different heights helps show which is taller or smaller, like comparing numbers.",
+        "image_prompt": "Show several stacks of crêpes with different heights and use comparison symbols between them."
+    },
+    {
+        "concept_id": "rounding_estimation",
+        "concept_name": "Rounding & Estimation",
+        "aliases": [
+            "round",
+            "rounding",
+            "estimate",
+            "estimation",
+            "approximate",
+            "about how much",
+            "close to",
+            "nearby number"
+        ],
+        "french_culture": "Estimating dough for crêpes",
+        "explanation_text": "When making a batch of crêpes, a cook roughly estimates how much flour is needed — similar to rounding to a convenient number.",
+        "image_prompt": "Show a chef estimating a mound of flour for crêpes and labeling it with a rounded amount."
+    },
+    {
+        "concept_id": "fractions",
+        "concept_name": "Fractions",
+        "aliases": [
+            "fraction",
+            "part of a whole",
+            "portion",
+            "share",
+            "numerator",
+            "denominator"
+        ],
+        "french_culture": "Sharing a baguette equally",
+        "explanation_text": "When a baguette is sliced into equal pieces for a family lunch, each person receives a fraction of the whole loaf.",
+        "image_prompt": "Show a baguette sliced into equal parts with each piece labeled as a fraction of the loaf."
+    },
+    {
+        "concept_id": "equivalent_fractions",
+        "concept_name": "Equivalent Fractions",
+        "aliases": [
+            "equal fractions",
+            "same value",
+            "fraction equality",
+            "equivalent"
+        ],
+        "french_culture": "Cutting a Camembert cheese",
+        "explanation_text": "Cutting a round Camembert into 2 halves or 4 quarters gives the same total cheese — like equivalent fractions.",
+        "image_prompt": "Show a Camembert divided first into halves and then into quarters, demonstrating equal portions."
+    },
+    {
+        "concept_id": "simplifying_fractions",
+        "concept_name": "Simplifying Fractions",
+        "aliases": [
+            "reduce fraction",
+            "lowest terms",
+            "simplify fraction"
+        ],
+        "french_culture": "Combining cheese portions",
+        "explanation_text": "If separate small pieces of cheese are gathered into one plate, the portion is easier to describe — like reducing a fraction to its simplest form.",
+        "image_prompt": "Depict small cheese pieces merging into one plate, labeled with a simplified fraction."
+    },
+    {
+        "concept_id": "mixed_numbers",
+        "concept_name": "Mixed Numbers",
+        "aliases": [
+            "mixed number",
+            "whole and fraction",
+            "whole part and fraction part"
+        ],
+        "french_culture": "Full and half bottles of wine",
+        "explanation_text": "If a table has 3 full bottles of wine and one half-bottle more, that is 3½ — just like a mixed number.",
+        "image_prompt": "Show three full bottles and one half-filled bottle labeled as 3½."
+    },
+    {
+        "concept_id": "improper_fractions",
+        "concept_name": "Improper Fractions",
+        "aliases": [
+            "top-heavy fraction",
+            "numerator larger",
+            "greater than one fraction"
+        ],
+        "french_culture": "Filling more than one pichet",
+        "explanation_text": "When juice pours past one full pichet and is counted in equal cupfuls, it represents an improper fraction.",
+        "image_prompt": "Show several cups filled past one full pitcher, symbolizing fractions greater than 1."
+    },
+    {
+        "concept_id": "adding_fractions",
+        "concept_name": "Adding Fractions",
+        "aliases": [
+            "fraction addition",
+            "add fractions",
+            "sum of fractions"
+        ],
+        "french_culture": "Pouring cream portions together",
+        "explanation_text": "Adding portions of cream from different small bowls shows how fractional amounts combine into one whole.",
+        "image_prompt": "Show small bowls of cream being poured together to make one total bowl."
+    },
+    {
+        "concept_id": "subtracting_fractions",
+        "concept_name": "Subtracting Fractions",
+        "aliases": [
+            "fraction subtraction",
+            "take away fractions",
+            "difference of fractions"
+        ],
+        "french_culture": "Serving part of a tarte",
+        "explanation_text": "Serving a slice of tarte and removing it from the whole shows subtraction of a fractional part.",
+        "image_prompt": "Show a whole tarte with one slice removed, the remainder labeled as the fraction left."
+    },
+    {
+        "concept_id": "multiplying_fractions",
+        "concept_name": "Multiplying Fractions",
+        "aliases": [
+            "fraction multiplication",
+            "part of a part",
+            "multiply fractions"
+        ],
+        "french_culture": "Halves of dessert portions",
+        "explanation_text": "If each guest gets half of a half portion of tarte, you are finding a fraction of a fraction — like multiplying fractions.",
+        "image_prompt": "Show a tarte divided into halves, and one half divided again to show smaller portions."
+    },
+    {
+        "concept_id": "dividing_fractions",
+        "concept_name": "Dividing Fractions",
+        "aliases": [
+            "fraction division",
+            "divide fractions",
+            "how many times in"
+        ],
+        "french_culture": "Splitting pâte à choux dough",
+        "explanation_text": "Dividing a portion of choux pastry dough into smaller equal pieces shows dividing a fraction by another fraction.",
+        "image_prompt": "Show choux pastry dough being cut into smaller even pieces to illustrate fractional division."
+    },
+    {
+        "concept_id": "decimals",
+        "concept_name": "Decimals",
+        "aliases": [
+            "decimal point",
+            "tenths",
+            "hundredths",
+            "decimal number"
+        ],
+        "french_culture": "Measuring milk in litres",
+        "explanation_text": "Using litres and centilitres when measuring milk introduces decimals, like 1.5 litres meaning one and a half litres.",
+        "image_prompt": "Show a measuring jug marked with 1.0, 1.5, and 2.0 litres of milk."
+    },
+    {
+        "concept_id": "converting_fractions_decimals",
+        "concept_name": "Converting Fractions and Decimals",
+        "aliases": [
+            "fraction to decimal",
+            "decimal to fraction",
+            "convert fractions"
+        ],
+        "french_culture": "Comparing milk measures",
+        "explanation_text": "Whether you say half a litre or 0.5 litres, both describe the same amount — like converting between fractions and decimals.",
+        "image_prompt": "Show two labeled jugs, one marked ½ and another 0.5, filled with the same amount."
+    },
+    {
+        "concept_id": "percents",
+        "concept_name": "Percents",
+        "aliases": [
+            "percent",
+            "percentage",
+            "per hundred",
+            "rate per 100"
+        ],
+        "french_culture": "School marks out of 20",
+        "explanation_text": "When a student scores 18 out of 20 on a French exam, that is 90% — a way to express parts per hundred.",
+        "image_prompt": "Show a French exam paper marked 18/20 with a 90% label beside it."
+    },
+    {
+        "concept_id": "percent_of_number",
+        "concept_name": "Percent of a Number",
+        "aliases": [
+            "percentage of number",
+            "find percent",
+            "portion of total"
+        ],
+        "french_culture": "Soldes (sales) discounts at shops",
+        "explanation_text": "A 30% reduction on a coat during les soldes shows how percents are used to find parts of a number.",
+        "image_prompt": "Show a shop window during les soldes with a coat marked 30% off and a reduced price tag."
+    },
+    {
+        "concept_id": "variables",
+        "concept_name": "Variables",
+        "aliases": [
+            "variable",
+            "unknown",
+            "letter as number",
+            "symbol in math"
+        ],
+        "french_culture": "Unlabeled boxes at market stalls",
+        "explanation_text": "If some crates of fruit at the market have no price, each represents an unknown quantity — like variables in math.",
+        "image_prompt": "Show labeled crates (2€, 3€) and an unlabeled crate marked as x."
+    },
+    {
+        "concept_id": "expressions",
+        "concept_name": "Expressions",
+        "aliases": [
+            "math expressions",
+            "numerical expressions",
+            "algebraic expressions"
+        ],
+        "french_culture": "Combining known and unknown produce",
+        "explanation_text": "If you have 2 known baskets of apples and x more unknown ones, that is like writing the expression 2 + x.",
+        "image_prompt": "Show two apple baskets plus an unlabeled one, symbolized as 2 + x."
+    },
+    {
+        "concept_id": "equations",
+        "concept_name": "Equations",
+        "aliases": [
+            "math equations",
+            "equal statements",
+            "algebra equations"
+        ],
+        "french_culture": "Balancing a balance scale",
+        "explanation_text": "When both sides of a balance hold equal weight, it represents equality — just like both sides of an equation.",
+        "image_prompt": "Show a balance scale with equal objects on both sides labeled as an equation."
+    },
+    {
+        "concept_id": "solving_one_step_equations",
+        "concept_name": "Solving One-Step Equations",
+        "aliases": [
+            "one-step equations",
+            "simple equations"
+        ],
+        "french_culture": "Balancing a waiter's tray",
+        "explanation_text": "If one side of a serving tray is heavier, you add or remove dishes to balance it — like solving one-step equations.",
+        "image_prompt": "Show a waiter balancing a tray with equal sides illustrated."
+    },
+    {
+        "concept_id": "solving_two_step_equations",
+        "concept_name": "Solving Two-Step Equations",
+        "aliases": [
+            "two-step equations",
+            "multi-step equations"
+        ],
+        "french_culture": "Making café au lait step by step",
+        "explanation_text": "Brewing the coffee and then adding the milk are two separate steps that combine into the final drink — like solving an equation in two steps.",
+        "image_prompt": "Show the steps: brew coffee, add milk, then get the result, symbolizing step-by-step solving."
+    },
+    {
+        "concept_id": "inequalities",
+        "concept_name": "Inequalities",
+        "aliases": [
+            "greater than",
+            "less than",
+            "not equal",
+            "comparison statements"
+        ],
+        "french_culture": "Comparing métro passenger loads",
+        "explanation_text": "When one métro carriage is fuller than another, it shows inequality — like greater than or less than in math.",
+        "image_prompt": "Show two métro carriages with different numbers of passengers and > and < symbols between them."
+    },
+    {
+        "concept_id": "order_of_operations",
+        "concept_name": "Order of Operations (PEMDAS)",
+        "aliases": [
+            "PEMDAS",
+            "BODMAS",
+            "math order",
+            "operations order"
+        ],
+        "french_culture": "Baking a quiche in sequence",
+        "explanation_text": "When baking a quiche, you mix the pastry before adding the filling — order matters, just like in math operations.",
+        "image_prompt": "Show a baking sequence where steps must happen in order, labeled like parentheses and exponents."
+    },
+    {
+        "concept_id": "substitution",
+        "concept_name": "Substitution",
+        "aliases": [
+            "replace variable",
+            "substitute value",
+            "replace letter with number"
+        ],
+        "french_culture": "Replacing a missing wine glass",
+        "explanation_text": "If a broken wine glass is replaced with another of the same size, that is like substituting a value for a variable.",
+        "image_prompt": "Show a missing wine glass replaced with an identical one, representing substitution."
+    },
+    {
+        "concept_id": "points",
+        "concept_name": "Points",
+        "aliases": [
+            "dot",
+            "location",
+            "coordinate point"
+        ],
+        "french_culture": "Stars over the Eiffel Tower",
+        "explanation_text": "Each star in the night sky over Paris marks a position, like a point in geometry.",
+        "image_prompt": "Show a starry sky with individual stars labeled as points on a coordinate grid."
+    },
+    {
+        "concept_id": "lines",
+        "concept_name": "Lines",
+        "aliases": [
+            "straight line",
+            "geometry line",
+            "infinite line"
+        ],
+        "french_culture": "Rails of the Métro",
+        "explanation_text": "The straight rails of the Paris Métro extend ahead in both directions, like geometric lines.",
+        "image_prompt": "Show straight métro rails stretching into the distance, representing geometric lines."
+    },
+    {
+        "concept_id": "angles",
+        "concept_name": "Angles",
+        "aliases": [
+            "angle",
+            "degree",
+            "corner measure"
+        ],
+        "french_culture": "Opening a café terrace awning",
+        "explanation_text": "When a café awning is tilted open, it forms an angle with its frame.",
+        "image_prompt": "Show a café awning partially open with the angle clearly marked."
+    },
+    {
+        "concept_id": "perpendicular_lines",
+        "concept_name": "Perpendicular Lines",
+        "aliases": [
+            "right angle lines",
+            "intersecting lines",
+            "orthogonal lines"
+        ],
+        "french_culture": "Lattice of a jardinière trellis",
+        "explanation_text": "The wooden slats meeting at right angles in a garden trellis form perpendicular lines.",
+        "image_prompt": "Show garden trellis slats meeting at 90° angles."
+    },
+    {
+        "concept_id": "parallel_lines",
+        "concept_name": "Parallel Lines",
+        "aliases": [
+            "side-by-side lines",
+            "never meet",
+            "equal distance lines"
+        ],
+        "french_culture": "Tracks along the Seine",
+        "explanation_text": "The twin paths running along the Seine riverbank never meet — like parallel lines.",
+        "image_prompt": "Show two walkways running side by side along the Seine."
+    },
+    {
+        "concept_id": "polygons",
+        "concept_name": "Polygons",
+        "aliases": [
+            "shapes",
+            "closed figure",
+            "many-sided shape"
+        ],
+        "french_culture": "Shapes of place squares",
+        "explanation_text": "Seen from above, Parisian squares and their surrounding streets form closed geometric shapes.",
+        "image_prompt": "Show the overhead shapes of several city squares forming geometric patterns."
+    },
+    {
+        "concept_id": "triangles",
+        "concept_name": "Triangles",
+        "aliases": [
+            "three sides",
+            "triangular",
+            "triangle shape"
+        ],
+        "french_culture": "Roofs of Haussmann buildings",
+        "explanation_text": "The triangular roof sections of Parisian buildings create geometric triangles.",
+        "image_prompt": "Show the triangular roof segments formed by Haussmann building roofs."
+    },
+    {
+        "concept_id": "quadrilaterals",
+        "concept_name": "Quadrilaterals",
+        "aliases": [
+            "four sides",
+            "rectangles",
+            "squares",
+            "trapezoids"
+        ],
+        "french_culture": "Tiles of café flooring",
+        "explanation_text": "The checkered tiles on a French café floor form repeating square and rectangular shapes.",
+        "image_prompt": "Show a café floor with repeating square and rectangular tile motifs."
+    },
+    {
+        "concept_id": "perimeter",
+        "concept_name": "Perimeter",
+        "aliases": [
+            "boundary length",
+            "distance around",
+            "outline measure"
+        ],
+        "french_culture": "Walking around a château garden",
+        "explanation_text": "Measuring the distance around a formal French garden is like finding the perimeter of a shape.",
+        "image_prompt": "Show people walking around a formal garden with a dashed perimeter line."
+    },
+    {
+        "concept_id": "area",
+        "concept_name": "Area",
+        "aliases": [
+            "surface area",
+            "space inside",
+            "coverage"
+        ],
+        "french_culture": "Carpet coverage on a parquet floor",
+        "explanation_text": "The floor area covered by a rug on a parquet floor represents its area.",
+        "image_prompt": "Show a rug spread on a parquet floor, shaded to show its area."
+    },
+    {
+        "concept_id": "volume",
+        "concept_name": "Volume",
+        "aliases": [
+            "capacity",
+            "space inside 3D shape",
+            "liquid amount"
+        ],
+        "french_culture": "Water in a fountain basin",
+        "explanation_text": "The amount of water a fountain basin can hold represents its volume.",
+        "image_prompt": "Show fountain basins filled to different levels to illustrate volume."
+    },
+    {
+        "concept_id": "circle_properties",
+        "concept_name": "Circle Properties",
+        "aliases": [
+            "radius",
+            "diameter",
+            "circumference",
+            "circle geometry"
+        ],
+        "french_culture": "Top view of a pétanque circle",
+        "explanation_text": "Looking down at a pétanque throwing circle shows a perfect circle, illustrating diameter, radius, and circumference.",
+        "image_prompt": "Show a pétanque circle from above labeled with radius and diameter lines."
+    },
+    {
+        "concept_id": "pi",
+        "concept_name": "Pi (π)",
+        "aliases": [
+            "pi",
+            "ratio of circumference",
+            "3.14"
+        ],
+        "french_culture": "Round brie wheels",
+        "explanation_text": "The relationship between a round Brie cheese's circumference and diameter shows the constant ratio π.",
+        "image_prompt": "Show a circular cheese wheel labeled with circumference and diameter measurements."
+    },
+    {
+        "concept_id": "coordinate_plane",
+        "concept_name": "Coordinate Plane",
+        "aliases": [
+            "x-y plane",
+            "graph grid",
+            "axes"
+        ],
+        "french_culture": "Marché stall grid",
+        "explanation_text": "A market arranged in rows and columns resembles a coordinate grid, where each stall has coordinates.",
+        "image_prompt": "Show a market map labeled with x and y coordinates."
+    },
+    {
+        "concept_id": "plotting_points",
+        "concept_name": "Plotting Points",
+        "aliases": [
+            "graphing points",
+            "coordinates",
+            "x-y plotting"
+        ],
+        "french_culture": "Marking parade positions",
+        "explanation_text": "Plotting the position of each float on a festival parade map is like plotting points on a coordinate plane.",
+        "image_prompt": "Show a map of a boulevard with labeled float positions marked as points."
+    },
+    {
+        "concept_id": "symmetry",
+        "concept_name": "Symmetry",
+        "aliases": [
+            "mirror image",
+            "balanced halves",
+            "reflection symmetry"
+        ],
+        "french_culture": "Mirrored wings of a palace gate",
+        "explanation_text": "The two wings of the palace gates mirror each other across the center line, showing symmetry.",
+        "image_prompt": "Show a symmetrical palace gate split by a mirror line."
+    },
+    {
+        "concept_id": "transformations",
+        "concept_name": "Transformations",
+        "aliases": [
+            "translate",
+            "rotate",
+            "reflect",
+            "dilate"
+        ],
+        "french_culture": "Rotating figures in a farandole dance",
+        "explanation_text": "When dancers rotate and shift during a farandole, it represents geometric transformations.",
+        "image_prompt": "Show dancers turning and shifting positions to illustrate transformations."
+    },
+    {
+        "concept_id": "ratios",
+        "concept_name": "Ratios",
+        "aliases": [
+            "comparison",
+            "proportion of quantities",
+            "rate"
+        ],
+        "french_culture": "Mixing coffee and milk",
+        "explanation_text": "When preparing café au lait, the balance of milk to coffee represents a ratio.",
+        "image_prompt": "Show a cup labeled with milk and coffee ratios, like 2:1."
+    },
+    {
+        "concept_id": "proportions",
+        "concept_name": "Proportions",
+        "aliases": [
+            "equal ratios",
+            "scaling",
+            "balance of ratios"
+        ],
+        "french_culture": "Enlarging a print at an atelier",
+        "explanation_text": "When enlarging an artwork on an atelier printer while keeping it identical, that is maintaining proportion.",
+        "image_prompt": "Show a small and large print with the same geometric proportions."
+    },
+    {
+        "concept_id": "unit_rate",
+        "concept_name": "Unit Rate",
+        "aliases": [
+            "per unit",
+            "rate per one",
+            "comparison per one unit"
+        ],
+        "french_culture": "Cycling speed in the Tour de France",
+        "explanation_text": "The distance a cyclist covers in one hour during the Tour de France is a unit rate.",
+        "image_prompt": "Show a cyclist with speed measured as kilometers per hour."
+    },
+    {
+        "concept_id": "scale_drawings",
+        "concept_name": "Scale Drawings",
+        "aliases": [
+            "map scale",
+            "drawing proportion",
+            "scaled map"
+        ],
+        "french_culture": "Blueprints of a château",
+        "explanation_text": "Drawing a smaller plan of a large château while keeping distances proportional is a scale drawing.",
+        "image_prompt": "Show a château and a smaller scaled blueprint side by side with a scale legend."
+    },
+    {
+        "concept_id": "percent_change",
+        "concept_name": "Percent Change",
+        "aliases": [
+            "percent increase",
+            "percent decrease",
+            "growth rate"
+        ],
+        "french_culture": "Grape harvest growth",
+        "explanation_text": "If a vineyard's harvest grows from 100 to 120 tonnes, that is a 20% increase — an example of percent change.",
+        "image_prompt": "Show grape crates growing in number with a +20% label."
+    },
+    {
+        "concept_id": "data_collection",
+        "concept_name": "Data Collection",
+        "aliases": [
+            "gather data",
+            "record information",
+            "collect numbers"
+        ],
+        "french_culture": "Counting ticket sales",
+        "explanation_text": "Recording how many métro tickets are sold each day is an example of data collection.",
+        "image_prompt": "Show an attendant marking tallies of tickets on a clipboard."
+    },
+    {
+        "concept_id": "tables_graphs",
+        "concept_name": "Tables and Graphs",
+        "aliases": [
+            "data table",
+            "bar graph",
+            "chart"
+        ],
+        "french_culture": "Bakery sales comparison",
+        "explanation_text": "Using a graph to show how many baguettes each bakery sells in a week helps visualize data trends.",
+        "image_prompt": "Show a bar graph comparing bakery sales across seven days."
+    },
+    {
+        "concept_id": "mean",
+        "concept_name": "Mean",
+        "aliases": [
+            "average",
+            "arithmetic mean",
+            "mean value"
+        ],
+        "french_culture": "Average café orders",
+        "explanation_text": "Finding the average number of coffees a café serves per day shows the mean.",
+        "image_prompt": "Show a table of daily orders with an average value highlighted."
+    },
+    {
+        "concept_id": "median",
+        "concept_name": "Median",
+        "aliases": [
+            "middle value",
+            "data median"
+        ],
+        "french_culture": "Middle income of households",
+        "explanation_text": "When household incomes are arranged from smallest to largest, the middle one is the median.",
+        "image_prompt": "Show incomes lined up with the middle one highlighted as the median."
+    },
+    {
+        "concept_id": "mode",
+        "concept_name": "Mode",
+        "aliases": [
+            "most frequent value",
+            "common value"
+        ],
+        "french_culture": "Most common cheese at the market",
+        "explanation_text": "If most stalls at the market sell the same cheese, that cheese is the mode.",
+        "image_prompt": "Show cheeses of various types with one being the most common."
+    },
+    {
+        "concept_id": "range",
+        "concept_name": "Range",
+        "aliases": [
+            "difference",
+            "spread of data",
+            "highest minus lowest"
+        ],
+        "french_culture": "Difference in tower heights",
+        "explanation_text": "The gap between the shortest and tallest buildings in a city skyline shows the range.",
+        "image_prompt": "Show a skyline with the shortest and tallest towers marked for range."
+    },
+    {
+        "concept_id": "bar_graphs",
+        "concept_name": "Bar Graphs",
+        "aliases": [
+            "bar chart",
+            "column graph"
+        ],
+        "french_culture": "Comparing family bread purchases",
+        "explanation_text": "Each bar represents how many baguettes each family buys in a week — useful for quick comparisons.",
+        "image_prompt": "Show a bar graph labeled by family names with weekly bread totals."
+    },
+    {
+        "concept_id": "line_graphs",
+        "concept_name": "Line Graphs",
+        "aliases": [
+            "trend graph",
+            "line chart"
+        ],
+        "french_culture": "Tracking métro ridership over months",
+        "explanation_text": "A line graph shows how métro ridership changes throughout the year.",
+        "image_prompt": "Show a line graph labeled with months and rider counts."
+    },
+    {
+        "concept_id": "pie_charts",
+        "concept_name": "Pie Charts",
+        "aliases": [
+            "circle chart",
+            "percentage chart"
+        ],
+        "french_culture": "Distribution of market stall types",
+        "explanation_text": "A pie chart can show the proportion of fruit, cheese, and bread stalls at a market.",
+        "image_prompt": "Show a pie chart divided into market stall categories with percentages."
+    },
+    {
+        "concept_id": "probability",
+        "concept_name": "Probability",
+        "aliases": [
+            "chance",
+            "likelihood",
+            "odds"
+        ],
+        "french_culture": "Predicting winners at the racecourse",
+        "explanation_text": "Estimating which horse is most likely to win a race at the hippodrome involves probability.",
+        "image_prompt": "Show horses at a race start line with probability labels above each."
+    },
+    {
+        "concept_id": "patterns",
+        "concept_name": "Patterns",
+        "aliases": [
+            "repeating design",
+            "sequence",
+            "recurrence"
+        ],
+        "french_culture": "Repeating tile designs",
+        "explanation_text": "Repeated geometric motifs on Métro station tiles represent visual patterns.",
+        "image_prompt": "Show repeating geometric designs in Parisian station tiles."
+    },
+    {
+        "concept_id": "functions",
+        "concept_name": "Functions",
+        "aliases": [
+            "input-output rule",
+            "function relation",
+            "mapping"
+        ],
+        "french_culture": "Distance vs time of the TGV",
+        "explanation_text": "If each hour of travel gives a specific distance for the TGV, it is like a function — each input gives one output.",
+        "image_prompt": "Show a graph linking travel time (input) to distance (output)."
+    }
+]
