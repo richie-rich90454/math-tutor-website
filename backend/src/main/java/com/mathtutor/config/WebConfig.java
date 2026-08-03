@@ -42,6 +42,8 @@ public class WebConfig implements WebMvcConfigurer {
             resp.setHeader("X-Frame-Options", "DENY");
             resp.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
             resp.setHeader("Permissions-Policy", "camera=(), microphone=(), geolocation=()");
+            resp.setHeader("Cross-Origin-Opener-Policy", "same-origin");
+            resp.setHeader("Cross-Origin-Resource-Policy", "same-origin");
             resp.setHeader("Content-Security-Policy",
                     "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; "
                             + "img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; "
