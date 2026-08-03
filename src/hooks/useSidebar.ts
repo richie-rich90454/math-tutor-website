@@ -32,8 +32,15 @@ interface UseSidebarProps {
 
 export function useSidebar({ isOpen, onToggle, onChatSelect }: UseSidebarProps) {
     const { t } = useLanguage();
-    const { chatHistory, setCurrentChat, currentChat, deleteChat, renameChat, togglePinChat, isHistoryLoading } =
-        useChat();
+    const {
+        chatHistory,
+        setCurrentChat,
+        currentChat,
+        deleteChat,
+        renameChat,
+        togglePinChat,
+        isHistoryLoading,
+    } = useChat();
     const { user, isAuthenticated, logout } = useAuth();
     const router = useRouter();
 
