@@ -260,6 +260,15 @@ export interface Translations {
     showMandarin?: string;
     // Math vocab highlight (C17)
     mathVocab?: string;
+    // Session management (E)
+    settingsPassword?: string;
+    settingsCurrentPassword?: string;
+    settingsNewPassword?: string;
+    settingsChangePassword?: string;
+    settingsSessions?: string;
+    settingsRevokeAll?: string;
+    settingsPasswordChanged?: string;
+    settingsCurrentPasswordWrong?: string;
 }
 
 export const translations: Record<string, Translations> = {
@@ -492,6 +501,14 @@ export const translations: Record<string, Translations> = {
         bilingual: "Bilingual",
         showMandarin: "Show Mandarin",
         mathVocab: "Math vocabulary",
+        settingsPassword: "Password",
+        settingsCurrentPassword: "Current password",
+        settingsNewPassword: "New password",
+        settingsChangePassword: "Change password",
+        settingsSessions: "Active sessions",
+        settingsRevokeAll: "Sign out everywhere else",
+        settingsPasswordChanged: "Password changed. Other sessions were signed out.",
+        settingsCurrentPasswordWrong: "Current password is incorrect",
     },
     "zh-hans": {
         title: "数学导师 AI",
