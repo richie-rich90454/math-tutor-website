@@ -171,14 +171,14 @@ public class ChatService {
     }
 
     public void saveAssistantMessage(String chatId, String userId, String fullResponse, String question, String language,
-            AiClient.Usage tokenUsage, String ip) {
+            AiClient.Usage tokenUsage, String ip, boolean cacheHit) {
         if (fullResponse == null || fullResponse.trim().isEmpty()) {
             return;
         }
         messages.addMessage(chatId, "assistant", fullResponse, 0);
         int request = tokenUsage == null ? 0 : tokenUsage.requestTokens();
         int response = tokenUsage == null ? 0 : tokenUsage.responseTokens();
-        usage.logUsage(userId, chatId, request, response, "deepseek-v4-flash", ip);
+        usage.logUsage(userId, chatId, request, response, cacheHit ? "answer-cache" : "deepseek-v4-flash", ip);
         if (question != null && !question.isBlank()) {
             answerCache.store(question, language == null ? "en" : language, null, fullResponse);
         }
