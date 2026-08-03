@@ -85,12 +85,12 @@ public class VisionChatService {
         return new VisionStreamSetup(activeChatId, stream);
     }
 
-    public void saveAssistantMessage(String chatId, String userId, String fullResponse) {
+    public void saveAssistantMessage(String chatId, String userId, String fullResponse, String ip) {
         if (fullResponse == null || fullResponse.trim().isEmpty()) {
             return;
         }
         messages.addMessage(chatId, "assistant", fullResponse, 0);
-        usage.logUsage(userId, chatId, 0, 0, "deepseek-v4-flash");
+        usage.logUsage(userId, chatId, 0, 0, "deepseek-v4-flash", ip);
     }
 
     private String truncateTitle(String message) {
