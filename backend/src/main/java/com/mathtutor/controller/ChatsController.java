@@ -2,6 +2,7 @@ package com.mathtutor.controller;
 
 import com.mathtutor.dto.CreateChatRequest;
 import com.mathtutor.dto.JsonBody;
+import com.mathtutor.dto.JsonLike;
 import com.mathtutor.dto.UpdateChatRequest;
 import com.mathtutor.repo.ChatRepository;
 import com.mathtutor.repo.MessageRepository;
@@ -154,6 +155,37 @@ public class ChatsController {
 
         chats.delete(id);
         return ResponseEntity.ok(Map.of("success", true));
+    }
+
+    @PostMapping("/{chatId}/messages/{messageId}/pin")
+    public ResponseEntity<?> pinMessage(
+            @PathVariable String chatId,
+            @PathVariable String messageId,
+            @RequestBody String rawBody,
+            HttpServletRequest request) {
+        var session = requireSession(request);
+        if (session == null) {
+            return unauthenticated();
+        }
+
+        Optional<ChatRepository.ChatRecord> existing = chats.findById(chatId);
+        if (existing.isEmpty()) {
+            return ResponseEntity.status(404).body(Map.of("error", "Chat not found"));
+        }
+        if (!existing.get().user_id().equals(session.id())) {
+            return ResponseEntity.status(403).body(Map.of("error", "Not authorized"));
+        }
+
+        Optional<MessageRepository.MessageRecord> message = messages.findById(messageId);
+        if (message.isEmpty() || !message.get().chat_session_id().equals(chatId)) {
+            return ResponseEntity.status(404).body(Map.of("error", "Message not found"));
+        }
+
+        JsonLike body = JsonBody.parse(rawBody);
+        Boolean pinnedValue = body.booleanOrNull("pinned");
+        boolean pinned = pinnedValue == null || pinnedValue;
+        messages.setPinned(messageId, pinned);
+        return ResponseEntity.ok(Map.of("message", messages.findById(messageId).get()));
     }
 
     private SessionService.SessionUser requireSession(HttpServletRequest request) {
