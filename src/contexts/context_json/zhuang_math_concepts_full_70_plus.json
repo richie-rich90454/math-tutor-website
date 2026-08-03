@@ -12,9 +12,9 @@
             "position of digits",
             "digit position"
         ],
-        "zhuang_culture": "Zhuangjin brocade row positions",
-        "explanation_text": "On a Zhuangjin (Zhuang brocade) loom, every row holds its own position, and the place where a thread sits decides the design it forms—just as the position of a digit decides its value.",
-        "image_prompt": "Illustrate a Zhuangjin brocade loom with woven rows labeled as ones, tens, and hundreds, showing how each thread's row position shapes the pattern, like digit places determine value."
+        "zhuang_culture": "Zhuangjin brocade loom rows",
+        "explanation_text": "On a Zhuangjin loom, the value a thread has in the finished cloth depends entirely on which row and column of the warp-and-weft grid it sits in, the same way a digit's value depends on its place in a number. Move a thread to a new position and the pattern changes; move a digit to a new place and the value changes. The grid of the brocade is a picture of place value at work.",
+        "image_prompt": "Illustrate a Zhuangjin brocade loom with woven rows labeled as ones, tens, and hundreds, showing how each thread's grid position changes the design, just as a digit's place changes its value."
     },
     {
         "concept_id": "addition_subtraction",
@@ -32,9 +32,9 @@
             "take away",
             "difference"
         ],
-        "zhuang_culture": "Five-color sticky rice portions",
-        "explanation_text": "At the Sanyuesan festival, cooks add more dyed rice to a bowl and the total grows; when some is served out, the total shrinks—exactly like addition and subtraction.",
-        "image_prompt": "Show bowls of five-color glutinous rice being filled and emptied, with totals changing as portions are added or removed."
+        "zhuang_culture": "Stocking a village fish pond",
+        "explanation_text": "When villagers add a basket of new fish to a village fish pond, the total count grows; when some are caught for a festival meal, the count shrinks. Addition and subtraction describe exactly these kinds of changes to a group.",
+        "image_prompt": "Show a village fish pond with fish being added from a bamboo basket (labeled +) and other fish being caught (labeled -), with the pond's count changing."
     },
     {
         "concept_id": "multiplication_division",
@@ -50,9 +50,9 @@
             "split equally",
             "sharing"
         ],
-        "zhuang_culture": "Longji rice terrace rows",
-        "explanation_text": "The terraces of Longji march up the hillside in equal rows; counting the terraces in each row is multiplication, and sharing the plots evenly among families is division.",
-        "image_prompt": "Display equal rows of Longji rice terraces arranged on a hillside, showing equal grouping (multiplication) and even sharing (division)."
+        "zhuang_culture": "Dragon boat crews in rows",
+        "explanation_text": "A dragon boat's rowers sit in equal rows, so finding the total crew is repeated addition, or multiplication. Splitting the crew evenly among the rows shows division as sharing into equal groups.",
+        "image_prompt": "Show a dragon boat with rowers arranged in equal rows of four, illustrating repeated addition as multiplication and even sharing as division."
     },
     {
         "concept_id": "even_odd",
@@ -67,9 +67,9 @@
             "no remainder",
             "remains one"
         ],
-        "zhuang_culture": "Water buffalo pairs in the field",
-        "explanation_text": "Water buffalo yoked in pairs for plowing make even numbers; when one buffalo stands alone, the number is odd.",
-        "image_prompt": "Show water buffalo yoked in pairs in a rice paddy, with one single buffalo standing apart to represent an odd number."
+        "zhuang_culture": "Sanyuesan singers in pairs",
+        "explanation_text": "At the Sanyuesan Song Festival, singers often perform call-and-response in pairs. When every singer has a partner the number is even; when one singer stands alone the number is odd.",
+        "image_prompt": "Show Sanyuesan singers paired up across the festival stage, with one single singer left alone to show an odd number."
     },
     {
         "concept_id": "skip_counting",
@@ -83,9 +83,9 @@
             "repeating numbers",
             "number patterns"
         ],
-        "zhuang_culture": "Zhuangjin brocade color stripes",
-        "explanation_text": "The repeating color stripes woven into a Zhuangjin brocade follow a steady rhythm, like skip counting—every fifth motif marks the same hue.",
-        "image_prompt": "Show a strip of Zhuangjin brocade with repeating colored motifs, highlighting every fifth pattern to illustrate skip counting."
+        "zhuang_culture": "Counting five-colored rice grains",
+        "explanation_text": "As a bowl of five-colored sticky rice is scooped out a grain at a time, counting every fifth grain by fives is a quick way to find the total. Skip counting jumps over numbers in a steady rhythm, like tapping out a pattern.",
+        "image_prompt": "Show a bowl of five-colored sticky rice with grains circled in groups of five, illustrating counting by fives."
     },
     {
         "concept_id": "comparing_numbers",
@@ -101,9 +101,9 @@
             "ordering numbers",
             "number order"
         ],
-        "zhuang_culture": "Bamboo baskets of rice",
-        "explanation_text": "Comparing how full two bamboo rice baskets are shows which holds more or less, just like comparing numbers with greater than and less than signs.",
-        "image_prompt": "Show two bamboo baskets holding different amounts of rice, with > and < symbols placed between them."
+        "zhuang_culture": "Karst peaks along the Li River",
+        "explanation_text": "The karst peaks rising along the Li River come in many heights, so visitors compare them to find the tallest and the shortest. Comparing numbers works the same way, ordering values from least to greatest.",
+        "image_prompt": "Show a row of karst peaks along the Li River at different heights, with > and < symbols placed between them."
     },
     {
         "concept_id": "rounding_estimation",
@@ -118,448 +118,673 @@
             "close to",
             "nearby number"
         ],
-        "zhuang_culture": "Estimating rice for festival cakes",
-        "explanation_text": "When making glutinous rice cakes, elders estimate roughly how many cups of rice are needed rather than counting each grain—like rounding to a nearby convenient number.",
-        "image_prompt": "Show cooks estimating scoops of rice for festival rice cakes, labeling the amounts with rounded numbers."
+        "zhuang_culture": "Estimating the terrace harvest",
+        "explanation_text": "Before the harvest, a farmer glances across the Longji rice terraces and estimates the yield will be about a hundred bundles. Rounding and estimation let us work with convenient, close numbers instead of exact counts.",
+        "image_prompt": "Show a farmer looking over the Longji rice terraces and estimating about 100 bundles, with an 'about 100' label."
     },
     {
         "concept_id": "fractions",
         "concept_name": "Fractions",
-        "aliases": ["fraction", "part of a whole", "portion", "share", "numerator", "denominator"],
-        "zhuang_culture": "Sharing five-color rice",
-        "explanation_text": "When a plate of five-color glutinous rice is shared equally among singers at the Sanyuesan festival, each person receives a fraction of the whole plate.",
-        "image_prompt": "Show a round plate of five-color sticky rice divided into equal servings, each labeled as a fraction of the whole."
+        "aliases": [
+            "fraction",
+            "part of a whole",
+            "portion",
+            "share",
+            "numerator",
+            "denominator"
+        ],
+        "zhuang_culture": "Five colors of sticky rice",
+        "explanation_text": "Five-colored sticky rice is dyed in five colors, so when the colors are equal each one is one fifth of the whole bowl. A fraction names one part of a whole, just as one color names one part of the festival rice.",
+        "image_prompt": "Show a bowl of five-colored sticky rice divided into five equal colored sections, each labeled 1/5."
     },
     {
         "concept_id": "equivalent_fractions",
         "concept_name": "Equivalent Fractions",
-        "aliases": ["equal fractions", "same value", "fraction equality", "equivalent"],
-        "zhuang_culture": "Cutting rice cakes evenly",
-        "explanation_text": "Cutting a sweet potato rice cake into 2 equal pieces or into 4 smaller equal pieces gives the same total amount—like equivalent fractions.",
-        "image_prompt": "Show a round rice cake divided first into halves and then into quarters, demonstrating equal total portions."
+        "aliases": [
+            "equal fractions",
+            "same value",
+            "fraction equality",
+            "equivalent"
+        ],
+        "zhuang_culture": "Cutting a leaf-wrapped rice cake",
+        "explanation_text": "Cutting a round glutinous rice cake into two equal halves, then cutting each half again, gives four equal quarters. Two quarters are the same amount as one half, so 1/2 and 2/4 are equivalent fractions.",
+        "image_prompt": "Show a leaf-wrapped glutinous rice cake cut first into halves and then into quarters, with 1/2 and 2/4 marked as equal."
     },
     {
         "concept_id": "simplifying_fractions",
         "concept_name": "Simplifying Fractions",
-        "aliases": ["reduce fraction", "lowest terms", "simplify fraction"],
-        "zhuang_culture": "Combining rice bundles",
-        "explanation_text": "Tying several small bundles of rice into one large bundle keeps the harvest the same while the count simplifies—just like reducing a fraction to its lowest terms.",
-        "image_prompt": "Depict small bundles of rice being gathered into one larger bundle, labeled with the fraction reduced to simplest form."
+        "aliases": [
+            "reduce fraction",
+            "lowest terms",
+            "simplify fraction"
+        ],
+        "zhuang_culture": "Combining bamboo baskets of rice",
+        "explanation_text": "Two small bamboo baskets that each hold a quarter of the harvest can be poured into one large basket that holds half. Reducing 2/4 to 1/2 is simplifying a fraction to its simplest form.",
+        "image_prompt": "Show two small bamboo baskets of rice being combined into one larger basket, labeled as 2/4 simplifying to 1/2."
     },
     {
         "concept_id": "mixed_numbers",
         "concept_name": "Mixed Numbers",
-        "aliases": ["mixed number", "whole and fraction", "whole part and fraction part"],
-        "zhuang_culture": "Full and half rice baskets",
-        "explanation_text": "If a household has 3 full bamboo baskets of rice and half a basket more, that is 3½—exactly a mixed number.",
-        "image_prompt": "Show three full bamboo rice baskets and one half-full basket labeled as 3½."
+        "aliases": [
+            "mixed number",
+            "whole and fraction",
+            "whole part and fraction part"
+        ],
+        "zhuang_culture": "Full baskets and a partial basket",
+        "explanation_text": "After the harvest, a household has three full bamboo baskets of rice and one half-full basket. Writing that total as 3 and 1/2 is a mixed number, a whole amount combined with a fraction.",
+        "image_prompt": "Show three full bamboo rice baskets and one half-full basket, labeled as 3½."
     },
     {
         "concept_id": "improper_fractions",
         "concept_name": "Improper Fractions",
-        "aliases": ["top-heavy fraction", "numerator larger", "greater than one fraction"],
-        "zhuang_culture": "Overflowing rice steamers",
-        "explanation_text": "When dyed rice spills past one bamboo steamer but is still counted in equal portions, it forms an improper fraction—a value greater than one whole.",
-        "image_prompt": "Show several small bamboo rice steamers piled beyond one full basket, symbolizing fractions greater than 1."
+        "aliases": [
+            "top-heavy fraction",
+            "numerator larger",
+            "greater than one fraction"
+        ],
+        "zhuang_culture": "A heaped woven basket",
+        "explanation_text": "A large woven basket can hold more rice than the usual full portion, spilling past the rim. When a fraction's numerator is larger than its denominator, like 5/4, it describes more than one whole, just like the heaped basket.",
+        "image_prompt": "Show a woven bamboo basket heaped with rice above its rim, labeled as 5/4 to show more than one whole."
     },
     {
         "concept_id": "adding_fractions",
         "concept_name": "Adding Fractions",
-        "aliases": ["fraction addition", "add fractions", "sum of fractions"],
-        "zhuang_culture": "Combining dyed rice colors",
-        "explanation_text": "Mixing portions of red and yellow dyed rice into one bowl shows how fractional amounts join to make a whole.",
-        "image_prompt": "Show small bowls of differently dyed rice being combined into one full bowl."
+        "aliases": [
+            "fraction addition",
+            "add fractions",
+            "sum of fractions"
+        ],
+        "zhuang_culture": "Combining leftover colored rice",
+        "explanation_text": "After the Sanyuesan feast, leftover portions of yellow and purple rice from different bowls are poured together into one dish. Adding the fractions of the whole bowl each color represents shows how fractional parts combine.",
+        "image_prompt": "Show leftover yellow and purple sticky rice from two bowls being combined into one dish, with the fractions being added."
     },
     {
         "concept_id": "subtracting_fractions",
         "concept_name": "Subtracting Fractions",
-        "aliases": ["fraction subtraction", "take away fractions", "difference of fractions"],
-        "zhuang_culture": "Serving out part of a rice bowl",
-        "explanation_text": "Ladling part of the sticky rice out of a bowl leaves a remainder—an example of subtracting a fraction.",
-        "image_prompt": "Show a bowl of sticky rice with part being scooped out, the remaining amount labeled as the fraction left."
+        "aliases": [
+            "fraction subtraction",
+            "take away fractions",
+            "difference of fractions"
+        ],
+        "zhuang_culture": "Serving out sticky rice",
+        "explanation_text": "If a whole serving of glutinous rice is shared and a portion is given away, the amount left is the whole minus that portion. Removing one fraction from another is fraction subtraction.",
+        "image_prompt": "Show a plate of sticky rice with a portion being lifted away, the remaining amount labeled as a fraction."
     },
     {
         "concept_id": "multiplying_fractions",
         "concept_name": "Multiplying Fractions",
-        "aliases": ["fraction multiplication", "part of a part", "multiply fractions"],
-        "zhuang_culture": "Portions of a terrace harvest",
-        "explanation_text": "If a family takes half of the harvest from half a terrace, they are finding a fraction of a fraction—like multiplying fractions.",
-        "image_prompt": "Show a terraced field split in halves, with one half divided again to show a smaller portion of the harvest."
+        "aliases": [
+            "fraction multiplication",
+            "part of a part",
+            "multiply fractions"
+        ],
+        "zhuang_culture": "Half of a half serving",
+        "explanation_text": "If a child wants only half of your half-serving of sticky rice, they take one quarter of the original serving. Finding a part of a part, like 1/2 of 1/2, is multiplying fractions.",
+        "image_prompt": "Show a serving of sticky rice halved, then one half halved again to show a quarter, labeled as 1/2 × 1/2 = 1/4."
     },
     {
         "concept_id": "dividing_fractions",
         "concept_name": "Dividing Fractions",
-        "aliases": ["fraction division", "divide fractions", "how many times in"],
-        "zhuang_culture": "Cutting sticky rice rolls",
-        "explanation_text": "Slicing one sticky rice roll into many equal smaller rolls shows how many times a smaller portion fits into a larger one—dividing fractions.",
-        "image_prompt": "Show a sticky rice roll cut into equal smaller pieces to illustrate fractional division."
+        "aliases": [
+            "fraction division",
+            "divide fractions",
+            "how many times in"
+        ],
+        "zhuang_culture": "Song sets in a festival day",
+        "explanation_text": "The Sanyuesan singing lasts three hours, and each call-and-response set lasts half an hour. Finding how many sets fit, 3 divided by 1/2, gives six, which is dividing by a fraction.",
+        "image_prompt": "Show a Sanyuesan schedule of three hours divided into six half-hour song sets, illustrating 3 ÷ 1/2 = 6."
     },
     {
         "concept_id": "decimals",
         "concept_name": "Decimals",
-        "aliases": ["decimal point", "tenths", "hundredths", "decimal number"],
-        "zhuang_culture": "Measuring rice by the kilogram",
-        "explanation_text": "When rice is weighed on a market scale, amounts like 1.5 kilograms mix whole numbers and tenths—introducing decimals.",
-        "image_prompt": "Show a market scale with bags of rice weighed and labeled 1.0, 1.5, and 2.0 kilograms."
+        "aliases": [
+            "decimal point",
+            "tenths",
+            "hundredths",
+            "decimal number"
+        ],
+        "zhuang_culture": "Measuring paddy water in liters",
+        "explanation_text": "Farmers measure the water that floods a rice paddy in liters, and paddies often need one and a half or two and a quarter liters for a section. Numbers like 1.5 and 2.25 use decimals to express amounts between whole liters.",
+        "image_prompt": "Show a measuring container pouring water into a rice paddy, marked with 1.0, 1.5, and 2.0 liters."
     },
     {
         "concept_id": "converting_fractions_decimals",
         "concept_name": "Converting Fractions and Decimals",
-        "aliases": ["fraction to decimal", "decimal to fraction", "convert fractions"],
-        "zhuang_culture": "Half basket or 0.5 basket",
-        "explanation_text": "Saying half a basket of rice or 0.5 basket describes the same amount—just like converting between fractions and decimals.",
-        "image_prompt": "Show two baskets of rice, one labeled ½ and the other 0.5, each holding the same amount."
+        "aliases": [
+            "fraction to decimal",
+            "decimal to fraction",
+            "convert fractions"
+        ],
+        "zhuang_culture": "Half a liter of pond water",
+        "explanation_text": "Whether you say half a liter or 0.5 liters of water for the seedlings, the amount is identical. Fractions and decimals are two ways to write the same quantity, and converting between them uses this connection.",
+        "image_prompt": "Show two watering scoops over a rice paddy, one labeled 1/2 and the other 0.5, holding the same amount of water."
     },
     {
         "concept_id": "percents",
         "concept_name": "Percents",
-        "aliases": ["percent", "percentage", "per hundred", "rate per 100"],
-        "zhuang_culture": "Zhuang language class scores",
-        "explanation_text": "When a student answers 90 of 100 questions correctly on a Zhuang language exam, that is 90 percent—parts per hundred.",
-        "image_prompt": "Show a test paper with 90/100 written and a large 90% mark beside it."
+        "aliases": [
+            "percent",
+            "percentage",
+            "per hundred",
+            "rate per 100"
+        ],
+        "zhuang_culture": "Zhuang language quiz scores",
+        "explanation_text": "A student who answers 90 of 100 questions correctly on a Zhuang language quiz has scored 90 percent. Percent means out of a hundred, a way to compare parts of any whole.",
+        "image_prompt": "Show a Zhuang language quiz paper marked 90/100 with a large 90% beside it."
     },
     {
         "concept_id": "percent_of_number",
         "concept_name": "Percent of a Number",
-        "aliases": ["percentage of number", "find percent", "portion of total"],
-        "zhuang_culture": "Brocade market discounts",
-        "explanation_text": "A 10% discount on a Zhuangjin brocade at the market shows how percents are used to find parts of a price.",
-        "image_prompt": "Show a market stall sign with a brocade marked 10% off and price tags with reduced amounts."
+        "aliases": [
+            "percentage of number",
+            "find percent",
+            "portion of total"
+        ],
+        "zhuang_culture": "Discount on Zhuangjin brocade",
+        "explanation_text": "At a village market, a bolt of Zhuangjin brocade is marked 20 percent off. Finding the discount means taking 20% of the original price, which is finding a percent of a number.",
+        "image_prompt": "Show a market stall selling Zhuangjin brocade with a 20 percent off sign and a price tag showing the reduced amount."
     },
     {
         "concept_id": "variables",
         "concept_name": "Variables",
-        "aliases": ["variable", "unknown", "letter as number", "symbol in math"],
-        "zhuang_culture": "Unmarked rice sacks",
-        "explanation_text": "If some rice sacks at the granary carry no weight label, each hides an unknown amount—just like a variable in math.",
-        "image_prompt": "Show rice sacks labeled 5 kg and 10 kg beside an unlabeled sack marked x."
+        "aliases": [
+            "variable",
+            "unknown",
+            "letter as number",
+            "symbol in math"
+        ],
+        "zhuang_culture": "Unlabeled rice vinegar jars",
+        "explanation_text": "In a Zhuang kitchen, several clay jars of rice vinegar hold amounts that no one has measured. Each unknown amount can be represented by a letter, like x, which is exactly what a variable is in math.",
+        "image_prompt": "Show clay jars of rice vinegar, two labeled with amounts and one unlabeled marked with an x."
     },
     {
         "concept_id": "expressions",
         "concept_name": "Expressions",
-        "aliases": ["math expressions", "numerical expressions", "algebraic expressions"],
-        "zhuang_culture": "Known and unknown rice sacks",
-        "explanation_text": "Two weighed sacks plus some unknown sacks is written as 2 + x, an expression that mixes known and unknown amounts.",
-        "image_prompt": "Show two weighed rice sacks plus an unlabeled sack, represented as the expression 2 + x."
+        "aliases": [
+            "math expressions",
+            "numerical expressions",
+            "algebraic expressions"
+        ],
+        "zhuang_culture": "Known and unknown vinegar jars",
+        "explanation_text": "If you have 2 full jars of rice vinegar and one jar whose amount is unknown, the total is written as 2 + x. This combination of known numbers and a variable is a mathematical expression.",
+        "image_prompt": "Show two labeled jars of rice vinegar plus one unlabeled jar, written together as 2 + x."
     },
     {
         "concept_id": "equations",
         "concept_name": "Equations",
-        "aliases": ["math equations", "equal statements", "algebra equations"],
-        "zhuang_culture": "Balancing a shoulder pole",
-        "explanation_text": "A farmer's shoulder pole stays level only when the two hanging baskets weigh the same—both sides equal, like the two sides of an equation.",
-        "image_prompt": "Show a shoulder pole with two balanced rice baskets, labeled like the two equal sides of an equation."
+        "aliases": [
+            "math equations",
+            "equal statements",
+            "algebra equations"
+        ],
+        "zhuang_culture": "Balancing a shoulder carrying pole",
+        "explanation_text": "When water is carried with a bamboo shoulder pole, the two loads must balance or the pole tips. A balance shows equality, the same idea as the two sides of an equation.",
+        "image_prompt": "Show a bamboo shoulder pole balanced with equal loads of water hanging from both ends, labeled as an equation."
     },
     {
         "concept_id": "solving_one_step_equations",
         "concept_name": "Solving One-Step Equations",
-        "aliases": ["one-step equations", "simple equations"],
-        "zhuang_culture": "Balancing a loaded shoulder pole",
-        "explanation_text": "When one basket on the shoulder pole is heavier, adding or removing rice brings it level—like solving a one-step equation.",
-        "image_prompt": "Show a shoulder pole with one basket being adjusted to make both sides balance equally."
+        "aliases": [
+            "one-step equations",
+            "simple equations"
+        ],
+        "zhuang_culture": "Adjusting the carrying pole",
+        "explanation_text": "If the two baskets hanging from a shoulder pole are uneven, the bearer adds or removes rice from one basket until both sides balance. Finding what to add or remove to restore the balance is solving a one-step equation.",
+        "image_prompt": "Show a bamboo shoulder pole with one basket sitting slightly higher, a hand adding rice to the lighter basket to balance it."
     },
     {
         "concept_id": "solving_two_step_equations",
         "concept_name": "Solving Two-Step Equations",
-        "aliases": ["two-step equations", "multi-step equations"],
-        "zhuang_culture": "Steaming five-color rice",
-        "explanation_text": "Making five-color rice needs the rice dyed first and then steamed—two steps in order, just like solving a two-step equation.",
-        "image_prompt": "Show the two-step sequence of dyeing rice and then steaming it, symbolizing step-by-step equation solving."
+        "aliases": [
+            "two-step equations",
+            "multi-step equations"
+        ],
+        "zhuang_culture": "Pounding then steaming rice",
+        "explanation_text": "To make glutinous rice cakes, the rice is first pounded in a wooden mortar and then steamed. Solving a two-step equation likewise requires two actions in the right order before the answer appears.",
+        "image_prompt": "Show the two steps of making rice cakes, pounding rice in a wooden mortar and then steaming it, labeled as step 1 and step 2."
     },
     {
         "concept_id": "inequalities",
         "concept_name": "Inequalities",
-        "aliases": ["greater than", "less than", "not equal", "comparison statements"],
-        "zhuang_culture": "Comparing terrace harvests",
-        "explanation_text": "When one family's terrace yields more rice than a neighbor's, the comparison is an inequality—greater than or less than.",
-        "image_prompt": "Show two rice terraces with different harvests and > and < symbols between them."
+        "aliases": [
+            "greater than",
+            "less than",
+            "not equal",
+            "comparison statements"
+        ],
+        "zhuang_culture": "Comparing terrace plot sizes",
+        "explanation_text": "Two terrace plots on the Longji slopes may hold different amounts of rice, so one is greater and the other is less. Inequalities record comparisons like these with > and < signs.",
+        "image_prompt": "Show two rice terrace plots of different sizes with a > symbol between them and their harvest totals."
     },
     {
         "concept_id": "order_of_operations",
         "concept_name": "Order of Operations (PEMDAS)",
-        "aliases": ["PEMDAS", "BODMAS", "math order", "operations order"],
-        "zhuang_culture": "Dyeing before steaming rice",
-        "explanation_text": "Five-color rice cannot be steamed before the dyeing step—the order of the steps matters, just as parentheses and exponents must come first in math.",
-        "image_prompt": "Show a cooking sequence for dyed rice where steps must follow a fixed order, labeled like parentheses and other operations."
+        "aliases": [
+            "PEMDAS",
+            "BODMAS",
+            "math order",
+            "operations order"
+        ],
+        "zhuang_culture": "Warp before weft on the loom",
+        "explanation_text": "On a Zhuangjin loom the warp threads must be set up before the weft threads can be woven through them. Some actions must happen before others, just as some operations in a math problem must be done first.",
+        "image_prompt": "Show a Zhuangjin loom with warp threads being set up before weft weaving, the steps labeled in the order they must happen."
     },
     {
         "concept_id": "substitution",
         "concept_name": "Substitution",
-        "aliases": ["replace variable", "substitute value", "replace letter with number"],
-        "zhuang_culture": "Replacing a brocade thread color",
-        "explanation_text": "When a weaver swaps a missing blue thread for another blue thread of the same shade, it is like substituting a value for a variable.",
-        "image_prompt": "Show a Zhuangjin loom where a missing thread is replaced with an identical one, representing substitution."
+        "aliases": [
+            "replace variable",
+            "substitute value",
+            "replace letter with number"
+        ],
+        "zhuang_culture": "Replacing a bamboo strut",
+        "explanation_text": "When a worn bamboo strut in a stilt house is replaced by a new one of the same size, the structure works exactly as before. Replacing a variable with its value in an expression is the same idea of substitution.",
+        "image_prompt": "Show a bamboo stilt house frame with one strut being replaced by an identical new one, labeled as substitution."
     },
     {
         "concept_id": "points",
         "concept_name": "Points",
-        "aliases": ["dot", "location", "coordinate point"],
-        "zhuang_culture": "Stars above Mao'er Mountain",
-        "explanation_text": "Each star over Mao'er Mountain marks a single position in the night sky, just as a point marks a single location in geometry.",
-        "image_prompt": "Show a starry sky above Mao'er Mountain with individual stars labeled as points on a coordinate grid."
+        "aliases": [
+            "dot",
+            "location",
+            "coordinate point"
+        ],
+        "zhuang_culture": "Stars over the karst peaks",
+        "explanation_text": "Each star over the Guilin karst peaks marks one exact location in the sky. A point in geometry also marks a single, exact position, with no size of its own.",
+        "image_prompt": "Show a starry sky above the karst peaks of Guilin, with individual stars highlighted as points."
     },
     {
         "concept_id": "lines",
         "concept_name": "Lines",
-        "aliases": ["straight line", "geometry line", "infinite line"],
-        "zhuang_culture": "Bamboo fence lines",
-        "explanation_text": "The straight rails of a village bamboo fence stretch onward in both directions, much like geometric lines.",
-        "image_prompt": "Show long straight bamboo fence rails extending through a Zhuang village, representing geometric lines."
+        "aliases": [
+            "straight line",
+            "geometry line",
+            "infinite line"
+        ],
+        "zhuang_culture": "Bamboo fence posts in a row",
+        "explanation_text": "The straight row of bamboo fence posts around a village rice field shows what a line looks like: a straight path that goes on in both directions. Each post marks a spot along that one line.",
+        "image_prompt": "Show a long straight row of bamboo fence posts beside a rice field, with arrows showing the line extending in both directions."
     },
     {
         "concept_id": "angles",
         "concept_name": "Angles",
-        "aliases": ["angle", "degree", "corner measure"],
-        "zhuang_culture": "Slope of a bamboo house roof",
-        "explanation_text": "The steep pitch of a bamboo stilt house roof forms a clear angle with the wall, easy to measure in degrees.",
-        "image_prompt": "Show a bamboo stilt house with the roof-to-wall angle clearly marked."
+        "aliases": [
+            "angle",
+            "degree",
+            "corner measure"
+        ],
+        "zhuang_culture": "Dragon boat paddle in the water",
+        "explanation_text": "As a dragon boat rower plunges a paddle into the river, the paddle and the water's surface form an angle. Angles measure the amount of turn between two lines, like the tilt of that paddle.",
+        "image_prompt": "Show a dragon boat with a rower's paddle entering the water, the angle between paddle and surface clearly marked."
     },
     {
         "concept_id": "perpendicular_lines",
         "concept_name": "Perpendicular Lines",
-        "aliases": ["right angle lines", "intersecting lines", "orthogonal lines"],
-        "zhuang_culture": "Pillars and beams of a stilt house",
-        "explanation_text": "The vertical pillars of a bamboo house meet the horizontal beams at right angles, forming perpendicular lines that keep the house strong.",
-        "image_prompt": "Show the pillars and beams of a bamboo stilt house meeting at 90° angles."
+        "aliases": [
+            "right angle lines",
+            "intersecting lines",
+            "orthogonal lines"
+        ],
+        "zhuang_culture": "Stilt house pillars and beams",
+        "explanation_text": "The tall bamboo pillars of a Zhuang stilt house stand straight up while the floor beams run across them, meeting at right angles. Perpendicular lines are lines that cross to form 90-degree angles, like these pillars and beams.",
+        "image_prompt": "Show a bamboo stilt house frame with pillars and floor beams meeting at clearly marked 90° right angles."
     },
     {
         "concept_id": "parallel_lines",
         "concept_name": "Parallel Lines",
-        "aliases": ["side-by-side lines", "never meet", "equal distance lines"],
-        "zhuang_culture": "Parallel terrace ridges",
-        "explanation_text": "The contour ridges of a rice terrace run side by side along the hillside and never meet—like parallel lines.",
-        "image_prompt": "Show parallel ridges of Longji rice terraces running evenly across a hillside."
+        "aliases": [
+            "side-by-side lines",
+            "never meet",
+            "equal distance lines"
+        ],
+        "zhuang_culture": "Contour rows of the terraces",
+        "explanation_text": "The rice terraces at Longji are carved in long rows that follow the mountain's contours and never cross one another. Lines that stay the same distance apart and never meet are parallel, just like those terrace rows.",
+        "image_prompt": "Show the Longji rice terraces with parallel contour rows curving around the hillside, marked as parallel lines."
     },
     {
         "concept_id": "polygons",
         "concept_name": "Polygons",
-        "aliases": ["shapes", "closed figure", "many-sided shape"],
-        "zhuang_culture": "Paddy shapes from above",
-        "explanation_text": "Seen from the mountain, the fields and house compounds form closed many-sided shapes—polygons.",
-        "image_prompt": "Show overhead views of rice paddies and village compounds forming closed geometric shapes."
+        "aliases": [
+            "shapes",
+            "closed figure",
+            "many-sided shape"
+        ],
+        "zhuang_culture": "Panels of a village temple door",
+        "explanation_text": "The carved panels of a village temple door come in closed shapes with straight sides, like rectangles and octagons. Any closed shape made of straight sides is a polygon.",
+        "image_prompt": "Show a carved village temple door with rectangular and octagonal panels, highlighting the polygon shapes."
     },
     {
         "concept_id": "triangles",
         "concept_name": "Triangles",
-        "aliases": ["three sides", "triangular", "triangle shape"],
-        "zhuang_culture": "Gable roofs of stilt houses",
-        "explanation_text": "The pointed gable of each bamboo house forms a triangle, and triangular motifs appear throughout Zhuang craft.",
-        "image_prompt": "Show the triangular gable roofs of Zhuang bamboo houses with the triangle shape highlighted."
+        "aliases": [
+            "three sides",
+            "triangular",
+            "triangle shape"
+        ],
+        "zhuang_culture": "Silhouettes of the karst peaks",
+        "explanation_text": "Rising sharply from the plain, the Guilin karst peaks trace a triangle against the sky. A triangle is a closed shape with exactly three sides, like the outline of one of those peaks.",
+        "image_prompt": "Show karst peak silhouettes against the sky with one peak's triangular outline traced and labeled."
     },
     {
         "concept_id": "quadrilaterals",
         "concept_name": "Quadrilaterals",
-        "aliases": ["four sides", "rectangles", "squares", "trapezoids"],
-        "zhuang_culture": "Zhuangjin brocade blocks",
-        "explanation_text": "The squares and rectangles woven into Zhuangjin brocade are quadrilaterals—four-sided shapes.",
-        "image_prompt": "Show a Zhuangjin brocade with repeating square and rectangular woven blocks."
+        "aliases": [
+            "four sides",
+            "rectangles",
+            "squares",
+            "trapezoids"
+        ],
+        "zhuang_culture": "Bamboo lattice windows",
+        "explanation_text": "The woven bamboo lattice of a stilt house window is made of four-sided shapes fitted together. Any four-sided polygon is a quadrilateral, whether a square, a rectangle, or another four-sided form.",
+        "image_prompt": "Show a close-up of a bamboo lattice window on a stilt house, with one four-sided unit highlighted."
     },
     {
         "concept_id": "perimeter",
         "concept_name": "Perimeter",
-        "aliases": ["boundary length", "distance around", "outline measure"],
-        "zhuang_culture": "Fence around the terrace",
-        "explanation_text": "Measuring the whole way around a terrace's low stone wall is like finding the perimeter of a shape.",
-        "image_prompt": "Show people walking around the edge of a rice terrace with a dashed perimeter line."
+        "aliases": [
+            "boundary length",
+            "distance around",
+            "outline measure"
+        ],
+        "zhuang_culture": "Bordering an embroidered cloth",
+        "explanation_text": "Zhuang embroiderers stitch a border all the way around the edge of a cloth, covering the total distance of its outline. That distance around the outside of a shape is its perimeter.",
+        "image_prompt": "Show a Zhuang embroidered cloth with a stitched border traced around its entire edge, marked as the perimeter."
     },
     {
         "concept_id": "area",
         "concept_name": "Area",
-        "aliases": ["surface area", "space inside", "coverage"],
-        "zhuang_culture": "Stilt house bamboo floor",
-        "explanation_text": "The amount of bamboo floor covered by a woven mat shows the mat's area inside the house.",
-        "image_prompt": "Show a woven mat spread on a stilt house floor, shaded to show its area."
+        "aliases": [
+            "surface area",
+            "space inside",
+            "coverage"
+        ],
+        "zhuang_culture": "Paving the temple courtyard",
+        "explanation_text": "Stone slabs laid to pave a village temple courtyard must cover every bit of the ground. The amount of surface a shape covers is its area, like the ground the slabs fill.",
+        "image_prompt": "Show a village temple courtyard being paved with square stone slabs, the covered surface shaded to show its area."
     },
     {
         "concept_id": "volume",
         "concept_name": "Volume",
-        "aliases": ["capacity", "space inside 3D shape", "liquid amount"],
-        "zhuang_culture": "Bamboo rice steamers",
-        "explanation_text": "The amount of glutinous rice a tall bamboo steamer can hold is its volume, or capacity.",
-        "image_prompt": "Show bamboo steamers filled to different levels to illustrate volume."
+        "aliases": [
+            "capacity",
+            "space inside 3D shape",
+            "liquid amount"
+        ],
+        "zhuang_culture": "Water held by a fish pond",
+        "explanation_text": "A village fish pond can hold a certain amount of water before it overflows. The space a three-dimensional object takes up, or the amount it can contain, is its volume.",
+        "image_prompt": "Show a village fish pond filled to its banks, with a cross-section showing the water it holds as its volume."
     },
     {
         "concept_id": "circle_properties",
         "concept_name": "Circle Properties",
-        "aliases": ["radius", "diameter", "circumference", "circle geometry"],
-        "zhuang_culture": "Bronze drum sunburst",
-        "explanation_text": "The face of a Zhuang bronze drum carries rings that radiate from a central star, showing radius, diameter, and circumference.",
-        "image_prompt": "Show a bronze drum face from above, with its concentric sunburst rings labeled with radius and diameter lines."
+        "aliases": [
+            "radius",
+            "diameter",
+            "circumference",
+            "circle geometry"
+        ],
+        "zhuang_culture": "Rings of a bronze drum face",
+        "explanation_text": "The face of a Zhuang bronze drum is marked with a raised sunburst of concentric circles. From the center, each ring has a radius, and a line across the whole face through the center is the diameter, properties shared by every circle.",
+        "image_prompt": "Show the top face of a bronze drum with its concentric rings labeled with radius and diameter lines."
     },
     {
         "concept_id": "pi",
         "concept_name": "Pi (π)",
-        "aliases": ["pi", "ratio of circumference", "3.14"],
-        "zhuang_culture": "Round bronze drum rim",
-        "explanation_text": "Measuring a bronze drum's rim against its width across always gives the same ratio, about 3.14—the constant π.",
-        "image_prompt": "Show a round bronze drum labeled with its circumference and diameter measurements."
+        "aliases": [
+            "pi",
+            "ratio of circumference",
+            "3.14"
+        ],
+        "zhuang_culture": "Rim of the bronze drum",
+        "explanation_text": "Measured around its rim, every bronze drum's circumference is a little more than three times its diameter. That unchanging ratio, about 3.14, is pi.",
+        "image_prompt": "Show a bronze drum with a measuring band around its rim and a diameter line across it, labeled with circumference, diameter, and pi."
     },
     {
         "concept_id": "coordinate_plane",
         "concept_name": "Coordinate Plane",
-        "aliases": ["x-y plane", "graph grid", "axes"],
-        "zhuang_culture": "Market rows and columns",
-        "explanation_text": "A Guangxi market laid out in rows and columns resembles a coordinate plane, where each stall has its own position.",
-        "image_prompt": "Show a map of a Guangxi market with rows and columns labeled as x and y coordinates."
+        "aliases": [
+            "x-y plane",
+            "graph grid",
+            "axes"
+        ],
+        "zhuang_culture": "Grid of square Zhuang characters",
+        "explanation_text": "Square Zhuang characters are written in a grid where every character sits in a row and a column. A coordinate plane is the same kind of grid, where each cell has a position given by its row and column.",
+        "image_prompt": "Show a page of square Zhuang script characters arranged in a grid, with rows and columns labeled like a coordinate plane."
     },
     {
         "concept_id": "plotting_points",
         "concept_name": "Plotting Points",
-        "aliases": ["graphing points", "coordinates", "x-y plotting"],
-        "zhuang_culture": "Mapping a Zhuang village",
-        "explanation_text": "Marking the home of each family on a village map is like plotting points on a coordinate plane.",
-        "image_prompt": "Show a map of a Zhuang village with each household's stilt house marked as a point with coordinates."
+        "aliases": [
+            "graphing points",
+            "coordinates",
+            "x-y plotting"
+        ],
+        "zhuang_culture": "Lanterns along the festival route",
+        "explanation_text": "During the Sanyuesan festival, villagers hang lanterns along the route through the village. Marking each lantern's position on a map is plotting points, giving every spot an exact location.",
+        "image_prompt": "Show a festival route with red lanterns marked as dots on a village map, each with coordinates."
     },
     {
         "concept_id": "symmetry",
         "concept_name": "Symmetry",
-        "aliases": ["mirror image", "balanced halves", "reflection symmetry"],
-        "zhuang_culture": "Mirrored brocade designs",
-        "explanation_text": "The patterns of Zhuangjin brocade mirror each other across a center line, showing reflection symmetry.",
-        "image_prompt": "Show a Zhuangjin brocade pattern split by a mirror line with both halves matching."
+        "aliases": [
+            "mirror image",
+            "balanced halves",
+            "reflection symmetry"
+        ],
+        "zhuang_culture": "Butterfly motifs in embroidery",
+        "explanation_text": "Butterfly motifs on Zhuang embroidery are stitched so the two wings mirror each other across a center line. When one half of a shape is a mirror image of the other, the shape has symmetry.",
+        "image_prompt": "Show a Zhuang embroidered butterfly with a center line splitting its two matching wings."
     },
     {
         "concept_id": "transformations",
         "concept_name": "Transformations",
-        "aliases": ["translate", "rotate", "reflect", "dilate"],
-        "zhuang_culture": "Flipping and turning brocade motifs",
-        "explanation_text": "Weavers repeat a brocade motif by turning or flipping it, just as geometric transformations rotate and reflect shapes.",
-        "image_prompt": "Show a brocade motif in original, rotated, and mirrored positions to illustrate transformations."
+        "aliases": [
+            "translate",
+            "rotate",
+            "reflect",
+            "dilate"
+        ],
+        "zhuang_culture": "Turning the bronze drum",
+        "explanation_text": "When a drum is set down, drummers turn the bronze drum until its star rays line up with the village gate. Turning a shape without changing its size is a rotation, one kind of geometric transformation.",
+        "image_prompt": "Show hands turning a bronze drum so its sunburst star rays align with a village gate, labeled as a rotation."
     },
     {
         "concept_id": "ratios",
         "concept_name": "Ratios",
-        "aliases": ["comparison", "proportion of quantities", "rate"],
-        "zhuang_culture": "Mixing plant dye and rice",
-        "explanation_text": "Steeping glutinous rice in plant dye uses a fixed balance of dye to rice, like the ratios used to mix colors.",
-        "image_prompt": "Show a bowl of plant dye with rice and dye measured as a ratio, like 2:1."
+        "aliases": [
+            "comparison",
+            "proportion of quantities",
+            "rate"
+        ],
+        "zhuang_culture": "Mixing rice vinegar and water",
+        "explanation_text": "To make a dipping sauce, one part rice vinegar is mixed with two parts water. Comparing the amounts as 1:2 is a ratio, a way of describing how two quantities relate.",
+        "image_prompt": "Show a bowl of dipping sauce made with one part rice vinegar and two parts water, labeled as the ratio 1:2."
     },
     {
         "concept_id": "proportions",
         "concept_name": "Proportions",
-        "aliases": ["equal ratios", "scaling", "balance of ratios"],
-        "zhuang_culture": "Scaling up a brocade pattern",
-        "explanation_text": "When a weaver copies a small brocade motif onto a larger cloth while keeping every part in the same ratio, the pattern stays in proportion.",
-        "image_prompt": "Show a small and a large Zhuangjin brocade with matching geometric proportions."
+        "aliases": [
+            "equal ratios",
+            "scaling",
+            "balance of ratios"
+        ],
+        "zhuang_culture": "Enlarging an embroidery pattern",
+        "explanation_text": "When a small embroidery pattern is enlarged onto a larger cloth, every part is scaled up by the same factor so the design keeps its shape. Keeping the ratios the same while changing size is a proportion.",
+        "image_prompt": "Show a small embroidery pattern beside a larger copy of it, with matching parts connected by proportion lines."
     },
     {
         "concept_id": "unit_rate",
         "concept_name": "Unit Rate",
-        "aliases": ["per unit", "rate per one", "comparison per one unit"],
-        "zhuang_culture": "Rice harvested each day",
-        "explanation_text": "The amount of rice a family harvests in one day is a unit rate—a per-one-unit comparison.",
-        "image_prompt": "Show a rice terrace with baskets filled per day, labeled as baskets of rice per day."
+        "aliases": [
+            "per unit",
+            "rate per one",
+            "comparison per one unit"
+        ],
+        "zhuang_culture": "Dragon boat speed",
+        "explanation_text": "A dragon boat that covers 600 meters in 2 minutes travels 300 meters each minute. Describing a quantity per single unit, like meters per minute, is a unit rate.",
+        "image_prompt": "Show a dragon boat racing down a river with a speed label of 300 meters per minute."
     },
     {
         "concept_id": "scale_drawings",
         "concept_name": "Scale Drawings",
-        "aliases": ["map scale", "drawing proportion", "scaled map"],
-        "zhuang_culture": "Map of the terrace slopes",
-        "explanation_text": "Drawing the whole Longji slope on one small map, keeping distances proportional, is a scale drawing.",
-        "image_prompt": "Show the Longji terraces and a smaller scaled map of them side by side with a scale legend."
+        "aliases": [
+            "map scale",
+            "drawing proportion",
+            "scaled map"
+        ],
+        "zhuang_culture": "A small copy of the cliff paintings",
+        "explanation_text": "Scholars record the Zuojiang Huashan rock paintings by making small copies where every figure is reduced by the same factor. A drawing that keeps every size proportional to the real thing is a scale drawing.",
+        "image_prompt": "Show the Huashan cliff paintings beside a smaller sketched copy, with a scale legend connecting the two."
     },
     {
         "concept_id": "percent_change",
         "concept_name": "Percent Change",
-        "aliases": ["percent increase", "percent decrease", "growth rate"],
-        "zhuang_culture": "Growth of the village harvest",
-        "explanation_text": "When a village's rice harvest rises from 100 to 120 baskets, that is a 20% increase—percent change.",
-        "image_prompt": "Show rice baskets increasing in number with a +20% label."
+        "aliases": [
+            "percent increase",
+            "percent decrease",
+            "growth rate"
+        ],
+        "zhuang_culture": "Growth in the rice harvest",
+        "explanation_text": "When a village's rice harvest rises from 100 baskets to 120 baskets, the gain of 20 is a 20 percent increase. Percent change measures how much a quantity grows or shrinks compared with where it started.",
+        "image_prompt": "Show rice baskets increasing from 100 to 120 with a +20% label above them."
     },
     {
         "concept_id": "data_collection",
         "concept_name": "Data Collection",
-        "aliases": ["gather data", "record information", "collect numbers"],
-        "zhuang_culture": "Counting the village livestock",
-        "explanation_text": "Recording how many water buffalo, pigs, and ducks each family keeps is an example of data collection.",
-        "image_prompt": "Show a villager marking tallies of livestock on a bamboo notebook."
+        "aliases": [
+            "gather data",
+            "record information",
+            "collect numbers"
+        ],
+        "zhuang_culture": "Counting the Huashan figures",
+        "explanation_text": "Researchers visit the Zuojiang Huashan rock paintings and tally every painted figure, noting each one's size and pose. Gathering and recording counts like these is data collection.",
+        "image_prompt": "Show a researcher at the Huashan cliff paintings tallying the painted figures on a clipboard."
     },
     {
         "concept_id": "tables_graphs",
         "concept_name": "Tables and Graphs",
-        "aliases": ["data table", "bar graph", "chart"],
-        "zhuang_culture": "Harvest across the seasons",
-        "explanation_text": "A graph comparing rice harvests across the seasons helps villagers see the trends in their data.",
-        "image_prompt": "Show a bar graph comparing rice harvests across the four seasons."
+        "aliases": [
+            "data table",
+            "bar graph",
+            "chart"
+        ],
+        "zhuang_culture": "Lanterns at different festivals",
+        "explanation_text": "A village records how many lanterns are hung at each festival of the year, from the Spring Festival to Sanyuesan. Organizing those counts into a table or a graph makes the numbers easy to compare.",
+        "image_prompt": "Show a table and a graph comparing lantern counts at different Zhuang festivals."
     },
     {
         "concept_id": "mean",
         "concept_name": "Mean",
-        "aliases": ["average", "arithmetic mean", "mean value"],
-        "zhuang_culture": "Average terrace yield",
-        "explanation_text": "Adding the rice from each terrace and sharing the total equally among the terraces gives the mean yield.",
-        "image_prompt": "Show a table of terrace yields with the average value highlighted."
+        "aliases": [
+            "average",
+            "arithmetic mean",
+            "mean value"
+        ],
+        "zhuang_culture": "Rice pounded in a wooden mortar",
+        "explanation_text": "A villager pounds rice in a wooden mortar and notes the amount finished each minute: three, four, and five portions. Adding them and dividing by three gives four, the mean or average amount per minute.",
+        "image_prompt": "Show a wooden mortar and pestle with three recorded amounts beside it, the average highlighted as the mean."
     },
     {
         "concept_id": "median",
         "concept_name": "Median",
-        "aliases": ["middle value", "data median"],
-        "zhuang_culture": "Middle household harvest",
-        "explanation_text": "When the households' harvests are lined up from smallest to largest, the harvest in the middle is the median.",
-        "image_prompt": "Show household harvests lined up in order with the middle one highlighted as the median."
+        "aliases": [
+            "middle value",
+            "data median"
+        ],
+        "zhuang_culture": "Scores at the Sanyuesan singing contest",
+        "explanation_text": "When the scores of a Sanyuesan singing contest are lined up from lowest to highest, the score in the middle is the median. The median is the central value of an ordered set of data.",
+        "image_prompt": "Show singing contest scores lined up in order with the middle score highlighted as the median."
     },
     {
         "concept_id": "mode",
         "concept_name": "Mode",
-        "aliases": ["most frequent value", "common value"],
-        "zhuang_culture": "Most common village crop",
-        "explanation_text": "If more families grow sweet potatoes than any other crop, sweet potato is the mode of the village's crop data.",
-        "image_prompt": "Show a field of different crops with sweet potatoes shown as the most common."
+        "aliases": [
+            "most frequent value",
+            "common value"
+        ],
+        "zhuang_culture": "Most common lantern color",
+        "explanation_text": "At the Sanyuesan night, most of the lanterns hanging through the village are red. The value that appears most often in a set of data is the mode, like red among the lantern colors.",
+        "image_prompt": "Show rows of festival lanterns in different colors with red appearing most often, labeled as the mode."
     },
     {
         "concept_id": "range",
         "concept_name": "Range",
-        "aliases": ["difference", "spread of data", "highest minus lowest"],
-        "zhuang_culture": "Gap between harvests",
-        "explanation_text": "The gap between the largest and smallest terrace harvest shows the range of the data.",
-        "image_prompt": "Show a bar chart with the tallest and shortest bars marked to show the range."
+        "aliases": [
+            "difference",
+            "spread of data",
+            "highest minus lowest"
+        ],
+        "zhuang_culture": "Stroke counts in square Zhuang characters",
+        "explanation_text": "Some square Zhuang characters use only a few strokes while others use many. Subtracting the fewest from the most strokes gives the range, the spread of the data.",
+        "image_prompt": "Show square Zhuang characters of varying stroke counts, with the simplest and most complex marked to show the range."
     },
     {
         "concept_id": "bar_graphs",
         "concept_name": "Bar Graphs",
-        "aliases": ["bar chart", "column graph"],
-        "zhuang_culture": "Comparing family harvests",
-        "explanation_text": "Each bar on the graph shows how many baskets of rice one family harvested, making quick comparisons.",
-        "image_prompt": "Show a bar graph labeled by family names with their rice harvest totals."
+        "aliases": [
+            "bar chart",
+            "column graph"
+        ],
+        "zhuang_culture": "Figures in the Huashan paintings",
+        "explanation_text": "The Huashan paintings show figures in different poses, some with arms raised and others seated. A bar graph with one bar per pose makes it easy to see which pose appears most often.",
+        "image_prompt": "Show a bar graph of Huashan painting figures grouped by pose, with a tall bar for the raised-arm figures."
     },
     {
         "concept_id": "line_graphs",
         "concept_name": "Line Graphs",
-        "aliases": ["trend graph", "line chart"],
-        "zhuang_culture": "Tracking rice growth over months",
-        "explanation_text": "A line graph shows how rice grows and ripens through the months of the season.",
-        "image_prompt": "Show a line graph labeled with months and rice plant height."
+        "aliases": [
+            "trend graph",
+            "line chart"
+        ],
+        "zhuang_culture": "Water level in the fish pond",
+        "explanation_text": "A farmer measures the water level of the village fish pond each week through the year. Plotting the levels and joining them with a line shows the changes over time in a line graph.",
+        "image_prompt": "Show a line graph of a fish pond's water level across the months, with a measuring stick and the pond beside it."
     },
     {
         "concept_id": "pie_charts",
         "concept_name": "Pie Charts",
-        "aliases": ["circle chart", "percentage chart"],
-        "zhuang_culture": "Dividing the village harvest",
-        "explanation_text": "A pie chart shows what share of the village harvest goes to seed, food, and market—parts of a whole circle.",
-        "image_prompt": "Show a pie chart divided into harvest categories with percentages."
+        "aliases": [
+            "circle chart",
+            "percentage chart"
+        ],
+        "zhuang_culture": "Colors in the festival rice",
+        "explanation_text": "A bowl of five-colored sticky rice holds five colors in equal shares. A pie chart cuts a circle into slices just like the rice is split into colors, each slice showing its fraction of the whole.",
+        "image_prompt": "Show a pie chart with five equal slices colored like five-colored sticky rice, beside a real bowl of the rice."
     },
     {
         "concept_id": "probability",
         "concept_name": "Probability",
-        "aliases": ["chance", "likelihood", "odds"],
-        "zhuang_culture": "Predicting the dragon boat winner",
-        "explanation_text": "Guessing which boat will win the Duanwu dragon boat race involves estimating chance—probability.",
-        "image_prompt": "Show dragon boats at a start line with probability labels above each boat."
+        "aliases": [
+            "chance",
+            "likelihood",
+            "odds"
+        ],
+        "zhuang_culture": "Picking a grain of red sticky rice",
+        "explanation_text": "If a bowl of five-colored sticky rice holds equal numbers of all five colors, reaching in without looking gives each grain a 1 in 5 chance of being red. Probability measures how likely an outcome is.",
+        "image_prompt": "Show a hand reaching into a bowl of five-colored sticky rice, with a label showing a 1 in 5 chance of picking red."
     },
     {
         "concept_id": "patterns",
         "concept_name": "Patterns",
-        "aliases": ["repeating design", "sequence", "recurrence"],
-        "zhuang_culture": "Repeating brocade motifs",
-        "explanation_text": "The repeated sunburst and diamond motifs woven into Zhuangjin brocade are visual patterns, repeating in a steady order.",
-        "image_prompt": "Show repeating geometric motifs in a Zhuangjin brocade textile."
+        "aliases": [
+            "repeating design",
+            "sequence",
+            "recurrence"
+        ],
+        "zhuang_culture": "Call-and-response folk songs",
+        "explanation_text": "In Zhuang mountain songs, the lead singer's line is answered by a chorus line in a repeating back-and-forth pattern. Repeating sequences like these, whether in song or in numbers, are patterns.",
+        "image_prompt": "Show two rows of folk singers trading call-and-response lines, with the repeating ABAB song pattern highlighted."
     },
     {
         "concept_id": "functions",
         "concept_name": "Functions",
-        "aliases": ["input-output rule", "function relation", "mapping"],
-        "zhuang_culture": "Dye amount to color shade",
-        "explanation_text": "Each amount of plant dye gives one specific shade of rice color—every input has a single output, like a function.",
-        "image_prompt": "Show a chart linking dye amounts (input) to rice color shades (output)."
+        "aliases": [
+            "input-output rule",
+            "function relation",
+            "mapping"
+        ],
+        "zhuang_culture": "Frets of the tianqin",
+        "explanation_text": "On the tianqin, a Zhuang stringed instrument, each fret position produces one specific pitch when the string is pressed. That rule, one input giving one output, is exactly what a function does.",
+        "image_prompt": "Show a tianqin with its frets, each labeled with a pitch, illustrating how one fret position gives one note."
     }
 ]
