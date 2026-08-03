@@ -1,6 +1,7 @@
 "use client";
 
 import { useSidebar } from "@/hooks/useSidebar";
+import Link from "next/link";
 import SearchBar from "@/components/sidebar/SearchBar";
 import ChatList from "@/components/sidebar/ChatList";
 import UserArea from "@/components/sidebar/UserArea";
@@ -95,6 +96,41 @@ export default function Sidebar({
                             )}
                         </svg>
                     </button>
+                </div>
+
+                <div className={`sb-links ${effectiveIsOpen ? "is-open" : "is-collapsed"}`}>
+                    <Link href="/practice" className="sb-link">
+                        <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                        >
+                            <path d="M9 11l3 3L22 4" />
+                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                        </svg>
+                        <span>{t("practiceTitle") || "Practice"}</span>
+                    </Link>
+                    <Link href="/sheets" className="sb-link">
+                        <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                        >
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                        </svg>
+                        <span>{t("sheetsTitle") || "Sheets"}</span>
+                    </Link>
                 </div>
 
                 <SearchBar
