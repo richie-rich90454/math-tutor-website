@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { apiFetch } from "@/lib/api-client";
+import type { Translations } from "@/lib/translations";
 
 interface Problem {
     id: string;
@@ -25,6 +26,19 @@ interface ReviewItem extends Problem {
 
 const TOPICS = ["arithmetic", "algebra", "geometry", "calculus", "trigonometry", "statistics"];
 
+const TOPIC_KEYS: Record<string, string> = {
+    arithmetic: "topicArithmetic",
+    algebra: "topicAlgebra",
+    geometry: "topicGeometry",
+    calculus: "topicCalculus",
+    trigonometry: "topicTrigonometry",
+    statistics: "topicStatistics",
+};
+
+function topicLabel(topic: string, t: (key: keyof Translations) => string): string {
+    const key = TOPIC_KEYS[topic];
+    return key ? t(key as keyof Translations) || topic : topic;
+}
 export default function PracticePage() {
     const router = useRouter();
     const { isAuthenticated, isLoading } = useAuth();
@@ -273,7 +287,7 @@ export default function PracticePage() {
                                                 loadProblems(tp, grade);
                                             }}
                                         >
-                                            {tp}
+                                            {topicLabel(tp, t)}
                                         </button>
                                     ))}
                                 </div>
@@ -294,7 +308,7 @@ export default function PracticePage() {
                                         loadProblems(topic, value);
                                     }}
                                 >
-                                    <option value="all">All</option>
+                                    <option value="all">{t("gradeAll") || "All"}</option>
                                     {Array.from({ length: 12 }, (_, i) => i + 1).map((g) => (
                                         <option key={g} value={g}>
                                             {g}
