@@ -30,14 +30,17 @@ public class AuthController {
     private final AuthService authService;
     private final SessionService sessionService;
     private final RateLimitService rateLimit;
+    private final AuthThrottleService authThrottle;
 
     public AuthController(
             AuthService authService,
             SessionService sessionService,
-            RateLimitService rateLimit) {
+            RateLimitService rateLimit,
+            AuthThrottleService authThrottle) {
         this.authService = authService;
         this.sessionService = sessionService;
         this.rateLimit = rateLimit;
+        this.authThrottle = authThrottle;
     }
 
     @PostMapping("/signup")
@@ -79,14 +82,24 @@ public class AuthController {
         }
 
         LoginRequest body = LoginRequest.parse(JsonBody.parse(rawBody));
+        String email = body.email() == null ? "" : body.email();
+
+        long lockMs = authThrottle.lockRemainingMs(email);
+        if (lockMs > 0) {
+            return ResponseEntity.status(429)
+                    .header("Retry-After", String.valueOf(Math.max(1, lockMs / 1000)))
+                    .body(Map.of("error", "Too many failed attempts. Please wait a while."));
+        }
 
         boolean remember = body.remember() != null && body.remember();
         var result = authService.login(body.email(), body.password(), remember);
         if (result.isEmpty()) {
+            authThrottle.registerFailure(email);
             return ResponseEntity.status(401)
                     .body(Map.of("error", "Invalid email or password"));
         }
 
+        authThrottle.reset(email);
         AuthService.AuthResult auth = result.get();
         response.addHeader(HttpHeaders.SET_COOKIE,
                 sessionCookie(auth.token(), remember).toString());
