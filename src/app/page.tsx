@@ -13,6 +13,8 @@ import Sparkles from "@/components/ui/Sparkles";
 import UsageMeter from "@/components/ui/UsageMeter";
 import VirtualizedMessages from "@/components/chat/VirtualizedMessages";
 import MessageRow from "@/components/chat/MessageRow";
+import ChatTools from "@/components/chat/ChatTools";
+import LearningCards from "@/components/home/LearningCards";
 import { useLanguage } from "@/contexts/LanguageContext";
 import type { ChatSession } from "@/contexts/ChatContext";
 import { gsap, useGSAP } from "@/lib/gsap";
@@ -51,6 +53,8 @@ export default function Home() {
         chatMessagesRef,
         messagesEndRef,
         prevMessagesLenRef,
+        quotaWarn,
+        activeChatId,
     } = useChatMessages();
 
     const {
@@ -95,17 +99,9 @@ export default function Home() {
             if (titleEl)
                 tl.from(titleEl, { y: 30, opacity: 0, duration: 0.6, ease: "power2.out" }, 0);
             if (subtitleEl)
-                tl.from(
-                    subtitleEl,
-                    { y: 30, opacity: 0, duration: 0.6, ease: "power2.out" },
-                    0.1,
-                );
+                tl.from(subtitleEl, { y: 30, opacity: 0, duration: 0.6, ease: "power2.out" }, 0.1);
             if (inputCard)
-                tl.from(
-                    inputCard,
-                    { y: 30, opacity: 0, duration: 0.6, ease: "power2.out" },
-                    0.2,
-                );
+                tl.from(inputCard, { y: 30, opacity: 0, duration: 0.6, ease: "power2.out" }, 0.2);
             // ponytail: prompt buttons use CSS (promptBtnIn) instead of the GSAP
             // timeline — under StrictMode double-mount the staggered tween left
             // them stuck at opacity 0. CSS can never leave them invisible.
@@ -310,10 +306,10 @@ export default function Home() {
                             isOpen={isSidebarOpen}
                             onToggle={handleSidebarToggle}
                             onShowShortcuts={() => setShowShortcuts(true)}
-                        onNewChat={() => {
-                            handleNewChat();
-                            setIsSidebarOpen(false);
-                        }}
+                            onNewChat={() => {
+                                handleNewChat();
+                                setIsSidebarOpen(false);
+                            }}
                             onChatSelect={(chat: ChatSession) => {
                                 setActiveChatId(chat.id);
                                 setIsLoaded(false);
@@ -326,6 +322,24 @@ export default function Home() {
             <div
                 className={`app-main ${isSidebarOpen ? "with-sidebar" : "with-sidebar-collapsed"}`}
             >
+                {quotaWarn && (
+                    <div className="quota-banner" role="status">
+                        <svg
+                            width="14"
+                            height="14"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                        >
+                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                            <line x1="12" y1="9" x2="12" y2="13" />
+                            <line x1="12" y1="17" x2="12.01" y2="17" />
+                        </svg>
+                        {t("quotaWarning") || "You have used 80% of your daily token limit"}
+                    </div>
+                )}
                 <div className="app-header">
                     <div className="app-header-inner">
                         {messages.length > 0 && (
@@ -370,6 +384,7 @@ export default function Home() {
                                         <line x1="12" y1="15" x2="12" y2="3" />
                                     </svg>
                                 </button>
+                                <ChatTools chatId={activeChatId} />
                             </>
                         )}
                         <ThemeToggle />
@@ -442,6 +457,7 @@ export default function Home() {
                                             {t("practiceProblems") || "Practice Problems"}
                                         </button>
                                     </div>
+                                    <LearningCards />
                                 </div>
                             </div>
                         )}
