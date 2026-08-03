@@ -94,6 +94,64 @@
             });
             return false;
         };
+
+        el("changePwBtn").onclick = function () {
+            var current = el("currentPassword").value;
+            var next = el("newPassword").value;
+            el("pwOk").className = "auth-ok hidden";
+            el("pwError").className = "auth-msg hidden";
+            if (next.length < 8) {
+                el("pwError").textContent = MathTutor.t("authPasswordTooShort");
+                el("pwError").className = "auth-msg";
+                return false;
+            }
+            MathTutor.api({
+                url: "/api/auth/change-password",
+                method: "POST",
+                data: { currentPassword: current, newPassword: next },
+                success: function () {
+                    el("currentPassword").value = "";
+                    el("newPassword").value = "";
+                    el("pwOk").textContent = MathTutor.t("settingsPasswordChanged");
+                    el("pwOk").className = "auth-ok";
+                    loadSessions();
+                },
+                error: function (msg) {
+                    el("pwError").textContent = msg || MathTutor.t("settingsCurrentPasswordWrong");
+                    el("pwError").className = "auth-msg";
+                }
+            });
+            return false;
+        };
+
+        el("revokeAllBtn").onclick = function () {
+            MathTutor.api({
+                url: "/api/auth/sessions/revoke-all",
+                method: "POST",
+                data: {},
+                success: function () {
+                    loadSessions();
+                },
+                error: function () {
+                }
+            });
+            return false;
+        };
+
+        loadSessions();
+    }
+
+    function loadSessions() {
+        MathTutor.api({
+            url: "/api/auth/sessions",
+            method: "GET",
+            success: function (data) {
+                var n = (data.sessions || []).length;
+                el("sessionCountText").textContent = MathTutor.t("settingsSessions") + ": " + n;
+            },
+            error: function () {
+            }
+        });
     }
 
     if (document.readyState === "complete" || document.readyState === "interactive") {
