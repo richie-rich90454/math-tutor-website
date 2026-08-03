@@ -12,9 +12,9 @@
             "position of digits",
             "digit position"
         ],
-        "german_culture": "Cuckoo clock face numerals",
-        "explanation_text": "On a cuckoo clock face, the same digit means different things depending on where it sits — the 1 near the top marks a different hour than a 1 lower down, just as a digit's place gives it its value.",
-        "image_prompt": "Illustrate a cuckoo clock face with digits labeled by place (ones, tens, hundreds), showing how position changes each digit's value."
+        "german_culture": "Gutenberg's movable type grid",
+        "explanation_text": "In Johannes Gutenberg's printing workshop in Mainz, each piece of movable type sits in its own slot in a wooden tray. A letter's slot determines its place in a word, just as a digit's place determines its value. Move the same digit from the tens place to the hundreds place and its value changes, exactly like rearranging the type pieces.",
+        "image_prompt": "A 15th-century Mainz print shop with a wooden type tray full of letter blocks, a few blocks labeled ones, tens, and hundreds, an apprentice setting type by hand."
     },
     {
         "concept_id": "addition_subtraction",
@@ -32,9 +32,9 @@
             "take away",
             "difference"
         ],
-        "german_culture": "Pretzel baskets at Oktoberfest",
-        "explanation_text": "When more pretzels are added to a stand's basket, the total grows; when a customer buys some and they are lifted out, the total shrinks — that is addition and subtraction.",
-        "image_prompt": "Show a wooden pretzel basket at an Oktoberfest stand being filled (count rising) and emptied (count falling), with the totals shown above."
+        "german_culture": "Weihnachtsmarkt stall inventory",
+        "explanation_text": "A stallkeeper at the Weihnachtsmarkt stacks boxes of glass ornaments behind the counter. Adding a new delivery raises the count, and selling boxes lowers it again. Addition and subtraction are the same kind of count-up and count-down.",
+        "image_prompt": "A Christmas market stall with stacked boxes of ornaments, boxes being added to one side and removed from the other, with running totals labeled."
     },
     {
         "concept_id": "multiplication_division",
@@ -50,9 +50,9 @@
             "split equally",
             "sharing"
         ],
-        "german_culture": "Bratwurst rows on a grill",
-        "explanation_text": "Lining bratwurst up in equal rows on a grill shows multiplication — 3 rows of 4 sausages is 12. Sharing them out evenly onto plates shows division.",
-        "image_prompt": "Show bratwurst arranged in equal rows on a grill (multiplication), then divided evenly onto plates (division)."
+        "german_culture": "Bakery roll baskets",
+        "explanation_text": "A German bakery packs Brötchen rolls into baskets in equal rows. Six rolls in each of four baskets is multiplication, 6 x 4 = 24. Splitting 24 rolls into four equal baskets is division, 24 divided by 4 = 6.",
+        "image_prompt": "A bakery counter with four baskets each holding six rolls, and arrows showing 6 x 4 = 24, then 24 shared into four equal baskets."
     },
     {
         "concept_id": "even_odd",
@@ -67,9 +67,9 @@
             "no remainder",
             "remains one"
         ],
-        "german_culture": "Easter egg pairing",
-        "explanation_text": "When decorated Easter eggs are placed in pairs, every egg has a partner and the count is even. If one egg is left single, the count is odd.",
-        "image_prompt": "Show painted Easter eggs arranged in pairs, with one single egg left over to represent an odd number."
+        "german_culture": "Paired Christmas tree baubles",
+        "explanation_text": "When hanging glass baubles on the Christmas tree, they are placed in pairs, one on each side of a branch. If every bauble finds a partner, the count is even. If one bauble is left over with no partner, the number is odd.",
+        "image_prompt": "A decorated Christmas tree with baubles shown in pairs along branches, one lone bauble with no partner labeled odd."
     },
     {
         "concept_id": "skip_counting",
@@ -83,9 +83,9 @@
             "repeating numbers",
             "number patterns"
         ],
-        "german_culture": "Bavarian flag diamonds",
-        "explanation_text": "The white and blue diamonds of the Bavarian flag repeat in a steady rhythm — counting every third diamond mirrors counting by 3s, just like skip counting.",
-        "image_prompt": "Show the repeating white-and-blue diamond pattern of the Bavarian flag, highlighting every third diamond to illustrate skip counting."
+        "german_culture": "Numbered Autobahn exits",
+        "explanation_text": "Autobahn exits are numbered in sequence so drivers can find them easily. Counting every fifth exit, 5, 10, 15, 20, is skip counting by 5. The exit numbers form a clear number pattern.",
+        "image_prompt": "A German Autobahn with exit signs numbered 5, 10, 15, 20 in a row, a car passing each one."
     },
     {
         "concept_id": "comparing_numbers",
@@ -101,9 +101,9 @@
             "ordering numbers",
             "number order"
         ],
-        "german_culture": "Pretzel stacks of different heights",
-        "explanation_text": "Comparing two stacks of pretzels at a market stall shows which has more and which has fewer — the same idea as greater than and less than for numbers.",
-        "image_prompt": "Show two stacks of pretzels of different heights at a German market stall with > and < symbols between them."
+        "german_culture": "ICE train lengths",
+        "explanation_text": "At the station you can compare the lengths of an ICE high-speed train and a short regional train. The longer train carries more passengers, just as the larger number is worth more. Lining the trains up from shortest to longest is like ordering numbers.",
+        "image_prompt": "A German station platform with an ICE and a short regional train side by side, arrows showing which is longer, comparison symbols between them."
     },
     {
         "concept_id": "rounding_estimation",
@@ -118,448 +118,448 @@
             "close to",
             "nearby number"
         ],
-        "german_culture": "Estimating guests in a festival tent",
-        "explanation_text": "When planning a festival tent, hosts estimate the number of guests to the nearest ten — that is rounding, making a messy number easier to work with.",
-        "image_prompt": "Show an Oktoberfest tent host estimating guest numbers, with approximate counts rounded to the nearest ten."
+        "german_culture": "Estimating daily bakery sales",
+        "explanation_text": "With more than 300 kinds of bread, a baker quickly estimates how many loaves to bake today. About 200 loaves is an estimate, not an exact count. Rounding to a convenient number makes planning fast.",
+        "image_prompt": "A bakery display of many different bread loaves, a baker writing about 200 on a chalkboard with rounded numbers."
     },
     {
         "concept_id": "fractions",
         "concept_name": "Fractions",
         "aliases": ["fraction", "part of a whole", "portion", "share", "numerator", "denominator"],
-        "german_culture": "Sharing a pretzel",
-        "explanation_text": "When one big pretzel is broken into four equal pieces and shared, each friend receives one part of the whole — a fraction of the pretzel.",
-        "image_prompt": "Show a large pretzel divided into four equal pieces, each labeled as a fraction of the whole pretzel."
+        "german_culture": "Slicing a stollen loaf",
+        "explanation_text": "A stollen, the rich fruit loaf of the Christmas season, is sliced into equal pieces so everyone gets a share. Each slice is one part of the whole loaf. If the loaf is cut into eight pieces, one slice is one eighth of the stollen.",
+        "image_prompt": "A stollen loaf on a wooden board cut into eight equal slices, one slice lifted and labeled 1/8."
     },
     {
         "concept_id": "equivalent_fractions",
         "concept_name": "Equivalent Fractions",
         "aliases": ["equal fractions", "same value", "fraction equality", "equivalent"],
-        "german_culture": "Slicing Black Forest cake",
-        "explanation_text": "A Black Forest cake cut into 2 big slices or 4 smaller slices still gives the same total cake — the fractions 1/2 and 2/4 describe the same amount.",
-        "image_prompt": "Show a round Black Forest cake divided first into halves, then into quarters, demonstrating that equal amounts are equivalent fractions."
+        "german_culture": "Black Forest cake portions",
+        "explanation_text": "A Black Forest torte can be cut into two halves or into four quarters. Two quarters of the cake together are exactly the same amount as one half. Different fractions that name the same amount are equivalent fractions.",
+        "image_prompt": "A Black Forest cherry cake shown two ways, cut in half and cut in quarters, with 1/2 and 2/4 labeled as equal."
     },
     {
         "concept_id": "simplifying_fractions",
         "concept_name": "Simplifying Fractions",
         "aliases": ["reduce fraction", "lowest terms", "simplify fraction"],
-        "german_culture": "Merging pretzel quarters into halves",
-        "explanation_text": "Two quarters of a pretzel can be pushed together to make one half — writing 2/4 as 1/2 is simplifying the fraction to its lowest terms.",
-        "image_prompt": "Show two pretzel quarters joining to form half a pretzel, labeled 2/4 becoming 1/2."
+        "german_culture": "Lebkuchen slab pieces",
+        "explanation_text": "A rectangular slab of Lebkuchen is marked into eight squares, and four of them are shaded. Four eighths is the same amount as half the slab. Writing the same amount in the smallest numbers is simplifying a fraction.",
+        "image_prompt": "A rectangular Lebkuchen slab marked in eight squares, four shaded, labeled 4/8 = 1/2."
     },
     {
         "concept_id": "mixed_numbers",
         "concept_name": "Mixed Numbers",
         "aliases": ["mixed number", "whole and fraction", "whole part and fraction part"],
         "german_culture": "Full and half bread loaves",
-        "explanation_text": "If a baker has 3 full loaves of bread and half a loaf more, the amount is 3½ — a whole number joined with a fraction, called a mixed number.",
-        "image_prompt": "Show three whole bread loaves and one half-loaf, labeled as 3½."
+        "explanation_text": "At the bakery you might buy two whole loaves and half a loaf. That is 2 loaves plus 1/2 loaf, written as the mixed number 2 1/2. The whole part and the fraction part together tell the full amount.",
+        "image_prompt": "A bakery scene with two full loaves and one loaf cut in half, labeled 2 1/2."
     },
     {
         "concept_id": "improper_fractions",
         "concept_name": "Improper Fractions",
         "aliases": ["top-heavy fraction", "numerator larger", "greater than one fraction"],
-        "german_culture": "Rolls overflowing a basket",
-        "explanation_text": "When rolls fill more than one full tray, the amount can be written as parts of a single tray size — a fraction with a numerator larger than its denominator, an improper fraction.",
-        "image_prompt": "Show bread rolls spilling past a full tray, symbolizing fractions with a value greater than 1."
+        "german_culture": "Quarter-liter honey jars",
+        "explanation_text": "A beekeeper fills identical quarter-liter jars with honey. Five jars hold 5/4 liters, which is more than one whole liter. A fraction with a numerator larger than its denominator is an improper fraction.",
+        "image_prompt": "Five identical quarter-liter honey jars on a table, four grouped as one whole liter and one extra, labeled 5/4 L."
     },
     {
         "concept_id": "adding_fractions",
         "concept_name": "Adding Fractions",
         "aliases": ["fraction addition", "add fractions", "sum of fractions"],
-        "german_culture": "Stacking cake slices on one plate",
-        "explanation_text": "Placing slices of Black Forest cake from different plates onto one plate shows how fractional parts add together into a larger portion.",
-        "image_prompt": "Show separate cake slices being moved onto one plate, illustrating how fractions combine through addition."
+        "german_culture": "Torte layer servings",
+        "explanation_text": "A Black Forest torte is built from layers, and each layer is a part of the cake. A quarter of sponge plus a quarter of cream makes half of the torte. Adding fractions combines parts into a whole.",
+        "image_prompt": "A Black Forest torte cross-section showing its layers, with a diagram adding 1/4 + 1/4 = 1/2."
     },
     {
         "concept_id": "subtracting_fractions",
         "concept_name": "Subtracting Fractions",
         "aliases": ["fraction subtraction", "take away fractions", "difference of fractions"],
-        "german_culture": "Slicing a piece of the cake away",
-        "explanation_text": "Cutting and removing a slice from a Black Forest cake leaves a smaller portion — the cake left over is what remains after subtracting a fraction.",
-        "image_prompt": "Show a Black Forest cake with one slice removed, the remaining portion labeled as the fraction left."
+        "german_culture": "Erntedankfest harvest basket",
+        "explanation_text": "At Erntedankfest, the harvest festival, families bring baskets of fruit to give thanks for the season. Giving away a quarter of the apples leaves three quarters. Taking one part away from a whole is subtracting fractions.",
+        "image_prompt": "A harvest basket of apples with a quarter of them being lifted out, the remaining three quarters labeled."
     },
     {
         "concept_id": "multiplying_fractions",
         "concept_name": "Multiplying Fractions",
         "aliases": ["fraction multiplication", "part of a part", "multiply fractions"],
-        "german_culture": "Half of half a cake slice",
-        "explanation_text": "If a cake slice is halved and one of those halves is halved again, you get a quarter of the original — finding a fraction of a fraction is multiplying fractions.",
-        "image_prompt": "Show a cake slice divided in half, and one half divided again to reveal a quarter, labeled with fractions."
+        "german_culture": "Sharing a pretzel half",
+        "explanation_text": "Two friends share a Brezel, and each takes half. If one friend splits their half again to share with a third, each gets half of a half. Half of a half is a quarter, and multiplying fractions finds a part of a part.",
+        "image_prompt": "A large pretzel divided in half, one half divided again into halves, labeled 1/2 of 1/2 = 1/4."
     },
     {
         "concept_id": "dividing_fractions",
         "concept_name": "Dividing Fractions",
         "aliases": ["fraction division", "divide fractions", "how many times in"],
-        "german_culture": "Cutting a sausage into thirds",
-        "explanation_text": "If one bratwurst is cut into thirds, the question of how many thirds fit into one sausage shows division of a whole by a fraction.",
-        "image_prompt": "Show a bratwurst being cut into three equal parts to illustrate dividing by a fraction."
+        "german_culture": "Cutting a Lebkuchen slab",
+        "explanation_text": "Half of a Lebkuchen slab is cut into quarter-size pieces. Asking how many quarters fit into the half is dividing fractions, 1/2 divided by 1/4 equals 2. Division counts how many smaller pieces fit into a larger part.",
+        "image_prompt": "Half a Lebkuchen slab divided into two quarter pieces, labeled 1/2 divided by 1/4 = 2."
     },
     {
         "concept_id": "decimals",
         "concept_name": "Decimals",
         "aliases": ["decimal point", "tenths", "hundredths", "decimal number"],
-        "german_culture": "Weighing flour in kilograms",
-        "explanation_text": "A German bakery scale records 1.5 kilograms of flour — the decimal point splits whole kilograms from tenths, just as digits after the point show tenths and hundredths.",
-        "image_prompt": "Show a bakery scale marked 1.0, 1.5, and 2.0 kilograms of flour."
+        "german_culture": "Precision measuring tools",
+        "explanation_text": "German precision tools like calipers and rulers measure in meters and millimeters. A reading of 1.5 meters mixes a whole meter with half a meter. Decimals write those parts after a decimal point, as in 1.5 m.",
+        "image_prompt": "A precision caliper and ruler measuring a wooden beam, marked 1.5 m with tenths labeled."
     },
     {
         "concept_id": "converting_fractions_decimals",
         "concept_name": "Converting Fractions and Decimals",
         "aliases": ["fraction to decimal", "decimal to fraction", "convert fractions"],
-        "german_culture": "Measuring jugs for milk and dough",
-        "explanation_text": "Half a liter poured from a German measuring jug and 0.5 liters are the same amount — converting between fractions and decimals changes only how it is written.",
-        "image_prompt": "Show two measuring jugs, one labeled ½ and the other 0.5, filled with the same amount."
+        "german_culture": "Autobahn kilometer markers",
+        "explanation_text": "A roadside marker on the Autobahn says half a kilometer to the next exit. Half a kilometer and 0.5 km name the same distance. Converting between fractions and decimals is writing one amount two ways.",
+        "image_prompt": "An Autobahn roadside marker showing 0.5 km, with 1/2 km written beside it."
     },
     {
         "concept_id": "percents",
         "concept_name": "Percents",
         "aliases": ["percent", "percentage", "per hundred", "rate per 100"],
-        "german_culture": "Grades on a German test",
-        "explanation_text": "If a student answers 92 of 100 questions correctly on a German school test, the score is 92% — a percent expresses a part out of one hundred.",
-        "image_prompt": "Show a graded German school test with 92/100 written and a 92% mark beside it."
+        "german_culture": "German school test scores",
+        "explanation_text": "In a German school, a test may be scored out of 100 points. Scoring 92 points out of 100 is 92 percent. Percent means per hundred, a way to compare amounts using 100 as the base.",
+        "image_prompt": "A German school test paper with 92/100 written in red and a big 92% label."
     },
     {
         "concept_id": "percent_of_number",
         "concept_name": "Percent of a Number",
         "aliases": ["percentage of number", "find percent", "portion of total"],
-        "german_culture": "Discounts at the Christmas market",
-        "explanation_text": "A sign reading '30% off' on a wooden ornament at a Christmas market shows how a percent finds a part of a price.",
-        "image_prompt": "Show a Christmas market stall sign with a wooden ornament marked 30% off and a reduced price tag."
+        "german_culture": "Nutcracker workshop discount",
+        "explanation_text": "At a craft stall, a hand-carved nutcracker costs 40 euros with a 25% discount. Finding 25% of 40 means taking a part of the price, here 10 euros. Percents let you find parts of numbers.",
+        "image_prompt": "A nutcracker figure on a market stall with a 25% off sign and a price tag showing 40 euros reduced to 30 euros."
     },
     {
         "concept_id": "variables",
         "concept_name": "Variables",
         "aliases": ["variable", "unknown", "letter as number", "symbol in math"],
-        "german_culture": "Unlabeled cuckoo clock weights",
-        "explanation_text": "If the pine-cone weight of a cuckoo clock is unlabeled, its value is unknown until measured — an unknown quantity is a variable.",
-        "image_prompt": "Show cuckoo clock weights, some labeled with numbers and one unlabeled marked with the letter x."
+        "german_culture": "Erntedankfest guest count",
+        "explanation_text": "Before Erntedankfest, a family does not yet know how many guests will come to the harvest table. The unknown number can be called g. A letter that stands for an unknown quantity is a variable.",
+        "image_prompt": "A long harvest table with place settings and a question mark card, labeled number of guests = g."
     },
     {
         "concept_id": "expressions",
         "concept_name": "Expressions",
         "aliases": ["math expressions", "numerical expressions", "algebraic expressions"],
-        "german_culture": "Known and unknown clock weights",
-        "explanation_text": "Two labeled weights hanging beside one unlabeled weight give 2 + x — an expression combining known numbers and a variable.",
-        "image_prompt": "Show two labeled cuckoo clock weights plus one unlabeled weight, symbolized as 2 + x."
+        "german_culture": "Market stall totals",
+        "explanation_text": "A stallkeeper knows 8 jars of honey are on the shelf and will bring in some more. The amount she has is 8 plus an unknown number, written as the expression 8 + x. Expressions combine known numbers and variables without finding the answer.",
+        "image_prompt": "A honey stall with 8 jars counted and a basket of more jars, labeled 8 + x."
     },
     {
         "concept_id": "equations",
         "concept_name": "Equations",
         "aliases": ["math equations", "equal statements", "algebra equations"],
-        "german_culture": "Balancing cuckoo clock weights",
-        "explanation_text": "A cuckoo clock runs evenly when its two hanging weights are equal, just as an equation holds true when both sides are balanced.",
-        "image_prompt": "Show a cuckoo clock with two hanging weights of equal size, labeled as two sides of an equation."
+        "german_culture": "Honey scale balance",
+        "explanation_text": "A beekeeper checks that two jars weigh the same on an old balance scale. When the scale is level, the two sides hold equal weight. That balance is an equation, the left side equals the right side.",
+        "image_prompt": "An old balance scale with two honey jars, perfectly level, with an = symbol written between the two sides."
     },
     {
         "concept_id": "solving_one_step_equations",
         "concept_name": "Solving One-Step Equations",
         "aliases": ["one-step equations", "simple equations"],
-        "german_culture": "Adjusting a single pendulum weight",
-        "explanation_text": "To make the clock run correctly you change just one weight — adding or removing it to reach balance is solving a one-step equation.",
-        "image_prompt": "Show a hand adjusting a single cuckoo clock weight to restore balance, representing a one-step equation."
+        "german_culture": "Cuckoo clock pendulum",
+        "explanation_text": "A cuckoo clock keeps time by its swinging pendulum, and sliding the weight makes it swing slower. Adding or removing one adjustment brings the clock back to the right time. Solving a one-step equation is a single change that restores the balance.",
+        "image_prompt": "A Black Forest cuckoo clock with its pendulum, a hand adjusting the weight, the dial showing the correct time."
     },
     {
         "concept_id": "solving_two_step_equations",
         "concept_name": "Solving Two-Step Equations",
         "aliases": ["two-step equations", "multi-step equations"],
-        "german_culture": "Baking pretzels step by step",
-        "explanation_text": "Kneading the dough and then shaping the pretzel must happen in two clear steps, just like solving an equation that needs two operations.",
-        "image_prompt": "Show the two-step sequence of kneading dough and then shaping a pretzel, symbolizing two-step equation solving."
+        "german_culture": "Twisting pretzel dough",
+        "explanation_text": "Making a Brezel takes two ordered steps, twist the dough into a knot, then bake it until golden. You cannot bake before twisting. Solving a two-step equation also follows a fixed order of operations.",
+        "image_prompt": "Baker's hands twisting pretzel dough into a knot, then putting it into an oven, numbered steps 1 and 2."
     },
     {
         "concept_id": "inequalities",
         "concept_name": "Inequalities",
         "aliases": ["greater than", "less than", "not equal", "comparison statements"],
-        "german_culture": "Comparing bratwurst stand sales",
-        "explanation_text": "When one bratwurst stand sells more sausages than another, the comparison is unequal — exactly the idea behind greater than and less than.",
-        "image_prompt": "Show two bratwurst stands with different numbers of sausages and > or < symbols between them."
+        "german_culture": "Bundesliga score comparison",
+        "explanation_text": "After a Bundesliga match, one team's goals are more than the other's. The score is not balanced, it is an inequality. Symbols like > and < compare unequal amounts.",
+        "image_prompt": "A scoreboard showing 3 goals and 1 goal, with a > symbol between them."
     },
     {
         "concept_id": "order_of_operations",
         "concept_name": "Order of Operations (PEMDAS)",
         "aliases": ["PEMDAS", "BODMAS", "math order", "operations order"],
-        "german_culture": "Black Forest cake layering",
-        "explanation_text": "A Black Forest cake is layered in a strict order — sponge, cream, cherries — and the order matters, just as the order of operations decides which math step comes first.",
-        "image_prompt": "Show the strict layering sequence of a Black Forest cake, with each step labeled like operations in PEMDAS."
+        "german_culture": "Baking stollen in steps",
+        "explanation_text": "Baking a stollen has a set order, soak the fruit, knead the dough, let it rest, then bake. Steps done out of order ruin the loaf. The order of operations sets the sequence for math calculations, too.",
+        "image_prompt": "A stollen baking sequence in four labeled steps, from mixing to the oven."
     },
     {
         "concept_id": "substitution",
         "concept_name": "Substitution",
         "aliases": ["replace variable", "substitute value", "replace letter with number"],
-        "german_culture": "Replacing a missing clock weight",
-        "explanation_text": "If a cuckoo clock weight is lost, an identical replacement keeps the clock running — replacing one known value with another is substitution.",
-        "image_prompt": "Show a missing cuckoo clock weight being replaced with an identical one, representing substitution."
+        "german_culture": "Replacing a clock weight",
+        "explanation_text": "If a cuckoo clock's weight is lost, a woodcarver replaces it with a new one of the same size. The new weight takes the place of the old one. Substituting is replacing a variable with a value.",
+        "image_prompt": "A cuckoo clock with an old weight and an identical new weight, an arrow showing the swap."
     },
     {
         "concept_id": "points",
         "concept_name": "Points",
         "aliases": ["dot", "location", "coordinate point"],
-        "german_culture": "Pins on a German railway map",
-        "explanation_text": "Each pin on a railway map marks one station — a single location, just as a point marks one position in geometry.",
-        "image_prompt": "Show a German railway map with pins at stations, each marked as a point."
+        "german_culture": "U-Bahn station map",
+        "explanation_text": "On the Berlin U-Bahn map, every station is a small dot at its exact location. Each dot marks a single place on the map. A point in geometry is a location with no size, just like those station dots.",
+        "image_prompt": "A Berlin U-Bahn map with station dots highlighted and several dots labeled as points."
     },
     {
         "concept_id": "lines",
         "concept_name": "Lines",
         "aliases": ["straight line", "geometry line", "infinite line"],
-        "german_culture": "Autobahn stretching to the horizon",
-        "explanation_text": "A straight stretch of Autobahn appears to continue in both directions without end — the same idea as a geometric line.",
-        "image_prompt": "Show a straight Autobahn section stretching to the horizon, represented as a geometric line."
+        "german_culture": "Unter den Linden boulevard",
+        "explanation_text": "The great Berlin avenue Unter den Linden runs straight from the Brandenburg Gate toward the city center. Seen from above, it is one long straight path. A geometric line is straight and continues in both directions.",
+        "image_prompt": "Aerial view of Unter den Linden in Berlin as a straight avenue, extended with a dashed line into the distance."
     },
     {
         "concept_id": "angles",
         "concept_name": "Angles",
         "aliases": ["angle", "degree", "corner measure"],
-        "german_culture": "Swinging cuckoo clock pendulum",
-        "explanation_text": "The pendulum of a cuckoo clock swings from side to side, and the gap between its resting position and a swing is an angle.",
-        "image_prompt": "Show a cuckoo clock pendulum swung to one side with the angle from the vertical clearly marked."
+        "german_culture": "Fachwerk roof gables",
+        "explanation_text": "The steep gables of half-timbered Fachwerk houses meet their beams at sharp corners. The place where two beams meet forms an angle. Measuring that corner tells how sharp or wide the roof is.",
+        "image_prompt": "A half-timbered German house with one roof gable highlighted and its angle marked with a degree label."
     },
     {
         "concept_id": "perpendicular_lines",
         "concept_name": "Perpendicular Lines",
         "aliases": ["right angle lines", "intersecting lines", "orthogonal lines"],
-        "german_culture": "Half-timbered house beams",
-        "explanation_text": "In a half-timbered house, upright and cross beams meet at right angles — lines that cross at 90° are perpendicular.",
-        "image_prompt": "Show the timber frame of a half-timbered (Fachwerk) house with beams meeting at right angles."
+        "german_culture": "Berlin rail grid crossings",
+        "explanation_text": "In the Berlin rail network, one U-Bahn line runs north and south while another runs east and west, crossing at right angles under a large station. Lines that meet at 90 degrees are perpendicular.",
+        "image_prompt": "A stylized map of two Berlin U-Bahn lines crossing at a right angle, the 90-degree corner marked."
     },
     {
         "concept_id": "parallel_lines",
         "concept_name": "Parallel Lines",
         "aliases": ["side-by-side lines", "never meet", "equal distance lines"],
-        "german_culture": "Railway tracks running side by side",
-        "explanation_text": "The two rails of a German railway line run side by side and never meet — they stay the same distance apart, like parallel lines.",
-        "image_prompt": "Show two railway tracks running parallel into the distance, always the same distance apart."
+        "german_culture": "Rhine river banks",
+        "explanation_text": "The two banks of the Rhine run side by side for hundreds of kilometers and never meet. Lines that stay the same distance apart forever are parallel.",
+        "image_prompt": "A river between two straight banks, with parallel dashed lines running along each bank."
     },
     {
         "concept_id": "polygons",
         "concept_name": "Polygons",
         "aliases": ["shapes", "closed figure", "many-sided shape"],
-        "german_culture": "Panels of half-timbered facades",
-        "explanation_text": "The timber and plaster panels on a half-timbered house form closed shapes with straight sides — closed many-sided figures are polygons.",
-        "image_prompt": "Show the geometric panels of a half-timbered facade, each shape outlined as a polygon."
+        "german_culture": "Fachwerk timber patterns",
+        "explanation_text": "The timber beams of a Fachwerk house cross to form triangles, rectangles, and other closed shapes in the walls. Each closed, many-sided shape is a polygon. Looking at a half-timbered wall is counting polygons.",
+        "image_prompt": "A half-timbered house wall with triangles and rectangles traced in color, each labeled as a polygon."
     },
     {
         "concept_id": "triangles",
         "concept_name": "Triangles",
         "aliases": ["three sides", "triangular", "triangle shape"],
-        "german_culture": "Gable ends of Alpine houses",
-        "explanation_text": "The gable (roof triangle) of a Bavarian alpine house is a closed shape with three sides — a triangle.",
-        "image_prompt": "Show the triangular gable ends of Bavarian alpine houses, each outlined as a triangle."
+        "german_culture": "Brandenburg Gate quadriga",
+        "explanation_text": "On top of the Brandenburger Tor stands the quadriga, a chariot pulled by four horses. The spaces between the horses' harnesses and the chariot frame triangular shapes. The triangle is the shape that keeps the statue steady.",
+        "image_prompt": "The quadriga on the Brandenburger Tor with triangular lines drawn between the horses and the chariot."
     },
     {
         "concept_id": "quadrilaterals",
         "concept_name": "Quadrilaterals",
         "aliases": ["four sides", "rectangles", "squares", "trapezoids"],
-        "german_culture": "Timber grid of half-timbered walls",
-        "explanation_text": "The timber frame of a half-timbered wall creates squares and rectangles — four-sided closed shapes, or quadrilaterals.",
-        "image_prompt": "Show the timber grid of a half-timbered wall with squares and rectangles highlighted."
+        "german_culture": "Station floor tiles",
+        "explanation_text": "The floor of a grand German station is paved with rectangular tiles of the same size. Four sides and four corners make each tile a quadrilateral. Rows of matching tiles cover the floor without gaps.",
+        "image_prompt": "A railway station floor of rectangular tiles, one tile highlighted with its four sides and corners labeled."
     },
     {
         "concept_id": "perimeter",
         "concept_name": "Perimeter",
         "aliases": ["boundary length", "distance around", "outline measure"],
-        "german_culture": "Walking the boundary of a market square",
-        "explanation_text": "Strolling around the edge of a medieval market square measures the distance around it — the perimeter of the shape.",
-        "image_prompt": "Show people walking the boundary of a medieval German market square, with a dashed outline marking the perimeter."
+        "german_culture": "Neuschwanstein castle courtyard",
+        "explanation_text": "The courtyard of Neuschwanstein Castle is enclosed by walls and towers. Walking all the way around the courtyard measures its perimeter. The perimeter is the total distance around the outside of a shape.",
+        "image_prompt": "An aerial view of Neuschwanstein Castle's courtyard with a dashed red line tracing the walk around its walls."
     },
     {
         "concept_id": "area",
         "concept_name": "Area",
         "aliases": ["surface area", "space inside", "coverage"],
-        "german_culture": "Picnic blanket in a beer garden",
-        "explanation_text": "The amount of grass a blanket covers inside a beer garden is the blanket's area.",
-        "image_prompt": "Show a picnic blanket spread on a beer garden lawn, shaded to show the area it covers."
+        "german_culture": "Neuschwanstein throne hall floor",
+        "explanation_text": "The throne hall of Neuschwanstein is covered with a mosaic floor. The amount of floor the mosaic covers is the area. Area measures the space inside a shape, counted in square units.",
+        "image_prompt": "The mosaic floor of Neuschwanstein's throne hall divided into square tiles, shaded to show the covered area."
     },
     {
         "concept_id": "volume",
         "concept_name": "Volume",
         "aliases": ["capacity", "space inside 3D shape", "liquid amount"],
-        "german_culture": "Water barrels in a Bavarian courtyard",
-        "explanation_text": "The amount of water a wooden barrel can hold is its volume, measured in liters.",
-        "image_prompt": "Show wooden water barrels in a Bavarian courtyard filled to different levels to illustrate volume."
+        "german_culture": "Gingerbread house box",
+        "explanation_text": "A gingerbread house is packed into a box full of sweets. The space inside the box that holds the sweets is its volume. Volume measures how much a 3D shape can hold.",
+        "image_prompt": "A decorated gingerbread house next to an open box, sweets filling it and cubic units shown inside."
     },
     {
         "concept_id": "circle_properties",
         "concept_name": "Circle Properties",
         "aliases": ["radius", "diameter", "circumference", "circle geometry"],
-        "german_culture": "Front view of a cuckoo clock",
-        "explanation_text": "Viewed from the front, a cuckoo clock's face is a circle, so its radius, diameter, and circumference can be measured and labeled.",
-        "image_prompt": "Show a round cuckoo clock face labeled with its radius and diameter lines."
+        "german_culture": "Christmas pyramid base",
+        "explanation_text": "A Weihnachtspyramide from the Ore Mountains stands on a round wooden base that slowly turns. The distance across the base through its middle is the diameter, and half of that is the radius. The round rim is the circumference.",
+        "image_prompt": "A wooden Christmas pyramid with its round base labeled with radius and diameter lines and the turning platform."
     },
     {
         "concept_id": "pi",
         "concept_name": "Pi (π)",
         "aliases": ["pi", "ratio of circumference", "3.14"],
-        "german_culture": "Round Black Forest cake",
-        "explanation_text": "Dividing the circumference of a round Black Forest cake by its diameter always gives the same ratio — the constant pi (π ≈ 3.14).",
-        "image_prompt": "Show a round Black Forest cake with its circumference and diameter marked and labeled with pi."
+        "german_culture": "Measuring the pyramid base",
+        "explanation_text": "Craftspeople who build Christmas pyramids measure the round base to carve the turning platform. Whatever the size, the distance around divided by the distance across is always about 3.14. That constant ratio is pi.",
+        "image_prompt": "A craftsman's measuring tape around a round wooden base, with circumference and diameter labeled and pi = 3.14 written."
     },
     {
         "concept_id": "coordinate_plane",
         "concept_name": "Coordinate Plane",
         "aliases": ["x-y plane", "graph grid", "axes"],
-        "german_culture": "Christmas market stall grid",
-        "explanation_text": "A Christmas market laid out in rows and columns is a coordinate grid, and each stall sits at its own intersection — like points on a coordinate plane.",
-        "image_prompt": "Show a Christmas market layout arranged in rows and columns, labeled with x and y axes."
+        "german_culture": "Gutenberg type matrix",
+        "explanation_text": "Gutenberg's printers kept type in wooden trays with rows and columns of slots. Each piece of type has a unique row-and-column location. That grid works like a coordinate plane, where every slot has its own coordinates.",
+        "image_prompt": "A wooden printer's type tray with rows and columns, one slot highlighted and labeled with its row and column numbers like coordinates."
     },
     {
         "concept_id": "plotting_points",
         "concept_name": "Plotting Points",
         "aliases": ["graphing points", "coordinates", "x-y plotting"],
-        "german_culture": "Locating stalls on a market map",
-        "explanation_text": "Marking each stall's position on a market map places it at an exact coordinate — plotting points on a coordinate plane.",
-        "image_prompt": "Show a Christmas market map with stall locations marked as plotted points with coordinates."
+        "german_culture": "U-Bahn map positions",
+        "explanation_text": "To draw a Berlin U-Bahn map, you plot each station at its correct spot between coordinates. Placing a dot at a station's coordinates is plotting a point. The finished map is a coordinate plane full of plotted points.",
+        "image_prompt": "A hand drawing a U-Bahn map on graph paper, placing dots at labeled coordinates for each station."
     },
     {
         "concept_id": "symmetry",
         "concept_name": "Symmetry",
         "aliases": ["mirror image", "balanced halves", "reflection symmetry"],
-        "german_culture": "Brandenburg Gate's mirrored halves",
-        "explanation_text": "The Brandenburg Gate is built so that its left and right halves mirror each other exactly across the center — reflection symmetry.",
-        "image_prompt": "Show the Brandenburg Gate with a vertical mirror line dividing its two identical halves."
+        "german_culture": "Cologne Cathedral towers",
+        "explanation_text": "The twin towers of Cologne Cathedral rise to nearly the same height on either side of the nave. Fold the building along its middle and the two halves match. This mirror balance is symmetry.",
+        "image_prompt": "Cologne Cathedral with its two towers, a vertical mirror line down the middle and both halves matching."
     },
     {
         "concept_id": "transformations",
         "concept_name": "Transformations",
         "aliases": ["translate", "rotate", "reflect", "dilate"],
-        "german_culture": "Carousel horses at a German fair",
-        "explanation_text": "As a fairground carousel turns, the horses rotate and shift position while keeping their shape — geometric transformations.",
-        "image_prompt": "Show carousel horses at a German fair in different rotated and shifted positions to illustrate transformations."
+        "german_culture": "Christmas pyramid rotation",
+        "explanation_text": "Warm air from candles makes the top tiers of a Weihnachtspyramide turn in a steady circle. Turning a shape around a center point is a rotation. The pyramid is a machine that performs a rotation transformation.",
+        "image_prompt": "A Christmas pyramid with its turning top tiers, curved arrows showing the rotation around the center pole."
     },
     {
         "concept_id": "ratios",
         "concept_name": "Ratios",
         "aliases": ["comparison", "proportion of quantities", "rate"],
-        "german_culture": "Pretzel dough ingredients",
-        "explanation_text": "Pretzel dough keeps a fixed balance of flour to water — a ratio such as 3 parts flour to 1 part water, written 3:1.",
-        "image_prompt": "Show pretzel dough ingredients with a flour-to-water ratio labeled as 3:1."
+        "german_culture": "Harvest basket proportions",
+        "explanation_text": "At Erntedankfest, a basket might hold two apples for every pear. That 2 to 1 relationship is a ratio. Ratios compare two amounts without saying how large each is alone.",
+        "image_prompt": "A harvest basket with apples and pears, labeled apples to pears = 2 to 1."
     },
     {
         "concept_id": "proportions",
         "concept_name": "Proportions",
         "aliases": ["equal ratios", "scaling", "balance of ratios"],
-        "german_culture": "Scale models of Neuschwanstein",
-        "explanation_text": "A souvenir model of Neuschwanstein Castle is a smaller copy with every length reduced by the same factor — keeping the proportions.",
-        "image_prompt": "Show a small model and the real Neuschwanstein Castle, both with matching proportions and a scale factor."
+        "german_culture": "VW Beetle model cars",
+        "explanation_text": "A toy VW Beetle is a smaller copy of the real car, and every part is shrunk by the same factor. The doors and wheels stay in the same relative size. When parts keep the same ratio, the shapes are in proportion.",
+        "image_prompt": "A real VW Beetle and a model Beetle beside it, with matching arrows showing the same proportions scaled down."
     },
     {
         "concept_id": "unit_rate",
         "concept_name": "Unit Rate",
         "aliases": ["per unit", "rate per one", "comparison per one unit"],
-        "german_culture": "Autobahn speed in kilometers per hour",
-        "explanation_text": "A car cruising on the Autobahn at 130 kilometers per hour shows a unit rate — the distance traveled in one hour.",
-        "image_prompt": "Show a car on the Autobahn with a speed sign reading 130 km/h, labeled as a unit rate."
+        "german_culture": "Autobahn speed limits",
+        "explanation_text": "A car on the Autobahn travels 120 kilometers in one hour. The speed 120 kilometers per hour is a unit rate, because it tells distance for one unit of time. Unit rates compare an amount to a single unit.",
+        "image_prompt": "A car on the Autobahn with a speedometer at 120 km/h and a road sign showing 120 km/h."
     },
     {
         "concept_id": "scale_drawings",
         "concept_name": "Scale Drawings",
         "aliases": ["map scale", "drawing proportion", "scaled map"],
-        "german_culture": "Blueprint of a half-timbered house",
-        "explanation_text": "A builder's blueprint of a half-timbered house shrinks every real measurement by the same ratio, keeping distances proportional — a scale drawing.",
-        "image_prompt": "Show a half-timbered house beside its blueprint with a scale legend showing the reduction ratio."
+        "german_culture": "Castle building plans",
+        "explanation_text": "The architects who built Neuschwanstein worked from scale drawings, where every meter of the castle is drawn as a few centimeters on paper. The drawing keeps all proportions true. Scale drawings turn real sizes into paper sizes.",
+        "image_prompt": "A historic castle blueprint of Neuschwanstein with a scale ruler and the finished castle beside it."
     },
     {
         "concept_id": "percent_change",
         "concept_name": "Percent Change",
         "aliases": ["percent increase", "percent decrease", "growth rate"],
-        "german_culture": "Growing visitor numbers at Oktoberfest",
-        "explanation_text": "If visitor numbers at the Oktoberfest grow from 100,000 to 120,000 in a year, that is a 20% increase — a percent change.",
-        "image_prompt": "Show an Oktoberfest crowd growing in size with a +20% label to illustrate percent increase."
+        "german_culture": "School grades improving",
+        "explanation_text": "When a class average rises from 80% to 85%, the score increased by 5 percent. Percent change tells how much a value grew or shrank compared with its starting point.",
+        "image_prompt": "Two report cards showing 80% and 85%, with an arrow and a +5% label between them."
     },
     {
         "concept_id": "data_collection",
         "concept_name": "Data Collection",
         "aliases": ["gather data", "record information", "collect numbers"],
-        "german_culture": "Recording daily bakery sales",
-        "explanation_text": "A baker noting how many loaves, pretzels, and rolls are sold each day is collecting data.",
-        "image_prompt": "Show a German baker marking daily bread and pretzel sales in a ledger."
+        "german_culture": "Bundesliga match statistics",
+        "explanation_text": "After each Bundesliga match, recorders tally goals, shots, and passes for every player. Writing down these numbers is data collection. The records build up into a whole season of data.",
+        "image_prompt": "A clipboard with a Bundesliga match sheet being filled in, goals and shots tallied next to a stadium."
     },
     {
         "concept_id": "tables_graphs",
         "concept_name": "Tables and Graphs",
         "aliases": ["data table", "bar graph", "chart"],
-        "german_culture": "Charting sales across the seasons",
-        "explanation_text": "Turning the bakery's recorded sales into a chart makes trends easy to see — tables and graphs organize collected data.",
-        "image_prompt": "Show a chart comparing bakery sales across the four seasons."
+        "german_culture": "Railway timetable charts",
+        "explanation_text": "A German railway timetable lists every train with its departure time in neat columns, a data table. Adding a line graph of delays over the weeks shows how punctuality changes. Tables and graphs organize the same data in different ways.",
+        "image_prompt": "A railway timetable poster and a line graph showing punctuality over several months."
     },
     {
         "concept_id": "mean",
         "concept_name": "Mean",
         "aliases": ["average", "arithmetic mean", "mean value"],
-        "german_culture": "Average daily bread sales",
-        "explanation_text": "Adding up the bread loaves sold each day and dividing by the number of days gives the average daily sales — the mean.",
-        "image_prompt": "Show a table of daily bread sales with the average value highlighted as the mean."
+        "german_culture": "Report card averages",
+        "explanation_text": "A German report card shows grades from 1 to 6, where 1 is best. To find the mean, add all the grades and divide by the number of subjects. The mean is the average of a set of numbers.",
+        "image_prompt": "A German report card listing grades 2, 1, 3, 2, and a calculation showing the mean 2."
     },
     {
         "concept_id": "median",
         "concept_name": "Median",
         "aliases": ["middle value", "data median"],
-        "german_culture": "Middle house price on a German street",
-        "explanation_text": "When the house prices on a street are lined up from lowest to highest, the price in the exact middle is the median.",
-        "image_prompt": "Show house prices along a German street lined up in order with the middle one highlighted as the median."
+        "german_culture": "Soccer goal counts",
+        "explanation_text": "List a team's goals scored in its matches from smallest to largest. The goal count sitting exactly in the middle is the median. The median is the middle value of an ordered list.",
+        "image_prompt": "A list of soccer scores ordered 1, 2, 3, 3, 5 with the middle 3 highlighted as the median."
     },
     {
         "concept_id": "mode",
         "concept_name": "Mode",
         "aliases": ["most frequent value", "common value"],
-        "german_culture": "Most popular bread variety",
-        "explanation_text": "If more customers buy sourdough than any other bread in the bakery, sourdough is the most frequent value — the mode.",
-        "image_prompt": "Show a display of different German breads with sourdough shown as the most frequently sold variety."
+        "german_culture": "Weekly weather pattern",
+        "explanation_text": "Recording the weather each day of the week, sunny might appear more often than any other type. The value that occurs most frequently is the mode.",
+        "image_prompt": "A weekly weather chart with five sunny symbols out of seven, with sunny highlighted as the mode."
     },
     {
         "concept_id": "range",
         "concept_name": "Range",
         "aliases": ["difference", "spread of data", "highest minus lowest"],
-        "german_culture": "Busiest and quietest market days",
-        "explanation_text": "The gap between the day with the most visitors and the day with the fewest shows the range of the data.",
-        "image_prompt": "Show a bar chart of market day visitors with the tallest and shortest bars marked to show the range."
+        "german_culture": "Seasonal temperature spread",
+        "explanation_text": "In Germany, the coldest day of the year might be -10 degrees and the warmest +30 degrees. The gap between the highest and lowest values is the range. Range measures how spread out a data set is.",
+        "image_prompt": "A thermometer showing -10 and a summer scene showing +30, with the span between them labeled as the range."
     },
     {
         "concept_id": "bar_graphs",
         "concept_name": "Bar Graphs",
         "aliases": ["bar chart", "column graph"],
-        "german_culture": "Comparing sausage type sales",
-        "explanation_text": "A bar graph with one bar per sausage type makes it easy to compare which kind sells most at the Bratwurst stand.",
-        "image_prompt": "Show a bar graph comparing sales of different German sausage types at a Bratwurst stand."
+        "german_culture": "Bread varieties by region",
+        "explanation_text": "Germany bakes more than 300 kinds of bread. A bar graph can compare how many varieties each region bakes. Taller bars show regions with more bread types.",
+        "image_prompt": "A bar graph labeled with German regions and bread variety counts, with loaves drawn above the tallest bars."
     },
     {
         "concept_id": "line_graphs",
         "concept_name": "Line Graphs",
         "aliases": ["trend graph", "line chart"],
-        "german_culture": "Tracking café sales over the months",
-        "explanation_text": "A line graph connects the café's monthly sales points, showing how business rises and falls across the year.",
-        "image_prompt": "Show a line graph labeled with months and café sales values."
+        "german_culture": "Daylight through the seasons",
+        "explanation_text": "In Germany the days grow longer from winter to summer and shorter again by autumn. A line graph of daylight hours across the months rises and falls like the seasons. Line graphs show change over time.",
+        "image_prompt": "A line graph shaped like the seasons, labeled with months from January to December and daylight hours."
     },
     {
         "concept_id": "pie_charts",
         "concept_name": "Pie Charts",
         "aliases": ["circle chart", "percentage chart"],
-        "german_culture": "Bread varieties in a bakery",
-        "explanation_text": "A pie chart divides the whole circle into slices showing each bread variety's share of the bakery's total sales.",
-        "image_prompt": "Show a pie chart split into slices for different German bread varieties with percentages."
+        "german_culture": "Ways children go to school",
+        "explanation_text": "Many German children ride bikes to school, while others take the bus, the tram, or walk. A pie chart shows each way as a slice of the whole circle of students. Pie charts compare parts of a whole.",
+        "image_prompt": "A pie chart of travel-to-school choices, bicycle, bus, tram, walking, with each slice labeled and a bicycle drawn in the middle."
     },
     {
         "concept_id": "probability",
         "concept_name": "Probability",
         "aliases": ["chance", "likelihood", "odds"],
-        "german_culture": "Christmas market raffle",
-        "explanation_text": "If a Christmas market raffle has 100 tickets and you hold 1, your chance of winning is 1 in 100 — a probability.",
-        "image_prompt": "Show a Christmas market raffle drum with 100 tickets, one ticket highlighted to show a 1-in-100 chance."
+        "german_culture": "Drawing baubles from a box",
+        "explanation_text": "A box of Christmas baubles holds red, gold, and blue ones. Reaching in without looking, the chance of pulling a red one depends on how many are red. That measure of chance is probability.",
+        "image_prompt": "A box of red, gold, and blue baubles with probability labels, a hand reaching in."
     },
     {
         "concept_id": "patterns",
         "concept_name": "Patterns",
         "aliases": ["repeating design", "sequence", "recurrence"],
-        "german_culture": "Carved motifs on a cuckoo clock",
-        "explanation_text": "The carved leaves and animals repeated around a cuckoo clock form a visual pattern — a sequence that repeats again and again.",
-        "image_prompt": "Show repeating carved motifs around a cuckoo clock, highlighting the regular sequence."
+        "german_culture": "Schwibbogen candle arch",
+        "explanation_text": "A Schwibbogen from the Ore Mountains is a wooden candle arch with repeating arcs and figures. The same arc shape returns again and again along the row. Repetition like this is a pattern.",
+        "image_prompt": "A glowing wooden Schwibbogen candle arch on a windowsill, with the repeating arcs traced and highlighted."
     },
     {
         "concept_id": "functions",
         "concept_name": "Functions",
         "aliases": ["input-output rule", "function relation", "mapping"],
-        "german_culture": "Cuckoo clock hour-to-call rule",
-        "explanation_text": "A cuckoo clock gives exactly one number of calls for each hour — input 3 o'clock and the cuckoo calls 3 times. Each input has one output, which is a function.",
-        "image_prompt": "Show a cuckoo clock mapping each hour to its number of cuckoo calls, with an input-output diagram."
+        "german_culture": "Cuckoo clock chimes",
+        "explanation_text": "A cuckoo clock calls out as many times as the hour. At 3 o'clock it cuckoos three times, so every hour gives exactly one matching count. A rule that pairs each input with one output is a function.",
+        "image_prompt": "A cuckoo clock with the cuckoo bird out and three small chime marks, labeled hour 3 leads to 3 calls."
     }
 ]
