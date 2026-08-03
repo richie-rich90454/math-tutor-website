@@ -375,6 +375,51 @@ MathTutor.supportsMethod = function (method) {
     }
 };
 
+MathTutor.refreshUsage = function () {
+    if (!MathTutor.getSessionToken()) {
+        return;
+    }
+    MathTutor.api({
+        url: "/api/usage",
+        method: "GET",
+        success: function (data) {
+            var meter = document.getElementById("usageMeter");
+            if (!meter || !data || !data.today) {
+                return;
+            }
+            var total = (data.today.requestTokens || 0) + (data.today.responseTokens || 0);
+            var cost = data.today.estCostUsd || 0;
+            var txt = MathTutor.t("usageToday") + ": " + MathTutor.formatTokens(total) + " tok";
+            txt += " ~$" + cost.toFixed(4);
+            if (data.cacheHits && data.cacheHits > 0) {
+                txt += " " + data.cacheHits + " " + MathTutor.t("usageCacheHits");
+            }
+            meter.innerHTML = txt;
+        }
+    });
+};
+
+MathTutor.formatTokens = function (value) {
+    if (value >= 1000000) {
+        return (value / 1000000).toFixed(1) + "M";
+    }
+    if (value >= 1000) {
+        return (value / 1000).toFixed(1) + "k";
+    }
+    return String(value);
+};
+
+MathTutor.getSessionToken = function () {
+    var cookies = document.cookie.split(";");
+    for (var i = 0; i < cookies.length; i++) {
+        var parts = cookies[i].split("=");
+        if (parts.length === 2 && parts[0].replace(/^\s+|\s+$/g, "") === "session_token") {
+            return parts[1];
+        }
+    }
+    return null;
+};
+
 MathTutor.api = function (options) {
     var opts = options || {};
     var data = opts.data;
