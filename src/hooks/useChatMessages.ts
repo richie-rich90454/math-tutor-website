@@ -23,6 +23,10 @@ export function useChatMessages() {
     const [activeChatId, setActiveChatId] = useState<string | null>(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [quotaWarn, setQuotaWarn] = useState(false);
+    const pinnedIdsRef = useRef<Set<string>>(new Set());
+    const setPinned = useCallback((ids: Set<string>) => {
+        pinnedIdsRef.current = ids;
+    }, []);
 
     const abortControllerRef = useRef<AbortController | null>(null);
     const prevMessagesLenRef = useRef(0);
@@ -55,15 +59,23 @@ export function useChatMessages() {
                 if (!res.ok || cancelled) return;
                 const data = await res.json();
                 if (cancelled) return;
-                type ApiMessage = { id: string; content: string; role: string; created_at: string };
+                type ApiMessage = { id: string; content: string; role: string; created_at: string; is_pinned?: number };
                 const formatted = ((data.messages ?? []) as ApiMessage[]).map((msg) => ({
                     id: msg.id,
                     content: msg.content,
                     role: msg.role as "user" | "assistant",
                     timestamp: parseUTCTimestamp(msg.created_at),
+                    isPinned: msg.is_pinned === 1,
                 }));
                 setMessages(formatted);
                 setActiveChatId(currentChat.id);
+                setPinned(
+                    new Set(
+                        ((data.messages ?? []) as ApiMessage[])
+                            .filter((m) => m.is_pinned === 1)
+                            .map((m) => m.id),
+                    ),
+                );
                 prevMessagesLenRef.current = formatted.length;
                 setIsLoaded(true);
             } catch {
@@ -76,7 +88,7 @@ export function useChatMessages() {
         return () => {
             cancelled = true;
         };
-    }, [currentChat, isLoaded]);
+    }, [currentChat, isLoaded, setPinned]);
 
     // Reset when currentChat becomes null (new chat)
     useEffect(() => {
@@ -84,9 +96,10 @@ export function useChatMessages() {
             setIsLoaded(false);
             setMessages([]);
             setActiveChatId(null);
+            setPinned(new Set());
             prevMessagesLenRef.current = 0;
         }
-    }, [currentChat]);
+    }, [currentChat, setPinned]);
 
     const sendMessage = useCallback(
         async (overrideInput?: string) => {
@@ -362,6 +375,36 @@ export function useChatMessages() {
         });
     }, []);
 
+    const togglePin = useCallback(
+        async (messageId: string) => {
+            if (!activeChatId) return;
+            const nextPinned = !pinnedIdsRef.current.has(messageId);
+            const next = new Set(pinnedIdsRef.current);
+            if (nextPinned) {
+                next.add(messageId);
+            } else {
+                next.delete(messageId);
+            }
+            setPinned(next);
+            setMessages((prev) =>
+                prev.map((m) => (m.id === messageId ? { ...m, isPinned: nextPinned } : m)),
+            );
+            try {
+                await apiFetch(
+                    `/api/chats/${activeChatId}/messages/${messageId}/pin`,
+                    {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ pinned: nextPinned }),
+                    },
+                );
+            } catch {
+                // optimistic update; ignore API errors
+            }
+        },
+        [activeChatId, setPinned],
+    );
+
     const handleNewChat = useCallback(() => {
         setMessages([]);
         setCurrentChat(null);
@@ -425,5 +468,6 @@ export function useChatMessages() {
         messagesEndRef,
         prevMessagesLenRef,
         quotaWarn,
+        togglePin,
     };
 }
