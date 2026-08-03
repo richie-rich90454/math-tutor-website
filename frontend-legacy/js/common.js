@@ -93,7 +93,11 @@ MathTutor.languages = [
     { code: "de", name: "Deutsch" },
     { code: "ja", name: "\u65e5\u672c\u8a9e" },
     { code: "ar", name: "\u0627\u0644\u0639\u0631\u0628\u064a\u0629" },
-    { code: "he", name: "\u05e2\u05d1\u05e8\u05d9\u05ea" }
+    { code: "he", name: "\u05e2\u05d1\u05e8\u05d9\u05ea" },
+    { code: "kk", name: "\u049a\u0430\u0437\u0430\u049b\u0448\u0430" },
+    { code: "ug", name: "\u0626\u06c7\u064a\u063a\u06c7\u0631\u0686\u06d5" },
+    { code: "ko", name: "\ud55c\uad6d\uc5b4" },
+    { code: "za", name: "Vahcuengh" }
 ];
 
 MathTutor.currentLanguage = "en";
@@ -153,7 +157,7 @@ MathTutor.applyLang = function (lang) {
             el.setAttribute("placeholder", table[phKey]);
         }
     }
-    if (lang === "ar" || lang === "he") {
+    if (lang === "ar" || lang === "he" || lang === "ug") {
         document.body.dir = "rtl";
         document.body.lang = lang;
     } else {
