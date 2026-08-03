@@ -33,6 +33,11 @@
 # Filesystem directory that serves the IE6 legacy client under /legacy/**.
 # LEGACY_STATIC_DIR=../frontend-legacy
 
+# ---------- Quota (per-user daily token cap) ----------
+# APP_QUOTA_DAILY_TOKENS=200000
+# APP_QUOTA_SOFT_RATIO=0.80
+# APP_QUOTA_MONTHLY_TOKENS=0
+
 # ---------- SMTP (email verification, currently a stub — not wired) ----------
 # APP_SMTP_HOST=
 # APP_SMTP_PORT=587
