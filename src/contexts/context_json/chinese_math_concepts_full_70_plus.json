@@ -1,0 +1,564 @@
+[
+    {
+        "concept_id": "place_value",
+        "concept_name": "Place Value",
+        "aliases": [
+            "place value",
+            "digit place",
+            "number place",
+            "units place",
+            "tens place",
+            "hundreds place",
+            "position of digits",
+            "digit position"
+        ],
+        "chinese_culture": "Abacus column positions",
+        "explanation_text": "On a suanpan (Chinese abacus), each column has a place value: the rightmost column is ones, the next is tens, then hundreds. Beads pushed up in each column show that digit, just as digits in a number gain their value from their position.",
+        "image_prompt": "Illustrate a suanpan abacus with columns labeled ones, tens, hundreds, and thousands, beads pushed up in each column to show how position gives each digit its value."
+    },
+    {
+        "concept_id": "addition_subtraction",
+        "concept_name": "Addition & Subtraction",
+        "aliases": [
+            "add",
+            "addition",
+            "plus",
+            "sum",
+            "combine",
+            "total",
+            "subtract",
+            "subtraction",
+            "minus",
+            "take away",
+            "difference"
+        ],
+        "chinese_culture": "Chopsticks adding or taking dumplings",
+        "explanation_text": "Adding more jiaozi dumplings to a plate with chopsticks increases the total, and taking some away decreases it—exactly like addition and subtraction.",
+        "image_prompt": "Show a plate of dumplings with chopsticks adding more and others being removed, with the running total changing above the plate."
+    },
+    {
+        "concept_id": "multiplication_division",
+        "concept_name": "Multiplication & Division",
+        "aliases": [
+            "multiply",
+            "multiplication",
+            "times",
+            "groups of",
+            "repeated addition",
+            "divide",
+            "division",
+            "split equally",
+            "sharing"
+        ],
+        "chinese_culture": "Rows of dim sum steam baskets",
+        "explanation_text": "Three tiers of bamboo dim sum baskets, each holding four buns, hold 3 × 4 = 12 buns—multiplication counts equal groups. Splitting those 12 buns equally among three people gives 12 ÷ 3 = 4 each—division shares them evenly.",
+        "image_prompt": "Show stacked tiers of bamboo dim sum baskets, each with four buns, and the 12 buns being shared equally among three diners."
+    },
+    {
+        "concept_id": "even_odd",
+        "concept_name": "Even and Odd Numbers",
+        "aliases": [
+            "even numbers",
+            "odd numbers",
+            "even",
+            "odd",
+            "pairs",
+            "leftover",
+            "no remainder",
+            "remains one"
+        ],
+        "chinese_culture": "Pairs of chopsticks",
+        "explanation_text": "Chopsticks always come in pairs. If every place setting has its full pair, the number of chopsticks is even; a single leftover chopstick makes it odd.",
+        "image_prompt": "Show pairs of chopsticks laid at a dinner table with one lone chopstick left over, illustrating even and odd numbers."
+    },
+    {
+        "concept_id": "skip_counting",
+        "concept_name": "Skip Counting / Number Patterns",
+        "aliases": [
+            "skip counting",
+            "count by 2s",
+            "count by 5s",
+            "count by 10s",
+            "jump counting",
+            "repeating numbers",
+            "number patterns"
+        ],
+        "chinese_culture": "Red lanterns hung in rows",
+        "explanation_text": "Red lanterns are strung in repeating rows along temple streets. Counting every fifth lantern as you walk past is skip counting, and the regularly repeated lanterns follow a predictable number pattern.",
+        "image_prompt": "Show a street lined with red lanterns, with every fifth lantern highlighted to illustrate counting by 5s and repeating number patterns."
+    },
+    {
+        "concept_id": "comparing_numbers",
+        "concept_name": "Comparing and Ordering Numbers",
+        "aliases": [
+            "compare numbers",
+            "greater than",
+            "less than",
+            "more than",
+            "fewer than",
+            "biggest",
+            "smallest",
+            "ordering numbers",
+            "number order"
+        ],
+        "chinese_culture": "Teacups with different amounts",
+        "explanation_text": "Comparing the levels of tea in different cups tells you which holds more and which holds less—just like comparing numbers with greater-than and less-than symbols.",
+        "image_prompt": "Show several Chinese teacups filled to different levels, with > and < symbols placed between them."
+    },
+    {
+        "concept_id": "rounding_estimation",
+        "concept_name": "Rounding & Estimation",
+        "aliases": [
+            "round",
+            "rounding",
+            "estimate",
+            "estimation",
+            "approximate",
+            "about how much",
+            "close to",
+            "nearby number"
+        ],
+        "chinese_culture": "Estimating how many dumplings to make",
+        "explanation_text": "When preparing jiaozi for a family banquet, cooks estimate how many to make, rounding to a convenient number like 50 or 100 rather than an exact count—the same idea as rounding to the nearest ten.",
+        "image_prompt": "Show a cook preparing jiaozi dumplings and estimating the total, with rounded counts like about 50 labeled on the tray."
+    },
+    {
+        "concept_id": "fractions",
+        "concept_name": "Fractions",
+        "aliases": ["fraction", "part of a whole", "portion", "share", "numerator", "denominator"],
+        "chinese_culture": "Sharing a mooncake",
+        "explanation_text": "A round mooncake is cut into equal slices during Mid-Autumn Festival. If eight people share one mooncake, each person receives 1/8 of it—a fraction of the whole.",
+        "image_prompt": "Show a mooncake cut into eight equal slices, each slice labeled 1/8, shared among family members."
+    },
+    {
+        "concept_id": "equivalent_fractions",
+        "concept_name": "Equivalent Fractions",
+        "aliases": ["equal fractions", "same value", "fraction equality", "equivalent"],
+        "chinese_culture": "Cutting a mooncake into halves and quarters",
+        "explanation_text": "Cutting one mooncake into 2 equal halves and another into 4 equal quarters gives the same total amount, so 1/2 and 2/4 describe the same portion—equivalent fractions.",
+        "image_prompt": "Show two identical mooncakes, one cut into 2 halves and the other into 4 quarters, with 1/2 and 2/4 marked as equal portions."
+    },
+    {
+        "concept_id": "simplifying_fractions",
+        "concept_name": "Simplifying Fractions",
+        "aliases": ["reduce fraction", "lowest terms", "simplify fraction"],
+        "chinese_culture": "Grouping buns in a steam basket",
+        "explanation_text": "If 4 out of 8 buns in a steam basket are eaten, that is 4/8 of the basket. Grouping the buns into pairs shows that 4/8 equals 1/2—reducing a fraction to its simplest form.",
+        "image_prompt": "Show a bamboo steamer with 8 buns, with 4 of them grouped as eaten and the ratio labeled 4/8 equals 1/2."
+    },
+    {
+        "concept_id": "mixed_numbers",
+        "concept_name": "Mixed Numbers",
+        "aliases": ["mixed number", "whole and fraction", "whole part and fraction part"],
+        "chinese_culture": "Full and half-full teacups",
+        "explanation_text": "Three full cups of tea plus one half-filled cup make 3 and 1/2 cups in total—written 3½, a mixed number made of a whole part and a fractional part.",
+        "image_prompt": "Show three full teacups and one half-full teacup, labeled together as 3 1/2."
+    },
+    {
+        "concept_id": "improper_fractions",
+        "concept_name": "Improper Fractions",
+        "aliases": ["top-heavy fraction", "numerator larger", "greater than one fraction"],
+        "chinese_culture": "Mooncake slices overflowing the plate",
+        "explanation_text": "If a whole mooncake cut into quarters is joined by a second mooncake also cut into quarters, you have 8 quarter-slices, or 8/4, which is more than one whole—an improper fraction whose numerator exceeds its denominator.",
+        "image_prompt": "Show two plates of mooncake quarter-slices labeled as 8/4, totaling more than one whole mooncake."
+    },
+    {
+        "concept_id": "adding_fractions",
+        "concept_name": "Adding Fractions",
+        "aliases": ["fraction addition", "add fractions", "sum of fractions"],
+        "chinese_culture": "Combining mooncake slices",
+        "explanation_text": "Joining slices from different mooncakes shows how fractional parts combine: two quarter-slices plus one quarter-slice make 3/4 of a mooncake.",
+        "image_prompt": "Show mooncake slices being pushed together on a plate, with 2/4 plus 1/4 combining into 3/4."
+    },
+    {
+        "concept_id": "subtracting_fractions",
+        "concept_name": "Subtracting Fractions",
+        "aliases": ["fraction subtraction", "take away fractions", "difference of fractions"],
+        "chinese_culture": "Eating part of a mooncake",
+        "explanation_text": "Taking one slice away from a mooncake cut into eighths leaves 7/8 of it—removing a fractional part is subtracting fractions.",
+        "image_prompt": "Show a mooncake cut into eighths with one slice being lifted away, leaving the remaining 7/8 labeled."
+    },
+    {
+        "concept_id": "multiplying_fractions",
+        "concept_name": "Multiplying Fractions",
+        "aliases": ["fraction multiplication", "part of a part", "multiply fractions"],
+        "chinese_culture": "Half of half a mooncake",
+        "explanation_text": "Taking half of an already half-cut mooncake gives a quarter of the whole—finding a fraction of a fraction is multiplying fractions, as in 1/2 × 1/2 = 1/4.",
+        "image_prompt": "Show a mooncake cut in half, with one half cut in half again, labeled 1/2 × 1/2 = 1/4."
+    },
+    {
+        "concept_id": "dividing_fractions",
+        "concept_name": "Dividing Fractions",
+        "aliases": ["fraction division", "divide fractions", "how many times in"],
+        "chinese_culture": "Quarter slices inside half a mooncake",
+        "explanation_text": "Asking how many quarter-slices fit inside half a mooncake is dividing fractions: 1/2 ÷ 1/4 = 2. Cutting the half into quarter pieces shows that two fit exactly.",
+        "image_prompt": "Show half a mooncake cut into quarter slices, with two slices fitting inside, labeled 1/2 ÷ 1/4 = 2."
+    },
+    {
+        "concept_id": "decimals",
+        "concept_name": "Decimals",
+        "aliases": ["decimal point", "tenths", "hundredths", "decimal number"],
+        "chinese_culture": "Weighing rice at the market",
+        "explanation_text": "At a market, rice is weighed in kilograms and grams. Two kilograms and 500 grams is written as 2.5 kilograms, showing how decimals express amounts smaller than one whole unit.",
+        "image_prompt": "Show a market scale weighing rice, with the dial marked at 0.5, 1.0, 1.5, and 2.0 kilograms."
+    },
+    {
+        "concept_id": "converting_fractions_decimals",
+        "concept_name": "Converting Fractions and Decimals",
+        "aliases": ["fraction to decimal", "decimal to fraction", "convert fractions"],
+        "chinese_culture": "Half a mooncake or 0.5",
+        "explanation_text": "Half of a mooncake can be written as 1/2 or as 0.5—both describe the same amount, just as fractions and decimals can be converted into each other.",
+        "image_prompt": "Show two mooncake halves side by side, one labeled 1/2 and the other 0.5."
+    },
+    {
+        "concept_id": "percents",
+        "concept_name": "Percents",
+        "aliases": ["percent", "percentage", "per hundred", "rate per 100"],
+        "chinese_culture": "Exam scores out of 100",
+        "explanation_text": "A student who answers 95 out of 100 questions correctly on a Chinese-language exam has scored 95%—a percent is simply a part of one hundred.",
+        "image_prompt": "Show an exam paper marked 95/100 with a 95% score written beside it."
+    },
+    {
+        "concept_id": "percent_of_number",
+        "concept_name": "Percent of a Number",
+        "aliases": ["percentage of number", "find percent", "portion of total"],
+        "chinese_culture": "Spring Festival sale discounts",
+        "explanation_text": "During a Chinese New Year sale, a red lantern marked 20% off shows a percent of a number: 20% of 50 yuan is 10 yuan off, so the lantern costs 40 yuan.",
+        "image_prompt": "Show a shop window with red lanterns on sale at 20% off, with price tags showing the reduced amounts."
+    },
+    {
+        "concept_id": "variables",
+        "concept_name": "Variables",
+        "aliases": ["variable", "unknown", "letter as number", "symbol in math"],
+        "chinese_culture": "Hidden mahjong tiles",
+        "explanation_text": "In a game of mahjong, the number of tiles still face-down on the table is unknown until they are turned over—that unknown quantity can be written as a variable x, just like letters in math.",
+        "image_prompt": "Show a mahjong table with some tiles face-down, the hidden count marked as x."
+    },
+    {
+        "concept_id": "expressions",
+        "concept_name": "Expressions",
+        "aliases": ["math expressions", "numerical expressions", "algebraic expressions"],
+        "chinese_culture": "Known and unknown teacups",
+        "explanation_text": "If there are 2 cups of tea already poured and x more cups still being filled, the total is written as the expression 2 + x.",
+        "image_prompt": "Show two full teacups beside an empty one, with the combined amount written as the expression 2 + x."
+    },
+    {
+        "concept_id": "equations",
+        "concept_name": "Equations",
+        "aliases": ["math equations", "equal statements", "algebra equations"],
+        "chinese_culture": "Balancing a steelyard scale",
+        "explanation_text": "A traditional Chinese steelyard balance (ganchèng) stays level only when both sides carry equal weight—the same balance that makes both sides of an equation equal.",
+        "image_prompt": "Show an old Chinese steelyard balance with equal weights on both sides, labeled like an equation."
+    },
+    {
+        "concept_id": "solving_one_step_equations",
+        "concept_name": "Solving One-Step Equations",
+        "aliases": ["one-step equations", "simple equations"],
+        "chinese_culture": "Adjusting the steelyard weight",
+        "explanation_text": "To balance a steelyard, you add or remove a single weight on one side—one action that reveals the unknown weight, just as one operation solves a one-step equation.",
+        "image_prompt": "Show a steelyard balance where one weight is added to one side to reveal the unknown weight x."
+    },
+    {
+        "concept_id": "solving_two_step_equations",
+        "concept_name": "Solving Two-Step Equations",
+        "aliases": ["two-step equations", "multi-step equations"],
+        "chinese_culture": "Brewing tea in two steps",
+        "explanation_text": "Properly brewing Chinese tea takes two steps: warm and rinse the pot, then add the leaves and pour the water. Solving a two-step equation works the same way—undo each step in order to find the unknown.",
+        "image_prompt": "Show the tea ceremony steps in order—warming the pot, then adding leaves—to represent solving an equation in two steps."
+    },
+    {
+        "concept_id": "inequalities",
+        "concept_name": "Inequalities",
+        "aliases": ["greater than", "less than", "not equal", "comparison statements"],
+        "chinese_culture": "Comparing stacks of dim sum baskets",
+        "explanation_text": "When one stack of bamboo dim sum baskets is taller than another, the taller stack holds more baskets—a comparison written with > or <, just like an inequality.",
+        "image_prompt": "Show two stacks of bamboo dim sum baskets of different heights with a > symbol between them."
+    },
+    {
+        "concept_id": "order_of_operations",
+        "concept_name": "Order of Operations (PEMDAS)",
+        "aliases": ["PEMDAS", "BODMAS", "math order", "operations order"],
+        "chinese_culture": "The jiaozi-making sequence",
+        "explanation_text": "Making jiaozi has a fixed order: knead the dough, roll the wrappers, add the filling, then steam. Skipping ahead ruins the dumplings—just as in math, the order of operations (parentheses, exponents, multiply, divide, add, subtract) must be followed.",
+        "image_prompt": "Show the step-by-step sequence of making jiaozi, with each stage labeled to mirror the order of operations."
+    },
+    {
+        "concept_id": "substitution",
+        "concept_name": "Substitution",
+        "aliases": ["replace variable", "substitute value", "replace letter with number"],
+        "chinese_culture": "Replacing a missing mahjong tile",
+        "explanation_text": "When a mahjong tile is lost, players substitute a matching tile in its place so the hand still works—the same idea as substituting a number for a variable in an expression.",
+        "image_prompt": "Show a mahjong hand with one tile position filled by its matching substitute, representing substitution."
+    },
+    {
+        "concept_id": "points",
+        "concept_name": "Points",
+        "aliases": ["dot", "location", "coordinate point"],
+        "chinese_culture": "Lanterns marking locations",
+        "explanation_text": "Each red lantern hung along a night-market street marks a specific location, just as a point marks a precise position in geometry.",
+        "image_prompt": "Show a street of hanging red lanterns, each one highlighted as a point on a coordinate grid."
+    },
+    {
+        "concept_id": "lines",
+        "concept_name": "Lines",
+        "aliases": ["straight line", "geometry line", "infinite line"],
+        "chinese_culture": "Calligraphy brush strokes",
+        "explanation_text": "A single flowing stroke of a calligraphy brush draws a continuous straight line that can extend in both directions—much like a geometric line.",
+        "image_prompt": "Show a calligraphy brush making a long straight stroke, extended by dashed arrows in both directions to represent an infinite line."
+    },
+    {
+        "concept_id": "angles",
+        "concept_name": "Angles",
+        "aliases": ["angle", "degree", "corner measure"],
+        "chinese_culture": "Opening a folding fan",
+        "explanation_text": "Opening a Chinese folding fan creates an angle between its edge ribs; opening it fully forms a larger angle, and a half-open fan forms a smaller one.",
+        "image_prompt": "Show a Chinese folding fan opened partway, with the angle between its ribs clearly marked."
+    },
+    {
+        "concept_id": "perpendicular_lines",
+        "concept_name": "Perpendicular Lines",
+        "aliases": ["right angle lines", "intersecting lines", "orthogonal lines"],
+        "chinese_culture": "Dougong bracket joins",
+        "explanation_text": "In traditional Chinese architecture, the dougong brackets that support temple roofs meet at right angles, forming perpendicular beams that hold the structure together.",
+        "image_prompt": "Show a dougong wooden bracket system under a temple roof, with beams marked meeting at 90° angles."
+    },
+    {
+        "concept_id": "parallel_lines",
+        "concept_name": "Parallel Lines",
+        "aliases": ["side-by-side lines", "never meet", "equal distance lines"],
+        "chinese_culture": "Rows of rice terraces",
+        "explanation_text": "The level rows of rice paddies carved into a hillside run side by side and never cross, just like parallel lines that stay an equal distance apart.",
+        "image_prompt": "Show stepped rice terraces on a hillside with their parallel rows highlighted."
+    },
+    {
+        "concept_id": "polygons",
+        "concept_name": "Polygons",
+        "aliases": ["shapes", "closed figure", "many-sided shape"],
+        "chinese_culture": "Paper cutting shapes",
+        "explanation_text": "Chinese paper cutting (jianzhi) trims and folds paper into closed, many-sided shapes—triangles, hexagons, stars—which are all polygons.",
+        "image_prompt": "Show a paper-cutting design made of many-sided shapes, with the polygons outlined and labeled."
+    },
+    {
+        "concept_id": "triangles",
+        "concept_name": "Triangles",
+        "aliases": ["three sides", "triangular", "triangle shape"],
+        "chinese_culture": "Pagoda roof corners",
+        "explanation_text": "The upswept corner eaves of a Chinese pagoda form triangular shapes with the ridge lines, and the roof sections themselves are made of triangular panels.",
+        "image_prompt": "Show a Chinese pagoda with its triangular roof sections outlined."
+    },
+    {
+        "concept_id": "quadrilaterals",
+        "concept_name": "Quadrilaterals",
+        "aliases": ["four sides", "rectangles", "squares", "trapezoids"],
+        "chinese_culture": "Lattice window frames",
+        "explanation_text": "Traditional Chinese lattice windows are divided into square and rectangular panes—four-sided shapes called quadrilaterals.",
+        "image_prompt": "Show a wooden lattice window with its square and rectangular panes highlighted as quadrilaterals."
+    },
+    {
+        "concept_id": "perimeter",
+        "concept_name": "Perimeter",
+        "aliases": ["boundary length", "distance around", "outline measure"],
+        "chinese_culture": "Walking around a siheyuan courtyard",
+        "explanation_text": "Measuring the total distance around a traditional siheyuan courtyard—along all four of its sides—gives its perimeter.",
+        "image_prompt": "Show a siheyuan courtyard with a dashed line tracing its four sides and the perimeter labeled."
+    },
+    {
+        "concept_id": "area",
+        "concept_name": "Area",
+        "aliases": ["surface area", "space inside", "coverage"],
+        "chinese_culture": "Area of a rice paddy",
+        "explanation_text": "The amount of ground covered by a rice paddy field—how much land it occupies—is its area, measured in square units.",
+        "image_prompt": "Show a rice paddy field shaded to show the area it covers, with grid lines of square units drawn over it."
+    },
+    {
+        "concept_id": "volume",
+        "concept_name": "Volume",
+        "aliases": ["capacity", "space inside 3D shape", "liquid amount"],
+        "chinese_culture": "Water in a tea kettle",
+        "explanation_text": "The amount of water a Chinese tea kettle can hold measures its volume; a large kettle holds more liters of water than a small one.",
+        "image_prompt": "Show two tea kettles of different sizes filled with water to different levels, illustrating volume."
+    },
+    {
+        "concept_id": "circle_properties",
+        "concept_name": "Circle Properties",
+        "aliases": ["radius", "diameter", "circumference", "circle geometry"],
+        "chinese_culture": "The round Hall of Prayer",
+        "explanation_text": "Viewed from above, the Hall of Prayer for Good Harvests in the Temple of Heaven is a perfect circle, with its radius, diameter, and circumference all visible.",
+        "image_prompt": "Show the circular Hall of Prayer for Good Harvests from above, labeled with radius and diameter lines."
+    },
+    {
+        "concept_id": "pi",
+        "concept_name": "Pi (π)",
+        "aliases": ["pi", "ratio of circumference", "3.14"],
+        "chinese_culture": "The round temple drum",
+        "explanation_text": "The ratio of a large round temple drum's circumference to its diameter is always about 3.14, no matter the drum's size—that constant ratio is pi (π).",
+        "image_prompt": "Show a round Chinese temple drum with its circumference and diameter measured and labeled with π."
+    },
+    {
+        "concept_id": "coordinate_plane",
+        "concept_name": "Coordinate Plane",
+        "aliases": ["x-y plane", "graph grid", "axes"],
+        "chinese_culture": "The weiqi board grid",
+        "explanation_text": "A weiqi (Go) board is a grid of 19 × 19 lines whose intersections form a coordinate system; every intersection can be named by its row and column—just like points on a coordinate plane.",
+        "image_prompt": "Show a weiqi board with its grid of lines and axes highlighted, with intersections labeled like coordinates."
+    },    {
+        "concept_id": "plotting_points",
+        "concept_name": "Plotting Points",
+        "aliases": ["graphing points", "coordinates", "x-y plotting"],
+        "chinese_culture": "Placing weiqi stones",
+        "explanation_text": "Placing a black or white weiqi stone on a specific intersection pins that stone to a row-and-column location—exactly like plotting a point at a coordinate (x, y).",
+        "image_prompt": "Show a weiqi board with stones placed at marked intersections, each labeled with its (x, y) coordinates."
+    },
+    {
+        "concept_id": "symmetry",
+        "concept_name": "Symmetry",
+        "aliases": ["mirror image", "balanced halves", "reflection symmetry"],
+        "chinese_culture": "Mirror-image paper cutting",
+        "explanation_text": "Chinese paper cutting is often folded in half before cutting, so the design mirrors itself across the fold—a perfect example of line symmetry.",
+        "image_prompt": "Show a folded paper cutting being opened to reveal a mirrored design, with the fold line marked as the line of symmetry."
+    },
+    {
+        "concept_id": "transformations",
+        "concept_name": "Transformations",
+        "aliases": ["translate", "rotate", "reflect", "dilate"],
+        "chinese_culture": "The dragon dance",
+        "explanation_text": "During a dragon dance, the long dragon body slides forward, turns, and twists along the parade route—sliding (translation), turning (rotation), and reversing (reflection) are geometric transformations.",
+        "image_prompt": "Show a dragon dance with the dragon body translating down the street, turning at a corner, and shown in a reflected pose."
+    },
+    {
+        "concept_id": "ratios",
+        "concept_name": "Ratios",
+        "aliases": ["comparison", "proportion of quantities", "rate"],
+        "chinese_culture": "Tea leaves and water mixture",
+        "explanation_text": "A pot of tea is made by mixing tea leaves and water in a fixed ratio, such as 1 part leaves to 20 parts water (1:20)—a ratio compares two quantities.",
+        "image_prompt": "Show a teapot with the ratio of tea leaves to water labeled 1:20."
+    },
+    {
+        "concept_id": "proportions",
+        "concept_name": "Proportions",
+        "aliases": ["equal ratios", "scaling", "balance of ratios"],
+        "chinese_culture": "Scaling a miniature pagoda model",
+        "explanation_text": "Building a small model of a pagoda that keeps every height and width in the same proportion to the real building preserves the original ratio—two equal ratios form a proportion.",
+        "image_prompt": "Show a large pagoda beside a small model, with matching measurements scaled in the same proportion."
+    },
+    {
+        "concept_id": "unit_rate",
+        "concept_name": "Unit Rate",
+        "aliases": ["per unit", "rate per one", "comparison per one unit"],
+        "chinese_culture": "Dragon boat speed",
+        "explanation_text": "If a dragon boat travels 300 meters in 60 seconds, its unit rate is 5 meters per second—the amount covered in one unit of time.",
+        "image_prompt": "Show a dragon boat racing on a river, with its speed labeled as 5 meters per second."
+    },
+    {
+        "concept_id": "scale_drawings",
+        "concept_name": "Scale Drawings",
+        "aliases": ["map scale", "drawing proportion", "scaled map"],
+        "chinese_culture": "A map of the Great Wall",
+        "explanation_text": "A tourist map of the Great Wall shows the long wall much smaller while keeping every distance in proportion, using a scale such as 1 cm = 100 km—a scale drawing.",
+        "image_prompt": "Show a Great Wall map with a scale legend, next to a picture of the wall itself."
+    },
+    {
+        "concept_id": "percent_change",
+        "concept_name": "Percent Change",
+        "aliases": ["percent increase", "percent decrease", "growth rate"],
+        "chinese_culture": "Growing panda population",
+        "explanation_text": "If a panda reserve's population grows from 50 to 60 pandas, that is an increase of 10 out of the original 50, or a 20% increase—an example of percent change.",
+        "image_prompt": "Show panda cubs in a bamboo reserve with a +20% population growth label."
+    },
+    {
+        "concept_id": "data_collection",
+        "concept_name": "Data Collection",
+        "aliases": ["gather data", "record information", "collect numbers"],
+        "chinese_culture": "Recording panda sightings",
+        "explanation_text": "Researchers in a panda reserve record how many pandas they observe each month, writing down counts as data—the first step in statistics is collecting data.",
+        "image_prompt": "Show a researcher in a panda reserve marking tally marks of panda sightings on a clipboard."
+    },
+    {
+        "concept_id": "tables_graphs",
+        "concept_name": "Tables and Graphs",
+        "aliases": ["data table", "bar graph", "chart"],
+        "chinese_culture": "Rainfall and rice harvest charts",
+        "explanation_text": "Arranging monthly rainfall in a table and drawing it as a graph helps farmers see which months bring enough water for the rice harvest—data organized as tables and graphs is easier to read.",
+        "image_prompt": "Show a table of monthly rainfall next to a bar graph of the same data, labeled with months."
+    },
+    {
+        "concept_id": "mean",
+        "concept_name": "Mean",
+        "aliases": ["average", "arithmetic mean", "mean value"],
+        "chinese_culture": "Average dumplings per person",
+        "explanation_text": "If three diners eat 8, 10, and 12 dumplings, adding them (30) and dividing by 3 gives the mean of 10 dumplings per person—the average.",
+        "image_prompt": "Show three plates of dumplings with 8, 10, and 12 dumplings, with the average of 10 highlighted."
+    },
+    {
+        "concept_id": "median",
+        "concept_name": "Median",
+        "aliases": ["middle value", "data median"],
+        "chinese_culture": "Middle-priced tea sets",
+        "explanation_text": "Arranging the prices of tea sets from cheapest to most expensive, the price in the middle is the median—half the sets cost less and half cost more.",
+        "image_prompt": "Show tea sets lined up by price with the middle one highlighted as the median."
+    },
+    {
+        "concept_id": "mode",
+        "concept_name": "Mode",
+        "aliases": ["most frequent value", "common value"],
+        "chinese_culture": "Most common lantern color",
+        "explanation_text": "If most lanterns hung for a festival are red, red is the mode—the value that appears most often in a set of data.",
+        "image_prompt": "Show a festival street with many red lanterns among a few of other colors, red highlighted as the mode."
+    },
+    {
+        "concept_id": "range",
+        "concept_name": "Range",
+        "aliases": ["difference", "spread of data", "highest minus lowest"],
+        "chinese_culture": "Tallest and shortest lantern poles",
+        "explanation_text": "The difference between the tallest and the shortest lantern pole on a festival street is the range of the data—the highest value minus the lowest.",
+        "image_prompt": "Show two lantern poles of very different heights, with the range between them marked."
+    },
+    {
+        "concept_id": "bar_graphs",
+        "concept_name": "Bar Graphs",
+        "aliases": ["bar chart", "column graph"],
+        "chinese_culture": "Panda populations by reserve",
+        "explanation_text": "A bar graph can compare how many pandas live in each reserve: the taller the bar, the more pandas—each bar stands for one reserve's count.",
+        "image_prompt": "Show a bar graph comparing panda populations across several named reserves."
+    },
+    {
+        "concept_id": "line_graphs",
+        "concept_name": "Line Graphs",
+        "aliases": ["trend graph", "line chart"],
+        "chinese_culture": "Rice growth across months",
+        "explanation_text": "A line graph tracing rice crop height month by month shows how the crop grows over the season and where it peaks—lines reveal change over time.",
+        "image_prompt": "Show a line graph with months along the bottom and rice height along the side."
+    },
+    {
+        "concept_id": "pie_charts",
+        "concept_name": "Pie Charts",
+        "aliases": ["circle chart", "percentage chart"],
+        "chinese_culture": "Proportion of zodiac signs",
+        "explanation_text": "A pie chart can show the proportion of each Chinese zodiac sign in a group, with each slice taking a share of the full circle proportional to its count.",
+        "image_prompt": "Show a pie chart divided into slices for twelve Chinese zodiac animals with percentages."
+    },
+    {
+        "concept_id": "probability",
+        "concept_name": "Probability",
+        "aliases": ["chance", "likelihood", "odds"],
+        "chinese_culture": "Drawing a mahjong tile",
+        "explanation_text": "When a player draws a tile from the mahjong wall without looking, each tile has a chance of being drawn; if 4 of the 100 face-down tiles are the same piece, the probability of drawing one is 4 out of 100.",
+        "image_prompt": "Show a mahjong wall of face-down tiles with the probability of drawing a specific tile labeled."
+    },
+    {
+        "concept_id": "patterns",
+        "concept_name": "Patterns",
+        "aliases": ["repeating design", "sequence", "recurrence"],
+        "chinese_culture": "Cloud motifs on silk",
+        "explanation_text": "Traditional silk fabric is woven with repeating cloud-and-wave motifs that follow a regular rhythm—repeating designs are patterns, and their repeats can be counted and predicted.",
+        "image_prompt": "Show a roll of patterned Chinese silk with repeating cloud motifs, the repeating unit highlighted."
+    },
+    {
+        "concept_id": "functions",
+        "concept_name": "Functions",
+        "aliases": ["input-output rule", "function relation", "mapping"],
+        "chinese_culture": "The dim sum pricing rule",
+        "explanation_text": "If each bamboo basket of buns costs 4 yuan, then the total price is always 4 times the number of baskets ordered—a rule where each input (number of baskets) gives exactly one output (total price) is a function.",
+        "image_prompt": "Show a dim sum menu with bamboo baskets priced at 4 yuan each, with a graph linking baskets ordered to total price."
+    }
+]
