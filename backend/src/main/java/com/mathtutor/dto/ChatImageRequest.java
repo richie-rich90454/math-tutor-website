@@ -21,6 +21,10 @@ public record ChatImageRequest(
         Validator.requireString(issues, "image", image);
         if (image != null) {
             Validator.requireMin(issues, "image", image, 1);
+            Validator.requireMax(issues, "image", image, 20_000_000);
+            if (!image.startsWith("data:")) {
+                issues.add(new Validator.Issue("image", "Only data URLs are accepted"));
+            }
         }
         Validator.requireString(issues, "mimeType", mimeType);
         if (mimeType != null) {
