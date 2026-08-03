@@ -55,15 +55,14 @@ public class ChatService {
 
         if (activeChatId != null && !activeChatId.isBlank()) {
             Optional<ChatRepository.ChatRecord> existing = chats.findById(activeChatId);
-            if (existing.isPresent()) {
-                messages.addMessage(activeChatId, "user", sanitized, 0);
-                chats.updateChat(activeChatId, "preview", truncate(sanitized, 100));
-                String topic = topicExtractor.extractTopic(sanitized);
-                if (topic != null) {
-                    chats.updateChat(activeChatId, "topic", topic);
-                }
-            } else {
-                createChatWithId(activeChatId, userId, sanitized);
+            if (existing.isEmpty() || !existing.get().user_id().equals(userId)) {
+                throw new com.mathtutor.web.ForbiddenException();
+            }
+            messages.addMessage(activeChatId, "user", sanitized, 0);
+            chats.updateChat(activeChatId, "preview", truncate(sanitized, 100));
+            String topic = topicExtractor.extractTopic(sanitized);
+            if (topic != null) {
+                chats.updateChat(activeChatId, "topic", topic);
             }
         } else {
             activeChatId = createNewChat(userId, sanitized);
@@ -99,16 +98,6 @@ public class ChatService {
         }
         messages.addMessage(id, "user", message, 0);
         return id;
-    }
-
-    private void createChatWithId(String id, String userId, String message) {
-        String title = truncateTitle(message);
-        chats.createChatWithId(id, userId, title, truncate(message, 100));
-        String topic = topicExtractor.extractTopic(message);
-        if (topic != null) {
-            chats.updateChat(id, "topic", topic);
-        }
-        messages.addMessage(id, "user", message, 0);
     }
 
     private List<ContextBuilder.ContextMessage> buildFullContext(
