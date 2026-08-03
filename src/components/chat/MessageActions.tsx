@@ -11,6 +11,8 @@ interface MessageActionsProps {
     onFeedback?: (type: "up" | "down") => void;
     feedback?: "up" | "down" | null;
     isVisible: boolean;
+    onTogglePin?: () => void;
+    isPinned?: boolean;
 }
 
 const MessageActions = memo(function MessageActions({
@@ -19,6 +21,8 @@ const MessageActions = memo(function MessageActions({
     onFeedback,
     feedback,
     isVisible,
+    onTogglePin,
+    isPinned,
 }: MessageActionsProps) {
     const { t } = useLanguage();
     const [copied, setCopied] = useState(false);
@@ -44,10 +48,7 @@ const MessageActions = memo(function MessageActions({
     }, [content]);
 
     return (
-        <div
-            ref={ref}
-            className={`msg-actions ${isVisible ? "is-visible" : ""}`}
-        >
+        <div ref={ref} className={`msg-actions ${isVisible ? "is-visible" : ""}`}>
             <button
                 onClick={handleCopy}
                 className="msg-action-btn"
@@ -84,6 +85,28 @@ const MessageActions = memo(function MessageActions({
                 )}
                 {copied && <span className="msg-action-label">{t("chatCopied")}</span>}
             </button>
+            {onTogglePin && (
+                <button
+                    onClick={onTogglePin}
+                    className={`msg-action-btn ${isPinned ? "is-active" : ""}`}
+                    title={isPinned ? t("unpin") : t("pin")}
+                    aria-label={isPinned ? t("unpin") : t("pin")}
+                >
+                    <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill={isPinned ? "currentColor" : "none"}
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                    >
+                        <path d="M12 17v5" />
+                        <path d="M9 10.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V7a1 1 0 0 1 1-1 2 2 0 0 0 0-4H8a2 2 0 0 0 0 4 1 1 0 0 1 1 1z" />
+                    </svg>
+                </button>
+            )}
             {onRegenerate && (
                 <button
                     onClick={onRegenerate}
