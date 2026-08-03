@@ -56,6 +56,11 @@ public class SessionService {
                 return Optional.empty();
             }
 
+            // Bind the JWT subject to the stored session row (defense in depth).
+            if (!userId.equals(dbSession.get().user_id())) {
+                return Optional.empty();
+            }
+
             Optional<UserRepository.UserRecord> user = users.findById(userId);
             if (user.isEmpty()) {
                 return Optional.empty();
