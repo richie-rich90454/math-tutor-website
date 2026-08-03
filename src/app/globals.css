@@ -4327,3 +4327,422 @@ select,
         margin-top: var(--space-3);
     }
 }
+
+/* ---------- Sidebar feature links ---------- */
+.sb-links {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: var(--space-2) var(--space-2);
+    border-bottom: 1px solid var(--border-default);
+}
+.sb-links.is-collapsed {
+    align-items: center;
+    padding: var(--space-2) 0;
+}
+.sb-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: 8px var(--space-3);
+    border-radius: var(--radius-md);
+    color: var(--fg-secondary);
+    text-decoration: none;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    transition:
+        background 0.15s ease,
+        color 0.15s ease;
+}
+.sb-link:hover {
+    background: var(--bg-hover);
+    color: var(--fg-primary);
+}
+.sb-links.is-collapsed .sb-link {
+    width: 38px;
+    justify-content: center;
+    padding: 8px 0;
+}
+.sb-links.is-collapsed .sb-link span {
+    display: none;
+}
+
+/* ---------- Practice ---------- */
+.practice-review-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+}
+.practice-review-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.practice-review-info span {
+    color: var(--fg-secondary);
+    font-size: 0.8rem;
+}
+.practice-picker {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+.practice-picker-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+.practice-picker-label {
+    font-size: 0.8rem;
+    color: var(--fg-secondary);
+}
+.practice-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+}
+.practice-chip {
+    padding: 6px 12px;
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-md);
+    background: var(--bg-surface);
+    color: var(--fg-secondary);
+    cursor: pointer;
+    font-size: 0.82rem;
+    transition: all 0.15s ease;
+}
+.practice-chip:hover {
+    background: var(--bg-hover);
+    color: var(--fg-primary);
+}
+.practice-chip.is-active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--fg-on-accent, #fff);
+}
+.practice-select {
+    padding: 8px 10px;
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-md);
+    background: var(--bg-surface);
+    color: var(--fg-primary);
+    max-width: 220px;
+}
+.practice-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+}
+.practice-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: var(--space-4);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
+}
+.practice-stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--fg-primary);
+}
+.practice-stat-label {
+    font-size: 0.75rem;
+    color: var(--fg-secondary);
+}
+.practice-question-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+.practice-question-tag {
+    font-size: 0.75rem;
+    color: var(--fg-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.practice-question {
+    font-size: 1.1rem;
+    color: var(--fg-primary);
+    margin: 0;
+}
+.practice-options {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+.practice-option {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: 12px 14px;
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-md);
+    background: var(--bg-surface);
+    color: var(--fg-primary);
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.15s ease;
+}
+.practice-option:hover:not(:disabled) {
+    border-color: var(--accent);
+    background: var(--bg-hover);
+}
+.practice-option.is-correct {
+    border-color: var(--success, #22c55e);
+    background: color-mix(in srgb, var(--success, #22c55e) 12%, transparent);
+}
+.practice-option.is-wrong {
+    border-color: var(--danger);
+    background: color-mix(in srgb, var(--danger) 12%, transparent);
+}
+.practice-option.is-dimmed {
+    opacity: 0.55;
+}
+.practice-option-letter {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    background: var(--bg-hover);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+.practice-feedback {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding-top: var(--space-2);
+    border-top: 1px solid var(--border-default);
+}
+.practice-correct-text {
+    color: var(--success, #22c55e);
+    font-weight: 700;
+}
+.practice-wrong-text {
+    color: var(--danger);
+    font-weight: 700;
+}
+.practice-explanation {
+    color: var(--fg-secondary);
+    font-size: 0.9rem;
+    margin: 0;
+}
+.practice-actions {
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+.practice-ask-btn {
+    padding: 8px 14px;
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-md);
+    background: var(--bg-surface);
+    color: var(--fg-secondary);
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+.practice-ask-btn:hover {
+    background: var(--bg-hover);
+    color: var(--fg-primary);
+}
+.practice-ask-btn:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+.practice-ai-help {
+    padding: var(--space-4);
+    background: var(--bg-hover);
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+.practice-ai-text {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--fg-primary);
+    white-space: pre-wrap;
+}
+.practice-plan-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+.practice-plan-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+}
+.practice-plan-text {
+    margin: 0;
+    white-space: pre-wrap;
+    font-family: inherit;
+    font-size: 0.9rem;
+    color: var(--fg-primary);
+    background: var(--bg-hover);
+    padding: var(--space-3);
+    border-radius: var(--radius-md);
+}
+.practice-plan-empty {
+    color: var(--fg-secondary);
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+/* ---------- Sheets ---------- */
+.sheet-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) 0;
+    border-bottom: 1px solid var(--border-default);
+}
+.sheet-row:last-child {
+    border-bottom: none;
+}
+.sheet-formula-name {
+    min-width: 140px;
+    color: var(--fg-primary);
+    font-weight: 500;
+}
+.sheet-formula {
+    flex: 1;
+    background: var(--bg-hover);
+    padding: 4px 10px;
+    border-radius: var(--radius-sm);
+    font-size: 0.95rem;
+    overflow-x: auto;
+}
+.sheet-mandarin {
+    color: var(--fg-secondary);
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+.sheet-term {
+    flex: 1;
+    color: var(--fg-primary);
+    font-weight: 500;
+}
+
+/* ---------- Quota banner ---------- */
+.quota-banner {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    background: color-mix(in srgb, var(--warning, #f59e0b) 14%, transparent);
+    border-bottom: 1px solid color-mix(in srgb, var(--warning, #f59e0b) 30%, transparent);
+    color: var(--fg-primary);
+    font-size: 0.82rem;
+    text-align: center;
+    justify-content: center;
+}
+
+/* ---------- Home learning cards ---------- */
+.learning-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-3);
+    width: 100%;
+    margin-top: var(--space-4);
+}
+.learning-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-4);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    color: var(--fg-primary);
+    transition:
+        border-color 0.15s ease,
+        transform 0.15s ease;
+}
+.learning-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+.learning-card-accent {
+    border-color: color-mix(in srgb, var(--accent) 40%, var(--border-default));
+}
+.learning-card-tag {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    font-weight: 600;
+}
+.learning-card-text {
+    font-size: 0.95rem;
+    line-height: 1.45;
+}
+.learning-card-meta {
+    font-size: 0.75rem;
+    color: var(--fg-secondary);
+}
+
+/* ---------- C17 vocab highlight ---------- */
+.mdr-vocab {
+    background: color-mix(in srgb, var(--accent) 16%, transparent);
+    border-radius: 3px;
+    padding: 0 2px;
+    cursor: help;
+    border-bottom: 1px dotted color-mix(in srgb, var(--accent) 50%, transparent);
+}
+
+/* ---------- C15 bilingual toggle ---------- */
+.bilingual-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-top: var(--space-1);
+}
+.bilingual-toggle .msg-edit-btn {
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: var(--radius-sm);
+}
+.bilingual-text {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.88rem;
+    color: var(--fg-secondary);
+    border-left: 2px solid color-mix(in srgb, var(--accent) 50%, transparent);
+    padding-left: var(--space-3);
+}
+
+/* ---------- Guest button ---------- */
+.auth-guest-btn {
+    margin-top: var(--space-3);
+    width: 100%;
+    padding: 10px 16px;
+    border: 1px dashed var(--border-default);
+    border-radius: var(--radius-md);
+    background: transparent;
+    color: var(--fg-secondary);
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.15s ease;
+}
+.auth-guest-btn:hover {
+    border-color: var(--accent);
+    color: var(--fg-primary);
+    background: var(--bg-hover);
+}
+.auth-guest-btn:disabled {
+    opacity: 0.6;
+    cursor: default;
+}
