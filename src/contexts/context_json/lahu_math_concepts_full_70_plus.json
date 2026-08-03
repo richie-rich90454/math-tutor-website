@@ -1,0 +1,565 @@
+[
+    {
+        "concept_id": "place_value",
+        "concept_name": "Place Value",
+        "aliases": [
+            "place value",
+            "digit place",
+            "number place",
+            "units place",
+            "tens place",
+            "hundreds place",
+            "position of digits",
+            "digit position"
+        ],
+        "lahu_culture": "Hulusheng finger-hole positions",
+        "explanation_text": "Each finger hole on a hulusheng (gourd flute) has its own position that changes the pitch, just as each digit has a place that determines its value.",
+        "image_prompt": "Illustrate a hulusheng gourd flute with its finger holes labeled as ones, tens, and hundreds, showing how position changes both pitch and value."
+    },
+    {
+        "concept_id": "addition_subtraction",
+        "concept_name": "Addition & Subtraction",
+        "aliases": [
+            "add",
+            "addition",
+            "plus",
+            "sum",
+            "combine",
+            "total",
+            "subtract",
+            "subtraction",
+            "minus",
+            "take away",
+            "difference"
+        ],
+        "lahu_culture": "Adding rice to the cooking pot",
+        "explanation_text": "When more mountain rice is added to the cooking pot, the amount grows; when rice is scooped out for a meal, it shrinks—just like addition and subtraction.",
+        "image_prompt": "Show a pot of steaming mountain rice being added to and scooped from, with the amount visibly increasing and decreasing."
+    },
+    {
+        "concept_id": "multiplication_division",
+        "concept_name": "Multiplication & Division",
+        "aliases": [
+            "multiply",
+            "multiplication",
+            "times",
+            "groups of",
+            "repeated addition",
+            "divide",
+            "division",
+            "split equally",
+            "sharing"
+        ],
+        "lahu_culture": "Tea-plantation rows",
+        "explanation_text": "Arranging tea seedlings in equal rows shows multiplication, while sharing the harvested tea equally among families shows division.",
+        "image_prompt": "Display neat equal rows of tea bushes in a plantation, plus baskets of tea leaves shared evenly among several families."
+    },
+    {
+        "concept_id": "even_odd",
+        "concept_name": "Even and Odd Numbers",
+        "aliases": [
+            "even numbers",
+            "odd numbers",
+            "even",
+            "odd",
+            "pairs",
+            "leftover",
+            "no remainder",
+            "remains one"
+        ],
+        "lahu_culture": "Dancers paired under the moon",
+        "explanation_text": "Dancers paired up during the moon festival dance represent even numbers; when one dancer stands alone, the number is odd.",
+        "image_prompt": "Show Lahu dancers at the moon dance standing in pairs, with one single dancer at the edge to represent an odd number."
+    },
+    {
+        "concept_id": "skip_counting",
+        "concept_name": "Skip Counting / Number Patterns",
+        "aliases": [
+            "skip counting",
+            "count by 2s",
+            "count by 5s",
+            "count by 10s",
+            "jump counting",
+            "repeating numbers",
+            "number patterns"
+        ],
+        "lahu_culture": "Embroidery stitch rhythms",
+        "explanation_text": "The geometric motifs on Lahu embroidery follow rhythmic stitch patterns, like repeating every few stitches—similar to skip counting by 3s or 5s.",
+        "image_prompt": "Show a strip of Lahu embroidery with repeating geometric motifs, highlighting every 5th motif to illustrate skip counting."
+    },
+    {
+        "concept_id": "comparing_numbers",
+        "concept_name": "Comparing and Ordering Numbers",
+        "aliases": [
+            "compare numbers",
+            "greater than",
+            "less than",
+            "more than",
+            "fewer than",
+            "biggest",
+            "smallest",
+            "ordering numbers",
+            "number order"
+        ],
+        "lahu_culture": "Comparing tea-harvest baskets",
+        "explanation_text": "Comparing which tea-harvest basket is fuller shows which amount is greater and which is less—like comparing numbers.",
+        "image_prompt": "Show two bamboo baskets holding different amounts of fresh tea leaves, with > and < symbols between them."
+    },
+    {
+        "concept_id": "rounding_estimation",
+        "concept_name": "Rounding & Estimation",
+        "aliases": [
+            "round",
+            "rounding",
+            "estimate",
+            "estimation",
+            "approximate",
+            "about how much",
+            "close to",
+            "nearby number"
+        ],
+        "lahu_culture": "Estimating rice for the New Rice Festival",
+        "explanation_text": "When preparing the New Rice Festival feast, cooks estimate how many bowls of mountain rice are needed—like rounding to a convenient amount.",
+        "image_prompt": "Show a cook estimating the rice for a festival feast, with rounded amounts labeled such as about 20 bowls."
+    },
+    {
+        "concept_id": "fractions",
+        "concept_name": "Fractions",
+        "aliases": ["fraction", "part of a whole", "portion", "share", "numerator", "denominator"],
+        "lahu_culture": "Sharing a bamboo rice basket",
+        "explanation_text": "When a basket of mountain rice is shared equally among families, each family receives a fraction of the whole.",
+        "image_prompt": "Show a bamboo basket of rice divided into equal shares for several families, each share labeled as a fraction."
+    },
+    {
+        "concept_id": "equivalent_fractions",
+        "concept_name": "Equivalent Fractions",
+        "aliases": ["equal fractions", "same value", "fraction equality", "equivalent"],
+        "lahu_culture": "Cutting a sticky rice cake",
+        "explanation_text": "Cutting a sticky rice cake into 2 equal parts or into 4 smaller equal parts gives the same total amount—like equivalent fractions.",
+        "image_prompt": "Show a round sticky rice cake cut first into halves and then into quarters, showing equal total portions."
+    },
+    {
+        "concept_id": "simplifying_fractions",
+        "concept_name": "Simplifying Fractions",
+        "aliases": ["reduce fraction", "lowest terms", "simplify fraction"],
+        "lahu_culture": "Combining small harvest baskets",
+        "explanation_text": "When several small tea baskets are poured into one large basket, the count is simplified—like reducing a fraction to its lowest terms.",
+        "image_prompt": "Depict small tea baskets being poured into one large basket, labeled with reduced fractions."
+    },
+    {
+        "concept_id": "mixed_numbers",
+        "concept_name": "Mixed Numbers",
+        "aliases": ["mixed number", "whole and fraction", "whole part and fraction part"],
+        "lahu_culture": "Full and half baskets of rice",
+        "explanation_text": "If you have 3 full baskets of rice and half a basket more, that is 3½—just like a mixed number.",
+        "image_prompt": "Show three full bamboo baskets and one half-filled basket of rice labeled as 3½."
+    },
+    {
+        "concept_id": "improper_fractions",
+        "concept_name": "Improper Fractions",
+        "aliases": ["top-heavy fraction", "numerator larger", "greater than one fraction"],
+        "lahu_culture": "Overflowing bamboo baskets",
+        "explanation_text": "When harvested rice fills more than one basket but is measured in equal basket-sized parts, it makes an improper fraction.",
+        "image_prompt": "Show several small baskets of rice filling past a single full basket, symbolizing a fraction greater than 1."
+    },
+    {
+        "concept_id": "adding_fractions",
+        "concept_name": "Adding Fractions",
+        "aliases": ["fraction addition", "add fractions", "sum of fractions"],
+        "lahu_culture": "Combining portions of tea",
+        "explanation_text": "Pouring portions of tea leaves from different baskets together shows how fractional amounts combine into a whole.",
+        "image_prompt": "Show smaller baskets of tea leaves being poured together into one full basket."
+    },
+    {
+        "concept_id": "subtracting_fractions",
+        "concept_name": "Subtracting Fractions",
+        "aliases": ["fraction subtraction", "take away fractions", "difference of fractions"],
+        "lahu_culture": "Pouring out part of a tea bowl",
+        "explanation_text": "Removing some tea from a guest's bowl shows subtraction of a fractional part from a whole.",
+        "image_prompt": "Show a tea bowl with a portion poured out, the remaining tea labeled as the fraction left."
+    },
+    {
+        "concept_id": "multiplying_fractions",
+        "concept_name": "Multiplying Fractions",
+        "aliases": ["fraction multiplication", "part of a part", "multiply fractions"],
+        "lahu_culture": "Half of a half portion of rice",
+        "explanation_text": "If each guest is served half of a half bowl of rice, you are finding a fraction of a fraction—like multiplying fractions.",
+        "image_prompt": "Show a bowl of rice divided in half, and one half divided again into smaller servings."
+    },
+    {
+        "concept_id": "dividing_fractions",
+        "concept_name": "Dividing Fractions",
+        "aliases": ["fraction division", "divide fractions", "how many times in"],
+        "lahu_culture": "Cutting a rice cake into small pieces",
+        "explanation_text": "When a piece of sticky rice cake is cut into smaller even pieces, it shows dividing a fraction by another fraction.",
+        "image_prompt": "Show a sticky rice cake being cut into smaller even pieces to illustrate fractional division."
+    },
+    {
+        "concept_id": "decimals",
+        "concept_name": "Decimals",
+        "aliases": ["decimal point", "tenths", "hundredths", "decimal number"],
+        "lahu_culture": "Weighing tea in kilograms",
+        "explanation_text": "Weighing a tea harvest in kilograms introduces decimals, such as 1.5 kilograms meaning one and a half kilograms.",
+        "image_prompt": "Show a market scale in Lancang weighing tea leaves, marked at 1.0, 1.5, and 2.0 kilograms."
+    },
+    {
+        "concept_id": "converting_fractions_decimals",
+        "concept_name": "Converting Fractions and Decimals",
+        "aliases": ["fraction to decimal", "decimal to fraction", "convert fractions"],
+        "lahu_culture": "Half a kilo of tea leaves",
+        "explanation_text": "Whether you say half a kilogram or 0.5 kilograms of tea leaves, both name the same amount—like converting between fractions and decimals.",
+        "image_prompt": "Show two tea bags labeled ½ kg and 0.5 kg, filled with equal amounts of tea leaves."
+    },
+    {
+        "concept_id": "percents",
+        "concept_name": "Percents",
+        "aliases": ["percent", "percentage", "per hundred", "rate per 100"],
+        "lahu_culture": "Lahu language test scores",
+        "explanation_text": "When a student in Lancang scores 90 out of 100 on a Lahu language test, that is 90%—a way to express parts per hundred.",
+        "image_prompt": "Show a test paper marked 90/100 with a 90% score beside it."
+    },
+    {
+        "concept_id": "percent_of_number",
+        "concept_name": "Percent of a Number",
+        "aliases": ["percentage of number", "find percent", "portion of total"],
+        "lahu_culture": "Discounts at the Lancang market",
+        "explanation_text": "A 10% discount on embroidered cloth at the Lancang market shows how percents are used to find parts of a number.",
+        "image_prompt": "Show a market stall sign reading 10 percent off on Lahu embroidered cloth, with reduced price tags."
+    },
+    {
+        "concept_id": "variables",
+        "concept_name": "Variables",
+        "aliases": ["variable", "unknown", "letter as number", "symbol in math"],
+        "lahu_culture": "Unweighed tea baskets",
+        "explanation_text": "If some tea baskets have not been weighed, each holds an unknown quantity—just like variables in math.",
+        "image_prompt": "Show weighed tea baskets labeled 2 kg and 3 kg, and an unweighed basket labeled x."
+    },
+    {
+        "concept_id": "expressions",
+        "concept_name": "Expressions",
+        "aliases": ["math expressions", "numerical expressions", "algebraic expressions"],
+        "lahu_culture": "Known and unknown baskets",
+        "explanation_text": "If you have 2 weighed baskets of tea and x more unweighed ones, that is like writing the expression 2 + x.",
+        "image_prompt": "Show two weighed tea baskets plus an unweighed one, symbolized as 2 + x."
+    },
+    {
+        "concept_id": "equations",
+        "concept_name": "Equations",
+        "aliases": ["math equations", "equal statements", "algebra equations"],
+        "lahu_culture": "Balancing a tea scale",
+        "explanation_text": "When the two pans of the village tea scale hold equal weight, the two sides balance—just like both sides of an equation.",
+        "image_prompt": "Show a balance scale with equal piles of tea leaves on both sides, labeled as an equation."
+    },
+    {
+        "concept_id": "solving_one_step_equations",
+        "concept_name": "Solving One-Step Equations",
+        "aliases": ["one-step equations", "simple equations"],
+        "lahu_culture": "Balancing a shoulder pole",
+        "explanation_text": "If one side of a carrying pole feels heavier, you adjust it by adding or removing a load—like solving a one-step equation.",
+        "image_prompt": "Show a farmer with a shoulder pole carrying two baskets, adjusting one side to balance them."
+    },
+    {
+        "concept_id": "solving_two_step_equations",
+        "concept_name": "Solving Two-Step Equations",
+        "aliases": ["two-step equations", "multi-step equations"],
+        "lahu_culture": "Brewing Pu'er tea",
+        "explanation_text": "Brewing Pu'er tea first needs the pot warmed and then the tea steeped—two steps before the result, like solving a two-step equation.",
+        "image_prompt": "Show the two-step sequence: warm the pot, then steep the tea, then the finished cup."
+    },
+    {
+        "concept_id": "inequalities",
+        "concept_name": "Inequalities",
+        "aliases": ["greater than", "less than", "not equal", "comparison statements"],
+        "lahu_culture": "Sizes of village rice fields",
+        "explanation_text": "When one family's mountain field is larger than another's, that shows inequality—like greater than or less than in math.",
+        "image_prompt": "Show two mountain rice fields of different sizes with > and < symbols between them."
+    },
+    {
+        "concept_id": "order_of_operations",
+        "concept_name": "Order of Operations (PEMDAS)",
+        "aliases": ["PEMDAS", "BODMAS", "math order", "operations order"],
+        "lahu_culture": "Making a hulusheng",
+        "explanation_text": "A hulusheng must first have its gourd dried and holes cut before the reeds are fitted—order matters, just like in math operations.",
+        "image_prompt": "Show the steps of making a hulusheng in strict order, labeled like parentheses, exponents, and so on."
+    },
+    {
+        "concept_id": "substitution",
+        "concept_name": "Substitution",
+        "aliases": ["replace variable", "substitute value", "replace letter with number"],
+        "lahu_culture": "Replacing a bamboo reed",
+        "explanation_text": "If a broken hulusheng reed is replaced with an identical new one, that is like substituting a value for a variable.",
+        "image_prompt": "Show a hulusheng with a reed being swapped for an identical one, representing substitution."
+    },
+    {
+        "concept_id": "points",
+        "concept_name": "Points",
+        "aliases": ["dot", "location", "coordinate point"],
+        "lahu_culture": "Stars over the mountain village",
+        "explanation_text": "Each star in the night sky over a Lahu mountain village marks a position, just like a point in geometry.",
+        "image_prompt": "Show a starry sky above a mountain village, with individual stars labeled as points on a grid."
+    },
+    {
+        "concept_id": "lines",
+        "concept_name": "Lines",
+        "aliases": ["straight line", "geometry line", "infinite line"],
+        "lahu_culture": "Bamboo drying racks",
+        "explanation_text": "The straight bamboo poles of a drying rack extend in both directions, just like geometric lines.",
+        "image_prompt": "Show long straight bamboo poles of a drying rack, represented as geometric lines."
+    },
+    {
+        "concept_id": "angles",
+        "concept_name": "Angles",
+        "aliases": ["angle", "degree", "corner measure"],
+        "lahu_culture": "Roof slope of a bamboo house",
+        "explanation_text": "Where the steep roof of a bamboo house meets its wall, it forms an angle.",
+        "image_prompt": "Show a bamboo house with the angle of its roof clearly marked."
+    },
+    {
+        "concept_id": "perpendicular_lines",
+        "concept_name": "Perpendicular Lines",
+        "aliases": ["right angle lines", "intersecting lines", "orthogonal lines"],
+        "lahu_culture": "Bamboo house posts and beams",
+        "explanation_text": "The vertical posts of a bamboo house meet the floor beams at right angles, forming perpendicular lines for strength.",
+        "image_prompt": "Show bamboo house posts meeting the floor beams at 90° angles."
+    },
+    {
+        "concept_id": "parallel_lines",
+        "concept_name": "Parallel Lines",
+        "aliases": ["side-by-side lines", "never meet", "equal distance lines"],
+        "lahu_culture": "Rows of tea plants",
+        "explanation_text": "The straight rows of tea plants on a mountain slope run side by side and never meet—like parallel lines.",
+        "image_prompt": "Show two long rows of tea bushes running parallel across a hillside."
+    },
+    {
+        "concept_id": "polygons",
+        "concept_name": "Polygons",
+        "aliases": ["shapes", "closed figure", "many-sided shape"],
+        "lahu_culture": "Village storage barns seen from above",
+        "explanation_text": "Seen from above, the rectangular and square layouts of the village rice barns show closed geometric shapes.",
+        "image_prompt": "Show the overhead shapes of several village rice barns forming geometric patterns."
+    },
+    {
+        "concept_id": "triangles",
+        "concept_name": "Triangles",
+        "aliases": ["three sides", "triangular", "triangle shape"],
+        "lahu_culture": "Bamboo house roof supports",
+        "explanation_text": "Each gable of a steep bamboo house roof forms a triangle between the ridge and the eaves.",
+        "image_prompt": "Show the triangular gables of bamboo house roofs."
+    },
+    {
+        "concept_id": "quadrilaterals",
+        "concept_name": "Quadrilaterals",
+        "aliases": ["four sides", "rectangles", "squares", "trapezoids"],
+        "lahu_culture": "Geometric embroidery motifs",
+        "explanation_text": "The woven bamboo mats and embroidered motifs of the Lahu often form rectangles, squares, and other quadrilaterals.",
+        "image_prompt": "Show a woven bamboo mat with repeating square and rectangular motifs."
+    },
+    {
+        "concept_id": "perimeter",
+        "concept_name": "Perimeter",
+        "aliases": ["boundary length", "distance around", "outline measure"],
+        "lahu_culture": "Walking the village boundary",
+        "explanation_text": "Measuring the distance around the village fence is like finding the perimeter of a shape.",
+        "image_prompt": "Show people walking around the village boundary fence with a dashed perimeter line."
+    },
+    {
+        "concept_id": "area",
+        "concept_name": "Area",
+        "aliases": ["surface area", "space inside", "coverage"],
+        "lahu_culture": "Mountain field covered by rice",
+        "explanation_text": "The amount of ground a mountain rice field covers, or the floor a woven mat covers inside a bamboo house, is its area.",
+        "image_prompt": "Show a mountain rice field shaded to show its area, with a woven mat on the house floor beside it."
+    },
+    {
+        "concept_id": "volume",
+        "concept_name": "Volume",
+        "aliases": ["capacity", "space inside 3D shape", "liquid amount"],
+        "lahu_culture": "Rice storage barn",
+        "explanation_text": "The amount of mountain rice a bamboo storage barn can hold represents its volume.",
+        "image_prompt": "Show bamboo rice barns filled to different levels to illustrate volume."
+    },
+    {
+        "concept_id": "circle_properties",
+        "concept_name": "Circle Properties",
+        "aliases": ["radius", "diameter", "circumference", "circle geometry"],
+        "lahu_culture": "The moon dance circle",
+        "explanation_text": "The dancers form a great circle under the moon, illustrating radius, diameter, and circumference.",
+        "image_prompt": "Show the moon dance circle of dancers seen from above, labeled with radius and diameter lines."
+    },
+    {
+        "concept_id": "pi",
+        "concept_name": "Pi (π)",
+        "aliases": ["pi", "ratio of circumference", "3.14"],
+        "lahu_culture": "Round sticky rice cakes",
+        "explanation_text": "The unchanging relationship between the circumference and diameter of a round sticky rice cake is the constant π.",
+        "image_prompt": "Show a round sticky rice cake labeled with circumference and diameter measurements."
+    },
+    {
+        "concept_id": "coordinate_plane",
+        "concept_name": "Coordinate Plane",
+        "aliases": ["x-y plane", "graph grid", "axes"],
+        "lahu_culture": "Tea plantation grid",
+        "explanation_text": "A Pu'er tea plantation planted in rows and columns resembles a coordinate grid, where each bush has its own place.",
+        "image_prompt": "Show a tea plantation map labeled with x and y coordinates."
+    },
+    {
+        "concept_id": "plotting_points",
+        "concept_name": "Plotting Points",
+        "aliases": ["graphing points", "coordinates", "x-y plotting"],
+        "lahu_culture": "Mapping bamboo houses",
+        "explanation_text": "Marking the location of each bamboo house on a village map is like plotting points on a coordinate plane.",
+        "image_prompt": "Show a map of a mountain village with each bamboo house marked as a plotted point."
+    },
+    {
+        "concept_id": "symmetry",
+        "concept_name": "Symmetry",
+        "aliases": ["mirror image", "balanced halves", "reflection symmetry"],
+        "lahu_culture": "Mirrored embroidery on the black dress",
+        "explanation_text": "The embroidered motifs on the two sleeves of a Lahu black dress mirror each other across the center, showing symmetry.",
+        "image_prompt": "Show a Lahu black dress with symmetrical embroidery split by a mirror line."
+    },
+    {
+        "concept_id": "transformations",
+        "concept_name": "Transformations",
+        "aliases": ["translate", "rotate", "reflect", "dilate"],
+        "lahu_culture": "Rotating moon dancers",
+        "explanation_text": "When dancers turn and rotate during the moon dance, their movement represents geometric transformations.",
+        "image_prompt": "Show moon dancers turning and shifting positions to illustrate transformations."
+    },
+    {
+        "concept_id": "ratios",
+        "concept_name": "Ratios",
+        "aliases": ["comparison", "proportion of quantities", "rate"],
+        "lahu_culture": "Tea-to-water brewing ratio",
+        "explanation_text": "When brewing Pu'er tea, the balance of tea leaves to water is a ratio.",
+        "image_prompt": "Show a teapot labeled with the tea-to-water ratio, like 1:20."
+    },
+    {
+        "concept_id": "proportions",
+        "concept_name": "Proportions",
+        "aliases": ["equal ratios", "scaling", "balance of ratios"],
+        "lahu_culture": "Enlarging an embroidery pattern",
+        "explanation_text": "When an embroidery pattern is enlarged while every part grows by the same amount, that keeps the proportion.",
+        "image_prompt": "Show a small and a large embroidery panel with identical geometric proportions."
+    },
+    {
+        "concept_id": "unit_rate",
+        "concept_name": "Unit Rate",
+        "aliases": ["per unit", "rate per one", "comparison per one unit"],
+        "lahu_culture": "Tea picked per hour",
+        "explanation_text": "The number of baskets of tea leaves a picker gathers in one hour is a unit rate.",
+        "image_prompt": "Show a tea picker on a hillside with the harvest measured as baskets per hour."
+    },
+    {
+        "concept_id": "scale_drawings",
+        "concept_name": "Scale Drawings",
+        "aliases": ["map scale", "drawing proportion", "scaled map"],
+        "lahu_culture": "Mapping the village",
+        "explanation_text": "Drawing a smaller map of a large village while keeping distances proportional is a scale drawing.",
+        "image_prompt": "Show a mountain village and a smaller scaled map side by side with a scale legend."
+    },
+    {
+        "concept_id": "percent_change",
+        "concept_name": "Percent Change",
+        "aliases": ["percent increase", "percent decrease", "growth rate"],
+        "lahu_culture": "Rice harvest growth",
+        "explanation_text": "If a village's rice harvest grows from 100 baskets to 120 baskets, that is a 20% increase—an example of percent change.",
+        "image_prompt": "Show a stack of rice baskets growing in number with a +20% label."
+    },
+    {
+        "concept_id": "data_collection",
+        "concept_name": "Data Collection",
+        "aliases": ["gather data", "record information", "collect numbers"],
+        "lahu_culture": "Recording the tea harvest",
+        "explanation_text": "Recording how many baskets of tea each family harvests is an example of data collection.",
+        "image_prompt": "Show a village record keeper marking tea-harvest tallies on a notebook."
+    },
+    {
+        "concept_id": "tables_graphs",
+        "concept_name": "Tables and Graphs",
+        "aliases": ["data table", "bar graph", "chart"],
+        "lahu_culture": "Harvest across the seasons",
+        "explanation_text": "Using a graph to show how much rice is harvested each season helps visualize trends in the data.",
+        "image_prompt": "Show a bar graph comparing the rice harvest across four seasons."
+    },
+    {
+        "concept_id": "mean",
+        "concept_name": "Mean",
+        "aliases": ["average", "arithmetic mean", "mean value"],
+        "lahu_culture": "Average tea picked per day",
+        "explanation_text": "Finding the average amount of tea a family picks each day shows the mean.",
+        "image_prompt": "Show a table of daily tea harvests with the average value highlighted."
+    },
+    {
+        "concept_id": "median",
+        "concept_name": "Median",
+        "aliases": ["middle value", "data median"],
+        "lahu_culture": "Middle harvest of the families",
+        "explanation_text": "When family harvests are arranged from smallest to largest, the one in the middle is the median.",
+        "image_prompt": "Show baskets of harvest lined up with the middle one highlighted as the median."
+    },
+    {
+        "concept_id": "mode",
+        "concept_name": "Mode",
+        "aliases": ["most frequent value", "common value"],
+        "lahu_culture": "Most common tea variety",
+        "explanation_text": "If most fields in a village grow the same tea variety, that variety is the mode.",
+        "image_prompt": "Show tea fields of different varieties with one variety appearing most often."
+    },
+    {
+        "concept_id": "range",
+        "concept_name": "Range",
+        "aliases": ["difference", "spread of data", "highest minus lowest"],
+        "lahu_culture": "Gap between the harvests",
+        "explanation_text": "The gap between the largest and smallest family harvest shows the range.",
+        "image_prompt": "Show a bar chart with the shortest and tallest bars marked to show the range."
+    },
+    {
+        "concept_id": "bar_graphs",
+        "concept_name": "Bar Graphs",
+        "aliases": ["bar chart", "column graph"],
+        "lahu_culture": "Comparing family harvests",
+        "explanation_text": "Each bar represents how many baskets one family harvested—useful for quick comparison.",
+        "image_prompt": "Show a bar graph labeled by family names with harvest totals."
+    },
+    {
+        "concept_id": "line_graphs",
+        "concept_name": "Line Graphs",
+        "aliases": ["trend graph", "line chart"],
+        "lahu_culture": "Tea harvest across the months",
+        "explanation_text": "A line graph shows how the tea harvest changes across the months of the year.",
+        "image_prompt": "Show a line graph labeled with months and tea-harvest amounts."
+    },
+    {
+        "concept_id": "pie_charts",
+        "concept_name": "Pie Charts",
+        "aliases": ["circle chart", "percentage chart"],
+        "lahu_culture": "Crops grown in the village",
+        "explanation_text": "A pie chart can show the proportion of rice, tea, maize, and other crops grown in a village.",
+        "image_prompt": "Show a pie chart divided into crop categories with percentages."
+    },
+    {
+        "concept_id": "probability",
+        "concept_name": "Probability",
+        "aliases": ["chance", "likelihood", "odds"],
+        "lahu_culture": "Torch Festival games",
+        "explanation_text": "Guessing which game at the Torch Festival a player will win involves chance and probability.",
+        "image_prompt": "Show festival games at the Torch Festival with probability labels above each outcome."
+    },
+    {
+        "concept_id": "patterns",
+        "concept_name": "Patterns",
+        "aliases": ["repeating design", "sequence", "recurrence"],
+        "lahu_culture": "Dance steps of the walking songs",
+        "explanation_text": "The repeating steps and rhythms of Lahu walking songs and dances represent patterns.",
+        "image_prompt": "Show a sequence of dance steps with repeating foot patterns, like a growing rhythm."
+    },
+    {
+        "concept_id": "functions",
+        "concept_name": "Functions",
+        "aliases": ["input-output rule", "function relation", "mapping"],
+        "lahu_culture": "Tea leaves to cups",
+        "explanation_text": "If each measure of tea leaves yields a fixed number of cups, then each input gives one output—like a function.",
+        "image_prompt": "Show a graph linking the amount of tea leaves (input) to the cups brewed (output)."
+    }
+]
