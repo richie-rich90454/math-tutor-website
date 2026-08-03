@@ -126,6 +126,35 @@ public class SchemaInitializer {
             }
             recordMigration(2, "add_topic_column");
         }
+
+        if (!applied.contains(3)) {
+            jdbc.execute("""
+                    CREATE TABLE IF NOT EXISTS answer_cache (
+                        id TEXT PRIMARY KEY,
+                        cache_key TEXT UNIQUE NOT NULL,
+                        question TEXT NOT NULL,
+                        language TEXT NOT NULL,
+                        topic TEXT,
+                        answer TEXT NOT NULL,
+                        hit_count INTEGER DEFAULT 1,
+                        created_at TEXT DEFAULT (datetime('now'))
+                    )
+                    """);
+            jdbc.execute("CREATE INDEX IF NOT EXISTS idx_answer_cache_key ON answer_cache(cache_key)");
+            jdbc.execute("CREATE INDEX IF NOT EXISTS idx_answer_cache_lang ON answer_cache(language, created_at)");
+            recordMigration(3, "add_answer_cache");
+        }
+
+        if (!applied.contains(4)) {
+            try {
+                jdbc.execute("ALTER TABLE chat_messages ADD COLUMN is_pinned INTEGER DEFAULT 0");
+            } catch (Exception e) {
+                if (!e.getMessage().contains("duplicate column")) {
+                    throw e;
+                }
+            }
+            recordMigration(4, "add_message_pinned");
+        }
     }
 
     private Set<Integer> applyVersions() {
