@@ -6,6 +6,7 @@ import com.mathtutor.service.AiClient;
 import com.mathtutor.service.ChatService;
 import com.mathtutor.service.RateLimitService;
 import com.mathtutor.service.SessionService;
+import com.mathtutor.service.StreamLimiter;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -31,14 +32,17 @@ public class ChatMessageController {
     private final SessionService sessionService;
     private final RateLimitService rateLimit;
     private final ChatService chatService;
+    private final StreamLimiter streamLimiter;
 
     public ChatMessageController(
             SessionService sessionService,
             RateLimitService rateLimit,
-            ChatService chatService) {
+            ChatService chatService,
+            StreamLimiter streamLimiter) {
         this.sessionService = sessionService;
         this.rateLimit = rateLimit;
         this.chatService = chatService;
+        this.streamLimiter = streamLimiter;
     }
 
     @PostMapping(value = "/message", produces = MediaType.TEXT_PLAIN_VALUE)
@@ -76,6 +80,15 @@ public class ChatMessageController {
         ChatMessageRequest body = ChatMessageRequest.parse(JsonBody.parse(rawBody));
         String sanitizedMessage = body.message().trim();
 
+        if (!streamLimiter.tryAcquire()) {
+            response.setStatus(503);
+            response.setContentType("application/json");
+            response.getOutputStream().write(
+                    "{\"error\":\"We are busy right now. Please try again shortly.\"}"
+                            .getBytes(StandardCharsets.UTF_8));
+            return;
+        }
+
         ChatService.StreamSetup setup;
         try {
             setup = chatService.prepareMessageStream(
@@ -102,6 +115,7 @@ public class ChatMessageController {
         response.setHeader("Cache-Control", "no-cache, no-transform");
         response.setHeader("X-Accel-Buffering", "no");
         response.setHeader("X-Chat-Id", activeChatId);
+        response.setHeader("X-Cache", setup.cacheHit() ? "hit" : "miss");
         setRateLimitHeaders(response, userRl);
 
         OutputStream outputStream = response.getOutputStream();
@@ -110,11 +124,25 @@ public class ChatMessageController {
             String chunk;
             while ((chunk = stream.next()) != null) {
                 fullResponse.append(chunk);
-                outputStream.write(chunk.getBytes(StandardCharsets.UTF_8));
-                outputStream.flush();
+                try {
+                    outputStream.write(chunk.getBytes(StandardCharsets.UTF_8));
+                    outputStream.flush();
+                } catch (IOException e) {
+                    // Client disconnected: stop consuming so the upstream stream is
+                    // closed (aborting the provider call) instead of paying for the
+                    // rest of the generation.
+                    break;
+                }
             }
         } finally {
-            chatService.saveAssistantMessage(chatId(activeChatId), userId, fullResponse.toString());
+            streamLimiter.release();
+            chatService.saveAssistantMessage(
+                    chatId(activeChatId),
+                    userId,
+                    fullResponse.toString(),
+                    sanitizedMessage,
+                    body.preferredLanguage(),
+                    stream.usage());
         }
     }
 
