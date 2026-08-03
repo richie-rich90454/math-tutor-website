@@ -1,0 +1,565 @@
+[
+    {
+        "concept_id": "place_value",
+        "concept_name": "Place Value",
+        "aliases": [
+            "place value",
+            "digit place",
+            "number place",
+            "units place",
+            "tens place",
+            "hundreds place",
+            "position of digits",
+            "digit position"
+        ],
+        "uyghur_culture": "Camel caravan positions",
+        "explanation_text": "Each camel in a Silk Road caravan has a position in line that determines its role, just like digits have places (ones, tens, hundreds) that determine their value.",
+        "image_prompt": "Illustrate a camel caravan with camels labeled as ones, tens, and hundreds, showing how position in the line affects value."
+    },
+    {
+        "concept_id": "addition_subtraction",
+        "concept_name": "Addition & Subtraction",
+        "aliases": [
+            "add",
+            "addition",
+            "plus",
+            "sum",
+            "combine",
+            "total",
+            "subtract",
+            "subtraction",
+            "minus",
+            "take away",
+            "difference"
+        ],
+        "uyghur_culture": "Adding grapes at the bazaar",
+        "explanation_text": "When a merchant adds more grapes to a basket at the bazaar, the total grows. When some are taken out, the total shrinks—just like addition and subtraction.",
+        "image_prompt": "Show a bazaar basket of grapes being filled and emptied, with the total changing accordingly."
+    },
+    {
+        "concept_id": "multiplication_division",
+        "concept_name": "Multiplication & Division",
+        "aliases": [
+            "multiply",
+            "multiplication",
+            "times",
+            "groups of",
+            "repeated addition",
+            "divide",
+            "division",
+            "split equally",
+            "sharing"
+        ],
+        "uyghur_culture": "Rows of nan bread from the tonur",
+        "explanation_text": "Baking equal rows of nan bread in the tonur oven shows multiplication. Splitting the baked nans evenly among families shows division.",
+        "image_prompt": "Display equal rows of nan bread in a tonur oven, showing equal grouping (multiplication) and even sharing (division)."
+    },
+    {
+        "concept_id": "even_odd",
+        "concept_name": "Even and Odd Numbers",
+        "aliases": [
+            "even numbers",
+            "odd numbers",
+            "even",
+            "odd",
+            "pairs",
+            "leftover",
+            "no remainder",
+            "remains one"
+        ],
+        "uyghur_culture": "Dolan dancers in pairs",
+        "explanation_text": "Dolan dancers lining up in pairs represent even numbers. If one dancer is left without a partner, the group is odd.",
+        "image_prompt": "Show Dolan dancers standing in pairs, with one single dancer at the end to represent an odd number."
+    },
+    {
+        "concept_id": "skip_counting",
+        "concept_name": "Skip Counting / Number Patterns",
+        "aliases": [
+            "skip counting",
+            "count by 2s",
+            "count by 5s",
+            "count by 10s",
+            "jump counting",
+            "repeating numbers",
+            "number patterns"
+        ],
+        "uyghur_culture": "Repeating doppa embroidery rows",
+        "explanation_text": "The repeating embroidery on a doppa follows rhythmic stitch sequences—similar to number patterns or skip counting.",
+        "image_prompt": "Show doppa embroidery with repeating colored stitches, highlighting every 5th stitch to illustrate skip counting."
+    },
+    {
+        "concept_id": "comparing_numbers",
+        "concept_name": "Comparing and Ordering Numbers",
+        "aliases": [
+            "compare numbers",
+            "greater than",
+            "less than",
+            "more than",
+            "fewer than",
+            "biggest",
+            "smallest",
+            "ordering numbers",
+            "number order"
+        ],
+        "uyghur_culture": "Hami melons of different sizes",
+        "explanation_text": "Comparing the sizes of Hami melons at the bazaar helps show which is greater or smaller—like comparing numbers.",
+        "image_prompt": "Show several Hami melons of different sizes, using > and < symbols between them."
+    },
+    {
+        "concept_id": "rounding_estimation",
+        "concept_name": "Rounding & Estimation",
+        "aliases": [
+            "round",
+            "rounding",
+            "estimate",
+            "estimation",
+            "approximate",
+            "about how much",
+            "close to",
+            "nearby number"
+        ],
+        "uyghur_culture": "Estimating rice for polu",
+        "explanation_text": "When cooking polu, the cook estimates how many cups of rice and how much meat are needed—similar to rounding to the nearest convenient number.",
+        "image_prompt": "Show a cook preparing polu in a large qazan pot, roughly estimating the rice amount and labeling it with rounded quantities."
+    },
+    {
+        "concept_id": "fractions",
+        "concept_name": "Fractions",
+        "aliases": ["fraction", "part of a whole", "portion", "share", "numerator", "denominator"],
+        "uyghur_culture": "Sharing one nan bread",
+        "explanation_text": "When a round nan bread is broken and shared equally among family members, each person gets a fraction of the whole bread.",
+        "image_prompt": "Show a round nan bread divided into equal pieces, each labeled as a fraction of the whole."
+    },
+    {
+        "concept_id": "equivalent_fractions",
+        "concept_name": "Equivalent Fractions",
+        "aliases": ["equal fractions", "same value", "fraction equality", "equivalent"],
+        "uyghur_culture": "Slicing melons into equal parts",
+        "explanation_text": "Cutting a melon into 2 equal halves or 4 equal quarters gives the same total amount—like equivalent fractions.",
+        "image_prompt": "Show a Hami melon sliced first into halves, then into quarters, demonstrating equal portions."
+    },
+    {
+        "concept_id": "simplifying_fractions",
+        "concept_name": "Simplifying Fractions",
+        "aliases": ["reduce fraction", "lowest terms", "simplify fraction"],
+        "uyghur_culture": "Combining small grape bundles",
+        "explanation_text": "If several small bundles of grapes are combined into one large basket, you simplify the count—like reducing a fraction to its simplest form.",
+        "image_prompt": "Depict smaller bundles of grapes merging into one larger basket, labeled with reduced fractions."
+    },
+    {
+        "concept_id": "mixed_numbers",
+        "concept_name": "Mixed Numbers",
+        "aliases": ["mixed number", "whole and fraction", "whole part and fraction part"],
+        "uyghur_culture": "Full and half melon crates",
+        "explanation_text": "If a vendor has 3 full crates of melons and half a crate more, that is 3½—just like a mixed number.",
+        "image_prompt": "Show three full melon crates and one half-full crate labeled as 3½."
+    },
+    {
+        "concept_id": "improper_fractions",
+        "concept_name": "Improper Fractions",
+        "aliases": ["top-heavy fraction", "numerator larger", "greater than one fraction"],
+        "uyghur_culture": "Grapes spilling past one basket",
+        "explanation_text": "When grapes fill more than one basket but are still counted in basket-sized parts, that represents an improper fraction.",
+        "image_prompt": "Show several small baskets of grapes piled past one full portion, symbolizing fractions greater than 1."
+    },
+    {
+        "concept_id": "adding_fractions",
+        "concept_name": "Adding Fractions",
+        "aliases": ["fraction addition", "add fractions", "sum of fractions"],
+        "uyghur_culture": "Combining scoops of polu",
+        "explanation_text": "Adding scoops of polu from different bowls shows how fractional portions combine to make a full serving.",
+        "image_prompt": "Show smaller bowls of polu being combined into one total bowl."
+    },
+    {
+        "concept_id": "subtracting_fractions",
+        "concept_name": "Subtracting Fractions",
+        "aliases": ["fraction subtraction", "take away fractions", "difference of fractions"],
+        "uyghur_culture": "Serving out part of the tea",
+        "explanation_text": "Pouring part of a bowl of tea into a guest's cup shows subtracting a fractional part from the whole.",
+        "image_prompt": "Show a bowl of tea with part of it being poured out, the remainder labeled as the fraction left."
+    },
+    {
+        "concept_id": "multiplying_fractions",
+        "concept_name": "Multiplying Fractions",
+        "aliases": ["fraction multiplication", "part of a part", "multiply fractions"],
+        "uyghur_culture": "Half of a half samsa",
+        "explanation_text": "If each guest gets half of half a samsa pastry, you are finding a fraction of a fraction—like multiplying fractions.",
+        "image_prompt": "Show a plate of samsa divided into halves, and one half divided again to show smaller portions."
+    },
+    {
+        "concept_id": "dividing_fractions",
+        "concept_name": "Dividing Fractions",
+        "aliases": ["fraction division", "divide fractions", "how many times in"],
+        "uyghur_culture": "Splitting laghman noodle portions",
+        "explanation_text": "If one portion of laghman noodles is divided into smaller equal servings, it represents dividing a fraction by another fraction.",
+        "image_prompt": "Show a bowl of laghman noodles being divided into smaller even servings to illustrate fractional division."
+    },
+    {
+        "concept_id": "decimals",
+        "concept_name": "Decimals",
+        "aliases": ["decimal point", "tenths", "hundredths", "decimal number"],
+        "uyghur_culture": "Measuring tea water in liters",
+        "explanation_text": "Using liters and milliliters when measuring water for tea introduces decimals, like 1.5 liters meaning one and a half liters.",
+        "image_prompt": "Show a measuring pitcher marked with 1.0, 1.5, and 2.0 liters of water."
+    },
+    {
+        "concept_id": "converting_fractions_decimals",
+        "concept_name": "Converting Fractions and Decimals",
+        "aliases": ["fraction to decimal", "decimal to fraction", "convert fractions"],
+        "uyghur_culture": "Comparing milk amounts",
+        "explanation_text": "Whether you say half a liter of milk or 0.5 liters, both describe the same amount—like converting between fractions and decimals.",
+        "image_prompt": "Show two labeled cups of milk, one marked ½ and another 0.5, filled with the same amount."
+    },
+    {
+        "concept_id": "percents",
+        "concept_name": "Percents",
+        "aliases": ["percent", "percentage", "per hundred", "rate per 100"],
+        "uyghur_culture": "Uyghur language exam scores",
+        "explanation_text": "When a student scores 90 out of 100 on a Uyghur language exam, that is 90%—a way to express parts per hundred.",
+        "image_prompt": "Show a test paper with 90/100 written and a 90% mark beside it."
+    },
+    {
+        "concept_id": "percent_of_number",
+        "concept_name": "Percent of a Number",
+        "aliases": ["percentage of number", "find percent", "portion of total"],
+        "uyghur_culture": "Bazaar discounts on doppa",
+        "explanation_text": "A 10% discount on a doppa at the bazaar shows how percents are used to find parts of a number.",
+        "image_prompt": "Show a bazaar stall sign with a doppa marked ‘10% off' and price tags with reduced amounts."
+    },
+    {
+        "concept_id": "variables",
+        "concept_name": "Variables",
+        "aliases": ["variable", "unknown", "letter as number", "symbol in math"],
+        "uyghur_culture": "Unmarked spice sacks",
+        "explanation_text": "If some sacks of spices are unmarked, each represents an unknown quantity—like variables in math.",
+        "image_prompt": "Show labeled spice sacks (2 kg, 3 kg) and an unmarked sack labeled as x."
+    },
+    {
+        "concept_id": "expressions",
+        "concept_name": "Expressions",
+        "aliases": ["math expressions", "numerical expressions", "algebraic expressions"],
+        "uyghur_culture": "Known and unknown spice sacks",
+        "explanation_text": "If you have 2 known sacks of spices and x more unknown ones, that is like writing the expression 2 + x.",
+        "image_prompt": "Show two spice sacks plus an unmarked one, symbolized as 2 + x."
+    },
+    {
+        "concept_id": "equations",
+        "concept_name": "Equations",
+        "aliases": ["math equations", "equal statements", "algebra equations"],
+        "uyghur_culture": "Balancing a bazaar scale",
+        "explanation_text": "When the two pans of a bazaar scale hold equal weight, it represents equality—just like both sides of an equation.",
+        "image_prompt": "Show a balance scale with equal goods on both sides labeled as an equation."
+    },
+    {
+        "concept_id": "solving_one_step_equations",
+        "concept_name": "Solving One-Step Equations",
+        "aliases": ["one-step equations", "simple equations"],
+        "uyghur_culture": "Balancing a camel's load",
+        "explanation_text": "If one side of a camel's load is heavier, you adjust it by adding or removing weight—like solving one-step equations.",
+        "image_prompt": "Show a camel with balanced saddlebags illustrating equal sides."
+    },
+    {
+        "concept_id": "solving_two_step_equations",
+        "concept_name": "Solving Two-Step Equations",
+        "aliases": ["two-step equations", "multi-step equations"],
+        "uyghur_culture": "Preparing polu step by step",
+        "explanation_text": "Making polu requires frying the meat and onions first and then adding the rice—like solving an equation with two steps.",
+        "image_prompt": "Show the step sequence: fry meat and onions, then add rice, then get the finished polu, symbolizing step-by-step solving."
+    },
+    {
+        "concept_id": "inequalities",
+        "concept_name": "Inequalities",
+        "aliases": ["greater than", "less than", "not equal", "comparison statements"],
+        "uyghur_culture": "Comparing harvest sizes",
+        "explanation_text": "When one oasis village's grape harvest is larger than another's, it shows inequality—like greater than or less than in math.",
+        "image_prompt": "Show two piles of grapes of different sizes with > and < symbols between them."
+    },
+    {
+        "concept_id": "order_of_operations",
+        "concept_name": "Order of Operations (PEMDAS)",
+        "aliases": ["PEMDAS", "BODMAS", "math order", "operations order"],
+        "uyghur_culture": "Making laghman step order",
+        "explanation_text": "To make laghman you must knead the dough before pulling the noodles—it matters what you do first, just like in math order.",
+        "image_prompt": "Show a cooking sequence where steps must happen in order, labeled like parentheses, exponents, etc."
+    },
+    {
+        "concept_id": "substitution",
+        "concept_name": "Substitution",
+        "aliases": ["replace variable", "substitute value", "replace letter with number"],
+        "uyghur_culture": "Replacing a broken ladle",
+        "explanation_text": "If a broken ladle is replaced with another of the same size, that is like substituting a value for a variable.",
+        "image_prompt": "Show a missing ladle replaced with an identical one, representing substitution."
+    },
+    {
+        "concept_id": "points",
+        "concept_name": "Points",
+        "aliases": ["dot", "location", "coordinate point"],
+        "uyghur_culture": "Stars over the desert oasis",
+        "explanation_text": "Each star in the desert night sky marks a position, like a point in geometry.",
+        "image_prompt": "Show a starry sky over an oasis with individual stars labeled as points on a coordinate grid."
+    },
+    {
+        "concept_id": "lines",
+        "concept_name": "Lines",
+        "aliases": ["straight line", "geometry line", "infinite line"],
+        "uyghur_culture": "Caravan tracks across the dunes",
+        "explanation_text": "The straight tracks left by a camel caravan across the desert resemble geometric lines that extend in both directions.",
+        "image_prompt": "Show straight caravan tracks stretching across sand dunes, representing geometric lines."
+    },
+    {
+        "concept_id": "angles",
+        "concept_name": "Angles",
+        "aliases": ["angle", "degree", "corner measure"],
+        "uyghur_culture": "Opening the tonur oven lid",
+        "explanation_text": "When the tonur oven lid is lifted, it forms an angle with the mouth of the oven.",
+        "image_prompt": "Show a tonur oven lid propped open with the angle clearly marked."
+    },
+    {
+        "concept_id": "perpendicular_lines",
+        "concept_name": "Perpendicular Lines",
+        "aliases": ["right angle lines", "intersecting lines", "orthogonal lines"],
+        "uyghur_culture": "Grape trellis posts",
+        "explanation_text": "The vertical posts and horizontal beams of a Turpan grape trellis meet at right angles, forming perpendicular lines.",
+        "image_prompt": "Show grapevine trellis posts meeting beams at 90° angles."
+    },
+    {
+        "concept_id": "parallel_lines",
+        "concept_name": "Parallel Lines",
+        "aliases": ["side-by-side lines", "never meet", "equal distance lines"],
+        "uyghur_culture": "Rows of Turpan vineyards",
+        "explanation_text": "The neat rows of grapevines in a Turpan vineyard run side by side and never meet—like parallel lines.",
+        "image_prompt": "Show parallel rows of grapevines stretching across a vineyard."
+    },
+    {
+        "concept_id": "polygons",
+        "concept_name": "Polygons",
+        "aliases": ["shapes", "closed figure", "many-sided shape"],
+        "uyghur_culture": "Carpet weaving motifs",
+        "explanation_text": "The geometric motifs woven into a gilam carpet form many closed shapes—triangles, squares, and diamonds—like polygons.",
+        "image_prompt": "Show the woven motifs of a carpet forming various closed geometric shapes."
+    },
+    {
+        "concept_id": "triangles",
+        "concept_name": "Triangles",
+        "aliases": ["three sides", "triangular", "triangle shape"],
+        "uyghur_culture": "Samsa pastry triangles",
+        "explanation_text": "Each baked samsa pastry is folded into a triangle with three sides.",
+        "image_prompt": "Show triangular samsa pastries arranged on a tray."
+    },
+    {
+        "concept_id": "quadrilaterals",
+        "concept_name": "Quadrilaterals",
+        "aliases": ["four sides", "rectangles", "squares", "trapezoids"],
+        "uyghur_culture": "Doppa cap patterns",
+        "explanation_text": "The decorative panels stitched on a square doppa form rectangular and square shapes.",
+        "image_prompt": "Show a doppa with repeating square and rectangular embroidery motifs."
+    },
+    {
+        "concept_id": "perimeter",
+        "concept_name": "Perimeter",
+        "aliases": ["boundary length", "distance around", "outline measure"],
+        "uyghur_culture": "Walking around the Id Kah Mosque",
+        "explanation_text": "Measuring the distance around the courtyard of the Id Kah Mosque is like finding the perimeter of a shape.",
+        "image_prompt": "Show people walking around the courtyard of the Id Kah Mosque with a dashed perimeter line."
+    },
+    {
+        "concept_id": "area",
+        "concept_name": "Area",
+        "aliases": ["surface area", "space inside", "coverage"],
+        "uyghur_culture": "Gilam carpet on the floor",
+        "explanation_text": "The amount of floor covered by a gilam carpet represents its area.",
+        "image_prompt": "Show a gilam carpet spread on a room's floor, shaded to show its area."
+    },
+    {
+        "concept_id": "volume",
+        "concept_name": "Volume",
+        "aliases": ["capacity", "space inside 3D shape", "liquid amount"],
+        "uyghur_culture": "Grain sacks at the bazaar",
+        "explanation_text": "The amount of grain a sack can hold represents its volume.",
+        "image_prompt": "Show woven grain sacks filled to different levels to illustrate volume."
+    },
+    {
+        "concept_id": "circle_properties",
+        "concept_name": "Circle Properties",
+        "aliases": ["radius", "diameter", "circumference", "circle geometry"],
+        "uyghur_culture": "Round nan bread",
+        "explanation_text": "Looking at a round nan bread from the tonur shows a perfect circle, illustrating diameter, radius, and circumference.",
+        "image_prompt": "Show a round nan bread from above labeled with radius and diameter lines."
+    },
+    {
+        "concept_id": "pi",
+        "concept_name": "Pi (π)",
+        "aliases": ["pi", "ratio of circumference", "3.14"],
+        "uyghur_culture": "Round nan bread wheel",
+        "explanation_text": "The relationship between a round nan bread's circumference and diameter shows the constant ratio π.",
+        "image_prompt": "Show a circular nan bread labeled with circumference and diameter measurements."
+    },
+    {
+        "concept_id": "coordinate_plane",
+        "concept_name": "Coordinate Plane",
+        "aliases": ["x-y plane", "graph grid", "axes"],
+        "uyghur_culture": "Bazaar stall grid",
+        "explanation_text": "A Kashgar bazaar laid out in rows and columns resembles a coordinate grid, where each stall has coordinates.",
+        "image_prompt": "Show a bazaar map labeled with x and y coordinates."
+    },
+    {
+        "concept_id": "plotting_points",
+        "concept_name": "Plotting Points",
+        "aliases": ["graphing points", "coordinates", "x-y plotting"],
+        "uyghur_culture": "Mapping oases on the Silk Road",
+        "explanation_text": "Plotting the location of each oasis town along the Silk Road on a map is like plotting points on a coordinate plane.",
+        "image_prompt": "Show a map of the Silk Road with oasis towns marked as labeled points."
+    },
+    {
+        "concept_id": "symmetry",
+        "concept_name": "Symmetry",
+        "aliases": ["mirror image", "balanced halves", "reflection symmetry"],
+        "uyghur_culture": "Doppa embroidery patterns",
+        "explanation_text": "The embroidered patterns on a doppa mirror each other across the center lines, showing symmetry.",
+        "image_prompt": "Show a symmetrical doppa embroidery pattern split by a mirror line."
+    },
+    {
+        "concept_id": "transformations",
+        "concept_name": "Transformations",
+        "aliases": ["translate", "rotate", "reflect", "dilate"],
+        "uyghur_culture": "Dancers rotating in a circle",
+        "explanation_text": "When Uyghur dancers turn and shift their positions during the dance, it represents geometric transformations.",
+        "image_prompt": "Show Uyghur dancers turning and shifting positions to illustrate transformations."
+    },
+    {
+        "concept_id": "ratios",
+        "concept_name": "Ratios",
+        "aliases": ["comparison", "proportion of quantities", "rate"],
+        "uyghur_culture": "Rice-to-meat ratio in polu",
+        "explanation_text": "When preparing polu, the balance of rice to meat and carrot represents a ratio.",
+        "image_prompt": "Show a polu pot labeled with rice and meat ratios, like 2:1."
+    },
+    {
+        "concept_id": "proportions",
+        "concept_name": "Proportions",
+        "aliases": ["equal ratios", "scaling", "balance of ratios"],
+        "uyghur_culture": "Enlarging carpet designs",
+        "explanation_text": "When scaling up a gilam carpet pattern while keeping it identical, that is maintaining proportion.",
+        "image_prompt": "Show a small and large carpet with the same geometric proportions."
+    },
+    {
+        "concept_id": "unit_rate",
+        "concept_name": "Unit Rate",
+        "aliases": ["per unit", "rate per one", "comparison per one unit"],
+        "uyghur_culture": "Caravan speed per day",
+        "explanation_text": "The distance a Silk Road camel caravan travels in one day is a unit rate.",
+        "image_prompt": "Show a camel caravan with speed measured as kilometers per day."
+    },
+    {
+        "concept_id": "scale_drawings",
+        "concept_name": "Scale Drawings",
+        "aliases": ["map scale", "drawing proportion", "scaled map"],
+        "uyghur_culture": "Mapping the Kashgar bazaar",
+        "explanation_text": "Drawing a smaller map of the large Kashgar bazaar while keeping distances proportional is a scale drawing.",
+        "image_prompt": "Show the Kashgar bazaar and a smaller scaled map side by side with a scale legend."
+    },
+    {
+        "concept_id": "percent_change",
+        "concept_name": "Percent Change",
+        "aliases": ["percent increase", "percent decrease", "growth rate"],
+        "uyghur_culture": "Growth of the grape harvest",
+        "explanation_text": "If a vineyard's grape harvest grows from 100 kg to 120 kg, that is a 20% increase—an example of percent change.",
+        "image_prompt": "Show a grape harvest growing in size with a +20% label."
+    },
+    {
+        "concept_id": "data_collection",
+        "concept_name": "Data Collection",
+        "aliases": ["gather data", "record information", "collect numbers"],
+        "uyghur_culture": "Recording grape harvest weights",
+        "explanation_text": "Recording how many baskets of grapes, melons, and pomegranates a farm produces is an example of data collection.",
+        "image_prompt": "Show a farmer marking tallies of fruit baskets on a clipboard."
+    },
+    {
+        "concept_id": "tables_graphs",
+        "concept_name": "Tables and Graphs",
+        "aliases": ["data table", "bar graph", "chart"],
+        "uyghur_culture": "Harvest data comparison",
+        "explanation_text": "Using a graph to show how many melons were picked each season helps visualize data trends.",
+        "image_prompt": "Show a bar graph comparing melon harvests across four seasons."
+    },
+    {
+        "concept_id": "mean",
+        "concept_name": "Mean",
+        "aliases": ["average", "arithmetic mean", "mean value"],
+        "uyghur_culture": "Average daily melon sales",
+        "explanation_text": "Finding the average number of melons a stall sells per day shows the mean.",
+        "image_prompt": "Show a table of melon sales with the average value highlighted."
+    },
+    {
+        "concept_id": "median",
+        "concept_name": "Median",
+        "aliases": ["middle value", "data median"],
+        "uyghur_culture": "Middle price of doppa sales",
+        "explanation_text": "When doppa prices are arranged from smallest to largest, the middle one is the median.",
+        "image_prompt": "Show doppa prices lined up with the middle one highlighted as the median."
+    },
+    {
+        "concept_id": "mode",
+        "concept_name": "Mode",
+        "aliases": ["most frequent value", "common value"],
+        "uyghur_culture": "Most common fruit sold",
+        "explanation_text": "If most stalls at the bazaar sell grapes, grapes are the mode.",
+        "image_prompt": "Show bazaar stalls selling various fruits with grapes being the most common."
+    },
+    {
+        "concept_id": "range",
+        "concept_name": "Range",
+        "aliases": ["difference", "spread of data", "highest minus lowest"],
+        "uyghur_culture": "Spread of bazaar prices",
+        "explanation_text": "The gap between the highest and lowest price at the bazaar shows the range.",
+        "image_prompt": "Show price tags with the highest and lowest prices marked for range."
+    },
+    {
+        "concept_id": "bar_graphs",
+        "concept_name": "Bar Graphs",
+        "aliases": ["bar chart", "column graph"],
+        "uyghur_culture": "Comparing fruit sales",
+        "explanation_text": "Each bar represents how many melons, grapes, or pomegranates a stall sold—useful for quick comparisons.",
+        "image_prompt": "Show a bar graph labeled by fruit type with sales totals."
+    },
+    {
+        "concept_id": "line_graphs",
+        "concept_name": "Line Graphs",
+        "aliases": ["trend graph", "line chart"],
+        "uyghur_culture": "Tracking grape harvest over months",
+        "explanation_text": "A line graph shows how the grape harvest changes through the growing season.",
+        "image_prompt": "Show a line graph labeled with months and grape harvest amounts."
+    },
+    {
+        "concept_id": "pie_charts",
+        "concept_name": "Pie Charts",
+        "aliases": ["circle chart", "percentage chart"],
+        "uyghur_culture": "Oasis crop distribution",
+        "explanation_text": "A pie chart can show the proportion of melons, grapes, cotton, and wheat grown in an oasis.",
+        "image_prompt": "Show a pie chart divided into crop categories with percentages."
+    },
+    {
+        "concept_id": "probability",
+        "concept_name": "Probability",
+        "aliases": ["chance", "likelihood", "odds"],
+        "uyghur_culture": "Predicting festival race winners",
+        "explanation_text": "Estimating which horse is most likely to win a race at a traditional Uyghur festival involves probability.",
+        "image_prompt": "Show horses at a festival race start line with probability labels above each."
+    },
+    {
+        "concept_id": "patterns",
+        "concept_name": "Patterns",
+        "aliases": ["repeating design", "sequence", "recurrence"],
+        "uyghur_culture": "Carpet border designs",
+        "explanation_text": "Repeated geometric motifs on gilam carpets or doppa embroidery represent visual patterns.",
+        "image_prompt": "Show repeating geometric designs in traditional Uyghur carpet weaving."
+    },
+    {
+        "concept_id": "functions",
+        "concept_name": "Functions",
+        "aliases": ["input-output rule", "function relation", "mapping"],
+        "uyghur_culture": "Caravan distance over time",
+        "explanation_text": "If each hour of travel gives a specific distance for the caravan, it is like a function—each input gives one output.",
+        "image_prompt": "Show a graph linking travel time (input) to distance traveled (output)."
+    }
+]
