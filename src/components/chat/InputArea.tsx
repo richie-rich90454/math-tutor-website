@@ -166,6 +166,8 @@ const InputArea = memo(function InputArea({
             fr: "fr-FR",
             de: "de-DE",
             ja: "ja-JP",
+            ru: "ru-RU",
+            vi: "vi-VN",
         };
         // Use current language from document or default to en-US
         const currentLang = document.documentElement.lang || "en";
