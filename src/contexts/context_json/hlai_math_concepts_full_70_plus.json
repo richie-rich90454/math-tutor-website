@@ -1,0 +1,565 @@
+[
+    {
+        "concept_id": "place_value",
+        "concept_name": "Place Value",
+        "aliases": [
+            "place value",
+            "digit place",
+            "number place",
+            "units place",
+            "tens place",
+            "hundreds place",
+            "position of digits",
+            "digit position"
+        ],
+        "hlai_culture": "Hlai brocade warp and weft",
+        "explanation_text": "On the waist loom, a thread's worth in the finished Hlai brocade depends entirely on which warp and weft position it occupies, just as a digit's value depends on its place in a number. Move a thread to a new row and the diamond pattern changes; move a digit to a new place and its value changes. The woven grid is place value made visible.",
+        "image_prompt": "Illustrate a waist loom weaving Hlai brocade, with warp threads labeled as ones, tens, and hundreds, showing how each thread's position in the cloth changes the design just as a digit's place changes its value."
+    },
+    {
+        "concept_id": "addition_subtraction",
+        "concept_name": "Addition & Subtraction",
+        "aliases": [
+            "add",
+            "addition",
+            "plus",
+            "sum",
+            "combine",
+            "total",
+            "subtract",
+            "subtraction",
+            "minus",
+            "take away",
+            "difference"
+        ],
+        "hlai_culture": "Coconut baskets for a festival",
+        "explanation_text": "When a family adds a basket of freshly picked coconuts to the store for the March Third festival, the total grows; when guests take some away, the total shrinks. Addition and subtraction describe these changes to a group of coconuts.",
+        "image_prompt": "Show coconut baskets at a Hainan village: a basket being added (labeled +) and another being taken away (labeled -), with the total count changing."
+    },
+    {
+        "concept_id": "multiplication_division",
+        "concept_name": "Multiplication & Division",
+        "aliases": [
+            "multiply",
+            "multiplication",
+            "times",
+            "groups of",
+            "repeated addition",
+            "divide",
+            "division",
+            "split equally",
+            "sharing"
+        ],
+        "hlai_culture": "Betel nut rows for guests",
+        "explanation_text": "Laying out identical rows of betel nuts for festival guests shows multiplication as repeated groups. Splitting one long row evenly among every guest shows division.",
+        "image_prompt": "Display equal rows of betel nuts on a serving tray, showing equal grouping (multiplication) and even sharing among guests (division)."
+    },
+    {
+        "concept_id": "even_odd",
+        "concept_name": "Even and Odd Numbers",
+        "aliases": [
+            "even numbers",
+            "odd numbers",
+            "even",
+            "odd",
+            "pairs",
+            "leftover",
+            "no remainder",
+            "remains one"
+        ],
+        "hlai_culture": "Betel nuts offered in pairs",
+        "explanation_text": "Betel nuts are traditionally offered to guests in pairs, and pairs represent even numbers. If one betel nut is left without a partner, the count is odd.",
+        "image_prompt": "Show pairs of betel nuts laid out for guests, with one single betel nut left at the end to represent an odd number."
+    },
+    {
+        "concept_id": "skip_counting",
+        "concept_name": "Skip Counting / Number Patterns",
+        "aliases": [
+            "skip counting",
+            "count by 2s",
+            "count by 5s",
+            "count by 10s",
+            "jump counting",
+            "repeating numbers",
+            "number patterns"
+        ],
+        "hlai_culture": "Diamond motifs in Hlai brocade",
+        "explanation_text": "The repeating diamond and zigzag motifs in Hlai brocade follow rhythmic color sequences, much like skip counting. Counting every fifth motif across the cloth is the same idea as counting by fives.",
+        "image_prompt": "Show a band of Hlai brocade with repeating diamond shapes, highlighting every fifth motif to illustrate skip counting by 5s."
+    },
+    {
+        "concept_id": "comparing_numbers",
+        "concept_name": "Comparing and Ordering Numbers",
+        "aliases": [
+            "compare numbers",
+            "greater than",
+            "less than",
+            "more than",
+            "fewer than",
+            "biggest",
+            "smallest",
+            "ordering numbers",
+            "number order"
+        ],
+        "hlai_culture": "Piles of harvested rice",
+        "explanation_text": "Comparing the sizes of rice piles brought in from different terraces shows which is greater or smaller. Putting the piles in order from smallest to largest is like ordering numbers.",
+        "image_prompt": "Show several rice piles of different sizes in a Hainan highland field, using > and < symbols between them."
+    },
+    {
+        "concept_id": "rounding_estimation",
+        "concept_name": "Rounding & Estimation",
+        "aliases": [
+            "round",
+            "rounding",
+            "estimate",
+            "estimation",
+            "approximate",
+            "about how much",
+            "close to",
+            "nearby number"
+        ],
+        "hlai_culture": "Preparing the festival feast",
+        "explanation_text": "When cooking for the March Third festival, the cook estimates about how much rice and coconut to prepare, rounding to the nearest full basket. Estimation keeps the feast on track without counting every grain.",
+        "image_prompt": "Show a cook estimating rice for a festival feast, measuring by baskets and labeling amounts with rounded numbers."
+    },
+    {
+        "concept_id": "fractions",
+        "concept_name": "Fractions",
+        "aliases": ["fraction", "part of a whole", "portion", "share", "numerator", "denominator"],
+        "hlai_culture": "Sharing a coconut",
+        "explanation_text": "When a whole coconut is split equally among several people, each person receives a fraction of it. One coconut shared by four people gives each person one quarter.",
+        "image_prompt": "Show a coconut being split into equal wedges shared among people, each portion labeled as a fraction of the whole."
+    },
+    {
+        "concept_id": "equivalent_fractions",
+        "concept_name": "Equivalent Fractions",
+        "aliases": ["equal fractions", "same value", "fraction equality", "equivalent"],
+        "hlai_culture": "Cutting a coconut into halves and quarters",
+        "explanation_text": "Cutting a coconut into 2 equal halves or into 4 equal quarters still gives the same total coconut. Half and two quarters describe the same amount, just like equivalent fractions.",
+        "image_prompt": "Show a coconut cut first into halves, then into quarters, demonstrating that the portions describe the same total amount."
+    },
+    {
+        "concept_id": "simplifying_fractions",
+        "concept_name": "Simplifying Fractions",
+        "aliases": ["reduce fraction", "lowest terms", "simplify fraction"],
+        "hlai_culture": "Merging pearl catches",
+        "explanation_text": "If two pearl divers combine their small daily catches into one larger group, the count is easier to describe, much like reducing a fraction to its simplest form. Six pearls in twelve is the same proportion as one in two.",
+        "image_prompt": "Depict smaller baskets of pearls merging into one larger basket, labeled with a simplified fraction."
+    },
+    {
+        "concept_id": "mixed_numbers",
+        "concept_name": "Mixed Numbers",
+        "aliases": ["mixed number", "whole and fraction", "whole part and fraction part"],
+        "hlai_culture": "Full and half rice baskets",
+        "explanation_text": "If a family stores 3 full baskets of rice and one half basket more, that is 3½ baskets. A whole part plus a fraction is called a mixed number.",
+        "image_prompt": "Show three full rice baskets and one half-full basket labeled as 3½."
+    },
+    {
+        "concept_id": "improper_fractions",
+        "concept_name": "Improper Fractions",
+        "aliases": ["top-heavy fraction", "numerator larger", "greater than one fraction"],
+        "hlai_culture": "Overflowing coconut water bowls",
+        "explanation_text": "When coconut water fills more than one bowl but is still counted in bowl-sized parts, the amount is more than one whole and forms an improper fraction.",
+        "image_prompt": "Show several small bowls of coconut water filled past one full portion, symbolizing fractions greater than 1."
+    },
+    {
+        "concept_id": "adding_fractions",
+        "concept_name": "Adding Fractions",
+        "aliases": ["fraction addition", "add fractions", "sum of fractions"],
+        "hlai_culture": "Combining portions of rice porridge",
+        "explanation_text": "Pouring a half bowl of rice porridge into a quarter bowl from another makes a new total. Adding fractional portions shows how parts combine into a larger amount.",
+        "image_prompt": "Show smaller bowls of rice porridge being poured together into one total bowl."
+    },
+    {
+        "concept_id": "subtracting_fractions",
+        "concept_name": "Subtracting Fractions",
+        "aliases": ["fraction subtraction", "take away fractions", "difference of fractions"],
+        "hlai_culture": "Sharing out part of the betel tray",
+        "explanation_text": "When guests take a portion of the betel nuts from a tray, the remaining amount is what is left after subtracting a fraction.",
+        "image_prompt": "Show a tray of betel nuts with a portion being taken away, the remainder labeled as the fraction left."
+    },
+    {
+        "concept_id": "multiplying_fractions",
+        "concept_name": "Multiplying Fractions",
+        "aliases": ["fraction multiplication", "part of a part", "multiply fractions"],
+        "hlai_culture": "Half of half a serving of sticky rice",
+        "explanation_text": "If each guest takes half of a half-portion of sticky rice, you are finding a fraction of a fraction, which is multiplying fractions.",
+        "image_prompt": "Show a bowl of sticky rice divided into halves, with one half divided again to show smaller portions."
+    },
+    {
+        "concept_id": "dividing_fractions",
+        "concept_name": "Dividing Fractions",
+        "aliases": ["fraction division", "divide fractions", "how many times in"],
+        "hlai_culture": "Slicing a bamboo tube of rice",
+        "explanation_text": "If a bamboo tube of cooked rice is divided evenly into smaller pieces, the question of how many small pieces fit in one tube is dividing fractions.",
+        "image_prompt": "Show a bamboo tube of rice being cut into equal smaller portions to illustrate fractional division."
+    },
+    {
+        "concept_id": "decimals",
+        "concept_name": "Decimals",
+        "aliases": ["decimal point", "tenths", "hundredths", "decimal number"],
+        "hlai_culture": "Measuring coconut milk in liters",
+        "explanation_text": "Using liters and milliliters to measure coconut milk at the village market introduces decimals, such as 1.5 liters meaning one and a half liters.",
+        "image_prompt": "Show a measuring container marked with 1.0, 1.5, and 2.0 liters of coconut milk."
+    },
+    {
+        "concept_id": "converting_fractions_decimals",
+        "concept_name": "Converting Fractions and Decimals",
+        "aliases": ["fraction to decimal", "decimal to fraction", "convert fractions"],
+        "hlai_culture": "The same coconut milk amount",
+        "explanation_text": "Whether you say half a liter or 0.5 liters, both describe the same amount of coconut milk, just like converting between fractions and decimals.",
+        "image_prompt": "Show two labeled cups, one marked 1/2 and another 0.5, filled with the same amount of coconut milk."
+    },
+    {
+        "concept_id": "percents",
+        "concept_name": "Percents",
+        "aliases": ["percent", "percentage", "per hundred", "rate per 100"],
+        "hlai_culture": "School test scores in Wuzhishan",
+        "explanation_text": "When a student scores 90 out of 100 on a mathematics test at a Wuzhishan school, that is 90%. Percents express parts per hundred.",
+        "image_prompt": "Show a test paper with 90/100 written and a 90% mark beside it."
+    },
+    {
+        "concept_id": "percent_of_number",
+        "concept_name": "Percent of a Number",
+        "aliases": ["percentage of number", "find percent", "portion of total"],
+        "hlai_culture": "Festival discount on Li silver",
+        "explanation_text": "A 10% discount on a piece of Li silver jewelry at a Sanya market stall shows how percents are used to find parts of a price.",
+        "image_prompt": "Show a market sign with a piece of Li silver marked '10% off' and price tags with reduced amounts."
+    },
+    {
+        "concept_id": "variables",
+        "concept_name": "Variables",
+        "aliases": ["variable", "unknown", "letter as number", "symbol in math"],
+        "hlai_culture": "Unmarked harvest baskets",
+        "explanation_text": "If some harvest baskets are not yet weighed, each stands for an unknown quantity, just like a variable in math.",
+        "image_prompt": "Show labeled baskets (5 kg, 3 kg) and an unlabeled basket marked as x."
+    },
+    {
+        "concept_id": "expressions",
+        "concept_name": "Expressions",
+        "aliases": ["math expressions", "numerical expressions", "algebraic expressions"],
+        "hlai_culture": "Known baskets and unknown ones",
+        "explanation_text": "If you have 2 weighed baskets of rice and x more unweighed ones, the total is written as the expression 2 + x.",
+        "image_prompt": "Show two rice baskets plus an unlabeled one, symbolized as 2 + x."
+    },
+    {
+        "concept_id": "equations",
+        "concept_name": "Equations",
+        "aliases": ["math equations", "equal statements", "algebra equations"],
+        "hlai_culture": "Balancing a shoulder pole",
+        "explanation_text": "When the two loads hung on a carrying pole balance evenly, the weights are equal, just like the two sides of an equation.",
+        "image_prompt": "Show a balanced carrying pole with equal loads on both sides labeled as an equation."
+    },
+    {
+        "concept_id": "solving_one_step_equations",
+        "concept_name": "Solving One-Step Equations",
+        "aliases": ["one-step equations", "simple equations"],
+        "hlai_culture": "Adjusting a shoulder load",
+        "explanation_text": "If one side of a carrying pole is heavier, the carrier adds or removes a single basket to balance it, just like solving a one-step equation with one operation.",
+        "image_prompt": "Show a person balancing a carrying pole by adding one basket, illustrating a one-step equation."
+    },
+    {
+        "concept_id": "solving_two_step_equations",
+        "concept_name": "Solving Two-Step Equations",
+        "aliases": ["two-step equations", "multi-step equations"],
+        "hlai_culture": "Steaming sticky rice step by step",
+        "explanation_text": "Making festival sticky rice requires soaking the rice first and then steaming it, two steps in the right order, just like solving a two-step equation.",
+        "image_prompt": "Show the step sequence: soak rice, then steam rice, then serve, symbolizing step-by-step solving."
+    },
+    {
+        "concept_id": "inequalities",
+        "concept_name": "Inequalities",
+        "aliases": ["greater than", "less than", "not equal", "comparison statements"],
+        "hlai_culture": "Comparing betel harvests",
+        "explanation_text": "When one family's betel harvest is larger than another's, the comparison is an inequality, written with greater than or less than symbols.",
+        "image_prompt": "Show two piles of betel nuts of different sizes with > and < symbols between them."
+    },
+    {
+        "concept_id": "order_of_operations",
+        "concept_name": "Order of Operations (PEMDAS)",
+        "aliases": ["PEMDAS", "BODMAS", "math order", "operations order"],
+        "hlai_culture": "Weaving order on the waist loom",
+        "explanation_text": "On the waist loom the weaver must pass the shuttle in the correct order before beating the cloth, just as math expressions must be evaluated in the right sequence. Doing steps out of order changes the result.",
+        "image_prompt": "Show a weaving sequence where steps must happen in order, labeled like parentheses, exponents, and other operations."
+    },
+    {
+        "concept_id": "substitution",
+        "concept_name": "Substitution",
+        "aliases": ["replace variable", "substitute value", "replace letter with number"],
+        "hlai_culture": "Replacing a broken shuttle",
+        "explanation_text": "If a broken shuttle on the loom is replaced with a new one of the same size, the pattern is unchanged, just like substituting a value into a variable.",
+        "image_prompt": "Show a missing shuttle replaced with an identical one on a loom, representing substitution."
+    },
+    {
+        "concept_id": "points",
+        "concept_name": "Points",
+        "aliases": ["dot", "location", "coordinate point"],
+        "hlai_culture": "Stars over Five Fingers Mountain",
+        "explanation_text": "Each star above the Five Fingers Mountain marks a single position in the sky, just like a point in geometry.",
+        "image_prompt": "Show a starry sky over Five Fingers Mountain with individual stars labeled as points on a coordinate grid."
+    },
+    {
+        "concept_id": "lines",
+        "concept_name": "Lines",
+        "aliases": ["straight line", "geometry line", "infinite line"],
+        "hlai_culture": "Warp threads of the loom",
+        "explanation_text": "The warp threads stretched straight along the waist loom run in long straight rows, resembling geometric lines that continue in both directions.",
+        "image_prompt": "Show long straight warp threads stretched on a waist loom, representing geometric lines."
+    },
+    {
+        "concept_id": "angles",
+        "concept_name": "Angles",
+        "aliases": ["angle", "degree", "corner measure"],
+        "hlai_culture": "Opening a boat-shaped house door",
+        "explanation_text": "When the curved door of a boat-shaped house swings open, the space between the door and the frame forms an angle.",
+        "image_prompt": "Show a boat-shaped house door partially open with the angle clearly marked."
+    },
+    {
+        "concept_id": "perpendicular_lines",
+        "concept_name": "Perpendicular Lines",
+        "aliases": ["right angle lines", "intersecting lines", "orthogonal lines"],
+        "hlai_culture": "Boat-shaped house frame beams",
+        "explanation_text": "The vertical posts and horizontal beams of a boat-shaped house meet at right angles, forming perpendicular lines that give the roof its strength.",
+        "image_prompt": "Show the frame of a boat-shaped house with posts and beams meeting at 90 degree angles."
+    },
+    {
+        "concept_id": "parallel_lines",
+        "concept_name": "Parallel Lines",
+        "aliases": ["side-by-side lines", "never meet", "equal distance lines"],
+        "hlai_culture": "Rice rows in the terraces",
+        "explanation_text": "The straight rows of rice seedlings planted across the Hainan highland terraces run side by side and never meet, just like parallel lines.",
+        "image_prompt": "Show straight rows of rice seedlings running side by side across a mountain terrace."
+    },
+    {
+        "concept_id": "polygons",
+        "concept_name": "Polygons",
+        "aliases": ["shapes", "closed figure", "many-sided shape"],
+        "hlai_culture": "Village houses seen from above",
+        "explanation_text": "Seen from above, the oval and rectangular layouts of bamboo houses and their courtyards form closed geometric shapes called polygons.",
+        "image_prompt": "Show the overhead shapes of several Hlai village houses forming closed geometric shapes."
+    },
+    {
+        "concept_id": "triangles",
+        "concept_name": "Triangles",
+        "aliases": ["three sides", "triangular", "triangle shape"],
+        "hlai_culture": "Gable of the boat-shaped house",
+        "explanation_text": "The high ridge and two slanted sides of a boat-shaped house roof create a triangle, a shape with three sides.",
+        "image_prompt": "Show the triangular gable formed by the roof beams of a boat-shaped house."
+    },
+    {
+        "concept_id": "quadrilaterals",
+        "concept_name": "Quadrilaterals",
+        "aliases": ["four sides", "rectangles", "squares", "trapezoids"],
+        "hlai_culture": "Woven mats and brocade panels",
+        "explanation_text": "The rectangular woven mats used in Li homes and the rectangular panels of Hlai brocade are four-sided shapes called quadrilaterals.",
+        "image_prompt": "Show a woven mat and brocade panel with clear square and rectangular motifs."
+    },
+    {
+        "concept_id": "perimeter",
+        "concept_name": "Perimeter",
+        "aliases": ["boundary length", "distance around", "outline measure"],
+        "hlai_culture": "Walking around the village",
+        "explanation_text": "Measuring the distance all the way around a village of bamboo houses is like finding the perimeter of a shape.",
+        "image_prompt": "Show people walking around a ring of bamboo houses with a dashed perimeter line."
+    },
+    {
+        "concept_id": "area",
+        "concept_name": "Area",
+        "aliases": ["surface area", "space inside", "coverage"],
+        "hlai_culture": "Rice terraces of the highlands",
+        "explanation_text": "The amount of ground a paddy field covers in the Hainan highlands is its area, often measured in mu. Every terrace is a portion of the mountain's area.",
+        "image_prompt": "Show mountain rice terraces shaded to highlight the area covered by each paddy field."
+    },
+    {
+        "concept_id": "volume",
+        "concept_name": "Volume",
+        "aliases": ["capacity", "space inside 3D shape", "liquid amount"],
+        "hlai_culture": "Woven rice storage baskets",
+        "explanation_text": "The amount of rice a large woven storage basket can hold represents its volume. A deeper basket can hold more, just as volume measures the space inside a container.",
+        "image_prompt": "Show large woven rice storage baskets filled to different levels to illustrate volume."
+    },
+    {
+        "concept_id": "circle_properties",
+        "concept_name": "Circle Properties",
+        "aliases": ["radius", "diameter", "circumference", "circle geometry"],
+        "hlai_culture": "Round woven trays",
+        "explanation_text": "Looking down at a round woven tray used for serving betel nuts shows a perfect circle, illustrating the diameter, radius, and circumference.",
+        "image_prompt": "Show a round woven tray from above labeled with radius and diameter lines."
+    },
+    {
+        "concept_id": "pi",
+        "concept_name": "Pi (π)",
+        "aliases": ["pi", "ratio of circumference", "3.14"],
+        "hlai_culture": "Circular bamboo baskets",
+        "explanation_text": "The relationship between the circumference and the diameter of a round bamboo basket is always about 3.14, the constant pi, no matter the basket's size.",
+        "image_prompt": "Show a circular bamboo basket labeled with circumference and diameter measurements."
+    },
+    {
+        "concept_id": "coordinate_plane",
+        "concept_name": "Coordinate Plane",
+        "aliases": ["x-y plane", "graph grid", "axes"],
+        "hlai_culture": "The warp and weft grid of the loom",
+        "explanation_text": "A Hlai brocade is woven on a grid of warp and weft threads, where every crossing has a position, just as every point on a coordinate plane has an x and y coordinate.",
+        "image_prompt": "Show a loom's warp and weft grid labeled with x and y axes, like a coordinate plane."
+    },
+    {
+        "concept_id": "plotting_points",
+        "concept_name": "Plotting Points",
+        "aliases": ["graphing points", "coordinates", "x-y plotting"],
+        "hlai_culture": "Marking pearl diving spots",
+        "explanation_text": "Fishermen marking each pearl diving spot on a map of the bay at Xincun is like plotting points on a coordinate plane.",
+        "image_prompt": "Show a map of Xincun bay with labeled pearl diving spots marked as points."
+    },
+    {
+        "concept_id": "symmetry",
+        "concept_name": "Symmetry",
+        "aliases": ["mirror image", "balanced halves", "reflection symmetry"],
+        "hlai_culture": "Diamond patterns in Hlai brocade",
+        "explanation_text": "The diamond and geometric patterns in Hlai brocade mirror each other across the center line of the cloth, showing reflection symmetry.",
+        "image_prompt": "Show a symmetrical Hlai brocade pattern split by a mirror line."
+    },
+    {
+        "concept_id": "transformations",
+        "concept_name": "Transformations",
+        "aliases": ["translate", "rotate", "reflect", "dilate"],
+        "hlai_culture": "Dancers of the March Third festival",
+        "explanation_text": "When dancers in the March Third festival bamboo dance move across the square, turn together, and form mirrored lines, they illustrate translation, rotation, and reflection.",
+        "image_prompt": "Show festival dancers shifting, turning, and forming mirrored lines to illustrate geometric transformations."
+    },
+    {
+        "concept_id": "ratios",
+        "concept_name": "Ratios",
+        "aliases": ["comparison", "proportion of quantities", "rate"],
+        "hlai_culture": "Mixing coconut milk and rice",
+        "explanation_text": "When cooking coconut rice, the balance of coconut milk to rice, such as two parts milk to one part rice, is a ratio.",
+        "image_prompt": "Show a cooking pot labeled with coconut milk and rice ratios, like 2:1."
+    },
+    {
+        "concept_id": "proportions",
+        "concept_name": "Proportions",
+        "aliases": ["equal ratios", "scaling", "balance of ratios"],
+        "hlai_culture": "Enlarging a brocade pattern",
+        "explanation_text": "When a weaver copies a small brocade pattern onto a larger cloth while keeping every part in the same relation, the enlarged design keeps its proportions.",
+        "image_prompt": "Show a small and a large Hlai brocade with the same geometric proportions."
+    },
+    {
+        "concept_id": "unit_rate",
+        "concept_name": "Unit Rate",
+        "aliases": ["per unit", "rate per one", "comparison per one unit"],
+        "hlai_culture": "Pearl divers' daily catch",
+        "explanation_text": "The number of pearls a diver collects in one hour of diving is a unit rate, such as five pearls per hour.",
+        "image_prompt": "Show pearl divers with their catch measured as pearls per hour of diving."
+    },
+    {
+        "concept_id": "scale_drawings",
+        "concept_name": "Scale Drawings",
+        "aliases": ["map scale", "drawing proportion", "scaled map"],
+        "hlai_culture": "Mapping the village",
+        "explanation_text": "Drawing a smaller map of a large Hlai village while keeping every distance in proportion is a scale drawing, like the maps used to show the whole settlement.",
+        "image_prompt": "Show a Hlai village and a smaller scaled map side by side with a scale legend."
+    },
+    {
+        "concept_id": "percent_change",
+        "concept_name": "Percent Change",
+        "aliases": ["percent increase", "percent decrease", "growth rate"],
+        "hlai_culture": "Growth of the betel harvest",
+        "explanation_text": "If a family's betel harvest grows from 100 to 120 baskets, that is a 20% increase, an example of percent change.",
+        "image_prompt": "Show a betel harvest growing in size with a +20% label."
+    },
+    {
+        "concept_id": "data_collection",
+        "concept_name": "Data Collection",
+        "aliases": ["gather data", "record information", "collect numbers"],
+        "hlai_culture": "Tallying the pearl catch",
+        "explanation_text": "Recording how many pearls each diver brings in each day at Xincun is an example of data collection.",
+        "image_prompt": "Show a fisherman marking tallies of pearls on a wooden tally board."
+    },
+    {
+        "concept_id": "tables_graphs",
+        "concept_name": "Tables and Graphs",
+        "aliases": ["data table", "bar graph", "chart"],
+        "hlai_culture": "Comparing the coconut harvest",
+        "explanation_text": "Using a graph to show how many coconuts each grove produced in a season helps villagers see trends in the harvest data at a glance.",
+        "image_prompt": "Show a bar graph comparing coconut harvests across the growing seasons."
+    },
+    {
+        "concept_id": "mean",
+        "concept_name": "Mean",
+        "aliases": ["average", "arithmetic mean", "mean value"],
+        "hlai_culture": "Average daily pearl catch",
+        "explanation_text": "Finding the average number of pearls a diver collects per day across a week shows the mean of the daily catch.",
+        "image_prompt": "Show a table of daily pearl catches with the average value highlighted."
+    },
+    {
+        "concept_id": "median",
+        "concept_name": "Median",
+        "aliases": ["middle value", "data median"],
+        "hlai_culture": "Middle betel harvest of the families",
+        "explanation_text": "When the betel harvests of the village families are arranged from smallest to largest, the middle value is the median.",
+        "image_prompt": "Show harvest totals lined up in order with the middle one highlighted as the median."
+    },
+    {
+        "concept_id": "mode",
+        "concept_name": "Mode",
+        "aliases": ["most frequent value", "common value"],
+        "hlai_culture": "Most common pearl size",
+        "explanation_text": "If most of the pearls collected are the same small size, that size is the mode of the collection.",
+        "image_prompt": "Show pearls of various sizes with the most common size appearing most often."
+    },
+    {
+        "concept_id": "range",
+        "concept_name": "Range",
+        "aliases": ["difference", "spread of data", "highest minus lowest"],
+        "hlai_culture": "Spread of the daily catches",
+        "explanation_text": "The gap between the largest and smallest daily pearl catch shows the range of the data.",
+        "image_prompt": "Show a bar chart with the shortest and tallest bars marked for range."
+    },
+    {
+        "concept_id": "bar_graphs",
+        "concept_name": "Bar Graphs",
+        "aliases": ["bar chart", "column graph"],
+        "hlai_culture": "Comparing family harvests",
+        "explanation_text": "Each bar in a graph can show how many betel baskets each family harvested, making quick comparisons easy.",
+        "image_prompt": "Show a bar graph labeled by family names with betel harvest totals."
+    },
+    {
+        "concept_id": "line_graphs",
+        "concept_name": "Line Graphs",
+        "aliases": ["trend graph", "line chart"],
+        "hlai_culture": "Tracking pearl catches over months",
+        "explanation_text": "A line graph shows how the pearl catch changes month by month across the fishing season.",
+        "image_prompt": "Show a line graph labeled with months and pearl catch totals."
+    },
+    {
+        "concept_id": "pie_charts",
+        "concept_name": "Pie Charts",
+        "aliases": ["circle chart", "percentage chart"],
+        "hlai_culture": "Crops of the highland fields",
+        "explanation_text": "A pie chart can show the proportion of rice, betel, and coconut grown in a family's highland fields.",
+        "image_prompt": "Show a pie chart divided into rice, betel, and coconut categories with percentages."
+    },
+    {
+        "concept_id": "probability",
+        "concept_name": "Probability",
+        "aliases": ["chance", "likelihood", "odds"],
+        "hlai_culture": "Guessing games at the festival",
+        "explanation_text": "In a March Third festival guessing game, estimating the chance that the coconut lands a certain way involves probability.",
+        "image_prompt": "Show festival goers at a guessing game with probability labels above each outcome."
+    },
+    {
+        "concept_id": "patterns",
+        "concept_name": "Patterns",
+        "aliases": ["repeating design", "sequence", "recurrence"],
+        "hlai_culture": "Hlai brocade border motifs",
+        "explanation_text": "The repeated diamond, zigzag, and hooked motifs along the borders of Hlai brocade are visual patterns that follow regular rules, just like number patterns.",
+        "image_prompt": "Show repeating geometric motifs along the border of Hlai brocade."
+    },
+    {
+        "concept_id": "functions",
+        "concept_name": "Functions",
+        "aliases": ["input-output rule", "function relation", "mapping"],
+        "hlai_culture": "Harvest per planted terrace",
+        "explanation_text": "If each planted terrace of rice gives a specific harvest, the rule linking terrace to harvest is a function, where each input gives exactly one output.",
+        "image_prompt": "Show a diagram linking terraces (input) to rice harvest amounts (output) as a function mapping."
+    }
+]
