@@ -41,8 +41,14 @@ public class SecurityUtil {
         }
         if (parts.length == 4) {
             String salt = parts[0];
-            int iterations = Integer.parseInt(parts[1]);
-            int keylen = Integer.parseInt(parts[2]);
+            int iterations;
+            int keylen;
+            try {
+                iterations = Integer.parseInt(parts[1]);
+                keylen = Integer.parseInt(parts[2]);
+            } catch (NumberFormatException e) {
+                return false;
+            }
             String hash = parts[3];
             if (salt == null || salt.isEmpty() || iterations <= 0 || keylen <= 0 || hash == null || hash.isEmpty()) {
                 return false;
