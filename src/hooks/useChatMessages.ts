@@ -59,7 +59,13 @@ export function useChatMessages() {
                 if (!res.ok || cancelled) return;
                 const data = await res.json();
                 if (cancelled) return;
-                type ApiMessage = { id: string; content: string; role: string; created_at: string; is_pinned?: number };
+                type ApiMessage = {
+                    id: string;
+                    content: string;
+                    role: string;
+                    created_at: string;
+                    is_pinned?: number;
+                };
                 const formatted = ((data.messages ?? []) as ApiMessage[]).map((msg) => ({
                     id: msg.id,
                     content: msg.content,
@@ -390,14 +396,11 @@ export function useChatMessages() {
                 prev.map((m) => (m.id === messageId ? { ...m, isPinned: nextPinned } : m)),
             );
             try {
-                await apiFetch(
-                    `/api/chats/${activeChatId}/messages/${messageId}/pin`,
-                    {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({ pinned: nextPinned }),
-                    },
-                );
+                await apiFetch(`/api/chats/${activeChatId}/messages/${messageId}/pin`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ pinned: nextPinned }),
+                });
             } catch {
                 // optimistic update; ignore API errors
             }
