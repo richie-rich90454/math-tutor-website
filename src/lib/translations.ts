@@ -208,6 +208,56 @@ export interface Translations {
     loadingConversations: string;
     // Sidebar delete confirm
     sidebarDeleteConfirmTitle: string;
+    // Practice (B8)
+    practiceTitle?: string;
+    practiceTopic?: string;
+    practiceGrade?: string;
+    practiceQuestion?: string;
+    practiceSubmit?: string;
+    practiceCorrect?: string;
+    practiceIncorrect?: string;
+    practiceNext?: string;
+    practiceStreak?: string;
+    practiceAskAI?: string;
+    practiceExplanation?: string;
+    practiceDone?: string;
+    // Review (B9)
+    reviewDue?: string;
+    reviewDueToday?: string;
+    reviewStart?: string;
+    // Weak topics (B10)
+    weakTopics?: string;
+    reviewNext?: string;
+    // Problem of the day (B11)
+    problemOfDay?: string;
+    // Sheets (B13)
+    sheetsTitle?: string;
+    sheetsFormula?: string;
+    sheetsTerm?: string;
+    sheetsMandarin?: string;
+    // Check-my-answer (B12)
+    checkAnswer?: string;
+    // Notes (D18)
+    notes?: string;
+    makeNotes?: string;
+    notesView?: string;
+    // Share (D19)
+    share?: string;
+    shareCopied?: string;
+    shareRevoke?: string;
+    // Study plan (D20)
+    studyPlan?: string;
+    studyPlanTitle?: string;
+    generatePlan?: string;
+    // Guest mode (D21)
+    tryGuest?: string;
+    // Quota (E)
+    quotaWarning?: string;
+    // Bilingual (C15)
+    bilingual?: string;
+    showMandarin?: string;
+    // Math vocab highlight (C17)
+    mathVocab?: string;
 }
 
 export const translations: Record<string, Translations> = {
@@ -401,6 +451,43 @@ export const translations: Record<string, Translations> = {
         toastRateLimited: "Too many requests. Please wait a moment.",
         chatLoadingMessages: "Loading messages...",
         ariaLiveStreaming: "AI is responding...",
+        practiceTitle: "Practice",
+        practiceTopic: "Topic",
+        practiceGrade: "Grade",
+        practiceQuestion: "Question",
+        practiceSubmit: "Check answer",
+        practiceCorrect: "Correct!",
+        practiceIncorrect: "Not quite.",
+        practiceNext: "Next question",
+        practiceStreak: "Streak",
+        practiceAskAI: "Ask AI for help",
+        practiceExplanation: "Explanation",
+        practiceDone: "Done",
+        reviewDue: "Review due",
+        reviewDueToday: "Due today",
+        reviewStart: "Start review",
+        weakTopics: "Weak topics",
+        reviewNext: "Review next",
+        problemOfDay: "Problem of the day",
+        sheetsTitle: "Formula & Glossary Sheets",
+        sheetsFormula: "Formulas",
+        sheetsTerm: "Key terms",
+        sheetsMandarin: "Mandarin",
+        checkAnswer: "Check my answer",
+        notes: "Notes",
+        makeNotes: "Make study notes",
+        notesView: "View notes",
+        share: "Share chat",
+        shareCopied: "Link copied",
+        shareRevoke: "Stop sharing",
+        studyPlan: "Study plan",
+        studyPlanTitle: "7-day study plan",
+        generatePlan: "Generate study plan",
+        tryGuest: "Try without an account",
+        quotaWarning: "You have used 80% of your daily token limit",
+        bilingual: "Bilingual",
+        showMandarin: "Show Mandarin",
+        mathVocab: "Math vocabulary",
     },
     "zh-hans": {
         title: "数学导师 AI",
@@ -589,6 +676,43 @@ export const translations: Record<string, Translations> = {
         toastRateLimited: "请求过多，请稍候。",
         chatLoadingMessages: "加载消息中...",
         ariaLiveStreaming: "AI 正在回复...",
+        practiceTitle: "练习",
+        practiceTopic: "主题",
+        practiceGrade: "年级",
+        practiceQuestion: "题目",
+        practiceSubmit: "检查答案",
+        practiceCorrect: "答对了！",
+        practiceIncorrect: "不对哦。",
+        practiceNext: "下一题",
+        practiceStreak: "连续答对",
+        practiceAskAI: "向 AI 求助",
+        practiceExplanation: "解析",
+        practiceDone: "完成",
+        reviewDue: "待复习",
+        reviewDueToday: "今日到期",
+        reviewStart: "开始复习",
+        weakTopics: "薄弱主题",
+        reviewNext: "接下来复习",
+        problemOfDay: "每日一题",
+        sheetsTitle: "公式与词汇表",
+        sheetsFormula: "公式",
+        sheetsTerm: "关键术语",
+        sheetsMandarin: "中文",
+        checkAnswer: "检查我的答案",
+        notes: "笔记",
+        makeNotes: "生成学习笔记",
+        notesView: "查看笔记",
+        share: "分享对话",
+        shareCopied: "链接已复制",
+        shareRevoke: "停止分享",
+        studyPlan: "学习计划",
+        studyPlanTitle: "7天学习计划",
+        generatePlan: "生成学习计划",
+        tryGuest: "无需注册试用",
+        quotaWarning: "您已使用每日额度上限的 80%",
+        bilingual: "双语",
+        showMandarin: "显示中文",
+        mathVocab: "数学词汇",
     },
     "zh-hant": {
         title: "數學導師 AI",
@@ -966,6 +1090,43 @@ export const translations: Record<string, Translations> = {
         toastRateLimited: "Хэт олон хүсэлт. Түр хүлээнэ үү.",
         chatLoadingMessages: "Зурвас ачаалж байна...",
         ariaLiveStreaming: "AI хариулж байна...",
+        practiceTitle: "Дасгал",
+        practiceTopic: "Сэдэв",
+        practiceGrade: "Анги",
+        practiceQuestion: "Бодлого",
+        practiceSubmit: "Хариуг шалгах",
+        practiceCorrect: "Зөв!",
+        practiceIncorrect: "Буруу байна.",
+        practiceNext: "Дараагийн бодлого",
+        practiceStreak: "Цуваралт",
+        practiceAskAI: "AI-ээс тусламж авах",
+        practiceExplanation: "Тайлбар",
+        practiceDone: "Дууслаа",
+        reviewDue: "Давтах шаардлагатай",
+        reviewDueToday: "Өнөөдөр",
+        reviewStart: "Давтах эхлэх",
+        weakTopics: "Сул сэдвүүд",
+        reviewNext: "Дараа нь давтах",
+        problemOfDay: "Өдрийн бодлого",
+        sheetsTitle: "Томьёо ба нэр томьёо",
+        sheetsFormula: "Томьёонууд",
+        sheetsTerm: "Гол нэр томьёо",
+        sheetsMandarin: "Хятад",
+        checkAnswer: "Хариугаа шалгах",
+        notes: "Тэмдэглэл",
+        makeNotes: "Хичээлийн тэмдэглэл үүсгэх",
+        notesView: "Тэмдэглэл харах",
+        share: "Харилцан яриаг хуваалцах",
+        shareCopied: "Холбоос хуулагдлаа",
+        shareRevoke: "Хуваалцахыг болиулах",
+        studyPlan: "Сургалтын төлөвлөгөө",
+        studyPlanTitle: "7 хоногийн төлөвлөгөө",
+        generatePlan: "Төлөвлөгөө үүсгэх",
+        tryGuest: "Бүртгэлгүйгээр турших",
+        quotaWarning: "Өдрийн хязгаарын 80%-ийг ашигласан",
+        bilingual: "Хоёр хэл",
+        showMandarin: "Хятад хэл харуулах",
+        mathVocab: "Математикийн нэр томьёо",
     },
     "mn-mong": {
         title: "ᠮᠠᠲ᠋ᠧᠮᠠᠲᠢᠺᠢᠨ ᠶᠢᠨ ᠪᠠᠭᠰᠢ AI",
