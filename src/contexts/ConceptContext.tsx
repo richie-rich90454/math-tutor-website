@@ -2,20 +2,48 @@
 
 import { createContext, useContext, useState, ReactNode, useEffect } from "react";
 
+export type Culture =
+    | "mongolian"
+    | "tibetan"
+    | "english"
+    | "chinese"
+    | "spanish"
+    | "french"
+    | "german"
+    | "japanese"
+    | "arabic"
+    | "hebrew"
+    | "kazakh"
+    | "uyghur"
+    | "korean"
+    | "zhuang";
+
 export interface MathConcept {
     concept_id: string;
     concept_name: string;
     aliases: string[];
     mongolian_culture?: string;
     tibetan_culture?: string;
+    english_culture?: string;
+    chinese_culture?: string;
+    spanish_culture?: string;
+    french_culture?: string;
+    german_culture?: string;
+    japanese_culture?: string;
+    arabic_culture?: string;
+    hebrew_culture?: string;
+    kazakh_culture?: string;
+    uyghur_culture?: string;
+    korean_culture?: string;
+    zhuang_culture?: string;
     explanation_text: string;
     image_prompt: string;
 }
 
 interface ConceptContextType {
     concepts: MathConcept[];
-    currentCulture: "mongolian" | "tibetan";
-    setCulture: (culture: "mongolian" | "tibetan") => void;
+    currentCulture: Culture;
+    setCulture: (culture: Culture) => void;
     getConceptById: (id: string) => MathConcept | undefined;
     searchConcepts: (query: string) => MathConcept[];
     getConceptsByCategory: (category: string) => MathConcept[];
@@ -23,16 +51,27 @@ interface ConceptContextType {
 
 const ConceptContext = createContext<ConceptContextType | undefined>(undefined);
 
-async function loadConcepts(culture: "mongolian" | "tibetan"): Promise<MathConcept[]> {
+const cultureModules: Record<Culture, () => Promise<{ default?: MathConcept[] }>> = {
+    mongolian: () => import("./context_json/mongolian_math_concepts_full_70_plus.json"),
+    tibetan: () => import("./context_json/tibetan_math_concepts_full_70_plus.json"),
+    english: () => import("./context_json/english_math_concepts_full_70_plus.json"),
+    chinese: () => import("./context_json/chinese_math_concepts_full_70_plus.json"),
+    spanish: () => import("./context_json/spanish_math_concepts_full_70_plus.json"),
+    french: () => import("./context_json/french_math_concepts_full_70_plus.json"),
+    german: () => import("./context_json/german_math_concepts_full_70_plus.json"),
+    japanese: () => import("./context_json/japanese_math_concepts_full_70_plus.json"),
+    arabic: () => import("./context_json/arabic_math_concepts_full_70_plus.json"),
+    hebrew: () => import("./context_json/hebrew_math_concepts_full_70_plus.json"),
+    kazakh: () => import("./context_json/kazakh_math_concepts_full_70_plus.json"),
+    uyghur: () => import("./context_json/uyghur_math_concepts_full_70_plus.json"),
+    korean: () => import("./context_json/korean_math_concepts_full_70_plus.json"),
+    zhuang: () => import("./context_json/zhuang_math_concepts_full_70_plus.json"),
+};
+
+async function loadConcepts(culture: Culture): Promise<MathConcept[]> {
     try {
-        let importedModule;
-        if (culture === "mongolian") {
-            importedModule =
-                await import("./context_json/mongolian_math_concepts_full_70_plus.json");
-        } else {
-            importedModule = await import("./context_json/tibetan_math_concepts_full_70_plus.json");
-        }
-        return importedModule.default || importedModule;
+        const importedModule = await cultureModules[culture]();
+        return (importedModule.default ?? importedModule) as MathConcept[];
     } catch (error) {
         console.error(`Failed to load ${culture} concepts:`, error);
         return [];
@@ -41,7 +80,7 @@ async function loadConcepts(culture: "mongolian" | "tibetan"): Promise<MathConce
 
 export function ConceptProvider({ children }: { children: ReactNode }) {
     const [concepts, setConcepts] = useState<MathConcept[]>([]);
-    const [currentCulture, setCurrentCulture] = useState<"mongolian" | "tibetan">("mongolian");
+    const [currentCulture, setCurrentCulture] = useState<Culture>("mongolian");
     const [, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -57,7 +96,7 @@ export function ConceptProvider({ children }: { children: ReactNode }) {
             });
     }, [currentCulture]);
 
-    const setCulture = (culture: "mongolian" | "tibetan") => {
+    const setCulture = (culture: Culture) => {
         setCurrentCulture(culture);
     };
 
