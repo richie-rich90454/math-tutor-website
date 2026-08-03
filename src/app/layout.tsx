@@ -151,7 +151,7 @@ export default function RootLayout({
                             (function() {
                                 try {
                                     var lang = localStorage.getItem('preferred-language');
-                                    if (lang === 'ar' || lang === 'he') {
+                                    if (lang === 'ar' || lang === 'he' || lang === 'ug') {
                                         document.documentElement.setAttribute('dir', 'rtl');
                                         document.documentElement.setAttribute('lang', lang);
                                     }
