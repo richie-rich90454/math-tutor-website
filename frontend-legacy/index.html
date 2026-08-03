@@ -8,6 +8,7 @@
 </head>
 <body>
 <div class="legacy-shell shell-app">
+    <div class="quota-banner hidden" id="quotaBanner" data-i18n="quotaWarning">Daily limit near</div>
     <div class="legacy-header">
         <span class="brand">MathTutor AI</span>
         <span class="right">
@@ -15,9 +16,17 @@
             <span> | </span>
             <a href="#" id="headerExport" class="header-btn hidden" data-i18n="headerExportChat">Export</a>
             <span> | </span>
+            <a href="#" id="headerNotes" class="header-btn hidden" data-i18n="makeNotes">Notes</a>
+            <span> | </span>
+            <a href="#" id="headerShare" class="header-btn hidden" data-i18n="share">Share</a>
+            <span> | </span>
             <span id="langSwitcher"></span>
             <span> | </span>
             <a href="#" id="themeToggle" title="Toggle theme">&#9681;</a>
+            <span> | </span>
+            <a href="/legacy/practice.html" data-i18n="practiceTitle">Practice</a>
+            <span> | </span>
+            <a href="/legacy/sheets.html" data-i18n="sheetsTitle">Sheets</a>
             <span> | </span>
             <a href="/legacy/progress.html" data-i18n="progressTitle">Progress</a>
             <span> | </span>
@@ -68,6 +77,7 @@
                                 <div id="authPrompt" class="hidden" style="margin-top:16px;">
                                     <a href="/legacy/login.html" class="btn btn-primary" data-i18n="sidebarSignIn">Sign in</a>
                                 </div>
+                                <div class="learning-cards" id="learningCards"></div>
                             </div>
                             <div class="messages hidden" id="messagesArea"></div>
                         </td>
@@ -85,6 +95,7 @@
                                     <button type="button" class="btn hidden" id="stopBtn" data-i18n="inputStopGenerating">Stop</button>
                                     <input type="file" id="imageInput" accept="image/*" style="display:none;">
                                     <button type="button" class="btn" id="attachBtn" data-i18n="inputAttachImage">Attach image</button>
+                                    <button type="button" class="btn" id="checkBtn" data-i18n="checkAnswer">Check</button>
                                     <span class="input-hint" data-i18n="inputShiftHint">Shift + Enter for newline</span>
                                 </div>
                             </div>
