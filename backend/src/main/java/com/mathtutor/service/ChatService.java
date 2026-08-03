@@ -22,7 +22,26 @@ public class ChatService {
             "kk", "kk",
             "ug", "ug",
             "ko", "ko",
-            "za", "za");
+            "za", "za",
+            "ru", "ru",
+            "yi", "yi",
+            "tg", "tg",
+            "vi", "vi",
+            "uz", "uz",
+            "ky", "ky",
+            "hmn", "hmn",
+            "dng", "dng",
+            "bca", "bca",
+            "tdd", "tdd",
+            "nxq", "nxq",
+            "tji", "tji",
+            "pcc", "pcc",
+            "hni", "hni",
+            "lic", "lic",
+            "iom", "iom",
+            "lis", "lis",
+            "lhu", "lhu",
+            "wbm", "wbm");
 
     private final ChatRepository chats;
     private final MessageRepository messages;
