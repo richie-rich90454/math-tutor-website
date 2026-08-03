@@ -23,6 +23,10 @@ public class PromptService {
             Map.entry("fr", "prompt-fr.txt"),
             Map.entry("de", "prompt-de.txt"),
             Map.entry("ja", "prompt-ja.txt"),
+            Map.entry("kk", "prompt-kk.txt"),
+            Map.entry("ug", "prompt-ug.txt"),
+            Map.entry("ko", "prompt-ko.txt"),
+            Map.entry("za", "prompt-za.txt"),
             Map.entry("en", "prompt-en-us.txt"));
 
     private static final String FALLBACK_PROMPT =
