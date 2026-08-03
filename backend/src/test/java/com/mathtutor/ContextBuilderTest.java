@@ -84,4 +84,14 @@ class ContextBuilderTest {
         assertTrue(context.get(5).content().contains("msg-49"));
         assertTrue(context.get(6).content().startsWith("[USER CONTENT START]\nfinal\n[USER CONTENT END]"));
     }
+
+    @Test
+    void checkContextIsShortAndGuarded() {
+        var context = builder.buildCheckContext("Is 2x = 6 solved as x = 3?");
+        assertEquals(3, context.size());
+        assertEquals("system", context.get(0).role());
+        assertEquals("user", context.get(1).role());
+        assertTrue(context.get(1).content().startsWith("[USER CONTENT START]\nIs 2x = 6 solved as x = 3?\n[USER CONTENT END]"));
+        assertTrue(context.get(2).content().startsWith("[SYSTEM INSTRUCTION]"));
+    }
 }
