@@ -4,15 +4,12 @@ import com.mathtutor.repo.AnswerCacheRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
 @Service
 public class AnswerCache {
 
-    private static final double SIMILARITY_THRESHOLD = 0.85;
-    private static final int FUZZY_SCAN_LIMIT = 500;
     private static final int MAX_ROWS = 20000;
 
     private final AnswerCacheRepository repo;
@@ -31,20 +28,7 @@ public class AnswerCache {
             repo.incrementHit(exact.get().cache_key());
             return Optional.of(exact.get().answer());
         }
-        Set<String> inputBigrams = bigrams(normalized);
-        List<AnswerCacheRepository.CacheRecord> recent =
-                repo.findRecentByLanguage(language, topic, FUZZY_SCAN_LIMIT);
-        String best = null;
-        double bestScore = SIMILARITY_THRESHOLD;
-        for (AnswerCacheRepository.CacheRecord record : recent) {
-            String candidate = normalize(record.question());
-            double score = jaccard(inputBigrams, bigrams(candidate));
-            if (score >= bestScore) {
-                bestScore = score;
-                best = record.answer();
-            }
-        }
-        return Optional.ofNullable(best);
+        return Optional.empty();
     }
 
     public void store(String question, String language, String topic, String answer) {
