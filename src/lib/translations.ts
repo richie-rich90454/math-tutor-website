@@ -202,6 +202,8 @@ export interface Translations {
     toastRateLimited: string;
     // Chat
     chatLoadingMessages: string;
+    pin?: string;
+    unpin?: string;
     // ARIA
     ariaLiveStreaming: string;
     // Loading
@@ -450,6 +452,8 @@ export const translations: Record<string, Translations> = {
         errorBoundaryReload: "Reload page",
         toastRateLimited: "Too many requests. Please wait a moment.",
         chatLoadingMessages: "Loading messages...",
+        pin: "Pin message",
+        unpin: "Unpin message",
         ariaLiveStreaming: "AI is responding...",
         practiceTitle: "Practice",
         practiceTopic: "Topic",
@@ -675,6 +679,8 @@ export const translations: Record<string, Translations> = {
         errorBoundaryReload: "刷新页面",
         toastRateLimited: "请求过多，请稍候。",
         chatLoadingMessages: "加载消息中...",
+        pin: "置顶消息",
+        unpin: "取消置顶",
         ariaLiveStreaming: "AI 正在回复...",
         practiceTitle: "练习",
         practiceTopic: "主题",
@@ -1089,6 +1095,8 @@ export const translations: Record<string, Translations> = {
         errorBoundaryReload: "Хуудсыг дахин ачаалах",
         toastRateLimited: "Хэт олон хүсэлт. Түр хүлээнэ үү.",
         chatLoadingMessages: "Зурвас ачаалж байна...",
+        pin: "Зурвасыг хадгалах",
+        unpin: "Хадгалалтыг болиулах",
         ariaLiveStreaming: "AI хариулж байна...",
         practiceTitle: "Дасгал",
         practiceTopic: "Сэдэв",
@@ -2649,7 +2657,8 @@ export const translations: Record<string, Translations> = {
         learnGeometry: "Геометрияны үйрену",
         timesTables: "Көбейту кестесі",
         culturalExamples: "Мәдени мысалдар",
-        bottomText: "Сіздің мәдениетіңіз бен тіліңізге бейімделетін AI негізіндегі математикалық білім",
+        bottomText:
+            "Сіздің мәдениетіңіз бен тіліңізге бейімделетін AI негізіндегі математикалық білім",
         usageToday: "Бүгінгі қолданыс",
         usageCacheHits: "кэш соққылары",
         examplePracticeAddition: "Маған қосуды жаттықтыруға көмектес",
@@ -2657,7 +2666,8 @@ export const translations: Record<string, Translations> = {
         exampleTimesTables: "Маған көбейту кестесін меңгеруге көмектес",
         exampleCulturalExamples: "Маған мәдени математикалық мысалдар бер",
         practiceProblems: "Жаттығу есептері",
-        examplePracticeProblems: "Маған ағымдағы деңгейімде 3 жаттығу есебін жаса. Оларды біртіндеп қиындат.",
+        examplePracticeProblems:
+            "Маған ағымдағы деңгейімде 3 жаттығу есебін жаса. Оларды біртіндеп қиындат.",
         sidebarHistory: "Тарих",
         sidebarSearchPlaceholder: "Әңгімелерді іздеу...",
         sidebarNewChat: "Жаңа әңгіме",
@@ -2693,7 +2703,7 @@ export const translations: Record<string, Translations> = {
         chatLoadingMessage: "Хабарлама жүктелуде...",
         chatLoadingResponse: "Жауап жүктелуде...",
         sidebarRenamePrompt: "Әңгіменің атын өзгерту:",
-        sidebarDeleteConfirm: '«%s» жою керек пе?',
+        sidebarDeleteConfirm: "«%s» жою керек пе?",
         sidebarSettings: "Баптаулар",
         sidebarShortcuts: "Пернетақта жарлықтары",
         sidebarSignIn: "Кіру",
@@ -2847,7 +2857,8 @@ export const translations: Record<string, Translations> = {
         exampleTimesTables: "ماڭا كۆپەيتىش جەدۋىلىدە ياردەم قىلىڭ",
         exampleCulturalExamples: "ماڭا مەدەنىيەت بىلەن باغلانغان ماتېماتىكا ئۈلگىلىرىنى بېرىڭ",
         practiceProblems: "مەشىق مەسىلىلىرى",
-        examplePracticeProblems: "ھازىرقى سەۋىيەمدە 3 مەشىق مەسىلىسى تۈزۈڭ. ئۇلارنى تەدرىجىي قىيىنلاشتۇرۇڭ.",
+        examplePracticeProblems:
+            "ھازىرقى سەۋىيەمدە 3 مەشىق مەسىلىسى تۈزۈڭ. ئۇلارنى تەدرىجىي قىيىنلاشتۇرۇڭ.",
         sidebarHistory: "تارىخ",
         sidebarSearchPlaceholder: "سۆھبەتلەرنى ئىزدەش...",
         sidebarNewChat: "يېڭى سۆھبەت",
@@ -2883,7 +2894,7 @@ export const translations: Record<string, Translations> = {
         chatLoadingMessage: "خەت يۈكلىنىۋاتىدۇ...",
         chatLoadingResponse: "جاۋاب يۈكلىنىۋاتىدۇ...",
         sidebarRenamePrompt: "سۆھبەت ئىسمىنى ئۆزگەرت:",
-        sidebarDeleteConfirm: '«%s» نى ئۆچۈرەمسىز؟',
+        sidebarDeleteConfirm: "«%s» نى ئۆچۈرەمسىز؟",
         sidebarSettings: "تەڭشەكلەر",
         sidebarShortcuts: "كۇنۇپكا تېز كۇنۇپكىلىرى",
         sidebarSignIn: "كىرىش",
@@ -3037,7 +3048,8 @@ export const translations: Record<string, Translations> = {
         exampleTimesTables: "구구단을 도와주세요",
         exampleCulturalExamples: "문화 관련 수학 예시를 알려주세요",
         practiceProblems: "연습 문제",
-        examplePracticeProblems: "지금 내 수준에 맞는 연습 문제 3개를 만들어 주세요. 점점 더 어렵게 해 주세요.",
+        examplePracticeProblems:
+            "지금 내 수준에 맞는 연습 문제 3개를 만들어 주세요. 점점 더 어렵게 해 주세요.",
         sidebarHistory: "기록",
         sidebarSearchPlaceholder: "대화 검색...",
         sidebarNewChat: "새 채팅",
@@ -3227,7 +3239,8 @@ export const translations: Record<string, Translations> = {
         exampleTimesTables: "Gou baeuh Doxsiq Biu ndei",
         exampleCulturalExamples: "Caw gou vwnzva sawsoq yiengh",
         practiceProblems: "Lienh Daejsoq",
-        examplePracticeProblems: "Gou yaep daih 3 aen lienh daejsoq, youq gou sizcaiq gingh. De ndaej nanz gaemh gaemh.",
+        examplePracticeProblems:
+            "Gou yaep daih 3 aen lienh daejsoq, youq gou sizcaiq gingh. De ndaej nanz gaemh gaemh.",
         sidebarHistory: "Lizsij",
         sidebarSearchPlaceholder: "Cam cazyawj vahdoeng...",
         sidebarNewChat: "Vahdoeng Moq",
