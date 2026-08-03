@@ -32,12 +32,6 @@ public class UserRepository {
                 id);
     }
 
-    public void updateUser(String id, String column, Object value) {
-        jdbc.update(
-                "UPDATE users SET " + column + " = ?, updated_at = datetime('now') WHERE id = ?",
-                value, id);
-    }
-
     private Optional<UserRecord> queryOne(String sql, Object... args) {
         return jdbc.query(sql, rs -> {
             if (!rs.next()) {
