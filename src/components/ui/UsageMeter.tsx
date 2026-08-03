@@ -38,7 +38,10 @@ export default function UsageMeter({ refreshKey = 0 }: { refreshKey?: number }) 
         <span className="app-usage-meter">
             {t("usageToday")}: {formatTokens(today.total)} tok · ${today.estCostUsd.toFixed(4)}
             {typeof usage.cacheHits === "number" && usage.cacheHits > 0 && (
-                <> · {usage.cacheHits} {t("usageCacheHits")}</>
+                <>
+                    {" "}
+                    · {usage.cacheHits} {t("usageCacheHits")}
+                </>
             )}
         </span>
     );
