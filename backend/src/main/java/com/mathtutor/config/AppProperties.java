@@ -11,7 +11,8 @@ public record AppProperties(
         Ai ai,
         Cors cors,
         Prompts prompts,
-        Legacy legacy) {
+        Legacy legacy,
+        Quota quota) {
 
     public record Database(String path) {
     }
@@ -33,5 +34,11 @@ public record AppProperties(
     }
 
     public record Legacy(String staticDir) {
+    }
+
+    public record Quota(
+            long dailyTokens,
+            double softRatio,
+            long monthlyTokens) {
     }
 }
