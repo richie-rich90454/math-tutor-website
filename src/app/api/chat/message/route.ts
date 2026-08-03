@@ -32,6 +32,12 @@ export async function POST(request: Request) {
     const chatId = upstream.headers.get("X-Chat-Id") || "";
     const reader = upstream.body!.getReader();
 
+    const passHeaders: Record<string, string> = {};
+    for (const h of ["X-Quota-Limit", "X-Quota-Used", "X-Quota-Remaining", "X-Quota-Warning"]) {
+        const value = upstream.headers.get(h);
+        if (value) passHeaders[h] = value;
+    }
+
     const stream = new ReadableStream<Uint8Array>({
         async pull(controller) {
             try {
@@ -57,6 +63,7 @@ export async function POST(request: Request) {
             "Cache-Control": "no-cache, no-transform",
             "X-Accel-Buffering": "no",
             ...(chatId ? { "X-Chat-Id": chatId } : {}),
+            ...passHeaders,
         },
     });
 }
