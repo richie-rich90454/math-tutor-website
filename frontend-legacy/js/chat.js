@@ -106,7 +106,10 @@
                     return;
                 }
                 e.preventDefault();
-                selectChat(MathTutor.attr(this, "data-chat-id"));
+                var id = MathTutor.attr(this, "data-chat-id");
+                if (id) {
+                    selectChat(id);
+                }
             });
     }
 
@@ -641,8 +644,9 @@
         if (idx < 0) {
             return;
         }
+        var content = messages[idx].content;
         truncateTo(messageId);
-        el("chatInput").value = messages[idx].content;
+        el("chatInput").value = content;
     }
 
     function truncateTo(messageId) {
