@@ -6,6 +6,7 @@ import com.mathtutor.dto.JsonBody;
 import com.mathtutor.service.AiClient;
 import com.mathtutor.service.RateLimitService;
 import com.mathtutor.service.SessionService;
+import com.mathtutor.service.StreamLimiter;
 import com.mathtutor.service.VisionChatService;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
@@ -30,16 +31,19 @@ public class ChatImageController {
     private final RateLimitService rateLimit;
     private final VisionChatService visionChatService;
     private final AppProperties props;
+    private final StreamLimiter streamLimiter;
 
     public ChatImageController(
             SessionService sessionService,
             RateLimitService rateLimit,
             VisionChatService visionChatService,
-            AppProperties props) {
+            AppProperties props,
+            StreamLimiter streamLimiter) {
         this.sessionService = sessionService;
         this.rateLimit = rateLimit;
         this.visionChatService = visionChatService;
         this.props = props;
+        this.streamLimiter = streamLimiter;
     }
 
     @PostMapping(value = "/image", produces = MediaType.TEXT_PLAIN_VALUE)
@@ -68,6 +72,15 @@ public class ChatImageController {
         }
 
         ChatImageRequest body = ChatImageRequest.parse(JsonBody.parse(rawBody));
+
+        if (!streamLimiter.tryAcquire()) {
+            response.setStatus(503);
+            response.setContentType("application/json");
+            response.getOutputStream().write(
+                    "{\"error\":\"We are busy right now. Please try again shortly.\"}"
+                            .getBytes(StandardCharsets.UTF_8));
+            return;
+        }
 
         VisionChatService.VisionStreamSetup setup;
         try {
@@ -102,10 +115,15 @@ public class ChatImageController {
             String chunk;
             while ((chunk = stream.next()) != null) {
                 fullResponse.append(chunk);
-                outputStream.write(chunk.getBytes(StandardCharsets.UTF_8));
-                outputStream.flush();
+                try {
+                    outputStream.write(chunk.getBytes(StandardCharsets.UTF_8));
+                    outputStream.flush();
+                } catch (IOException e) {
+                    break;
+                }
             }
         } finally {
+            streamLimiter.release();
             visionChatService.saveAssistantMessage(activeChatId, userId, fullResponse.toString());
         }
     }
