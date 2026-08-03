@@ -45,7 +45,7 @@ public class AuthController {
             @RequestBody String rawBody,
             HttpServletRequest request,
             HttpServletResponse response) {
-        String ip = clientIp(request);
+        String ip = com.mathtutor.web.RequestSecurity.clientIp(request);
         RateLimitService.RateLimitResult rl = rateLimit.check("signup:" + ip, 5, 60_000);
         if (!rl.allowed()) {
             return tooManyRequests(rl);
@@ -72,7 +72,7 @@ public class AuthController {
             @RequestBody String rawBody,
             HttpServletRequest request,
             HttpServletResponse response) {
-        String ip = clientIp(request);
+        String ip = com.mathtutor.web.RequestSecurity.clientIp(request);
         RateLimitService.RateLimitResult rl = rateLimit.check("login:" + ip, 10, 60_000);
         if (!rl.allowed()) {
             return tooManyRequests(rl);
@@ -148,18 +148,6 @@ public class AuthController {
                 .headers(headers -> headers.setAll(rateLimit.getHeaders(rl)))
                 .header("Retry-After", "60")
                 .body(Map.of("error", "Too many requests. Please wait a moment."));
-    }
-
-    private String clientIp(HttpServletRequest request) {
-        String forwarded = request.getHeader("x-forwarded-for");
-        if (forwarded != null && !forwarded.isBlank()) {
-            return forwarded;
-        }
-        String realIp = request.getHeader("x-real-ip");
-        if (realIp != null && !realIp.isBlank()) {
-            return realIp;
-        }
-        return "unknown";
     }
 
     private String readCookie(HttpServletRequest request, String name) {
