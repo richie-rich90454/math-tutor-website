@@ -12,9 +12,9 @@
             "position of digits",
             "digit position"
         ],
-        "japanese_culture": "Soroban column positions",
-        "explanation_text": "On a soroban (Japanese abacus), each vertical rod holds beads whose place—ones, tens, hundreds—gives them their value, just as a digit's position determines how much it is worth. An upper bead counts as 5 and each lower bead as 1, but only the column tells you the true magnitude.",
-        "image_prompt": "Illustrate a soroban with its vertical rods labeled ones, tens, and hundreds, showing how a bead's position determines its value."
+        "japanese_culture": "Soroban bead columns",
+        "explanation_text": "On a soroban (Japanese abacus), each vertical column is a place: ones, tens, hundreds, and beyond. A bead in the ones column is worth less than the same bead in the tens column, exactly as a digit's position determines its value.",
+        "image_prompt": "A close view of a soroban abacus with three columns labeled ones, tens, and hundreds, showing how identical beads in different columns hold different values."
     },
     {
         "concept_id": "addition_subtraction",
@@ -32,9 +32,9 @@
             "take away",
             "difference"
         ],
-        "japanese_culture": "Bento box portions",
-        "explanation_text": "Packing a bento box is addition: each onigiri or tamagoyaki slice you add increases the total. Eating a piece is subtraction: taking food away lowers the amount left in the box.",
-        "image_prompt": "Show a bento box being filled with onigiri pieces one by one, then one being removed, with totals shown changing."
+        "japanese_culture": "Soroban bead movements",
+        "explanation_text": "Adding and subtracting on a soroban means sliding beads toward or away from the center bar. Pushing beads up to the bar increases the total, and pushing them back decreases it, making arithmetic a visible, physical action.",
+        "image_prompt": "Hands moving beads on a soroban; beads near the center bar represent the sum, with arrows showing that sliding up adds and sliding down subtracts."
     },
     {
         "concept_id": "multiplication_division",
@@ -50,9 +50,9 @@
             "split equally",
             "sharing"
         ],
-        "japanese_culture": "Sushi nigiri in equal rows",
-        "explanation_text": "Sushi chefs arrange nigiri in identical rows on a platter; 4 rows of 5 pieces gives 20 pieces—that is multiplication. Sharing those 20 pieces among 4 guests gives 5 each—that is division.",
-        "image_prompt": "Display a sushi platter with nigiri laid out in equal rows, showing 4 rows of 5, then pieces split evenly among diners."
+        "japanese_culture": "Torii gate rows at Fushimi Inari",
+        "explanation_text": "Thousands of vermilion torii gates at Fushimi Inari line the mountain path in long, even rows. Counting equal groups of gates, such as ten gates repeated again and again, is multiplication; splitting the gates evenly among the path's sections is division.",
+        "image_prompt": "The red torii gates of Fushimi Inari forming a long tunnel of repeated arches, with groups of ten gates highlighted to show equal rows."
     },
     {
         "concept_id": "even_odd",
@@ -67,9 +67,9 @@
             "no remainder",
             "remains one"
         ],
-        "japanese_culture": "Slippers paired at the genkan",
-        "explanation_text": "At the genkan (entryway), slippers are stored in pairs. When every slipper has a partner, the count is even; a single lone slipper left behind makes the total odd.",
-        "image_prompt": "Show slippers lined up in pairs at a Japanese entryway, with one single slipper at the end to represent an odd number."
+        "japanese_culture": "Paired waribashi chopsticks",
+        "explanation_text": "Chopsticks (waribashi) are always set out in pairs on a Japanese table. A pair makes an even count, and if a single chopstick is left over the total is odd, with that lone one showing the remainder.",
+        "image_prompt": "Paired chopsticks resting on a chopstick stand beside a rice bowl, with one lone chopstick set apart to show an odd count and its leftover one."
     },
     {
         "concept_id": "skip_counting",
@@ -83,9 +83,9 @@
             "repeating numbers",
             "number patterns"
         ],
-        "japanese_culture": "Torii gates along a path",
-        "explanation_text": "Walking the tunnel of torii gates at Fushimi Inari, pilgrims often count every second or every fifth gate—a rhythmic jump through the numbers that mirrors skip counting and number patterns.",
-        "image_prompt": "Show a path lined with torii gates, with every fifth gate highlighted to illustrate skip counting by 5s."
+        "japanese_culture": "Counting torii gate rows",
+        "explanation_text": "Walking the torii tunnel at Fushimi Inari, visitors often count the gates by twos, fives, or tens to keep track of the long path. Counting every tenth gate as 10, 20, 30 is skip counting, a shortcut that leads directly to multiplication.",
+        "image_prompt": "A line of torii gates viewed from inside the tunnel, with every tenth gate marked 10, 20, 30 to illustrate skip counting by tens."
     },
     {
         "concept_id": "comparing_numbers",
@@ -101,9 +101,9 @@
             "ordering numbers",
             "number order"
         ],
-        "japanese_culture": "Koi fish sizes in a pond",
-        "explanation_text": "Koi in a garden pond come in different lengths. Holding two beside each other shows which is longer or shorter—the same greater-than and less-than thinking used to compare numbers.",
-        "image_prompt": "Show two koi fish of different lengths in a pond, with > and < symbols between them."
+        "japanese_culture": "Tatami room sizes",
+        "explanation_text": "Rooms in traditional Japanese houses are measured by the number of tatami mats, such as a four-and-a-half-mat room or an eight-mat room. Comparing those counts tells which room is larger, the same way comparing place values tells which number is greater.",
+        "image_prompt": "Two tatami-floored rooms shown side by side, one labeled 4.5 mats and one labeled 8 mats, with a greater-than symbol between them."
     },
     {
         "concept_id": "rounding_estimation",
@@ -118,448 +118,448 @@
             "close to",
             "nearby number"
         ],
-        "japanese_culture": "Estimating rice for onigiri",
-        "explanation_text": "A cook making onigiri estimates how much cooked rice is needed—'about one full bowl for three'—rather than measuring every grain. This rough-but-handy thinking is exactly like rounding to a convenient number.",
-        "image_prompt": "Show a cook scooping rice for onigiri with a rice bowl, labeling approximate amounts such as 'about 2 cups'."
+        "japanese_culture": "Matsuri crowd estimates",
+        "explanation_text": "At a summer matsuri it is impossible to count every visitor, so organizers estimate the crowd as about 3,000 people. Rounding a precise count to a convenient number, like the nearest hundred or thousand, makes large numbers easier to state and compare.",
+        "image_prompt": "A crowded summer festival street hung with paper lanterns, a sign reading about 3,000 visitors, and a number line showing 3,214 rounded to 3,000."
     },
     {
         "concept_id": "fractions",
         "concept_name": "Fractions",
         "aliases": ["fraction", "part of a whole", "portion", "share", "numerator", "denominator"],
-        "japanese_culture": "Slicing mochi into equal parts",
-        "explanation_text": "A round mochi cake is cut into 4 or 8 equal pieces for a celebration. Each equal slice is a fraction of the whole cake—1/4 or 1/8—with the cut lines showing exactly how the whole is shared.",
-        "image_prompt": "Show a round mochi cake cut into equal wedges, each piece labeled with its fraction such as 1/4."
+        "japanese_culture": "Origami folded halves and quarters",
+        "explanation_text": "Folding a square sheet of origami paper in half makes two equal parts, and folding again makes four equal parts. Each equal piece is a fraction of the whole sheet, such as one half or one quarter.",
+        "image_prompt": "A square of origami paper folded first into halves and then into quarters, crease lines drawn, with each part labeled 1/2 or 1/4."
     },
     {
         "concept_id": "equivalent_fractions",
         "concept_name": "Equivalent Fractions",
         "aliases": ["equal fractions", "same value", "fraction equality", "equivalent"],
-        "japanese_culture": "Halves and quarters of mochi",
-        "explanation_text": "Cutting a mochi cake into 2 halves and then each half into 2 more gives 4 quarters. One half of the cake and two quarters are the same amount—equal fractions with different names.",
-        "image_prompt": "Show one mochi cake cut into halves and another into quarters, linking 1/2 to 2/4 as equal amounts."
+        "japanese_culture": "Origami same-area folds",
+        "explanation_text": "Folding an origami sheet into 2 equal parts or into 4 equal parts always covers the same whole paper. Two of the four quarters fill exactly the space of one half, showing that 2/4 and 1/2 are equivalent fractions.",
+        "image_prompt": "An origami square divided both ways; one half and two quarters shaded in the same color to show they cover identical areas."
     },
     {
         "concept_id": "simplifying_fractions",
         "concept_name": "Simplifying Fractions",
         "aliases": ["reduce fraction", "lowest terms", "simplify fraction"],
-        "japanese_culture": "Sharing onigiri equally",
-        "explanation_text": "If 4 onigiri are shared by 8 guests, each guest takes 4/8 of the whole. Since 4 of the 8 pieces is the same as half the batch, the fraction simplifies to 1/2—the same share, written more simply.",
-        "image_prompt": "Show a tray of onigiri where 4 of 8 pieces are grouped and labeled 4/8 = 1/2."
+        "japanese_culture": "Bento box compartments",
+        "explanation_text": "If 2 of the 4 compartments in a bento box hold rice, rice fills 2/4 of the box. Because that same amount is simply half of the box, 2/4 reduces to 1/2, a fraction in its lowest terms.",
+        "image_prompt": "An open bento box with four compartments, two filled with rice; labels show 2/4 over the box and 1/2 beside it."
     },
     {
         "concept_id": "mixed_numbers",
         "concept_name": "Mixed Numbers",
         "aliases": ["mixed number", "whole and fraction", "whole part and fraction part"],
-        "japanese_culture": "Full and half teapots",
-        "explanation_text": "At a tea ceremony, 3 full teapots and 1 half-full pot together hold 3½ pots of tea. The whole pots plus the fraction make a mixed number.",
-        "image_prompt": "Show three full teapots and one half-full teapot labeled as 3½."
+        "japanese_culture": "Three and a half tatami rooms",
+        "explanation_text": "Some traditional rooms are described as three and a half tatami, meaning 3 whole mats plus one half mat. That single amount, written 3½, is a mixed number with a whole part and a fractional part.",
+        "image_prompt": "A tatami room floor made of three full mats and one half mat, with the number 3 and 1/2 written above the layout."
     },
     {
         "concept_id": "improper_fractions",
         "concept_name": "Improper Fractions",
         "aliases": ["top-heavy fraction", "numerator larger", "greater than one fraction"],
-        "japanese_culture": "Rice spilling into extra bowls",
-        "explanation_text": "When cooked rice fills more than one bowl but is still counted in bowl-sized parts, you have more than a whole—for example 5/3 bowls. This top-heavy value is an improper fraction, as common as a heaping bowl of rice at dinnertime.",
-        "image_prompt": "Show several rice bowls where the rice totals more than one full bowl, labeled with a fraction greater than 1."
+        "japanese_culture": "Measuring rice with a go-cup",
+        "explanation_text": "A go-cup is the standard measure for a portion of rice. If a recipe needs five half-cups, that is five halves of one cup, written 5/2, a fraction whose numerator is larger than its denominator.",
+        "image_prompt": "A traditional wooden rice cup with five half-cup scoops of rice lined up beside it, the total labeled 5/2."
     },
     {
         "concept_id": "adding_fractions",
         "concept_name": "Adding Fractions",
         "aliases": ["fraction addition", "add fractions", "sum of fractions"],
-        "japanese_culture": "Combining miso broth portions",
-        "explanation_text": "Pouring a half-cup of miso broth from one bowl into another with a quarter-cup gives three-quarters of a cup. Combining smaller fractional portions into a total is fraction addition.",
-        "image_prompt": "Show small bowls of miso broth being combined into one bowl, with the pieces labeled as fractions adding together."
+        "japanese_culture": "Origami sheet pieces",
+        "explanation_text": "If an origami project needs a quarter sheet plus a half sheet of washi, you are adding fractions. A half is two quarters, so one quarter plus two quarters makes three quarters of the whole sheet.",
+        "image_prompt": "An origami paper cut into pieces; a quarter sheet and a half sheet placed together to form three quarters, labeled 1/4 + 1/2 = 3/4."
     },
     {
         "concept_id": "subtracting_fractions",
         "concept_name": "Subtracting Fractions",
         "aliases": ["fraction subtraction", "take away fractions", "difference of fractions"],
-        "japanese_culture": "Sipping from a tea cup",
-        "explanation_text": "A full cup of sencha holds a whole portion. After drinking a quarter of it, three-quarters remain. Removing a fractional part from a whole is fraction subtraction.",
-        "image_prompt": "Show a cup of green tea with one-quarter poured away, the remaining three-quarters labeled."
+        "japanese_culture": "Sharing a sushi roll",
+        "explanation_text": "A maki sushi roll is cut into six equal pieces. Eating two pieces takes away 2/6 of the roll and leaves 4/6, a clear picture of subtracting fractions that share the same denominator.",
+        "image_prompt": "A plate of maki sushi cut into six pieces with two pieces moved aside, the equation 6/6 minus 2/6 equals 4/6 written below."
     },
     {
         "concept_id": "multiplying_fractions",
         "concept_name": "Multiplying Fractions",
         "aliases": ["fraction multiplication", "part of a part", "multiply fractions"],
-        "japanese_culture": "Half of a half nori sheet",
-        "explanation_text": "Folding a nori sheet in half and then taking half of that folded half gives a quarter of the original sheet. Finding a part of a part is fraction multiplication: 1/2 × 1/2 = 1/4.",
-        "image_prompt": "Show a nori sheet folded in half, then half of the half marked off and labeled 1/4."
+        "japanese_culture": "Bento portions of portions",
+        "explanation_text": "A child takes half of their older sibling's half-portion of rice. Half of a half is a quarter of the full portion, which is exactly what multiplying fractions does: 1/2 × 1/2 = 1/4.",
+        "image_prompt": "A bento box where a full rice portion is divided in half, then one half is divided again; the smallest part is labeled 1/4."
     },
     {
         "concept_id": "dividing_fractions",
         "concept_name": "Dividing Fractions",
         "aliases": ["fraction division", "divide fractions", "how many times in"],
-        "japanese_culture": "Cutting a maki roll into halves",
-        "explanation_text": "A maki sushi roll is one whole. Cutting it into half-roll pieces asks how many halves fit inside: 1 ÷ 1/2 = 2. Dividing by a fraction counts how many of the smaller pieces make the whole.",
-        "image_prompt": "Show a maki roll cut into half pieces, illustrating how two halves make one whole roll."
+        "japanese_culture": "Nigiri sushi servings",
+        "explanation_text": "A tray of nigiri is served so each person takes 1/6 of the tray. Asking how many 1/6-tray servings fit into half a tray is dividing fractions: 1/2 ÷ 1/6 = 3.",
+        "image_prompt": "A wooden sushi tray divided into six equal sections with half of it shaded, three sections highlighted, labeled 1/2 divided by 1/6 equals 3."
     },
     {
         "concept_id": "decimals",
         "concept_name": "Decimals",
         "aliases": ["decimal point", "tenths", "hundredths", "decimal number"],
-        "japanese_culture": "Measuring rice water in liters",
-        "explanation_text": "Japanese rice cookers measure water in liters and milliliters. Adding 0.5 liter to 1 liter gives 1.5 liters—a decimal that separates whole liters from tenths with a decimal point.",
-        "image_prompt": "Show a measuring cup for rice water marked at 1.0, 1.5, and 2.0 liters."
+        "japanese_culture": "Shinkansen route distances",
+        "explanation_text": "The Tokaido Shinkansen route from Tokyo to Osaka is about 515.4 kilometers. The digit after the decimal point records part of a kilometer, showing how decimals express distances more precisely than whole numbers.",
+        "image_prompt": "A shinkansen bullet train crossing a landscape with a route sign showing 515.4 km, the decimal point highlighted."
     },
     {
         "concept_id": "converting_fractions_decimals",
         "concept_name": "Converting Fractions and Decimals",
         "aliases": ["fraction to decimal", "decimal to fraction", "convert fractions"],
-        "japanese_culture": "Half a liter, or 0.5",
-        "explanation_text": "Half a liter of water for a rice cooker and 0.5 liters are the same amount written two ways. Moving between 1/2 and 0.5 is converting a fraction to a decimal.",
-        "image_prompt": "Show a water measuring cup marked both ½ and 0.5 at the same level."
+        "japanese_culture": "Soroban decimals and tenths",
+        "explanation_text": "On a soroban, one half is shown as a bead in the tenths column, worth 0.5. Describing the same amount as 1/2 or as 0.5 is exactly converting between a fraction and a decimal.",
+        "image_prompt": "A soroban with one bead raised in the tenths column, labels showing 1/2 and 0.5 both pointing to the same bead."
     },
     {
         "concept_id": "percents",
         "concept_name": "Percents",
         "aliases": ["percent", "percentage", "per hundred", "rate per 100"],
-        "japanese_culture": "School test scores",
-        "explanation_text": "Japanese students take tests scored out of 100. Answering 90 of 100 questions correctly means 90 out of every 100, or 90%—a percent is just a fraction with denominator 100.",
-        "image_prompt": "Show a Japanese school test paper with 90/100 correct and a large 90% mark beside it."
+        "japanese_culture": "Shinkansen on-time record",
+        "explanation_text": "The shinkansen is famous for average delays of under a minute, and its on-time performance is often reported as a percent, such as 99 percent of trains on schedule. Percent means parts per hundred, so that is 99 of every 100 trains.",
+        "image_prompt": "A departure board at a shinkansen platform listing trains as on time, beside a scoreboard showing a 99 percent on-time record."
     },
     {
         "concept_id": "percent_of_number",
         "concept_name": "Percent of a Number",
         "aliases": ["percentage of number", "find percent", "portion of total"],
-        "japanese_culture": "10% consumption tax",
-        "explanation_text": "Japan's consumption tax is 10%, so a 2,000-yen item costs 200 yen in tax. Finding 10% of the price shows how a percent extracts a part of a number.",
-        "image_prompt": "Show a store price tag of ¥2,000 with a 10% consumption tax note adding ¥200."
+        "japanese_culture": "Ten percent consumption tax",
+        "explanation_text": "Japan adds a consumption tax at the register, commonly 10 percent of the price. Finding 10 percent of a 500-yen item means taking 10 out of every 100 yen, which is 50 yen, a direct example of finding a percent of a number.",
+        "image_prompt": "A shop receipt in yen showing a 500-yen subtotal and a 10 percent tax line adding 50 yen, with the calculation written beside it."
     },
     {
         "concept_id": "variables",
         "concept_name": "Variables",
         "aliases": ["variable", "unknown", "letter as number", "symbol in math"],
-        "japanese_culture": "Unknown count of teacups",
-        "explanation_text": "If the tea ceremony host doesn't know how many guests will arrive, the cups needed are an unknown amount—written as x. A variable is just a number whose value is not yet known.",
-        "image_prompt": "Show a stack of teacups with a question mark, beside an x symbol representing the unknown count."
+        "japanese_culture": "Hidden go stones",
+        "explanation_text": "A covered bowl of go stones holds an unknown number until it is counted. That unknown amount, waiting to be found, is exactly what a variable is, a symbol standing for a value we do not yet know.",
+        "image_prompt": "A covered bowl of black and white go stones beside an open bowl, the letter x drawn over the covered bowl."
     },
     {
         "concept_id": "expressions",
         "concept_name": "Expressions",
         "aliases": ["math expressions", "numerical expressions", "algebraic expressions"],
-        "japanese_culture": "Known cups plus unknown cups",
-        "explanation_text": "If a tray already holds 3 teacups and x more guests are expected, the total is expressed as 3 + x. Combining known numbers with variables gives an expression.",
-        "image_prompt": "Show a tea tray with three cups next to an empty space marked x, written as 3 + x."
+        "japanese_culture": "Known and hidden go stones",
+        "explanation_text": "If 3 go stones sit on the board and an unknown number x remains in the bowl, the whole set is described as 3 + x. Combining known and unknown amounts into one statement is an algebraic expression.",
+        "image_prompt": "A go board with three black stones placed, a bowl holding hidden stones beside it, and the expression 3 + x written beneath."
     },
     {
         "concept_id": "equations",
         "concept_name": "Equations",
         "aliases": ["math equations", "equal statements", "algebra equations"],
-        "japanese_culture": "Balancing a tenbin scale",
-        "explanation_text": "A tenbin (traditional balance scale) tips only when the two pans hold different weights. When both sides hold equal amounts, the scale balances—exactly what an equation states: two sides that are equal.",
-        "image_prompt": "Show a traditional balance scale with equal weights on both pans, labeled as a balanced equation."
+        "japanese_culture": "Rice shop balance scale",
+        "explanation_text": "At a traditional rice shop, a balance scale compares a bag of rice against metal weights. When the two pans hang level, both sides hold equal weight, which is the same idea as the two sides of an equation being equal.",
+        "image_prompt": "A brass balance scale at a rice shop, a bag of rice on one pan and weights on the other, the scale perfectly level with an equals sign drawn between the pans."
     },
     {
         "concept_id": "solving_one_step_equations",
         "concept_name": "Solving One-Step Equations",
         "aliases": ["one-step equations", "simple equations"],
-        "japanese_culture": "Balancing a carrying pole",
-        "explanation_text": "A vendor carrying buckets on a tenbinbo (shoulder pole) keeps it level by adding or removing weight from one side. Undoing one change to restore balance is like solving a one-step equation.",
-        "image_prompt": "Show a carrying pole with a bucket on one side being adjusted to match the other, symbolizing a one-step balance."
+        "japanese_culture": "Balancing a produce scale",
+        "explanation_text": "At a market stall, a merchant adds or removes one item until the hanging scale balances. A single change that makes both sides equal is how you solve a one-step equation.",
+        "image_prompt": "A market stall's hanging balance with a basket of fruit, a merchant adding one piece of fruit until the two sides hang level."
     },
     {
         "concept_id": "solving_two_step_equations",
         "concept_name": "Solving Two-Step Equations",
         "aliases": ["two-step equations", "multi-step equations"],
-        "japanese_culture": "Whisking matcha in order",
-        "explanation_text": "Making matcha takes fixed steps: scoop the powder, add hot water, then whisk with a chasen. Two operations in the right sequence, just like solving a two-step equation by undoing steps in reverse order.",
-        "image_prompt": "Show the matcha sequence—scooping powder, adding water, whisking—to represent ordered, step-by-step solving."
+        "japanese_culture": "Preparing matcha in two steps",
+        "explanation_text": "Making matcha takes two measured actions: scoop the right amount of tea powder, then pour the hot water. Two ordered steps that together produce the correct result mirror solving a two-step equation.",
+        "image_prompt": "A matcha tea set with a bamboo scoop measuring powder into a bowl and hot water poured from a kettle, the two steps numbered 1 and 2."
     },
     {
         "concept_id": "inequalities",
         "concept_name": "Inequalities",
         "aliases": ["greater than", "less than", "not equal", "comparison statements"],
-        "japanese_culture": "Pagoda tier heights",
-        "explanation_text": "A five-tier pagoda (gojunotō) has a bottom tier taller than the top tier. Comparing two tiers uses the same 'greater than' and 'less than' language as inequalities.",
-        "image_prompt": "Show a pagoda with its tiers compared using > and < symbols between different levels."
+        "japanese_culture": "Comparing sumo wrestlers",
+        "explanation_text": "Sumo wrestlers are listed in a ranked banzuke, and their weights and records are constantly compared. Saying one wrestler outweighs another or ranks above uses the same greater-than and less-than ideas as inequalities.",
+        "image_prompt": "Two sumo wrestlers facing each other in the ring with a greater-than symbol between them and a ranking chart in the background."
     },
     {
         "concept_id": "order_of_operations",
         "concept_name": "Order of Operations (PEMDAS)",
         "aliases": ["PEMDAS", "BODMAS", "math order", "operations order"],
-        "japanese_culture": "Tea ceremony sequence",
-        "explanation_text": "The tea ceremony (chanoyu) follows a strict order—purify the utensils, whisk the tea, then serve. Doing steps out of order ruins the result, just as operations in a math expression must follow a set sequence.",
-        "image_prompt": "Show a numbered sequence of tea ceremony steps, each labeled with math operations in parentheses."
+        "japanese_culture": "Building a five-story pagoda",
+        "explanation_text": "A wooden pagoda is built story by story, starting with the base, because no upper floor can stand without the structure beneath it. Following a fixed order to reach a correct result is the same idea as the order of operations in math.",
+        "image_prompt": "A five-story pagoda under construction with floors numbered from bottom to top, arrows showing that the base must be built first."
     },
     {
         "concept_id": "substitution",
         "concept_name": "Substitution",
         "aliases": ["replace variable", "substitute value", "replace letter with number"],
         "japanese_culture": "Replacing a shoji panel",
-        "explanation_text": "When a shoji's washi paper panel tears, a fresh panel of the same size is installed in its place. Swapping an equal replacement for a broken part is like substituting a value into a variable.",
-        "image_prompt": "Show a shoji screen with one torn panel being replaced by an identical new panel, representing substitution."
+        "explanation_text": "When the washi panel in a shoji door tears, a new panel of the same size is fitted into the same frame. Replacing a damaged part with an identical value is substitution, putting a known value in place of a variable.",
+        "image_prompt": "A sliding shoji door with one freshly fitted white washi panel standing out, an identical spare panel leaning beside the frame."
     },
     {
         "concept_id": "points",
         "concept_name": "Points",
         "aliases": ["dot", "location", "coordinate point"],
-        "japanese_culture": "Tanabata stars in the sky",
-        "explanation_text": "On Tanabata, Vega and Altair shine as two bright points among the stars. Each star marks a single location in the sky, just as a point marks a single position in geometry.",
-        "image_prompt": "Show a Tanabata night sky with individual stars marked as points on a faint coordinate grid."
+        "japanese_culture": "Sugoroku board path",
+        "explanation_text": "In sugoroku, a Japanese board game, the path around the board is a string of marked spaces. Each space is a single point with its own location, just as a point in geometry marks one exact position.",
+        "image_prompt": "A sugoroku game board with a winding path of circular spaces, one space circled and labeled as a point."
     },
     {
         "concept_id": "lines",
         "concept_name": "Lines",
         "aliases": ["straight line", "geometry line", "infinite line"],
-        "japanese_culture": "Creases of folded origami",
-        "explanation_text": "Every fold in origami leaves a long, straight crease that runs edge to edge, like a geometric line that extends in both directions through the paper.",
-        "image_prompt": "Show a sheet of origami paper with straight fold creases drawn across it, representing lines."
+        "japanese_culture": "A taut koto string",
+        "explanation_text": "The strings of a koto are stretched perfectly straight across the instrument and are imagined to continue in both directions. A single taut string models a geometric line, the straightest path between any two of its points.",
+        "image_prompt": "A koto with a close-up of one straight string running its full length, arrows at both ends showing the line extends in each direction."
     },
     {
         "concept_id": "angles",
         "concept_name": "Angles",
         "aliases": ["angle", "degree", "corner measure"],
         "japanese_culture": "Opening a folding fan",
-        "explanation_text": "A sensu (folding fan) opens from a small sliver to a wide sweep. The space between its two edge ribs is an angle, and the more it opens, the larger the angle grows.",
-        "image_prompt": "Show a folding fan partially open, with the angle between its ribs clearly marked and labeled."
+        "explanation_text": "A folding fan (sensu) pivots on its rivet, and opening it widens the gap between its outer ribs. The size of that opening is an angle, measured in degrees from fully closed to fully open.",
+        "image_prompt": "A Japanese folding fan partly opened, with an arc drawn between its first and last ribs and a degree mark showing the angle."
     },
     {
         "concept_id": "perpendicular_lines",
         "concept_name": "Perpendicular Lines",
         "aliases": ["right angle lines", "intersecting lines", "orthogonal lines"],
-        "japanese_culture": "Shoji lattice crossbars",
-        "explanation_text": "The wooden lattice of a shoji screen has vertical and horizontal bars that meet at perfect right angles, forming a strong grid—lines meeting at 90° are perpendicular.",
-        "image_prompt": "Show the wooden lattice of a shoji screen with crossbars marked at 90° angles."
+        "japanese_culture": "Kyoto street grid",
+        "explanation_text": "The old street grid of Kyoto is laid out so that north-south and east-west streets cross at right angles. Streets meeting at 90 degrees are perpendicular lines, and together they form the city's neat rectangular plan.",
+        "image_prompt": "An aerial view of Kyoto's rectangular street grid, two streets crossing at a corner with a 90-degree angle mark drawn at the intersection."
     },
     {
         "concept_id": "parallel_lines",
         "concept_name": "Parallel Lines",
         "aliases": ["side-by-side lines", "never meet", "equal distance lines"],
-        "japanese_culture": "Shinkansen railway tracks",
-        "explanation_text": "The two rails of a shinkansen track run side by side at a constant distance apart and never meet. Lines that stay equally spaced forever are parallel.",
-        "image_prompt": "Show shinkansen railway tracks running side by side into the distance, never crossing."
+        "japanese_culture": "Koto strings side by side",
+        "explanation_text": "All thirteen strings of a koto run side by side across the whole width of the instrument and never touch. Lines that stay the same distance apart and never meet are parallel lines.",
+        "image_prompt": "A koto seen from above with its thirteen strings stretched in even rows, a close-up showing two strings keeping a constant distance apart."
     },
     {
         "concept_id": "polygons",
         "concept_name": "Polygons",
         "aliases": ["shapes", "closed figure", "many-sided shape"],
-        "japanese_culture": "Kumiko wooden lattices",
-        "explanation_text": "Kumiko woodwork joins thin slats into closed shapes—triangles, diamonds, and hexagons—that repeat across a panel. Each closed, many-sided shape is a polygon.",
-        "image_prompt": "Show a kumiko wooden lattice panel made of repeating triangular and diamond shapes."
+        "japanese_culture": "Hexagonal manhole covers",
+        "explanation_text": "While many Japanese manhole covers are round, hexagonal covers are common because they fit neatly into grids of paving. Hexagons, triangles, and other straight-sided figures with closed outlines are all polygons.",
+        "image_prompt": "A street with a hexagonal manhole cover and a triangular one nearby, each outlined to show their straight sides and closed shapes."
     },
     {
         "concept_id": "triangles",
         "concept_name": "Triangles",
         "aliases": ["three sides", "triangular", "triangle shape"],
-        "japanese_culture": "Origami triangular folds",
-        "explanation_text": "The first folds of an origami crane create sharp triangles: fold a square corner to corner and you get a right isosceles triangle. Triangles are the building blocks of countless origami designs.",
-        "image_prompt": "Show an origami square folded corner to corner, revealing a triangle shape."
+        "japanese_culture": "The silhouette of Mt. Fuji",
+        "explanation_text": "Mt. Fuji's nearly perfect cone gives it a clear triangular silhouette from any side. A triangle is a closed shape with three straight sides, and Mt. Fuji's profile is a familiar example seen across Japan.",
+        "image_prompt": "Mt. Fuji against a clear sky, its three-sided outline traced with a line and labeled as a triangle."
     },
     {
         "concept_id": "quadrilaterals",
         "concept_name": "Quadrilaterals",
         "aliases": ["four sides", "rectangles", "squares", "trapezoids"],
-        "japanese_culture": "Rectangular tatami mats",
-        "explanation_text": "Tatami mats are rectangles with four sides and four right angles. Japanese rooms are measured by how many mats they hold, and every mat is a quadrilateral.",
-        "image_prompt": "Show a tatami room floor with rectangular mats labeled as quadrilaterals."
+        "japanese_culture": "Kimono fabric panels",
+        "explanation_text": "A kimono is sewn from long straight rectangles of fabric so that no cloth is wasted. These four-sided panels, with four right angles at each corner, are quadrilaterals.",
+        "image_prompt": "Unsewn kimono fabric panels laid out flat in neat rectangles on a wooden floor, one panel's four sides and corners highlighted."
     },
     {
         "concept_id": "perimeter",
         "concept_name": "Perimeter",
         "aliases": ["boundary length", "distance around", "outline measure"],
-        "japanese_culture": "Walking around a koi pond",
-        "explanation_text": "Strolling the stone edge of a koi pond and measuring the full distance around it gives the perimeter—the total length of a shape's boundary.",
-        "image_prompt": "Show a koi pond with a dashed line tracing its full edge, labeled as the perimeter."
+        "japanese_culture": "The obi around the waist",
+        "explanation_text": "An obi is a belt tied around the waist, and its length must match the full distance around the body. That distance around the outside of a shape is the perimeter.",
+        "image_prompt": "A person in kimono tying an obi, a dashed line tracing the full loop around the waist labeled perimeter."
     },
     {
         "concept_id": "area",
         "concept_name": "Area",
         "aliases": ["surface area", "space inside", "coverage"],
-        "japanese_culture": "Room size in tatami",
-        "explanation_text": "Japanese rooms are sized in jo, the number of tatami mats that cover the floor. Counting how many mats fit inside a room measures its area—the space the floor covers.",
-        "image_prompt": "Show a room floor covered in tatami mats, counted and shaded to show its area."
+        "japanese_culture": "Washi paper sheets",
+        "explanation_text": "Washi (Japanese paper) is made in flat sheets of set sizes, and the amount of surface a sheet covers is its area. Measuring how much paper fills a tabletop uses length times width, just like finding the area of a rectangle.",
+        "image_prompt": "Stacks of washi sheets on a low table with one sheet spread flat and a grid of squares drawn over it to show its area."
     },
     {
         "concept_id": "volume",
         "concept_name": "Volume",
         "aliases": ["capacity", "space inside 3D shape", "liquid amount"],
-        "japanese_culture": "Water in a wooden ofuro",
-        "explanation_text": "A wooden ofuro (Japanese bath) holds a fixed amount of hot water. That capacity—how much the tub can contain—is its volume.",
-        "image_prompt": "Show a wooden Japanese bath filled with water, with the capacity labeled in liters."
+        "japanese_culture": "Filling a teapot",
+        "explanation_text": "A kyusu (Japanese teapot) has a fixed capacity, and the tea fills that space. The amount of space a container holds is its volume, often measured in liters or milliliters.",
+        "image_prompt": "A kyusu teapot being filled with tea, a measuring scale on its side showing liters of capacity."
     },
     {
         "concept_id": "circle_properties",
         "concept_name": "Circle Properties",
         "aliases": ["radius", "diameter", "circumference", "circle geometry"],
-        "japanese_culture": "Round manhole covers",
-        "explanation_text": "Japanese manhole covers are famously round, some decorated like art. Measuring one shows the radius (center to edge), the diameter (edge to edge through the center), and the circumference (the rim all around).",
-        "image_prompt": "Show a round Japanese manhole cover labeled with radius, diameter, and circumference lines."
+        "japanese_culture": "The sumo dohyo",
+        "explanation_text": "The dohyo is a raised ring of straw bales with a circular fighting area drawn in the middle. From the center of that circle to any point on the rim is the radius, and straight across through the center is the diameter.",
+        "image_prompt": "A sumo dohyo seen from above, a line from the center to the rim labeled radius and a line across the center labeled diameter."
     },
     {
         "concept_id": "pi",
         "concept_name": "Pi (π)",
         "aliases": ["pi", "ratio of circumference", "3.14"],
-        "japanese_culture": "Manhole cover's rim ratio",
-        "explanation_text": "Wrap a measuring tape around a manhole cover and compare it to the width across: the rim is always about 3.14 times the diameter, no matter the size. That constant ratio is π.",
-        "image_prompt": "Show a manhole cover with circumference and diameter measured, labeled as C = πd."
+        "japanese_culture": "Round manhole covers",
+        "explanation_text": "Japanese manhole covers are famously round partly because a circle keeps the same width in every direction, so the cover can never fall through its hole. No matter which round cover you measure, its circumference is always about 3.14 times its diameter, the number pi.",
+        "image_prompt": "A round manhole cover on a street with a measuring tape across its diameter and a line around its edge for circumference, pi approx 3.14 labeled."
     },
     {
         "concept_id": "coordinate_plane",
         "concept_name": "Coordinate Plane",
         "aliases": ["x-y plane", "graph grid", "axes"],
-        "japanese_culture": "Kyoto's street grid",
-        "explanation_text": "Kyoto's streets run in tidy rows and columns, with each crossing where an east-west road meets a north-south one. Just as on a coordinate plane, every intersection can be named by a row and column.",
-        "image_prompt": "Show a map of Kyoto's grid streets with x and y axes overlaid."
+        "japanese_culture": "Kyoto street grid axes",
+        "explanation_text": "The rectangular grid of Kyoto's streets acts like a coordinate plane: pick one crossing as the origin, and every street corner has a position along the north-south and east-west axes. Two perpendicular number lines give every point an address of two numbers.",
+        "image_prompt": "A map of Kyoto's street grid with north-south and east-west axes drawn, intersections labeled with pairs of coordinates."
     },
     {
         "concept_id": "plotting_points",
         "concept_name": "Plotting Points",
         "aliases": ["graphing points", "coordinates", "x-y plotting"],
-        "japanese_culture": "Marking torii gates on a shrine map",
-        "explanation_text": "Plotting each torii gate's location on a map of a shrine path places a point at a specific spot, exactly as you plot a point at coordinates (x, y) on a graph.",
-        "image_prompt": "Show a shrine map with torii gates marked as points at labeled coordinates."
+        "japanese_culture": "Go stones on a goban",
+        "explanation_text": "A goban is a 19-by-19 grid, and players place stones on the intersections, never inside the squares. Naming an intersection by its row and column is exactly how you plot a point with two coordinates.",
+        "image_prompt": "A goban with stones placed on intersections, one stone circled with its row and column highlighted as coordinates."
     },
     {
         "concept_id": "symmetry",
         "concept_name": "Symmetry",
         "aliases": ["mirror image", "balanced halves", "reflection symmetry"],
-        "japanese_culture": "Kimono pattern mirror halves",
-        "explanation_text": "Kimono designs often mirror across the center back seam: the left and right halves are reflections of each other. Splitting a pattern into balanced mirror halves is symmetry.",
-        "image_prompt": "Show a kimono with a mirrored pattern divided by a central vertical line."
+        "japanese_culture": "Sakura five-petal symmetry",
+        "explanation_text": "A single sakura blossom has five petals arranged evenly around its center, so each petal is a reflected copy of its neighbors. Radial symmetry like this means a shape can be rotated or mirrored and still match itself.",
+        "image_prompt": "A close-up of a five-petaled sakura blossom with faint mirror lines drawn through its center showing its symmetry."
     },
     {
         "concept_id": "transformations",
         "concept_name": "Transformations",
         "aliases": ["translate", "rotate", "reflect", "dilate"],
-        "japanese_culture": "Folding origami paper",
-        "explanation_text": "Folding origami is a series of transformations: paper is reflected along crease lines, rotated to new positions, and translated across the work surface to build the final shape.",
-        "image_prompt": "Show origami paper mid-folding, with arrows showing reflection, rotation, and sliding moves."
+        "japanese_culture": "Raking a karesansui garden",
+        "explanation_text": "In a karesansui rock garden, fine sand is raked into concentric curves around stones. Shifting, rotating, or mirroring a raking pattern across the garden shows translations, rotations, and reflections, the basic transformations of geometry.",
+        "image_prompt": "A karesansui rock garden with raked sand, one curved pattern shown mirrored on the other side of a stone with a dashed mirror line."
     },
     {
         "concept_id": "ratios",
         "concept_name": "Ratios",
         "aliases": ["comparison", "proportion of quantities", "rate"],
-        "japanese_culture": "Mixing matcha and water",
-        "explanation_text": "A matcha recipe calls for a fixed ratio, like 1 part powder to 2 parts hot water. Keeping that proportion from one bowl to the next is using a ratio.",
-        "image_prompt": "Show a matcha bowl beside a chasen, with powder and water labeled in a 1:2 ratio."
+        "japanese_culture": "Tatami one-to-two ratio",
+        "explanation_text": "A standard tatami mat is twice as long as it is wide, so its sides are always in a 1:2 ratio. Wherever a tatami is made, the length keeps the same comparison to the width, which is a ratio.",
+        "image_prompt": "A single tatami mat with its width labeled 1 and its length labeled 2, a ruler showing the length is exactly twice the width."
     },
     {
         "concept_id": "proportions",
         "concept_name": "Proportions",
         "aliases": ["equal ratios", "scaling", "balance of ratios"],
-        "japanese_culture": "Enlarging a kimono pattern",
-        "explanation_text": "When a kimono pattern is printed larger for a banner, every curve and gap grows by the same factor so the design still looks identical—maintaining proportion keeps the ratios the same.",
-        "image_prompt": "Show a small kimono pattern and a larger copy of the same design, linked by a scaling arrow."
+        "japanese_culture": "Scaling a kimono pattern",
+        "explanation_text": "A kimono for an adult is cut from the same pattern as one for a child, with every panel enlarged by the same factor. When all parts grow by the same amount, the shape keeps its proportions, and the relationships between its parts stay equal.",
+        "image_prompt": "An adult-sized kimono and a child-sized kimono side by side, matching panels linked by arrows showing the same scale factor."
     },
     {
         "concept_id": "unit_rate",
         "concept_name": "Unit Rate",
         "aliases": ["per unit", "rate per one", "comparison per one unit"],
-        "japanese_culture": "Shinkansen travel speed",
-        "explanation_text": "A shinkansen traveling 300 kilometers in 1 hour moves at a unit rate of 300 km per hour—an amount expressed for a single unit of time.",
-        "image_prompt": "Show a shinkansen train with a speed readout of 300 km per hour."
+        "japanese_culture": "Shinkansen kilometers per hour",
+        "explanation_text": "A shinkansen traveling 320 kilometers in one hour covers 320 km per hour, a rate for a single unit of time. Speed expressed per one hour is a unit rate, letting you compare trains no matter how far they actually run.",
+        "image_prompt": "A shinkansen in motion with a speed display reading 320 km/h, a clock icon beside it showing per 1 hour."
     },
     {
         "concept_id": "scale_drawings",
         "concept_name": "Scale Drawings",
         "aliases": ["map scale", "drawing proportion", "scaled map"],
-        "japanese_culture": "Map of a temple garden",
-        "explanation_text": "A visitor's map shrinks a large temple garden into a small sheet while keeping every path and pond in the same relative position and size—a scale drawing.",
-        "image_prompt": "Show a temple garden beside a smaller scaled map with a legend reading '1 cm = 5 m'."
+        "japanese_culture": "Map of the torii path",
+        "explanation_text": "A hiking map of Fushimi Inari shrinks the real mountain path, including the rows of torii, onto a small page. Every real distance is divided by the same scale, so the map and the mountain keep the same shape, a scale drawing.",
+        "image_prompt": "A map of the Fushimi Inari mountain trail with a scale bar, small torii drawn along the route, and a 1 cm equals 100 m legend."
     },
     {
         "concept_id": "percent_change",
         "concept_name": "Percent Change",
         "aliases": ["percent increase", "percent decrease", "growth rate"],
-        "japanese_culture": "Shrine visitors increasing",
-        "explanation_text": "When a shrine's daily visitors rise from 100 to 120, the number grows by 20 of the original 100—a 20% increase. Comparing a new amount to the original as a percent is percent change.",
-        "image_prompt": "Show a shrine entrance with visitor counts rising from 100 to 120, labeled +20%."
+        "japanese_culture": "Measuring Mt. Fuji's height",
+        "explanation_text": "The official height of Mt. Fuji was long recorded as 3,776 meters, and more precise GPS surveys later refined the figure. When an old measurement is corrected by a small amount, the change compared with the original is percent change.",
+        "image_prompt": "Mt. Fuji with survey equipment, two plaques reading 3,776 m and an updated 3,776.24 m, a small percent-change label between them."
     },
     {
         "concept_id": "data_collection",
         "concept_name": "Data Collection",
         "aliases": ["gather data", "record information", "collect numbers"],
-        "japanese_culture": "Tallying Gion matsuri crowds",
-        "explanation_text": "At Gion matsuri, organizers tally how many people watch each float pass by, recording the numbers on a clipboard. Gathering and recording counts like these is data collection.",
-        "image_prompt": "Show a festival recorder tallying visitors on a clipboard during a Gion matsuri parade."
+        "japanese_culture": "Fish market tallies",
+        "explanation_text": "Early each morning at a fish market, vendors record how many of each fish type arrive, writing tallies for tuna, mackerel, and squid. Gathering and writing down these counts is data collection, the first step of working with statistics.",
+        "image_prompt": "A fish market stall at dawn with crates of different fish, a vendor marking tallies for each type on a clipboard."
     },
     {
         "concept_id": "tables_graphs",
         "concept_name": "Tables and Graphs",
         "aliases": ["data table", "bar graph", "chart"],
-        "japanese_culture": "Rainfall across the seasons",
-        "explanation_text": "Recording monthly rainfall in Kyoto on a bar graph turns raw numbers into a picture, making it easy to see that the rainy season brings a spike in June.",
-        "image_prompt": "Show a bar graph of monthly rainfall in Kyoto, with June highlighted."
+        "japanese_culture": "The sumo banzuke",
+        "explanation_text": "Every sumo tournament publishes a banzuke, a large sheet that lists every wrestler and his rank in order. A table that arranges names, ranks, and records this way is how data is organized before it can be turned into a graph.",
+        "image_prompt": "A large sumo banzuke ranking sheet with rows of wrestlers' names in order, a hand pointing at one ranked entry."
     },
     {
         "concept_id": "mean",
         "concept_name": "Mean",
         "aliases": ["average", "arithmetic mean", "mean value"],
-        "japanese_culture": "Average daily visitors",
-        "explanation_text": "If a shrine counts 100, 150, and 110 visitors over three days, adding them (360) and dividing by 3 gives 120—the mean, or average, number of visitors per day.",
-        "image_prompt": "Show a table of daily shrine visitors with the average value highlighted."
+        "japanese_culture": "Average school lunch portions",
+        "explanation_text": "A school nutritionist serves lunch to 30 students and wants to describe the typical portion. Adding all the portions and dividing by the number of students gives the mean, a single fair number that summarizes the whole class.",
+        "image_prompt": "A Japanese classroom serving school lunch trays, a chart adding portions and dividing by the number of students to show the mean."
     },
     {
         "concept_id": "median",
         "concept_name": "Median",
         "aliases": ["middle value", "data median"],
-        "japanese_culture": "Middle price of tea sets",
-        "explanation_text": "Line up tea sets by price, from cheapest to most expensive. The price exactly in the middle of the line is the median.",
-        "image_prompt": "Show tea sets arranged by price with the middle one highlighted as the median."
+        "japanese_culture": "Sakura bloom dates",
+        "explanation_text": "Each spring, weather stations record when the sakura bloom in each city. Listing several years' bloom dates in order, the middle date is the median, a measure of a typical bloom that is not swayed by one unusually early or late year.",
+        "image_prompt": "A calendar with blossom dates marked for several years, the dates lined up in order with the middle one highlighted as the median."
     },
     {
         "concept_id": "mode",
         "concept_name": "Mode",
         "aliases": ["most frequent value", "common value"],
-        "japanese_culture": "Most common koi color",
-        "explanation_text": "In a pond with many koi, if most are orange-white kohaku, that color is the most frequent value in the collection—the mode.",
-        "image_prompt": "Show a pond of koi in several colors with the orange-white kohaku being the most numerous."
+        "japanese_culture": "Most common drill score",
+        "explanation_text": "After a math drill, a teacher counts how often each score appears in the class. The score that appears more often than any other is the mode, the most frequent value in the data.",
+        "image_prompt": "A stack of scored math worksheets with tallies under each score, the most frequent score circled and labeled the mode."
     },
     {
         "concept_id": "range",
         "concept_name": "Range",
         "aliases": ["difference", "spread of data", "highest minus lowest"],
-        "japanese_culture": "Spread of bonsai heights",
-        "explanation_text": "A row of bonsai ranges from the tallest to the shortest tree. The difference between the tallest and shortest heights is the range of the collection.",
-        "image_prompt": "Show bonsai trees of different heights with the tallest and shortest marked, labeled as the range."
+        "japanese_culture": "Bento box sizes",
+        "explanation_text": "A shop sells bento boxes from a small 15-centimeter size up to a large 25-centimeter one. Subtracting the smallest from the largest, 25 minus 15 equals 10, gives the range, a measure of how spread out the data is.",
+        "image_prompt": "Bento boxes of three different sizes on a shelf with a tape measure behind them, the largest and smallest marked and their difference labeled as the range."
     },
     {
         "concept_id": "bar_graphs",
         "concept_name": "Bar Graphs",
         "aliases": ["bar chart", "column graph"],
-        "japanese_culture": "Comparing festival stall sales",
-        "explanation_text": "A bar graph can compare how much each Gion matsuri food stall sold, with one bar per stall so the tallest bar shows the busiest seller at a glance.",
-        "image_prompt": "Show a bar graph of festival food stalls with bars of different heights."
+        "japanese_culture": "Matsuri festival attendance",
+        "explanation_text": "Across the three nights of a summer matsuri, a neighborhood records how many people attend each evening. Drawing the counts as bars of different heights makes the busiest night obvious at a glance, which is a bar graph.",
+        "image_prompt": "A festival night street with lanterns, beside it a bar graph showing attendance on three festival nights with the tallest bar highlighted."
     },
     {
         "concept_id": "line_graphs",
         "concept_name": "Line Graphs",
         "aliases": ["trend graph", "line chart"],
-        "japanese_culture": "Sakura bloom counts over April",
-        "explanation_text": "Tracking how many cherry blossoms open each day of April with a connected line shows the bloom climbing, peaking, and fading—a trend only a line graph makes obvious.",
-        "image_prompt": "Show a line graph of cherry blossom blooms rising and falling across the days of April."
+        "japanese_culture": "The sakura front",
+        "explanation_text": "The sakura front is the wave of blooming that moves north through Japan each spring. Plotting the bloom date city by city and joining the points draws a line graph showing how the flowering travels over the weeks.",
+        "image_prompt": "A map of Japan with a curved line of cherry blossoms sweeping northward, beside it a line graph of bloom dates plotted against cities."
     },
     {
         "concept_id": "pie_charts",
         "concept_name": "Pie Charts",
         "aliases": ["circle chart", "percentage chart"],
-        "japanese_culture": "Sushi types on a platter",
-        "explanation_text": "A platter of assorted sushi can be shown as a pie chart, where each slice represents the share of salmon, tuna, or tamago nigiri in the whole assortment.",
-        "image_prompt": "Show a sushi platter alongside a pie chart dividing the pieces by type with percentages."
+        "japanese_culture": "School lunch proportions",
+        "explanation_text": "A kyushoku meal balances rice, soup, a main dish, and vegetables, and each part takes a share of the tray. A circle split into slices whose sizes match those shares is a pie chart, showing parts of a whole.",
+        "image_prompt": "A school lunch tray with compartments of rice, soup, fish, and greens next to a pie chart whose slices match each compartment's size."
     },
     {
         "concept_id": "probability",
         "concept_name": "Probability",
         "aliases": ["chance", "likelihood", "odds"],
-        "japanese_culture": "Drawing a hanafuda card",
-        "explanation_text": "In hanafuda, each month has its own flower suit. Reaching into a full deck, the chance of drawing a card from a chosen month is 1 out of 12 suits—a probability.",
-        "image_prompt": "Show a hanafuda deck with cards laid out by month, one card being drawn with a 1/12 chance label."
+        "japanese_culture": "Drawing from hanafuda",
+        "explanation_text": "A hanafuda deck has 48 cards divided into 12 suits of flower cards. If one card is drawn at random, the chance that it is a particular suit, such as the pine suit with 4 of the 48 cards, is a probability.",
+        "image_prompt": "Hanafuda cards spread on a tatami floor with one card being drawn, the fraction 4/48 written beside it to show its chance."
     },
     {
         "concept_id": "patterns",
         "concept_name": "Patterns",
         "aliases": ["repeating design", "sequence", "recurrence"],
-        "japanese_culture": "Seigaiha wave motifs",
-        "explanation_text": "The seigaiha pattern layers identical semicircular waves in repeating rows across fabric and ceramics. A motif that repeats itself in order is a pattern.",
-        "image_prompt": "Show a seigaiha wave pattern with repeating arcs and a highlighted unit that repeats."
+        "japanese_culture": "Seigaiha textile waves",
+        "explanation_text": "Traditional fabrics repeat motifs like seigaiha, the overlapping waves, or asanoha, the hemp leaves, across their whole length. A motif that repeats in a predictable way is a pattern, and predicting the next repeat is the start of pattern thinking in math.",
+        "image_prompt": "A bolt of indigo fabric printed with repeating seigaiha wave scallops, several repeats shown in a row with the next position marked."
     },
     {
         "concept_id": "functions",
         "concept_name": "Functions",
         "aliases": ["input-output rule", "function relation", "mapping"],
-        "japanese_culture": "Shinkansen time to distance",
-        "explanation_text": "On a shinkansen, each travel time maps to exactly one distance traveled: 1 hour gives 300 km, 2 hours give 600 km. Any rule that gives every input one output is a function.",
-        "image_prompt": "Show a shinkansen with travel time mapping arrows to distance, labeled input to output."
+        "japanese_culture": "Vending machine rules",
+        "explanation_text": "A vending machine takes a coin as its input and gives exactly one drink as its output. Because every input leads to one specific output, the machine behaves like a function, a rule that pairs each input with a single result.",
+        "image_prompt": "A row of Japanese vending machines, a person inserting a coin and receiving a drink, a simple diagram mapping each coin to one product."
     }
 ]
