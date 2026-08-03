@@ -53,7 +53,7 @@ public class ChatMessageController {
             return;
         }
 
-        String ip = clientIp(request);
+        String ip = com.mathtutor.web.RequestSecurity.clientIp(request);
         RateLimitService.RateLimitResult ipRl =
                 rateLimit.check("chat:ip:" + ip, 60, RATE_WINDOW_MS);
         if (!ipRl.allowed()) {
@@ -83,9 +83,13 @@ public class ChatMessageController {
                     sanitizedMessage,
                     body.chatId(),
                     body.preferredLanguage());
+        } catch (com.mathtutor.web.ForbiddenException e) {
+            writeJson(response, 403, "{\"error\":\"Not authorized to access this chat\"}");
+            return;
         } catch (IOException e) {
-            writeJson(response, 500,
-                    "{\"error\":\"" + escapeJson(e.getMessage()) + "\"}");
+            org.slf4j.LoggerFactory.getLogger(ChatMessageController.class)
+                    .error("Failed to prepare message stream", e);
+            writeJson(response, 500, "{\"error\":\"Failed to prepare response\"}");
             return;
         }
 
@@ -121,26 +125,13 @@ public class ChatMessageController {
     }
 
     private void setRateLimitHeaders(HttpServletResponse response, RateLimitService.RateLimitResult result) {
-        int limit = result.remaining() + (result.allowed() ? 1 : 0);
-        response.setHeader("X-RateLimit-Limit", String.valueOf(limit));
+        response.setHeader("X-RateLimit-Limit", String.valueOf(result.limit()));
         response.setHeader("X-RateLimit-Remaining", String.valueOf(result.remaining()));
         response.setHeader("X-RateLimit-Reset", String.valueOf(result.resetAt()));
     }
 
     private String chatId(String activeChatId) {
         return activeChatId;
-    }
-
-    private String clientIp(HttpServletRequest request) {
-        String forwarded = request.getHeader("x-forwarded-for");
-        if (forwarded != null && !forwarded.isBlank()) {
-            return forwarded;
-        }
-        String realIp = request.getHeader("x-real-ip");
-        if (realIp != null && !realIp.isBlank()) {
-            return realIp;
-        }
-        return "unknown";
     }
 
     private String readCookie(HttpServletRequest request, String name) {
@@ -162,15 +153,5 @@ public class ChatMessageController {
             return auth.substring(7);
         }
         return readCookie(request, SESSION_COOKIE);
-    }
-
-    private String escapeJson(String value) {
-        if (value == null) {
-            return "";
-        }
-        return value.replace("\\", "\\\\")
-                .replace("\"", "\\\"")
-                .replace("\n", "\\n")
-                .replace("\r", "\\r");
     }
 }
