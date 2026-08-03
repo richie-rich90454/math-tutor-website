@@ -8,6 +8,8 @@ export interface Translations {
     timesTables: string;
     culturalExamples: string;
     bottomText: string;
+    usageToday?: string;
+    usageCacheHits?: string;
     examplePracticeAddition: string;
     exampleLearnGeometry: string;
     exampleTimesTables: string;
@@ -218,6 +220,8 @@ export const translations: Record<string, Translations> = {
         timesTables: "Times Tables",
         culturalExamples: "Cultural Examples",
         bottomText: "AI-powered math education that adapts to your culture and language",
+        usageToday: "Usage today",
+        usageCacheHits: "cache hits",
         examplePracticeAddition: "Help me practice addition",
         exampleLearnGeometry: "Teach me geometry",
         exampleTimesTables: "Help me with times tables",
