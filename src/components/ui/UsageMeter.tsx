@@ -14,6 +14,13 @@ function formatTokens(value: number): string {
     return String(value);
 }
 
+function formatCost(value: number): string {
+    if (value === 0) return "0.00";
+    if (value >= 0.01) return value.toFixed(2);
+    if (value >= 0.0001) return value.toFixed(4);
+    return value.toFixed(6);
+}
+
 export default function UsageMeter({ refreshKey = 0 }: { refreshKey?: number }) {
     const { t } = useLanguage();
     const [usage, setUsage] = useState<UsagePayload | null>(null);
@@ -36,7 +43,7 @@ export default function UsageMeter({ refreshKey = 0 }: { refreshKey?: number }) 
     const today = usage.today;
     return (
         <span className="app-usage-meter">
-            {t("usageToday")}: {formatTokens(today.total)} tok · ${today.estCostUsd.toFixed(4)}
+            {t("usageToday")}: {formatTokens(today.total)} tok · ${formatCost(today.estCostUsd)}
             {typeof usage.cacheHits === "number" && usage.cacheHits > 0 && (
                 <>
                     {" "}
