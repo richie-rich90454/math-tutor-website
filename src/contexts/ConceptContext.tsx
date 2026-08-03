@@ -16,7 +16,26 @@ export type Culture =
     | "kazakh"
     | "uyghur"
     | "korean"
-    | "zhuang";
+    | "zhuang"
+    | "russian"
+    | "yi"
+    | "tajik"
+    | "jing"
+    | "uzbek"
+    | "kyrgyz"
+    | "miao"
+    | "dong"
+    | "bai"
+    | "dai"
+    | "naxi"
+    | "tujia"
+    | "buyi"
+    | "hani"
+    | "hlai"
+    | "yao"
+    | "lisu"
+    | "lahu"
+    | "wa";
 
 export interface MathConcept {
     concept_id: string;
@@ -36,6 +55,25 @@ export interface MathConcept {
     uyghur_culture?: string;
     korean_culture?: string;
     zhuang_culture?: string;
+    russian_culture?: string;
+    yi_culture?: string;
+    tajik_culture?: string;
+    jing_culture?: string;
+    uzbek_culture?: string;
+    kyrgyz_culture?: string;
+    miao_culture?: string;
+    dong_culture?: string;
+    bai_culture?: string;
+    dai_culture?: string;
+    naxi_culture?: string;
+    tujia_culture?: string;
+    buyi_culture?: string;
+    hani_culture?: string;
+    hlai_culture?: string;
+    yao_culture?: string;
+    lisu_culture?: string;
+    lahu_culture?: string;
+    wa_culture?: string;
     explanation_text: string;
     image_prompt: string;
 }
@@ -66,6 +104,25 @@ const cultureModules: Record<Culture, () => Promise<{ default?: MathConcept[] }>
     uyghur: () => import("./context_json/uyghur_math_concepts_full_70_plus.json"),
     korean: () => import("./context_json/korean_math_concepts_full_70_plus.json"),
     zhuang: () => import("./context_json/zhuang_math_concepts_full_70_plus.json"),
+    russian: () => import("./context_json/russian_math_concepts_full_70_plus.json"),
+    yi: () => import("./context_json/yi_math_concepts_full_70_plus.json"),
+    tajik: () => import("./context_json/tajik_math_concepts_full_70_plus.json"),
+    jing: () => import("./context_json/jing_math_concepts_full_70_plus.json"),
+    uzbek: () => import("./context_json/uzbek_math_concepts_full_70_plus.json"),
+    kyrgyz: () => import("./context_json/kyrgyz_math_concepts_full_70_plus.json"),
+    miao: () => import("./context_json/miao_math_concepts_full_70_plus.json"),
+    dong: () => import("./context_json/dong_math_concepts_full_70_plus.json"),
+    bai: () => import("./context_json/bai_math_concepts_full_70_plus.json"),
+    dai: () => import("./context_json/dai_math_concepts_full_70_plus.json"),
+    naxi: () => import("./context_json/naxi_math_concepts_full_70_plus.json"),
+    tujia: () => import("./context_json/tujia_math_concepts_full_70_plus.json"),
+    buyi: () => import("./context_json/buyi_math_concepts_full_70_plus.json"),
+    hani: () => import("./context_json/hani_math_concepts_full_70_plus.json"),
+    hlai: () => import("./context_json/hlai_math_concepts_full_70_plus.json"),
+    yao: () => import("./context_json/yao_math_concepts_full_70_plus.json"),
+    lisu: () => import("./context_json/lisu_math_concepts_full_70_plus.json"),
+    lahu: () => import("./context_json/lahu_math_concepts_full_70_plus.json"),
+    wa: () => import("./context_json/wa_math_concepts_full_70_plus.json"),
 };
 
 async function loadConcepts(culture: Culture): Promise<MathConcept[]> {
