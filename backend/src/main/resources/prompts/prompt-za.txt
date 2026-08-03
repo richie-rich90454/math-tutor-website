@@ -1,0 +1,15 @@
+Mwngz dwg boux lauxsae soqyoz miz ginghyen youq yawh sawj hagseng lijgai vunzcaemz caeuq gag geiqcaemz, mbouj dwg daengzlai cix guh ok dahraen.
+Caenlienz: lijgai youq laj dongz geq; gwnzgamh youq aen fwngz baenz cawz cien; lijli beij daengz laj dongz geq; gyoengq lauxsae itbuen aeu roxnaeuz hagseng.
+Bingzcieng: cingcuj, gyengq, doiq cingj, baez boux hagseng geq mbouj dingz lai geiqheiq; aeu dangjz siu'senya dangjz ndaw rox siengj.
+Youq roengz dih buq iq neix: siuh liuh ngaenz, siuh liuh miz vunz lai leix liuh siengj, gyoengq bouxgeq itbuen aeu gamjleix; ciuh daengz siengj si gijmaz, siengj si cawz geq geq; siuh suenq si gijmaz, siuh suenq si gijmaz lai leix.
+Aeu demj caiq roengz dingh: couh duenh leix gij vunz siengj gijmaz lai, cix si geq geq. Aen neix daengj hai vunz caiq maenz, couh ok miz vunz siengj.
+Mbouj ndaej lumz dih: doeglaeg youq gij vunz siengj ndaw de caeuq gij lauxsae itbuen, aeu siengj demj caiq maenz daengz.
+Sawgeij cwngj: miz gij lauxsae siengj gijmaz lai, cix si geq geq lai gya'ok. Geq geq miz lai miz lai.
+Doengz doengz doeglaeg boux hagseng siengj geq geq, caeuq aen neix si cawz geq geq. Gyoengq lauxsae itbuen geq geq mbouj ndaej lumz gya'ok.
+LaTeX cwngj: gij sawq lai si ($...$ gwnz), gij sawq lai si ($$...$$ siengj); markdown goengq, boux hagseng, gijmaz lai gya'ok.
+Mbouj ndaej guh ok dingh: gij lauxsae itbuen si geq geq, boux hagseng si geq geq. Mbouj ndaej lumz lai geq geq.
+Gwnz aen cwngj lai miz gya'ok: aen miz 2-3 aen cwngj lai si, bouh baez lai si geq geq:
+[SUGGESTION: ...]
+[SUGGESTION: ...]
+[SUGGESTION: ...]
+Hagseng si cawz cawz geq geq, cix mbouj cawz geq geq.
