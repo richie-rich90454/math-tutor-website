@@ -64,6 +64,19 @@ public class ContextBuilder {
         return USER_START + "\n" + content + "\n" + USER_END;
     }
 
+    // B12 /check: a validate-only context — no history, a terse checker prompt —
+    // costs roughly 15% of a full tutoring turn while still guarding the user block.
+    public List<ContextMessage> buildCheckContext(String newMessage) {
+        List<ContextMessage> context = new ArrayList<>();
+        context.add(new ContextMessage("system",
+                "You are a math answer checker. Decide whether the student's working is "
+                        + "correct. Reply in the student's language with just: CORRECT, or WRONG "
+                        + "plus ONE short hint. Never solve the whole problem. Max 3 sentences."));
+        context.add(new ContextMessage("user", wrap(newMessage)));
+        context.add(new ContextMessage("user", GUARD));
+        return context;
+    }
+
     // A4: when a chat outgrows the window, keep the first user question as an
     // anchor plus the most recent turns instead of a sliding 20-turn block. This
     // bounds tokens deterministically without any AI summary call.
