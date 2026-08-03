@@ -35,7 +35,7 @@ const InputArea = memo(function InputArea({
     const fileInputRef = useRef<HTMLInputElement>(null);
     const [isDragOver, setIsDragOver] = useState(false);
     const [isListening, setIsListening] = useState(false);
-    const recognitionRef = useRef<any>(null);
+    const recognitionRef = useRef<SpeechRecognition | null>(null);
     const charCount = value.length;
     const createRipple = useRipple();
 
@@ -148,7 +148,7 @@ const InputArea = memo(function InputArea({
         }
 
         const SpeechRecognition =
-            (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+            window.SpeechRecognition || window.webkitSpeechRecognition;
         if (!SpeechRecognition) return;
 
         const recognition = new SpeechRecognition();
