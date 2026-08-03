@@ -20,22 +20,29 @@ public class AuthService {
     private final JwtUtil jwtUtil;
     private final UserRepository users;
     private final SessionRepository sessions;
+    private final org.springframework.jdbc.core.JdbcTemplate jdbc;
 
     public AuthService(
             SecurityUtil security,
             JwtUtil jwtUtil,
             UserRepository users,
-            SessionRepository sessions) {
+            SessionRepository sessions,
+            org.springframework.jdbc.core.JdbcTemplate jdbc) {
         this.security = security;
         this.jwtUtil = jwtUtil;
         this.users = users;
         this.sessions = sessions;
+        this.jdbc = jdbc;
     }
 
     public record AuthResult(UserRepository.UserRecord user, String token) {
     }
 
     public AuthResult signup(String email, String name, String password) {
+        return signup(email, name, password, null);
+    }
+
+    public AuthResult signup(String email, String name, String password, String guestUserId) {
         if (users.findByEmail(email).isPresent()) {
             log.warn("Signup rejected: email already registered");
             throw new EmailExistsException();
@@ -45,11 +52,39 @@ public class AuthService {
         String passwordHash = security.hashPassword(password);
         users.createUser(userId, email, name, passwordHash);
 
+        // D21: when a guest upgrades, carry their chats over to the new account.
+        if (guestUserId != null && !guestUserId.isBlank() && !guestUserId.equals(userId)) {
+            jdbcTransferChats(guestUserId, userId);
+            sessions.deleteByUser(guestUserId);
+            try {
+                users.delete(guestUserId);
+            } catch (Exception e) {
+                log.warn("Guest cleanup skipped: {}", e.getMessage());
+            }
+            log.info("Guest {} upgraded to user {}", guestUserId, userId);
+        }
+
         UserRepository.UserRecord user = users.findById(userId).orElseThrow();
         String jwtToken = jwtUtil.signToken(user.id(), user.email());
         sessions.createSession(userId, jwtToken);
         log.info("Signup succeeded: user={} email={}", userId, email);
         return new AuthResult(user, jwtToken);
+    }
+
+    public AuthResult createGuest() {
+        String guestId = "guest-" + UUID.randomUUID().toString();
+        String email = "guest:" + guestId + "@math.local";
+        users.createUser(guestId, email, "Guest", "");
+        UserRepository.UserRecord user = users.findById(guestId).orElseThrow();
+        String jwtToken = jwtUtil.signToken(user.id(), user.email());
+        sessions.createSession(guestId, jwtToken);
+        log.info("Guest session created: user={}", guestId);
+        return new AuthResult(user, jwtToken);
+    }
+
+    private void jdbcTransferChats(String fromUserId, String toUserId) {
+        jdbc.update("UPDATE chat_sessions SET user_id = ? WHERE user_id = ?", toUserId, fromUserId);
+        jdbc.update("UPDATE usage_logs SET user_id = ? WHERE user_id = ?", toUserId, fromUserId);
     }
 
     public Optional<AuthResult> login(String email, String password, boolean remember) {
@@ -81,6 +116,19 @@ public class AuthService {
         }
     }
 
+    public void changePassword(String userId, String currentPassword, String newPassword, String currentToken) {
+        UserRepository.UserRecord user = users.findById(userId).orElseThrow();
+        if (!security.comparePassword(currentPassword, user.password_hash())) {
+            throw new BadCredentialsException();
+        }
+        users.updatePassword(userId, security.hashPassword(newPassword));
+        sessions.deleteByUserExcept(userId, currentToken);
+        log.info("Password changed: user={} (other sessions revoked)", userId);
+    }
+
     public static class EmailExistsException extends RuntimeException {
+    }
+
+    public static class BadCredentialsException extends RuntimeException {
     }
 }
