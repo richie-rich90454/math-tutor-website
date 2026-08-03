@@ -17,7 +17,9 @@ body = body.replace(/\}\s*;\s*$/, "}");
 
 const out =
     "// Auto-generated from src/lib/translations.ts. Do not edit by hand.\n" +
-    "var TRANSLATIONS = " + body + ";\n";
+    "var TRANSLATIONS = " +
+    body +
+    ";\n";
 
 const target = path.join(root, "frontend-legacy", "js", "i18n.js");
 fs.writeFileSync(target, out);
