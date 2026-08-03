@@ -57,14 +57,14 @@ public class UsageController {
         payload.put("requestTokens", sum.request());
         payload.put("responseTokens", sum.response());
         payload.put("total", sum.total());
-        payload.put("estCostUsd", round3(
+        payload.put("estCostUsd", round6(
                 sum.request() * COST_PER_1M_INPUT / 1_000_000.0
                         + sum.response() * COST_PER_1M_OUTPUT / 1_000_000.0));
         return payload;
     }
 
-    private static double round3(double value) {
-        return Math.round(value * 1000.0) / 1000.0;
+    private static double round6(double value) {
+        return Math.round(value * 1_000_000.0) / 1_000_000.0;
     }
 
     private String readToken(HttpServletRequest request) {
