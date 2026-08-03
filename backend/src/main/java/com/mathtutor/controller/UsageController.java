@@ -48,7 +48,7 @@ public class UsageController {
         body.put("series", usage.totalsByDay(userId, 7).stream()
                 .map(d -> Map.of("day", d.day(), "tokens", d.tokens()))
                 .toList());
-        body.put("cacheHits", usage.globalCacheHits());
+        body.put("cacheHits", usage.cacheHitsSince(userId, "datetime('now', '-1 day')"));
         return ResponseEntity.ok(body);
     }
 
