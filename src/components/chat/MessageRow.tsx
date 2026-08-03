@@ -2,6 +2,7 @@ import { memo } from "react";
 import dynamic from "next/dynamic";
 import type { Message } from "@/types/chat";
 import Skeleton from "@/components/ui/Skeleton";
+import BilingualToggle from "@/components/chat/BilingualToggle";
 
 const MarkdownRenderer = dynamic(() => import("@/components/ui/MarkdownRenderer"), {
     loading: () => <Skeleton height="60px" variant="card" />,
@@ -113,6 +114,7 @@ const MessageRow = memo(function MessageRow({
                         <span className="message-time is-left">
                             {formatTime(message.timestamp)}
                         </span>
+                        <BilingualToggle message={message.content} disabled={isStreaming} />
                     </div>
                 )}
             </div>
