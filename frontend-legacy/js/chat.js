@@ -226,12 +226,28 @@
             method: "PATCH",
             data: { is_archived: undefined, is_pinned: next, title: undefined, preview: undefined, topic: undefined },
             success: function () {
+                updatePinLocally(chatId, next);
                 loadChatHistory();
             },
             error: function (msg) {
                 alert(msg);
             }
         });
+    }
+
+    // Re-order the in-memory list so the pinned chat displays at the top
+    // immediately; the follow-up loadChatHistory() confirms server order.
+    function updatePinLocally(chatId, isPinned) {
+        for (var i = 0; i < chatHistory.length; i++) {
+            if (chatHistory[i].id === chatId) {
+                chatHistory[i].isPinned = isPinned;
+                break;
+            }
+        }
+        chatHistory.sort(function (a, b) {
+            return ((b.isPinned ? 1 : 0) - (a.isPinned ? 1 : 0));
+        });
+        renderChatList();
     }
 
     function confirmDelete(chatId) {
@@ -246,6 +262,7 @@
                         if (activeChatId === chatId) {
                             handleNewChat();
                         }
+                        removeChatLocally(chatId);
                         loadChatHistory();
                         hideModal();
                     },
@@ -263,6 +280,19 @@
     function chatTitle(chatId) {
         var chat = findChat(chatId);
         return chat ? chat.title : "";
+    }
+
+    // Drop the deleted chat from the in-memory list and re-render so the tab
+    // is gone (and unclickable) right away, before the server reload returns.
+    function removeChatLocally(chatId) {
+        var next = [];
+        for (var i = 0; i < chatHistory.length; i++) {
+            if (chatHistory[i].id !== chatId) {
+                next.push(chatHistory[i]);
+            }
+        }
+        chatHistory = next;
+        renderChatList();
     }
 
     function renderSidebarUserArea() {
