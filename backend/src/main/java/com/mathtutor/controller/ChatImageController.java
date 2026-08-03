@@ -136,7 +136,7 @@ public class ChatImageController {
             }
         } finally {
             streamLimiter.release();
-            visionChatService.saveAssistantMessage(activeChatId, userId, fullResponse.toString(), ip);
+            visionChatService.saveAssistantMessage(activeChatId, userId, fullResponse.toString(), ip, stream.usage());
         }
     }
 
