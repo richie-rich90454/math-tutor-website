@@ -7,7 +7,6 @@ import gsap from "gsap";
 import PageTransition from "@/components/ui/PageTransition";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Translations } from "@/lib/translations";
 
 export default function LoginPage() {
     const router = useRouter();
