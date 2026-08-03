@@ -151,7 +151,8 @@
                         id: row.id,
                         role: row.role,
                         content: row.content,
-                        timestamp: row.created_at
+                        timestamp: row.created_at,
+                        is_pinned: row.is_pinned === 1
                     });
                 }
                 currentChat = data.chat;
@@ -330,6 +331,8 @@
             actions = '<div class="msg-actions">'
                 + '<a href="#" data-action="copy" data-msg-id="' + MathTutor.escapeHtml(msg.id) + '">'
                 + MathTutor.escapeHtml(MathTutor.t("chatCopyMessage")) + "</a>"
+                + '<a href="#" data-action="pin" data-msg-id="' + MathTutor.escapeHtml(msg.id) + '">'
+                + MathTutor.escapeHtml(msg.is_pinned ? MathTutor.t("unpin") : MathTutor.t("pin")) + "</a>"
                 + '<a href="#" data-action="regenerate" data-msg-id="' + MathTutor.escapeHtml(msg.id) + '">'
                 + MathTutor.escapeHtml(MathTutor.t("chatRegenerate")) + "</a></div>";
         } else {
@@ -821,6 +824,27 @@
             : prompt(MathTutor.t("chatCopyMessage"), text);
     }
 
+    // A5 pin/unpin: bookmarked explanations carry forward into the AI context.
+    function togglePinMsg(messageId) {
+        if (!activeChatId) {
+            return;
+        }
+        var idx = findMsgIndex(messageId);
+        if (idx < 0) {
+            return;
+        }
+        var next = !messages[idx].is_pinned;
+        messages[idx].is_pinned = next;
+        renderMessages();
+        MathTutor.api({
+            url: "/api/chats/" + encodeURIComponent(activeChatId) + "/messages/" + encodeURIComponent(messageId) + "/pin",
+            method: "POST",
+            data: { pinned: next },
+            error: function () {
+            }
+        });
+    }
+
     // ---------- New chat ----------
     function handleNewChat() {
         if (isLoading || isStreaming) {
@@ -1002,6 +1026,8 @@
             var msgId = this.getAttribute("data-msg-id");
             if (action === "copy") {
                 handleCopy(msgId);
+            } else if (action === "pin") {
+                togglePinMsg(msgId);
             } else if (action === "regenerate") {
                 handleRegenerate();
             } else if (action === "edit") {
