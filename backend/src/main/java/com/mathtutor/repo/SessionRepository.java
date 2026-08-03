@@ -3,6 +3,7 @@ package com.mathtutor.repo;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -38,6 +39,22 @@ public class SessionRepository {
 
     public void deleteByUser(String userId) {
         jdbc.update("DELETE FROM sessions WHERE user_id = ?", userId);
+    }
+
+    public void deleteByUserExcept(String userId, String token) {
+        jdbc.update("DELETE FROM sessions WHERE user_id = ? AND token != ?", userId, token);
+    }
+
+    public List<SessionRecord> findByUser(String userId) {
+        return jdbc.query(
+                "SELECT * FROM sessions WHERE user_id = ? ORDER BY created_at DESC",
+                (rs, rowNum) -> new SessionRecord(
+                        rs.getString("id"),
+                        rs.getString("user_id"),
+                        rs.getString("token"),
+                        rs.getString("expires_at"),
+                        rs.getString("created_at")),
+                userId);
     }
 
     public void cleanupExpired() {
