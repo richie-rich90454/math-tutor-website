@@ -46,6 +46,9 @@ public class VisionChatService {
             String image,
             String message,
             String chatId) throws IOException {
+        if (image == null || !image.startsWith("data:")) {
+            throw new com.mathtutor.web.ForbiddenException("Only data URLs are accepted for image uploads");
+        }
         String sanitized = (message == null ? "" : message).trim();
         String userText = sanitized.isEmpty()
                 ? "Please analyze this image and solve any math problem you see. Show your work step by step."
@@ -53,6 +56,10 @@ public class VisionChatService {
 
         String activeChatId = chatId;
         if (activeChatId != null && !activeChatId.isBlank()) {
+            Optional<ChatRepository.ChatRecord> existing = chats.findById(activeChatId);
+            if (existing.isEmpty() || !existing.get().user_id().equals(userId)) {
+                throw new com.mathtutor.web.ForbiddenException();
+            }
             messages.addMessage(activeChatId, "user", "[Image] " + userText, 0);
             chats.updateChat(activeChatId, "preview", truncate(userText, 100));
         } else {
