@@ -46,7 +46,7 @@ const TOPIC_COLORS: Record<string, string> = {
 
 export default function ProgressPage() {
     const router = useRouter();
-    const { user, isAuthenticated, isLoading } = useAuth();
+    const { isAuthenticated, isLoading } = useAuth();
     const { t } = useLanguage();
     const [data, setData] = useState<ProgressData | null>(null);
     const [loading, setLoading] = useState(true);
