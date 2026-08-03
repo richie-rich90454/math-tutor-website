@@ -22,18 +22,21 @@ public class VisionChatService {
     private final UsageRepository usage;
     private final ContextBuilder contextBuilder;
     private final AiClient aiClient;
+    private final ImageOptimizer imageOptimizer;
 
     public VisionChatService(
             ChatRepository chats,
             MessageRepository messages,
             UsageRepository usage,
             ContextBuilder contextBuilder,
-            AiClient aiClient) {
+            AiClient aiClient,
+            ImageOptimizer imageOptimizer) {
         this.chats = chats;
         this.messages = messages;
         this.usage = usage;
         this.contextBuilder = contextBuilder;
         this.aiClient = aiClient;
+        this.imageOptimizer = imageOptimizer;
     }
 
     public record VisionStreamSetup(
@@ -77,7 +80,8 @@ public class VisionChatService {
             contextMessages.add(new ContextBuilder.ContextMessage(msg.role(), msg.content()));
         }
 
-        AiClient.AiStream stream = aiClient.streamVisionChat(contextMessages, userText, image);
+        String optimizedImage = imageOptimizer.optimizeDataUrl(image);
+        AiClient.AiStream stream = aiClient.streamVisionChat(contextMessages, userText, optimizedImage);
         return new VisionStreamSetup(activeChatId, stream);
     }
 
