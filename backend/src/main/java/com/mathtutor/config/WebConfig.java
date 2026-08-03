@@ -1,5 +1,9 @@
 package com.mathtutor.config;
 
+import com.mathtutor.web.RequestSecurity;
+import jakarta.servlet.Filter;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -8,6 +12,8 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import java.util.Set;
 
 @Configuration
 @EnableScheduling
@@ -24,6 +30,37 @@ public class WebConfig implements WebMvcConfigurer {
     @Bean
     public HiddenHttpMethodFilter hiddenHttpMethodFilter() {
         return new HiddenHttpMethodFilter();
+    }
+
+    // Security headers on every backend response (API + /legacy static files)
+    // and a CSRF defense-in-depth Origin check on state-changing requests.
+    @Bean
+    public Filter securityHeadersFilter() {
+        return (request, response, chain) -> {
+            HttpServletResponse resp = (HttpServletResponse) response;
+            resp.setHeader("X-Content-Type-Options", "nosniff");
+            resp.setHeader("X-Frame-Options", "DENY");
+            resp.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
+            resp.setHeader("Permissions-Policy", "camera=(), microphone=(), geolocation=()");
+            resp.setHeader("Content-Security-Policy",
+                    "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; "
+                            + "img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; "
+                            + "object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'");
+
+            HttpServletRequest req = (HttpServletRequest) request;
+            if (isMutating(req.getMethod())
+                    && !RequestSecurity.isAllowedOrigin(req, props.cors().allowedOrigins())) {
+                resp.setStatus(403);
+                resp.setContentType("application/json");
+                resp.getWriter().write("{\"error\":\"Origin not allowed\"}");
+                return;
+            }
+            chain.doFilter(request, response);
+        };
+    }
+
+    private static boolean isMutating(String method) {
+        return method != null && Set.of("POST", "PUT", "PATCH", "DELETE").contains(method.toUpperCase());
     }
 
     @Override
