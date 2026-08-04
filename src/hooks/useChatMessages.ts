@@ -30,6 +30,7 @@ export function useChatMessages() {
 
     const abortControllerRef = useRef<AbortController | null>(null);
     const stopRequestedRef = useRef(false);
+    const freshRef = useRef(false);
     const prevMessagesLenRef = useRef(0);
     const isLoadingRef = useRef(false);
     const chatMessagesRef = useRef<HTMLDivElement>(null);
@@ -122,6 +123,8 @@ export function useChatMessages() {
             };
 
             const currentInput = messageText;
+            const bypassCache = freshRef.current;
+            freshRef.current = false;
             setInput("");
             setMessages((prev) => [...prev, userMessage]);
             setIsLoading(true);
@@ -141,6 +144,7 @@ export function useChatMessages() {
                         message: currentInput,
                         preferredLanguage: currentLanguage.code,
                         chatId: activeChatId,
+                        bypassCache,
                     }),
                     signal: controller.signal,
                 });
@@ -175,9 +179,10 @@ export function useChatMessages() {
                 }
 
                 const assistantId = (Date.now() + 1).toString();
+                const isCached = response.headers.get("X-Cache") === "hit";
                 setMessages((prev) => [
                     ...prev,
-                    { id: assistantId, role: "assistant", content: "", timestamp: new Date() },
+                    { id: assistantId, role: "assistant", content: "", timestamp: new Date(), isCached },
                 ]);
 
                 const reader = response.body?.getReader();
@@ -379,6 +384,19 @@ export function useChatMessages() {
         sendMessage(lastUserMsg.content);
     }, [messages, sendMessage]);
 
+    const handleFreshAnswer = useCallback(async () => {
+        if (messages.length < 2 || isLoadingRef.current) return;
+        const lastUserMsg = [...messages].reverse().find((m) => m.role === "user");
+        if (!lastUserMsg) return;
+        freshRef.current = true;
+        setMessages((prev) => {
+            const lastUserIdx = prev.map((m) => m.role).lastIndexOf("user");
+            return lastUserIdx >= 0 ? prev.slice(0, lastUserIdx) : prev;
+        });
+        setInput(lastUserMsg.content);
+        sendMessage(lastUserMsg.content);
+    }, [messages, sendMessage]);
+
     const handleEdit = useCallback((messageId: string, content: string) => {
         setInput(content);
         setMessages((prev) => {
@@ -469,6 +487,7 @@ export function useChatMessages() {
         sendMessage,
         sendImage,
         handleRegenerate,
+        handleFreshAnswer,
         handleStopGeneration,
         handleEdit,
         handleNewChat,
