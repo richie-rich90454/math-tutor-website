@@ -243,4 +243,6 @@ TRANSLATION_TABLES["lhu"] = {
     topicStatistics: "Tho law math",
     gradeAll: "Šɛ law qho",
     sheetsLoadError: "Šɛ law ma t'hɔ law. Tɛ law tɛ law te law šɛ pɛ law.",
+    chatAskedBefore: "之前问过",
+    chatFreshAnswer: "获取新答案",
 };
