@@ -248,6 +248,12 @@ const kk: Translations = {
     sheetsLoadError: "Кестелерді жүктеу мүмкін болмады. Қайталап көріңіз.",
     chatAskedBefore: "Бұрын сұралған",
     chatFreshAnswer: "Жаңа жауап алу",
+    settingsResumeLastChat: "Соңғы сөйлесуді жалғастыру",
+    continueLearning: "Оқуды жалғастыру",
+    recentTopics: "Соңғы тақырыптар",
+    followUpExplain: "Қарапайымдау түсіндір",
+    followUpExamples: "Көбірек мысал",
+    followUpAnother: "Тағы бір есеп",
 };
 
 export default kk;
