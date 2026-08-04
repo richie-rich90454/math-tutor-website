@@ -245,4 +245,10 @@ TRANSLATION_TABLES["ar"] = {
     sheetsLoadError: "تعذر تحميل الجداول. حاول مرة أخرى.",
     chatAskedBefore: "سُئل سابقًا",
     chatFreshAnswer: "الحصول على إجابة جديدة",
+    settingsResumeLastChat: "استئناف آخر محادثة",
+    continueLearning: "مواصلة التعلم",
+    recentTopics: "مواضيع حديثة",
+    followUpExplain: "اشرح بشكل أبسط",
+    followUpExamples: "أمثلة أكثر",
+    followUpAnother: "مسألة أخرى",
 };
