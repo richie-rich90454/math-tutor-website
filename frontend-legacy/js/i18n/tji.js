@@ -242,4 +242,6 @@ TRANSLATION_TABLES["tji"] = {
     topicStatistics: "Tongjix",
     gradeAll: "Zongx",
     sheetsLoadError: "Zif Biar moq qix oq. Cex hong hei.",
+    chatAskedBefore: "之前问过",
+    chatFreshAnswer: "获取新答案",
 };
