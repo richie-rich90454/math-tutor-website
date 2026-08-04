@@ -244,4 +244,6 @@ TRANSLATION_TABLES["za"] = {
     topicStatistics: "Doengjgaiq",
     gradeAll: "Gyoengq",
     sheetsLoadError: "Mbouj ndaej dawz bawj cingj. Cawz caiq demq.",
+    chatAskedBefore: "Daeq gvaq",
+    chatFreshAnswer: "Aeu daejmoeg moq",
 };
