@@ -3,13 +3,14 @@ package com.mathtutor.dto;
 import java.util.ArrayList;
 import java.util.List;
 
-public record ChatMessageRequest(String message, String chatId, String preferredLanguage) {
+public record ChatMessageRequest(String message, String chatId, String preferredLanguage, boolean bypassCache) {
 
     public static ChatMessageRequest parse(JsonLike body) {
         List<Validator.Issue> issues = new ArrayList<>();
         String message = body.string("message");
         String chatId = body.string("chatId");
         String preferredLanguage = body.string("preferredLanguage");
+        boolean bypassCache = body.booleanOrFalse("bypassCache");
 
         Validator.requireString(issues, "message", message);
         if (message != null) {
@@ -23,6 +24,6 @@ public record ChatMessageRequest(String message, String chatId, String preferred
         if (!issues.isEmpty()) {
             throw new ValidationException(issues);
         }
-        return new ChatMessageRequest(message, chatId, preferredLanguage);
+        return new ChatMessageRequest(message, chatId, preferredLanguage, bypassCache);
     }
 }
