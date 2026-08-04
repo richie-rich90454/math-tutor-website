@@ -242,4 +242,6 @@ TRANSLATION_TABLES["pcc"] = {
     topicStatistics: "Dungjgeiq",
     gradeAll: "Caenh",
     sheetsLoadError: "Saw Vah mbouj doq ndaej lo. Siq baez caemh.",
+    chatAskedBefore: "之前问过",
+    chatFreshAnswer: "获取新答案",
 };
