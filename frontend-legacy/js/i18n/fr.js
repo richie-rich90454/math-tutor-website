@@ -246,4 +246,10 @@ TRANSLATION_TABLES["fr"] = {
     sheetsLoadError: "Impossible de charger les fiches. Réessayez.",
     chatAskedBefore: "Déjà demandé",
     chatFreshAnswer: "Obtenir une nouvelle réponse",
+    settingsResumeLastChat: "Reprendre le dernier chat",
+    continueLearning: "Continuer à apprendre",
+    recentTopics: "Sujets récents",
+    followUpExplain: "Expliquer plus simplement",
+    followUpExamples: "Plus d'exemples",
+    followUpAnother: "Un autre problème",
 };
