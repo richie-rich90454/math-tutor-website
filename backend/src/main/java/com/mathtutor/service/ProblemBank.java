@@ -123,17 +123,17 @@ public class ProblemBank {
             for (JsonNode node : problems) {
                 List<String> options = new ArrayList<>();
                 for (JsonNode opt : node.path("options")) {
-                    options.add(opt.asText());
+                    options.add(opt.asString());
                 }
                 Problem problem = new Problem(
-                        node.path("id").asText(),
-                        node.path("topic").asText(),
+                        node.path("id").asString(),
+                        node.path("topic").asString(),
                         node.path("grade").asInt(1),
-                        node.path("question").asText(),
+                        node.path("question").asString(),
                         options,
                         node.path("answerIndex").asInt(0),
-                        node.path("explanation").asText(),
-                        node.path("language").asText("en"));
+                        node.path("explanation").asString(),
+                        node.path("language").asString("en"));
                 byId.put(problem.id(), problem);
             }
         }
