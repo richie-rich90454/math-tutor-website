@@ -243,4 +243,6 @@ TRANSLATION_TABLES["ar"] = {
     topicStatistics: "الإحصاء",
     gradeAll: "الكل",
     sheetsLoadError: "تعذر تحميل الجداول. حاول مرة أخرى.",
+    chatAskedBefore: "سُئل سابقًا",
+    chatFreshAnswer: "الحصول على إجابة جديدة",
 };
