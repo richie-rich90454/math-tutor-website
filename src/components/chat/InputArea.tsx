@@ -190,7 +190,7 @@ const InputArea = memo(function InputArea({
         recognitionRef.current = recognition;
         recognition.start();
         setIsListening(true);
-    }, [isListening, value, onChange]);
+    }, [isListening, value, onChange, currentLanguage.code]);
 
     return (
         <div className="ia-root">
