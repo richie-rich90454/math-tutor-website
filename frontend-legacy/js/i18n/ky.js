@@ -244,4 +244,6 @@ TRANSLATION_TABLES["ky"] = {
     topicStatistics: "Статистика",
     gradeAll: "Баары",
     sheetsLoadError: "Таблицаларды жүктөө мүмкүн болгон жок. Кайра аракет кылыңыз.",
+    chatAskedBefore: "Мурун суралган",
+    chatFreshAnswer: "Жаңы жооп алуу",
 };
