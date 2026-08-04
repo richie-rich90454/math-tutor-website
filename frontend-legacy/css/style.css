@@ -98,6 +98,7 @@ html,body{height:100%;}
 .msg-actions a{margin-right:8px;}
 .suggestions{margin-top:6px;}
 .suggestion-btn{display:inline-block;margin:2px 4px 2px 0;padding:3px 10px;border:1px solid #9db4ff;background:#0a0a0a;color:#9db4ff;border-radius:4px;font-size:12px;cursor:pointer;}
+.msg-cached-badge{display:inline-block;margin:2px 0;padding:1px 8px;border:1px solid #444;border-radius:10px;color:#999;font-size:11px;}
 .loading-dots{color:#999;}
 
 /* Input bar */
