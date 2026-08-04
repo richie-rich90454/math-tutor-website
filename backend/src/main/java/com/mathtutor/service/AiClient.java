@@ -305,7 +305,7 @@ public class AiClient {
                     this.usage = parseUsage(usageNode);
                 }
                 JsonNode content = parsed.path("choices").path(0).path("delta").path("content");
-                return content.isValueNode() ? content.asText() : null;
+                return content.isValueNode() ? content.asString() : null;
             } catch (Exception e) {
                 return null;
             }
