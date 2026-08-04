@@ -29,6 +29,7 @@ export function useChatMessages() {
     }, []);
 
     const abortControllerRef = useRef<AbortController | null>(null);
+    const stopRequestedRef = useRef(false);
     const prevMessagesLenRef = useRef(0);
     const isLoadingRef = useRef(false);
     const chatMessagesRef = useRef<HTMLDivElement>(null);
@@ -198,15 +199,17 @@ export function useChatMessages() {
                 clearTimeout(timeoutId);
                 const isAbort = error instanceof DOMException && error.name === "AbortError";
                 if (isAbort) {
-                    setMessages((prev) => [
-                        ...prev,
-                        {
-                            id: (Date.now() + 1).toString(),
-                            role: "assistant",
-                            content: "Request timed out. Please try again.",
-                            timestamp: new Date(),
-                        },
-                    ]);
+                    if (!stopRequestedRef.current) {
+                        setMessages((prev) => [
+                            ...prev,
+                            {
+                                id: (Date.now() + 1).toString(),
+                                role: "assistant",
+                                content: "Request timed out. Please try again.",
+                                timestamp: new Date(),
+                            },
+                        ]);
+                    }
                     return;
                 }
                 const errMsg = error instanceof Error ? error.message : "Failed to send message";
@@ -224,6 +227,7 @@ export function useChatMessages() {
                 isLoadingRef.current = false;
                 setIsLoading(false);
                 setIsStreaming(false);
+                stopRequestedRef.current = false;
                 abortControllerRef.current = null;
             }
         },
@@ -321,20 +325,22 @@ export function useChatMessages() {
             }
         } catch (error: unknown) {
             clearTimeout(timeoutId);
-            const isAbort = error instanceof DOMException && error.name === "AbortError";
-            if (isAbort) {
-                setMessages((prev) => [
-                    ...prev,
-                    {
-                        id: (Date.now() + 1).toString(),
-                        role: "assistant",
-                        content: "Request timed out. Please try again.",
-                        timestamp: new Date(),
-                    },
-                ]);
-                return;
-            }
-            const errMsg = error instanceof Error ? error.message : "Failed to send image";
+                const isAbort = error instanceof DOMException && error.name === "AbortError";
+                if (isAbort) {
+                    if (!stopRequestedRef.current) {
+                        setMessages((prev) => [
+                            ...prev,
+                            {
+                                id: (Date.now() + 1).toString(),
+                                role: "assistant",
+                                content: "Request timed out. Please try again.",
+                                timestamp: new Date(),
+                            },
+                        ]);
+                    }
+                    return;
+                }
+                const errMsg = error instanceof Error ? error.message : "Failed to send image";
             console.error("Send image error:", error);
             setMessages((prev) => [
                 ...prev,
@@ -354,6 +360,7 @@ export function useChatMessages() {
     }, [pendingImage, input, currentLanguage.code, activeChatId, addChatSession]);
 
     const handleStopGeneration = useCallback(() => {
+        stopRequestedRef.current = true;
         abortControllerRef.current?.abort();
         isLoadingRef.current = false;
         setIsLoading(false);
