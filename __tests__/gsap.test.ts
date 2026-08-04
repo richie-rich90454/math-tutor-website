@@ -30,7 +30,12 @@ describe("springIn", () => {
         springIn(el);
         expect(gsapMock.from).toHaveBeenCalledWith(
             el,
-            expect.objectContaining({ opacity: 0, y: 20, duration: 0.6, ease: "elastic.out(1, 0.5)" }),
+            expect.objectContaining({
+                opacity: 0,
+                y: 20,
+                duration: 0.6,
+                ease: "elastic.out(1, 0.5)",
+            }),
         );
     });
 
@@ -50,7 +55,8 @@ describe("springIn", () => {
 
 describe("particleBurst", () => {
     it("creates one particle per count with cycling colors", () => {
-        const created: Array<{ style: Record<string, string>; remove: ReturnType<typeof vi.fn> }> = [];
+        const created: Array<{ style: Record<string, string>; remove: ReturnType<typeof vi.fn> }> =
+            [];
         const onCompletes: Array<() => void> = [];
         gsapMock.to.mockImplementation((_p: unknown, opts: { onComplete: () => void }) => {
             onCompletes.push(opts.onComplete);
