@@ -18,8 +18,7 @@ fs.mkdirSync(i18nDir, { recursive: true });
 // One file per language: TRANSLATION_TABLES["code"] = { ... };
 for (const l of languages) {
     const content = readTranslation(l.code);
-    const file =
-        'TRANSLATION_TABLES[' + JSON.stringify(l.code) + '] = ' + content + ";\n";
+    const file = "TRANSLATION_TABLES[" + JSON.stringify(l.code) + "] = " + content + ";\n";
     fs.writeFileSync(path.join(i18nDir, l.code + ".js"), file);
 }
 
@@ -37,27 +36,35 @@ const out =
     langEntries +
     "\n];\n" +
     "var TRANSLATION_TABLES = {};\n" +
-    "TRANSLATION_TABLES[\"en\"] = " + enContent + ";\n" +
+    'TRANSLATION_TABLES["en"] = ' +
+    enContent +
+    ";\n" +
     "(function () {\n" +
     "    var lang = null;\n" +
-    "    var parts = document.cookie.split(\";\");\n" +
+    '    var parts = document.cookie.split(";");\n' +
     "    for (var i = 0; i < parts.length; i++) {\n" +
     "        var p = parts[i];\n" +
-    "        while (p.charAt(0) === \" \") { p = p.substring(1); }\n" +
-    "        if (p.indexOf(\"preferred-language=\") === 0) { lang = p.substring(19); }\n" +
+    '        while (p.charAt(0) === " ") { p = p.substring(1); }\n' +
+    '        if (p.indexOf("preferred-language=") === 0) { lang = p.substring(19); }\n' +
     "    }\n" +
     "    var known = false;\n" +
     "    for (var j = 0; j < LANGUAGES.length; j++) {\n" +
     "        if (LANGUAGES[j].code === lang) { known = true; break; }\n" +
     "    }\n" +
-    "    if (known && lang !== \"en\") {\n" +
+    '    if (known && lang !== "en") {\n' +
     "        document.write('<script type=\"text/javascript\" src=\"/legacy/js/i18n/' + lang + '.js\"><\\/script>');\n" +
     "    }\n" +
     "})();\n";
 
 const target = path.join(root, "frontend-legacy", "js", "i18n.js");
 fs.writeFileSync(target, out);
-console.log("generated", target, "(" + out.length + " bytes) and", i18nDir, "(" + languages.length + " language files)");
+console.log(
+    "generated",
+    target,
+    "(" + out.length + " bytes) and",
+    i18nDir,
+    "(" + languages.length + " language files)",
+);
 
 function readLanguages() {
     const src = fs.readFileSync(path.join(root, "src", "contexts", "LanguageContext.tsx"), "utf8");
