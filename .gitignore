@@ -17,6 +17,9 @@
 /.next/
 /out/
 
+# generated minified client JSON (regenerated on dev/build)
+/src/contexts/context_json_min/
+
 # production
 /build
 

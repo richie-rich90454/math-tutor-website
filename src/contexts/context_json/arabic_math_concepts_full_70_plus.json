@@ -1,1 +1,565 @@
-[{"concept_id":"place_value","concept_name":"Place Value","aliases":["place value","digit place","number place","units place","tens place","hundreds place","position of digits","digit position"],"arabic_culture":"Place value in Arabic numerals","explanation_text":"In the place-value system we call Arabic numerals, every digit's value depends on its position, and the zero holds an empty place in the middle of a number. Moving a digit one place to the left multiplies its value by ten.","image_prompt":"Illustrate the number 3,052 written in Arabic numerals with labeled columns for ones, tens, hundreds, and thousands, showing how the zero holds the tens place empty."},{"concept_id":"addition_subtraction","concept_name":"Addition & Subtraction","aliases":["add","addition","plus","sum","combine","total","subtract","subtraction","minus","take away","difference"],"arabic_culture":"Counting coins in the souk","explanation_text":"A souk merchant counts the day's takings by adding coins to the money box as sales are made, and removing coins when he pays for supplies. Each deposit increases the total, each withdrawal decreases it — exactly how addition and subtraction work.","image_prompt":"Show a souk merchant adding coins to and removing coins from a wooden money box, with the running total increasing and decreasing."},{"concept_id":"multiplication_division","concept_name":"Multiplication & Division","aliases":["multiply","multiplication","times","groups of","repeated addition","divide","division","split equally","sharing"],"arabic_culture":"Rows of arches in a mosque courtyard","explanation_text":"The identical arches of a mosque courtyard stand in repeated rows and columns, so counting one row and multiplying by the number of rows gives the total count. Sharing the arches evenly among the columns shows division.","image_prompt":"Show a mosque courtyard with identical arches arranged in equal rows and columns, one row highlighted to show multiplication as repeated groups."},{"concept_id":"even_odd","concept_name":"Even and Odd Numbers","aliases":["even numbers","odd numbers","even","odd","pairs","leftover","no remainder","remains one"],"arabic_culture":"The oud's eleven strings","explanation_text":"The oud, the ancestor of the lute, is usually strung with eleven strings arranged as five pairs plus one single bass string. The five pairs can be counted in twos, but that one leftover string makes eleven an odd number.","image_prompt":"Show an oud, an eleven-stringed lute, with its strings labeled in pairs, leaving one single string to illustrate an odd number."},{"concept_id":"skip_counting","concept_name":"Skip Counting / Number Patterns","aliases":["skip counting","count by 2s","count by 5s","count by 10s","jump counting","repeating numbers","number patterns"],"arabic_culture":"Zellige tile color sequences","explanation_text":"Moroccan zellige tiles repeat in rhythmic color patterns across walls and floors. Counting every fifth tile as you scan the pattern is skip counting by fives.","image_prompt":"Show a Moroccan zellige mosaic with a repeating color sequence and every fifth tile highlighted to illustrate skip counting."},{"concept_id":"comparing_numbers","concept_name":"Comparing and Ordering Numbers","aliases":["compare numbers","greater than","less than","more than","fewer than","biggest","smallest","ordering numbers","number order"],"arabic_culture":"Minaret heights on the skyline","explanation_text":"Minarets rise to different heights against a city skyline, so you can judge which is taller and which is shorter at a glance. Placing a greater-than or less-than symbol between two heights is comparing numbers.","image_prompt":"Show several minarets of different heights on a skyline with greater-than and less-than symbols placed between them."},{"concept_id":"rounding_estimation","concept_name":"Rounding & Estimation","aliases":["round","rounding","estimate","estimation","approximate","about how much","close to","nearby number"],"arabic_culture":"Estimating rice for kabsa","explanation_text":"A cook making kabsa estimates roughly how many cups of rice will fill the pot rather than measuring every grain. Estimating to the nearest convenient amount is exactly what rounding does.","image_prompt":"Show a cook scooping rice into a kabsa pot while estimating, with convenient rounded amounts such as 'about 4 cups' labeled beside the pot."},{"concept_id":"fractions","concept_name":"Fractions","aliases":["fraction","part of a whole","portion","share","numerator","denominator"],"arabic_culture":"Sharing pomegranate seeds","explanation_text":"When friends open a pomegranate and share its seeds equally, each person receives one part of the whole fruit. That part-of-a-whole amount is a fraction.","image_prompt":"Show a pomegranate split open with its seeds being divided equally among several small bowls, each labeled as a fraction of the whole fruit."},{"concept_id":"equivalent_fractions","concept_name":"Equivalent Fractions","aliases":["equal fractions","same value","fraction equality","equivalent"],"arabic_culture":"Cutting knafeh two ways","explanation_text":"Cutting a tray of knafeh into two halves or into four quarters gives everyone the same amount of pastry. Different-looking fractions that name the same amount are equivalent fractions.","image_prompt":"Show a round tray of knafeh cut into halves in one picture and into quarters in another, both representing the same total amount."},{"concept_id":"simplifying_fractions","concept_name":"Simplifying Fractions","aliases":["reduce fraction","lowest terms","simplify fraction"],"arabic_culture":"Combining piles of spice","explanation_text":"Small piles of the same spice sold by a souk trader can be combined into one larger pile without changing the spice. Combining equal parts this way is like simplifying a fraction to its lowest terms.","image_prompt":"Show small piles of spice at a souk stall merging into one larger pile, with fractions shown both unsimplified and reduced."},{"concept_id":"mixed_numbers","concept_name":"Mixed Numbers","aliases":["mixed number","whole and fraction","whole part and fraction part"],"arabic_culture":"Full and half jars of honey","explanation_text":"Three full jars of honey and one half-full jar hold three and a half jars of honey altogether. A whole number joined with a fraction is a mixed number.","image_prompt":"Show three full jars of honey and one half-full jar, labeled together as 3½."},{"concept_id":"improper_fractions","concept_name":"Improper Fractions","aliases":["top-heavy fraction","numerator larger","greater than one fraction"],"arabic_culture":"Molasses jars past a full tray","explanation_text":"Pomegranate molasses is measured in small jars, and filling seven small jars when a tray holds four makes more than one whole tray. An amount greater than one written as a fraction of equal parts is an improper fraction.","image_prompt":"Show seven small jars of pomegranate molasses where a tray holds four, representing the improper fraction 7/4."},{"concept_id":"adding_fractions","concept_name":"Adding Fractions","aliases":["fraction addition","add fractions","sum of fractions"],"arabic_culture":"Pouring olive oil portions","explanation_text":"Pouring a quarter jar and a half jar of olive oil into the same mixing bowl shows how fractional amounts add together. The combined oil fills three quarters of the bowl — the sum of the fractions.","image_prompt":"Show a quarter jar and a half jar of olive oil being poured into one bowl that fills three quarters full."},{"concept_id":"subtracting_fractions","concept_name":"Subtracting Fractions","aliases":["fraction subtraction","take away fractions","difference of fractions"],"arabic_culture":"Sipping mint tea","explanation_text":"A full glass of mint tea is sipped down until a third remains. Removing part of the tea leaves a smaller amount, which is subtracting a fraction.","image_prompt":"Show a glass of mint tea with the amount sipped away marked, and the remaining third of the glass labeled."},{"concept_id":"multiplying_fractions","concept_name":"Multiplying Fractions","aliases":["fraction multiplication","part of a part","multiply fractions"],"arabic_culture":"Half of a half bowl of hummus","explanation_text":"When two people split a half bowl of hummus, each receives half of a half — a quarter of the whole bowl. Finding a fraction of a fraction is multiplying fractions.","image_prompt":"Show a bowl of hummus divided in half, with one half divided again so a quarter of the whole bowl is highlighted."},{"concept_id":"dividing_fractions","concept_name":"Dividing Fractions","aliases":["fraction division","divide fractions","how many times in"],"arabic_culture":"Splitting pastry dough","explanation_text":"A baker divides a portion of dough into smaller equal pieces for pastries. Asking how many smaller pieces fit into the original portion is dividing by a fraction.","image_prompt":"Show a ball of dough being divided into smaller equal pieces, showing how many pieces fit into the original portion."},{"concept_id":"decimals","concept_name":"Decimals","aliases":["decimal point","tenths","hundredths","decimal number"],"arabic_culture":"The goldsmith's scale","explanation_text":"A goldsmith weighs gold in grams and tenths of a gram, so a small piece reads 1.5 grams on the scale. The decimal point separates whole grams from parts of a gram.","image_prompt":"Show a goldsmith's scale reading 1.5 grams, with the digits labeled as ones and tenths across the decimal point."},{"concept_id":"converting_fractions_decimals","concept_name":"Converting Fractions and Decimals","aliases":["fraction to decimal","decimal to fraction","convert fractions"],"arabic_culture":"Half a dirham coin","explanation_text":"Half a dirham can be written as the fraction ½ or as the decimal 0.5 — both name the same value of a coin. Converting between fractions and decimals is just changing how you write the same amount.","image_prompt":"Show a dirham coin split in two halves, one side labeled ½ and the other 0.5, representing the same value."},{"concept_id":"percents","concept_name":"Percents","aliases":["percent","percentage","per hundred","rate per 100"],"arabic_culture":"School exams out of one hundred","explanation_text":"An Arabic school exam scored 92 out of 100 is written as 92 percent. Percents are a way of counting parts per hundred.","image_prompt":"Show a school exam paper marked 92/100 with a large 92% grade written beside it."},{"concept_id":"percent_of_number","concept_name":"Percent of a Number","aliases":["percentage of number","find percent","portion of total"],"arabic_culture":"Bargaining at the souk","explanation_text":"A trader who accepts ten percent off his asking price subtracts a tenth of the price. Finding a percent of a number is how discounts are calculated during bargaining.","image_prompt":"Show a souk trader and customer bargaining over a carpet, with a sign reading 10% off and the reduced price calculated below."},{"concept_id":"variables","concept_name":"Variables","aliases":["variable","unknown","letter as number","symbol in math"],"arabic_culture":"Al-Khwarizmi's unknown 'shay'","explanation_text":"In his algebra book Kitab al-Jabr, al-Khwarizmi called the unknown quantity shay', Arabic for 'thing', and worked with it as a number. A letter or symbol that stands for an unknown value is a variable.","image_prompt":"Show an open copybook with the Arabic word shay' (شيء) standing for an unknown quantity, placed next to the letter x."},{"concept_id":"expressions","concept_name":"Expressions","aliases":["math expressions","numerical expressions","algebraic expressions"],"arabic_culture":"Al-jabr: restoring quantities","explanation_text":"The word algebra comes from al-jabr, 'restoring', the operation al-Khwarizmi used to bring unknown and known quantities together on one side. A combination of known and unknown values like 'three things and five' is an expression.","image_prompt":"Show a page from al-Khwarizmi's algebra writing a combination of known numbers and an unknown quantity, labeled as an expression."},{"concept_id":"equations","concept_name":"Equations","aliases":["math equations","equal statements","algebra equations"],"arabic_culture":"Restoring balance in Kitab al-Jabr","explanation_text":"Al-jabr means restoring, and al-Khwarizmi treated his equations as balances whose two sides had to be made equal again. When two amounts are set equal, with an unknown on one side, you have an equation.","image_prompt":"Show a balance scale labeled with an equation from al-Khwarizmi's Kitab al-Jabr, with both sides level."},{"concept_id":"solving_one_step_equations","concept_name":"Solving One-Step Equations","aliases":["one-step equations","simple equations"],"arabic_culture":"One act of restoring","explanation_text":"When one side of an equation is left with an extra amount, a single act of al-jabr — adding or removing the same amount from both sides — restores the balance. This one move solves a one-step equation.","image_prompt":"Show a balance scale where a single weight moved or removed from both sides brings it level, symbolizing a one-step equation."},{"concept_id":"solving_two_step_equations","concept_name":"Solving Two-Step Equations","aliases":["two-step equations","multi-step equations"],"arabic_culture":"Al-jabr then al-muqabala","explanation_text":"Al-Khwarizmi solved equations with two operations: first al-jabr restored missing terms, then al-muqabala balanced what remained. Performing two operations in order to isolate the unknown is solving a two-step equation.","image_prompt":"Show two labeled steps — first al-jabr restoring a term, then al-muqabala balancing — leading to the isolated unknown."},{"concept_id":"inequalities","concept_name":"Inequalities","aliases":["greater than","less than","not equal","comparison statements"],"arabic_culture":"Comparing two camel caravans","explanation_text":"A trader compares two caravans and sees that one carries more camels than the other. A statement that one quantity is greater than or less than another is an inequality.","image_prompt":"Show two camel caravans of different sizes with a greater-than symbol placed between them."},{"concept_id":"order_of_operations","concept_name":"Order of Operations (PEMDAS)","aliases":["PEMDAS","BODMAS","math order","operations order"],"arabic_culture":"Brewing Arabic coffee","explanation_text":"Arabic coffee must be roasted, ground, and then brewed — you cannot brew before you grind. When steps must follow a fixed order to get the right result, the sequence matters just as in the order of operations.","image_prompt":"Show the ordered steps of brewing Arabic coffee — roasting, grinding, brewing — labeled like the steps of the order of operations."},{"concept_id":"substitution","concept_name":"Substitution","aliases":["replace variable","substitute value","replace letter with number"],"arabic_culture":"Trading equal-value coins","explanation_text":"A merchant who trades one five-dirham coin for five one-dirham coins has changed the form but not the value. Replacing a symbol with a number that has the same value is substitution.","image_prompt":"Show a trader exchanging one five-dirham coin for five one-dirham coins, with equal value shown on both sides."},{"concept_id":"points","concept_name":"Points","aliases":["dot","location","coordinate point"],"arabic_culture":"Stars in the desert night","explanation_text":"Every star in the night sky marks a single fixed position, a location that can be named. A star's spot is like a point in geometry, which has a position but no size.","image_prompt":"Show a starry desert night sky with a few stars marked as points on an invisible coordinate grid."},{"concept_id":"lines","concept_name":"Lines","aliases":["straight line","geometry line","infinite line"],"arabic_culture":"Ibn al-Haytham's light rays","explanation_text":"The great scientist Ibn al-Haytham showed that light travels from an object to the eye along straight paths. A light ray is a geometric line: straight, and extending without end.","image_prompt":"Show Ibn al-Haytham's optics diagram with light rays traveling in straight lines from a candle to an eye."},{"concept_id":"angles","concept_name":"Angles","aliases":["angle","degree","corner measure"],"arabic_culture":"Al-Battani's astrolabe readings","explanation_text":"Astronomers like al-Battani measured the height of the sun and stars by reading the angle between the horizon and the celestial body with an astrolabe. An angle measures how far one line is turned from another.","image_prompt":"Show an astrolabe being used to sight a star, with the angle between the horizon line and the sighting line clearly marked."},{"concept_id":"perpendicular_lines","concept_name":"Perpendicular Lines","aliases":["right angle lines","intersecting lines","orthogonal lines"],"arabic_culture":"Mashrabiya lattice crossings","explanation_text":"The wooden strips of a mashrabiya window screen cross at right angles, giving the lattice its strength and beauty. Lines that meet at a right angle are perpendicular.","image_prompt":"Show a carved mashrabiya window screen with its wooden strips crossing at perfect right angles."},{"concept_id":"parallel_lines","concept_name":"Parallel Lines","aliases":["side-by-side lines","never meet","equal distance lines"],"arabic_culture":"Qanat irrigation channels","explanation_text":"The underground channels of a qanat irrigation system run side by side through the land, always keeping the same distance apart. Lines that never meet and stay equally spaced are parallel.","image_prompt":"Show parallel underground qanat channels running side by side through the earth, evenly spaced."},{"concept_id":"polygons","concept_name":"Polygons","aliases":["shapes","closed figure","many-sided shape"],"arabic_culture":"Star polygons in Islamic art","explanation_text":"Islamic geometric art is built from eight-pointed and twelve-pointed stars, closed shapes with many straight sides. Any closed many-sided shape is a polygon.","image_prompt":"Show eight-pointed and twelve-pointed star polygons carved into an Islamic geometric pattern."},{"concept_id":"triangles","concept_name":"Triangles","aliases":["three sides","triangular","triangle shape"],"arabic_culture":"The dhow's lateen sail","explanation_text":"The lateen sail of an Arabian dhow is a triangle, three straight sides meeting at three corners. Triangular sails are prized because they catch the wind well at many angles.","image_prompt":"Show dhows at sea under large triangular lateen sails, the sail shapes clearly three-sided."},{"concept_id":"quadrilaterals","concept_name":"Quadrilaterals","aliases":["four sides","rectangles","squares","trapezoids"],"arabic_culture":"Kilim border patterns","explanation_text":"The borders of a kilim carpet are woven with repeated rectangles, squares, and diamonds. Four-sided shapes like these are quadrilaterals.","image_prompt":"Show a kilim carpet with a border made of repeating rectangles, squares, and diamond shapes."},{"concept_id":"perimeter","concept_name":"Perimeter","aliases":["boundary length","distance around","outline measure"],"arabic_culture":"Walking the medina walls","explanation_text":"The old medina of a city like Fes or Marrakesh is ringed by walls, and walking their full length measures the boundary of the city. The distance all the way around a shape is its perimeter.","image_prompt":"Show a medina with a dashed line tracing all the way around its city walls, labeled as the perimeter."},{"concept_id":"area","concept_name":"Area","aliases":["surface area","space inside","coverage"],"arabic_culture":"A woven rug on the floor","explanation_text":"The rug a family spreads on the floor covers a certain amount of the room's surface. The amount of surface a shape covers is its area.","image_prompt":"Show a hand-woven rug spread across a room floor, shaded to show the area it covers."},{"concept_id":"volume","concept_name":"Volume","aliases":["capacity","space inside 3D shape","liquid amount"],"arabic_culture":"The dallah coffee pot","explanation_text":"A dallah, the traditional Arabic coffee pot, is made to hold a set amount of coffee for the guests it serves. The space inside a container is its volume.","image_prompt":"Show a polished dallah coffee pot with the amount it can hold marked beside it."},{"concept_id":"circle_properties","concept_name":"Circle Properties","aliases":["radius","diameter","circumference","circle geometry"],"arabic_culture":"The astrolabe's rings","explanation_text":"An astrolabe is built around a circular face with rings marking the sky. On such a circle, the radius, diameter, and circumference are all related parts of the same round instrument.","image_prompt":"Show an astrolabe from above with its circular face, with the radius and diameter drawn and labeled across the ring."},{"concept_id":"pi","concept_name":"Pi (π)","aliases":["pi","ratio of circumference","3.14"],"arabic_culture":"The round head of a darbuka","explanation_text":"The head of a darbuka drum is a circle, and its rim is always a little more than three times as long as its width across. That constant ratio is pi.","image_prompt":"Show a darbuka drum from above with its circumference measured around the rim and its diameter drawn across the head."},{"concept_id":"coordinate_plane","concept_name":"Coordinate Plane","aliases":["x-y plane","graph grid","axes"],"arabic_culture":"Ranks and files of the chessboard","explanation_text":"Chess, carried from India through the Arab world to Europe, is played on a board of ranks and files. Every square can be named by its file letter and rank number, exactly like a coordinate plane.","image_prompt":"Show a chessboard with file letters along one edge and rank numbers along the other, each square named by its coordinates."},{"concept_id":"plotting_points","concept_name":"Plotting Points","aliases":["graphing points","coordinates","x-y plotting"],"arabic_culture":"Stars on the astrolabe's rete","explanation_text":"The astrolabe's rete, its rotating star map, carries pointers that mark where each bright star sits in the sky. Placing each star at its position on the instrument is plotting points.","image_prompt":"Show an astrolabe's star map with its pointed pointers marking the positions of bright stars."},{"concept_id":"symmetry","concept_name":"Symmetry","aliases":["mirror image","balanced halves","reflection symmetry"],"arabic_culture":"Mirrored Arabic calligraphy","explanation_text":"Arabic calligraphy is often arranged in mirror pairs, where each half of a composition is the reflection of the other across a central line. When one half mirrors the other, the design has symmetry.","image_prompt":"Show an Arabic calligraphy panel arranged in mirror halves with a central line splitting the design into matching sides."},{"concept_id":"transformations","concept_name":"Transformations","aliases":["translate","rotate","reflect","dilate"],"arabic_culture":"Rotating girih tiles","explanation_text":"Girih tiles create endless star patterns because a single tile is rotated and reflected as it is laid down. Moving a shape by rotating, reflecting, or sliding it is a geometric transformation.","image_prompt":"Show a single girih tile being rotated and reflected to build a large repeating star pattern."},{"concept_id":"ratios","concept_name":"Ratios","aliases":["comparison","proportion of quantities","rate"],"arabic_culture":"Coffee and cardamom blend","explanation_text":"Arabic coffee is brewed with a set blend of coffee to cardamom, such as two measures of coffee to one of cardamom. A comparison of two quantities like 2 to 1 is a ratio.","image_prompt":"Show a dallah beside two small mounds of coffee and one of cardamom, labeled in the ratio 2:1."},{"concept_id":"proportions","concept_name":"Proportions","aliases":["equal ratios","scaling","balance of ratios"],"arabic_culture":"Scaling a carpet design","explanation_text":"A carpet weaver who copies a small design onto a larger loom keeps every part in the same relation, so the pattern looks identical. Two ratios that stay equal while the amounts grow are in proportion.","image_prompt":"Show a small and a large version of the same carpet pattern side by side, with matching proportions."},{"concept_id":"unit_rate","concept_name":"Unit Rate","aliases":["per unit","rate per one","comparison per one unit"],"arabic_culture":"A caravan's daily pace","explanation_text":"Caravans measured their journeys by how many kilometers a camel train could cover in one day. Distance per single day is a unit rate.","image_prompt":"Show a camel caravan crossing the land with its pace labeled as kilometers per day."},{"concept_id":"scale_drawings","concept_name":"Scale Drawings","aliases":["map scale","drawing proportion","scaled map"],"arabic_culture":"Al-Idrisi's world map","explanation_text":"In the twelfth century, the geographer al-Idrisi, born in Morocco, drew a celebrated map of the known world for the ruler of Sicily. His map shrank real distances evenly, which is what makes it a scale drawing.","image_prompt":"Show al-Idrisi's famous circular world map with a scale legend and a compass beside it."},{"concept_id":"percent_change","concept_name":"Percent Change","aliases":["percent increase","percent decrease","growth rate"],"arabic_culture":"Growing date harvest","explanation_text":"A palm grove that yields a hundred baskets of dates one year and a hundred twenty the next has grown by twenty baskets. Measured against the original harvest, that growth is a twenty percent increase.","image_prompt":"Show stacks of date baskets growing from one year to the next, labeled 100 to 120 with a +20% arrow."},{"concept_id":"data_collection","concept_name":"Data Collection","aliases":["gather data","record information","collect numbers"],"arabic_culture":"Tallying date clusters","explanation_text":"At harvest, farmers record how many date clusters each palm produces in order to compare their trees. Gathering and writing down numbers like these is data collection.","image_prompt":"Show a farmer tallying date clusters from each palm in a harvest ledger with marks and numbers."},{"concept_id":"tables_graphs","concept_name":"Tables and Graphs","aliases":["data table","bar graph","chart"],"arabic_culture":"Camel sales by month","explanation_text":"A trader who lists how many camels were sold in each month can see at a glance which months were busiest. Arranging numbers in tables and graphs makes the data easier to read.","image_prompt":"Show a table of camel sales for each month beside a bar graph of the same numbers."},{"concept_id":"mean","concept_name":"Mean","aliases":["average","arithmetic mean","mean value"],"arabic_culture":"Average yield of a palm","explanation_text":"To find a typical harvest, farmers add the baskets of dates from all their palms and divide by the number of palms. That shared total is the mean, or average, yield.","image_prompt":"Show a table of date yields from several palm trees with the average value highlighted."},{"concept_id":"median","concept_name":"Median","aliases":["middle value","data median"],"arabic_culture":"The dhow's middle beam","explanation_text":"The shipwright lays out the hull beams from shortest to longest, and the beam exactly in the middle is the one that fits the center of the dhow. The middle value of an ordered list is the median.","image_prompt":"Show a dhow's hull with wooden beams arranged from shortest to longest, with the middle beam highlighted as the median."},{"concept_id":"mode","concept_name":"Mode","aliases":["most frequent value","common value"],"arabic_culture":"The calligrapher's qalam reeds","explanation_text":"A calligrapher keeps many qalam pens cut to slightly different widths, and the width he reaches for most often is his favorite. The value that appears most often in a set is the mode.","image_prompt":"Show a calligrapher's row of qalam reed pens of different widths, with the most common width highlighted."},{"concept_id":"range","concept_name":"Range","aliases":["difference","spread of data","highest minus lowest"],"arabic_culture":"Minaret heights across the city","explanation_text":"The city's tallest minaret rises far above its shortest, and the difference between the two heights tells you how spread out the skyline is. The largest value minus the smallest is the range.","image_prompt":"Show a skyline of minarets with the tallest and shortest labeled and the difference between them marked."},{"concept_id":"bar_graphs","concept_name":"Bar Graphs","aliases":["bar chart","column graph"],"arabic_culture":"Water from the oasis well","explanation_text":"Each family at the oasis draws a different number of jars from the well each week, and bars of different heights show the amounts side by side. A bar graph makes the comparison clear at a glance.","image_prompt":"Show a bar graph with one bar for each family at an oasis, labeled with jars of water."},{"concept_id":"line_graphs","concept_name":"Line Graphs","aliases":["trend graph","line chart"],"arabic_culture":"Desert temperatures through the year","explanation_text":"A line rising and falling across the months traces how desert temperatures climb in summer and drop in winter. A line graph shows how a value changes over time.","image_prompt":"Show a line graph of monthly desert temperatures with the yearly high and low marked."},{"concept_id":"pie_charts","concept_name":"Pie Charts","aliases":["circle chart","percentage chart"],"arabic_culture":"Sharing the oasis water","explanation_text":"The oasis's water is divided among uses — drinking, cooking, and irrigation — and each use takes a slice of the whole supply. A circle divided into slices that add to the whole is a pie chart.","image_prompt":"Show a pie chart of an oasis water supply divided into slices for drinking, cooking, and irrigation with percentages."},{"concept_id":"probability","concept_name":"Probability","aliases":["chance","likelihood","odds"],"arabic_culture":"Chances on the chessboard","explanation_text":"Chess players weigh which move is most likely to succeed before they play it. Measuring how likely an outcome is, from impossible to certain, is probability.","image_prompt":"Show a chessboard with two possible moves marked, each labeled with its likelihood of success."},{"concept_id":"patterns","concept_name":"Patterns","aliases":["repeating design","sequence","recurrence"],"arabic_culture":"Phases of the crescent moon","explanation_text":"Real Islamic astronomers tracked the crescent moon as it thinned and swelled in a cycle that repeats month after month. A sequence of events that repeats in the same order is a pattern.","image_prompt":"Show a row of crescent moon phases repeating in a cycle across the night sky."},{"concept_id":"functions","concept_name":"Functions","aliases":["input-output rule","function relation","mapping"],"arabic_culture":"Each oud string, one pitch","explanation_text":"On the oud, each string's length sets exactly one pitch, so a given length always produces the same note. A rule that gives each input exactly one output is a function.","image_prompt":"Show an oud with its strings labeled by length, each string mapped to the single pitch it produces."}]
+[
+    {
+        "concept_id": "place_value",
+        "concept_name": "Place Value",
+        "aliases": [
+            "place value",
+            "digit place",
+            "number place",
+            "units place",
+            "tens place",
+            "hundreds place",
+            "position of digits",
+            "digit position"
+        ],
+        "arabic_culture": "Place value in Arabic numerals",
+        "explanation_text": "In the place-value system we call Arabic numerals, every digit's value depends on its position, and the zero holds an empty place in the middle of a number. Moving a digit one place to the left multiplies its value by ten.",
+        "image_prompt": "Illustrate the number 3,052 written in Arabic numerals with labeled columns for ones, tens, hundreds, and thousands, showing how the zero holds the tens place empty."
+    },
+    {
+        "concept_id": "addition_subtraction",
+        "concept_name": "Addition & Subtraction",
+        "aliases": [
+            "add",
+            "addition",
+            "plus",
+            "sum",
+            "combine",
+            "total",
+            "subtract",
+            "subtraction",
+            "minus",
+            "take away",
+            "difference"
+        ],
+        "arabic_culture": "Counting coins in the souk",
+        "explanation_text": "A souk merchant counts the day's takings by adding coins to the money box as sales are made, and removing coins when he pays for supplies. Each deposit increases the total, each withdrawal decreases it — exactly how addition and subtraction work.",
+        "image_prompt": "Show a souk merchant adding coins to and removing coins from a wooden money box, with the running total increasing and decreasing."
+    },
+    {
+        "concept_id": "multiplication_division",
+        "concept_name": "Multiplication & Division",
+        "aliases": [
+            "multiply",
+            "multiplication",
+            "times",
+            "groups of",
+            "repeated addition",
+            "divide",
+            "division",
+            "split equally",
+            "sharing"
+        ],
+        "arabic_culture": "Rows of arches in a mosque courtyard",
+        "explanation_text": "The identical arches of a mosque courtyard stand in repeated rows and columns, so counting one row and multiplying by the number of rows gives the total count. Sharing the arches evenly among the columns shows division.",
+        "image_prompt": "Show a mosque courtyard with identical arches arranged in equal rows and columns, one row highlighted to show multiplication as repeated groups."
+    },
+    {
+        "concept_id": "even_odd",
+        "concept_name": "Even and Odd Numbers",
+        "aliases": [
+            "even numbers",
+            "odd numbers",
+            "even",
+            "odd",
+            "pairs",
+            "leftover",
+            "no remainder",
+            "remains one"
+        ],
+        "arabic_culture": "The oud's eleven strings",
+        "explanation_text": "The oud, the ancestor of the lute, is usually strung with eleven strings arranged as five pairs plus one single bass string. The five pairs can be counted in twos, but that one leftover string makes eleven an odd number.",
+        "image_prompt": "Show an oud, an eleven-stringed lute, with its strings labeled in pairs, leaving one single string to illustrate an odd number."
+    },
+    {
+        "concept_id": "skip_counting",
+        "concept_name": "Skip Counting / Number Patterns",
+        "aliases": [
+            "skip counting",
+            "count by 2s",
+            "count by 5s",
+            "count by 10s",
+            "jump counting",
+            "repeating numbers",
+            "number patterns"
+        ],
+        "arabic_culture": "Zellige tile color sequences",
+        "explanation_text": "Moroccan zellige tiles repeat in rhythmic color patterns across walls and floors. Counting every fifth tile as you scan the pattern is skip counting by fives.",
+        "image_prompt": "Show a Moroccan zellige mosaic with a repeating color sequence and every fifth tile highlighted to illustrate skip counting."
+    },
+    {
+        "concept_id": "comparing_numbers",
+        "concept_name": "Comparing and Ordering Numbers",
+        "aliases": [
+            "compare numbers",
+            "greater than",
+            "less than",
+            "more than",
+            "fewer than",
+            "biggest",
+            "smallest",
+            "ordering numbers",
+            "number order"
+        ],
+        "arabic_culture": "Minaret heights on the skyline",
+        "explanation_text": "Minarets rise to different heights against a city skyline, so you can judge which is taller and which is shorter at a glance. Placing a greater-than or less-than symbol between two heights is comparing numbers.",
+        "image_prompt": "Show several minarets of different heights on a skyline with greater-than and less-than symbols placed between them."
+    },
+    {
+        "concept_id": "rounding_estimation",
+        "concept_name": "Rounding & Estimation",
+        "aliases": [
+            "round",
+            "rounding",
+            "estimate",
+            "estimation",
+            "approximate",
+            "about how much",
+            "close to",
+            "nearby number"
+        ],
+        "arabic_culture": "Estimating rice for kabsa",
+        "explanation_text": "A cook making kabsa estimates roughly how many cups of rice will fill the pot rather than measuring every grain. Estimating to the nearest convenient amount is exactly what rounding does.",
+        "image_prompt": "Show a cook scooping rice into a kabsa pot while estimating, with convenient rounded amounts such as 'about 4 cups' labeled beside the pot."
+    },
+    {
+        "concept_id": "fractions",
+        "concept_name": "Fractions",
+        "aliases": ["fraction", "part of a whole", "portion", "share", "numerator", "denominator"],
+        "arabic_culture": "Sharing pomegranate seeds",
+        "explanation_text": "When friends open a pomegranate and share its seeds equally, each person receives one part of the whole fruit. That part-of-a-whole amount is a fraction.",
+        "image_prompt": "Show a pomegranate split open with its seeds being divided equally among several small bowls, each labeled as a fraction of the whole fruit."
+    },
+    {
+        "concept_id": "equivalent_fractions",
+        "concept_name": "Equivalent Fractions",
+        "aliases": ["equal fractions", "same value", "fraction equality", "equivalent"],
+        "arabic_culture": "Cutting knafeh two ways",
+        "explanation_text": "Cutting a tray of knafeh into two halves or into four quarters gives everyone the same amount of pastry. Different-looking fractions that name the same amount are equivalent fractions.",
+        "image_prompt": "Show a round tray of knafeh cut into halves in one picture and into quarters in another, both representing the same total amount."
+    },
+    {
+        "concept_id": "simplifying_fractions",
+        "concept_name": "Simplifying Fractions",
+        "aliases": ["reduce fraction", "lowest terms", "simplify fraction"],
+        "arabic_culture": "Combining piles of spice",
+        "explanation_text": "Small piles of the same spice sold by a souk trader can be combined into one larger pile without changing the spice. Combining equal parts this way is like simplifying a fraction to its lowest terms.",
+        "image_prompt": "Show small piles of spice at a souk stall merging into one larger pile, with fractions shown both unsimplified and reduced."
+    },
+    {
+        "concept_id": "mixed_numbers",
+        "concept_name": "Mixed Numbers",
+        "aliases": ["mixed number", "whole and fraction", "whole part and fraction part"],
+        "arabic_culture": "Full and half jars of honey",
+        "explanation_text": "Three full jars of honey and one half-full jar hold three and a half jars of honey altogether. A whole number joined with a fraction is a mixed number.",
+        "image_prompt": "Show three full jars of honey and one half-full jar, labeled together as 3½."
+    },
+    {
+        "concept_id": "improper_fractions",
+        "concept_name": "Improper Fractions",
+        "aliases": ["top-heavy fraction", "numerator larger", "greater than one fraction"],
+        "arabic_culture": "Molasses jars past a full tray",
+        "explanation_text": "Pomegranate molasses is measured in small jars, and filling seven small jars when a tray holds four makes more than one whole tray. An amount greater than one written as a fraction of equal parts is an improper fraction.",
+        "image_prompt": "Show seven small jars of pomegranate molasses where a tray holds four, representing the improper fraction 7/4."
+    },
+    {
+        "concept_id": "adding_fractions",
+        "concept_name": "Adding Fractions",
+        "aliases": ["fraction addition", "add fractions", "sum of fractions"],
+        "arabic_culture": "Pouring olive oil portions",
+        "explanation_text": "Pouring a quarter jar and a half jar of olive oil into the same mixing bowl shows how fractional amounts add together. The combined oil fills three quarters of the bowl — the sum of the fractions.",
+        "image_prompt": "Show a quarter jar and a half jar of olive oil being poured into one bowl that fills three quarters full."
+    },
+    {
+        "concept_id": "subtracting_fractions",
+        "concept_name": "Subtracting Fractions",
+        "aliases": ["fraction subtraction", "take away fractions", "difference of fractions"],
+        "arabic_culture": "Sipping mint tea",
+        "explanation_text": "A full glass of mint tea is sipped down until a third remains. Removing part of the tea leaves a smaller amount, which is subtracting a fraction.",
+        "image_prompt": "Show a glass of mint tea with the amount sipped away marked, and the remaining third of the glass labeled."
+    },
+    {
+        "concept_id": "multiplying_fractions",
+        "concept_name": "Multiplying Fractions",
+        "aliases": ["fraction multiplication", "part of a part", "multiply fractions"],
+        "arabic_culture": "Half of a half bowl of hummus",
+        "explanation_text": "When two people split a half bowl of hummus, each receives half of a half — a quarter of the whole bowl. Finding a fraction of a fraction is multiplying fractions.",
+        "image_prompt": "Show a bowl of hummus divided in half, with one half divided again so a quarter of the whole bowl is highlighted."
+    },
+    {
+        "concept_id": "dividing_fractions",
+        "concept_name": "Dividing Fractions",
+        "aliases": ["fraction division", "divide fractions", "how many times in"],
+        "arabic_culture": "Splitting pastry dough",
+        "explanation_text": "A baker divides a portion of dough into smaller equal pieces for pastries. Asking how many smaller pieces fit into the original portion is dividing by a fraction.",
+        "image_prompt": "Show a ball of dough being divided into smaller equal pieces, showing how many pieces fit into the original portion."
+    },
+    {
+        "concept_id": "decimals",
+        "concept_name": "Decimals",
+        "aliases": ["decimal point", "tenths", "hundredths", "decimal number"],
+        "arabic_culture": "The goldsmith's scale",
+        "explanation_text": "A goldsmith weighs gold in grams and tenths of a gram, so a small piece reads 1.5 grams on the scale. The decimal point separates whole grams from parts of a gram.",
+        "image_prompt": "Show a goldsmith's scale reading 1.5 grams, with the digits labeled as ones and tenths across the decimal point."
+    },
+    {
+        "concept_id": "converting_fractions_decimals",
+        "concept_name": "Converting Fractions and Decimals",
+        "aliases": ["fraction to decimal", "decimal to fraction", "convert fractions"],
+        "arabic_culture": "Half a dirham coin",
+        "explanation_text": "Half a dirham can be written as the fraction ½ or as the decimal 0.5 — both name the same value of a coin. Converting between fractions and decimals is just changing how you write the same amount.",
+        "image_prompt": "Show a dirham coin split in two halves, one side labeled ½ and the other 0.5, representing the same value."
+    },
+    {
+        "concept_id": "percents",
+        "concept_name": "Percents",
+        "aliases": ["percent", "percentage", "per hundred", "rate per 100"],
+        "arabic_culture": "School exams out of one hundred",
+        "explanation_text": "An Arabic school exam scored 92 out of 100 is written as 92 percent. Percents are a way of counting parts per hundred.",
+        "image_prompt": "Show a school exam paper marked 92/100 with a large 92% grade written beside it."
+    },
+    {
+        "concept_id": "percent_of_number",
+        "concept_name": "Percent of a Number",
+        "aliases": ["percentage of number", "find percent", "portion of total"],
+        "arabic_culture": "Bargaining at the souk",
+        "explanation_text": "A trader who accepts ten percent off his asking price subtracts a tenth of the price. Finding a percent of a number is how discounts are calculated during bargaining.",
+        "image_prompt": "Show a souk trader and customer bargaining over a carpet, with a sign reading 10% off and the reduced price calculated below."
+    },
+    {
+        "concept_id": "variables",
+        "concept_name": "Variables",
+        "aliases": ["variable", "unknown", "letter as number", "symbol in math"],
+        "arabic_culture": "Al-Khwarizmi's unknown 'shay'",
+        "explanation_text": "In his algebra book Kitab al-Jabr, al-Khwarizmi called the unknown quantity shay', Arabic for 'thing', and worked with it as a number. A letter or symbol that stands for an unknown value is a variable.",
+        "image_prompt": "Show an open copybook with the Arabic word shay' (شيء) standing for an unknown quantity, placed next to the letter x."
+    },
+    {
+        "concept_id": "expressions",
+        "concept_name": "Expressions",
+        "aliases": ["math expressions", "numerical expressions", "algebraic expressions"],
+        "arabic_culture": "Al-jabr: restoring quantities",
+        "explanation_text": "The word algebra comes from al-jabr, 'restoring', the operation al-Khwarizmi used to bring unknown and known quantities together on one side. A combination of known and unknown values like 'three things and five' is an expression.",
+        "image_prompt": "Show a page from al-Khwarizmi's algebra writing a combination of known numbers and an unknown quantity, labeled as an expression."
+    },
+    {
+        "concept_id": "equations",
+        "concept_name": "Equations",
+        "aliases": ["math equations", "equal statements", "algebra equations"],
+        "arabic_culture": "Restoring balance in Kitab al-Jabr",
+        "explanation_text": "Al-jabr means restoring, and al-Khwarizmi treated his equations as balances whose two sides had to be made equal again. When two amounts are set equal, with an unknown on one side, you have an equation.",
+        "image_prompt": "Show a balance scale labeled with an equation from al-Khwarizmi's Kitab al-Jabr, with both sides level."
+    },
+    {
+        "concept_id": "solving_one_step_equations",
+        "concept_name": "Solving One-Step Equations",
+        "aliases": ["one-step equations", "simple equations"],
+        "arabic_culture": "One act of restoring",
+        "explanation_text": "When one side of an equation is left with an extra amount, a single act of al-jabr — adding or removing the same amount from both sides — restores the balance. This one move solves a one-step equation.",
+        "image_prompt": "Show a balance scale where a single weight moved or removed from both sides brings it level, symbolizing a one-step equation."
+    },
+    {
+        "concept_id": "solving_two_step_equations",
+        "concept_name": "Solving Two-Step Equations",
+        "aliases": ["two-step equations", "multi-step equations"],
+        "arabic_culture": "Al-jabr then al-muqabala",
+        "explanation_text": "Al-Khwarizmi solved equations with two operations: first al-jabr restored missing terms, then al-muqabala balanced what remained. Performing two operations in order to isolate the unknown is solving a two-step equation.",
+        "image_prompt": "Show two labeled steps — first al-jabr restoring a term, then al-muqabala balancing — leading to the isolated unknown."
+    },
+    {
+        "concept_id": "inequalities",
+        "concept_name": "Inequalities",
+        "aliases": ["greater than", "less than", "not equal", "comparison statements"],
+        "arabic_culture": "Comparing two camel caravans",
+        "explanation_text": "A trader compares two caravans and sees that one carries more camels than the other. A statement that one quantity is greater than or less than another is an inequality.",
+        "image_prompt": "Show two camel caravans of different sizes with a greater-than symbol placed between them."
+    },
+    {
+        "concept_id": "order_of_operations",
+        "concept_name": "Order of Operations (PEMDAS)",
+        "aliases": ["PEMDAS", "BODMAS", "math order", "operations order"],
+        "arabic_culture": "Brewing Arabic coffee",
+        "explanation_text": "Arabic coffee must be roasted, ground, and then brewed — you cannot brew before you grind. When steps must follow a fixed order to get the right result, the sequence matters just as in the order of operations.",
+        "image_prompt": "Show the ordered steps of brewing Arabic coffee — roasting, grinding, brewing — labeled like the steps of the order of operations."
+    },
+    {
+        "concept_id": "substitution",
+        "concept_name": "Substitution",
+        "aliases": ["replace variable", "substitute value", "replace letter with number"],
+        "arabic_culture": "Trading equal-value coins",
+        "explanation_text": "A merchant who trades one five-dirham coin for five one-dirham coins has changed the form but not the value. Replacing a symbol with a number that has the same value is substitution.",
+        "image_prompt": "Show a trader exchanging one five-dirham coin for five one-dirham coins, with equal value shown on both sides."
+    },
+    {
+        "concept_id": "points",
+        "concept_name": "Points",
+        "aliases": ["dot", "location", "coordinate point"],
+        "arabic_culture": "Stars in the desert night",
+        "explanation_text": "Every star in the night sky marks a single fixed position, a location that can be named. A star's spot is like a point in geometry, which has a position but no size.",
+        "image_prompt": "Show a starry desert night sky with a few stars marked as points on an invisible coordinate grid."
+    },
+    {
+        "concept_id": "lines",
+        "concept_name": "Lines",
+        "aliases": ["straight line", "geometry line", "infinite line"],
+        "arabic_culture": "Ibn al-Haytham's light rays",
+        "explanation_text": "The great scientist Ibn al-Haytham showed that light travels from an object to the eye along straight paths. A light ray is a geometric line: straight, and extending without end.",
+        "image_prompt": "Show Ibn al-Haytham's optics diagram with light rays traveling in straight lines from a candle to an eye."
+    },
+    {
+        "concept_id": "angles",
+        "concept_name": "Angles",
+        "aliases": ["angle", "degree", "corner measure"],
+        "arabic_culture": "Al-Battani's astrolabe readings",
+        "explanation_text": "Astronomers like al-Battani measured the height of the sun and stars by reading the angle between the horizon and the celestial body with an astrolabe. An angle measures how far one line is turned from another.",
+        "image_prompt": "Show an astrolabe being used to sight a star, with the angle between the horizon line and the sighting line clearly marked."
+    },
+    {
+        "concept_id": "perpendicular_lines",
+        "concept_name": "Perpendicular Lines",
+        "aliases": ["right angle lines", "intersecting lines", "orthogonal lines"],
+        "arabic_culture": "Mashrabiya lattice crossings",
+        "explanation_text": "The wooden strips of a mashrabiya window screen cross at right angles, giving the lattice its strength and beauty. Lines that meet at a right angle are perpendicular.",
+        "image_prompt": "Show a carved mashrabiya window screen with its wooden strips crossing at perfect right angles."
+    },
+    {
+        "concept_id": "parallel_lines",
+        "concept_name": "Parallel Lines",
+        "aliases": ["side-by-side lines", "never meet", "equal distance lines"],
+        "arabic_culture": "Qanat irrigation channels",
+        "explanation_text": "The underground channels of a qanat irrigation system run side by side through the land, always keeping the same distance apart. Lines that never meet and stay equally spaced are parallel.",
+        "image_prompt": "Show parallel underground qanat channels running side by side through the earth, evenly spaced."
+    },
+    {
+        "concept_id": "polygons",
+        "concept_name": "Polygons",
+        "aliases": ["shapes", "closed figure", "many-sided shape"],
+        "arabic_culture": "Star polygons in Islamic art",
+        "explanation_text": "Islamic geometric art is built from eight-pointed and twelve-pointed stars, closed shapes with many straight sides. Any closed many-sided shape is a polygon.",
+        "image_prompt": "Show eight-pointed and twelve-pointed star polygons carved into an Islamic geometric pattern."
+    },
+    {
+        "concept_id": "triangles",
+        "concept_name": "Triangles",
+        "aliases": ["three sides", "triangular", "triangle shape"],
+        "arabic_culture": "The dhow's lateen sail",
+        "explanation_text": "The lateen sail of an Arabian dhow is a triangle, three straight sides meeting at three corners. Triangular sails are prized because they catch the wind well at many angles.",
+        "image_prompt": "Show dhows at sea under large triangular lateen sails, the sail shapes clearly three-sided."
+    },
+    {
+        "concept_id": "quadrilaterals",
+        "concept_name": "Quadrilaterals",
+        "aliases": ["four sides", "rectangles", "squares", "trapezoids"],
+        "arabic_culture": "Kilim border patterns",
+        "explanation_text": "The borders of a kilim carpet are woven with repeated rectangles, squares, and diamonds. Four-sided shapes like these are quadrilaterals.",
+        "image_prompt": "Show a kilim carpet with a border made of repeating rectangles, squares, and diamond shapes."
+    },
+    {
+        "concept_id": "perimeter",
+        "concept_name": "Perimeter",
+        "aliases": ["boundary length", "distance around", "outline measure"],
+        "arabic_culture": "Walking the medina walls",
+        "explanation_text": "The old medina of a city like Fes or Marrakesh is ringed by walls, and walking their full length measures the boundary of the city. The distance all the way around a shape is its perimeter.",
+        "image_prompt": "Show a medina with a dashed line tracing all the way around its city walls, labeled as the perimeter."
+    },
+    {
+        "concept_id": "area",
+        "concept_name": "Area",
+        "aliases": ["surface area", "space inside", "coverage"],
+        "arabic_culture": "A woven rug on the floor",
+        "explanation_text": "The rug a family spreads on the floor covers a certain amount of the room's surface. The amount of surface a shape covers is its area.",
+        "image_prompt": "Show a hand-woven rug spread across a room floor, shaded to show the area it covers."
+    },
+    {
+        "concept_id": "volume",
+        "concept_name": "Volume",
+        "aliases": ["capacity", "space inside 3D shape", "liquid amount"],
+        "arabic_culture": "The dallah coffee pot",
+        "explanation_text": "A dallah, the traditional Arabic coffee pot, is made to hold a set amount of coffee for the guests it serves. The space inside a container is its volume.",
+        "image_prompt": "Show a polished dallah coffee pot with the amount it can hold marked beside it."
+    },
+    {
+        "concept_id": "circle_properties",
+        "concept_name": "Circle Properties",
+        "aliases": ["radius", "diameter", "circumference", "circle geometry"],
+        "arabic_culture": "The astrolabe's rings",
+        "explanation_text": "An astrolabe is built around a circular face with rings marking the sky. On such a circle, the radius, diameter, and circumference are all related parts of the same round instrument.",
+        "image_prompt": "Show an astrolabe from above with its circular face, with the radius and diameter drawn and labeled across the ring."
+    },
+    {
+        "concept_id": "pi",
+        "concept_name": "Pi (π)",
+        "aliases": ["pi", "ratio of circumference", "3.14"],
+        "arabic_culture": "The round head of a darbuka",
+        "explanation_text": "The head of a darbuka drum is a circle, and its rim is always a little more than three times as long as its width across. That constant ratio is pi.",
+        "image_prompt": "Show a darbuka drum from above with its circumference measured around the rim and its diameter drawn across the head."
+    },
+    {
+        "concept_id": "coordinate_plane",
+        "concept_name": "Coordinate Plane",
+        "aliases": ["x-y plane", "graph grid", "axes"],
+        "arabic_culture": "Ranks and files of the chessboard",
+        "explanation_text": "Chess, carried from India through the Arab world to Europe, is played on a board of ranks and files. Every square can be named by its file letter and rank number, exactly like a coordinate plane.",
+        "image_prompt": "Show a chessboard with file letters along one edge and rank numbers along the other, each square named by its coordinates."
+    },
+    {
+        "concept_id": "plotting_points",
+        "concept_name": "Plotting Points",
+        "aliases": ["graphing points", "coordinates", "x-y plotting"],
+        "arabic_culture": "Stars on the astrolabe's rete",
+        "explanation_text": "The astrolabe's rete, its rotating star map, carries pointers that mark where each bright star sits in the sky. Placing each star at its position on the instrument is plotting points.",
+        "image_prompt": "Show an astrolabe's star map with its pointed pointers marking the positions of bright stars."
+    },
+    {
+        "concept_id": "symmetry",
+        "concept_name": "Symmetry",
+        "aliases": ["mirror image", "balanced halves", "reflection symmetry"],
+        "arabic_culture": "Mirrored Arabic calligraphy",
+        "explanation_text": "Arabic calligraphy is often arranged in mirror pairs, where each half of a composition is the reflection of the other across a central line. When one half mirrors the other, the design has symmetry.",
+        "image_prompt": "Show an Arabic calligraphy panel arranged in mirror halves with a central line splitting the design into matching sides."
+    },
+    {
+        "concept_id": "transformations",
+        "concept_name": "Transformations",
+        "aliases": ["translate", "rotate", "reflect", "dilate"],
+        "arabic_culture": "Rotating girih tiles",
+        "explanation_text": "Girih tiles create endless star patterns because a single tile is rotated and reflected as it is laid down. Moving a shape by rotating, reflecting, or sliding it is a geometric transformation.",
+        "image_prompt": "Show a single girih tile being rotated and reflected to build a large repeating star pattern."
+    },
+    {
+        "concept_id": "ratios",
+        "concept_name": "Ratios",
+        "aliases": ["comparison", "proportion of quantities", "rate"],
+        "arabic_culture": "Coffee and cardamom blend",
+        "explanation_text": "Arabic coffee is brewed with a set blend of coffee to cardamom, such as two measures of coffee to one of cardamom. A comparison of two quantities like 2 to 1 is a ratio.",
+        "image_prompt": "Show a dallah beside two small mounds of coffee and one of cardamom, labeled in the ratio 2:1."
+    },
+    {
+        "concept_id": "proportions",
+        "concept_name": "Proportions",
+        "aliases": ["equal ratios", "scaling", "balance of ratios"],
+        "arabic_culture": "Scaling a carpet design",
+        "explanation_text": "A carpet weaver who copies a small design onto a larger loom keeps every part in the same relation, so the pattern looks identical. Two ratios that stay equal while the amounts grow are in proportion.",
+        "image_prompt": "Show a small and a large version of the same carpet pattern side by side, with matching proportions."
+    },
+    {
+        "concept_id": "unit_rate",
+        "concept_name": "Unit Rate",
+        "aliases": ["per unit", "rate per one", "comparison per one unit"],
+        "arabic_culture": "A caravan's daily pace",
+        "explanation_text": "Caravans measured their journeys by how many kilometers a camel train could cover in one day. Distance per single day is a unit rate.",
+        "image_prompt": "Show a camel caravan crossing the land with its pace labeled as kilometers per day."
+    },
+    {
+        "concept_id": "scale_drawings",
+        "concept_name": "Scale Drawings",
+        "aliases": ["map scale", "drawing proportion", "scaled map"],
+        "arabic_culture": "Al-Idrisi's world map",
+        "explanation_text": "In the twelfth century, the geographer al-Idrisi, born in Morocco, drew a celebrated map of the known world for the ruler of Sicily. His map shrank real distances evenly, which is what makes it a scale drawing.",
+        "image_prompt": "Show al-Idrisi's famous circular world map with a scale legend and a compass beside it."
+    },
+    {
+        "concept_id": "percent_change",
+        "concept_name": "Percent Change",
+        "aliases": ["percent increase", "percent decrease", "growth rate"],
+        "arabic_culture": "Growing date harvest",
+        "explanation_text": "A palm grove that yields a hundred baskets of dates one year and a hundred twenty the next has grown by twenty baskets. Measured against the original harvest, that growth is a twenty percent increase.",
+        "image_prompt": "Show stacks of date baskets growing from one year to the next, labeled 100 to 120 with a +20% arrow."
+    },
+    {
+        "concept_id": "data_collection",
+        "concept_name": "Data Collection",
+        "aliases": ["gather data", "record information", "collect numbers"],
+        "arabic_culture": "Tallying date clusters",
+        "explanation_text": "At harvest, farmers record how many date clusters each palm produces in order to compare their trees. Gathering and writing down numbers like these is data collection.",
+        "image_prompt": "Show a farmer tallying date clusters from each palm in a harvest ledger with marks and numbers."
+    },
+    {
+        "concept_id": "tables_graphs",
+        "concept_name": "Tables and Graphs",
+        "aliases": ["data table", "bar graph", "chart"],
+        "arabic_culture": "Camel sales by month",
+        "explanation_text": "A trader who lists how many camels were sold in each month can see at a glance which months were busiest. Arranging numbers in tables and graphs makes the data easier to read.",
+        "image_prompt": "Show a table of camel sales for each month beside a bar graph of the same numbers."
+    },
+    {
+        "concept_id": "mean",
+        "concept_name": "Mean",
+        "aliases": ["average", "arithmetic mean", "mean value"],
+        "arabic_culture": "Average yield of a palm",
+        "explanation_text": "To find a typical harvest, farmers add the baskets of dates from all their palms and divide by the number of palms. That shared total is the mean, or average, yield.",
+        "image_prompt": "Show a table of date yields from several palm trees with the average value highlighted."
+    },
+    {
+        "concept_id": "median",
+        "concept_name": "Median",
+        "aliases": ["middle value", "data median"],
+        "arabic_culture": "The dhow's middle beam",
+        "explanation_text": "The shipwright lays out the hull beams from shortest to longest, and the beam exactly in the middle is the one that fits the center of the dhow. The middle value of an ordered list is the median.",
+        "image_prompt": "Show a dhow's hull with wooden beams arranged from shortest to longest, with the middle beam highlighted as the median."
+    },
+    {
+        "concept_id": "mode",
+        "concept_name": "Mode",
+        "aliases": ["most frequent value", "common value"],
+        "arabic_culture": "The calligrapher's qalam reeds",
+        "explanation_text": "A calligrapher keeps many qalam pens cut to slightly different widths, and the width he reaches for most often is his favorite. The value that appears most often in a set is the mode.",
+        "image_prompt": "Show a calligrapher's row of qalam reed pens of different widths, with the most common width highlighted."
+    },
+    {
+        "concept_id": "range",
+        "concept_name": "Range",
+        "aliases": ["difference", "spread of data", "highest minus lowest"],
+        "arabic_culture": "Minaret heights across the city",
+        "explanation_text": "The city's tallest minaret rises far above its shortest, and the difference between the two heights tells you how spread out the skyline is. The largest value minus the smallest is the range.",
+        "image_prompt": "Show a skyline of minarets with the tallest and shortest labeled and the difference between them marked."
+    },
+    {
+        "concept_id": "bar_graphs",
+        "concept_name": "Bar Graphs",
+        "aliases": ["bar chart", "column graph"],
+        "arabic_culture": "Water from the oasis well",
+        "explanation_text": "Each family at the oasis draws a different number of jars from the well each week, and bars of different heights show the amounts side by side. A bar graph makes the comparison clear at a glance.",
+        "image_prompt": "Show a bar graph with one bar for each family at an oasis, labeled with jars of water."
+    },
+    {
+        "concept_id": "line_graphs",
+        "concept_name": "Line Graphs",
+        "aliases": ["trend graph", "line chart"],
+        "arabic_culture": "Desert temperatures through the year",
+        "explanation_text": "A line rising and falling across the months traces how desert temperatures climb in summer and drop in winter. A line graph shows how a value changes over time.",
+        "image_prompt": "Show a line graph of monthly desert temperatures with the yearly high and low marked."
+    },
+    {
+        "concept_id": "pie_charts",
+        "concept_name": "Pie Charts",
+        "aliases": ["circle chart", "percentage chart"],
+        "arabic_culture": "Sharing the oasis water",
+        "explanation_text": "The oasis's water is divided among uses — drinking, cooking, and irrigation — and each use takes a slice of the whole supply. A circle divided into slices that add to the whole is a pie chart.",
+        "image_prompt": "Show a pie chart of an oasis water supply divided into slices for drinking, cooking, and irrigation with percentages."
+    },
+    {
+        "concept_id": "probability",
+        "concept_name": "Probability",
+        "aliases": ["chance", "likelihood", "odds"],
+        "arabic_culture": "Chances on the chessboard",
+        "explanation_text": "Chess players weigh which move is most likely to succeed before they play it. Measuring how likely an outcome is, from impossible to certain, is probability.",
+        "image_prompt": "Show a chessboard with two possible moves marked, each labeled with its likelihood of success."
+    },
+    {
+        "concept_id": "patterns",
+        "concept_name": "Patterns",
+        "aliases": ["repeating design", "sequence", "recurrence"],
+        "arabic_culture": "Phases of the crescent moon",
+        "explanation_text": "Real Islamic astronomers tracked the crescent moon as it thinned and swelled in a cycle that repeats month after month. A sequence of events that repeats in the same order is a pattern.",
+        "image_prompt": "Show a row of crescent moon phases repeating in a cycle across the night sky."
+    },
+    {
+        "concept_id": "functions",
+        "concept_name": "Functions",
+        "aliases": ["input-output rule", "function relation", "mapping"],
+        "arabic_culture": "Each oud string, one pitch",
+        "explanation_text": "On the oud, each string's length sets exactly one pitch, so a given length always produces the same note. A rule that gives each input exactly one output is a function.",
+        "image_prompt": "Show an oud with its strings labeled by length, each string mapped to the single pitch it produces."
+    }
+]

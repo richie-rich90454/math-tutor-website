@@ -1,1 +1,565 @@
-[{"concept_id":"place_value","concept_name":"Place Value","aliases":["place value","digit place","number place","units place","tens place","hundreds place","position of digits","digit position"],"uyghur_culture":"The twelve muqams in fixed order","explanation_text":"The twelve muqams are always performed in a fixed order, and the position a piece holds in the cycle tells you which part of the suite you are hearing. In the same way, a digit's value depends on its place in a number: a 3 in the tens place means thirty, not three.","image_prompt":"A musician's manuscript listing the twelve muqams in order, with the position of each part highlighted, beside a place-value chart showing digits in the ones, tens, and hundreds places."},{"concept_id":"addition_subtraction","concept_name":"Addition & Subtraction","aliases":["add","addition","plus","sum","combine","total","subtract","subtraction","minus","take away","difference"],"uyghur_culture":"Grape baskets on a donkey cart","explanation_text":"Workers at a Turpan grape farm load baskets of grapes onto a donkey cart and unload them at the warehouse. Each basket added increases the total, and each one removed decreases it, exactly how addition and subtraction change a sum.","image_prompt":"A donkey cart being loaded and unloaded with wicker baskets of grapes, with increasing and decreasing counts written beside each action."},{"concept_id":"multiplication_division","concept_name":"Multiplication & Division","aliases":["multiply","multiplication","times","groups of","repeated addition","divide","division","split equally","sharing"],"uyghur_culture":"Grape clusters in even rows","explanation_text":"A cluster of Turpan grapes grows in neat rows, so a picker can multiply to find the total: 6 rows of 8 grapes make 48 grapes. Dividing the grapes equally among baskets shows division, the inverse of multiplication.","image_prompt":"A large grape cluster shown in labeled rows, with 6 rows of 8 grapes counted, then the grapes shared evenly into small baskets."},{"concept_id":"even_odd","concept_name":"Even and Odd Numbers","aliases":["even numbers","odd numbers","even","odd","pairs","leftover","no remainder","remains one"],"uyghur_culture":"Dap drum beats in pairs","explanation_text":"The dap, a wooden frame drum, is played in paired beats that fit two-to-a-count. When a single unpaired beat is struck it stands alone, just as even numbers come in pairs and odd numbers leave one leftover.","image_prompt":"Hands striking a dap frame drum in pairs of beats, with one lone beat off to the side labeled as odd."},{"concept_id":"skip_counting","concept_name":"Skip Counting / Number Patterns","aliases":["skip counting","count by 2s","count by 5s","count by 10s","jump counting","repeating numbers","number patterns"],"uyghur_culture":"Turpan raisins strung on stems","explanation_text":"Turpan raisins are often sold still on their stems, and buyers count them by tens along the string: 10, 20, 30. Counting equal groups this way is skip counting, the foundation of number patterns and multiplication.","image_prompt":"A string of raisins with every tenth raisin circled and counted 10, 20, 30, 40 along the stem."},{"concept_id":"comparing_numbers","concept_name":"Comparing and Ordering Numbers","aliases":["compare numbers","greater than","less than","more than","fewer than","biggest","smallest","ordering numbers","number order"],"uyghur_culture":"Hami melons on the scale","explanation_text":"A farmer sets two Hami melons on the pans of a market scale to see which is heavier. The scale tilts to the greater weight, just as comparison symbols point to the greater number.","image_prompt":"Two Hami melons on a balance scale with the greater-than and less-than symbols drawn between them."},{"concept_id":"rounding_estimation","concept_name":"Rounding & Estimation","aliases":["round","rounding","estimate","estimation","approximate","about how much","close to","nearby number"],"uyghur_culture":"Bargaining in the Kashgar bazaar","explanation_text":"When bargaining in the Kashgar bazaar, a buyer rounds a price to a tidy nearby number, so 97 yuan becomes about 100, to make the trade easy to discuss. Rounding and estimation work the same way, trading a little precision for convenience.","image_prompt":"A lively bazaar stall where a seller and buyer bargain over a price, with a number line showing 97 rounding up to 100."},{"concept_id":"fractions","concept_name":"Fractions","aliases":["fraction","part of a whole","portion","share","numerator","denominator"],"uyghur_culture":"Sharing a round nan","explanation_text":"A large round nan is cut into equal slices so every guest at a family meal gets the same share. Each slice is a fraction of the whole nan, with the numerator and denominator describing one part of the whole.","image_prompt":"A round nan bread cut into eight equal slices on a cloth-covered table, with one slice labeled as one eighth."},{"concept_id":"equivalent_fractions","concept_name":"Equivalent Fractions","aliases":["equal fractions","same value","fraction equality","equivalent"],"uyghur_culture":"Cutting a melon into halves and quarters","explanation_text":"A Hami melon cut into 2 equal halves and then into 4 quarters gives the same total amount, just shown in more pieces. Two halves and four quarters both fill the whole melon, so equivalent fractions describe the same value in different ways.","image_prompt":"A Hami melon shown first cut into 2 halves and then into 4 quarters, with 1/2 and 2/4 labeled as equal."},{"concept_id":"simplifying_fractions","concept_name":"Simplifying Fractions","aliases":["reduce fraction","lowest terms","simplify fraction"],"uyghur_culture":"Combining bowls of polu","explanation_text":"At a festive meal, four small bowls of polu are poured together into one large pot, so four eighths of the pot becomes one half. Combining equal parts this way is like simplifying a fraction to its lowest terms.","image_prompt":"Four small bowls of polu being poured into one large pot, with 4/8 written and simplified to 1/2."},{"concept_id":"mixed_numbers","concept_name":"Mixed Numbers","aliases":["mixed number","whole and fraction","whole part and fraction part"],"uyghur_culture":"Whole pots and a half pot of polu","explanation_text":"A cook serves three whole pots of polu and then one half pot for late guests, three and a half pots in all. A whole amount joined to a fraction is a mixed number, like 3 and a half.","image_prompt":"Three full pots of polu and one half-filled pot, labeled with the mixed number three and one half."},{"concept_id":"improper_fractions","concept_name":"Improper Fractions","aliases":["top-heavy fraction","numerator larger","greater than one fraction"],"uyghur_culture":"Polu portions overflowing one pot","explanation_text":"When a cook measures polu in single-pot portions but has more than a potful, the total is expressed in parts that exceed one whole. Fractions greater than one, where the numerator outgrows the denominator, are improper fractions.","image_prompt":"One full pot of polu plus extra portions beside it, labeled as five thirds of a pot."},{"concept_id":"adding_fractions","concept_name":"Adding Fractions","aliases":["fraction addition","add fractions","sum of fractions"],"uyghur_culture":"Pomegranate quarters at a feast","explanation_text":"Guests combine pomegranate quarters from different fruits onto one shared plate, adding quarters until they form halves and wholes. Adding fractions works the same way, joining equal parts of several wholes into one total.","image_prompt":"Pomegranate quarters from several fruits gathered onto a shared plate, with 1/4 + 2/4 = 3/4 shown."},{"concept_id":"subtracting_fractions","concept_name":"Subtracting Fractions","aliases":["fraction subtraction","take away fractions","difference of fractions"],"uyghur_culture":"Pouring chai from a bowl","explanation_text":"A guest pours part of the chai from a full bowl into a cup, leaving a fraction of the original amount behind. The amount poured away is subtracted from the whole, just as subtracting fractions removes a part.","image_prompt":"A bowl of chai with part being poured into a cup, the remaining amount labeled as the fraction left behind."},{"concept_id":"multiplying_fractions","concept_name":"Multiplying Fractions","aliases":["fraction multiplication","part of a part","multiply fractions"],"uyghur_culture":"Half of a half bowl of chai","explanation_text":"A host pours half of a half bowl of chai to give a child a taste, ending with a quarter of the original bowl. Finding a fraction of a fraction is exactly what multiplying fractions does.","image_prompt":"A bowl of chai divided in half, with one half divided again, showing that 1/2 of 1/2 equals 1/4."},{"concept_id":"dividing_fractions","concept_name":"Dividing Fractions","aliases":["fraction division","divide fractions","how many times in"],"uyghur_culture":"Quarter-nans in a half-nan","explanation_text":"If a family has half a nan left and wants to give each child a quarter of a nan, the half contains exactly two quarters. Asking how many quarters fit inside a half is dividing fractions: 1/2 divided by 1/4 equals 2.","image_prompt":"A half of a nan cut into two quarters, showing that 1/2 divided by 1/4 equals 2."},{"concept_id":"decimals","concept_name":"Decimals","aliases":["decimal point","tenths","hundredths","decimal number"],"uyghur_culture":"Measuring silk by the meter","explanation_text":"A silk merchant measures cloth at the bazaar with a meter stick, and most lengths fall between whole meters, like one and a half meters. These in-between measurements are written with a decimal point, as in 1.5 meters.","image_prompt":"A bazaar merchant measuring silk with a meter stick, with the length 1.5 meters marked along the cloth."},{"concept_id":"converting_fractions_decimals","concept_name":"Converting Fractions and Decimals","aliases":["fraction to decimal","decimal to fraction","convert fractions"],"uyghur_culture":"Half a liter of chai","explanation_text":"Whether a host says a half-liter of chai or 0.5 liters, the amount of tea is identical. The same quantity written two ways shows how fractions and decimals are connected.","image_prompt":"Two matching cups of chai, one labeled 1/2 liter and the other 0.5 liters, filled to the same level."},{"concept_id":"percents","concept_name":"Percents","aliases":["percent","percentage","per hundred","rate per 100"],"uyghur_culture":"Learning nine of the twelve muqams","explanation_text":"A muqam apprentice who has learned 9 of the 12 muqams has completed 9 out of 12, which is 75 out of 100, or seventy-five percent. Percents express parts per hundred, turning 9 out of 12 into a number everyone can compare.","image_prompt":"A music room with a chart showing 9 of 12 muqam scrolls marked complete, with 75% written beside them."},{"concept_id":"percent_of_number","concept_name":"Percent of a Number","aliases":["percentage of number","find percent","portion of total"],"uyghur_culture":"A discount on a gilem","explanation_text":"A weaver at the bazaar offers 20% off the price of a gilem. Finding 20% of the marked price is a percent of a number, a calculation that tells the buyer exactly how much to deduct.","image_prompt":"A gilem carpet with a bazaar sign reading 20 percent off, with the discount amount calculated on a small slate."},{"concept_id":"variables","concept_name":"Variables","aliases":["variable","unknown","letter as number","symbol in math"],"uyghur_culture":"Sealed crates of melons","explanation_text":"When crates of melons arrive at the market still sealed, no one knows how many are inside until they are opened. The unknown count can be written as a variable, x, until it is measured, exactly what variables are for.","image_prompt":"Sealed wooden crates of melons at a market, with one crate labeled with the letter x."},{"concept_id":"expressions","concept_name":"Expressions","aliases":["math expressions","numerical expressions","algebraic expressions"],"uyghur_culture":"Open and sealed melon crates","explanation_text":"If a stall displays 2 open crates of melons and 1 sealed crate whose count is unknown, the total is 2 plus x. Writing a known amount together with a variable like this is a mathematical expression.","image_prompt":"A market stall with 2 open melon crates and 1 sealed crate, labeled with the expression 2 + x."},{"concept_id":"equations","concept_name":"Equations","aliases":["math equations","equal statements","algebra equations"],"uyghur_culture":"The spice shop balance scale","explanation_text":"In a spice shop, saffron and cumin sit on the two pans of a balance, and the scale stays level only when the pans weigh the same. That balance shows what an equation means: two expressions with equal value.","image_prompt":"A spice shop balance scale with a pouch of saffron on one side and equal-weight cumin on the other, level and labeled with an equals sign."},{"concept_id":"solving_one_step_equations","concept_name":"Solving One-Step Equations","aliases":["one-step equations","simple equations"],"uyghur_culture":"Balancing nan on the baker's scale","explanation_text":"A baker sets a stack of nan on one pan and finds it needs one more weight on the other pan to balance. Adding or removing a single weight to make the pans equal is a one-step equation, like x + 1 = 5.","image_prompt":"A baker's balance scale holding nan on one side and weights on the other, with one weight added to make it level."},{"concept_id":"solving_two_step_equations","concept_name":"Solving Two-Step Equations","aliases":["two-step equations","multi-step equations"],"uyghur_culture":"Shaping and baking nan in the tonur","explanation_text":"To make nan, a baker first shapes the round dough and then bakes it against the wall of the clay tonur. Because the steps must happen in order, finishing the bread takes two actions, just as a two-step equation needs two operations to solve.","image_prompt":"A baker shaping round nan dough, then placing it on the wall of a clay tonur oven, shown as a two-step sequence."},{"concept_id":"inequalities","concept_name":"Inequalities","aliases":["greater than","less than","not equal","comparison statements"],"uyghur_culture":"Two irrigation channels","explanation_text":"One irrigation channel carries a stronger flow than another, so the water in the first is greater than the water in the second. Comparing two different amounts with greater-than or less-than is an inequality.","image_prompt":"Two irrigation channels of an oasis field with different water flows, with a greater-than sign between them."},{"concept_id":"order_of_operations","concept_name":"Order of Operations (PEMDAS)","aliases":["PEMDAS","BODMAS","math order","operations order"],"uyghur_culture":"Weighing and pricing fruit at the market","explanation_text":"To total a fruit purchase, a merchant weighs the fruit, multiplies the weight by the price per kilo, and only then adds the basket's own charge. The operations must be done in a set order, just as the order of operations fixes the steps in a calculation.","image_prompt":"A market merchant weighing fruit and writing a calculation, with weigh, multiply, and add shown as ordered steps."},{"concept_id":"substitution","concept_name":"Substitution","aliases":["replace variable","substitute value","replace letter with number"],"uyghur_culture":"Replacing a rawap string","explanation_text":"When a string on a rawap breaks, a musician replaces it with a new string of the same length and material so the tone is unchanged. Swapping in an equal value where the old one was is exactly substitution in algebra.","image_prompt":"A musician threading a fresh string onto a rawap long-necked lute, with the old and new strings shown side by side."},{"concept_id":"points","concept_name":"Points","aliases":["dot","location","coordinate point"],"uyghur_culture":"Seeds of an opened pomegranate","explanation_text":"Each tiny seed packed inside a pomegranate sits at its own spot within the fruit's chamber. A seed marks a single location, just as a point marks a single position in geometry.","image_prompt":"An opened pomegranate showing its chambers packed with seeds, with individual seeds highlighted as points."},{"concept_id":"lines","concept_name":"Lines","aliases":["straight line","geometry line","infinite line"],"uyghur_culture":"Straight irrigation channels in a field","explanation_text":"The irrigation channels that water an oasis field run in straight lines from the main ditch to the crops. A channel has length and direction but no width of its own, which is how geometry treats a line.","image_prompt":"An oasis field with straight irrigation channels running in parallel rows from the main ditch to the crops."},{"concept_id":"angles","concept_name":"Angles","aliases":["angle","degree","corner measure"],"uyghur_culture":"The slope of the Tianshan","explanation_text":"Where the steep slope of the Tianshan meets the flat valley floor, it forms an opening measured in degrees. The measure of that opening is an angle, and a steeper slope means a larger angle.","image_prompt":"The Tianshan mountainside meeting a valley floor, with the angle between slope and ground measured and labeled."},{"concept_id":"perpendicular_lines","concept_name":"Perpendicular Lines","aliases":["right angle lines","intersecting lines","orthogonal lines"],"uyghur_culture":"Warp and weft of the gilem loom","explanation_text":"On a gilem loom, the vertical warp threads and the horizontal weft threads cross at perfect right angles. Where two lines meet at 90 degrees they are perpendicular, the way warp and weft are.","image_prompt":"Close-up of a gilem carpet loom showing warp and weft threads crossing at right angles, with a 90-degree mark."},{"concept_id":"parallel_lines","concept_name":"Parallel Lines","aliases":["side-by-side lines","never meet","equal distance lines"],"uyghur_culture":"Ridges of the Taklamakan dunes","explanation_text":"In the Taklamakan Desert, the wind builds long dunes whose ridges run side by side, keeping the same distance apart without ever meeting. Lines that stay an equal distance apart and never touch are parallel.","image_prompt":"The parallel sand ridges of Taklamakan desert dunes stretching to the horizon, with equal spacing marked."},{"concept_id":"polygons","concept_name":"Polygons","aliases":["shapes","closed figure","many-sided shape"],"uyghur_culture":"Courtyards of mud-brick houses","explanation_text":"Seen from above, the walled courtyards of old Kashgar's mud-brick houses form closed shapes with straight sides. A closed shape built from straight sides is a polygon, and courtyards come in polygons of every size.","image_prompt":"An aerial view of mud-brick courtyards in an old Kashgar village forming closed four-sided shapes."},{"concept_id":"triangles","concept_name":"Triangles","aliases":["three sides","triangular","triangle shape"],"uyghur_culture":"The four panels of a doppa","explanation_text":"A doppa is sewn from four triangular panels of fabric whose points meet at the crown of the cap. Each panel is a triangle, a closed three-sided shape that joins the others to form the square cap.","image_prompt":"A doppa embroidery cap shown beside its four triangular fabric panels laid out flat, with the three sides of one panel marked."},{"concept_id":"quadrilaterals","concept_name":"Quadrilaterals","aliases":["four sides","rectangles","squares","trapezoids"],"uyghur_culture":"Mud-brick walls and doorways","explanation_text":"The walls, windows, and doorways of a village's mud-brick houses are rectangles, four-sided figures with right-angled corners. A closed shape with four straight sides is a quadrilateral.","image_prompt":"The rectangular walls and doorway of a mud-brick house in a Xinjiang village, with four sides highlighted."},{"concept_id":"perimeter","concept_name":"Perimeter","aliases":["boundary length","distance around","outline measure"],"uyghur_culture":"Walking the wall of the Id Kah courtyard","explanation_text":"Walking the entire walled courtyard of the Id Kah Mosque in Kashgar means tracing every side of the enclosure back to where you started. The total distance around a shape's boundary is its perimeter.","image_prompt":"The walled courtyard of the Id Kah Mosque shown from above, with a dashed line tracing its full boundary."},{"concept_id":"area","concept_name":"Area","aliases":["surface area","space inside","coverage"],"uyghur_culture":"A gilem covering the floor","explanation_text":"A weaver lays a gilem across a room, and the floor it covers is measured in squares rather than along its edges. The amount of surface a shape covers is its area.","image_prompt":"A gilem carpet spread across a room floor, with the covered surface shaded and divided into squares."},{"concept_id":"volume","concept_name":"Volume","aliases":["capacity","space inside 3D shape","liquid amount"],"uyghur_culture":"The oasis irrigation reservoir","explanation_text":"An oasis reservoir is built to hold a certain amount of water through the dry season. The space inside a three-dimensional object that holds this water is its volume.","image_prompt":"A stone-lined irrigation reservoir holding water, with a measuring scale showing cubic meters of volume."},{"concept_id":"circle_properties","concept_name":"Circle Properties","aliases":["radius","diameter","circumference","circle geometry"],"uyghur_culture":"The round dap frame drum","explanation_text":"A dap is a frame drum with a round wooden rim and a stretched skin. The distance across its center is the diameter, half of that is the radius, and the distance around the rim is the circumference.","image_prompt":"A dap frame drum drawn as a circle with its radius, diameter, and circumference labeled."},{"concept_id":"pi","concept_name":"Pi (π)","aliases":["pi","ratio of circumference","3.14"],"uyghur_culture":"The round mouth of the tonur","explanation_text":"A baker measures the round mouth of a tonur and finds its circumference is always about 3.14 times its diameter, no matter the oven's size. That constant ratio, the same for every circle, is pi.","image_prompt":"A clay tonur oven with its circular mouth labeled with circumference and diameter, and the pi symbol written beside them."},{"concept_id":"coordinate_plane","concept_name":"Coordinate Plane","aliases":["x-y plane","graph grid","axes"],"uyghur_culture":"The stitch grid of a doppa","explanation_text":"The embroidery on a doppa is worked in stitches arranged in rows and columns across the cap's square crown. Each stitch has a row and a column, just as every point on a coordinate plane has an x- and a y-value.","image_prompt":"A doppa cap shown with a grid over its embroidery, each stitch located by a row and column number."},{"concept_id":"plotting_points","concept_name":"Plotting Points","aliases":["graphing points","coordinates","x-y plotting"],"uyghur_culture":"Mapping the Kizil cave temples","explanation_text":"The Kizil grottoes are carved into a cliff in hundreds of chambers along the rock face. A surveyor maps each cave by marking its position, much as points are plotted on a coordinate plane.","image_prompt":"A drawing of the Kizil cliff face with each cave chamber marked as a point on a coordinate map."},{"concept_id":"symmetry","concept_name":"Symmetry","aliases":["mirror image","balanced halves","reflection symmetry"],"uyghur_culture":"Mirrored embroidery on a doppa","explanation_text":"The designs embroidered on a doppa repeat on both sides of the cap's center line, so each pattern has a mirror twin. A design that folds onto itself across a line has line symmetry.","image_prompt":"A doppa embroidery design split by a center line, with each motif mirrored to the other side."},{"concept_id":"transformations","concept_name":"Transformations","aliases":["translate","rotate","reflect","dilate"],"uyghur_culture":"Figures in Uyghur folk dance","explanation_text":"In folk dance, performers glide across the floor, spin in circles, and mirror their partners' movements. Sliding, turning, and flipping positions are transformations: translation, rotation, and reflection.","image_prompt":"Folk dancers shown sliding forward, spinning, and mirroring partners, with arrows marking translation, rotation, and reflection."},{"concept_id":"ratios","concept_name":"Ratios","aliases":["comparison","proportion of quantities","rate"],"uyghur_culture":"Rawap string lengths","explanation_text":"A rawap's strings are cut to fixed length ratios so the plucked notes sound in harmony. The comparison of one length to another is a ratio, and changing the ratio changes the music.","image_prompt":"A rawap long-necked lute with two strings measured, showing a length ratio of 4 to 5 labeled between them."},{"concept_id":"proportions","concept_name":"Proportions","aliases":["equal ratios","scaling","balance of ratios"],"uyghur_culture":"Enlarging a gilem pattern","explanation_text":"To weave a larger gilem from a small design, the weaver scales up every motif by the same factor so the picture keeps its shape. Keeping ratios the same while changing size is a proportion.","image_prompt":"A small gilem pattern next to a large carpet woven from it, with matching motifs and equal ratios marked."},{"concept_id":"unit_rate","concept_name":"Unit Rate","aliases":["per unit","rate per one","comparison per one unit"],"uyghur_culture":"A camel caravan's daily march","explanation_text":"A Silk Road caravan knows how far its camels can walk each day, such as 40 kilometers per day. Distance per single day is a unit rate, a comparison reduced to one unit.","image_prompt":"A camel caravan crossing the desert, with a sign reading 40 km per day shown along the route."},{"concept_id":"scale_drawings","concept_name":"Scale Drawings","aliases":["map scale","drawing proportion","scaled map"],"uyghur_culture":"A map of the Silk Road route","explanation_text":"Merchants carry small maps on which the whole Silk Road, from Kashgar to Turpan, is drawn to a fixed scale. A drawing that shrinks real distances by a constant factor is a scale drawing.","image_prompt":"A parchment map of the Silk Road from Kashgar to Turpan beside a scale legend, drawn to a fixed proportion."},{"concept_id":"percent_change","concept_name":"Percent Change","aliases":["percent increase","percent decrease","growth rate"],"uyghur_culture":"A growing grape harvest","explanation_text":"If an oasis vineyard produced 100 crates of grapes last year and 120 this year, the harvest grew by 20 crates out of 100, a 20 percent increase. Percent change measures how an amount grows or shrinks compared with its starting value.","image_prompt":"Two harvest scenes side by side, 100 crates and 120 crates of grapes, with a plus 20 percent label between them."},{"concept_id":"data_collection","concept_name":"Data Collection","aliases":["gather data","record information","collect numbers"],"uyghur_culture":"Tallying fruit at the bazaar","explanation_text":"Each market morning, a clerk counts the baskets of grapes, melons, and pomegranates arriving from the oases and records the numbers. Gathering and writing down counts like this is data collection.","image_prompt":"A bazaar clerk tallying baskets of fruit on a paper ledger with marks and numbers."},{"concept_id":"tables_graphs","concept_name":"Tables and Graphs","aliases":["data table","bar graph","chart"],"uyghur_culture":"An oasis farmer's harvest ledger","explanation_text":"An oasis farmer keeps a ledger with rows for each field and columns for each crop, making the year's harvest easy to compare. Arranging numbers in rows and columns is a data table.","image_prompt":"An open harvest ledger with rows of fields and columns of crops, its numbers lined up in a grid."},{"concept_id":"mean","concept_name":"Mean","aliases":["average","arithmetic mean","mean value"],"uyghur_culture":"Average melons sold per day","explanation_text":"A melon seller adds up a week's sales and divides by the number of days to find how many melons are sold per day on average. Adding a set of values and dividing by how many there are gives the mean.","image_prompt":"A melon stall with a week of daily sales listed, the total divided to show the average per day."},{"concept_id":"median","concept_name":"Median","aliases":["middle value","data median"],"uyghur_culture":"The middle nan in a stack","explanation_text":"A baker lines up a stack of nan from smallest to largest, and the loaf exactly in the middle splits the line in two. The middle value of an ordered set is the median.","image_prompt":"A baker's stack of nan arranged from smallest to largest with the middle loaf highlighted as the median."},{"concept_id":"mode","concept_name":"Mode","aliases":["most frequent value","common value"],"uyghur_culture":"The most common melon size","explanation_text":"Of the melons a farmer delivers, the size that appears most often is the one customers ask for by name. The value that occurs most frequently in a set is the mode.","image_prompt":"A group of melons in several sizes with the most common size circled and counted."},{"concept_id":"range","concept_name":"Range","aliases":["difference","spread of data","highest minus lowest"],"uyghur_culture":"The span of melon sizes","explanation_text":"A farmer measures the largest and smallest melons of a harvest, and the distance between them tells how varied the crop is. The difference between the greatest and least values is the range.","image_prompt":"A melon harvest with the largest and smallest melons shown, the gap between them labeled as the range."},{"concept_id":"bar_graphs","concept_name":"Bar Graphs","aliases":["bar chart","column graph"],"uyghur_culture":"Each village's grape baskets","explanation_text":"At the bazaar, the baskets of grapes brought by each oasis village can be shown as bars, one per village. Taller bars mean more baskets, making the comparison visible at a glance.","image_prompt":"A bar graph with one bar for each oasis village, labeled with the number of grape baskets each brought."},{"concept_id":"line_graphs","concept_name":"Line Graphs","aliases":["trend graph","line chart"],"uyghur_culture":"The reservoir level across the season","explanation_text":"A farmer marks the reservoir's water level at the start of each month and joins the marks with a line. The rising and falling line shows how the level changes over the irrigation season.","image_prompt":"A line graph of a reservoir's water level with points for each month connected across the irrigation season."},{"concept_id":"pie_charts","concept_name":"Pie Charts","aliases":["circle chart","percentage chart"],"uyghur_culture":"The share of fruits at the bazaar","explanation_text":"Of every hundred baskets sold at the bazaar, the parts that are grapes, melons, and pomegranates can be shown as slices of a circle. A circle divided into slices that show parts of a whole is a pie chart.","image_prompt":"A pie chart divided into slices for grapes, melons, and pomegranates, each labeled with its percent of the sales."},{"concept_id":"probability","concept_name":"Probability","aliases":["chance","likelihood","odds"],"uyghur_culture":"A farmer's hope for the grape harvest","explanation_text":"A Turpan grape farmer watches the spring sky and judges the chance of a late frost, knowing a frost would ruin young vines. The chance that an event will happen, from certain to impossible, is probability.","image_prompt":"A grape farmer studying the sky above a vineyard, with a scale showing unlikely to likely and a percentage estimate."},{"concept_id":"patterns","concept_name":"Patterns","aliases":["repeating design","sequence","recurrence"],"uyghur_culture":"Repeating border motifs of a gilem","explanation_text":"The border of a gilem is built from a small motif that repeats across the length of the carpet. A unit that repeats in a regular rhythm is a pattern, in weaving as in numbers.","image_prompt":"The border of a gilem showing one small motif repeated across the length of the carpet."},{"concept_id":"functions","concept_name":"Functions","aliases":["input-output rule","function relation","mapping"],"uyghur_culture":"Each day of a caravan's journey","explanation_text":"For a caravan traveling at a steady pace, each day of travel maps to exactly one distance covered, one input and one output. A rule that pairs each input with a single output is a function.","image_prompt":"A caravan route drawn as an input-output chart, each day of travel paired with the distance covered."}]
+[
+    {
+        "concept_id": "place_value",
+        "concept_name": "Place Value",
+        "aliases": [
+            "place value",
+            "digit place",
+            "number place",
+            "units place",
+            "tens place",
+            "hundreds place",
+            "position of digits",
+            "digit position"
+        ],
+        "uyghur_culture": "The twelve muqams in fixed order",
+        "explanation_text": "The twelve muqams are always performed in a fixed order, and the position a piece holds in the cycle tells you which part of the suite you are hearing. In the same way, a digit's value depends on its place in a number: a 3 in the tens place means thirty, not three.",
+        "image_prompt": "A musician's manuscript listing the twelve muqams in order, with the position of each part highlighted, beside a place-value chart showing digits in the ones, tens, and hundreds places."
+    },
+    {
+        "concept_id": "addition_subtraction",
+        "concept_name": "Addition & Subtraction",
+        "aliases": [
+            "add",
+            "addition",
+            "plus",
+            "sum",
+            "combine",
+            "total",
+            "subtract",
+            "subtraction",
+            "minus",
+            "take away",
+            "difference"
+        ],
+        "uyghur_culture": "Grape baskets on a donkey cart",
+        "explanation_text": "Workers at a Turpan grape farm load baskets of grapes onto a donkey cart and unload them at the warehouse. Each basket added increases the total, and each one removed decreases it, exactly how addition and subtraction change a sum.",
+        "image_prompt": "A donkey cart being loaded and unloaded with wicker baskets of grapes, with increasing and decreasing counts written beside each action."
+    },
+    {
+        "concept_id": "multiplication_division",
+        "concept_name": "Multiplication & Division",
+        "aliases": [
+            "multiply",
+            "multiplication",
+            "times",
+            "groups of",
+            "repeated addition",
+            "divide",
+            "division",
+            "split equally",
+            "sharing"
+        ],
+        "uyghur_culture": "Grape clusters in even rows",
+        "explanation_text": "A cluster of Turpan grapes grows in neat rows, so a picker can multiply to find the total: 6 rows of 8 grapes make 48 grapes. Dividing the grapes equally among baskets shows division, the inverse of multiplication.",
+        "image_prompt": "A large grape cluster shown in labeled rows, with 6 rows of 8 grapes counted, then the grapes shared evenly into small baskets."
+    },
+    {
+        "concept_id": "even_odd",
+        "concept_name": "Even and Odd Numbers",
+        "aliases": [
+            "even numbers",
+            "odd numbers",
+            "even",
+            "odd",
+            "pairs",
+            "leftover",
+            "no remainder",
+            "remains one"
+        ],
+        "uyghur_culture": "Dap drum beats in pairs",
+        "explanation_text": "The dap, a wooden frame drum, is played in paired beats that fit two-to-a-count. When a single unpaired beat is struck it stands alone, just as even numbers come in pairs and odd numbers leave one leftover.",
+        "image_prompt": "Hands striking a dap frame drum in pairs of beats, with one lone beat off to the side labeled as odd."
+    },
+    {
+        "concept_id": "skip_counting",
+        "concept_name": "Skip Counting / Number Patterns",
+        "aliases": [
+            "skip counting",
+            "count by 2s",
+            "count by 5s",
+            "count by 10s",
+            "jump counting",
+            "repeating numbers",
+            "number patterns"
+        ],
+        "uyghur_culture": "Turpan raisins strung on stems",
+        "explanation_text": "Turpan raisins are often sold still on their stems, and buyers count them by tens along the string: 10, 20, 30. Counting equal groups this way is skip counting, the foundation of number patterns and multiplication.",
+        "image_prompt": "A string of raisins with every tenth raisin circled and counted 10, 20, 30, 40 along the stem."
+    },
+    {
+        "concept_id": "comparing_numbers",
+        "concept_name": "Comparing and Ordering Numbers",
+        "aliases": [
+            "compare numbers",
+            "greater than",
+            "less than",
+            "more than",
+            "fewer than",
+            "biggest",
+            "smallest",
+            "ordering numbers",
+            "number order"
+        ],
+        "uyghur_culture": "Hami melons on the scale",
+        "explanation_text": "A farmer sets two Hami melons on the pans of a market scale to see which is heavier. The scale tilts to the greater weight, just as comparison symbols point to the greater number.",
+        "image_prompt": "Two Hami melons on a balance scale with the greater-than and less-than symbols drawn between them."
+    },
+    {
+        "concept_id": "rounding_estimation",
+        "concept_name": "Rounding & Estimation",
+        "aliases": [
+            "round",
+            "rounding",
+            "estimate",
+            "estimation",
+            "approximate",
+            "about how much",
+            "close to",
+            "nearby number"
+        ],
+        "uyghur_culture": "Bargaining in the Kashgar bazaar",
+        "explanation_text": "When bargaining in the Kashgar bazaar, a buyer rounds a price to a tidy nearby number, so 97 yuan becomes about 100, to make the trade easy to discuss. Rounding and estimation work the same way, trading a little precision for convenience.",
+        "image_prompt": "A lively bazaar stall where a seller and buyer bargain over a price, with a number line showing 97 rounding up to 100."
+    },
+    {
+        "concept_id": "fractions",
+        "concept_name": "Fractions",
+        "aliases": ["fraction", "part of a whole", "portion", "share", "numerator", "denominator"],
+        "uyghur_culture": "Sharing a round nan",
+        "explanation_text": "A large round nan is cut into equal slices so every guest at a family meal gets the same share. Each slice is a fraction of the whole nan, with the numerator and denominator describing one part of the whole.",
+        "image_prompt": "A round nan bread cut into eight equal slices on a cloth-covered table, with one slice labeled as one eighth."
+    },
+    {
+        "concept_id": "equivalent_fractions",
+        "concept_name": "Equivalent Fractions",
+        "aliases": ["equal fractions", "same value", "fraction equality", "equivalent"],
+        "uyghur_culture": "Cutting a melon into halves and quarters",
+        "explanation_text": "A Hami melon cut into 2 equal halves and then into 4 quarters gives the same total amount, just shown in more pieces. Two halves and four quarters both fill the whole melon, so equivalent fractions describe the same value in different ways.",
+        "image_prompt": "A Hami melon shown first cut into 2 halves and then into 4 quarters, with 1/2 and 2/4 labeled as equal."
+    },
+    {
+        "concept_id": "simplifying_fractions",
+        "concept_name": "Simplifying Fractions",
+        "aliases": ["reduce fraction", "lowest terms", "simplify fraction"],
+        "uyghur_culture": "Combining bowls of polu",
+        "explanation_text": "At a festive meal, four small bowls of polu are poured together into one large pot, so four eighths of the pot becomes one half. Combining equal parts this way is like simplifying a fraction to its lowest terms.",
+        "image_prompt": "Four small bowls of polu being poured into one large pot, with 4/8 written and simplified to 1/2."
+    },
+    {
+        "concept_id": "mixed_numbers",
+        "concept_name": "Mixed Numbers",
+        "aliases": ["mixed number", "whole and fraction", "whole part and fraction part"],
+        "uyghur_culture": "Whole pots and a half pot of polu",
+        "explanation_text": "A cook serves three whole pots of polu and then one half pot for late guests, three and a half pots in all. A whole amount joined to a fraction is a mixed number, like 3 and a half.",
+        "image_prompt": "Three full pots of polu and one half-filled pot, labeled with the mixed number three and one half."
+    },
+    {
+        "concept_id": "improper_fractions",
+        "concept_name": "Improper Fractions",
+        "aliases": ["top-heavy fraction", "numerator larger", "greater than one fraction"],
+        "uyghur_culture": "Polu portions overflowing one pot",
+        "explanation_text": "When a cook measures polu in single-pot portions but has more than a potful, the total is expressed in parts that exceed one whole. Fractions greater than one, where the numerator outgrows the denominator, are improper fractions.",
+        "image_prompt": "One full pot of polu plus extra portions beside it, labeled as five thirds of a pot."
+    },
+    {
+        "concept_id": "adding_fractions",
+        "concept_name": "Adding Fractions",
+        "aliases": ["fraction addition", "add fractions", "sum of fractions"],
+        "uyghur_culture": "Pomegranate quarters at a feast",
+        "explanation_text": "Guests combine pomegranate quarters from different fruits onto one shared plate, adding quarters until they form halves and wholes. Adding fractions works the same way, joining equal parts of several wholes into one total.",
+        "image_prompt": "Pomegranate quarters from several fruits gathered onto a shared plate, with 1/4 + 2/4 = 3/4 shown."
+    },
+    {
+        "concept_id": "subtracting_fractions",
+        "concept_name": "Subtracting Fractions",
+        "aliases": ["fraction subtraction", "take away fractions", "difference of fractions"],
+        "uyghur_culture": "Pouring chai from a bowl",
+        "explanation_text": "A guest pours part of the chai from a full bowl into a cup, leaving a fraction of the original amount behind. The amount poured away is subtracted from the whole, just as subtracting fractions removes a part.",
+        "image_prompt": "A bowl of chai with part being poured into a cup, the remaining amount labeled as the fraction left behind."
+    },
+    {
+        "concept_id": "multiplying_fractions",
+        "concept_name": "Multiplying Fractions",
+        "aliases": ["fraction multiplication", "part of a part", "multiply fractions"],
+        "uyghur_culture": "Half of a half bowl of chai",
+        "explanation_text": "A host pours half of a half bowl of chai to give a child a taste, ending with a quarter of the original bowl. Finding a fraction of a fraction is exactly what multiplying fractions does.",
+        "image_prompt": "A bowl of chai divided in half, with one half divided again, showing that 1/2 of 1/2 equals 1/4."
+    },
+    {
+        "concept_id": "dividing_fractions",
+        "concept_name": "Dividing Fractions",
+        "aliases": ["fraction division", "divide fractions", "how many times in"],
+        "uyghur_culture": "Quarter-nans in a half-nan",
+        "explanation_text": "If a family has half a nan left and wants to give each child a quarter of a nan, the half contains exactly two quarters. Asking how many quarters fit inside a half is dividing fractions: 1/2 divided by 1/4 equals 2.",
+        "image_prompt": "A half of a nan cut into two quarters, showing that 1/2 divided by 1/4 equals 2."
+    },
+    {
+        "concept_id": "decimals",
+        "concept_name": "Decimals",
+        "aliases": ["decimal point", "tenths", "hundredths", "decimal number"],
+        "uyghur_culture": "Measuring silk by the meter",
+        "explanation_text": "A silk merchant measures cloth at the bazaar with a meter stick, and most lengths fall between whole meters, like one and a half meters. These in-between measurements are written with a decimal point, as in 1.5 meters.",
+        "image_prompt": "A bazaar merchant measuring silk with a meter stick, with the length 1.5 meters marked along the cloth."
+    },
+    {
+        "concept_id": "converting_fractions_decimals",
+        "concept_name": "Converting Fractions and Decimals",
+        "aliases": ["fraction to decimal", "decimal to fraction", "convert fractions"],
+        "uyghur_culture": "Half a liter of chai",
+        "explanation_text": "Whether a host says a half-liter of chai or 0.5 liters, the amount of tea is identical. The same quantity written two ways shows how fractions and decimals are connected.",
+        "image_prompt": "Two matching cups of chai, one labeled 1/2 liter and the other 0.5 liters, filled to the same level."
+    },
+    {
+        "concept_id": "percents",
+        "concept_name": "Percents",
+        "aliases": ["percent", "percentage", "per hundred", "rate per 100"],
+        "uyghur_culture": "Learning nine of the twelve muqams",
+        "explanation_text": "A muqam apprentice who has learned 9 of the 12 muqams has completed 9 out of 12, which is 75 out of 100, or seventy-five percent. Percents express parts per hundred, turning 9 out of 12 into a number everyone can compare.",
+        "image_prompt": "A music room with a chart showing 9 of 12 muqam scrolls marked complete, with 75% written beside them."
+    },
+    {
+        "concept_id": "percent_of_number",
+        "concept_name": "Percent of a Number",
+        "aliases": ["percentage of number", "find percent", "portion of total"],
+        "uyghur_culture": "A discount on a gilem",
+        "explanation_text": "A weaver at the bazaar offers 20% off the price of a gilem. Finding 20% of the marked price is a percent of a number, a calculation that tells the buyer exactly how much to deduct.",
+        "image_prompt": "A gilem carpet with a bazaar sign reading 20 percent off, with the discount amount calculated on a small slate."
+    },
+    {
+        "concept_id": "variables",
+        "concept_name": "Variables",
+        "aliases": ["variable", "unknown", "letter as number", "symbol in math"],
+        "uyghur_culture": "Sealed crates of melons",
+        "explanation_text": "When crates of melons arrive at the market still sealed, no one knows how many are inside until they are opened. The unknown count can be written as a variable, x, until it is measured, exactly what variables are for.",
+        "image_prompt": "Sealed wooden crates of melons at a market, with one crate labeled with the letter x."
+    },
+    {
+        "concept_id": "expressions",
+        "concept_name": "Expressions",
+        "aliases": ["math expressions", "numerical expressions", "algebraic expressions"],
+        "uyghur_culture": "Open and sealed melon crates",
+        "explanation_text": "If a stall displays 2 open crates of melons and 1 sealed crate whose count is unknown, the total is 2 plus x. Writing a known amount together with a variable like this is a mathematical expression.",
+        "image_prompt": "A market stall with 2 open melon crates and 1 sealed crate, labeled with the expression 2 + x."
+    },
+    {
+        "concept_id": "equations",
+        "concept_name": "Equations",
+        "aliases": ["math equations", "equal statements", "algebra equations"],
+        "uyghur_culture": "The spice shop balance scale",
+        "explanation_text": "In a spice shop, saffron and cumin sit on the two pans of a balance, and the scale stays level only when the pans weigh the same. That balance shows what an equation means: two expressions with equal value.",
+        "image_prompt": "A spice shop balance scale with a pouch of saffron on one side and equal-weight cumin on the other, level and labeled with an equals sign."
+    },
+    {
+        "concept_id": "solving_one_step_equations",
+        "concept_name": "Solving One-Step Equations",
+        "aliases": ["one-step equations", "simple equations"],
+        "uyghur_culture": "Balancing nan on the baker's scale",
+        "explanation_text": "A baker sets a stack of nan on one pan and finds it needs one more weight on the other pan to balance. Adding or removing a single weight to make the pans equal is a one-step equation, like x + 1 = 5.",
+        "image_prompt": "A baker's balance scale holding nan on one side and weights on the other, with one weight added to make it level."
+    },
+    {
+        "concept_id": "solving_two_step_equations",
+        "concept_name": "Solving Two-Step Equations",
+        "aliases": ["two-step equations", "multi-step equations"],
+        "uyghur_culture": "Shaping and baking nan in the tonur",
+        "explanation_text": "To make nan, a baker first shapes the round dough and then bakes it against the wall of the clay tonur. Because the steps must happen in order, finishing the bread takes two actions, just as a two-step equation needs two operations to solve.",
+        "image_prompt": "A baker shaping round nan dough, then placing it on the wall of a clay tonur oven, shown as a two-step sequence."
+    },
+    {
+        "concept_id": "inequalities",
+        "concept_name": "Inequalities",
+        "aliases": ["greater than", "less than", "not equal", "comparison statements"],
+        "uyghur_culture": "Two irrigation channels",
+        "explanation_text": "One irrigation channel carries a stronger flow than another, so the water in the first is greater than the water in the second. Comparing two different amounts with greater-than or less-than is an inequality.",
+        "image_prompt": "Two irrigation channels of an oasis field with different water flows, with a greater-than sign between them."
+    },
+    {
+        "concept_id": "order_of_operations",
+        "concept_name": "Order of Operations (PEMDAS)",
+        "aliases": ["PEMDAS", "BODMAS", "math order", "operations order"],
+        "uyghur_culture": "Weighing and pricing fruit at the market",
+        "explanation_text": "To total a fruit purchase, a merchant weighs the fruit, multiplies the weight by the price per kilo, and only then adds the basket's own charge. The operations must be done in a set order, just as the order of operations fixes the steps in a calculation.",
+        "image_prompt": "A market merchant weighing fruit and writing a calculation, with weigh, multiply, and add shown as ordered steps."
+    },
+    {
+        "concept_id": "substitution",
+        "concept_name": "Substitution",
+        "aliases": ["replace variable", "substitute value", "replace letter with number"],
+        "uyghur_culture": "Replacing a rawap string",
+        "explanation_text": "When a string on a rawap breaks, a musician replaces it with a new string of the same length and material so the tone is unchanged. Swapping in an equal value where the old one was is exactly substitution in algebra.",
+        "image_prompt": "A musician threading a fresh string onto a rawap long-necked lute, with the old and new strings shown side by side."
+    },
+    {
+        "concept_id": "points",
+        "concept_name": "Points",
+        "aliases": ["dot", "location", "coordinate point"],
+        "uyghur_culture": "Seeds of an opened pomegranate",
+        "explanation_text": "Each tiny seed packed inside a pomegranate sits at its own spot within the fruit's chamber. A seed marks a single location, just as a point marks a single position in geometry.",
+        "image_prompt": "An opened pomegranate showing its chambers packed with seeds, with individual seeds highlighted as points."
+    },
+    {
+        "concept_id": "lines",
+        "concept_name": "Lines",
+        "aliases": ["straight line", "geometry line", "infinite line"],
+        "uyghur_culture": "Straight irrigation channels in a field",
+        "explanation_text": "The irrigation channels that water an oasis field run in straight lines from the main ditch to the crops. A channel has length and direction but no width of its own, which is how geometry treats a line.",
+        "image_prompt": "An oasis field with straight irrigation channels running in parallel rows from the main ditch to the crops."
+    },
+    {
+        "concept_id": "angles",
+        "concept_name": "Angles",
+        "aliases": ["angle", "degree", "corner measure"],
+        "uyghur_culture": "The slope of the Tianshan",
+        "explanation_text": "Where the steep slope of the Tianshan meets the flat valley floor, it forms an opening measured in degrees. The measure of that opening is an angle, and a steeper slope means a larger angle.",
+        "image_prompt": "The Tianshan mountainside meeting a valley floor, with the angle between slope and ground measured and labeled."
+    },
+    {
+        "concept_id": "perpendicular_lines",
+        "concept_name": "Perpendicular Lines",
+        "aliases": ["right angle lines", "intersecting lines", "orthogonal lines"],
+        "uyghur_culture": "Warp and weft of the gilem loom",
+        "explanation_text": "On a gilem loom, the vertical warp threads and the horizontal weft threads cross at perfect right angles. Where two lines meet at 90 degrees they are perpendicular, the way warp and weft are.",
+        "image_prompt": "Close-up of a gilem carpet loom showing warp and weft threads crossing at right angles, with a 90-degree mark."
+    },
+    {
+        "concept_id": "parallel_lines",
+        "concept_name": "Parallel Lines",
+        "aliases": ["side-by-side lines", "never meet", "equal distance lines"],
+        "uyghur_culture": "Ridges of the Taklamakan dunes",
+        "explanation_text": "In the Taklamakan Desert, the wind builds long dunes whose ridges run side by side, keeping the same distance apart without ever meeting. Lines that stay an equal distance apart and never touch are parallel.",
+        "image_prompt": "The parallel sand ridges of Taklamakan desert dunes stretching to the horizon, with equal spacing marked."
+    },
+    {
+        "concept_id": "polygons",
+        "concept_name": "Polygons",
+        "aliases": ["shapes", "closed figure", "many-sided shape"],
+        "uyghur_culture": "Courtyards of mud-brick houses",
+        "explanation_text": "Seen from above, the walled courtyards of old Kashgar's mud-brick houses form closed shapes with straight sides. A closed shape built from straight sides is a polygon, and courtyards come in polygons of every size.",
+        "image_prompt": "An aerial view of mud-brick courtyards in an old Kashgar village forming closed four-sided shapes."
+    },
+    {
+        "concept_id": "triangles",
+        "concept_name": "Triangles",
+        "aliases": ["three sides", "triangular", "triangle shape"],
+        "uyghur_culture": "The four panels of a doppa",
+        "explanation_text": "A doppa is sewn from four triangular panels of fabric whose points meet at the crown of the cap. Each panel is a triangle, a closed three-sided shape that joins the others to form the square cap.",
+        "image_prompt": "A doppa embroidery cap shown beside its four triangular fabric panels laid out flat, with the three sides of one panel marked."
+    },
+    {
+        "concept_id": "quadrilaterals",
+        "concept_name": "Quadrilaterals",
+        "aliases": ["four sides", "rectangles", "squares", "trapezoids"],
+        "uyghur_culture": "Mud-brick walls and doorways",
+        "explanation_text": "The walls, windows, and doorways of a village's mud-brick houses are rectangles, four-sided figures with right-angled corners. A closed shape with four straight sides is a quadrilateral.",
+        "image_prompt": "The rectangular walls and doorway of a mud-brick house in a Xinjiang village, with four sides highlighted."
+    },
+    {
+        "concept_id": "perimeter",
+        "concept_name": "Perimeter",
+        "aliases": ["boundary length", "distance around", "outline measure"],
+        "uyghur_culture": "Walking the wall of the Id Kah courtyard",
+        "explanation_text": "Walking the entire walled courtyard of the Id Kah Mosque in Kashgar means tracing every side of the enclosure back to where you started. The total distance around a shape's boundary is its perimeter.",
+        "image_prompt": "The walled courtyard of the Id Kah Mosque shown from above, with a dashed line tracing its full boundary."
+    },
+    {
+        "concept_id": "area",
+        "concept_name": "Area",
+        "aliases": ["surface area", "space inside", "coverage"],
+        "uyghur_culture": "A gilem covering the floor",
+        "explanation_text": "A weaver lays a gilem across a room, and the floor it covers is measured in squares rather than along its edges. The amount of surface a shape covers is its area.",
+        "image_prompt": "A gilem carpet spread across a room floor, with the covered surface shaded and divided into squares."
+    },
+    {
+        "concept_id": "volume",
+        "concept_name": "Volume",
+        "aliases": ["capacity", "space inside 3D shape", "liquid amount"],
+        "uyghur_culture": "The oasis irrigation reservoir",
+        "explanation_text": "An oasis reservoir is built to hold a certain amount of water through the dry season. The space inside a three-dimensional object that holds this water is its volume.",
+        "image_prompt": "A stone-lined irrigation reservoir holding water, with a measuring scale showing cubic meters of volume."
+    },
+    {
+        "concept_id": "circle_properties",
+        "concept_name": "Circle Properties",
+        "aliases": ["radius", "diameter", "circumference", "circle geometry"],
+        "uyghur_culture": "The round dap frame drum",
+        "explanation_text": "A dap is a frame drum with a round wooden rim and a stretched skin. The distance across its center is the diameter, half of that is the radius, and the distance around the rim is the circumference.",
+        "image_prompt": "A dap frame drum drawn as a circle with its radius, diameter, and circumference labeled."
+    },
+    {
+        "concept_id": "pi",
+        "concept_name": "Pi (π)",
+        "aliases": ["pi", "ratio of circumference", "3.14"],
+        "uyghur_culture": "The round mouth of the tonur",
+        "explanation_text": "A baker measures the round mouth of a tonur and finds its circumference is always about 3.14 times its diameter, no matter the oven's size. That constant ratio, the same for every circle, is pi.",
+        "image_prompt": "A clay tonur oven with its circular mouth labeled with circumference and diameter, and the pi symbol written beside them."
+    },
+    {
+        "concept_id": "coordinate_plane",
+        "concept_name": "Coordinate Plane",
+        "aliases": ["x-y plane", "graph grid", "axes"],
+        "uyghur_culture": "The stitch grid of a doppa",
+        "explanation_text": "The embroidery on a doppa is worked in stitches arranged in rows and columns across the cap's square crown. Each stitch has a row and a column, just as every point on a coordinate plane has an x- and a y-value.",
+        "image_prompt": "A doppa cap shown with a grid over its embroidery, each stitch located by a row and column number."
+    },
+    {
+        "concept_id": "plotting_points",
+        "concept_name": "Plotting Points",
+        "aliases": ["graphing points", "coordinates", "x-y plotting"],
+        "uyghur_culture": "Mapping the Kizil cave temples",
+        "explanation_text": "The Kizil grottoes are carved into a cliff in hundreds of chambers along the rock face. A surveyor maps each cave by marking its position, much as points are plotted on a coordinate plane.",
+        "image_prompt": "A drawing of the Kizil cliff face with each cave chamber marked as a point on a coordinate map."
+    },
+    {
+        "concept_id": "symmetry",
+        "concept_name": "Symmetry",
+        "aliases": ["mirror image", "balanced halves", "reflection symmetry"],
+        "uyghur_culture": "Mirrored embroidery on a doppa",
+        "explanation_text": "The designs embroidered on a doppa repeat on both sides of the cap's center line, so each pattern has a mirror twin. A design that folds onto itself across a line has line symmetry.",
+        "image_prompt": "A doppa embroidery design split by a center line, with each motif mirrored to the other side."
+    },
+    {
+        "concept_id": "transformations",
+        "concept_name": "Transformations",
+        "aliases": ["translate", "rotate", "reflect", "dilate"],
+        "uyghur_culture": "Figures in Uyghur folk dance",
+        "explanation_text": "In folk dance, performers glide across the floor, spin in circles, and mirror their partners' movements. Sliding, turning, and flipping positions are transformations: translation, rotation, and reflection.",
+        "image_prompt": "Folk dancers shown sliding forward, spinning, and mirroring partners, with arrows marking translation, rotation, and reflection."
+    },
+    {
+        "concept_id": "ratios",
+        "concept_name": "Ratios",
+        "aliases": ["comparison", "proportion of quantities", "rate"],
+        "uyghur_culture": "Rawap string lengths",
+        "explanation_text": "A rawap's strings are cut to fixed length ratios so the plucked notes sound in harmony. The comparison of one length to another is a ratio, and changing the ratio changes the music.",
+        "image_prompt": "A rawap long-necked lute with two strings measured, showing a length ratio of 4 to 5 labeled between them."
+    },
+    {
+        "concept_id": "proportions",
+        "concept_name": "Proportions",
+        "aliases": ["equal ratios", "scaling", "balance of ratios"],
+        "uyghur_culture": "Enlarging a gilem pattern",
+        "explanation_text": "To weave a larger gilem from a small design, the weaver scales up every motif by the same factor so the picture keeps its shape. Keeping ratios the same while changing size is a proportion.",
+        "image_prompt": "A small gilem pattern next to a large carpet woven from it, with matching motifs and equal ratios marked."
+    },
+    {
+        "concept_id": "unit_rate",
+        "concept_name": "Unit Rate",
+        "aliases": ["per unit", "rate per one", "comparison per one unit"],
+        "uyghur_culture": "A camel caravan's daily march",
+        "explanation_text": "A Silk Road caravan knows how far its camels can walk each day, such as 40 kilometers per day. Distance per single day is a unit rate, a comparison reduced to one unit.",
+        "image_prompt": "A camel caravan crossing the desert, with a sign reading 40 km per day shown along the route."
+    },
+    {
+        "concept_id": "scale_drawings",
+        "concept_name": "Scale Drawings",
+        "aliases": ["map scale", "drawing proportion", "scaled map"],
+        "uyghur_culture": "A map of the Silk Road route",
+        "explanation_text": "Merchants carry small maps on which the whole Silk Road, from Kashgar to Turpan, is drawn to a fixed scale. A drawing that shrinks real distances by a constant factor is a scale drawing.",
+        "image_prompt": "A parchment map of the Silk Road from Kashgar to Turpan beside a scale legend, drawn to a fixed proportion."
+    },
+    {
+        "concept_id": "percent_change",
+        "concept_name": "Percent Change",
+        "aliases": ["percent increase", "percent decrease", "growth rate"],
+        "uyghur_culture": "A growing grape harvest",
+        "explanation_text": "If an oasis vineyard produced 100 crates of grapes last year and 120 this year, the harvest grew by 20 crates out of 100, a 20 percent increase. Percent change measures how an amount grows or shrinks compared with its starting value.",
+        "image_prompt": "Two harvest scenes side by side, 100 crates and 120 crates of grapes, with a plus 20 percent label between them."
+    },
+    {
+        "concept_id": "data_collection",
+        "concept_name": "Data Collection",
+        "aliases": ["gather data", "record information", "collect numbers"],
+        "uyghur_culture": "Tallying fruit at the bazaar",
+        "explanation_text": "Each market morning, a clerk counts the baskets of grapes, melons, and pomegranates arriving from the oases and records the numbers. Gathering and writing down counts like this is data collection.",
+        "image_prompt": "A bazaar clerk tallying baskets of fruit on a paper ledger with marks and numbers."
+    },
+    {
+        "concept_id": "tables_graphs",
+        "concept_name": "Tables and Graphs",
+        "aliases": ["data table", "bar graph", "chart"],
+        "uyghur_culture": "An oasis farmer's harvest ledger",
+        "explanation_text": "An oasis farmer keeps a ledger with rows for each field and columns for each crop, making the year's harvest easy to compare. Arranging numbers in rows and columns is a data table.",
+        "image_prompt": "An open harvest ledger with rows of fields and columns of crops, its numbers lined up in a grid."
+    },
+    {
+        "concept_id": "mean",
+        "concept_name": "Mean",
+        "aliases": ["average", "arithmetic mean", "mean value"],
+        "uyghur_culture": "Average melons sold per day",
+        "explanation_text": "A melon seller adds up a week's sales and divides by the number of days to find how many melons are sold per day on average. Adding a set of values and dividing by how many there are gives the mean.",
+        "image_prompt": "A melon stall with a week of daily sales listed, the total divided to show the average per day."
+    },
+    {
+        "concept_id": "median",
+        "concept_name": "Median",
+        "aliases": ["middle value", "data median"],
+        "uyghur_culture": "The middle nan in a stack",
+        "explanation_text": "A baker lines up a stack of nan from smallest to largest, and the loaf exactly in the middle splits the line in two. The middle value of an ordered set is the median.",
+        "image_prompt": "A baker's stack of nan arranged from smallest to largest with the middle loaf highlighted as the median."
+    },
+    {
+        "concept_id": "mode",
+        "concept_name": "Mode",
+        "aliases": ["most frequent value", "common value"],
+        "uyghur_culture": "The most common melon size",
+        "explanation_text": "Of the melons a farmer delivers, the size that appears most often is the one customers ask for by name. The value that occurs most frequently in a set is the mode.",
+        "image_prompt": "A group of melons in several sizes with the most common size circled and counted."
+    },
+    {
+        "concept_id": "range",
+        "concept_name": "Range",
+        "aliases": ["difference", "spread of data", "highest minus lowest"],
+        "uyghur_culture": "The span of melon sizes",
+        "explanation_text": "A farmer measures the largest and smallest melons of a harvest, and the distance between them tells how varied the crop is. The difference between the greatest and least values is the range.",
+        "image_prompt": "A melon harvest with the largest and smallest melons shown, the gap between them labeled as the range."
+    },
+    {
+        "concept_id": "bar_graphs",
+        "concept_name": "Bar Graphs",
+        "aliases": ["bar chart", "column graph"],
+        "uyghur_culture": "Each village's grape baskets",
+        "explanation_text": "At the bazaar, the baskets of grapes brought by each oasis village can be shown as bars, one per village. Taller bars mean more baskets, making the comparison visible at a glance.",
+        "image_prompt": "A bar graph with one bar for each oasis village, labeled with the number of grape baskets each brought."
+    },
+    {
+        "concept_id": "line_graphs",
+        "concept_name": "Line Graphs",
+        "aliases": ["trend graph", "line chart"],
+        "uyghur_culture": "The reservoir level across the season",
+        "explanation_text": "A farmer marks the reservoir's water level at the start of each month and joins the marks with a line. The rising and falling line shows how the level changes over the irrigation season.",
+        "image_prompt": "A line graph of a reservoir's water level with points for each month connected across the irrigation season."
+    },
+    {
+        "concept_id": "pie_charts",
+        "concept_name": "Pie Charts",
+        "aliases": ["circle chart", "percentage chart"],
+        "uyghur_culture": "The share of fruits at the bazaar",
+        "explanation_text": "Of every hundred baskets sold at the bazaar, the parts that are grapes, melons, and pomegranates can be shown as slices of a circle. A circle divided into slices that show parts of a whole is a pie chart.",
+        "image_prompt": "A pie chart divided into slices for grapes, melons, and pomegranates, each labeled with its percent of the sales."
+    },
+    {
+        "concept_id": "probability",
+        "concept_name": "Probability",
+        "aliases": ["chance", "likelihood", "odds"],
+        "uyghur_culture": "A farmer's hope for the grape harvest",
+        "explanation_text": "A Turpan grape farmer watches the spring sky and judges the chance of a late frost, knowing a frost would ruin young vines. The chance that an event will happen, from certain to impossible, is probability.",
+        "image_prompt": "A grape farmer studying the sky above a vineyard, with a scale showing unlikely to likely and a percentage estimate."
+    },
+    {
+        "concept_id": "patterns",
+        "concept_name": "Patterns",
+        "aliases": ["repeating design", "sequence", "recurrence"],
+        "uyghur_culture": "Repeating border motifs of a gilem",
+        "explanation_text": "The border of a gilem is built from a small motif that repeats across the length of the carpet. A unit that repeats in a regular rhythm is a pattern, in weaving as in numbers.",
+        "image_prompt": "The border of a gilem showing one small motif repeated across the length of the carpet."
+    },
+    {
+        "concept_id": "functions",
+        "concept_name": "Functions",
+        "aliases": ["input-output rule", "function relation", "mapping"],
+        "uyghur_culture": "Each day of a caravan's journey",
+        "explanation_text": "For a caravan traveling at a steady pace, each day of travel maps to exactly one distance covered, one input and one output. A rule that pairs each input with a single output is a function.",
+        "image_prompt": "A caravan route drawn as an input-output chart, each day of travel paired with the distance covered."
+    }
+]

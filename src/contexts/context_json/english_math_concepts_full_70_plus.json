@@ -1,1 +1,565 @@
-[{"concept_id":"place_value","concept_name":"Place Value","aliases":["place value","digit place","number place","units place","tens place","hundreds place","position of digits","digit position"],"english_culture":"US coin denominations","explanation_text":"In the US, a dime is worth ten pennies, so the 4 in $0.40 sits in the tenths place of a dollar. Lining up a penny, a dime, and a dollar shows how each place holds ten times the value of the place to its right.","image_prompt":"Show a dollar bill, a dime, and a penny arranged with place-value labels showing ones, tenths, and hundredths."},{"concept_id":"addition_subtraction","concept_name":"Addition & Subtraction","aliases":["add","addition","plus","sum","combine","total","subtract","subtraction","minus","take away","difference"],"english_culture":"Basketball game scoreboard","explanation_text":"As players sink baskets, the scoreboard total climbs—each basket adds to the sum. When a point is taken away, the total drops, exactly like subtracting.","image_prompt":"Depict a basketball scoreboard with numbers increasing when a basket is scored and decreasing when a point is taken away."},{"concept_id":"multiplication_division","concept_name":"Multiplication & Division","aliases":["multiply","multiplication","times","groups of","repeated addition","divide","division","split equally","sharing"],"english_culture":"Stadium seating rows","explanation_text":"A stadium arranges seats in identical rows, so counting 15 rows of 20 seats each is quick multiplication: 15 × 20 = 300. Splitting those 300 fans back into rows of 20 reverses the process—that is division.","image_prompt":"Illustrate a stadium with rows of seats, showing 15 rows of 20 seats totaling 300, then splitting them back into rows."},{"concept_id":"even_odd","concept_name":"Even and Odd Numbers","aliases":["even numbers","odd numbers","even","odd","pairs","leftover","no remainder","remains one"],"english_culture":"US interstate highway numbering","explanation_text":"US interstate numbers are assigned by direction: even-numbered interstates run east–west and odd-numbered ones run north–south. So I-40 and I-90 are even, while I-5 and I-95 are odd—a real-world way to sort numbers into two groups.","image_prompt":"Show a US highway map with I-40 and I-90 marked east–west and I-5 and I-95 north–south, color-coded as even and odd."},{"concept_id":"skip_counting","concept_name":"Skip Counting / Number Patterns","aliases":["skip counting","count by 2s","count by 5s","count by 10s","jump counting","repeating numbers","number patterns"],"english_culture":"Cricket over counting","explanation_text":"A cricket over always has six balls, so scoring a 20-over match means counting by sixes: 6, 12, 18, 24, 120. Counting in groups of six is a type of skip counting.","image_prompt":"Show six cricket balls in an over, with a counting line highlighting 6, 12, 18, 24 to show skip counting by six."},{"concept_id":"comparing_numbers","concept_name":"Comparing and Ordering Numbers","aliases":["compare numbers","greater than","less than","more than","fewer than","biggest","smallest","ordering numbers","number order"],"english_culture":"County fair pumpkin weigh-off","explanation_text":"At a county fair, giant pumpkins are weighed and ranked from heaviest to lightest. Comparing weights like 1,200 pounds versus 980 uses greater-than and less-than thinking.","image_prompt":"Show three giant pumpkins on scales at a fair, with > and < symbols comparing their weights."},{"concept_id":"rounding_estimation","concept_name":"Rounding & Estimation","aliases":["round","rounding","estimate","estimation","approximate","about how much","close to","nearby number"],"english_culture":"Rounding at the grocery checkout","explanation_text":"At the grocery checkout, people often round each item to the nearest dollar to estimate the total before the register rings it up. A $4.79 carton of eggs rounds to $5, making the final bill easy to guess.","image_prompt":"Show a grocery basket and receipt, with prices like $4.79 being rounded to $5.00 to estimate the total."},{"concept_id":"fractions","concept_name":"Fractions","aliases":["fraction","part of a whole","portion","share","numerator","denominator"],"english_culture":"Cutting a Victoria sponge","explanation_text":"A Victoria sponge is cut into equal slices, and each slice is a fraction of the whole cake. If the sponge is divided into eight slices, each piece is one-eighth of the cake.","image_prompt":"Illustrate a Victoria sponge cake being cut into eight equal slices, with one slice labelled 1/8."},{"concept_id":"equivalent_fractions","concept_name":"Equivalent Fractions","aliases":["equal fractions","same value","fraction equality","equivalent"],"english_culture":"Sharing a Bakewell tart","explanation_text":"Cut a Bakewell tart in half, then cut each half in half again, and you have four quarters. One half and two quarters cover the same amount of tart, so 1/2 equals 2/4—equivalent fractions.","image_prompt":"Show a Bakewell tart cut first into halves then into quarters, with 1/2 and 2/4 labelled on equal portions."},{"concept_id":"simplifying_fractions","concept_name":"Simplifying Fractions","aliases":["reduce fraction","lowest terms","simplify fraction"],"english_culture":"Football pass completion ratio","explanation_text":"If a quarterback completes 12 of 24 passes, that success is 12/24. Dividing top and bottom by 12 gives 1/2, the simplest form—simplifying a fraction means reducing it to its lowest terms.","image_prompt":"Show a football play sheet with 12 completed passes out of 24, labelled as 12/24 simplifying to 1/2."},{"concept_id":"mixed_numbers","concept_name":"Mixed Numbers","aliases":["mixed number","whole and fraction","whole part and fraction part"],"english_culture":"Village fete milk urn","explanation_text":"At a village fete, the tea urn takes one full jug of milk and a half jug more. One whole jug plus a half is written as 1½—a mixed number combining a whole part and a fraction.","image_prompt":"Show a tea urn with one full jug of milk and a half-full jug beside it, labelled 1½."},{"concept_id":"improper_fractions","concept_name":"Improper Fractions","aliases":["top-heavy fraction","numerator larger","greater than one fraction"],"english_culture":"Cricket tea sandwiches","explanation_text":"If the cricket tea table holds five half-sandwiches, that is five halves, written 5/2. An improper fraction is a top-heavy fraction like 5/2 that names more than one whole.","image_prompt":"Show five half-sandwiches on a cricket tea table, grouped to show 5/2."},{"concept_id":"adding_fractions","concept_name":"Adding Fractions","aliases":["fraction addition","add fractions","sum of fractions"],"english_culture":"Combining trifle portions","explanation_text":"Two bowls each hold a third of a trifle; pouring them together makes two-thirds. Adding fractions with the same denominator means combining the numerators: 1/3 + 1/3 = 2/3.","image_prompt":"Show two bowls each with 1/3 of a trifle being poured into one bowl labelled 2/3."},{"concept_id":"subtracting_fractions","concept_name":"Subtracting Fractions","aliases":["fraction subtraction","take away fractions","difference of fractions"],"english_culture":"Marching band parade route","explanation_text":"The band marches a quarter-mile of its one-mile parade route, so three-quarters of a mile remains. Taking one fraction away from another is subtracting fractions: 1 − 1/4 = 3/4.","image_prompt":"Show a parade route split into quarters, with one quarter crossed off and 3/4 labelled remaining."},{"concept_id":"multiplying_fractions","concept_name":"Multiplying Fractions","aliases":["fraction multiplication","part of a part","multiply fractions"],"english_culture":"Half of a Bakewell slice","explanation_text":"If you take half of a half-slice of Bakewell tart, you get a quarter. Finding a fraction of a fraction is multiplying fractions: 1/2 × 1/2 = 1/4.","image_prompt":"Show a tart slice cut in half and one half cut again, labelled 1/2 × 1/2 = 1/4."},{"concept_id":"dividing_fractions","concept_name":"Dividing Fractions","aliases":["fraction division","divide fractions","how many times in"],"english_culture":"Quarter-pint milk servings","explanation_text":"A two-pint jug of milk holds eight quarter-pint servings, because 2 ÷ 1/4 = 8. Dividing by a fraction asks how many of those smaller pieces fit into the whole.","image_prompt":"Show a two-pint milk jug being filled into eight quarter-pint glasses, labelled 2 ÷ 1/4 = 8."},{"concept_id":"decimals","concept_name":"Decimals","aliases":["decimal point","tenths","hundredths","decimal number"],"english_culture":"Pounds and pence","explanation_text":"British money is decimal: £1.25 means one pound and 25 hundredths of a pound, the same as 125 pence. The decimal point separates the whole pounds from the pence, just like the decimal point in 1.25.","image_prompt":"Show UK coins and notes totalling £1.25, with the decimal point highlighted between the pounds and pence."},{"concept_id":"converting_fractions_decimals","concept_name":"Converting Fractions and Decimals","aliases":["fraction to decimal","decimal to fraction","convert fractions"],"english_culture":"Half a dollar","explanation_text":"Half of a dollar is the same amount whether you write 1/2 or $0.50. Converting a fraction like 1/2 to 0.5 shows two ways to name the same quantity.","image_prompt":"Show two dollar signs labelled 1/2 and 0.50 side by side, both representing the same half-dollar amount."},{"concept_id":"percents","concept_name":"Percents","aliases":["percent","percentage","per hundred","rate per 100"],"english_culture":"Free-throw percentage","explanation_text":"If a basketball player makes 90 of 100 free throws, that is 90 out of 100, written 90%. Percents are a way of counting parts per hundred.","image_prompt":"Show a basketball court with 90 made free throws out of 100 marked, labelled 90%."},{"concept_id":"percent_of_number","concept_name":"Percent of a Number","aliases":["percentage of number","find percent","portion of total"],"english_culture":"Adding 20% VAT","explanation_text":"In the UK, VAT adds 20% on top of many prices, so an £8 book gains £1.60 of tax. Finding 20% of a number means taking 20 out of every 100—percent of a number.","image_prompt":"Show a price tag of £8 with a £1.60 VAT addition making £9.60, labelled 20% of £8."},{"concept_id":"variables","concept_name":"Variables","aliases":["variable","unknown","letter as number","symbol in math"],"english_culture":"Unlabelled apple box","explanation_text":"At the greengrocer's, an unlabelled box of apples holds an unknown number, so you might call it x. A variable is a letter that stands for a number you do not know yet.","image_prompt":"Show an apple crate marked with an x instead of a count, next to labelled crates."},{"concept_id":"expressions","concept_name":"Expressions","aliases":["math expressions","numerical expressions","algebraic expressions"],"english_culture":"Arcade tokens","explanation_text":"If you have 2 tokens in your pocket and win x more, you have 2 + x tokens. A mathematical expression like 2 + x combines known and unknown quantities without an equals sign.","image_prompt":"Show two arcade tokens plus a pile marked x, written as 2 + x."},{"concept_id":"equations","concept_name":"Equations","aliases":["math equations","equal statements","algebra equations"],"english_culture":"Balancing a tea tray","explanation_text":"A tray of teacups is balanced when the weight on one side equals the weight on the other. An equation states that two sides have equal value, like a balanced tray.","image_prompt":"Show a tray with teacups balanced on both sides, labelled as an equation with both sides equal."},{"concept_id":"solving_one_step_equations","concept_name":"Solving One-Step Equations","aliases":["one-step equations","simple equations"],"english_culture":"Playground seesaw","explanation_text":"If a seesaw needs one more child to balance, you find the missing number in one step. Solving x + 3 = 10 means removing 3 from both sides to find that x is 7—one operation solves it.","image_prompt":"Show a playground seesaw with a question mark on one side, adding one more child to balance it, labelled x + 3 = 10."},{"concept_id":"solving_two_step_equations","concept_name":"Solving Two-Step Equations","aliases":["two-step equations","multi-step equations"],"english_culture":"Loading a canal barge","explanation_text":"Balancing a canal barge takes two moves: first shift the crates across the deck, then adjust the ballast so it sits level. Solving 2x + 4 = 12 likewise needs two steps—subtract, then divide.","image_prompt":"Show a canal barge being loaded in two steps—moving crates then adjusting ballast—labelled with the two-step equation."},{"concept_id":"inequalities","concept_name":"Inequalities","aliases":["greater than","less than","not equal","comparison statements"],"english_culture":"Comparing team scores","explanation_text":"When the home team has 58 points and the visitors have 51, one total is greater than the other. An inequality such as 58 > 51 shows how two amounts compare.","image_prompt":"Show a scoreboard with 58 vs 51 and a greater-than symbol between the two totals."},{"concept_id":"order_of_operations","concept_name":"Order of Operations (PEMDAS)","aliases":["PEMDAS","BODMAS","math order","operations order"],"english_culture":"BODMAS cooking sequence","explanation_text":"British students remember the order of operations as BODMAS—brackets, orders, division and multiplication, addition and subtraction. Just as a recipe must follow its steps in order, BODMAS fixes the order that maths operations are done.","image_prompt":"Show a kitchen with recipe steps labelled Brackets, Orders, Division, Multiplication, Addition, Subtraction."},{"concept_id":"substitution","concept_name":"Substitution","aliases":["replace variable","substitute value","replace letter with number"],"english_culture":"Baseball relief pitcher","explanation_text":"When a relief pitcher replaces the starter, the new player takes over the same role. Substitution in algebra works the same way—swapping a known number in for a variable, such as replacing x with 3 in 2x.","image_prompt":"Show a pitcher on the mound being swapped in, with a variable x being replaced by the number 3."},{"concept_id":"points","concept_name":"Points","aliases":["dot","location","coordinate point"],"english_culture":"London Underground stations","explanation_text":"On the London Underground map, every station is a point where lines cross or begin. A point in geometry is simply a location, like one stop on the Tube map.","image_prompt":"Show a London Underground map with station dots labelled as points at various positions."},{"concept_id":"lines","concept_name":"Lines","aliases":["straight line","geometry line","infinite line"],"english_culture":"Baseball foul lines","explanation_text":"The foul lines extend from home plate down the first and third baselines, running straight away from the catcher. These are geometric lines, stretching on and on from a single starting point.","image_prompt":"Show a baseball field with the two foul lines extending straight out from home plate."},{"concept_id":"angles","concept_name":"Angles","aliases":["angle","degree","corner measure"],"english_culture":"Station clock hands","explanation_text":"The hands of a big station clock sweep around the dial, and the gap between them forms an angle. At 3 o'clock the hands make a right angle of 90 degrees.","image_prompt":"Show a British station clock with the hands marking angles, including a clear right angle at 3 o'clock."},{"concept_id":"perpendicular_lines","concept_name":"Perpendicular Lines","aliases":["right angle lines","intersecting lines","orthogonal lines"],"english_culture":"Football goal posts","explanation_text":"The upright posts of an American football goal rise at right angles from the crossbar. Two lines meeting at a 90-degree angle are perpendicular.","image_prompt":"Show an American football goal post with the crossbar and uprights marked at right angles."},{"concept_id":"parallel_lines","concept_name":"Parallel Lines","aliases":["side-by-side lines","never meet","equal distance lines"],"english_culture":"Football field yard lines","explanation_text":"The yard lines on a football field run side by side, spaced the same distance apart from one end zone to the other. Lines that never meet and stay equally spaced are parallel.","image_prompt":"Show a football field from above with its parallel yard lines marked across the field."},{"concept_id":"polygons","concept_name":"Polygons","aliases":["shapes","closed figure","many-sided shape"],"english_culture":"US road signs","explanation_text":"US road signs are polygons: stop signs are octagons, yield signs are triangles, and speed limit signs are rectangles. A polygon is a closed shape with straight sides.","image_prompt":"Show US road signs—octagon stop sign, triangle yield sign, rectangle speed limit—as labelled polygons."},{"concept_id":"triangles","concept_name":"Triangles","aliases":["three sides","triangular","triangle shape"],"english_culture":"Cottage gable ends","explanation_text":"The gable end of a cottage rises to a point, forming a triangle where the two walls meet the roof. A triangle is a polygon with exactly three sides.","image_prompt":"Show a British cottage with a triangular gable end highlighted."},{"concept_id":"quadrilaterals","concept_name":"Quadrilaterals","aliases":["four sides","rectangles","squares","trapezoids"],"english_culture":"Dollar bill and baseball diamond","explanation_text":"The US dollar bill is a rectangle and the baseball diamond is a square; both are quadrilaterals with four sides. Quadrilaterals show up all over American life, from bills to ballparks.","image_prompt":"Show a dollar bill and a baseball diamond labelled as quadrilaterals with four sides."},{"concept_id":"perimeter","concept_name":"Perimeter","aliases":["boundary length","distance around","outline measure"],"english_culture":"Running the bases","explanation_text":"Each side of a baseball diamond is 90 feet, so a player who runs all the way around covers 90 + 90 + 90 + 90, or 360 feet. That total distance around the diamond is its perimeter.","image_prompt":"Show a baseball diamond with each 90-foot base path measured, adding up to a 360-foot perimeter."},{"concept_id":"area","concept_name":"Area","aliases":["surface area","space inside","coverage"],"english_culture":"Seeding a garden lawn","explanation_text":"Before buying grass seed, a gardener measures the lawn in square metres to know how much seed is needed. The number of unit squares that cover a surface is its area.","image_prompt":"Show a rectangular lawn divided into metre squares, with the total area calculated."},{"concept_id":"volume","concept_name":"Volume","aliases":["capacity","space inside 3D shape","liquid amount"],"english_culture":"Electric kettle capacity","explanation_text":"An electric kettle is marked in litres up to its capacity, and you fill it to the level you need. The amount of space inside a container is its volume.","image_prompt":"Show an electric kettle with litre markings 1.0 and 1.7, filled partway to show capacity."},{"concept_id":"circle_properties","concept_name":"Circle Properties","aliases":["radius","diameter","circumference","circle geometry"],"english_culture":"Stonehenge stone circle","explanation_text":"Stonehenge's outer ring of stones forms a circle, and a line through its centre is the diameter. The radius is half the diameter, measured from the centre to the ring of stones.","image_prompt":"Show Stonehenge from above with radius and diameter lines drawn across the stone circle."},{"concept_id":"pi","concept_name":"Pi (π)","aliases":["pi","ratio of circumference","3.14"],"english_culture":"Village roundabout measurement","explanation_text":"A surveyor measures around a village roundabout and across its middle, and the distance around is always about 3.14 times the distance across. That constant ratio is pi.","image_prompt":"Show a village roundabout with a tape measuring its circumference and diameter, labelled with the ratio pi."},{"concept_id":"coordinate_plane","concept_name":"Coordinate Plane","aliases":["x-y plane","graph grid","axes"],"english_culture":"Manhattan street grid","explanation_text":"Manhattan's streets and avenues cross at right angles like a giant grid, and each intersection can be named by a number pair, such as 42nd Street and 5th Avenue. That is exactly how a coordinate plane locates points.","image_prompt":"Show a map of the Manhattan grid with streets and avenues crossing, one intersection marked by its coordinates."},{"concept_id":"plotting_points","concept_name":"Plotting Points","aliases":["graphing points","coordinates","x-y plotting"],"english_culture":"Ordnance Survey grid references","explanation_text":"An Ordnance Survey map is overlaid with numbered grid lines, and a location is given by reading across then up—like an (x, y) pair. Plotting a grid reference places a point on the map, the same as plotting coordinates.","image_prompt":"Show an Ordnance Survey-style map with grid lines and a point marked at a four-figure grid reference."},{"concept_id":"symmetry","concept_name":"Symmetry","aliases":["mirror image","balanced halves","reflection symmetry"],"english_culture":"Buckingham Palace facade","explanation_text":"Buckingham Palace is laid out symmetrically: the left wing mirrors the right wing across the centre. A shape that folds exactly in half along a line has line symmetry.","image_prompt":"Show the facade of Buckingham Palace with a vertical mirror line down its centre."},{"concept_id":"transformations","concept_name":"Transformations","aliases":["translate","rotate","reflect","dilate"],"english_culture":"Marching band drill","explanation_text":"A marching band moves across the field as one shape, sliding sideways, turning together, or flipping formation—translations, rotations, and reflections. These moves are called transformations in geometry.","image_prompt":"Show a marching band formation that has been slid, rotated, and reflected across a football field."},{"concept_id":"ratios","concept_name":"Ratios","aliases":["comparison","proportion of quantities","rate"],"english_culture":"Pancake mix ratio","explanation_text":"A classic American pancake mix calls for 2 cups of mix to 1 cup of milk, written 2:1. A ratio compares two quantities, keeping the batter consistent every time you pour.","image_prompt":"Show pancake mix and a measuring cup of milk labelled with the ratio 2:1."},{"concept_id":"proportions","concept_name":"Proportions","aliases":["equal ratios","scaling","balance of ratios"],"english_culture":"Enlarging a knitting pattern","explanation_text":"When a knitter enlarges a jumper pattern, every width doubles along with every length, so the garment stays in the same proportions. Two ratios that stay equal as things scale up are a proportion.","image_prompt":"Show a small and a large knitting pattern for a jumper side by side, with matching width-to-length ratios."},{"concept_id":"unit_rate","concept_name":"Unit Rate","aliases":["per unit","rate per one","comparison per one unit"],"english_culture":"Intercity train speed","explanation_text":"An intercity train covers about 125 miles in an hour, so its speed is 125 miles per hour. A unit rate compares a quantity to one unit, here one hour of travel.","image_prompt":"Show a UK intercity train on the tracks with a sign reading 125 miles per hour."},{"concept_id":"scale_drawings","concept_name":"Scale Drawings","aliases":["map scale","drawing proportion","scaled map"],"english_culture":"Road atlas scale","explanation_text":"A US road atlas prints a scale like 1 inch = 10 miles, so every inch on the page stands for ten real miles. A scale drawing shrinks a real place down by the same factor everywhere.","image_prompt":"Show a road atlas page with a scale bar reading 1 inch = 10 miles and a route drawn between cities."},{"concept_id":"percent_change","concept_name":"Percent Change","aliases":["percent increase","percent decrease","growth rate"],"english_culture":"House price index","explanation_text":"The UK house price index reports how the average house price changes year by year. If prices rise from £200,000 to £210,000, that is a 5% increase—percent change.","image_prompt":"Show a house price index chart rising from £200,000 to £210,000 with a +5% label."},{"concept_id":"data_collection","concept_name":"Data Collection","aliases":["gather data","record information","collect numbers"],"english_culture":"The US Census","explanation_text":"Every ten years the US Census counts everyone living in the country, gathering the data that decides how seats and funding are shared. Collecting and recording numbers like this is data collection.","image_prompt":"Show census forms being filled and tallied on a clipboard, with counts for each state."},{"concept_id":"tables_graphs","concept_name":"Tables and Graphs","aliases":["data table","bar graph","chart"],"english_culture":"Met Office rainfall records","explanation_text":"The Met Office records daily rainfall in tables, and those same numbers can be drawn as graphs to spot wet and dry spells. Organising data into tables and graphs makes patterns easier to see.","image_prompt":"Show a Met Office rainfall table and a matching graph of monthly rainfall."},{"concept_id":"mean","concept_name":"Mean","aliases":["average","arithmetic mean","mean value"],"english_culture":"Basketball points per game","explanation_text":"If a player scores 20, 24, and 16 points in three games, the mean is 20 + 24 + 16 divided by 3, which equals 20. The mean is the average found by adding up and sharing equally.","image_prompt":"Show three basketball scores totalled and divided by three to find the average points per game."},{"concept_id":"median","concept_name":"Median","aliases":["middle value","data median"],"english_culture":"Monthly rainfall totals","explanation_text":"Lining up a month of daily rainfall totals from smallest to largest, the value in the middle is the median. Half the days have less rain than the median and half have more.","image_prompt":"Show a list of daily rainfall amounts ordered from lowest to highest with the middle value highlighted."},{"concept_id":"mode","concept_name":"Mode","aliases":["most frequent value","common value"],"english_culture":"Most common jersey number","explanation_text":"If more players on the team wear number 7 than any other number, then 7 is the mode. The mode is the value that appears most often in a set of data.","image_prompt":"Show a team photo with jersey numbers, highlighting number 7 as the one appearing most often."},{"concept_id":"range","concept_name":"Range","aliases":["difference","spread of data","highest minus lowest"],"english_culture":"Weekly high temperatures","explanation_text":"If a week's high temperatures run from 61°F to 78°F, the spread is 78 minus 61, or 17 degrees. The range is the difference between the largest and smallest values.","image_prompt":"Show a week of high temperatures on a chart, with the highest and lowest marked to show the range."},{"concept_id":"bar_graphs","concept_name":"Bar Graphs","aliases":["bar chart","column graph"],"english_culture":"State high temperatures","explanation_text":"A bar graph of each state's hottest July day lets you compare values at a glance, with the tallest bar on top. Each bar's height shows one amount, making comparisons quick and easy.","image_prompt":"Show a bar graph comparing the hottest July temperatures of several US states."},{"concept_id":"line_graphs","concept_name":"Line Graphs","aliases":["trend graph","line chart"],"english_culture":"Met Office annual rainfall","explanation_text":"A line graph of monthly rainfall across a year rises and falls, revealing which months are wettest and driest. Connecting the data points with a line shows how values change over time.","image_prompt":"Show a line graph of Met Office monthly rainfall across a year with the trend clearly visible."},{"concept_id":"pie_charts","concept_name":"Pie Charts","aliases":["circle chart","percentage chart"],"english_culture":"UK commuter travel","explanation_text":"A pie chart of how UK commuters travel splits the circle into slices—car, bus, train, and cycle—each slice a share of the whole. Pie charts show how a total divides into parts.","image_prompt":"Show a pie chart of UK commuter travel modes with slices for car, bus, train, and cycle."},{"concept_id":"probability","concept_name":"Probability","aliases":["chance","likelihood","odds"],"english_culture":"Pumpkin festival weigh-off","explanation_text":"At a pumpkin festival weigh-off, guessing whether a random pumpkin beats 1,000 pounds is a probability question. If 2 of every 10 pumpkins are over the mark, the chance is 2 in 10.","image_prompt":"Show a pumpkin festival weigh-off with pumpkins on scales and labels showing the chance each weighs over 1,000 pounds."},{"concept_id":"patterns","concept_name":"Patterns","aliases":["repeating design","sequence","recurrence"],"english_culture":"Barn quilt blocks","explanation_text":"Barn quilts on American farm buildings repeat blocks of colour in a set order, over and over. A repeating sequence like this is a pattern, and predicting the next block uses the same logic as continuing a number pattern.","image_prompt":"Show a barn quilt with repeating square blocks in a set colour order, with the next block marked."},{"concept_id":"functions","concept_name":"Functions","aliases":["input-output rule","function relation","mapping"],"english_culture":"Train timetable","explanation_text":"A train timetable pairs each departure time with exactly one arrival time, so one input gives one output. That one-to-one rule is what a function does in maths.","image_prompt":"Show a UK train timetable linking each departure time to its arrival time as an input-output table."}]
+[
+    {
+        "concept_id": "place_value",
+        "concept_name": "Place Value",
+        "aliases": [
+            "place value",
+            "digit place",
+            "number place",
+            "units place",
+            "tens place",
+            "hundreds place",
+            "position of digits",
+            "digit position"
+        ],
+        "english_culture": "US coin denominations",
+        "explanation_text": "In the US, a dime is worth ten pennies, so the 4 in $0.40 sits in the tenths place of a dollar. Lining up a penny, a dime, and a dollar shows how each place holds ten times the value of the place to its right.",
+        "image_prompt": "Show a dollar bill, a dime, and a penny arranged with place-value labels showing ones, tenths, and hundredths."
+    },
+    {
+        "concept_id": "addition_subtraction",
+        "concept_name": "Addition & Subtraction",
+        "aliases": [
+            "add",
+            "addition",
+            "plus",
+            "sum",
+            "combine",
+            "total",
+            "subtract",
+            "subtraction",
+            "minus",
+            "take away",
+            "difference"
+        ],
+        "english_culture": "Basketball game scoreboard",
+        "explanation_text": "As players sink baskets, the scoreboard total climbs—each basket adds to the sum. When a point is taken away, the total drops, exactly like subtracting.",
+        "image_prompt": "Depict a basketball scoreboard with numbers increasing when a basket is scored and decreasing when a point is taken away."
+    },
+    {
+        "concept_id": "multiplication_division",
+        "concept_name": "Multiplication & Division",
+        "aliases": [
+            "multiply",
+            "multiplication",
+            "times",
+            "groups of",
+            "repeated addition",
+            "divide",
+            "division",
+            "split equally",
+            "sharing"
+        ],
+        "english_culture": "Stadium seating rows",
+        "explanation_text": "A stadium arranges seats in identical rows, so counting 15 rows of 20 seats each is quick multiplication: 15 × 20 = 300. Splitting those 300 fans back into rows of 20 reverses the process—that is division.",
+        "image_prompt": "Illustrate a stadium with rows of seats, showing 15 rows of 20 seats totaling 300, then splitting them back into rows."
+    },
+    {
+        "concept_id": "even_odd",
+        "concept_name": "Even and Odd Numbers",
+        "aliases": [
+            "even numbers",
+            "odd numbers",
+            "even",
+            "odd",
+            "pairs",
+            "leftover",
+            "no remainder",
+            "remains one"
+        ],
+        "english_culture": "US interstate highway numbering",
+        "explanation_text": "US interstate numbers are assigned by direction: even-numbered interstates run east–west and odd-numbered ones run north–south. So I-40 and I-90 are even, while I-5 and I-95 are odd—a real-world way to sort numbers into two groups.",
+        "image_prompt": "Show a US highway map with I-40 and I-90 marked east–west and I-5 and I-95 north–south, color-coded as even and odd."
+    },
+    {
+        "concept_id": "skip_counting",
+        "concept_name": "Skip Counting / Number Patterns",
+        "aliases": [
+            "skip counting",
+            "count by 2s",
+            "count by 5s",
+            "count by 10s",
+            "jump counting",
+            "repeating numbers",
+            "number patterns"
+        ],
+        "english_culture": "Cricket over counting",
+        "explanation_text": "A cricket over always has six balls, so scoring a 20-over match means counting by sixes: 6, 12, 18, 24, 120. Counting in groups of six is a type of skip counting.",
+        "image_prompt": "Show six cricket balls in an over, with a counting line highlighting 6, 12, 18, 24 to show skip counting by six."
+    },
+    {
+        "concept_id": "comparing_numbers",
+        "concept_name": "Comparing and Ordering Numbers",
+        "aliases": [
+            "compare numbers",
+            "greater than",
+            "less than",
+            "more than",
+            "fewer than",
+            "biggest",
+            "smallest",
+            "ordering numbers",
+            "number order"
+        ],
+        "english_culture": "County fair pumpkin weigh-off",
+        "explanation_text": "At a county fair, giant pumpkins are weighed and ranked from heaviest to lightest. Comparing weights like 1,200 pounds versus 980 uses greater-than and less-than thinking.",
+        "image_prompt": "Show three giant pumpkins on scales at a fair, with > and < symbols comparing their weights."
+    },
+    {
+        "concept_id": "rounding_estimation",
+        "concept_name": "Rounding & Estimation",
+        "aliases": [
+            "round",
+            "rounding",
+            "estimate",
+            "estimation",
+            "approximate",
+            "about how much",
+            "close to",
+            "nearby number"
+        ],
+        "english_culture": "Rounding at the grocery checkout",
+        "explanation_text": "At the grocery checkout, people often round each item to the nearest dollar to estimate the total before the register rings it up. A $4.79 carton of eggs rounds to $5, making the final bill easy to guess.",
+        "image_prompt": "Show a grocery basket and receipt, with prices like $4.79 being rounded to $5.00 to estimate the total."
+    },
+    {
+        "concept_id": "fractions",
+        "concept_name": "Fractions",
+        "aliases": ["fraction", "part of a whole", "portion", "share", "numerator", "denominator"],
+        "english_culture": "Cutting a Victoria sponge",
+        "explanation_text": "A Victoria sponge is cut into equal slices, and each slice is a fraction of the whole cake. If the sponge is divided into eight slices, each piece is one-eighth of the cake.",
+        "image_prompt": "Illustrate a Victoria sponge cake being cut into eight equal slices, with one slice labelled 1/8."
+    },
+    {
+        "concept_id": "equivalent_fractions",
+        "concept_name": "Equivalent Fractions",
+        "aliases": ["equal fractions", "same value", "fraction equality", "equivalent"],
+        "english_culture": "Sharing a Bakewell tart",
+        "explanation_text": "Cut a Bakewell tart in half, then cut each half in half again, and you have four quarters. One half and two quarters cover the same amount of tart, so 1/2 equals 2/4—equivalent fractions.",
+        "image_prompt": "Show a Bakewell tart cut first into halves then into quarters, with 1/2 and 2/4 labelled on equal portions."
+    },
+    {
+        "concept_id": "simplifying_fractions",
+        "concept_name": "Simplifying Fractions",
+        "aliases": ["reduce fraction", "lowest terms", "simplify fraction"],
+        "english_culture": "Football pass completion ratio",
+        "explanation_text": "If a quarterback completes 12 of 24 passes, that success is 12/24. Dividing top and bottom by 12 gives 1/2, the simplest form—simplifying a fraction means reducing it to its lowest terms.",
+        "image_prompt": "Show a football play sheet with 12 completed passes out of 24, labelled as 12/24 simplifying to 1/2."
+    },
+    {
+        "concept_id": "mixed_numbers",
+        "concept_name": "Mixed Numbers",
+        "aliases": ["mixed number", "whole and fraction", "whole part and fraction part"],
+        "english_culture": "Village fete milk urn",
+        "explanation_text": "At a village fete, the tea urn takes one full jug of milk and a half jug more. One whole jug plus a half is written as 1½—a mixed number combining a whole part and a fraction.",
+        "image_prompt": "Show a tea urn with one full jug of milk and a half-full jug beside it, labelled 1½."
+    },
+    {
+        "concept_id": "improper_fractions",
+        "concept_name": "Improper Fractions",
+        "aliases": ["top-heavy fraction", "numerator larger", "greater than one fraction"],
+        "english_culture": "Cricket tea sandwiches",
+        "explanation_text": "If the cricket tea table holds five half-sandwiches, that is five halves, written 5/2. An improper fraction is a top-heavy fraction like 5/2 that names more than one whole.",
+        "image_prompt": "Show five half-sandwiches on a cricket tea table, grouped to show 5/2."
+    },
+    {
+        "concept_id": "adding_fractions",
+        "concept_name": "Adding Fractions",
+        "aliases": ["fraction addition", "add fractions", "sum of fractions"],
+        "english_culture": "Combining trifle portions",
+        "explanation_text": "Two bowls each hold a third of a trifle; pouring them together makes two-thirds. Adding fractions with the same denominator means combining the numerators: 1/3 + 1/3 = 2/3.",
+        "image_prompt": "Show two bowls each with 1/3 of a trifle being poured into one bowl labelled 2/3."
+    },
+    {
+        "concept_id": "subtracting_fractions",
+        "concept_name": "Subtracting Fractions",
+        "aliases": ["fraction subtraction", "take away fractions", "difference of fractions"],
+        "english_culture": "Marching band parade route",
+        "explanation_text": "The band marches a quarter-mile of its one-mile parade route, so three-quarters of a mile remains. Taking one fraction away from another is subtracting fractions: 1 − 1/4 = 3/4.",
+        "image_prompt": "Show a parade route split into quarters, with one quarter crossed off and 3/4 labelled remaining."
+    },
+    {
+        "concept_id": "multiplying_fractions",
+        "concept_name": "Multiplying Fractions",
+        "aliases": ["fraction multiplication", "part of a part", "multiply fractions"],
+        "english_culture": "Half of a Bakewell slice",
+        "explanation_text": "If you take half of a half-slice of Bakewell tart, you get a quarter. Finding a fraction of a fraction is multiplying fractions: 1/2 × 1/2 = 1/4.",
+        "image_prompt": "Show a tart slice cut in half and one half cut again, labelled 1/2 × 1/2 = 1/4."
+    },
+    {
+        "concept_id": "dividing_fractions",
+        "concept_name": "Dividing Fractions",
+        "aliases": ["fraction division", "divide fractions", "how many times in"],
+        "english_culture": "Quarter-pint milk servings",
+        "explanation_text": "A two-pint jug of milk holds eight quarter-pint servings, because 2 ÷ 1/4 = 8. Dividing by a fraction asks how many of those smaller pieces fit into the whole.",
+        "image_prompt": "Show a two-pint milk jug being filled into eight quarter-pint glasses, labelled 2 ÷ 1/4 = 8."
+    },
+    {
+        "concept_id": "decimals",
+        "concept_name": "Decimals",
+        "aliases": ["decimal point", "tenths", "hundredths", "decimal number"],
+        "english_culture": "Pounds and pence",
+        "explanation_text": "British money is decimal: £1.25 means one pound and 25 hundredths of a pound, the same as 125 pence. The decimal point separates the whole pounds from the pence, just like the decimal point in 1.25.",
+        "image_prompt": "Show UK coins and notes totalling £1.25, with the decimal point highlighted between the pounds and pence."
+    },
+    {
+        "concept_id": "converting_fractions_decimals",
+        "concept_name": "Converting Fractions and Decimals",
+        "aliases": ["fraction to decimal", "decimal to fraction", "convert fractions"],
+        "english_culture": "Half a dollar",
+        "explanation_text": "Half of a dollar is the same amount whether you write 1/2 or $0.50. Converting a fraction like 1/2 to 0.5 shows two ways to name the same quantity.",
+        "image_prompt": "Show two dollar signs labelled 1/2 and 0.50 side by side, both representing the same half-dollar amount."
+    },
+    {
+        "concept_id": "percents",
+        "concept_name": "Percents",
+        "aliases": ["percent", "percentage", "per hundred", "rate per 100"],
+        "english_culture": "Free-throw percentage",
+        "explanation_text": "If a basketball player makes 90 of 100 free throws, that is 90 out of 100, written 90%. Percents are a way of counting parts per hundred.",
+        "image_prompt": "Show a basketball court with 90 made free throws out of 100 marked, labelled 90%."
+    },
+    {
+        "concept_id": "percent_of_number",
+        "concept_name": "Percent of a Number",
+        "aliases": ["percentage of number", "find percent", "portion of total"],
+        "english_culture": "Adding 20% VAT",
+        "explanation_text": "In the UK, VAT adds 20% on top of many prices, so an £8 book gains £1.60 of tax. Finding 20% of a number means taking 20 out of every 100—percent of a number.",
+        "image_prompt": "Show a price tag of £8 with a £1.60 VAT addition making £9.60, labelled 20% of £8."
+    },
+    {
+        "concept_id": "variables",
+        "concept_name": "Variables",
+        "aliases": ["variable", "unknown", "letter as number", "symbol in math"],
+        "english_culture": "Unlabelled apple box",
+        "explanation_text": "At the greengrocer's, an unlabelled box of apples holds an unknown number, so you might call it x. A variable is a letter that stands for a number you do not know yet.",
+        "image_prompt": "Show an apple crate marked with an x instead of a count, next to labelled crates."
+    },
+    {
+        "concept_id": "expressions",
+        "concept_name": "Expressions",
+        "aliases": ["math expressions", "numerical expressions", "algebraic expressions"],
+        "english_culture": "Arcade tokens",
+        "explanation_text": "If you have 2 tokens in your pocket and win x more, you have 2 + x tokens. A mathematical expression like 2 + x combines known and unknown quantities without an equals sign.",
+        "image_prompt": "Show two arcade tokens plus a pile marked x, written as 2 + x."
+    },
+    {
+        "concept_id": "equations",
+        "concept_name": "Equations",
+        "aliases": ["math equations", "equal statements", "algebra equations"],
+        "english_culture": "Balancing a tea tray",
+        "explanation_text": "A tray of teacups is balanced when the weight on one side equals the weight on the other. An equation states that two sides have equal value, like a balanced tray.",
+        "image_prompt": "Show a tray with teacups balanced on both sides, labelled as an equation with both sides equal."
+    },
+    {
+        "concept_id": "solving_one_step_equations",
+        "concept_name": "Solving One-Step Equations",
+        "aliases": ["one-step equations", "simple equations"],
+        "english_culture": "Playground seesaw",
+        "explanation_text": "If a seesaw needs one more child to balance, you find the missing number in one step. Solving x + 3 = 10 means removing 3 from both sides to find that x is 7—one operation solves it.",
+        "image_prompt": "Show a playground seesaw with a question mark on one side, adding one more child to balance it, labelled x + 3 = 10."
+    },
+    {
+        "concept_id": "solving_two_step_equations",
+        "concept_name": "Solving Two-Step Equations",
+        "aliases": ["two-step equations", "multi-step equations"],
+        "english_culture": "Loading a canal barge",
+        "explanation_text": "Balancing a canal barge takes two moves: first shift the crates across the deck, then adjust the ballast so it sits level. Solving 2x + 4 = 12 likewise needs two steps—subtract, then divide.",
+        "image_prompt": "Show a canal barge being loaded in two steps—moving crates then adjusting ballast—labelled with the two-step equation."
+    },
+    {
+        "concept_id": "inequalities",
+        "concept_name": "Inequalities",
+        "aliases": ["greater than", "less than", "not equal", "comparison statements"],
+        "english_culture": "Comparing team scores",
+        "explanation_text": "When the home team has 58 points and the visitors have 51, one total is greater than the other. An inequality such as 58 > 51 shows how two amounts compare.",
+        "image_prompt": "Show a scoreboard with 58 vs 51 and a greater-than symbol between the two totals."
+    },
+    {
+        "concept_id": "order_of_operations",
+        "concept_name": "Order of Operations (PEMDAS)",
+        "aliases": ["PEMDAS", "BODMAS", "math order", "operations order"],
+        "english_culture": "BODMAS cooking sequence",
+        "explanation_text": "British students remember the order of operations as BODMAS—brackets, orders, division and multiplication, addition and subtraction. Just as a recipe must follow its steps in order, BODMAS fixes the order that maths operations are done.",
+        "image_prompt": "Show a kitchen with recipe steps labelled Brackets, Orders, Division, Multiplication, Addition, Subtraction."
+    },
+    {
+        "concept_id": "substitution",
+        "concept_name": "Substitution",
+        "aliases": ["replace variable", "substitute value", "replace letter with number"],
+        "english_culture": "Baseball relief pitcher",
+        "explanation_text": "When a relief pitcher replaces the starter, the new player takes over the same role. Substitution in algebra works the same way—swapping a known number in for a variable, such as replacing x with 3 in 2x.",
+        "image_prompt": "Show a pitcher on the mound being swapped in, with a variable x being replaced by the number 3."
+    },
+    {
+        "concept_id": "points",
+        "concept_name": "Points",
+        "aliases": ["dot", "location", "coordinate point"],
+        "english_culture": "London Underground stations",
+        "explanation_text": "On the London Underground map, every station is a point where lines cross or begin. A point in geometry is simply a location, like one stop on the Tube map.",
+        "image_prompt": "Show a London Underground map with station dots labelled as points at various positions."
+    },
+    {
+        "concept_id": "lines",
+        "concept_name": "Lines",
+        "aliases": ["straight line", "geometry line", "infinite line"],
+        "english_culture": "Baseball foul lines",
+        "explanation_text": "The foul lines extend from home plate down the first and third baselines, running straight away from the catcher. These are geometric lines, stretching on and on from a single starting point.",
+        "image_prompt": "Show a baseball field with the two foul lines extending straight out from home plate."
+    },
+    {
+        "concept_id": "angles",
+        "concept_name": "Angles",
+        "aliases": ["angle", "degree", "corner measure"],
+        "english_culture": "Station clock hands",
+        "explanation_text": "The hands of a big station clock sweep around the dial, and the gap between them forms an angle. At 3 o'clock the hands make a right angle of 90 degrees.",
+        "image_prompt": "Show a British station clock with the hands marking angles, including a clear right angle at 3 o'clock."
+    },
+    {
+        "concept_id": "perpendicular_lines",
+        "concept_name": "Perpendicular Lines",
+        "aliases": ["right angle lines", "intersecting lines", "orthogonal lines"],
+        "english_culture": "Football goal posts",
+        "explanation_text": "The upright posts of an American football goal rise at right angles from the crossbar. Two lines meeting at a 90-degree angle are perpendicular.",
+        "image_prompt": "Show an American football goal post with the crossbar and uprights marked at right angles."
+    },
+    {
+        "concept_id": "parallel_lines",
+        "concept_name": "Parallel Lines",
+        "aliases": ["side-by-side lines", "never meet", "equal distance lines"],
+        "english_culture": "Football field yard lines",
+        "explanation_text": "The yard lines on a football field run side by side, spaced the same distance apart from one end zone to the other. Lines that never meet and stay equally spaced are parallel.",
+        "image_prompt": "Show a football field from above with its parallel yard lines marked across the field."
+    },
+    {
+        "concept_id": "polygons",
+        "concept_name": "Polygons",
+        "aliases": ["shapes", "closed figure", "many-sided shape"],
+        "english_culture": "US road signs",
+        "explanation_text": "US road signs are polygons: stop signs are octagons, yield signs are triangles, and speed limit signs are rectangles. A polygon is a closed shape with straight sides.",
+        "image_prompt": "Show US road signs—octagon stop sign, triangle yield sign, rectangle speed limit—as labelled polygons."
+    },
+    {
+        "concept_id": "triangles",
+        "concept_name": "Triangles",
+        "aliases": ["three sides", "triangular", "triangle shape"],
+        "english_culture": "Cottage gable ends",
+        "explanation_text": "The gable end of a cottage rises to a point, forming a triangle where the two walls meet the roof. A triangle is a polygon with exactly three sides.",
+        "image_prompt": "Show a British cottage with a triangular gable end highlighted."
+    },
+    {
+        "concept_id": "quadrilaterals",
+        "concept_name": "Quadrilaterals",
+        "aliases": ["four sides", "rectangles", "squares", "trapezoids"],
+        "english_culture": "Dollar bill and baseball diamond",
+        "explanation_text": "The US dollar bill is a rectangle and the baseball diamond is a square; both are quadrilaterals with four sides. Quadrilaterals show up all over American life, from bills to ballparks.",
+        "image_prompt": "Show a dollar bill and a baseball diamond labelled as quadrilaterals with four sides."
+    },
+    {
+        "concept_id": "perimeter",
+        "concept_name": "Perimeter",
+        "aliases": ["boundary length", "distance around", "outline measure"],
+        "english_culture": "Running the bases",
+        "explanation_text": "Each side of a baseball diamond is 90 feet, so a player who runs all the way around covers 90 + 90 + 90 + 90, or 360 feet. That total distance around the diamond is its perimeter.",
+        "image_prompt": "Show a baseball diamond with each 90-foot base path measured, adding up to a 360-foot perimeter."
+    },
+    {
+        "concept_id": "area",
+        "concept_name": "Area",
+        "aliases": ["surface area", "space inside", "coverage"],
+        "english_culture": "Seeding a garden lawn",
+        "explanation_text": "Before buying grass seed, a gardener measures the lawn in square metres to know how much seed is needed. The number of unit squares that cover a surface is its area.",
+        "image_prompt": "Show a rectangular lawn divided into metre squares, with the total area calculated."
+    },
+    {
+        "concept_id": "volume",
+        "concept_name": "Volume",
+        "aliases": ["capacity", "space inside 3D shape", "liquid amount"],
+        "english_culture": "Electric kettle capacity",
+        "explanation_text": "An electric kettle is marked in litres up to its capacity, and you fill it to the level you need. The amount of space inside a container is its volume.",
+        "image_prompt": "Show an electric kettle with litre markings 1.0 and 1.7, filled partway to show capacity."
+    },
+    {
+        "concept_id": "circle_properties",
+        "concept_name": "Circle Properties",
+        "aliases": ["radius", "diameter", "circumference", "circle geometry"],
+        "english_culture": "Stonehenge stone circle",
+        "explanation_text": "Stonehenge's outer ring of stones forms a circle, and a line through its centre is the diameter. The radius is half the diameter, measured from the centre to the ring of stones.",
+        "image_prompt": "Show Stonehenge from above with radius and diameter lines drawn across the stone circle."
+    },
+    {
+        "concept_id": "pi",
+        "concept_name": "Pi (π)",
+        "aliases": ["pi", "ratio of circumference", "3.14"],
+        "english_culture": "Village roundabout measurement",
+        "explanation_text": "A surveyor measures around a village roundabout and across its middle, and the distance around is always about 3.14 times the distance across. That constant ratio is pi.",
+        "image_prompt": "Show a village roundabout with a tape measuring its circumference and diameter, labelled with the ratio pi."
+    },
+    {
+        "concept_id": "coordinate_plane",
+        "concept_name": "Coordinate Plane",
+        "aliases": ["x-y plane", "graph grid", "axes"],
+        "english_culture": "Manhattan street grid",
+        "explanation_text": "Manhattan's streets and avenues cross at right angles like a giant grid, and each intersection can be named by a number pair, such as 42nd Street and 5th Avenue. That is exactly how a coordinate plane locates points.",
+        "image_prompt": "Show a map of the Manhattan grid with streets and avenues crossing, one intersection marked by its coordinates."
+    },
+    {
+        "concept_id": "plotting_points",
+        "concept_name": "Plotting Points",
+        "aliases": ["graphing points", "coordinates", "x-y plotting"],
+        "english_culture": "Ordnance Survey grid references",
+        "explanation_text": "An Ordnance Survey map is overlaid with numbered grid lines, and a location is given by reading across then up—like an (x, y) pair. Plotting a grid reference places a point on the map, the same as plotting coordinates.",
+        "image_prompt": "Show an Ordnance Survey-style map with grid lines and a point marked at a four-figure grid reference."
+    },
+    {
+        "concept_id": "symmetry",
+        "concept_name": "Symmetry",
+        "aliases": ["mirror image", "balanced halves", "reflection symmetry"],
+        "english_culture": "Buckingham Palace facade",
+        "explanation_text": "Buckingham Palace is laid out symmetrically: the left wing mirrors the right wing across the centre. A shape that folds exactly in half along a line has line symmetry.",
+        "image_prompt": "Show the facade of Buckingham Palace with a vertical mirror line down its centre."
+    },
+    {
+        "concept_id": "transformations",
+        "concept_name": "Transformations",
+        "aliases": ["translate", "rotate", "reflect", "dilate"],
+        "english_culture": "Marching band drill",
+        "explanation_text": "A marching band moves across the field as one shape, sliding sideways, turning together, or flipping formation—translations, rotations, and reflections. These moves are called transformations in geometry.",
+        "image_prompt": "Show a marching band formation that has been slid, rotated, and reflected across a football field."
+    },
+    {
+        "concept_id": "ratios",
+        "concept_name": "Ratios",
+        "aliases": ["comparison", "proportion of quantities", "rate"],
+        "english_culture": "Pancake mix ratio",
+        "explanation_text": "A classic American pancake mix calls for 2 cups of mix to 1 cup of milk, written 2:1. A ratio compares two quantities, keeping the batter consistent every time you pour.",
+        "image_prompt": "Show pancake mix and a measuring cup of milk labelled with the ratio 2:1."
+    },
+    {
+        "concept_id": "proportions",
+        "concept_name": "Proportions",
+        "aliases": ["equal ratios", "scaling", "balance of ratios"],
+        "english_culture": "Enlarging a knitting pattern",
+        "explanation_text": "When a knitter enlarges a jumper pattern, every width doubles along with every length, so the garment stays in the same proportions. Two ratios that stay equal as things scale up are a proportion.",
+        "image_prompt": "Show a small and a large knitting pattern for a jumper side by side, with matching width-to-length ratios."
+    },
+    {
+        "concept_id": "unit_rate",
+        "concept_name": "Unit Rate",
+        "aliases": ["per unit", "rate per one", "comparison per one unit"],
+        "english_culture": "Intercity train speed",
+        "explanation_text": "An intercity train covers about 125 miles in an hour, so its speed is 125 miles per hour. A unit rate compares a quantity to one unit, here one hour of travel.",
+        "image_prompt": "Show a UK intercity train on the tracks with a sign reading 125 miles per hour."
+    },
+    {
+        "concept_id": "scale_drawings",
+        "concept_name": "Scale Drawings",
+        "aliases": ["map scale", "drawing proportion", "scaled map"],
+        "english_culture": "Road atlas scale",
+        "explanation_text": "A US road atlas prints a scale like 1 inch = 10 miles, so every inch on the page stands for ten real miles. A scale drawing shrinks a real place down by the same factor everywhere.",
+        "image_prompt": "Show a road atlas page with a scale bar reading 1 inch = 10 miles and a route drawn between cities."
+    },
+    {
+        "concept_id": "percent_change",
+        "concept_name": "Percent Change",
+        "aliases": ["percent increase", "percent decrease", "growth rate"],
+        "english_culture": "House price index",
+        "explanation_text": "The UK house price index reports how the average house price changes year by year. If prices rise from £200,000 to £210,000, that is a 5% increase—percent change.",
+        "image_prompt": "Show a house price index chart rising from £200,000 to £210,000 with a +5% label."
+    },
+    {
+        "concept_id": "data_collection",
+        "concept_name": "Data Collection",
+        "aliases": ["gather data", "record information", "collect numbers"],
+        "english_culture": "The US Census",
+        "explanation_text": "Every ten years the US Census counts everyone living in the country, gathering the data that decides how seats and funding are shared. Collecting and recording numbers like this is data collection.",
+        "image_prompt": "Show census forms being filled and tallied on a clipboard, with counts for each state."
+    },
+    {
+        "concept_id": "tables_graphs",
+        "concept_name": "Tables and Graphs",
+        "aliases": ["data table", "bar graph", "chart"],
+        "english_culture": "Met Office rainfall records",
+        "explanation_text": "The Met Office records daily rainfall in tables, and those same numbers can be drawn as graphs to spot wet and dry spells. Organising data into tables and graphs makes patterns easier to see.",
+        "image_prompt": "Show a Met Office rainfall table and a matching graph of monthly rainfall."
+    },
+    {
+        "concept_id": "mean",
+        "concept_name": "Mean",
+        "aliases": ["average", "arithmetic mean", "mean value"],
+        "english_culture": "Basketball points per game",
+        "explanation_text": "If a player scores 20, 24, and 16 points in three games, the mean is 20 + 24 + 16 divided by 3, which equals 20. The mean is the average found by adding up and sharing equally.",
+        "image_prompt": "Show three basketball scores totalled and divided by three to find the average points per game."
+    },
+    {
+        "concept_id": "median",
+        "concept_name": "Median",
+        "aliases": ["middle value", "data median"],
+        "english_culture": "Monthly rainfall totals",
+        "explanation_text": "Lining up a month of daily rainfall totals from smallest to largest, the value in the middle is the median. Half the days have less rain than the median and half have more.",
+        "image_prompt": "Show a list of daily rainfall amounts ordered from lowest to highest with the middle value highlighted."
+    },
+    {
+        "concept_id": "mode",
+        "concept_name": "Mode",
+        "aliases": ["most frequent value", "common value"],
+        "english_culture": "Most common jersey number",
+        "explanation_text": "If more players on the team wear number 7 than any other number, then 7 is the mode. The mode is the value that appears most often in a set of data.",
+        "image_prompt": "Show a team photo with jersey numbers, highlighting number 7 as the one appearing most often."
+    },
+    {
+        "concept_id": "range",
+        "concept_name": "Range",
+        "aliases": ["difference", "spread of data", "highest minus lowest"],
+        "english_culture": "Weekly high temperatures",
+        "explanation_text": "If a week's high temperatures run from 61°F to 78°F, the spread is 78 minus 61, or 17 degrees. The range is the difference between the largest and smallest values.",
+        "image_prompt": "Show a week of high temperatures on a chart, with the highest and lowest marked to show the range."
+    },
+    {
+        "concept_id": "bar_graphs",
+        "concept_name": "Bar Graphs",
+        "aliases": ["bar chart", "column graph"],
+        "english_culture": "State high temperatures",
+        "explanation_text": "A bar graph of each state's hottest July day lets you compare values at a glance, with the tallest bar on top. Each bar's height shows one amount, making comparisons quick and easy.",
+        "image_prompt": "Show a bar graph comparing the hottest July temperatures of several US states."
+    },
+    {
+        "concept_id": "line_graphs",
+        "concept_name": "Line Graphs",
+        "aliases": ["trend graph", "line chart"],
+        "english_culture": "Met Office annual rainfall",
+        "explanation_text": "A line graph of monthly rainfall across a year rises and falls, revealing which months are wettest and driest. Connecting the data points with a line shows how values change over time.",
+        "image_prompt": "Show a line graph of Met Office monthly rainfall across a year with the trend clearly visible."
+    },
+    {
+        "concept_id": "pie_charts",
+        "concept_name": "Pie Charts",
+        "aliases": ["circle chart", "percentage chart"],
+        "english_culture": "UK commuter travel",
+        "explanation_text": "A pie chart of how UK commuters travel splits the circle into slices—car, bus, train, and cycle—each slice a share of the whole. Pie charts show how a total divides into parts.",
+        "image_prompt": "Show a pie chart of UK commuter travel modes with slices for car, bus, train, and cycle."
+    },
+    {
+        "concept_id": "probability",
+        "concept_name": "Probability",
+        "aliases": ["chance", "likelihood", "odds"],
+        "english_culture": "Pumpkin festival weigh-off",
+        "explanation_text": "At a pumpkin festival weigh-off, guessing whether a random pumpkin beats 1,000 pounds is a probability question. If 2 of every 10 pumpkins are over the mark, the chance is 2 in 10.",
+        "image_prompt": "Show a pumpkin festival weigh-off with pumpkins on scales and labels showing the chance each weighs over 1,000 pounds."
+    },
+    {
+        "concept_id": "patterns",
+        "concept_name": "Patterns",
+        "aliases": ["repeating design", "sequence", "recurrence"],
+        "english_culture": "Barn quilt blocks",
+        "explanation_text": "Barn quilts on American farm buildings repeat blocks of colour in a set order, over and over. A repeating sequence like this is a pattern, and predicting the next block uses the same logic as continuing a number pattern.",
+        "image_prompt": "Show a barn quilt with repeating square blocks in a set colour order, with the next block marked."
+    },
+    {
+        "concept_id": "functions",
+        "concept_name": "Functions",
+        "aliases": ["input-output rule", "function relation", "mapping"],
+        "english_culture": "Train timetable",
+        "explanation_text": "A train timetable pairs each departure time with exactly one arrival time, so one input gives one output. That one-to-one rule is what a function does in maths.",
+        "image_prompt": "Show a UK train timetable linking each departure time to its arrival time as an input-output table."
+    }
+]

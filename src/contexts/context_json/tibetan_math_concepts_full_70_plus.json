@@ -1,1 +1,565 @@
-[{"concept_id":"place_value","concept_name":"Place Value","aliases":["place value","digit place","number place","units place","tens place","hundreds place","position of digits","digit position"],"tibetan_culture":"Mani stones laid in rows of ten","explanation_text":"Pilgrims lay mani stones (stones carved with prayers) in rows of ten along the paths around a temple. The position of each stone in the row — the ones row, the tens row, the hundreds row — determines how many it represents, just as a digit's place gives it value.","image_prompt":"A hillside stack of carved mani stones arranged in neat rows of ten, each row labeled with ones, tens, and hundreds places."},{"concept_id":"addition_subtraction","concept_name":"Addition & Subtraction","aliases":["add","addition","plus","sum","combine","total","subtract","subtraction","minus","take away","difference"],"tibetan_culture":"Butter lamps lit at a shrine","explanation_text":"At a shrine, worshippers light butter lamps one by one; each new lamp raises the total count, and lamps that have finished burn down and are removed, lowering it. Counting lamps in raises the total, and counting them out lowers it — exactly addition and subtraction.","image_prompt":"A row of small butter lamps on an altar, a few freshly lit adding to the glow while one is being lifted away."},{"concept_id":"multiplication_division","concept_name":"Multiplication & Division","aliases":["multiply","multiplication","times","groups of","repeated addition","divide","division","split equally","sharing"],"tibetan_culture":"Butter lamps arranged in equal rows","explanation_text":"When preparing a large offering, lamps are set out in equal rows and columns so every row matches. Counting rows times columns gives the total, and splitting the lamps evenly among the rows is division.","image_prompt":"A large offering table with butter lamps arranged in neat equal rows and columns, one grid marked with multiplication and division labels."},{"concept_id":"even_odd","concept_name":"Even and Odd Numbers","aliases":["even numbers","odd numbers","even","odd","pairs","leftover","no remainder","remains one"],"tibetan_culture":"Yak wool bundled in pairs","explanation_text":"Herders bundle yak wool by tying strands together in pairs. A bundle made of complete pairs is even; when one strand is left over without a partner, the count is odd.","image_prompt":"A herder's hands tying yak wool into paired bundles, with one single loose strand set aside."},{"concept_id":"skip_counting","concept_name":"Skip Counting / Number Patterns","aliases":["skip counting","count by 2s","count by 5s","count by 10s","jump counting","repeating numbers","number patterns"],"tibetan_culture":"Prayer flags and the five-color cycle","explanation_text":"Strings of prayer flags hang five colors — blue, white, red, green, and yellow — in a fixed repeating order. Counting every fifth flag lands on the same color again, which is exactly skip counting by fives.","image_prompt":"A line of prayer flags showing the five-color sequence, every fifth flag highlighted to show the repeating pattern."},{"concept_id":"comparing_numbers","concept_name":"Comparing and Ordering Numbers","aliases":["compare numbers","greater than","less than","more than","fewer than","biggest","smallest","ordering numbers","number order"],"tibetan_culture":"Momos on two plates","explanation_text":"At a family meal, one plate holds more momos than another. Comparing the counts tells you which is greater and which is less, the same as comparing numbers with > and <.","image_prompt":"Two plates of steamed momos, one fuller than the other, with greater-than and less-than symbols between them."},{"concept_id":"rounding_estimation","concept_name":"Rounding & Estimation","aliases":["round","rounding","estimate","estimation","approximate","about how much","close to","nearby number"],"tibetan_culture":"Estimating tsampa for the day","explanation_text":"A cook measures how much tsampa (roasted barley flour) the family will need for the day without using exact scales. Estimating about two scoops is rounding to the nearest convenient amount.","image_prompt":"A wooden bowl of tsampa flour with a measuring scoop beside it, annotated with about 2 scoops and rounded numbers."},{"concept_id":"fractions","concept_name":"Fractions","aliases":["fraction","part of a whole","portion","share","numerator","denominator"],"tibetan_culture":"Sharing a tray of momos","explanation_text":"When a tray of momos is shared equally among several people, each person receives one equal part of the whole tray. Each part of the whole is a fraction of the total.","image_prompt":"A round tray of momos divided into equal slices, one slice highlighted and labeled with a fraction."},{"concept_id":"equivalent_fractions","concept_name":"Equivalent Fractions","aliases":["equal fractions","same value","fraction equality","equivalent"],"tibetan_culture":"Halves and quarters on a thangka grid","explanation_text":"A thangka painter divides the canvas into 2 equal vertical panels, then into 4 equal panels. Taking one half or two quarters covers the same area of canvas, so 1/2 equals 2/4.","image_prompt":"A thangka canvas marked with a grid, one half shaded and two quarters shaded to show they are the same area."},{"concept_id":"simplifying_fractions","concept_name":"Simplifying Fractions","aliases":["reduce fraction","lowest terms","simplify fraction"],"tibetan_culture":"Freshly carved stones in a row","explanation_text":"If 4 of 8 stones in a mani wall are freshly carved, then 4/8 of the row is new. That is the same amount as 1/2 of the row, so the fraction 4/8 simplifies to 1/2.","image_prompt":"A row of eight mani stones with four freshly carved ones, labeled 4/8 = 1/2."},{"concept_id":"mixed_numbers","concept_name":"Mixed Numbers","aliases":["mixed number","whole and fraction","whole part and fraction part"],"tibetan_culture":"Full bowls and half a bowl of tsampa","explanation_text":"If a family has 3 full bowls of tsampa and half a bowl besides, that is 3½ bowls. A whole number written together with a fraction, like 3½, is a mixed number.","image_prompt":"Three full bowls of tsampa next to one half-filled bowl, labeled 3 1/2."},{"concept_id":"improper_fractions","concept_name":"Improper Fractions","aliases":["top-heavy fraction","numerator larger","greater than one fraction"],"tibetan_culture":"More scoops than a bowl holds","explanation_text":"A measure of tsampa holds 2 scoops. Pouring 5 scoops into it means 5 parts when the whole is only 2 parts, written as the improper fraction 5/2.","image_prompt":"A measuring bowl and five separate scoops of tsampa flour, labeled with the fraction 5/2."},{"concept_id":"adding_fractions","concept_name":"Adding Fractions","aliases":["fraction addition","add fractions","sum of fractions"],"tibetan_culture":"Melting butter for lamps","explanation_text":"A lamplighter melts a half block of butter and a quarter block into one pan for the lamps. Adding the two parts, 1/2 plus 1/4, gives 3/4 of a block.","image_prompt":"A pan of melted butter with a half block and a quarter block beside it, showing 1/2 + 1/4 = 3/4."},{"concept_id":"subtracting_fractions","concept_name":"Subtracting Fractions","aliases":["fraction subtraction","take away fractions","difference of fractions"],"tibetan_culture":"An incense stick burning down","explanation_text":"An incense stick burns through part of its length over an hour. If a third of the stick has burned, the remaining two thirds is the full stick minus its burned fraction.","image_prompt":"A burning incense stick with its burned section marked, labeled 1/3 burned and 2/3 remaining."},{"concept_id":"multiplying_fractions","concept_name":"Multiplying Fractions","aliases":["fraction multiplication","part of a part","multiply fractions"],"tibetan_culture":"Half of half a plate of momos","explanation_text":"When someone takes half of a plate that is already half full, they are finding half of a half. That fraction of a fraction is multiplication: 1/2 × 1/2 = 1/4.","image_prompt":"A plate of momos shown half full, with one quarter of the plate highlighted to show half of a half."},{"concept_id":"dividing_fractions","concept_name":"Dividing Fractions","aliases":["fraction division","divide fractions","how many times in"],"tibetan_culture":"Segments of a prayer-flag string","explanation_text":"A string for prayer flags is divided into eighth-length segments. Asking how many eighth-segments fit into half the string is division of fractions: 1/2 ÷ 1/8 = 4.","image_prompt":"A long string marked in eighths, with half the length highlighted and four eighth-segments counted inside it."},{"concept_id":"decimals","concept_name":"Decimals","aliases":["decimal point","tenths","hundredths","decimal number"],"tibetan_culture":"Filling jugs from the Kyi-chu","explanation_text":"Water is carried from the Kyi-chu river and measured in liters. A jug holding one full liter and half more is written as 1.5 liters, introducing decimal tenths.","image_prompt":"A water jug at the riverside with measurement marks at 1.0, 1.5, and 2.0 liters."},{"concept_id":"converting_fractions_decimals","concept_name":"Converting Fractions and Decimals","aliases":["fraction to decimal","decimal to fraction","convert fractions"],"tibetan_culture":"Half an incense stick","explanation_text":"Half of an incense stick can be described as 1/2 of a stick or as 0.5 sticks. The two names describe the same length, like converting between fractions and decimals.","image_prompt":"One full incense stick and a half stick side by side, labeled 1/2 and 0.5."},{"concept_id":"percents","concept_name":"Percents","aliases":["percent","percentage","per hundred","rate per 100"],"tibetan_culture":"Rooms of the Potala","explanation_text":"The Potala Palace in Lhasa contains more than a thousand rooms across its halls. If 70 of every 100 rooms are open to visitors, that is 70%, a way of counting parts out of one hundred.","image_prompt":"A cutaway illustration of the Potala Palace with rooms grouped in blocks of 100, labeled 70%."},{"concept_id":"percent_of_number","concept_name":"Percent of a Number","aliases":["percentage of number","find percent","portion of total"],"tibetan_culture":"Repainting part of a mani wall","explanation_text":"Each year a village repaints 20% of the stones in a mani wall. Finding 20% of a known number of stones means computing a part of a whole, such as 20% of 40 stones being 8 stones.","image_prompt":"A long wall of mani stones with every fifth stone highlighted in fresh paint, labeled 20%."},{"concept_id":"variables","concept_name":"Variables","aliases":["variable","unknown","letter as number","symbol in math"],"tibetan_culture":"An uncounted bundle of incense","explanation_text":"If the number of incense sticks in a bundle has not been counted yet, that unknown amount can be written as x. A letter standing for an unknown quantity is a variable.","image_prompt":"A bundle of incense sticks with a question mark and the letter x written beside it."},{"concept_id":"expressions","concept_name":"Expressions","aliases":["math expressions","numerical expressions","algebraic expressions"],"tibetan_culture":"Prayer flags already hung","explanation_text":"A courtyard has 5 prayer flags hanging and a second string with an unknown number yet to be added. Combining the known and unknown amounts gives the expression 5 + x.","image_prompt":"A courtyard with five hanging prayer flags and an empty string marked x."},{"concept_id":"equations","concept_name":"Equations","aliases":["math equations","equal statements","algebra equations"],"tibetan_culture":"The two sides of a debate","explanation_text":"In monastic debate, two monks face each other and argue opposite sides of a question, each position balanced against the other until one side is convinced. A balance that is level on both sides is like the two equal sides of an equation.","image_prompt":"Two monks in a debate courtyard facing each other across a wooden platform, with a balanced scale symbolizing equality."},{"concept_id":"solving_one_step_equations","concept_name":"Solving One-Step Equations","aliases":["one-step equations","simple equations"],"tibetan_culture":"Fetching water jugs","explanation_text":"A household needs 8 jugs of water from the Kyi-chu and has carried 5 already. The missing number satisfies x + 5 = 8, a one-step equation solved by subtracting 5 from both sides.","image_prompt":"Five filled water jugs by a riverside with three empty jugs beside them, labeled x + 5 = 8."},{"concept_id":"solving_two_step_equations","concept_name":"Solving Two-Step Equations","aliases":["two-step equations","multi-step equations"],"tibetan_culture":"Preparing butter tea","explanation_text":"Making butter tea takes two clear actions: first the tea is brewed, then butter and salt are churned in. Finding the right amounts needs the same two ordered steps, just like a two-step equation.","image_prompt":"A tea churn beside a stove, with step one (brew tea) and step two (add butter and salt) shown in sequence."},{"concept_id":"inequalities","concept_name":"Inequalities","aliases":["greater than","less than","not equal","comparison statements"],"tibetan_culture":"Debating which herd is larger","explanation_text":"Two families compare their yak herds in a lively argument, one insisting its herd is larger than the other's. Comparing two unequal quantities with > or < is an inequality.","image_prompt":"Two groups of yaks of different sizes with a greater-than symbol between them."},{"concept_id":"order_of_operations","concept_name":"Order of Operations (PEMDAS)","aliases":["PEMDAS","BODMAS","math order","operations order"],"tibetan_culture":"Building a chorten in order","explanation_text":"A chorten is built in a fixed order: the square base first, then the rounded dome, then the spire on top. The sequence cannot be shuffled, just as the order of operations decides which step of a calculation comes first.","image_prompt":"A chorten under construction showing the three stages in order: square base, then dome, then spire."},{"concept_id":"substitution","concept_name":"Substitution","aliases":["replace variable","substitute value","replace letter with number"],"tibetan_culture":"Replacing a dramyin string","explanation_text":"When a string on the dramyin (a six-stringed lute) breaks, a musician replaces it with an identical new one. Putting the new value in place of the broken one is like substituting a number for a variable.","image_prompt":"A dramyin with six strings, one string being replaced with an identical new string."},{"concept_id":"points","concept_name":"Points","aliases":["dot","location","coordinate point"],"tibetan_culture":"Stars over the Himalaya","explanation_text":"Each star visible over the high valleys marks a single position in the night sky. A position with no size of its own, like a star's pinpoint, is a point in geometry.","image_prompt":"A night sky over snow peaks, individual stars marked as labeled points."},{"concept_id":"lines","concept_name":"Lines","aliases":["straight line","geometry line","infinite line"],"tibetan_culture":"Chalk lines of a mandala","explanation_text":"An artist lays out a mandala by snapping straight chalk lines across the table from the center outward. Each line continues past the drawn portion, like a geometric line extending in both directions.","image_prompt":"A hand snapping a straight chalk line across a mandala table, lines radiating from the center."},{"concept_id":"angles","concept_name":"Angles","aliases":["angle","degree","corner measure"],"tibetan_culture":"Roof beams of a Lhasa house","explanation_text":"The wooden roof beams of a Lhasa stone house meet the top of the wall at a slant. The amount of that slant between the beam and the wall is the angle where the two meet.","image_prompt":"The timber roof beams of a whitewashed Lhasa stone house meeting the wall, with one angle highlighted."},{"concept_id":"perpendicular_lines","concept_name":"Perpendicular Lines","aliases":["right angle lines","intersecting lines","orthogonal lines"],"tibetan_culture":"Walls and crossbeams","explanation_text":"The stone walls of a Lhasa house meet at corners that are right angles, and the crossbeams rest across the walls at the same right angle. Lines meeting at 90° are perpendicular.","image_prompt":"The corner of a stone house where two walls meet at a right angle, with a square corner symbol drawn."},{"concept_id":"parallel_lines","concept_name":"Parallel Lines","aliases":["side-by-side lines","never meet","equal distance lines"],"tibetan_culture":"The two banks of the Kyi-chu","explanation_text":"The two banks of the Kyi-chu river run alongside each other for long stretches without meeting. Lines that stay the same distance apart and never cross are parallel.","image_prompt":"The Kyi-chu river with its two banks shown as parallel lines staying evenly spaced."},{"concept_id":"polygons","concept_name":"Polygons","aliases":["shapes","closed figure","many-sided shape"],"tibetan_culture":"The square base of a chorten","explanation_text":"A chorten rises from a square base with four straight sides, a closed shape made of straight segments. Any closed shape built from straight sides, like the base, is a polygon.","image_prompt":"The square base of a white chorten drawn as a labeled four-sided shape, with the dome rising above it."},{"concept_id":"triangles","concept_name":"Triangles","aliases":["three sides","triangular","triangle shape"],"tibetan_culture":"The spire of a chorten","explanation_text":"The tapering spire of a chorten narrows to a point, and its side faces are three-sided shapes. A three-sided polygon is a triangle.","image_prompt":"The triangular spire of a chorten against the sky, one side face outlined as a triangle."},{"concept_id":"quadrilaterals","concept_name":"Quadrilaterals","aliases":["four sides","rectangles","squares","trapezoids"],"tibetan_culture":"Geometric motifs in Tibetan rugs","explanation_text":"Tibetan carpet weavers repeat rectangular and square motifs within their patterns. Four-sided shapes like these are quadrilaterals.","image_prompt":"A woven Tibetan carpet showing repeating rectangular and square motifs, one shape outlined."},{"concept_id":"perimeter","concept_name":"Perimeter","aliases":["boundary length","distance around","outline measure"],"tibetan_culture":"Walking the kora circuit","explanation_text":"Devotees walk a complete circuit around a temple or stupa as a kora. The distance around the whole circuit is the perimeter of that space.","image_prompt":"People walking a clockwise circuit around a white stupa, a dashed line tracing the full loop."},{"concept_id":"area","concept_name":"Area","aliases":["surface area","space inside","coverage"],"tibetan_culture":"Carpets covering the hall floor","explanation_text":"A carpet laid on a monastery hall floor covers a certain amount of the floor. The measure of the covered surface is the area of the carpet.","image_prompt":"A monastery assembly hall with woven carpets spread across the floor, one carpet's surface shaded to show area."},{"concept_id":"volume","concept_name":"Volume","aliases":["capacity","space inside 3D shape","liquid amount"],"tibetan_culture":"The great halls of the Potala","explanation_text":"The Potala's many halls and chapels occupy three-dimensional space inside the building. The amount of space inside a building or object is its volume.","image_prompt":"A cross-section of the Potala showing stacked halls and rooms, with one hall's interior space labeled volume."},{"concept_id":"circle_properties","concept_name":"Circle Properties","aliases":["radius","diameter","circumference","circle geometry"],"tibetan_culture":"Circles inside a mandala","explanation_text":"A mandala is drawn with a large circle at its center, its radius measured from the midpoint outward. The distance across the whole circle through the center is the diameter, and the distance around is the circumference.","image_prompt":"A mandala with its central circle marked with radius and diameter lines from the center point."},{"concept_id":"pi","concept_name":"Pi (π)","aliases":["pi","ratio of circumference","3.14"],"tibetan_culture":"The rim of a prayer wheel","explanation_text":"Around the cylindrical prayer wheel, the distance around the rim compared with the distance across the top is always the same number, about 3.14. That constant ratio is pi.","image_prompt":"A prayer wheel with its top shown as a circle, the circumference marked around the rim and the diameter across the top."},{"concept_id":"coordinate_plane","concept_name":"Coordinate Plane","aliases":["x-y plane","graph grid","axes"],"tibetan_culture":"The thangka proportion grid","explanation_text":"Before painting, a thangka artist draws a grid of vertical and horizontal lines across the canvas. Each crossing point can be named by its column and row, like the x and y coordinates of a plane.","image_prompt":"A thangka canvas covered in a neat grid of horizontal and vertical lines, with axes labeled x and y."},{"concept_id":"plotting_points","concept_name":"Plotting Points","aliases":["graphing points","coordinates","x-y plotting"],"tibetan_culture":"Placing the mandala gates","explanation_text":"A mandala's four gates are placed at measured positions along the grid before any sand is poured. Marking each gate by its position on the grid is like plotting points on a coordinate plane.","image_prompt":"A mandala grid with four gate positions marked as dots, each labeled with coordinates."},{"concept_id":"symmetry","concept_name":"Symmetry","aliases":["mirror image","balanced halves","reflection symmetry"],"tibetan_culture":"Fourfold balance of a mandala","explanation_text":"A mandala is planned so every quadrant mirrors the others exactly, balanced across the vertical and horizontal center lines. That mirror-balance in all directions is symmetry.","image_prompt":"A sand mandala viewed from above with center lines drawn, each quadrant matching the others."},{"concept_id":"transformations","concept_name":"Transformations","aliases":["translate","rotate","reflect","dilate"],"tibetan_culture":"Rotating motifs in carpet weaving","explanation_text":"A carpet weaver uses the same motif turned a quarter way around, or flipped over, to fill a border evenly. Turning and flipping a shape without changing its size are transformations.","image_prompt":"A Tibetan carpet border showing the same motif rotated and flipped, with arrows showing the turns."},{"concept_id":"ratios","concept_name":"Ratios","aliases":["comparison","proportion of quantities","rate"],"tibetan_culture":"Dramyin string lengths","explanation_text":"On the dramyin, the six strings are tuned so their lengths follow simple comparisons, such as two strings in a 2:1 length ratio. Comparing two lengths as a pair of numbers is a ratio.","image_prompt":"A dramyin with two strings measured side by side, labeled with a 2:1 ratio."},{"concept_id":"proportions","concept_name":"Proportions","aliases":["equal ratios","scaling","balance of ratios"],"tibetan_culture":"The figure canon in thangka painting","explanation_text":"Thangka painters follow a strict proportion grid so that every figure relates to the whole painting by the same scale, whether the painting is small or large. Keeping equal ratios while scaling is proportion.","image_prompt":"A thangka showing a seated figure with its proportion grid overlaid, beside a smaller copy with matching proportions."},{"concept_id":"unit_rate","concept_name":"Unit Rate","aliases":["per unit","rate per one","comparison per one unit"],"tibetan_culture":"Climbing pace on Qomolangma","explanation_text":"A climbing team records how many meters of elevation it gains each hour on Qomolangma. A distance compared with one hour, like 120 meters per hour, is a unit rate.","image_prompt":"Climbers moving up a snowy ridge with an elevation marker, labeled 120 meters per hour."},{"concept_id":"scale_drawings","concept_name":"Scale Drawings","aliases":["map scale","drawing proportion","scaled map"],"tibetan_culture":"Planning a stone house","explanation_text":"Before building, a mason sketches the stone house as a small drawing in which every wall is a fixed fraction of its real length. A drawing where measurements keep the real proportions is a scale drawing.","image_prompt":"A mason's small blueprint of a stone house beside the full-size house, connected by a scale line."},{"concept_id":"percent_change","concept_name":"Percent Change","aliases":["percent increase","percent decrease","growth rate"],"tibetan_culture":"Revised height of Qomolangma","explanation_text":"Surveys in different years measured the height of Qomolangma at slightly different values, and a joint measurement set it at 8,848.86 meters. Comparing an old and a new measurement as a percentage is percent change.","image_prompt":"A surveyor's tripod at a mountain viewpoint with two elevation figures and a small percent-change label."},{"concept_id":"data_collection","concept_name":"Data Collection","aliases":["gather data","record information","collect numbers"],"tibetan_culture":"Counting the family yak herd","explanation_text":"A herder records how many yaks the family owns and how many calves were born this year, in a notebook or by tally marks. Gathering and writing down such numbers is data collection.","image_prompt":"A herder marking tallies of yaks on a wooden board beside a grazing herd."},{"concept_id":"tables_graphs","concept_name":"Tables and Graphs","aliases":["data table","bar graph","chart"],"tibetan_culture":"Yak births through the seasons","explanation_text":"A herder notes how many yak calves are born in each season and arranges the counts in a table. Turning the table into bars or a line makes the pattern easy to see.","image_prompt":"A table of yak births for spring, summer, autumn, and winter, with a matching bar graph beside it."},{"concept_id":"mean","concept_name":"Mean","aliases":["average","arithmetic mean","mean value"],"tibetan_culture":"Average wool per yak","explanation_text":"To find how much wool a yak gives on average, a herder adds the wool from every yak and divides by the number of yaks. That total divided by the count is the mean.","image_prompt":"Bundles of yak wool from several animals weighed together, with the total divided by the number of yaks."},{"concept_id":"median","concept_name":"Median","aliases":["middle value","data median"],"tibetan_culture":"Pilgrims at the Jokhang","explanation_text":"List the numbers of pilgrims who visit the Jokhang each month from smallest to largest, and the middle number is the median. Half the months have more visitors and half have fewer.","image_prompt":"A list of twelve monthly visitor numbers arranged in order, the middle value circled as the median."},{"concept_id":"mode","concept_name":"Mode","aliases":["most frequent value","common value"],"tibetan_culture":"The busiest climbing month","explanation_text":"Across the year, one month on Qomolangma sees more climbing teams than any other. The value that appears most often in the data is the mode.","image_prompt":"A chart of climbing teams by month with the tallest bar highlighted as the most frequent month."},{"concept_id":"range","concept_name":"Range","aliases":["difference","spread of data","highest minus lowest"],"tibetan_culture":"Lamps at different shrines","explanation_text":"Shrines around a village hold different numbers of butter lamps, from only a few to many. The difference between the largest count and the smallest count is the range of the data.","image_prompt":"Two shrines, one with three lamps and one with many, with the gap between the counts marked as the range."},{"concept_id":"bar_graphs","concept_name":"Bar Graphs","aliases":["bar chart","column graph"],"tibetan_culture":"Monks in the debate courtyards","explanation_text":"Each debate courtyard in a monastery has its own number of monks. Bars of different heights, one for each courtyard, make the comparison instant.","image_prompt":"A bar graph with one bar per debate courtyard, labeled by courtyard with monk counts."},{"concept_id":"line_graphs","concept_name":"Line Graphs","aliases":["trend graph","line chart"],"tibetan_culture":"Visitors to the Potala over the year","explanation_text":"Counting the number of people who visit the Potala each month and joining the counts with a line shows how visits rise and fall through the year.","image_prompt":"A line graph labeled with the twelve months and visitor numbers, showing a rise and fall."},{"concept_id":"pie_charts","concept_name":"Pie Charts","aliases":["circle chart","percentage chart"],"tibetan_culture":"Visitors by season at the Jokhang","explanation_text":"If the Jokhang's yearly visitors are sorted into four seasons, each season's share of the total can be shown as a slice of a circle. A circle divided into shares like this is a pie chart.","image_prompt":"A pie chart with four seasonal slices showing the Jokhang's visitors, each slice labeled with its percent."},{"concept_id":"probability","concept_name":"Probability","aliases":["chance","likelihood","odds"],"tibetan_culture":"Weather on the mountain","explanation_text":"A climbing team listens to the forecasts and judges how likely good weather is in the coming days before an attempt on Qomolangma. A measure of how likely an event is, from impossible to certain, is probability.","image_prompt":"Climbers checking a weather forecast board beneath the mountain, with labels from unlikely to very likely."},{"concept_id":"patterns","concept_name":"Patterns","aliases":["repeating design","sequence","recurrence"],"tibetan_culture":"The sixty-year calendar cycle","explanation_text":"The Tibetan calendar cycles through 12 animals and 5 elements to form a 60-year repeating cycle. Because the cycle always returns to its starting point, it is a number pattern like any repeating sequence.","image_prompt":"A Tibetan calendar wheel with twelve animals and five elements arranged in a repeating cycle."},{"concept_id":"functions","concept_name":"Functions","aliases":["input-output rule","function relation","mapping"],"tibetan_culture":"Turning a prayer wheel","explanation_text":"Each full rotation of a prayer wheel corresponds to one complete recitation of prayers. One input gives one output every time, which is what makes it behave like a function.","image_prompt":"A hand turning a prayer wheel with one rotation marked as the input and one recitation as the output."}]
+[
+    {
+        "concept_id": "place_value",
+        "concept_name": "Place Value",
+        "aliases": [
+            "place value",
+            "digit place",
+            "number place",
+            "units place",
+            "tens place",
+            "hundreds place",
+            "position of digits",
+            "digit position"
+        ],
+        "tibetan_culture": "Mani stones laid in rows of ten",
+        "explanation_text": "Pilgrims lay mani stones (stones carved with prayers) in rows of ten along the paths around a temple. The position of each stone in the row — the ones row, the tens row, the hundreds row — determines how many it represents, just as a digit's place gives it value.",
+        "image_prompt": "A hillside stack of carved mani stones arranged in neat rows of ten, each row labeled with ones, tens, and hundreds places."
+    },
+    {
+        "concept_id": "addition_subtraction",
+        "concept_name": "Addition & Subtraction",
+        "aliases": [
+            "add",
+            "addition",
+            "plus",
+            "sum",
+            "combine",
+            "total",
+            "subtract",
+            "subtraction",
+            "minus",
+            "take away",
+            "difference"
+        ],
+        "tibetan_culture": "Butter lamps lit at a shrine",
+        "explanation_text": "At a shrine, worshippers light butter lamps one by one; each new lamp raises the total count, and lamps that have finished burn down and are removed, lowering it. Counting lamps in raises the total, and counting them out lowers it — exactly addition and subtraction.",
+        "image_prompt": "A row of small butter lamps on an altar, a few freshly lit adding to the glow while one is being lifted away."
+    },
+    {
+        "concept_id": "multiplication_division",
+        "concept_name": "Multiplication & Division",
+        "aliases": [
+            "multiply",
+            "multiplication",
+            "times",
+            "groups of",
+            "repeated addition",
+            "divide",
+            "division",
+            "split equally",
+            "sharing"
+        ],
+        "tibetan_culture": "Butter lamps arranged in equal rows",
+        "explanation_text": "When preparing a large offering, lamps are set out in equal rows and columns so every row matches. Counting rows times columns gives the total, and splitting the lamps evenly among the rows is division.",
+        "image_prompt": "A large offering table with butter lamps arranged in neat equal rows and columns, one grid marked with multiplication and division labels."
+    },
+    {
+        "concept_id": "even_odd",
+        "concept_name": "Even and Odd Numbers",
+        "aliases": [
+            "even numbers",
+            "odd numbers",
+            "even",
+            "odd",
+            "pairs",
+            "leftover",
+            "no remainder",
+            "remains one"
+        ],
+        "tibetan_culture": "Yak wool bundled in pairs",
+        "explanation_text": "Herders bundle yak wool by tying strands together in pairs. A bundle made of complete pairs is even; when one strand is left over without a partner, the count is odd.",
+        "image_prompt": "A herder's hands tying yak wool into paired bundles, with one single loose strand set aside."
+    },
+    {
+        "concept_id": "skip_counting",
+        "concept_name": "Skip Counting / Number Patterns",
+        "aliases": [
+            "skip counting",
+            "count by 2s",
+            "count by 5s",
+            "count by 10s",
+            "jump counting",
+            "repeating numbers",
+            "number patterns"
+        ],
+        "tibetan_culture": "Prayer flags and the five-color cycle",
+        "explanation_text": "Strings of prayer flags hang five colors — blue, white, red, green, and yellow — in a fixed repeating order. Counting every fifth flag lands on the same color again, which is exactly skip counting by fives.",
+        "image_prompt": "A line of prayer flags showing the five-color sequence, every fifth flag highlighted to show the repeating pattern."
+    },
+    {
+        "concept_id": "comparing_numbers",
+        "concept_name": "Comparing and Ordering Numbers",
+        "aliases": [
+            "compare numbers",
+            "greater than",
+            "less than",
+            "more than",
+            "fewer than",
+            "biggest",
+            "smallest",
+            "ordering numbers",
+            "number order"
+        ],
+        "tibetan_culture": "Momos on two plates",
+        "explanation_text": "At a family meal, one plate holds more momos than another. Comparing the counts tells you which is greater and which is less, the same as comparing numbers with > and <.",
+        "image_prompt": "Two plates of steamed momos, one fuller than the other, with greater-than and less-than symbols between them."
+    },
+    {
+        "concept_id": "rounding_estimation",
+        "concept_name": "Rounding & Estimation",
+        "aliases": [
+            "round",
+            "rounding",
+            "estimate",
+            "estimation",
+            "approximate",
+            "about how much",
+            "close to",
+            "nearby number"
+        ],
+        "tibetan_culture": "Estimating tsampa for the day",
+        "explanation_text": "A cook measures how much tsampa (roasted barley flour) the family will need for the day without using exact scales. Estimating about two scoops is rounding to the nearest convenient amount.",
+        "image_prompt": "A wooden bowl of tsampa flour with a measuring scoop beside it, annotated with about 2 scoops and rounded numbers."
+    },
+    {
+        "concept_id": "fractions",
+        "concept_name": "Fractions",
+        "aliases": ["fraction", "part of a whole", "portion", "share", "numerator", "denominator"],
+        "tibetan_culture": "Sharing a tray of momos",
+        "explanation_text": "When a tray of momos is shared equally among several people, each person receives one equal part of the whole tray. Each part of the whole is a fraction of the total.",
+        "image_prompt": "A round tray of momos divided into equal slices, one slice highlighted and labeled with a fraction."
+    },
+    {
+        "concept_id": "equivalent_fractions",
+        "concept_name": "Equivalent Fractions",
+        "aliases": ["equal fractions", "same value", "fraction equality", "equivalent"],
+        "tibetan_culture": "Halves and quarters on a thangka grid",
+        "explanation_text": "A thangka painter divides the canvas into 2 equal vertical panels, then into 4 equal panels. Taking one half or two quarters covers the same area of canvas, so 1/2 equals 2/4.",
+        "image_prompt": "A thangka canvas marked with a grid, one half shaded and two quarters shaded to show they are the same area."
+    },
+    {
+        "concept_id": "simplifying_fractions",
+        "concept_name": "Simplifying Fractions",
+        "aliases": ["reduce fraction", "lowest terms", "simplify fraction"],
+        "tibetan_culture": "Freshly carved stones in a row",
+        "explanation_text": "If 4 of 8 stones in a mani wall are freshly carved, then 4/8 of the row is new. That is the same amount as 1/2 of the row, so the fraction 4/8 simplifies to 1/2.",
+        "image_prompt": "A row of eight mani stones with four freshly carved ones, labeled 4/8 = 1/2."
+    },
+    {
+        "concept_id": "mixed_numbers",
+        "concept_name": "Mixed Numbers",
+        "aliases": ["mixed number", "whole and fraction", "whole part and fraction part"],
+        "tibetan_culture": "Full bowls and half a bowl of tsampa",
+        "explanation_text": "If a family has 3 full bowls of tsampa and half a bowl besides, that is 3½ bowls. A whole number written together with a fraction, like 3½, is a mixed number.",
+        "image_prompt": "Three full bowls of tsampa next to one half-filled bowl, labeled 3 1/2."
+    },
+    {
+        "concept_id": "improper_fractions",
+        "concept_name": "Improper Fractions",
+        "aliases": ["top-heavy fraction", "numerator larger", "greater than one fraction"],
+        "tibetan_culture": "More scoops than a bowl holds",
+        "explanation_text": "A measure of tsampa holds 2 scoops. Pouring 5 scoops into it means 5 parts when the whole is only 2 parts, written as the improper fraction 5/2.",
+        "image_prompt": "A measuring bowl and five separate scoops of tsampa flour, labeled with the fraction 5/2."
+    },
+    {
+        "concept_id": "adding_fractions",
+        "concept_name": "Adding Fractions",
+        "aliases": ["fraction addition", "add fractions", "sum of fractions"],
+        "tibetan_culture": "Melting butter for lamps",
+        "explanation_text": "A lamplighter melts a half block of butter and a quarter block into one pan for the lamps. Adding the two parts, 1/2 plus 1/4, gives 3/4 of a block.",
+        "image_prompt": "A pan of melted butter with a half block and a quarter block beside it, showing 1/2 + 1/4 = 3/4."
+    },
+    {
+        "concept_id": "subtracting_fractions",
+        "concept_name": "Subtracting Fractions",
+        "aliases": ["fraction subtraction", "take away fractions", "difference of fractions"],
+        "tibetan_culture": "An incense stick burning down",
+        "explanation_text": "An incense stick burns through part of its length over an hour. If a third of the stick has burned, the remaining two thirds is the full stick minus its burned fraction.",
+        "image_prompt": "A burning incense stick with its burned section marked, labeled 1/3 burned and 2/3 remaining."
+    },
+    {
+        "concept_id": "multiplying_fractions",
+        "concept_name": "Multiplying Fractions",
+        "aliases": ["fraction multiplication", "part of a part", "multiply fractions"],
+        "tibetan_culture": "Half of half a plate of momos",
+        "explanation_text": "When someone takes half of a plate that is already half full, they are finding half of a half. That fraction of a fraction is multiplication: 1/2 × 1/2 = 1/4.",
+        "image_prompt": "A plate of momos shown half full, with one quarter of the plate highlighted to show half of a half."
+    },
+    {
+        "concept_id": "dividing_fractions",
+        "concept_name": "Dividing Fractions",
+        "aliases": ["fraction division", "divide fractions", "how many times in"],
+        "tibetan_culture": "Segments of a prayer-flag string",
+        "explanation_text": "A string for prayer flags is divided into eighth-length segments. Asking how many eighth-segments fit into half the string is division of fractions: 1/2 ÷ 1/8 = 4.",
+        "image_prompt": "A long string marked in eighths, with half the length highlighted and four eighth-segments counted inside it."
+    },
+    {
+        "concept_id": "decimals",
+        "concept_name": "Decimals",
+        "aliases": ["decimal point", "tenths", "hundredths", "decimal number"],
+        "tibetan_culture": "Filling jugs from the Kyi-chu",
+        "explanation_text": "Water is carried from the Kyi-chu river and measured in liters. A jug holding one full liter and half more is written as 1.5 liters, introducing decimal tenths.",
+        "image_prompt": "A water jug at the riverside with measurement marks at 1.0, 1.5, and 2.0 liters."
+    },
+    {
+        "concept_id": "converting_fractions_decimals",
+        "concept_name": "Converting Fractions and Decimals",
+        "aliases": ["fraction to decimal", "decimal to fraction", "convert fractions"],
+        "tibetan_culture": "Half an incense stick",
+        "explanation_text": "Half of an incense stick can be described as 1/2 of a stick or as 0.5 sticks. The two names describe the same length, like converting between fractions and decimals.",
+        "image_prompt": "One full incense stick and a half stick side by side, labeled 1/2 and 0.5."
+    },
+    {
+        "concept_id": "percents",
+        "concept_name": "Percents",
+        "aliases": ["percent", "percentage", "per hundred", "rate per 100"],
+        "tibetan_culture": "Rooms of the Potala",
+        "explanation_text": "The Potala Palace in Lhasa contains more than a thousand rooms across its halls. If 70 of every 100 rooms are open to visitors, that is 70%, a way of counting parts out of one hundred.",
+        "image_prompt": "A cutaway illustration of the Potala Palace with rooms grouped in blocks of 100, labeled 70%."
+    },
+    {
+        "concept_id": "percent_of_number",
+        "concept_name": "Percent of a Number",
+        "aliases": ["percentage of number", "find percent", "portion of total"],
+        "tibetan_culture": "Repainting part of a mani wall",
+        "explanation_text": "Each year a village repaints 20% of the stones in a mani wall. Finding 20% of a known number of stones means computing a part of a whole, such as 20% of 40 stones being 8 stones.",
+        "image_prompt": "A long wall of mani stones with every fifth stone highlighted in fresh paint, labeled 20%."
+    },
+    {
+        "concept_id": "variables",
+        "concept_name": "Variables",
+        "aliases": ["variable", "unknown", "letter as number", "symbol in math"],
+        "tibetan_culture": "An uncounted bundle of incense",
+        "explanation_text": "If the number of incense sticks in a bundle has not been counted yet, that unknown amount can be written as x. A letter standing for an unknown quantity is a variable.",
+        "image_prompt": "A bundle of incense sticks with a question mark and the letter x written beside it."
+    },
+    {
+        "concept_id": "expressions",
+        "concept_name": "Expressions",
+        "aliases": ["math expressions", "numerical expressions", "algebraic expressions"],
+        "tibetan_culture": "Prayer flags already hung",
+        "explanation_text": "A courtyard has 5 prayer flags hanging and a second string with an unknown number yet to be added. Combining the known and unknown amounts gives the expression 5 + x.",
+        "image_prompt": "A courtyard with five hanging prayer flags and an empty string marked x."
+    },
+    {
+        "concept_id": "equations",
+        "concept_name": "Equations",
+        "aliases": ["math equations", "equal statements", "algebra equations"],
+        "tibetan_culture": "The two sides of a debate",
+        "explanation_text": "In monastic debate, two monks face each other and argue opposite sides of a question, each position balanced against the other until one side is convinced. A balance that is level on both sides is like the two equal sides of an equation.",
+        "image_prompt": "Two monks in a debate courtyard facing each other across a wooden platform, with a balanced scale symbolizing equality."
+    },
+    {
+        "concept_id": "solving_one_step_equations",
+        "concept_name": "Solving One-Step Equations",
+        "aliases": ["one-step equations", "simple equations"],
+        "tibetan_culture": "Fetching water jugs",
+        "explanation_text": "A household needs 8 jugs of water from the Kyi-chu and has carried 5 already. The missing number satisfies x + 5 = 8, a one-step equation solved by subtracting 5 from both sides.",
+        "image_prompt": "Five filled water jugs by a riverside with three empty jugs beside them, labeled x + 5 = 8."
+    },
+    {
+        "concept_id": "solving_two_step_equations",
+        "concept_name": "Solving Two-Step Equations",
+        "aliases": ["two-step equations", "multi-step equations"],
+        "tibetan_culture": "Preparing butter tea",
+        "explanation_text": "Making butter tea takes two clear actions: first the tea is brewed, then butter and salt are churned in. Finding the right amounts needs the same two ordered steps, just like a two-step equation.",
+        "image_prompt": "A tea churn beside a stove, with step one (brew tea) and step two (add butter and salt) shown in sequence."
+    },
+    {
+        "concept_id": "inequalities",
+        "concept_name": "Inequalities",
+        "aliases": ["greater than", "less than", "not equal", "comparison statements"],
+        "tibetan_culture": "Debating which herd is larger",
+        "explanation_text": "Two families compare their yak herds in a lively argument, one insisting its herd is larger than the other's. Comparing two unequal quantities with > or < is an inequality.",
+        "image_prompt": "Two groups of yaks of different sizes with a greater-than symbol between them."
+    },
+    {
+        "concept_id": "order_of_operations",
+        "concept_name": "Order of Operations (PEMDAS)",
+        "aliases": ["PEMDAS", "BODMAS", "math order", "operations order"],
+        "tibetan_culture": "Building a chorten in order",
+        "explanation_text": "A chorten is built in a fixed order: the square base first, then the rounded dome, then the spire on top. The sequence cannot be shuffled, just as the order of operations decides which step of a calculation comes first.",
+        "image_prompt": "A chorten under construction showing the three stages in order: square base, then dome, then spire."
+    },
+    {
+        "concept_id": "substitution",
+        "concept_name": "Substitution",
+        "aliases": ["replace variable", "substitute value", "replace letter with number"],
+        "tibetan_culture": "Replacing a dramyin string",
+        "explanation_text": "When a string on the dramyin (a six-stringed lute) breaks, a musician replaces it with an identical new one. Putting the new value in place of the broken one is like substituting a number for a variable.",
+        "image_prompt": "A dramyin with six strings, one string being replaced with an identical new string."
+    },
+    {
+        "concept_id": "points",
+        "concept_name": "Points",
+        "aliases": ["dot", "location", "coordinate point"],
+        "tibetan_culture": "Stars over the Himalaya",
+        "explanation_text": "Each star visible over the high valleys marks a single position in the night sky. A position with no size of its own, like a star's pinpoint, is a point in geometry.",
+        "image_prompt": "A night sky over snow peaks, individual stars marked as labeled points."
+    },
+    {
+        "concept_id": "lines",
+        "concept_name": "Lines",
+        "aliases": ["straight line", "geometry line", "infinite line"],
+        "tibetan_culture": "Chalk lines of a mandala",
+        "explanation_text": "An artist lays out a mandala by snapping straight chalk lines across the table from the center outward. Each line continues past the drawn portion, like a geometric line extending in both directions.",
+        "image_prompt": "A hand snapping a straight chalk line across a mandala table, lines radiating from the center."
+    },
+    {
+        "concept_id": "angles",
+        "concept_name": "Angles",
+        "aliases": ["angle", "degree", "corner measure"],
+        "tibetan_culture": "Roof beams of a Lhasa house",
+        "explanation_text": "The wooden roof beams of a Lhasa stone house meet the top of the wall at a slant. The amount of that slant between the beam and the wall is the angle where the two meet.",
+        "image_prompt": "The timber roof beams of a whitewashed Lhasa stone house meeting the wall, with one angle highlighted."
+    },
+    {
+        "concept_id": "perpendicular_lines",
+        "concept_name": "Perpendicular Lines",
+        "aliases": ["right angle lines", "intersecting lines", "orthogonal lines"],
+        "tibetan_culture": "Walls and crossbeams",
+        "explanation_text": "The stone walls of a Lhasa house meet at corners that are right angles, and the crossbeams rest across the walls at the same right angle. Lines meeting at 90° are perpendicular.",
+        "image_prompt": "The corner of a stone house where two walls meet at a right angle, with a square corner symbol drawn."
+    },
+    {
+        "concept_id": "parallel_lines",
+        "concept_name": "Parallel Lines",
+        "aliases": ["side-by-side lines", "never meet", "equal distance lines"],
+        "tibetan_culture": "The two banks of the Kyi-chu",
+        "explanation_text": "The two banks of the Kyi-chu river run alongside each other for long stretches without meeting. Lines that stay the same distance apart and never cross are parallel.",
+        "image_prompt": "The Kyi-chu river with its two banks shown as parallel lines staying evenly spaced."
+    },
+    {
+        "concept_id": "polygons",
+        "concept_name": "Polygons",
+        "aliases": ["shapes", "closed figure", "many-sided shape"],
+        "tibetan_culture": "The square base of a chorten",
+        "explanation_text": "A chorten rises from a square base with four straight sides, a closed shape made of straight segments. Any closed shape built from straight sides, like the base, is a polygon.",
+        "image_prompt": "The square base of a white chorten drawn as a labeled four-sided shape, with the dome rising above it."
+    },
+    {
+        "concept_id": "triangles",
+        "concept_name": "Triangles",
+        "aliases": ["three sides", "triangular", "triangle shape"],
+        "tibetan_culture": "The spire of a chorten",
+        "explanation_text": "The tapering spire of a chorten narrows to a point, and its side faces are three-sided shapes. A three-sided polygon is a triangle.",
+        "image_prompt": "The triangular spire of a chorten against the sky, one side face outlined as a triangle."
+    },
+    {
+        "concept_id": "quadrilaterals",
+        "concept_name": "Quadrilaterals",
+        "aliases": ["four sides", "rectangles", "squares", "trapezoids"],
+        "tibetan_culture": "Geometric motifs in Tibetan rugs",
+        "explanation_text": "Tibetan carpet weavers repeat rectangular and square motifs within their patterns. Four-sided shapes like these are quadrilaterals.",
+        "image_prompt": "A woven Tibetan carpet showing repeating rectangular and square motifs, one shape outlined."
+    },
+    {
+        "concept_id": "perimeter",
+        "concept_name": "Perimeter",
+        "aliases": ["boundary length", "distance around", "outline measure"],
+        "tibetan_culture": "Walking the kora circuit",
+        "explanation_text": "Devotees walk a complete circuit around a temple or stupa as a kora. The distance around the whole circuit is the perimeter of that space.",
+        "image_prompt": "People walking a clockwise circuit around a white stupa, a dashed line tracing the full loop."
+    },
+    {
+        "concept_id": "area",
+        "concept_name": "Area",
+        "aliases": ["surface area", "space inside", "coverage"],
+        "tibetan_culture": "Carpets covering the hall floor",
+        "explanation_text": "A carpet laid on a monastery hall floor covers a certain amount of the floor. The measure of the covered surface is the area of the carpet.",
+        "image_prompt": "A monastery assembly hall with woven carpets spread across the floor, one carpet's surface shaded to show area."
+    },
+    {
+        "concept_id": "volume",
+        "concept_name": "Volume",
+        "aliases": ["capacity", "space inside 3D shape", "liquid amount"],
+        "tibetan_culture": "The great halls of the Potala",
+        "explanation_text": "The Potala's many halls and chapels occupy three-dimensional space inside the building. The amount of space inside a building or object is its volume.",
+        "image_prompt": "A cross-section of the Potala showing stacked halls and rooms, with one hall's interior space labeled volume."
+    },
+    {
+        "concept_id": "circle_properties",
+        "concept_name": "Circle Properties",
+        "aliases": ["radius", "diameter", "circumference", "circle geometry"],
+        "tibetan_culture": "Circles inside a mandala",
+        "explanation_text": "A mandala is drawn with a large circle at its center, its radius measured from the midpoint outward. The distance across the whole circle through the center is the diameter, and the distance around is the circumference.",
+        "image_prompt": "A mandala with its central circle marked with radius and diameter lines from the center point."
+    },
+    {
+        "concept_id": "pi",
+        "concept_name": "Pi (π)",
+        "aliases": ["pi", "ratio of circumference", "3.14"],
+        "tibetan_culture": "The rim of a prayer wheel",
+        "explanation_text": "Around the cylindrical prayer wheel, the distance around the rim compared with the distance across the top is always the same number, about 3.14. That constant ratio is pi.",
+        "image_prompt": "A prayer wheel with its top shown as a circle, the circumference marked around the rim and the diameter across the top."
+    },
+    {
+        "concept_id": "coordinate_plane",
+        "concept_name": "Coordinate Plane",
+        "aliases": ["x-y plane", "graph grid", "axes"],
+        "tibetan_culture": "The thangka proportion grid",
+        "explanation_text": "Before painting, a thangka artist draws a grid of vertical and horizontal lines across the canvas. Each crossing point can be named by its column and row, like the x and y coordinates of a plane.",
+        "image_prompt": "A thangka canvas covered in a neat grid of horizontal and vertical lines, with axes labeled x and y."
+    },
+    {
+        "concept_id": "plotting_points",
+        "concept_name": "Plotting Points",
+        "aliases": ["graphing points", "coordinates", "x-y plotting"],
+        "tibetan_culture": "Placing the mandala gates",
+        "explanation_text": "A mandala's four gates are placed at measured positions along the grid before any sand is poured. Marking each gate by its position on the grid is like plotting points on a coordinate plane.",
+        "image_prompt": "A mandala grid with four gate positions marked as dots, each labeled with coordinates."
+    },
+    {
+        "concept_id": "symmetry",
+        "concept_name": "Symmetry",
+        "aliases": ["mirror image", "balanced halves", "reflection symmetry"],
+        "tibetan_culture": "Fourfold balance of a mandala",
+        "explanation_text": "A mandala is planned so every quadrant mirrors the others exactly, balanced across the vertical and horizontal center lines. That mirror-balance in all directions is symmetry.",
+        "image_prompt": "A sand mandala viewed from above with center lines drawn, each quadrant matching the others."
+    },
+    {
+        "concept_id": "transformations",
+        "concept_name": "Transformations",
+        "aliases": ["translate", "rotate", "reflect", "dilate"],
+        "tibetan_culture": "Rotating motifs in carpet weaving",
+        "explanation_text": "A carpet weaver uses the same motif turned a quarter way around, or flipped over, to fill a border evenly. Turning and flipping a shape without changing its size are transformations.",
+        "image_prompt": "A Tibetan carpet border showing the same motif rotated and flipped, with arrows showing the turns."
+    },
+    {
+        "concept_id": "ratios",
+        "concept_name": "Ratios",
+        "aliases": ["comparison", "proportion of quantities", "rate"],
+        "tibetan_culture": "Dramyin string lengths",
+        "explanation_text": "On the dramyin, the six strings are tuned so their lengths follow simple comparisons, such as two strings in a 2:1 length ratio. Comparing two lengths as a pair of numbers is a ratio.",
+        "image_prompt": "A dramyin with two strings measured side by side, labeled with a 2:1 ratio."
+    },
+    {
+        "concept_id": "proportions",
+        "concept_name": "Proportions",
+        "aliases": ["equal ratios", "scaling", "balance of ratios"],
+        "tibetan_culture": "The figure canon in thangka painting",
+        "explanation_text": "Thangka painters follow a strict proportion grid so that every figure relates to the whole painting by the same scale, whether the painting is small or large. Keeping equal ratios while scaling is proportion.",
+        "image_prompt": "A thangka showing a seated figure with its proportion grid overlaid, beside a smaller copy with matching proportions."
+    },
+    {
+        "concept_id": "unit_rate",
+        "concept_name": "Unit Rate",
+        "aliases": ["per unit", "rate per one", "comparison per one unit"],
+        "tibetan_culture": "Climbing pace on Qomolangma",
+        "explanation_text": "A climbing team records how many meters of elevation it gains each hour on Qomolangma. A distance compared with one hour, like 120 meters per hour, is a unit rate.",
+        "image_prompt": "Climbers moving up a snowy ridge with an elevation marker, labeled 120 meters per hour."
+    },
+    {
+        "concept_id": "scale_drawings",
+        "concept_name": "Scale Drawings",
+        "aliases": ["map scale", "drawing proportion", "scaled map"],
+        "tibetan_culture": "Planning a stone house",
+        "explanation_text": "Before building, a mason sketches the stone house as a small drawing in which every wall is a fixed fraction of its real length. A drawing where measurements keep the real proportions is a scale drawing.",
+        "image_prompt": "A mason's small blueprint of a stone house beside the full-size house, connected by a scale line."
+    },
+    {
+        "concept_id": "percent_change",
+        "concept_name": "Percent Change",
+        "aliases": ["percent increase", "percent decrease", "growth rate"],
+        "tibetan_culture": "Revised height of Qomolangma",
+        "explanation_text": "Surveys in different years measured the height of Qomolangma at slightly different values, and a joint measurement set it at 8,848.86 meters. Comparing an old and a new measurement as a percentage is percent change.",
+        "image_prompt": "A surveyor's tripod at a mountain viewpoint with two elevation figures and a small percent-change label."
+    },
+    {
+        "concept_id": "data_collection",
+        "concept_name": "Data Collection",
+        "aliases": ["gather data", "record information", "collect numbers"],
+        "tibetan_culture": "Counting the family yak herd",
+        "explanation_text": "A herder records how many yaks the family owns and how many calves were born this year, in a notebook or by tally marks. Gathering and writing down such numbers is data collection.",
+        "image_prompt": "A herder marking tallies of yaks on a wooden board beside a grazing herd."
+    },
+    {
+        "concept_id": "tables_graphs",
+        "concept_name": "Tables and Graphs",
+        "aliases": ["data table", "bar graph", "chart"],
+        "tibetan_culture": "Yak births through the seasons",
+        "explanation_text": "A herder notes how many yak calves are born in each season and arranges the counts in a table. Turning the table into bars or a line makes the pattern easy to see.",
+        "image_prompt": "A table of yak births for spring, summer, autumn, and winter, with a matching bar graph beside it."
+    },
+    {
+        "concept_id": "mean",
+        "concept_name": "Mean",
+        "aliases": ["average", "arithmetic mean", "mean value"],
+        "tibetan_culture": "Average wool per yak",
+        "explanation_text": "To find how much wool a yak gives on average, a herder adds the wool from every yak and divides by the number of yaks. That total divided by the count is the mean.",
+        "image_prompt": "Bundles of yak wool from several animals weighed together, with the total divided by the number of yaks."
+    },
+    {
+        "concept_id": "median",
+        "concept_name": "Median",
+        "aliases": ["middle value", "data median"],
+        "tibetan_culture": "Pilgrims at the Jokhang",
+        "explanation_text": "List the numbers of pilgrims who visit the Jokhang each month from smallest to largest, and the middle number is the median. Half the months have more visitors and half have fewer.",
+        "image_prompt": "A list of twelve monthly visitor numbers arranged in order, the middle value circled as the median."
+    },
+    {
+        "concept_id": "mode",
+        "concept_name": "Mode",
+        "aliases": ["most frequent value", "common value"],
+        "tibetan_culture": "The busiest climbing month",
+        "explanation_text": "Across the year, one month on Qomolangma sees more climbing teams than any other. The value that appears most often in the data is the mode.",
+        "image_prompt": "A chart of climbing teams by month with the tallest bar highlighted as the most frequent month."
+    },
+    {
+        "concept_id": "range",
+        "concept_name": "Range",
+        "aliases": ["difference", "spread of data", "highest minus lowest"],
+        "tibetan_culture": "Lamps at different shrines",
+        "explanation_text": "Shrines around a village hold different numbers of butter lamps, from only a few to many. The difference between the largest count and the smallest count is the range of the data.",
+        "image_prompt": "Two shrines, one with three lamps and one with many, with the gap between the counts marked as the range."
+    },
+    {
+        "concept_id": "bar_graphs",
+        "concept_name": "Bar Graphs",
+        "aliases": ["bar chart", "column graph"],
+        "tibetan_culture": "Monks in the debate courtyards",
+        "explanation_text": "Each debate courtyard in a monastery has its own number of monks. Bars of different heights, one for each courtyard, make the comparison instant.",
+        "image_prompt": "A bar graph with one bar per debate courtyard, labeled by courtyard with monk counts."
+    },
+    {
+        "concept_id": "line_graphs",
+        "concept_name": "Line Graphs",
+        "aliases": ["trend graph", "line chart"],
+        "tibetan_culture": "Visitors to the Potala over the year",
+        "explanation_text": "Counting the number of people who visit the Potala each month and joining the counts with a line shows how visits rise and fall through the year.",
+        "image_prompt": "A line graph labeled with the twelve months and visitor numbers, showing a rise and fall."
+    },
+    {
+        "concept_id": "pie_charts",
+        "concept_name": "Pie Charts",
+        "aliases": ["circle chart", "percentage chart"],
+        "tibetan_culture": "Visitors by season at the Jokhang",
+        "explanation_text": "If the Jokhang's yearly visitors are sorted into four seasons, each season's share of the total can be shown as a slice of a circle. A circle divided into shares like this is a pie chart.",
+        "image_prompt": "A pie chart with four seasonal slices showing the Jokhang's visitors, each slice labeled with its percent."
+    },
+    {
+        "concept_id": "probability",
+        "concept_name": "Probability",
+        "aliases": ["chance", "likelihood", "odds"],
+        "tibetan_culture": "Weather on the mountain",
+        "explanation_text": "A climbing team listens to the forecasts and judges how likely good weather is in the coming days before an attempt on Qomolangma. A measure of how likely an event is, from impossible to certain, is probability.",
+        "image_prompt": "Climbers checking a weather forecast board beneath the mountain, with labels from unlikely to very likely."
+    },
+    {
+        "concept_id": "patterns",
+        "concept_name": "Patterns",
+        "aliases": ["repeating design", "sequence", "recurrence"],
+        "tibetan_culture": "The sixty-year calendar cycle",
+        "explanation_text": "The Tibetan calendar cycles through 12 animals and 5 elements to form a 60-year repeating cycle. Because the cycle always returns to its starting point, it is a number pattern like any repeating sequence.",
+        "image_prompt": "A Tibetan calendar wheel with twelve animals and five elements arranged in a repeating cycle."
+    },
+    {
+        "concept_id": "functions",
+        "concept_name": "Functions",
+        "aliases": ["input-output rule", "function relation", "mapping"],
+        "tibetan_culture": "Turning a prayer wheel",
+        "explanation_text": "Each full rotation of a prayer wheel corresponds to one complete recitation of prayers. One input gives one output every time, which is what makes it behave like a function.",
+        "image_prompt": "A hand turning a prayer wheel with one rotation marked as the input and one recitation as the output."
+    }
+]

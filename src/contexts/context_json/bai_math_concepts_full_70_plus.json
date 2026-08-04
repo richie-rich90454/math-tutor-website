@@ -1,1 +1,565 @@
-[{"concept_id":"place_value","concept_name":"Place Value","aliases":["place value","digit place","number place","units place","tens place","hundreds place","position of digits","digit position"],"bai_culture":"Three Pagodas in a row","explanation_text":"The Three Pagodas of Chongsheng Temple stand in a line, each with its own height and position. In the same way, the place of a digit—ones, tens, hundreds—decides the value it holds.","image_prompt":"Illustrate the Three Pagodas of Dali standing in a row, each labeled as ones, tens, and hundreds to show how position decides value."},{"concept_id":"addition_subtraction","concept_name":"Addition & Subtraction","aliases":["add","addition","plus","sum","combine","total","subtract","subtraction","minus","take away","difference"],"bai_culture":"Fishing boats on Erhai","explanation_text":"When more fishing boats gather on Erhai Lake, the count on the water grows. When some boats sail away, it shrinks—just like addition and subtraction.","image_prompt":"Show fishing boats gathering on Erhai Lake (increasing the count) and a boat sailing away (decreasing it), with plus and minus signs."},{"concept_id":"multiplication_division","concept_name":"Multiplication & Division","aliases":["multiply","multiplication","times","groups of","repeated addition","divide","division","split equally","sharing"],"bai_culture":"Rows of hanging tie-dye","explanation_text":"Rows of tie-dyed cloth hung out to dry form equal groups, showing multiplication. Dividing the cloth evenly among the dyers shows division.","image_prompt":"Display equal rows of tie-dyed cloth hanging on a line, showing equal grouping (multiplication) and even sharing (division)."},{"concept_id":"even_odd","concept_name":"Even and Odd Numbers","aliases":["even numbers","odd numbers","even","odd","pairs","leftover","no remainder","remains one"],"bai_culture":"Torch Festival dancers in pairs","explanation_text":"Dancers at the Torch Festival pair up to perform; when every dancer has a partner, the number is even. If one dancer stands alone, the number is odd.","image_prompt":"Show Torch Festival dancers standing in pairs, with one single dancer at the end to represent an odd number."},{"concept_id":"skip_counting","concept_name":"Skip Counting / Number Patterns","aliases":["skip counting","count by 2s","count by 5s","count by 10s","jump counting","repeating numbers","number patterns"],"bai_culture":"Wall patterns on Bai houses","explanation_text":"The painted patterns that decorate whitewashed Bai house walls repeat in regular sequences. Counting every fifth motif is like skip counting by 5.","image_prompt":"Show a repeating painted pattern on a white Bai house wall, highlighting every 5th motif to illustrate skip counting."},{"concept_id":"comparing_numbers","concept_name":"Comparing and Ordering Numbers","aliases":["compare numbers","greater than","less than","more than","fewer than","biggest","smallest","ordering numbers","number order"],"bai_culture":"Three-course tea bowls","explanation_text":"The bowls of Bai three-course tea hold different amounts. Comparing their levels shows which is greater or smaller, just like comparing numbers.","image_prompt":"Show three tea bowls with different amounts of three-course tea, using > and < symbols between them."},{"concept_id":"rounding_estimation","concept_name":"Rounding & Estimation","aliases":["round","rounding","estimate","estimation","approximate","about how much","close to","nearby number"],"bai_culture":"Rice portions at March Street","explanation_text":"At the March Street fair, cooks estimate how much rice to prepare for the expected crowd. Estimating a close, convenient amount is like rounding.","image_prompt":"Show a cook estimating rice portions at the March Street fair, labeled with rounded amounts."},{"concept_id":"fractions","concept_name":"Fractions","aliases":["fraction","part of a whole","portion","share","numerator","denominator"],"bai_culture":"Portions of three-course tea","explanation_text":"Three-course tea is served in small bowls shared among the guests. Each guest receives a portion, or fraction, of the whole serving.","image_prompt":"Show a pot of three-course tea being divided into equal small bowls, each labeled as a fraction of the whole."},{"concept_id":"equivalent_fractions","concept_name":"Equivalent Fractions","aliases":["equal fractions","same value","fraction equality","equivalent"],"bai_culture":"Sharing ba ba flatbread","explanation_text":"Cutting a round ba ba flatbread into 2 equal pieces, then each piece into 2 again, gives 4 equal pieces of the same total. Halves and quarters name the same amount—like equivalent fractions.","image_prompt":"Show a round ba ba flatbread divided first into halves, then quarters, demonstrating equal portions."},{"concept_id":"simplifying_fractions","concept_name":"Simplifying Fractions","aliases":["reduce fraction","lowest terms","simplify fraction"],"bai_culture":"Butterflies gathering at the spring","explanation_text":"Many small groups of butterflies gather into one swarm at Butterfly Spring. Combining small groups into one whole is like simplifying a fraction to its lowest terms.","image_prompt":"Depict small groups of butterflies merging into one large swarm, labeled with reduced fractions."},{"concept_id":"mixed_numbers","concept_name":"Mixed Numbers","aliases":["mixed number","whole and fraction","whole part and fraction part"],"bai_culture":"Rice baskets full and half","explanation_text":"If a farmer has 3 full baskets of rice and half a basket more, that is 3½ baskets. A whole part together with a fraction is a mixed number.","image_prompt":"Show three full rice baskets and one half-full basket labeled as 3½."},{"concept_id":"improper_fractions","concept_name":"Improper Fractions","aliases":["top-heavy fraction","numerator larger","greater than one fraction"],"bai_culture":"Rice overflowing the basket","explanation_text":"When rice fills one basket and continues into a second, the amount is greater than one whole basket. Measured in same-sized parts, it is an improper fraction.","image_prompt":"Show rice spilling from a full basket into another basket, symbolizing fractions greater than 1."},{"concept_id":"adding_fractions","concept_name":"Adding Fractions","aliases":["fraction addition","add fractions","sum of fractions"],"bai_culture":"Joining tea course portions","explanation_text":"Pouring the leftover tea from several small bowls into one bowl shows how fractional amounts add together to make a whole.","image_prompt":"Show smaller bowls of three-course tea being poured together to make one total bowl."},{"concept_id":"subtracting_fractions","concept_name":"Subtracting Fractions","aliases":["fraction subtraction","take away fractions","difference of fractions"],"bai_culture":"Leaving part of a tea cup","explanation_text":"When a guest drinks part of a cup of three-course tea, the amount remaining is the total minus the fraction that was drunk.","image_prompt":"Show a cup of three-course tea with part of it drunk, the remainder labeled as the fraction left."},{"concept_id":"multiplying_fractions","concept_name":"Multiplying Fractions","aliases":["fraction multiplication","part of a part","multiply fractions"],"bai_culture":"Half of a rice cake piece","explanation_text":"If a guest takes half of a half piece of rice cake, they get a quarter. Finding a fraction of a fraction is multiplying fractions.","image_prompt":"Show a plate of rice cake divided into halves, and one half divided again to show smaller portions."},{"concept_id":"dividing_fractions","concept_name":"Dividing Fractions","aliases":["fraction division","divide fractions","how many times in"],"bai_culture":"Cutting rice cake portions","explanation_text":"Cutting a portion of rice cake into smaller equal pieces shows how many smaller fractions fit into one portion—that is dividing fractions.","image_prompt":"Show rice cake being cut into smaller even pieces to illustrate fractional division."},{"concept_id":"decimals","concept_name":"Decimals","aliases":["decimal point","tenths","hundredths","decimal number"],"bai_culture":"Measuring tea in liters","explanation_text":"Measuring the tea brewed for three-course tea in liters introduces decimals, such as 1.5 liters meaning one and a half liters.","image_prompt":"Show a measuring pot marked with 1.0, 1.5, and 2.0 liters of tea."},{"concept_id":"converting_fractions_decimals","concept_name":"Converting Fractions and Decimals","aliases":["fraction to decimal","decimal to fraction","convert fractions"],"bai_culture":"Half liter and 0.5 liters","explanation_text":"Whether a bowl holds half a liter or 0.5 liters, both describe the same amount. Naming one amount two ways is converting between fractions and decimals.","image_prompt":"Show two labeled bowls, one marked ½ and another 0.5, filled with the same amount of tea."},{"concept_id":"percents","concept_name":"Percents","aliases":["percent","percentage","per hundred","rate per 100"],"bai_culture":"Dali school test scores","explanation_text":"When a student scores 85 out of 100 on a test at a Dali school, that is 85%. Percents express parts per hundred.","image_prompt":"Show a test paper with 85/100 written and an 85% mark beside it."},{"concept_id":"percent_of_number","concept_name":"Percent of a Number","aliases":["percentage of number","find percent","portion of total"],"bai_culture":"Tie-dye discounts at March Street","explanation_text":"A 20% discount on a tie-dyed cloth at the March Street fair shows how percents are used to find a part of a price.","image_prompt":"Show a stall sign at the March Street fair with tie-dyed cloth marked '20% off' and reduced price tags."},{"concept_id":"variables","concept_name":"Variables","aliases":["variable","unknown","letter as number","symbol in math"],"bai_culture":"Unlabeled tea jars","explanation_text":"In a teahouse, some jars hold tea of unknown amounts. An unlabeled jar stands for an unknown quantity, just like a variable in math.","image_prompt":"Show labeled tea jars (1L, 2L) and an unlabeled jar marked as x."},{"concept_id":"expressions","concept_name":"Expressions","aliases":["math expressions","numerical expressions","algebraic expressions"],"bai_culture":"Known and unknown tea jars","explanation_text":"If a shelf holds 2 known jars of tea and x more unlabeled ones, the total is written as 2 + x. Combining known and unknown amounts is an expression.","image_prompt":"Show two tea jars plus an unlabeled one, symbolized as 2 + x."},{"concept_id":"equations","concept_name":"Equations","aliases":["math equations","equal statements","algebra equations"],"bai_culture":"Carrying pole with baskets","explanation_text":"A Bai farmer carries baskets at both ends of a shoulder pole; when the two sides balance, the weights are equal. Both sides of an equation hold the same value, just like the balanced baskets.","image_prompt":"Show a carrying pole with equal baskets on both ends, labeled as an equation."},{"concept_id":"solving_one_step_equations","concept_name":"Solving One-Step Equations","aliases":["one-step equations","simple equations"],"bai_culture":"Adjusting a carrying pole","explanation_text":"If one basket on a carrying pole is heavier, the farmer adds or removes a little weight to restore balance. One small adjustment solves the load, like a one-step equation.","image_prompt":"Show a carrying pole with baskets, one side adjusted by adding or removing weight to show a one-step equation."},{"concept_id":"solving_two_step_equations","concept_name":"Solving Two-Step Equations","aliases":["two-step equations","multi-step equations"],"bai_culture":"Brewing three-course tea","explanation_text":"Brewing three-course tea needs two moves: first roast the tea leaves, then add boiling water. Solving a two-step equation also works through two operations in order.","image_prompt":"Show the two-step sequence of brewing three-course tea—roast the leaves, then add water—symbolizing step-by-step solving."},{"concept_id":"inequalities","concept_name":"Inequalities","aliases":["greater than","less than","not equal","comparison statements"],"bai_culture":"Rice harvest sizes","explanation_text":"When one family's rice harvest is larger than another's, the amounts are unequal. Greater than and less than compare harvests just as they compare numbers.","image_prompt":"Show two piles of harvested rice of different sizes with > and < symbols between them."},{"concept_id":"order_of_operations","concept_name":"Order of Operations (PEMDAS)","aliases":["PEMDAS","BODMAS","math order","operations order"],"bai_culture":"Cooking Bai dishes in order","explanation_text":"When cooking a Bai dish, you must prepare the ingredients before steaming and serve the courses in order. The order of steps matters, exactly as it does with the order of operations.","image_prompt":"Show a cooking sequence for a Bai dish where steps must happen in order, labeled like parentheses, exponents, and so on."},{"concept_id":"substitution","concept_name":"Substitution","aliases":["replace variable","substitute value","replace letter with number"],"bai_culture":"Replacing a worn shuttle","explanation_text":"When a weaver's shuttle wears out, an identical new one takes its place and weaving continues. Replacing a variable with its value works the same way.","image_prompt":"Show a missing shuttle replaced with an identical one in a loom, representing substitution."},{"concept_id":"points","concept_name":"Points","aliases":["dot","location","coordinate point"],"bai_culture":"Stars above Erhai","explanation_text":"Each star in the night sky above Erhai Lake marks a single position. A point in geometry is just such a location on a plane.","image_prompt":"Show a starry sky over Erhai Lake with individual stars labeled as points on a coordinate grid."},{"concept_id":"lines","concept_name":"Lines","aliases":["straight line","geometry line","infinite line"],"bai_culture":"Threads of tie-dye","explanation_text":"The stretched threads used to tie tie-dye cloth run straight in both directions. Straight lines in geometry extend the same way.","image_prompt":"Show straight threads stretched for tie-dye, representing geometric lines."},{"concept_id":"angles","concept_name":"Angles","aliases":["angle","degree","corner measure"],"bai_culture":"Opening a Bai house door","explanation_text":"As a door of a Bai house swings open, it forms an angle with the door frame. The size of the opening measures that angle.","image_prompt":"Show a Bai house door partially open with the angle clearly marked."},{"concept_id":"perpendicular_lines","concept_name":"Perpendicular Lines","aliases":["right angle lines","intersecting lines","orthogonal lines"],"bai_culture":"Beams of Bai houses","explanation_text":"The vertical pillars and horizontal beams of a Bai house meet at right angles. Lines that cross at 90 degrees are perpendicular.","image_prompt":"Show the pillars and beams of a Bai house meeting at 90° angles."},{"concept_id":"parallel_lines","concept_name":"Parallel Lines","aliases":["side-by-side lines","never meet","equal distance lines"],"bai_culture":"Rows of rice paddies","explanation_text":"The ridges between rice paddies run side by side and never meet, all the way to the far edge of the field. Parallel lines behave the same way.","image_prompt":"Show two parallel ridges between rice paddies running side by side through the field."},{"concept_id":"polygons","concept_name":"Polygons","aliases":["shapes","closed figure","many-sided shape"],"bai_culture":"Stone-paved Dali streets","explanation_text":"The stone slabs paving the streets of Dali old town form closed shapes with many sides. Closed many-sided figures are polygons.","image_prompt":"Show stone slabs in the streets of Dali old town forming closed geometric shapes."},{"concept_id":"triangles","concept_name":"Triangles","aliases":["three sides","triangular","triangle shape"],"bai_culture":"Silhouettes of the Three Pagodas","explanation_text":"Seen against the sky, each pagoda of the Three Pagodas narrows toward the top, tracing a triangular silhouette. A triangle is a three-sided shape.","image_prompt":"Show the triangular silhouettes of the Three Pagodas of Dali against the sky."},{"concept_id":"quadrilaterals","concept_name":"Quadrilaterals","aliases":["four sides","rectangles","squares","trapezoids"],"bai_culture":"Patterns on Bai house walls","explanation_text":"The painted patterns on whitewashed Bai house walls include squares and rectangles. Four-sided shapes are quadrilaterals.","image_prompt":"Show a Bai house wall with repeating square and rectangular painted motifs."},{"concept_id":"perimeter","concept_name":"Perimeter","aliases":["boundary length","distance around","outline measure"],"bai_culture":"Around the Dali city wall","explanation_text":"Walking all the way around the old town wall of Dali measures its whole outline. The distance around a shape is its perimeter.","image_prompt":"Show people walking around the old town wall of Dali with a dashed perimeter line."},{"concept_id":"area","concept_name":"Area","aliases":["surface area","space inside","coverage"],"bai_culture":"Rice paddies beside Erhai","explanation_text":"Farmers measure how much of the lakeside plain their rice paddies cover. The space inside a flat shape is its area.","image_prompt":"Show rice paddies spread beside Erhai Lake, shaded to show their area."},{"concept_id":"volume","concept_name":"Volume","aliases":["capacity","space inside 3D shape","liquid amount"],"bai_culture":"Water jars at home","explanation_text":"A Bai home keeps water in large jars, each holding a fixed amount. The space inside a container is its volume.","image_prompt":"Show large water jars filled to different levels to illustrate volume."},{"concept_id":"circle_properties","concept_name":"Circle Properties","aliases":["radius","diameter","circumference","circle geometry"],"bai_culture":"Butterfly Spring from above","explanation_text":"Seen from above, Butterfly Spring forms a nearly perfect circle. Its radius, diameter, and circumference can all be measured, as for any circle.","image_prompt":"Show Butterfly Spring from above labeled with radius and diameter lines."},{"concept_id":"pi","concept_name":"Pi (π)","aliases":["pi","ratio of circumference","3.14"],"bai_culture":"Round millstone","explanation_text":"The round millstone used to grind rice has a circumference and a diameter. Whatever the stone's size, circumference divided by diameter is always π.","image_prompt":"Show a round millstone labeled with its circumference and diameter measurements."},{"concept_id":"coordinate_plane","concept_name":"Coordinate Plane","aliases":["x-y plane","graph grid","axes"],"bai_culture":"Grid of Dali streets","explanation_text":"The streets of Dali old town cross in rows and columns like a grid, and every corner has a fixed location. A coordinate plane places points with x- and y-values the same way.","image_prompt":"Show a map of Dali old town streets labeled with x and y coordinates."},{"concept_id":"plotting_points","concept_name":"Plotting Points","aliases":["graphing points","coordinates","x-y plotting"],"bai_culture":"Map of a Dali village","explanation_text":"Marking the position of each house on a map of a Dali village places every home at a precise spot. That is plotting points on a coordinate plane.","image_prompt":"Show a map of a Dali village with each house marked as a labeled point."},{"concept_id":"symmetry","concept_name":"Symmetry","aliases":["mirror image","balanced halves","reflection symmetry"],"bai_culture":"Three Pagodas mirrored in Erhai","explanation_text":"On a calm day, the Three Pagodas are reflected perfectly in the water of Erhai Lake below. The reflection matches the real scene across a line—that is symmetry.","image_prompt":"Show the Three Pagodas and their reflection in the water, split by a mirror line."},{"concept_id":"transformations","concept_name":"Transformations","aliases":["translate","rotate","reflect","dilate"],"bai_culture":"Dancers at the Torch Festival","explanation_text":"Dancers at the Torch Festival spin, slide, and change formation, shifting every position without breaking the pattern. Moving and turning shapes are geometric transformations.","image_prompt":"Show Torch Festival dancers turning and shifting positions to illustrate transformations."},{"concept_id":"ratios","concept_name":"Ratios","aliases":["comparison","proportion of quantities","rate"],"bai_culture":"Brewing three-course tea","explanation_text":"Three-course tea balances bitter, sweet, and aftertaste; the amounts of tea leaves and water follow a fixed ratio. Ratios compare two quantities.","image_prompt":"Show a teapot labeled with tea-to-water ratios, like 2:1."},{"concept_id":"proportions","concept_name":"Proportions","aliases":["equal ratios","scaling","balance of ratios"],"bai_culture":"Enlarging tie-dye patterns","explanation_text":"When a weaver copies a small tie-dye pattern onto a larger cloth, every part grows by the same factor. Keeping all parts in the same relationship is proportion.","image_prompt":"Show a small and a large tie-dye cloth with the same pattern proportions."},{"concept_id":"unit_rate","concept_name":"Unit Rate","aliases":["per unit","rate per one","comparison per one unit"],"bai_culture":"Tea sold per jin","explanation_text":"At the March Street fair, tea is priced per jin, so the cost of one jin is a unit rate. Unit rates compare an amount to a single unit.","image_prompt":"Show a March Street tea stall with prices marked per jin (yuan per jin)."},{"concept_id":"scale_drawings","concept_name":"Scale Drawings","aliases":["map scale","drawing proportion","scaled map"],"bai_culture":"Map of Dali old town","explanation_text":"A small map can show the whole old town of Dali because every distance is shrunk by the same scale. Drawing a place smaller while keeping ratios is a scale drawing.","image_prompt":"Show Dali old town and a smaller scaled map beside it with a scale legend."},{"concept_id":"percent_change","concept_name":"Percent Change","aliases":["percent increase","percent decrease","growth rate"],"bai_culture":"Growth of the rice harvest","explanation_text":"If a family's rice harvest rises from 100 to 120 jin, that is a 20% increase. Percent change measures how much an amount grows or shrinks.","image_prompt":"Show harvested rice piles growing in size with a +20% label."},{"concept_id":"data_collection","concept_name":"Data Collection","aliases":["gather data","record information","collect numbers"],"bai_culture":"Counting sales at March Street","explanation_text":"At the March Street fair, traders record how many items of each kind they sell each day. Gathering and recording numbers is data collection.","image_prompt":"Show a trader marking tallies of sales on a clipboard at the March Street fair."},{"concept_id":"tables_graphs","concept_name":"Tables and Graphs","aliases":["data table","bar graph","chart"],"bai_culture":"Harvests by season","explanation_text":"A graph showing how much rice each season brings in helps farmers compare the year's harvests at a glance. Tables and graphs turn data into pictures.","image_prompt":"Show a bar graph comparing rice harvests across the four seasons."},{"concept_id":"mean","concept_name":"Mean","aliases":["average","arithmetic mean","mean value"],"bai_culture":"Average fish catch on Erhai","explanation_text":"Adding a fisher's catches over several days and dividing by the number of days gives the average catch. The average is the mean.","image_prompt":"Show a table of daily fish catches on Erhai with the average value highlighted."},{"concept_id":"median","concept_name":"Median","aliases":["middle value","data median"],"bai_culture":"Household incomes in Dali","explanation_text":"When household incomes in a Dali village are lined up from smallest to largest, the value in the middle is the median.","image_prompt":"Show household incomes lined up with the middle one highlighted as the median."},{"concept_id":"mode","concept_name":"Mode","aliases":["most frequent value","common value"],"bai_culture":"Most common tie-dye color","explanation_text":"Most tie-dyed cloth is dyed indigo blue, so indigo is the most frequent color. The value that appears most often is the mode.","image_prompt":"Show bolts of tie-dyed cloth in various colors with indigo blue being the most common."},{"concept_id":"range","concept_name":"Range","aliases":["difference","spread of data","highest minus lowest"],"bai_culture":"Harvest from biggest to smallest","explanation_text":"The gap between the largest and smallest rice harvest in a village shows how spread out the data is. The highest value minus the lowest is the range.","image_prompt":"Show a bar chart with the shortest and tallest harvest bars marked for range."},{"concept_id":"bar_graphs","concept_name":"Bar Graphs","aliases":["bar chart","column graph"],"bai_culture":"Family harvest comparisons","explanation_text":"Each bar can show how much rice one family harvested, making the harvests easy to compare. Bar graphs compare amounts by length.","image_prompt":"Show a bar graph labeled by family names with their rice harvest totals."},{"concept_id":"line_graphs","concept_name":"Line Graphs","aliases":["trend graph","line chart"],"bai_culture":"Rainfall through the year","explanation_text":"A line graph can trace how rainfall changes month by month beside Erhai Lake. Line graphs show how a quantity changes over time.","image_prompt":"Show a line graph labeled with months and rainfall amounts."},{"concept_id":"pie_charts","concept_name":"Pie Charts","aliases":["circle chart","percentage chart"],"bai_culture":"Crops of the Dali plains","explanation_text":"A pie chart can show what share of the Dali plains is planted in rice, vegetables, and other crops. Each slice shows a part of the whole.","image_prompt":"Show a pie chart divided into crop categories with percentages."},{"concept_id":"probability","concept_name":"Probability","aliases":["chance","likelihood","odds"],"bai_culture":"Winners of the Erhai boat race","explanation_text":"Before an Erhai boat race, guessing which boat is most likely to win involves probability. Probability measures how likely an event is.","image_prompt":"Show dragon boats at a race start line on Erhai with probability labels above each."},{"concept_id":"patterns","concept_name":"Patterns","aliases":["repeating design","sequence","recurrence"],"bai_culture":"Borders painted on Bai walls","explanation_text":"The painted borders around Bai house walls repeat the same motifs over and over. Repeated designs are patterns, in art and in numbers alike.","image_prompt":"Show repeating painted border motifs on the walls of a Bai house."},{"concept_id":"functions","concept_name":"Functions","aliases":["input-output rule","function relation","mapping"],"bai_culture":"Boat speed and distance","explanation_text":"At a fixed time, each boat speed on Erhai gives one exact distance. A function pairs every input with a single output, just as each speed gives one distance.","image_prompt":"Show a graph linking boat speed (input) to distance traveled (output) on Erhai Lake."}]
+[
+    {
+        "concept_id": "place_value",
+        "concept_name": "Place Value",
+        "aliases": [
+            "place value",
+            "digit place",
+            "number place",
+            "units place",
+            "tens place",
+            "hundreds place",
+            "position of digits",
+            "digit position"
+        ],
+        "bai_culture": "Three Pagodas in a row",
+        "explanation_text": "The Three Pagodas of Chongsheng Temple stand in a line, each with its own height and position. In the same way, the place of a digit—ones, tens, hundreds—decides the value it holds.",
+        "image_prompt": "Illustrate the Three Pagodas of Dali standing in a row, each labeled as ones, tens, and hundreds to show how position decides value."
+    },
+    {
+        "concept_id": "addition_subtraction",
+        "concept_name": "Addition & Subtraction",
+        "aliases": [
+            "add",
+            "addition",
+            "plus",
+            "sum",
+            "combine",
+            "total",
+            "subtract",
+            "subtraction",
+            "minus",
+            "take away",
+            "difference"
+        ],
+        "bai_culture": "Fishing boats on Erhai",
+        "explanation_text": "When more fishing boats gather on Erhai Lake, the count on the water grows. When some boats sail away, it shrinks—just like addition and subtraction.",
+        "image_prompt": "Show fishing boats gathering on Erhai Lake (increasing the count) and a boat sailing away (decreasing it), with plus and minus signs."
+    },
+    {
+        "concept_id": "multiplication_division",
+        "concept_name": "Multiplication & Division",
+        "aliases": [
+            "multiply",
+            "multiplication",
+            "times",
+            "groups of",
+            "repeated addition",
+            "divide",
+            "division",
+            "split equally",
+            "sharing"
+        ],
+        "bai_culture": "Rows of hanging tie-dye",
+        "explanation_text": "Rows of tie-dyed cloth hung out to dry form equal groups, showing multiplication. Dividing the cloth evenly among the dyers shows division.",
+        "image_prompt": "Display equal rows of tie-dyed cloth hanging on a line, showing equal grouping (multiplication) and even sharing (division)."
+    },
+    {
+        "concept_id": "even_odd",
+        "concept_name": "Even and Odd Numbers",
+        "aliases": [
+            "even numbers",
+            "odd numbers",
+            "even",
+            "odd",
+            "pairs",
+            "leftover",
+            "no remainder",
+            "remains one"
+        ],
+        "bai_culture": "Torch Festival dancers in pairs",
+        "explanation_text": "Dancers at the Torch Festival pair up to perform; when every dancer has a partner, the number is even. If one dancer stands alone, the number is odd.",
+        "image_prompt": "Show Torch Festival dancers standing in pairs, with one single dancer at the end to represent an odd number."
+    },
+    {
+        "concept_id": "skip_counting",
+        "concept_name": "Skip Counting / Number Patterns",
+        "aliases": [
+            "skip counting",
+            "count by 2s",
+            "count by 5s",
+            "count by 10s",
+            "jump counting",
+            "repeating numbers",
+            "number patterns"
+        ],
+        "bai_culture": "Wall patterns on Bai houses",
+        "explanation_text": "The painted patterns that decorate whitewashed Bai house walls repeat in regular sequences. Counting every fifth motif is like skip counting by 5.",
+        "image_prompt": "Show a repeating painted pattern on a white Bai house wall, highlighting every 5th motif to illustrate skip counting."
+    },
+    {
+        "concept_id": "comparing_numbers",
+        "concept_name": "Comparing and Ordering Numbers",
+        "aliases": [
+            "compare numbers",
+            "greater than",
+            "less than",
+            "more than",
+            "fewer than",
+            "biggest",
+            "smallest",
+            "ordering numbers",
+            "number order"
+        ],
+        "bai_culture": "Three-course tea bowls",
+        "explanation_text": "The bowls of Bai three-course tea hold different amounts. Comparing their levels shows which is greater or smaller, just like comparing numbers.",
+        "image_prompt": "Show three tea bowls with different amounts of three-course tea, using > and < symbols between them."
+    },
+    {
+        "concept_id": "rounding_estimation",
+        "concept_name": "Rounding & Estimation",
+        "aliases": [
+            "round",
+            "rounding",
+            "estimate",
+            "estimation",
+            "approximate",
+            "about how much",
+            "close to",
+            "nearby number"
+        ],
+        "bai_culture": "Rice portions at March Street",
+        "explanation_text": "At the March Street fair, cooks estimate how much rice to prepare for the expected crowd. Estimating a close, convenient amount is like rounding.",
+        "image_prompt": "Show a cook estimating rice portions at the March Street fair, labeled with rounded amounts."
+    },
+    {
+        "concept_id": "fractions",
+        "concept_name": "Fractions",
+        "aliases": ["fraction", "part of a whole", "portion", "share", "numerator", "denominator"],
+        "bai_culture": "Portions of three-course tea",
+        "explanation_text": "Three-course tea is served in small bowls shared among the guests. Each guest receives a portion, or fraction, of the whole serving.",
+        "image_prompt": "Show a pot of three-course tea being divided into equal small bowls, each labeled as a fraction of the whole."
+    },
+    {
+        "concept_id": "equivalent_fractions",
+        "concept_name": "Equivalent Fractions",
+        "aliases": ["equal fractions", "same value", "fraction equality", "equivalent"],
+        "bai_culture": "Sharing ba ba flatbread",
+        "explanation_text": "Cutting a round ba ba flatbread into 2 equal pieces, then each piece into 2 again, gives 4 equal pieces of the same total. Halves and quarters name the same amount—like equivalent fractions.",
+        "image_prompt": "Show a round ba ba flatbread divided first into halves, then quarters, demonstrating equal portions."
+    },
+    {
+        "concept_id": "simplifying_fractions",
+        "concept_name": "Simplifying Fractions",
+        "aliases": ["reduce fraction", "lowest terms", "simplify fraction"],
+        "bai_culture": "Butterflies gathering at the spring",
+        "explanation_text": "Many small groups of butterflies gather into one swarm at Butterfly Spring. Combining small groups into one whole is like simplifying a fraction to its lowest terms.",
+        "image_prompt": "Depict small groups of butterflies merging into one large swarm, labeled with reduced fractions."
+    },
+    {
+        "concept_id": "mixed_numbers",
+        "concept_name": "Mixed Numbers",
+        "aliases": ["mixed number", "whole and fraction", "whole part and fraction part"],
+        "bai_culture": "Rice baskets full and half",
+        "explanation_text": "If a farmer has 3 full baskets of rice and half a basket more, that is 3½ baskets. A whole part together with a fraction is a mixed number.",
+        "image_prompt": "Show three full rice baskets and one half-full basket labeled as 3½."
+    },
+    {
+        "concept_id": "improper_fractions",
+        "concept_name": "Improper Fractions",
+        "aliases": ["top-heavy fraction", "numerator larger", "greater than one fraction"],
+        "bai_culture": "Rice overflowing the basket",
+        "explanation_text": "When rice fills one basket and continues into a second, the amount is greater than one whole basket. Measured in same-sized parts, it is an improper fraction.",
+        "image_prompt": "Show rice spilling from a full basket into another basket, symbolizing fractions greater than 1."
+    },
+    {
+        "concept_id": "adding_fractions",
+        "concept_name": "Adding Fractions",
+        "aliases": ["fraction addition", "add fractions", "sum of fractions"],
+        "bai_culture": "Joining tea course portions",
+        "explanation_text": "Pouring the leftover tea from several small bowls into one bowl shows how fractional amounts add together to make a whole.",
+        "image_prompt": "Show smaller bowls of three-course tea being poured together to make one total bowl."
+    },
+    {
+        "concept_id": "subtracting_fractions",
+        "concept_name": "Subtracting Fractions",
+        "aliases": ["fraction subtraction", "take away fractions", "difference of fractions"],
+        "bai_culture": "Leaving part of a tea cup",
+        "explanation_text": "When a guest drinks part of a cup of three-course tea, the amount remaining is the total minus the fraction that was drunk.",
+        "image_prompt": "Show a cup of three-course tea with part of it drunk, the remainder labeled as the fraction left."
+    },
+    {
+        "concept_id": "multiplying_fractions",
+        "concept_name": "Multiplying Fractions",
+        "aliases": ["fraction multiplication", "part of a part", "multiply fractions"],
+        "bai_culture": "Half of a rice cake piece",
+        "explanation_text": "If a guest takes half of a half piece of rice cake, they get a quarter. Finding a fraction of a fraction is multiplying fractions.",
+        "image_prompt": "Show a plate of rice cake divided into halves, and one half divided again to show smaller portions."
+    },
+    {
+        "concept_id": "dividing_fractions",
+        "concept_name": "Dividing Fractions",
+        "aliases": ["fraction division", "divide fractions", "how many times in"],
+        "bai_culture": "Cutting rice cake portions",
+        "explanation_text": "Cutting a portion of rice cake into smaller equal pieces shows how many smaller fractions fit into one portion—that is dividing fractions.",
+        "image_prompt": "Show rice cake being cut into smaller even pieces to illustrate fractional division."
+    },
+    {
+        "concept_id": "decimals",
+        "concept_name": "Decimals",
+        "aliases": ["decimal point", "tenths", "hundredths", "decimal number"],
+        "bai_culture": "Measuring tea in liters",
+        "explanation_text": "Measuring the tea brewed for three-course tea in liters introduces decimals, such as 1.5 liters meaning one and a half liters.",
+        "image_prompt": "Show a measuring pot marked with 1.0, 1.5, and 2.0 liters of tea."
+    },
+    {
+        "concept_id": "converting_fractions_decimals",
+        "concept_name": "Converting Fractions and Decimals",
+        "aliases": ["fraction to decimal", "decimal to fraction", "convert fractions"],
+        "bai_culture": "Half liter and 0.5 liters",
+        "explanation_text": "Whether a bowl holds half a liter or 0.5 liters, both describe the same amount. Naming one amount two ways is converting between fractions and decimals.",
+        "image_prompt": "Show two labeled bowls, one marked ½ and another 0.5, filled with the same amount of tea."
+    },
+    {
+        "concept_id": "percents",
+        "concept_name": "Percents",
+        "aliases": ["percent", "percentage", "per hundred", "rate per 100"],
+        "bai_culture": "Dali school test scores",
+        "explanation_text": "When a student scores 85 out of 100 on a test at a Dali school, that is 85%. Percents express parts per hundred.",
+        "image_prompt": "Show a test paper with 85/100 written and an 85% mark beside it."
+    },
+    {
+        "concept_id": "percent_of_number",
+        "concept_name": "Percent of a Number",
+        "aliases": ["percentage of number", "find percent", "portion of total"],
+        "bai_culture": "Tie-dye discounts at March Street",
+        "explanation_text": "A 20% discount on a tie-dyed cloth at the March Street fair shows how percents are used to find a part of a price.",
+        "image_prompt": "Show a stall sign at the March Street fair with tie-dyed cloth marked '20% off' and reduced price tags."
+    },
+    {
+        "concept_id": "variables",
+        "concept_name": "Variables",
+        "aliases": ["variable", "unknown", "letter as number", "symbol in math"],
+        "bai_culture": "Unlabeled tea jars",
+        "explanation_text": "In a teahouse, some jars hold tea of unknown amounts. An unlabeled jar stands for an unknown quantity, just like a variable in math.",
+        "image_prompt": "Show labeled tea jars (1L, 2L) and an unlabeled jar marked as x."
+    },
+    {
+        "concept_id": "expressions",
+        "concept_name": "Expressions",
+        "aliases": ["math expressions", "numerical expressions", "algebraic expressions"],
+        "bai_culture": "Known and unknown tea jars",
+        "explanation_text": "If a shelf holds 2 known jars of tea and x more unlabeled ones, the total is written as 2 + x. Combining known and unknown amounts is an expression.",
+        "image_prompt": "Show two tea jars plus an unlabeled one, symbolized as 2 + x."
+    },
+    {
+        "concept_id": "equations",
+        "concept_name": "Equations",
+        "aliases": ["math equations", "equal statements", "algebra equations"],
+        "bai_culture": "Carrying pole with baskets",
+        "explanation_text": "A Bai farmer carries baskets at both ends of a shoulder pole; when the two sides balance, the weights are equal. Both sides of an equation hold the same value, just like the balanced baskets.",
+        "image_prompt": "Show a carrying pole with equal baskets on both ends, labeled as an equation."
+    },
+    {
+        "concept_id": "solving_one_step_equations",
+        "concept_name": "Solving One-Step Equations",
+        "aliases": ["one-step equations", "simple equations"],
+        "bai_culture": "Adjusting a carrying pole",
+        "explanation_text": "If one basket on a carrying pole is heavier, the farmer adds or removes a little weight to restore balance. One small adjustment solves the load, like a one-step equation.",
+        "image_prompt": "Show a carrying pole with baskets, one side adjusted by adding or removing weight to show a one-step equation."
+    },
+    {
+        "concept_id": "solving_two_step_equations",
+        "concept_name": "Solving Two-Step Equations",
+        "aliases": ["two-step equations", "multi-step equations"],
+        "bai_culture": "Brewing three-course tea",
+        "explanation_text": "Brewing three-course tea needs two moves: first roast the tea leaves, then add boiling water. Solving a two-step equation also works through two operations in order.",
+        "image_prompt": "Show the two-step sequence of brewing three-course tea—roast the leaves, then add water—symbolizing step-by-step solving."
+    },
+    {
+        "concept_id": "inequalities",
+        "concept_name": "Inequalities",
+        "aliases": ["greater than", "less than", "not equal", "comparison statements"],
+        "bai_culture": "Rice harvest sizes",
+        "explanation_text": "When one family's rice harvest is larger than another's, the amounts are unequal. Greater than and less than compare harvests just as they compare numbers.",
+        "image_prompt": "Show two piles of harvested rice of different sizes with > and < symbols between them."
+    },
+    {
+        "concept_id": "order_of_operations",
+        "concept_name": "Order of Operations (PEMDAS)",
+        "aliases": ["PEMDAS", "BODMAS", "math order", "operations order"],
+        "bai_culture": "Cooking Bai dishes in order",
+        "explanation_text": "When cooking a Bai dish, you must prepare the ingredients before steaming and serve the courses in order. The order of steps matters, exactly as it does with the order of operations.",
+        "image_prompt": "Show a cooking sequence for a Bai dish where steps must happen in order, labeled like parentheses, exponents, and so on."
+    },
+    {
+        "concept_id": "substitution",
+        "concept_name": "Substitution",
+        "aliases": ["replace variable", "substitute value", "replace letter with number"],
+        "bai_culture": "Replacing a worn shuttle",
+        "explanation_text": "When a weaver's shuttle wears out, an identical new one takes its place and weaving continues. Replacing a variable with its value works the same way.",
+        "image_prompt": "Show a missing shuttle replaced with an identical one in a loom, representing substitution."
+    },
+    {
+        "concept_id": "points",
+        "concept_name": "Points",
+        "aliases": ["dot", "location", "coordinate point"],
+        "bai_culture": "Stars above Erhai",
+        "explanation_text": "Each star in the night sky above Erhai Lake marks a single position. A point in geometry is just such a location on a plane.",
+        "image_prompt": "Show a starry sky over Erhai Lake with individual stars labeled as points on a coordinate grid."
+    },
+    {
+        "concept_id": "lines",
+        "concept_name": "Lines",
+        "aliases": ["straight line", "geometry line", "infinite line"],
+        "bai_culture": "Threads of tie-dye",
+        "explanation_text": "The stretched threads used to tie tie-dye cloth run straight in both directions. Straight lines in geometry extend the same way.",
+        "image_prompt": "Show straight threads stretched for tie-dye, representing geometric lines."
+    },
+    {
+        "concept_id": "angles",
+        "concept_name": "Angles",
+        "aliases": ["angle", "degree", "corner measure"],
+        "bai_culture": "Opening a Bai house door",
+        "explanation_text": "As a door of a Bai house swings open, it forms an angle with the door frame. The size of the opening measures that angle.",
+        "image_prompt": "Show a Bai house door partially open with the angle clearly marked."
+    },
+    {
+        "concept_id": "perpendicular_lines",
+        "concept_name": "Perpendicular Lines",
+        "aliases": ["right angle lines", "intersecting lines", "orthogonal lines"],
+        "bai_culture": "Beams of Bai houses",
+        "explanation_text": "The vertical pillars and horizontal beams of a Bai house meet at right angles. Lines that cross at 90 degrees are perpendicular.",
+        "image_prompt": "Show the pillars and beams of a Bai house meeting at 90° angles."
+    },
+    {
+        "concept_id": "parallel_lines",
+        "concept_name": "Parallel Lines",
+        "aliases": ["side-by-side lines", "never meet", "equal distance lines"],
+        "bai_culture": "Rows of rice paddies",
+        "explanation_text": "The ridges between rice paddies run side by side and never meet, all the way to the far edge of the field. Parallel lines behave the same way.",
+        "image_prompt": "Show two parallel ridges between rice paddies running side by side through the field."
+    },
+    {
+        "concept_id": "polygons",
+        "concept_name": "Polygons",
+        "aliases": ["shapes", "closed figure", "many-sided shape"],
+        "bai_culture": "Stone-paved Dali streets",
+        "explanation_text": "The stone slabs paving the streets of Dali old town form closed shapes with many sides. Closed many-sided figures are polygons.",
+        "image_prompt": "Show stone slabs in the streets of Dali old town forming closed geometric shapes."
+    },
+    {
+        "concept_id": "triangles",
+        "concept_name": "Triangles",
+        "aliases": ["three sides", "triangular", "triangle shape"],
+        "bai_culture": "Silhouettes of the Three Pagodas",
+        "explanation_text": "Seen against the sky, each pagoda of the Three Pagodas narrows toward the top, tracing a triangular silhouette. A triangle is a three-sided shape.",
+        "image_prompt": "Show the triangular silhouettes of the Three Pagodas of Dali against the sky."
+    },
+    {
+        "concept_id": "quadrilaterals",
+        "concept_name": "Quadrilaterals",
+        "aliases": ["four sides", "rectangles", "squares", "trapezoids"],
+        "bai_culture": "Patterns on Bai house walls",
+        "explanation_text": "The painted patterns on whitewashed Bai house walls include squares and rectangles. Four-sided shapes are quadrilaterals.",
+        "image_prompt": "Show a Bai house wall with repeating square and rectangular painted motifs."
+    },
+    {
+        "concept_id": "perimeter",
+        "concept_name": "Perimeter",
+        "aliases": ["boundary length", "distance around", "outline measure"],
+        "bai_culture": "Around the Dali city wall",
+        "explanation_text": "Walking all the way around the old town wall of Dali measures its whole outline. The distance around a shape is its perimeter.",
+        "image_prompt": "Show people walking around the old town wall of Dali with a dashed perimeter line."
+    },
+    {
+        "concept_id": "area",
+        "concept_name": "Area",
+        "aliases": ["surface area", "space inside", "coverage"],
+        "bai_culture": "Rice paddies beside Erhai",
+        "explanation_text": "Farmers measure how much of the lakeside plain their rice paddies cover. The space inside a flat shape is its area.",
+        "image_prompt": "Show rice paddies spread beside Erhai Lake, shaded to show their area."
+    },
+    {
+        "concept_id": "volume",
+        "concept_name": "Volume",
+        "aliases": ["capacity", "space inside 3D shape", "liquid amount"],
+        "bai_culture": "Water jars at home",
+        "explanation_text": "A Bai home keeps water in large jars, each holding a fixed amount. The space inside a container is its volume.",
+        "image_prompt": "Show large water jars filled to different levels to illustrate volume."
+    },
+    {
+        "concept_id": "circle_properties",
+        "concept_name": "Circle Properties",
+        "aliases": ["radius", "diameter", "circumference", "circle geometry"],
+        "bai_culture": "Butterfly Spring from above",
+        "explanation_text": "Seen from above, Butterfly Spring forms a nearly perfect circle. Its radius, diameter, and circumference can all be measured, as for any circle.",
+        "image_prompt": "Show Butterfly Spring from above labeled with radius and diameter lines."
+    },
+    {
+        "concept_id": "pi",
+        "concept_name": "Pi (π)",
+        "aliases": ["pi", "ratio of circumference", "3.14"],
+        "bai_culture": "Round millstone",
+        "explanation_text": "The round millstone used to grind rice has a circumference and a diameter. Whatever the stone's size, circumference divided by diameter is always π.",
+        "image_prompt": "Show a round millstone labeled with its circumference and diameter measurements."
+    },
+    {
+        "concept_id": "coordinate_plane",
+        "concept_name": "Coordinate Plane",
+        "aliases": ["x-y plane", "graph grid", "axes"],
+        "bai_culture": "Grid of Dali streets",
+        "explanation_text": "The streets of Dali old town cross in rows and columns like a grid, and every corner has a fixed location. A coordinate plane places points with x- and y-values the same way.",
+        "image_prompt": "Show a map of Dali old town streets labeled with x and y coordinates."
+    },
+    {
+        "concept_id": "plotting_points",
+        "concept_name": "Plotting Points",
+        "aliases": ["graphing points", "coordinates", "x-y plotting"],
+        "bai_culture": "Map of a Dali village",
+        "explanation_text": "Marking the position of each house on a map of a Dali village places every home at a precise spot. That is plotting points on a coordinate plane.",
+        "image_prompt": "Show a map of a Dali village with each house marked as a labeled point."
+    },
+    {
+        "concept_id": "symmetry",
+        "concept_name": "Symmetry",
+        "aliases": ["mirror image", "balanced halves", "reflection symmetry"],
+        "bai_culture": "Three Pagodas mirrored in Erhai",
+        "explanation_text": "On a calm day, the Three Pagodas are reflected perfectly in the water of Erhai Lake below. The reflection matches the real scene across a line—that is symmetry.",
+        "image_prompt": "Show the Three Pagodas and their reflection in the water, split by a mirror line."
+    },
+    {
+        "concept_id": "transformations",
+        "concept_name": "Transformations",
+        "aliases": ["translate", "rotate", "reflect", "dilate"],
+        "bai_culture": "Dancers at the Torch Festival",
+        "explanation_text": "Dancers at the Torch Festival spin, slide, and change formation, shifting every position without breaking the pattern. Moving and turning shapes are geometric transformations.",
+        "image_prompt": "Show Torch Festival dancers turning and shifting positions to illustrate transformations."
+    },
+    {
+        "concept_id": "ratios",
+        "concept_name": "Ratios",
+        "aliases": ["comparison", "proportion of quantities", "rate"],
+        "bai_culture": "Brewing three-course tea",
+        "explanation_text": "Three-course tea balances bitter, sweet, and aftertaste; the amounts of tea leaves and water follow a fixed ratio. Ratios compare two quantities.",
+        "image_prompt": "Show a teapot labeled with tea-to-water ratios, like 2:1."
+    },
+    {
+        "concept_id": "proportions",
+        "concept_name": "Proportions",
+        "aliases": ["equal ratios", "scaling", "balance of ratios"],
+        "bai_culture": "Enlarging tie-dye patterns",
+        "explanation_text": "When a weaver copies a small tie-dye pattern onto a larger cloth, every part grows by the same factor. Keeping all parts in the same relationship is proportion.",
+        "image_prompt": "Show a small and a large tie-dye cloth with the same pattern proportions."
+    },
+    {
+        "concept_id": "unit_rate",
+        "concept_name": "Unit Rate",
+        "aliases": ["per unit", "rate per one", "comparison per one unit"],
+        "bai_culture": "Tea sold per jin",
+        "explanation_text": "At the March Street fair, tea is priced per jin, so the cost of one jin is a unit rate. Unit rates compare an amount to a single unit.",
+        "image_prompt": "Show a March Street tea stall with prices marked per jin (yuan per jin)."
+    },
+    {
+        "concept_id": "scale_drawings",
+        "concept_name": "Scale Drawings",
+        "aliases": ["map scale", "drawing proportion", "scaled map"],
+        "bai_culture": "Map of Dali old town",
+        "explanation_text": "A small map can show the whole old town of Dali because every distance is shrunk by the same scale. Drawing a place smaller while keeping ratios is a scale drawing.",
+        "image_prompt": "Show Dali old town and a smaller scaled map beside it with a scale legend."
+    },
+    {
+        "concept_id": "percent_change",
+        "concept_name": "Percent Change",
+        "aliases": ["percent increase", "percent decrease", "growth rate"],
+        "bai_culture": "Growth of the rice harvest",
+        "explanation_text": "If a family's rice harvest rises from 100 to 120 jin, that is a 20% increase. Percent change measures how much an amount grows or shrinks.",
+        "image_prompt": "Show harvested rice piles growing in size with a +20% label."
+    },
+    {
+        "concept_id": "data_collection",
+        "concept_name": "Data Collection",
+        "aliases": ["gather data", "record information", "collect numbers"],
+        "bai_culture": "Counting sales at March Street",
+        "explanation_text": "At the March Street fair, traders record how many items of each kind they sell each day. Gathering and recording numbers is data collection.",
+        "image_prompt": "Show a trader marking tallies of sales on a clipboard at the March Street fair."
+    },
+    {
+        "concept_id": "tables_graphs",
+        "concept_name": "Tables and Graphs",
+        "aliases": ["data table", "bar graph", "chart"],
+        "bai_culture": "Harvests by season",
+        "explanation_text": "A graph showing how much rice each season brings in helps farmers compare the year's harvests at a glance. Tables and graphs turn data into pictures.",
+        "image_prompt": "Show a bar graph comparing rice harvests across the four seasons."
+    },
+    {
+        "concept_id": "mean",
+        "concept_name": "Mean",
+        "aliases": ["average", "arithmetic mean", "mean value"],
+        "bai_culture": "Average fish catch on Erhai",
+        "explanation_text": "Adding a fisher's catches over several days and dividing by the number of days gives the average catch. The average is the mean.",
+        "image_prompt": "Show a table of daily fish catches on Erhai with the average value highlighted."
+    },
+    {
+        "concept_id": "median",
+        "concept_name": "Median",
+        "aliases": ["middle value", "data median"],
+        "bai_culture": "Household incomes in Dali",
+        "explanation_text": "When household incomes in a Dali village are lined up from smallest to largest, the value in the middle is the median.",
+        "image_prompt": "Show household incomes lined up with the middle one highlighted as the median."
+    },
+    {
+        "concept_id": "mode",
+        "concept_name": "Mode",
+        "aliases": ["most frequent value", "common value"],
+        "bai_culture": "Most common tie-dye color",
+        "explanation_text": "Most tie-dyed cloth is dyed indigo blue, so indigo is the most frequent color. The value that appears most often is the mode.",
+        "image_prompt": "Show bolts of tie-dyed cloth in various colors with indigo blue being the most common."
+    },
+    {
+        "concept_id": "range",
+        "concept_name": "Range",
+        "aliases": ["difference", "spread of data", "highest minus lowest"],
+        "bai_culture": "Harvest from biggest to smallest",
+        "explanation_text": "The gap between the largest and smallest rice harvest in a village shows how spread out the data is. The highest value minus the lowest is the range.",
+        "image_prompt": "Show a bar chart with the shortest and tallest harvest bars marked for range."
+    },
+    {
+        "concept_id": "bar_graphs",
+        "concept_name": "Bar Graphs",
+        "aliases": ["bar chart", "column graph"],
+        "bai_culture": "Family harvest comparisons",
+        "explanation_text": "Each bar can show how much rice one family harvested, making the harvests easy to compare. Bar graphs compare amounts by length.",
+        "image_prompt": "Show a bar graph labeled by family names with their rice harvest totals."
+    },
+    {
+        "concept_id": "line_graphs",
+        "concept_name": "Line Graphs",
+        "aliases": ["trend graph", "line chart"],
+        "bai_culture": "Rainfall through the year",
+        "explanation_text": "A line graph can trace how rainfall changes month by month beside Erhai Lake. Line graphs show how a quantity changes over time.",
+        "image_prompt": "Show a line graph labeled with months and rainfall amounts."
+    },
+    {
+        "concept_id": "pie_charts",
+        "concept_name": "Pie Charts",
+        "aliases": ["circle chart", "percentage chart"],
+        "bai_culture": "Crops of the Dali plains",
+        "explanation_text": "A pie chart can show what share of the Dali plains is planted in rice, vegetables, and other crops. Each slice shows a part of the whole.",
+        "image_prompt": "Show a pie chart divided into crop categories with percentages."
+    },
+    {
+        "concept_id": "probability",
+        "concept_name": "Probability",
+        "aliases": ["chance", "likelihood", "odds"],
+        "bai_culture": "Winners of the Erhai boat race",
+        "explanation_text": "Before an Erhai boat race, guessing which boat is most likely to win involves probability. Probability measures how likely an event is.",
+        "image_prompt": "Show dragon boats at a race start line on Erhai with probability labels above each."
+    },
+    {
+        "concept_id": "patterns",
+        "concept_name": "Patterns",
+        "aliases": ["repeating design", "sequence", "recurrence"],
+        "bai_culture": "Borders painted on Bai walls",
+        "explanation_text": "The painted borders around Bai house walls repeat the same motifs over and over. Repeated designs are patterns, in art and in numbers alike.",
+        "image_prompt": "Show repeating painted border motifs on the walls of a Bai house."
+    },
+    {
+        "concept_id": "functions",
+        "concept_name": "Functions",
+        "aliases": ["input-output rule", "function relation", "mapping"],
+        "bai_culture": "Boat speed and distance",
+        "explanation_text": "At a fixed time, each boat speed on Erhai gives one exact distance. A function pairs every input with a single output, just as each speed gives one distance.",
+        "image_prompt": "Show a graph linking boat speed (input) to distance traveled (output) on Erhai Lake."
+    }
+]

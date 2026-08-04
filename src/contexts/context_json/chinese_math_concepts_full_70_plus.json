@@ -1,1 +1,565 @@
-[{"concept_id":"place_value","concept_name":"Place Value","aliases":["place value","digit place","number place","units place","tens place","hundreds place","position of digits","digit position"],"chinese_culture":"Abacus columns holding beads","explanation_text":"On a Chinese abacus (suanpan), each column holds a place: the rightmost column counts ones, the next counts tens, and so on. Moving a bead one column left multiplies its value by ten, exactly as a digit's place changes its value. Reading a number off the abacus means reading the value of each column together.","image_prompt":"A Chinese abacus with beads pushed toward the middle beam, columns labeled ones, tens, and hundreds, showing how position sets each bead's value."},{"concept_id":"addition_subtraction","concept_name":"Addition & Subtraction","aliases":["add","addition","plus","sum","combine","total","subtract","subtraction","minus","take away","difference"],"chinese_culture":"Stacking Cantonese steamer baskets","explanation_text":"At a Cantonese dim sum house, bamboo steamer baskets are stacked on a cart, and the stack grows as more dishes are added. Lifting baskets off to serve shrinks the stack. Adding to the stack increases the total count, and removing baskets decreases it, just like addition and subtraction.","image_prompt":"A dim sum cart with bamboo steamer baskets being added to and lifted off a tall stack, with plus and minus symbols beside it."},{"concept_id":"multiplication_division","concept_name":"Multiplication & Division","aliases":["multiply","multiplication","times","groups of","repeated addition","divide","division","split equally","sharing"],"chinese_culture":"Rows of pleated dumplings","explanation_text":"Dumplings are arranged on a tray in neat rows of ten, so counting them by rows is repeated addition, which is multiplication. When the tray is shared so each person gets an equal number, the rows are split evenly, which is division.","image_prompt":"A round tray with rows of pleated jiaozi dumplings, arrows showing groups being counted and then split into equal shares."},{"concept_id":"even_odd","concept_name":"Even and Odd Numbers","aliases":["even numbers","odd numbers","even","odd","pairs","leftover","no remainder","remains one"],"chinese_culture":"Dumplings served in even pairs","explanation_text":"In northern homes, dumplings are traditionally served in even numbers so every person gets complete pairs. A plate holding ten dumplings pairs perfectly, making ten even. Leave one dumpling on the plate and that single leftover makes it odd.","image_prompt":"A plate of dumplings arranged in matching pairs with one lone dumpling set aside, labeled even and odd."},{"concept_id":"skip_counting","concept_name":"Skip Counting / Number Patterns","aliases":["skip counting","count by 2s","count by 5s","count by 10s","jump counting","repeating numbers","number patterns"],"chinese_culture":"Yangge dance steps by fours","explanation_text":"Yangge dancers on northern streets move in repeated four-beat patterns, crossing the square step by step. Counting every fourth beat lands on 4, 8, 12, 16, the same rhythm as skip counting. The repeating dance phrase and the repeating number pattern share the same structure.","image_prompt":"Village Yangge dancers with fans on a festive street, a sequence of steps marked 4, 8, 12, 16 to show skip counting."},{"concept_id":"comparing_numbers","concept_name":"Comparing and Ordering Numbers","aliases":["compare numbers","greater than","less than","more than","fewer than","biggest","smallest","ordering numbers","number order"],"chinese_culture":"Sugar cane stalks of many lengths","explanation_text":"At a southern market, a buyer holds sugar cane stalks side by side to see which is longer and which is shorter. Seeing which stalk is greater than another is comparing two quantities. Writing 8 > 5 or 5 < 8 records that comparison in number language.","image_prompt":"Sugar cane stalks of different lengths laid side by side at a market stall, with a greater-than symbol between two of them."},{"concept_id":"rounding_estimation","concept_name":"Rounding & Estimation","aliases":["round","rounding","estimate","estimation","approximate","about how much","close to","nearby number"],"chinese_culture":"Brewing suanmeitang for a crowd","explanation_text":"When a vendor brews sweet-sour plum drink for a market day, the exact number of cups is hard to predict, so the batch is rounded to a convenient pot size. This is estimation, using a close, convenient number instead of a precise one. Rounding to the nearest full pot makes the plan practical.","image_prompt":"A northern street vendor ladling suanmeitang into cups from large pots, with amounts labeled and rounded to the nearest pot."},{"concept_id":"fractions","concept_name":"Fractions","aliases":["fraction","part of a whole","portion","share","numerator","denominator"],"chinese_culture":"Sharing a basket of four buns","explanation_text":"A dim sum basket holds four identical buns. If four people share it, each person takes one of the four equal parts, one quarter of the basket. A fraction names that equal share of a whole.","image_prompt":"A bamboo steamer with four buns, one bun highlighted and labeled one-fourth, with the whole basket labeled one whole."},{"concept_id":"equivalent_fractions","concept_name":"Equivalent Fractions","aliases":["equal fractions","same value","fraction equality","equivalent"],"chinese_culture":"Cutting northern flatbread","explanation_text":"A cook cuts a wheat flatbread into two equal halves, then cuts each half into quarters. Two quarters of the bread and one half of the bread are the same amount of bread. Different fractions can name the same quantity, so they are equivalent.","image_prompt":"A round northern flatbread cut first into halves then quarters, with the halves and quarters shown side by side as equal amounts."},{"concept_id":"simplifying_fractions","concept_name":"Simplifying Fractions","aliases":["reduce fraction","lowest terms","simplify fraction"],"chinese_culture":"Packing eight steamer baskets","explanation_text":"If six of eight filled steamer baskets are ready to serve, six-eighths are done. Since both six and eight divide evenly by two, that is the same as three-quarters. Rewriting six-eighths as three-quarters is simplifying a fraction.","image_prompt":"Eight bamboo steamer baskets with six labeled ready and two waiting, six-eighths shown equal to three-quarters."},{"concept_id":"mixed_numbers","concept_name":"Mixed Numbers","aliases":["mixed number","whole and fraction","whole part and fraction part"],"chinese_culture":"Bowls from a clay pot","explanation_text":"A clay pot of fragrant rice with sausage fills two whole bowls and leaves a half bowl at the bottom. That amount is written 2 1/2, a whole part and a fraction part together. This combination is called a mixed number.","image_prompt":"A clay pot rice dish with two full bowls and one half-full bowl, labeled 2 and 1/2 forming 2 1/2."},{"concept_id":"improper_fractions","concept_name":"Improper Fractions","aliases":["top-heavy fraction","numerator larger","greater than one fraction"],"chinese_culture":"One noodle portion, two bowls","explanation_text":"A hearty bowl of hand-pulled noodles might overflow one standard serving and fill a second bowl partway. Measured in standard servings, the amount is more than one whole serving. A fraction whose numerator is larger than its denominator is an improper fraction.","image_prompt":"Hand-pulled lamian noodles spilling from one bowl into a second, labeled as five-fourths of a serving."},{"concept_id":"adding_fractions","concept_name":"Adding Fractions","aliases":["fraction addition","add fractions","sum of fractions"],"chinese_culture":"Filling a pot with small tea cups","explanation_text":"In a gongfu tea session, each small cup of tea is a fraction of the full teapot. Poured one after another into a larger vessel, the cups combine into a whole. Adding fractional amounts to build a total is how fractions are added.","image_prompt":"A gongfu tea tray where small cups are emptied into a larger teapot, each cup labeled as a fraction of the whole."},{"concept_id":"subtracting_fractions","concept_name":"Subtracting Fractions","aliases":["fraction subtraction","take away fractions","difference of fractions"],"chinese_culture":"Ladling congee from a pot","explanation_text":"A cook serves congee by ladling out portions from a full pot. When one quarter is served, three quarters remain. Taking a fractional part away and finding what is left is fraction subtraction.","image_prompt":"A pot of congee with one serving being ladled out, the remaining amount labeled three-fourths."},{"concept_id":"multiplying_fractions","concept_name":"Multiplying Fractions","aliases":["fraction multiplication","part of a part","multiply fractions"],"chinese_culture":"Half a bowl of wontons","explanation_text":"A guest takes half of a bowl of wontons, and the chef gives them half of that serving, half of a half. Half of one half is one quarter of the whole bowl. Finding a part of a part is multiplying fractions.","image_prompt":"A bowl of wontons divided in half, with one half divided again, the quarter portion highlighted."},{"concept_id":"dividing_fractions","concept_name":"Dividing Fractions","aliases":["fraction division","divide fractions","how many times in"],"chinese_culture":"Splitting a stack of jianbing","explanation_text":"A vendor stacks jianbing crepes and asks how many half-crepes make one whole crepe, and the answer is two. Asking how many of a smaller piece fit into a larger one is division with fractions.","image_prompt":"A stack of folded jianbing crepes, one crepe cut in half with two halves shown fitting back into the whole."},{"concept_id":"decimals","concept_name":"Decimals","aliases":["decimal point","tenths","hundredths","decimal number"],"chinese_culture":"Measuring water for rice","explanation_text":"A cook measures water for rice on a marked pot and stops at one and a half liters. The mark between one and two liters shows a tenth of the unit, making decimals visible. One and five tenths is written 1.5.","image_prompt":"A clear pot with water beside a rice basin, a scale marked 1.0, 1.5, and 2.0 liters."},{"concept_id":"converting_fractions_decimals","concept_name":"Converting Fractions and Decimals","aliases":["fraction to decimal","decimal to fraction","convert fractions"],"chinese_culture":"Legendary room count of the Forbidden City","explanation_text":"Legend says the Forbidden City contains nine thousand nine hundred ninety-nine and a half rooms, a number just shy of ten thousand. The half room means the same as 0.5 rooms, so nine thousand nine hundred ninety-nine and one half and 9,999.5 describe the identical count. Writing the same quantity as a fraction or a decimal is conversion.","image_prompt":"A bird's-eye view of the Forbidden City's halls, with the label 9999 1/2 shown equal to 9999.5."},{"concept_id":"percents","concept_name":"Percents","aliases":["percent","percentage","per hundred","rate per 100"],"chinese_culture":"Solving lantern riddles","explanation_text":"At a lantern festival riddle contest, solving 85 of 100 riddles means earning 85 out of every hundred, which is 85 percent. Percent simply means out of one hundred. The riddle score converts into a per-hundred rate.","image_prompt":"Festive paper lanterns with riddle slips, a scoreboard reading 85 out of 100 equals 85 percent."},{"concept_id":"percent_of_number","concept_name":"Percent of a Number","aliases":["percentage of number","find percent","portion of total"],"chinese_culture":"A jianbing stall discount","explanation_text":"A jianbing stall offers fifteen percent off an eight-yuan crepe. Finding fifteen percent of eight means taking fifteen out of every hundred of the price. This computes the actual amount of the discount.","image_prompt":"A Beijing street jianbing stall with a sign reading 15 percent off, a crepe price tag showing the discounted yuan amount."},{"concept_id":"variables","concept_name":"Variables","aliases":["variable","unknown","letter as number","symbol in math"],"chinese_culture":"Unlabeled baskets at the fish market","explanation_text":"In a Guangzhou wet market, an unlabeled basket sits with the other fish baskets because no one has counted its catch yet. That unknown count can stand for a letter in math. A symbol that holds an unknown number is a variable.","image_prompt":"A wet market stall with labeled fish baskets and one unlabeled basket marked x."},{"concept_id":"expressions","concept_name":"Expressions","aliases":["math expressions","numerical expressions","algebraic expressions"],"chinese_culture":"Known and unknown fish baskets","explanation_text":"If three fish baskets are known to hold fish and one unlabeled basket holds an unknown number, the total is written 3 + x. Combining known numbers with a variable like this builds an algebraic expression. Expressions describe amounts before they are computed.","image_prompt":"Four fish baskets at a market, three with fish counts and one marked x, joined by a plus sign as 3 + x."},{"concept_id":"equations","concept_name":"Equations","aliases":["math equations","equal statements","algebra equations"],"chinese_culture":"A balanced shoulder pole","explanation_text":"A water carrier's bamboo shoulder pole balances only when the load on each end is equal. The two ends holding equal weight show the meaning of the equals sign. When both sides match, the situation reads like an equation.","image_prompt":"A bamboo shoulder pole with two pails of water hanging in perfect balance, both ends labeled equal."},{"concept_id":"solving_one_step_equations","concept_name":"Solving One-Step Equations","aliases":["one-step equations","simple equations"],"chinese_culture":"A dumpling order on a tray","explanation_text":"A customer orders ten dumplings and three are already on the tray, so the cook must add the missing seven. To find the missing number, take the three away from the ten. One single operation finds the unknown, a one-step equation.","image_prompt":"A tray of dumplings with three placed and a blank space, labeled x plus 3 equals 10."},{"concept_id":"solving_two_step_equations","concept_name":"Solving Two-Step Equations","aliases":["two-step equations","multi-step equations"],"chinese_culture":"A tea buyer's two-step bill","explanation_text":"A buyer takes two tins of tea of the same price and adds a fixed gift-box fee, and the clerk writes the final total. Undoing the total requires two steps: subtract the gift-box fee, then divide by two. This mirrors solving a two-step equation.","image_prompt":"A tea shop counter with two tins of tea and a wrapped gift box, the bill written as 2x plus 5 equals 21."},{"concept_id":"inequalities","concept_name":"Inequalities","aliases":["greater than","less than","not equal","comparison statements"],"chinese_culture":"Comparing sampan cargo","explanation_text":"On the Pearl River, one sampan carries more rice baskets than another. The two loads are not equal, so their comparison is an inequality. The heavier load is greater than the lighter one, written with a greater-than sign.","image_prompt":"Two sampans on the Pearl River, one stacked higher with cargo, a greater-than symbol between them."},{"concept_id":"order_of_operations","concept_name":"Order of Operations (PEMDAS)","aliases":["PEMDAS","BODMAS","math order","operations order"],"chinese_culture":"Clay pot rice cooked in order","explanation_text":"Cooking clay pot rice follows a strict sequence: rinse the rice, measure the water, simmer, then add the sausages at the end. Reversing the steps ruins the dish. When an expression mixes operations, the order of doing them matters just as much.","image_prompt":"A step-by-step diagram of clay pot rice: washing rice, simmering, then adding toppings, numbered like an ordered calculation."},{"concept_id":"substitution","concept_name":"Substitution","aliases":["replace variable","substitute value","replace letter with number"],"chinese_culture":"Replacing a siheyuan brick","explanation_text":"A worn brick in a courtyard wall is replaced with an identical new brick, so the wall keeps its strength. In algebra, replacing a variable with its known value is substitution. The wall works the same whether its brick is named by the old piece or the new one.","image_prompt":"A siheyuan courtyard wall with one brick being replaced by an identical one, the brick marked with the letter x equaling its value."},{"concept_id":"points","concept_name":"Points","aliases":["dot","location","coordinate point"],"chinese_culture":"Marking West Lake's ten scenes","explanation_text":"Visitors mark the Ten Scenes of West Lake on a map, each landmark becoming a single dot at its location. A dot that names an exact place is a point in geometry. Points mark positions without length or width.","image_prompt":"A painted map of West Lake with ten dots at scenic spots, each dot labeled as a point."},{"concept_id":"lines","concept_name":"Lines","aliases":["straight line","geometry line","infinite line"],"chinese_culture":"Great Wall along the ridgelines","explanation_text":"Viewed from Jinshanling, the Great Wall runs along mountain ridgelines, and each long straight section stretches without bending. A geometric line is the same idea, a straight path that continues in both directions. The wall's straight stretches show lines in the landscape.","image_prompt":"The Great Wall snaking along straight mountain ridges at Jinshanling, straight guide lines drawn over each section."},{"concept_id":"angles","concept_name":"Angles","aliases":["angle","degree","corner measure"],"chinese_culture":"Corners of a hutong intersection","explanation_text":"Where two hutong streets meet, the corner spreads open like the hands of a clock. The amount of turn at that corner is an angle, measured in degrees. A narrow lane junction forms a small angle and a wide crossing a large one.","image_prompt":"A Beijing hutong intersection with a protractor drawn over the street corner, the angle measured in degrees."},{"concept_id":"perpendicular_lines","concept_name":"Perpendicular Lines","aliases":["right angle lines","intersecting lines","orthogonal lines"],"chinese_culture":"Beams meeting courtyard columns","explanation_text":"In a siheyuan courtyard house, horizontal roof beams meet vertical columns squarely. Where they meet, the beams form right angles, and lines meeting at right angles are perpendicular. The square joints keep the courtyard structure firm.","image_prompt":"A cutaway of a siheyuan house showing a beam meeting a column at a right angle, ninety-degree marks drawn at each joint."},{"concept_id":"parallel_lines","concept_name":"Parallel Lines","aliases":["side-by-side lines","never meet","equal distance lines"],"chinese_culture":"Longji terrace contours","explanation_text":"The stepped rice terraces of Longji follow the hillside in long, curving rows that never cross one another. Each terrace edge runs side by side with the next at a steady spacing. Lines that stay the same distance apart and never meet are parallel.","image_prompt":"The Longji rice terraces curving down a mountainside, with drawn parallel contour lines tracing each terrace edge."},{"concept_id":"polygons","concept_name":"Polygons","aliases":["shapes","closed figure","many-sided shape"],"chinese_culture":"Courtyards of the Forbidden City","explanation_text":"Seen from above, each courtyard compound of the Forbidden City is a walled shape made of straight sides that close back on themselves. A closed, many-sided figure is a polygon. The rectangular compounds of the palace are polygons on a grand scale.","image_prompt":"An aerial view of the Forbidden City's rectangular courtyard compounds, outlines traced to show closed polygons."},{"concept_id":"triangles","concept_name":"Triangles","aliases":["three sides","triangular","triangle shape"],"chinese_culture":"Gabled courtyard rooftops","explanation_text":"The gabled roofs of northern courtyard houses rise to a ridge, and the end wall beneath it forms a three-sided shape. The ridge, eave, and wall make a triangle. Because triangles hold their shape, they frame the gable without bending.","image_prompt":"Rows of northern courtyard houses with gabled roofs, one triangular gable highlighted with its three sides."},{"concept_id":"quadrilaterals","concept_name":"Quadrilaterals","aliases":["four sides","rectangles","squares","trapezoids"],"chinese_culture":"Square Hakka tulou","explanation_text":"Though round tulou are famous, many Hakka villages in Fujian built square earth houses whose walls form four straight sides. A four-sided closed shape is a quadrilateral. The square tulou's plan shows the quadrilateral in the layout of a home.","image_prompt":"A square Hakka tulou earth house seen from above, its four walls traced to show a quadrilateral outline."},{"concept_id":"perimeter","concept_name":"Perimeter","aliases":["boundary length","distance around","outline measure"],"chinese_culture":"Walking Pingyao's ancient city walls","explanation_text":"Visitors can walk the complete circuit of Pingyao's ancient rectangular walls. The full distance around the walls is the perimeter. Adding the lengths of all four sides gives the total distance of the walk.","image_prompt":"Tourists walking along Pingyao's ancient city wall, a dashed line tracing the full rectangular circuit around the town."},{"concept_id":"area","concept_name":"Area","aliases":["surface area","space inside","coverage"],"chinese_culture":"Measuring a rice terrace","explanation_text":"A farmer measures how much of the Longji hillside a terrace covers. The flat surface the terrace spans is its area. Larger terraces hold more rice because they cover more area on the slope.","image_prompt":"A single rice terrace on the Longji hillside shaded to show its surface area, with a grid of square measures drawn on it."},{"concept_id":"volume","concept_name":"Volume","aliases":["capacity","space inside 3D shape","liquid amount"],"chinese_culture":"Filling a Jingdezhen teapot","explanation_text":"A porcelain teapot from Jingdezhen is judged partly by how much tea it can hold. The space inside a three-dimensional shape is its volume. Pouring tea until the pot is full measures that capacity.","image_prompt":"A white-and-blue Jingdezhen porcelain teapot being filled with tea, its interior space labeled as volume."},{"concept_id":"circle_properties","concept_name":"Circle Properties","aliases":["radius","diameter","circumference","circle geometry"],"chinese_culture":"Round Hakka tulou","explanation_text":"The great round tulou of Fujian are built as exact circles so every family's room faces the shared courtyard. A line through the center from one wall to the other is the diameter, and half of that is the radius. The circular ring of rooms traces the circumference.","image_prompt":"A round Hakka tulou seen from above, with radius and diameter lines drawn across the circular courtyard."},{"concept_id":"pi","concept_name":"Pi (π)","aliases":["pi","ratio of circumference","3.14"],"chinese_culture":"Round Cantonese mooncakes","explanation_text":"A round Cantonese mooncake always keeps the same relationship between its rim and its width. No matter the mooncake's size, the distance around divided by the distance across stays about 3.14. That constant ratio is the number pi.","image_prompt":"Round Cantonese mooncakes of two sizes, each with circumference and diameter labeled, both ratios equal to 3.14."},{"concept_id":"coordinate_plane","concept_name":"Coordinate Plane","aliases":["x-y plane","graph grid","axes"],"chinese_culture":"Beijing's chessboard streets","explanation_text":"Beijing's streets were laid out on a grid, with avenues running east-west and north-south crossing like the axes of a graph. Any intersection can be found by naming its street in each direction. Two crossing number lines like this form a coordinate plane.","image_prompt":"An old map of Beijing's grid of straight streets with east-west and north-south axes drawn like graph lines."},{"concept_id":"plotting_points","concept_name":"Plotting Points","aliases":["graphing points","coordinates","x-y plotting"],"chinese_culture":"Charting dragon boats","explanation_text":"Race officials mark each dragon boat's position on a chart as the race progresses down the river. Each mark names a boat's location with a pair of numbers. Placing a dot at its coordinates is plotting a point.","image_prompt":"A dragon boat race chart with numbered lanes, dots marking each boat's position along the course."},{"concept_id":"symmetry","concept_name":"Symmetry","aliases":["mirror image","balanced halves","reflection symmetry"],"chinese_culture":"Folded paper cutting","explanation_text":"Northern paper-cut artists fold a sheet of red paper in half, cut a design, and unfold it to reveal two identical halves. Each half mirrors the other across the fold. This mirror balance is symmetry, and the fold line is the mirror line.","image_prompt":"A northern paper cutter folding red paper and cutting, the unfolded window decoration showing mirrored halves across the fold line."},{"concept_id":"transformations","concept_name":"Transformations","aliases":["translate","rotate","reflect","dilate"],"chinese_culture":"Reflections in a Suzhou garden","explanation_text":"In a Suzhou garden, pavilions and bridges reflect in the pond, and each reflection flips the structure across the waterline. Flipping a figure across a line is a reflection, one kind of geometric transformation. The garden pairs every building with its mirror image.","image_prompt":"A Suzhou garden pavilion reflected in a calm pond, the waterline drawn as the mirror line of the reflection."},{"concept_id":"ratios","concept_name":"Ratios","aliases":["comparison","proportion of quantities","rate"],"chinese_culture":"Gongfu tea proportions","explanation_text":"A gongfu tea master measures leaves against water in a fixed proportion, such as one part tea leaves to twenty parts water. Comparing two quantities with this fixed relationship is a ratio. Changing the ratio changes the strength of every cup.","image_prompt":"A gongfu tea setup with a scoop of leaves and a kettle of water, the proportion written as one to twenty."},{"concept_id":"proportions","concept_name":"Proportions","aliases":["equal ratios","scaling","balance of ratios"],"chinese_culture":"Enlarging a paper-cut pattern","explanation_text":"To copy a small paper-cut design as a large banner, the artist multiplies every measurement by the same factor. Each part of the design grows by the same amount, keeping the shapes faithful. Two ratios that stay equal while scaling are proportions.","image_prompt":"A small paper-cut stencil beside a larger version of the same pattern, arrows showing every measurement scaled by the same factor."},{"concept_id":"unit_rate","concept_name":"Unit Rate","aliases":["per unit","rate per one","comparison per one unit"],"chinese_culture":"Lamian bowls per hour","explanation_text":"A lamian chef can pull and serve a set number of noodle bowls every hour. The amount produced in one hour is a unit rate, written as bowls per hour. Comparing chefs' speed means comparing their unit rates.","image_prompt":"A lamian chef pulling noodle dough, a counter showing bowls served per hour as the unit rate."},{"concept_id":"scale_drawings","concept_name":"Scale Drawings","aliases":["map scale","drawing proportion","scaled map"],"chinese_culture":"Mapping Pingyao's walls","explanation_text":"Cartographers draw Pingyao's walled town as a smaller plan, shrinking every street by the same fraction. Each centimeter on the plan stands for a fixed number of meters on the ground. A drawing that keeps real distances proportional is a scale drawing.","image_prompt":"The walled town of Pingyao beside its map, a scale bar linking centimeters to meters."},{"concept_id":"percent_change","concept_name":"Percent Change","aliases":["percent increase","percent decrease","growth rate"],"chinese_culture":"A growing lychee harvest","explanation_text":"An orchard's lychee harvest rises from two hundred to two hundred sixty baskets. The increase of sixty baskets is thirty percent of the original harvest. Comparing the change to the starting amount gives the percent change.","image_prompt":"Southern lychee trees with baskets of fruit, a chart showing harvest rising from 200 to 260 baskets labeled 30 percent."},{"concept_id":"data_collection","concept_name":"Data Collection","aliases":["gather data","record information","collect numbers"],"chinese_culture":"Counting fruit per tree","explanation_text":"An orchard keeper walks the rows and records how many lychees each tree bears, writing the count on a tablet. Gathering numbers from the real world in an organized way is data collection. The recorded list becomes the raw material for charts and averages.","image_prompt":"An orchard keeper counting lychees on a tree and writing tallies on a wooden tablet, baskets of fruit nearby."},{"concept_id":"tables_graphs","concept_name":"Tables and Graphs","aliases":["data table","bar graph","chart"],"chinese_culture":"A village wheat harvest table","explanation_text":"Farmers on the North China Plain record each field's wheat harvest in rows and columns. The tidy rows and columns make the numbers easy to compare at a glance. Organizing data into a table is the first step before drawing graphs.","image_prompt":"A wooden table ledger with wheat harvest numbers written in rows and columns beside golden wheat fields."},{"concept_id":"mean","concept_name":"Mean","aliases":["average","arithmetic mean","mean value"],"chinese_culture":"Average wheat per field","explanation_text":"To describe a village's wheat harvest, farmers add the yield of every field and divide by the number of fields. The result is the mean, or average, yield per field. One number then represents the whole harvest fairly.","image_prompt":"Wheat fields of differing sizes on the North China Plain, with the total harvest divided evenly and labeled as the mean per field."},{"concept_id":"median","concept_name":"Median","aliases":["middle value","data median"],"chinese_culture":"The middle harvest","explanation_text":"Line up the year's wheat harvests from smallest to largest and the harvest in the exact middle is the median. The median is not swayed by one enormous field. It describes the center of the data in a stable way.","image_prompt":"A row of harvest sacks lined up from shortest to tallest, the middle sack highlighted and labeled the median."},{"concept_id":"mode","concept_name":"Mode","aliases":["most frequent value","common value"],"chinese_culture":"The common lantern color","explanation_text":"At a hutong's lantern festival street, red lanterns outnumber every other color. The value that appears most often in a set of data is the mode. Red is the mode of the lantern colors.","image_prompt":"Lanterns in red, gold, and pink strung across a hutong lane, red shown as the most common color, labeled the mode."},{"concept_id":"range","concept_name":"Range","aliases":["difference","spread of data","highest minus lowest"],"chinese_culture":"Widest and narrowest loads","explanation_text":"On the Pearl River, the heaviest sampan carries twenty baskets and the lightest carries eight. Subtracting the smallest from the largest gives twelve, the spread of the data. The gap between the highest and lowest values is the range.","image_prompt":"Sampans along a river carrying different numbers of cargo baskets, the heaviest and lightest marked to show the range."},{"concept_id":"bar_graphs","concept_name":"Bar Graphs","aliases":["bar chart","column graph"],"chinese_culture":"Lanterns along the lanes","explanation_text":"To compare festival decorations, neighbors count the lanterns hanging on each hutong lane and draw one bar per lane. The tallest bar shows which lane has the most lanterns. Bars of different heights make comparison immediate.","image_prompt":"A bar graph with one bar for each hutong lane showing lantern counts, the tallest bar highlighted."},{"concept_id":"line_graphs","concept_name":"Line Graphs","aliases":["trend graph","line chart"],"chinese_culture":"Suanmeitang sales over summer","explanation_text":"A drink stall records suanmeitang sales each week through the hot months and joins the weekly totals with a line. The rising and falling line shows the trend of the season. Connecting data points reveals change over time.","image_prompt":"A graph of suanmeitang cups sold across summer weeks, a rising and falling line connecting the weekly points."},{"concept_id":"pie_charts","concept_name":"Pie Charts","aliases":["circle chart","percentage chart"],"chinese_culture":"Mahjong tile suits","explanation_text":"A mahjong set holds tiles of three suits, and the whole set can be divided into its suit groups. A pie chart shows the proportion of each suit as a slice of the circle. The full circle is the whole set, and each slice is one part of it.","image_prompt":"A mahjong set arranged by suits, with a pie chart beside it showing the share of each suit as colored slices."},{"concept_id":"probability","concept_name":"Probability","aliases":["chance","likelihood","odds"],"chinese_culture":"Drawing a mahjong tile","explanation_text":"Before a player draws, some tiles remain in the wall, and the chance of pulling a particular tile depends on how many of that tile are left. That chance is probability. Comparing the favorable tiles to all remaining tiles gives the odds.","image_prompt":"A mahjong wall of face-down tiles with one hand drawing a tile, favorable tiles counted against all remaining tiles."},{"concept_id":"patterns","concept_name":"Patterns","aliases":["repeating design","sequence","recurrence"],"chinese_culture":"Courtyard window lattices","explanation_text":"Wooden window lattices in northern courtyard houses repeat the same carved shape again and again across the frame. The shape that repeats in a fixed order is a pattern. Predicting the next cell means following the same rule.","image_prompt":"A carved wooden window lattice repeating the same shape across a siheyuan window, the repeating unit highlighted."},{"concept_id":"functions","concept_name":"Functions","aliases":["input-output rule","function relation","mapping"],"chinese_culture":"Dragon boat strokes and speed","explanation_text":"In a dragon boat, every stroke rate gives the boat a matching speed through the water. For each input number of strokes, there is exactly one output speed. A rule that pairs each input with one output is a function.","image_prompt":"A dragon boat race with a chart linking strokes per minute on one side to boat speed on the other."}]
+[
+    {
+        "concept_id": "place_value",
+        "concept_name": "Place Value",
+        "aliases": [
+            "place value",
+            "digit place",
+            "number place",
+            "units place",
+            "tens place",
+            "hundreds place",
+            "position of digits",
+            "digit position"
+        ],
+        "chinese_culture": "Abacus columns holding beads",
+        "explanation_text": "On a Chinese abacus (suanpan), each column holds a place: the rightmost column counts ones, the next counts tens, and so on. Moving a bead one column left multiplies its value by ten, exactly as a digit's place changes its value. Reading a number off the abacus means reading the value of each column together.",
+        "image_prompt": "A Chinese abacus with beads pushed toward the middle beam, columns labeled ones, tens, and hundreds, showing how position sets each bead's value."
+    },
+    {
+        "concept_id": "addition_subtraction",
+        "concept_name": "Addition & Subtraction",
+        "aliases": [
+            "add",
+            "addition",
+            "plus",
+            "sum",
+            "combine",
+            "total",
+            "subtract",
+            "subtraction",
+            "minus",
+            "take away",
+            "difference"
+        ],
+        "chinese_culture": "Stacking Cantonese steamer baskets",
+        "explanation_text": "At a Cantonese dim sum house, bamboo steamer baskets are stacked on a cart, and the stack grows as more dishes are added. Lifting baskets off to serve shrinks the stack. Adding to the stack increases the total count, and removing baskets decreases it, just like addition and subtraction.",
+        "image_prompt": "A dim sum cart with bamboo steamer baskets being added to and lifted off a tall stack, with plus and minus symbols beside it."
+    },
+    {
+        "concept_id": "multiplication_division",
+        "concept_name": "Multiplication & Division",
+        "aliases": [
+            "multiply",
+            "multiplication",
+            "times",
+            "groups of",
+            "repeated addition",
+            "divide",
+            "division",
+            "split equally",
+            "sharing"
+        ],
+        "chinese_culture": "Rows of pleated dumplings",
+        "explanation_text": "Dumplings are arranged on a tray in neat rows of ten, so counting them by rows is repeated addition, which is multiplication. When the tray is shared so each person gets an equal number, the rows are split evenly, which is division.",
+        "image_prompt": "A round tray with rows of pleated jiaozi dumplings, arrows showing groups being counted and then split into equal shares."
+    },
+    {
+        "concept_id": "even_odd",
+        "concept_name": "Even and Odd Numbers",
+        "aliases": [
+            "even numbers",
+            "odd numbers",
+            "even",
+            "odd",
+            "pairs",
+            "leftover",
+            "no remainder",
+            "remains one"
+        ],
+        "chinese_culture": "Dumplings served in even pairs",
+        "explanation_text": "In northern homes, dumplings are traditionally served in even numbers so every person gets complete pairs. A plate holding ten dumplings pairs perfectly, making ten even. Leave one dumpling on the plate and that single leftover makes it odd.",
+        "image_prompt": "A plate of dumplings arranged in matching pairs with one lone dumpling set aside, labeled even and odd."
+    },
+    {
+        "concept_id": "skip_counting",
+        "concept_name": "Skip Counting / Number Patterns",
+        "aliases": [
+            "skip counting",
+            "count by 2s",
+            "count by 5s",
+            "count by 10s",
+            "jump counting",
+            "repeating numbers",
+            "number patterns"
+        ],
+        "chinese_culture": "Yangge dance steps by fours",
+        "explanation_text": "Yangge dancers on northern streets move in repeated four-beat patterns, crossing the square step by step. Counting every fourth beat lands on 4, 8, 12, 16, the same rhythm as skip counting. The repeating dance phrase and the repeating number pattern share the same structure.",
+        "image_prompt": "Village Yangge dancers with fans on a festive street, a sequence of steps marked 4, 8, 12, 16 to show skip counting."
+    },
+    {
+        "concept_id": "comparing_numbers",
+        "concept_name": "Comparing and Ordering Numbers",
+        "aliases": [
+            "compare numbers",
+            "greater than",
+            "less than",
+            "more than",
+            "fewer than",
+            "biggest",
+            "smallest",
+            "ordering numbers",
+            "number order"
+        ],
+        "chinese_culture": "Sugar cane stalks of many lengths",
+        "explanation_text": "At a southern market, a buyer holds sugar cane stalks side by side to see which is longer and which is shorter. Seeing which stalk is greater than another is comparing two quantities. Writing 8 > 5 or 5 < 8 records that comparison in number language.",
+        "image_prompt": "Sugar cane stalks of different lengths laid side by side at a market stall, with a greater-than symbol between two of them."
+    },
+    {
+        "concept_id": "rounding_estimation",
+        "concept_name": "Rounding & Estimation",
+        "aliases": [
+            "round",
+            "rounding",
+            "estimate",
+            "estimation",
+            "approximate",
+            "about how much",
+            "close to",
+            "nearby number"
+        ],
+        "chinese_culture": "Brewing suanmeitang for a crowd",
+        "explanation_text": "When a vendor brews sweet-sour plum drink for a market day, the exact number of cups is hard to predict, so the batch is rounded to a convenient pot size. This is estimation, using a close, convenient number instead of a precise one. Rounding to the nearest full pot makes the plan practical.",
+        "image_prompt": "A northern street vendor ladling suanmeitang into cups from large pots, with amounts labeled and rounded to the nearest pot."
+    },
+    {
+        "concept_id": "fractions",
+        "concept_name": "Fractions",
+        "aliases": ["fraction", "part of a whole", "portion", "share", "numerator", "denominator"],
+        "chinese_culture": "Sharing a basket of four buns",
+        "explanation_text": "A dim sum basket holds four identical buns. If four people share it, each person takes one of the four equal parts, one quarter of the basket. A fraction names that equal share of a whole.",
+        "image_prompt": "A bamboo steamer with four buns, one bun highlighted and labeled one-fourth, with the whole basket labeled one whole."
+    },
+    {
+        "concept_id": "equivalent_fractions",
+        "concept_name": "Equivalent Fractions",
+        "aliases": ["equal fractions", "same value", "fraction equality", "equivalent"],
+        "chinese_culture": "Cutting northern flatbread",
+        "explanation_text": "A cook cuts a wheat flatbread into two equal halves, then cuts each half into quarters. Two quarters of the bread and one half of the bread are the same amount of bread. Different fractions can name the same quantity, so they are equivalent.",
+        "image_prompt": "A round northern flatbread cut first into halves then quarters, with the halves and quarters shown side by side as equal amounts."
+    },
+    {
+        "concept_id": "simplifying_fractions",
+        "concept_name": "Simplifying Fractions",
+        "aliases": ["reduce fraction", "lowest terms", "simplify fraction"],
+        "chinese_culture": "Packing eight steamer baskets",
+        "explanation_text": "If six of eight filled steamer baskets are ready to serve, six-eighths are done. Since both six and eight divide evenly by two, that is the same as three-quarters. Rewriting six-eighths as three-quarters is simplifying a fraction.",
+        "image_prompt": "Eight bamboo steamer baskets with six labeled ready and two waiting, six-eighths shown equal to three-quarters."
+    },
+    {
+        "concept_id": "mixed_numbers",
+        "concept_name": "Mixed Numbers",
+        "aliases": ["mixed number", "whole and fraction", "whole part and fraction part"],
+        "chinese_culture": "Bowls from a clay pot",
+        "explanation_text": "A clay pot of fragrant rice with sausage fills two whole bowls and leaves a half bowl at the bottom. That amount is written 2 1/2, a whole part and a fraction part together. This combination is called a mixed number.",
+        "image_prompt": "A clay pot rice dish with two full bowls and one half-full bowl, labeled 2 and 1/2 forming 2 1/2."
+    },
+    {
+        "concept_id": "improper_fractions",
+        "concept_name": "Improper Fractions",
+        "aliases": ["top-heavy fraction", "numerator larger", "greater than one fraction"],
+        "chinese_culture": "One noodle portion, two bowls",
+        "explanation_text": "A hearty bowl of hand-pulled noodles might overflow one standard serving and fill a second bowl partway. Measured in standard servings, the amount is more than one whole serving. A fraction whose numerator is larger than its denominator is an improper fraction.",
+        "image_prompt": "Hand-pulled lamian noodles spilling from one bowl into a second, labeled as five-fourths of a serving."
+    },
+    {
+        "concept_id": "adding_fractions",
+        "concept_name": "Adding Fractions",
+        "aliases": ["fraction addition", "add fractions", "sum of fractions"],
+        "chinese_culture": "Filling a pot with small tea cups",
+        "explanation_text": "In a gongfu tea session, each small cup of tea is a fraction of the full teapot. Poured one after another into a larger vessel, the cups combine into a whole. Adding fractional amounts to build a total is how fractions are added.",
+        "image_prompt": "A gongfu tea tray where small cups are emptied into a larger teapot, each cup labeled as a fraction of the whole."
+    },
+    {
+        "concept_id": "subtracting_fractions",
+        "concept_name": "Subtracting Fractions",
+        "aliases": ["fraction subtraction", "take away fractions", "difference of fractions"],
+        "chinese_culture": "Ladling congee from a pot",
+        "explanation_text": "A cook serves congee by ladling out portions from a full pot. When one quarter is served, three quarters remain. Taking a fractional part away and finding what is left is fraction subtraction.",
+        "image_prompt": "A pot of congee with one serving being ladled out, the remaining amount labeled three-fourths."
+    },
+    {
+        "concept_id": "multiplying_fractions",
+        "concept_name": "Multiplying Fractions",
+        "aliases": ["fraction multiplication", "part of a part", "multiply fractions"],
+        "chinese_culture": "Half a bowl of wontons",
+        "explanation_text": "A guest takes half of a bowl of wontons, and the chef gives them half of that serving, half of a half. Half of one half is one quarter of the whole bowl. Finding a part of a part is multiplying fractions.",
+        "image_prompt": "A bowl of wontons divided in half, with one half divided again, the quarter portion highlighted."
+    },
+    {
+        "concept_id": "dividing_fractions",
+        "concept_name": "Dividing Fractions",
+        "aliases": ["fraction division", "divide fractions", "how many times in"],
+        "chinese_culture": "Splitting a stack of jianbing",
+        "explanation_text": "A vendor stacks jianbing crepes and asks how many half-crepes make one whole crepe, and the answer is two. Asking how many of a smaller piece fit into a larger one is division with fractions.",
+        "image_prompt": "A stack of folded jianbing crepes, one crepe cut in half with two halves shown fitting back into the whole."
+    },
+    {
+        "concept_id": "decimals",
+        "concept_name": "Decimals",
+        "aliases": ["decimal point", "tenths", "hundredths", "decimal number"],
+        "chinese_culture": "Measuring water for rice",
+        "explanation_text": "A cook measures water for rice on a marked pot and stops at one and a half liters. The mark between one and two liters shows a tenth of the unit, making decimals visible. One and five tenths is written 1.5.",
+        "image_prompt": "A clear pot with water beside a rice basin, a scale marked 1.0, 1.5, and 2.0 liters."
+    },
+    {
+        "concept_id": "converting_fractions_decimals",
+        "concept_name": "Converting Fractions and Decimals",
+        "aliases": ["fraction to decimal", "decimal to fraction", "convert fractions"],
+        "chinese_culture": "Legendary room count of the Forbidden City",
+        "explanation_text": "Legend says the Forbidden City contains nine thousand nine hundred ninety-nine and a half rooms, a number just shy of ten thousand. The half room means the same as 0.5 rooms, so nine thousand nine hundred ninety-nine and one half and 9,999.5 describe the identical count. Writing the same quantity as a fraction or a decimal is conversion.",
+        "image_prompt": "A bird's-eye view of the Forbidden City's halls, with the label 9999 1/2 shown equal to 9999.5."
+    },
+    {
+        "concept_id": "percents",
+        "concept_name": "Percents",
+        "aliases": ["percent", "percentage", "per hundred", "rate per 100"],
+        "chinese_culture": "Solving lantern riddles",
+        "explanation_text": "At a lantern festival riddle contest, solving 85 of 100 riddles means earning 85 out of every hundred, which is 85 percent. Percent simply means out of one hundred. The riddle score converts into a per-hundred rate.",
+        "image_prompt": "Festive paper lanterns with riddle slips, a scoreboard reading 85 out of 100 equals 85 percent."
+    },
+    {
+        "concept_id": "percent_of_number",
+        "concept_name": "Percent of a Number",
+        "aliases": ["percentage of number", "find percent", "portion of total"],
+        "chinese_culture": "A jianbing stall discount",
+        "explanation_text": "A jianbing stall offers fifteen percent off an eight-yuan crepe. Finding fifteen percent of eight means taking fifteen out of every hundred of the price. This computes the actual amount of the discount.",
+        "image_prompt": "A Beijing street jianbing stall with a sign reading 15 percent off, a crepe price tag showing the discounted yuan amount."
+    },
+    {
+        "concept_id": "variables",
+        "concept_name": "Variables",
+        "aliases": ["variable", "unknown", "letter as number", "symbol in math"],
+        "chinese_culture": "Unlabeled baskets at the fish market",
+        "explanation_text": "In a Guangzhou wet market, an unlabeled basket sits with the other fish baskets because no one has counted its catch yet. That unknown count can stand for a letter in math. A symbol that holds an unknown number is a variable.",
+        "image_prompt": "A wet market stall with labeled fish baskets and one unlabeled basket marked x."
+    },
+    {
+        "concept_id": "expressions",
+        "concept_name": "Expressions",
+        "aliases": ["math expressions", "numerical expressions", "algebraic expressions"],
+        "chinese_culture": "Known and unknown fish baskets",
+        "explanation_text": "If three fish baskets are known to hold fish and one unlabeled basket holds an unknown number, the total is written 3 + x. Combining known numbers with a variable like this builds an algebraic expression. Expressions describe amounts before they are computed.",
+        "image_prompt": "Four fish baskets at a market, three with fish counts and one marked x, joined by a plus sign as 3 + x."
+    },
+    {
+        "concept_id": "equations",
+        "concept_name": "Equations",
+        "aliases": ["math equations", "equal statements", "algebra equations"],
+        "chinese_culture": "A balanced shoulder pole",
+        "explanation_text": "A water carrier's bamboo shoulder pole balances only when the load on each end is equal. The two ends holding equal weight show the meaning of the equals sign. When both sides match, the situation reads like an equation.",
+        "image_prompt": "A bamboo shoulder pole with two pails of water hanging in perfect balance, both ends labeled equal."
+    },
+    {
+        "concept_id": "solving_one_step_equations",
+        "concept_name": "Solving One-Step Equations",
+        "aliases": ["one-step equations", "simple equations"],
+        "chinese_culture": "A dumpling order on a tray",
+        "explanation_text": "A customer orders ten dumplings and three are already on the tray, so the cook must add the missing seven. To find the missing number, take the three away from the ten. One single operation finds the unknown, a one-step equation.",
+        "image_prompt": "A tray of dumplings with three placed and a blank space, labeled x plus 3 equals 10."
+    },
+    {
+        "concept_id": "solving_two_step_equations",
+        "concept_name": "Solving Two-Step Equations",
+        "aliases": ["two-step equations", "multi-step equations"],
+        "chinese_culture": "A tea buyer's two-step bill",
+        "explanation_text": "A buyer takes two tins of tea of the same price and adds a fixed gift-box fee, and the clerk writes the final total. Undoing the total requires two steps: subtract the gift-box fee, then divide by two. This mirrors solving a two-step equation.",
+        "image_prompt": "A tea shop counter with two tins of tea and a wrapped gift box, the bill written as 2x plus 5 equals 21."
+    },
+    {
+        "concept_id": "inequalities",
+        "concept_name": "Inequalities",
+        "aliases": ["greater than", "less than", "not equal", "comparison statements"],
+        "chinese_culture": "Comparing sampan cargo",
+        "explanation_text": "On the Pearl River, one sampan carries more rice baskets than another. The two loads are not equal, so their comparison is an inequality. The heavier load is greater than the lighter one, written with a greater-than sign.",
+        "image_prompt": "Two sampans on the Pearl River, one stacked higher with cargo, a greater-than symbol between them."
+    },
+    {
+        "concept_id": "order_of_operations",
+        "concept_name": "Order of Operations (PEMDAS)",
+        "aliases": ["PEMDAS", "BODMAS", "math order", "operations order"],
+        "chinese_culture": "Clay pot rice cooked in order",
+        "explanation_text": "Cooking clay pot rice follows a strict sequence: rinse the rice, measure the water, simmer, then add the sausages at the end. Reversing the steps ruins the dish. When an expression mixes operations, the order of doing them matters just as much.",
+        "image_prompt": "A step-by-step diagram of clay pot rice: washing rice, simmering, then adding toppings, numbered like an ordered calculation."
+    },
+    {
+        "concept_id": "substitution",
+        "concept_name": "Substitution",
+        "aliases": ["replace variable", "substitute value", "replace letter with number"],
+        "chinese_culture": "Replacing a siheyuan brick",
+        "explanation_text": "A worn brick in a courtyard wall is replaced with an identical new brick, so the wall keeps its strength. In algebra, replacing a variable with its known value is substitution. The wall works the same whether its brick is named by the old piece or the new one.",
+        "image_prompt": "A siheyuan courtyard wall with one brick being replaced by an identical one, the brick marked with the letter x equaling its value."
+    },
+    {
+        "concept_id": "points",
+        "concept_name": "Points",
+        "aliases": ["dot", "location", "coordinate point"],
+        "chinese_culture": "Marking West Lake's ten scenes",
+        "explanation_text": "Visitors mark the Ten Scenes of West Lake on a map, each landmark becoming a single dot at its location. A dot that names an exact place is a point in geometry. Points mark positions without length or width.",
+        "image_prompt": "A painted map of West Lake with ten dots at scenic spots, each dot labeled as a point."
+    },
+    {
+        "concept_id": "lines",
+        "concept_name": "Lines",
+        "aliases": ["straight line", "geometry line", "infinite line"],
+        "chinese_culture": "Great Wall along the ridgelines",
+        "explanation_text": "Viewed from Jinshanling, the Great Wall runs along mountain ridgelines, and each long straight section stretches without bending. A geometric line is the same idea, a straight path that continues in both directions. The wall's straight stretches show lines in the landscape.",
+        "image_prompt": "The Great Wall snaking along straight mountain ridges at Jinshanling, straight guide lines drawn over each section."
+    },
+    {
+        "concept_id": "angles",
+        "concept_name": "Angles",
+        "aliases": ["angle", "degree", "corner measure"],
+        "chinese_culture": "Corners of a hutong intersection",
+        "explanation_text": "Where two hutong streets meet, the corner spreads open like the hands of a clock. The amount of turn at that corner is an angle, measured in degrees. A narrow lane junction forms a small angle and a wide crossing a large one.",
+        "image_prompt": "A Beijing hutong intersection with a protractor drawn over the street corner, the angle measured in degrees."
+    },
+    {
+        "concept_id": "perpendicular_lines",
+        "concept_name": "Perpendicular Lines",
+        "aliases": ["right angle lines", "intersecting lines", "orthogonal lines"],
+        "chinese_culture": "Beams meeting courtyard columns",
+        "explanation_text": "In a siheyuan courtyard house, horizontal roof beams meet vertical columns squarely. Where they meet, the beams form right angles, and lines meeting at right angles are perpendicular. The square joints keep the courtyard structure firm.",
+        "image_prompt": "A cutaway of a siheyuan house showing a beam meeting a column at a right angle, ninety-degree marks drawn at each joint."
+    },
+    {
+        "concept_id": "parallel_lines",
+        "concept_name": "Parallel Lines",
+        "aliases": ["side-by-side lines", "never meet", "equal distance lines"],
+        "chinese_culture": "Longji terrace contours",
+        "explanation_text": "The stepped rice terraces of Longji follow the hillside in long, curving rows that never cross one another. Each terrace edge runs side by side with the next at a steady spacing. Lines that stay the same distance apart and never meet are parallel.",
+        "image_prompt": "The Longji rice terraces curving down a mountainside, with drawn parallel contour lines tracing each terrace edge."
+    },
+    {
+        "concept_id": "polygons",
+        "concept_name": "Polygons",
+        "aliases": ["shapes", "closed figure", "many-sided shape"],
+        "chinese_culture": "Courtyards of the Forbidden City",
+        "explanation_text": "Seen from above, each courtyard compound of the Forbidden City is a walled shape made of straight sides that close back on themselves. A closed, many-sided figure is a polygon. The rectangular compounds of the palace are polygons on a grand scale.",
+        "image_prompt": "An aerial view of the Forbidden City's rectangular courtyard compounds, outlines traced to show closed polygons."
+    },
+    {
+        "concept_id": "triangles",
+        "concept_name": "Triangles",
+        "aliases": ["three sides", "triangular", "triangle shape"],
+        "chinese_culture": "Gabled courtyard rooftops",
+        "explanation_text": "The gabled roofs of northern courtyard houses rise to a ridge, and the end wall beneath it forms a three-sided shape. The ridge, eave, and wall make a triangle. Because triangles hold their shape, they frame the gable without bending.",
+        "image_prompt": "Rows of northern courtyard houses with gabled roofs, one triangular gable highlighted with its three sides."
+    },
+    {
+        "concept_id": "quadrilaterals",
+        "concept_name": "Quadrilaterals",
+        "aliases": ["four sides", "rectangles", "squares", "trapezoids"],
+        "chinese_culture": "Square Hakka tulou",
+        "explanation_text": "Though round tulou are famous, many Hakka villages in Fujian built square earth houses whose walls form four straight sides. A four-sided closed shape is a quadrilateral. The square tulou's plan shows the quadrilateral in the layout of a home.",
+        "image_prompt": "A square Hakka tulou earth house seen from above, its four walls traced to show a quadrilateral outline."
+    },
+    {
+        "concept_id": "perimeter",
+        "concept_name": "Perimeter",
+        "aliases": ["boundary length", "distance around", "outline measure"],
+        "chinese_culture": "Walking Pingyao's ancient city walls",
+        "explanation_text": "Visitors can walk the complete circuit of Pingyao's ancient rectangular walls. The full distance around the walls is the perimeter. Adding the lengths of all four sides gives the total distance of the walk.",
+        "image_prompt": "Tourists walking along Pingyao's ancient city wall, a dashed line tracing the full rectangular circuit around the town."
+    },
+    {
+        "concept_id": "area",
+        "concept_name": "Area",
+        "aliases": ["surface area", "space inside", "coverage"],
+        "chinese_culture": "Measuring a rice terrace",
+        "explanation_text": "A farmer measures how much of the Longji hillside a terrace covers. The flat surface the terrace spans is its area. Larger terraces hold more rice because they cover more area on the slope.",
+        "image_prompt": "A single rice terrace on the Longji hillside shaded to show its surface area, with a grid of square measures drawn on it."
+    },
+    {
+        "concept_id": "volume",
+        "concept_name": "Volume",
+        "aliases": ["capacity", "space inside 3D shape", "liquid amount"],
+        "chinese_culture": "Filling a Jingdezhen teapot",
+        "explanation_text": "A porcelain teapot from Jingdezhen is judged partly by how much tea it can hold. The space inside a three-dimensional shape is its volume. Pouring tea until the pot is full measures that capacity.",
+        "image_prompt": "A white-and-blue Jingdezhen porcelain teapot being filled with tea, its interior space labeled as volume."
+    },
+    {
+        "concept_id": "circle_properties",
+        "concept_name": "Circle Properties",
+        "aliases": ["radius", "diameter", "circumference", "circle geometry"],
+        "chinese_culture": "Round Hakka tulou",
+        "explanation_text": "The great round tulou of Fujian are built as exact circles so every family's room faces the shared courtyard. A line through the center from one wall to the other is the diameter, and half of that is the radius. The circular ring of rooms traces the circumference.",
+        "image_prompt": "A round Hakka tulou seen from above, with radius and diameter lines drawn across the circular courtyard."
+    },
+    {
+        "concept_id": "pi",
+        "concept_name": "Pi (π)",
+        "aliases": ["pi", "ratio of circumference", "3.14"],
+        "chinese_culture": "Round Cantonese mooncakes",
+        "explanation_text": "A round Cantonese mooncake always keeps the same relationship between its rim and its width. No matter the mooncake's size, the distance around divided by the distance across stays about 3.14. That constant ratio is the number pi.",
+        "image_prompt": "Round Cantonese mooncakes of two sizes, each with circumference and diameter labeled, both ratios equal to 3.14."
+    },
+    {
+        "concept_id": "coordinate_plane",
+        "concept_name": "Coordinate Plane",
+        "aliases": ["x-y plane", "graph grid", "axes"],
+        "chinese_culture": "Beijing's chessboard streets",
+        "explanation_text": "Beijing's streets were laid out on a grid, with avenues running east-west and north-south crossing like the axes of a graph. Any intersection can be found by naming its street in each direction. Two crossing number lines like this form a coordinate plane.",
+        "image_prompt": "An old map of Beijing's grid of straight streets with east-west and north-south axes drawn like graph lines."
+    },
+    {
+        "concept_id": "plotting_points",
+        "concept_name": "Plotting Points",
+        "aliases": ["graphing points", "coordinates", "x-y plotting"],
+        "chinese_culture": "Charting dragon boats",
+        "explanation_text": "Race officials mark each dragon boat's position on a chart as the race progresses down the river. Each mark names a boat's location with a pair of numbers. Placing a dot at its coordinates is plotting a point.",
+        "image_prompt": "A dragon boat race chart with numbered lanes, dots marking each boat's position along the course."
+    },
+    {
+        "concept_id": "symmetry",
+        "concept_name": "Symmetry",
+        "aliases": ["mirror image", "balanced halves", "reflection symmetry"],
+        "chinese_culture": "Folded paper cutting",
+        "explanation_text": "Northern paper-cut artists fold a sheet of red paper in half, cut a design, and unfold it to reveal two identical halves. Each half mirrors the other across the fold. This mirror balance is symmetry, and the fold line is the mirror line.",
+        "image_prompt": "A northern paper cutter folding red paper and cutting, the unfolded window decoration showing mirrored halves across the fold line."
+    },
+    {
+        "concept_id": "transformations",
+        "concept_name": "Transformations",
+        "aliases": ["translate", "rotate", "reflect", "dilate"],
+        "chinese_culture": "Reflections in a Suzhou garden",
+        "explanation_text": "In a Suzhou garden, pavilions and bridges reflect in the pond, and each reflection flips the structure across the waterline. Flipping a figure across a line is a reflection, one kind of geometric transformation. The garden pairs every building with its mirror image.",
+        "image_prompt": "A Suzhou garden pavilion reflected in a calm pond, the waterline drawn as the mirror line of the reflection."
+    },
+    {
+        "concept_id": "ratios",
+        "concept_name": "Ratios",
+        "aliases": ["comparison", "proportion of quantities", "rate"],
+        "chinese_culture": "Gongfu tea proportions",
+        "explanation_text": "A gongfu tea master measures leaves against water in a fixed proportion, such as one part tea leaves to twenty parts water. Comparing two quantities with this fixed relationship is a ratio. Changing the ratio changes the strength of every cup.",
+        "image_prompt": "A gongfu tea setup with a scoop of leaves and a kettle of water, the proportion written as one to twenty."
+    },
+    {
+        "concept_id": "proportions",
+        "concept_name": "Proportions",
+        "aliases": ["equal ratios", "scaling", "balance of ratios"],
+        "chinese_culture": "Enlarging a paper-cut pattern",
+        "explanation_text": "To copy a small paper-cut design as a large banner, the artist multiplies every measurement by the same factor. Each part of the design grows by the same amount, keeping the shapes faithful. Two ratios that stay equal while scaling are proportions.",
+        "image_prompt": "A small paper-cut stencil beside a larger version of the same pattern, arrows showing every measurement scaled by the same factor."
+    },
+    {
+        "concept_id": "unit_rate",
+        "concept_name": "Unit Rate",
+        "aliases": ["per unit", "rate per one", "comparison per one unit"],
+        "chinese_culture": "Lamian bowls per hour",
+        "explanation_text": "A lamian chef can pull and serve a set number of noodle bowls every hour. The amount produced in one hour is a unit rate, written as bowls per hour. Comparing chefs' speed means comparing their unit rates.",
+        "image_prompt": "A lamian chef pulling noodle dough, a counter showing bowls served per hour as the unit rate."
+    },
+    {
+        "concept_id": "scale_drawings",
+        "concept_name": "Scale Drawings",
+        "aliases": ["map scale", "drawing proportion", "scaled map"],
+        "chinese_culture": "Mapping Pingyao's walls",
+        "explanation_text": "Cartographers draw Pingyao's walled town as a smaller plan, shrinking every street by the same fraction. Each centimeter on the plan stands for a fixed number of meters on the ground. A drawing that keeps real distances proportional is a scale drawing.",
+        "image_prompt": "The walled town of Pingyao beside its map, a scale bar linking centimeters to meters."
+    },
+    {
+        "concept_id": "percent_change",
+        "concept_name": "Percent Change",
+        "aliases": ["percent increase", "percent decrease", "growth rate"],
+        "chinese_culture": "A growing lychee harvest",
+        "explanation_text": "An orchard's lychee harvest rises from two hundred to two hundred sixty baskets. The increase of sixty baskets is thirty percent of the original harvest. Comparing the change to the starting amount gives the percent change.",
+        "image_prompt": "Southern lychee trees with baskets of fruit, a chart showing harvest rising from 200 to 260 baskets labeled 30 percent."
+    },
+    {
+        "concept_id": "data_collection",
+        "concept_name": "Data Collection",
+        "aliases": ["gather data", "record information", "collect numbers"],
+        "chinese_culture": "Counting fruit per tree",
+        "explanation_text": "An orchard keeper walks the rows and records how many lychees each tree bears, writing the count on a tablet. Gathering numbers from the real world in an organized way is data collection. The recorded list becomes the raw material for charts and averages.",
+        "image_prompt": "An orchard keeper counting lychees on a tree and writing tallies on a wooden tablet, baskets of fruit nearby."
+    },
+    {
+        "concept_id": "tables_graphs",
+        "concept_name": "Tables and Graphs",
+        "aliases": ["data table", "bar graph", "chart"],
+        "chinese_culture": "A village wheat harvest table",
+        "explanation_text": "Farmers on the North China Plain record each field's wheat harvest in rows and columns. The tidy rows and columns make the numbers easy to compare at a glance. Organizing data into a table is the first step before drawing graphs.",
+        "image_prompt": "A wooden table ledger with wheat harvest numbers written in rows and columns beside golden wheat fields."
+    },
+    {
+        "concept_id": "mean",
+        "concept_name": "Mean",
+        "aliases": ["average", "arithmetic mean", "mean value"],
+        "chinese_culture": "Average wheat per field",
+        "explanation_text": "To describe a village's wheat harvest, farmers add the yield of every field and divide by the number of fields. The result is the mean, or average, yield per field. One number then represents the whole harvest fairly.",
+        "image_prompt": "Wheat fields of differing sizes on the North China Plain, with the total harvest divided evenly and labeled as the mean per field."
+    },
+    {
+        "concept_id": "median",
+        "concept_name": "Median",
+        "aliases": ["middle value", "data median"],
+        "chinese_culture": "The middle harvest",
+        "explanation_text": "Line up the year's wheat harvests from smallest to largest and the harvest in the exact middle is the median. The median is not swayed by one enormous field. It describes the center of the data in a stable way.",
+        "image_prompt": "A row of harvest sacks lined up from shortest to tallest, the middle sack highlighted and labeled the median."
+    },
+    {
+        "concept_id": "mode",
+        "concept_name": "Mode",
+        "aliases": ["most frequent value", "common value"],
+        "chinese_culture": "The common lantern color",
+        "explanation_text": "At a hutong's lantern festival street, red lanterns outnumber every other color. The value that appears most often in a set of data is the mode. Red is the mode of the lantern colors.",
+        "image_prompt": "Lanterns in red, gold, and pink strung across a hutong lane, red shown as the most common color, labeled the mode."
+    },
+    {
+        "concept_id": "range",
+        "concept_name": "Range",
+        "aliases": ["difference", "spread of data", "highest minus lowest"],
+        "chinese_culture": "Widest and narrowest loads",
+        "explanation_text": "On the Pearl River, the heaviest sampan carries twenty baskets and the lightest carries eight. Subtracting the smallest from the largest gives twelve, the spread of the data. The gap between the highest and lowest values is the range.",
+        "image_prompt": "Sampans along a river carrying different numbers of cargo baskets, the heaviest and lightest marked to show the range."
+    },
+    {
+        "concept_id": "bar_graphs",
+        "concept_name": "Bar Graphs",
+        "aliases": ["bar chart", "column graph"],
+        "chinese_culture": "Lanterns along the lanes",
+        "explanation_text": "To compare festival decorations, neighbors count the lanterns hanging on each hutong lane and draw one bar per lane. The tallest bar shows which lane has the most lanterns. Bars of different heights make comparison immediate.",
+        "image_prompt": "A bar graph with one bar for each hutong lane showing lantern counts, the tallest bar highlighted."
+    },
+    {
+        "concept_id": "line_graphs",
+        "concept_name": "Line Graphs",
+        "aliases": ["trend graph", "line chart"],
+        "chinese_culture": "Suanmeitang sales over summer",
+        "explanation_text": "A drink stall records suanmeitang sales each week through the hot months and joins the weekly totals with a line. The rising and falling line shows the trend of the season. Connecting data points reveals change over time.",
+        "image_prompt": "A graph of suanmeitang cups sold across summer weeks, a rising and falling line connecting the weekly points."
+    },
+    {
+        "concept_id": "pie_charts",
+        "concept_name": "Pie Charts",
+        "aliases": ["circle chart", "percentage chart"],
+        "chinese_culture": "Mahjong tile suits",
+        "explanation_text": "A mahjong set holds tiles of three suits, and the whole set can be divided into its suit groups. A pie chart shows the proportion of each suit as a slice of the circle. The full circle is the whole set, and each slice is one part of it.",
+        "image_prompt": "A mahjong set arranged by suits, with a pie chart beside it showing the share of each suit as colored slices."
+    },
+    {
+        "concept_id": "probability",
+        "concept_name": "Probability",
+        "aliases": ["chance", "likelihood", "odds"],
+        "chinese_culture": "Drawing a mahjong tile",
+        "explanation_text": "Before a player draws, some tiles remain in the wall, and the chance of pulling a particular tile depends on how many of that tile are left. That chance is probability. Comparing the favorable tiles to all remaining tiles gives the odds.",
+        "image_prompt": "A mahjong wall of face-down tiles with one hand drawing a tile, favorable tiles counted against all remaining tiles."
+    },
+    {
+        "concept_id": "patterns",
+        "concept_name": "Patterns",
+        "aliases": ["repeating design", "sequence", "recurrence"],
+        "chinese_culture": "Courtyard window lattices",
+        "explanation_text": "Wooden window lattices in northern courtyard houses repeat the same carved shape again and again across the frame. The shape that repeats in a fixed order is a pattern. Predicting the next cell means following the same rule.",
+        "image_prompt": "A carved wooden window lattice repeating the same shape across a siheyuan window, the repeating unit highlighted."
+    },
+    {
+        "concept_id": "functions",
+        "concept_name": "Functions",
+        "aliases": ["input-output rule", "function relation", "mapping"],
+        "chinese_culture": "Dragon boat strokes and speed",
+        "explanation_text": "In a dragon boat, every stroke rate gives the boat a matching speed through the water. For each input number of strokes, there is exactly one output speed. A rule that pairs each input with one output is a function.",
+        "image_prompt": "A dragon boat race with a chart linking strokes per minute on one side to boat speed on the other."
+    }
+]

@@ -1,1 +1,565 @@
-[{"concept_id":"place_value","concept_name":"Place Value","aliases":["place value","digit place","number place","units place","tens place","hundreds place","position of digits","digit position"],"jing_culture":"Numbered boat berths on Wanwei","explanation_text":"Fishing boats on Wanwei Island park in numbered berths, and the position of a berth determines where each boat belongs, just like the position of a digit determines its value. A '1' in the tens place means ten, but in the hundreds place it means a hundred.","image_prompt":"Illustrate a row of fishing boats docked in numbered berths on Wanwei Island beach, with the digits labeled as ones, tens, and hundreds to show how position changes value."},{"concept_id":"addition_subtraction","concept_name":"Addition & Subtraction","aliases":["add","addition","plus","sum","combine","total","subtract","subtraction","minus","take away","difference"],"jing_culture":"Fish baskets filled or emptied","explanation_text":"When a fisherman tosses more fish into a basket on the dock, the total grows; when some are sold or carried off, the total shrinks. That is exactly how addition and subtraction change an amount.","image_prompt":"Show bamboo baskets of freshly caught fish being filled up and emptied out on a Guangxi fishing dock, with totals changing as fish are added or removed."},{"concept_id":"multiplication_division","concept_name":"Multiplication & Division","aliases":["multiply","multiplication","times","groups of","repeated addition","divide","division","split equally","sharing"],"jing_culture":"Rows of jili fish traps","explanation_text":"Setting out equal rows of jili fish traps in the tidal flats shows multiplication—a quick way to count repeated groups. Splitting the evening catch evenly among the boats shows division.","image_prompt":"Display rows of identical jili fish traps arranged evenly across the tidal flats, showing equal grouping for multiplication and even sharing for division."},{"concept_id":"even_odd","concept_name":"Even and Odd Numbers","aliases":["even numbers","odd numbers","even","odd","pairs","leftover","no remainder","remains one"],"jing_culture":"Pairs of oars on fishing boats","explanation_text":"Fishing boats are rowed with oars in pairs; every boat uses two oars, so the oars line up in even numbers. If one oar is left over and no partner, that leftover represents an odd number.","image_prompt":"Show fishing boats with their oars arranged in pairs on the beach, with one single oar standing alone to represent an odd number."},{"concept_id":"skip_counting","concept_name":"Skip Counting / Number Patterns","aliases":["skip counting","count by 2s","count by 5s","count by 10s","jump counting","repeating numbers","number patterns"],"jing_culture":"Colored floats on fishing nets","explanation_text":"The colored floats strung along a fishing net repeat in rhythmic color sequences—blue, red, blue, red—just like skip counting repeats every 2, 5, or 10 in a number pattern.","image_prompt":"Show a fishing net with repeating colored floats, highlighting every 5th float to illustrate skip counting by fives."},{"concept_id":"comparing_numbers","concept_name":"Comparing and Ordering Numbers","aliases":["compare numbers","greater than","less than","more than","fewer than","biggest","smallest","ordering numbers","number order"],"jing_culture":"Baskets with different catches","explanation_text":"Comparing the piles of fish in two baskets shows which boat had a greater or smaller catch—the same way we compare numbers with greater than and less than.","image_prompt":"Show several fish baskets with different amounts of seafood, using > and < symbols between them."},{"concept_id":"rounding_estimation","concept_name":"Rounding & Estimation","aliases":["round","rounding","estimate","estimation","approximate","about how much","close to","nearby number"],"jing_culture":"Estimating the day's catch","explanation_text":"A fisher may quickly guess that today's catch is 'about 80 kilograms' without weighing every fish. Estimating to a convenient rounded amount is exactly how rounding works.","image_prompt":"Show a fisherman estimating a pile of fish by eye on the dock, with rounded weight labels such as 'about 80 kg' marked alongside."},{"concept_id":"fractions","concept_name":"Fractions","aliases":["fraction","part of a whole","portion","share","numerator","denominator"],"jing_culture":"Sharing a fish catch","explanation_text":"When a boat's catch is shared equally among several families at the Three Saints' Temple fair, each family receives a fraction of the total catch.","image_prompt":"Show a pile of fish being divided into equal shares among several families, each share labeled as a fraction of the whole catch."},{"concept_id":"equivalent_fractions","concept_name":"Equivalent Fractions","aliases":["equal fractions","same value","fraction equality","equivalent"],"jing_culture":"Cutting a fish into equal parts","explanation_text":"Cutting one fish into 2 equal halves or into 4 equal quarters still gives the very same fish—different fractions describing one equal amount, like equivalent fractions.","image_prompt":"Show a fish cut first into halves, then into quarters, demonstrating equal portions that represent the same whole."},{"concept_id":"simplifying_fractions","concept_name":"Simplifying Fractions","aliases":["reduce fraction","lowest terms","simplify fraction"],"jing_culture":"Combining small catches","explanation_text":"If several small catches combine into one larger pile, you describe the whole catch more simply—just as you reduce a fraction to its lowest terms.","image_prompt":"Depict smaller piles of fish merging into one larger pile, with the fraction labels reduced to simplest form."},{"concept_id":"mixed_numbers","concept_name":"Mixed Numbers","aliases":["mixed number","whole and fraction","whole part and fraction part"],"jing_culture":"Counting full and half baskets","explanation_text":"If a fisherman has 3 full baskets of shrimp and half a basket more, that is 3½—exactly the form of a mixed number.","image_prompt":"Show three full baskets and one half-full basket of shrimp labeled as 3½."},{"concept_id":"improper_fractions","concept_name":"Improper Fractions","aliases":["top-heavy fraction","numerator larger","greater than one fraction"],"jing_culture":"Overflowing holding tanks","explanation_text":"When live fish fill more than one holding tank but are counted in equal tankfuls, the amount is greater than one whole—an improper fraction.","image_prompt":"Show several holding tanks filled past one full portion, symbolizing fractions greater than 1."},{"concept_id":"adding_fractions","concept_name":"Adding Fractions","aliases":["fraction addition","add fractions","sum of fractions"],"jing_culture":"Combining portions of shrimp sauce","explanation_text":"Pouring portions of shrimp sauce from different jars into one big jar shows how fractional amounts add together to make a larger total.","image_prompt":"Show smaller jars of shrimp sauce being poured together into one larger jar to make a total."},{"concept_id":"subtracting_fractions","concept_name":"Subtracting Fractions","aliases":["fraction subtraction","take away fractions","difference of fractions"],"jing_culture":"Scooping out part of a bucket","explanation_text":"Scooping part of the fish water out of a bucket leaves a fractional part behind—this shows subtraction of a fraction from a whole.","image_prompt":"Show a bucket of water on a fishing boat with part being scooped out, the remainder labeled as the fraction left."},{"concept_id":"multiplying_fractions","concept_name":"Multiplying Fractions","aliases":["fraction multiplication","part of a part","multiply fractions"],"jing_culture":"Portions of fish servings","explanation_text":"If each family gets half of a half-share of fish, you are taking a fraction of a fraction—exactly what multiplying fractions means.","image_prompt":"Show a plate of fish divided into halves, and one half divided again to show smaller portions."},{"concept_id":"dividing_fractions","concept_name":"Dividing Fractions","aliases":["fraction division","divide fractions","how many times in"],"jing_culture":"Splitting a netful of fish","explanation_text":"If one netful of fish is divided evenly into smaller shares, you are finding how many smaller portions fit into the whole—like dividing a fraction by a fraction.","image_prompt":"Show a netful of fish being split into smaller even shares to illustrate fractional division."},{"concept_id":"decimals","concept_name":"Decimals","aliases":["decimal point","tenths","hundredths","decimal number"],"jing_culture":"Weighing fish in kilograms","explanation_text":"Weighing fish at the Fangchenggang market in kilograms and grams introduces decimals, like 1.5 kilograms meaning one and a half kilograms.","image_prompt":"Show a market scale weighing a fish marked at 1.5 kg, with labels for 1.0, 1.5, and 2.0 kilograms."},{"concept_id":"converting_fractions_decimals","concept_name":"Converting Fractions and Decimals","aliases":["fraction to decimal","decimal to fraction","convert fractions"],"jing_culture":"Comparing fish amounts","explanation_text":"Whether a seller says 'half a kilogram' or '0.5 kilograms', both describe the same amount of fish—just like converting between fractions and decimals.","image_prompt":"Show two labeled baskets, one marked ½ kg and another 0.5 kg, holding the same amount of fish."},{"concept_id":"percents","concept_name":"Percents","aliases":["percent","percentage","per hundred","rate per 100"],"jing_culture":"School test scores on Wanwei","explanation_text":"When a student on Wanwei Island scores 90 out of 100 on a Vietnamese language test, that is 90%—a way to express parts per hundred.","image_prompt":"Show a test paper with 90/100 written and a 90% mark beside it."},{"concept_id":"percent_of_number","concept_name":"Percent of a Number","aliases":["percentage of number","find percent","portion of total"],"jing_culture":"Discounts at the seafood market","explanation_text":"A 10% discount on a basket of oysters at the market shows how percents are used to find a part of a total number.","image_prompt":"Show a market stall sign with oysters marked 'giảm 10%' (10% off) and price tags with reduced amounts."},{"concept_id":"variables","concept_name":"Variables","aliases":["variable","unknown","letter as number","symbol in math"],"jing_culture":"Unlabeled fish baskets","explanation_text":"If some baskets of fish arrive without a label, each represents an unknown weight—just like a variable in math stands for an unknown number.","image_prompt":"Show labeled fish baskets (2 kg, 3 kg) and one unlabeled basket marked as x."},{"concept_id":"expressions","concept_name":"Expressions","aliases":["math expressions","numerical expressions","algebraic expressions"],"jing_culture":"Combining known and unknown items","explanation_text":"If you have 2 known baskets of shrimp and x more unknown ones on the boat, that is like writing the expression 2 + x.","image_prompt":"Show two shrimp baskets plus one unlabeled basket, symbolized as 2 + x."},{"concept_id":"equations","concept_name":"Equations","aliases":["math equations","equal statements","algebra equations"],"jing_culture":"Balancing a bamboo pole load","explanation_text":"When two sides of a bamboo carry-pole hold equal weight, the pole balances level—just like both sides of an equation are equal.","image_prompt":"Show a bamboo carry-pole balanced with equal loads on both sides, labeled as an equation."},{"concept_id":"solving_one_step_equations","concept_name":"Solving One-Step Equations","aliases":["one-step equations","simple equations"],"jing_culture":"Adjusting a boat's load","explanation_text":"If one side of a boat sits low because it is heavier, you fix the balance by adding or removing weight in one move—like solving a one-step equation.","image_prompt":"Show a small fishing boat balanced level, with weights adjusted on one side to illustrate solving one-step equations."},{"concept_id":"solving_two_step_equations","concept_name":"Solving Two-Step Equations","aliases":["two-step equations","multi-step equations"],"jing_culture":"Making fish sauce step-by-step","explanation_text":"Making fish sauce requires salting the fish first, then leaving it to ferment—two steps in the right order, just like solving a two-step equation.","image_prompt":"Show the step sequence: salt the fish, then ferment in jars, then get the sauce, symbolizing step-by-step solving."},{"concept_id":"inequalities","concept_name":"Inequalities","aliases":["greater than","less than","not equal","comparison statements"],"jing_culture":"Comparing boat catches","explanation_text":"When one boat's catch is larger than another's, it shows inequality—the same idea as greater than or less than in math.","image_prompt":"Show two piles of fish of different sizes with > and < symbols between them."},{"concept_id":"order_of_operations","concept_name":"Order of Operations (PEMDAS)","aliases":["PEMDAS","BODMAS","math order","operations order"],"jing_culture":"Steaming fish step-by-step","explanation_text":"Before steaming a fish you must first clean it and season it—the order matters. Math has its own required order of operations, like parentheses before exponents.","image_prompt":"Show a cooking sequence for steamed fish where steps must happen in order, labeled like parentheses, exponents, etc."},{"concept_id":"substitution","concept_name":"Substitution","aliases":["replace variable","substitute value","replace letter with number"],"jing_culture":"Replacing a broken oar","explanation_text":"If a broken oar is replaced with another of the same size, the boat rows the same—this is like substituting a value for a variable in an expression.","image_prompt":"Show a missing oar being replaced with an identical one, representing substitution."},{"concept_id":"points","concept_name":"Points","aliases":["dot","location","coordinate point"],"jing_culture":"Boat lights on the sea at night","explanation_text":"Each fishing boat light glowing on the night sea marks a single position—just like a point in geometry marks a location.","image_prompt":"Show a night seascape with individual boat lights labeled as points on a coordinate grid."},{"concept_id":"lines","concept_name":"Lines","aliases":["straight line","geometry line","infinite line"],"jing_culture":"Fishing lines dropped from a boat","explanation_text":"Fishing lines lowered straight into the water stretch away from the boat and can extend forever in both directions, like geometric lines.","image_prompt":"Show straight fishing lines extending down from a bamboo boat into the sea, representing geometric lines."},{"concept_id":"angles","concept_name":"Angles","aliases":["angle","degree","corner measure"],"jing_culture":"The spread of a cast net","explanation_text":"When a fisherman casts his round net, the net opens into a spread that forms an angle at the caster's hands.","image_prompt":"Show a fisherman casting a round net, with the opening angle clearly marked between the two edges."},{"concept_id":"perpendicular_lines","concept_name":"Perpendicular Lines","aliases":["right angle lines","intersecting lines","orthogonal lines"],"jing_culture":"Bamboo frames of fish traps","explanation_text":"The bamboo poles of a jili fish-trap frame cross at perfect right angles, making the trap strong and square—like perpendicular lines.","image_prompt":"Show the bamboo frame of a fish trap with poles meeting at 90° angles."},{"concept_id":"parallel_lines","concept_name":"Parallel Lines","aliases":["side-by-side lines","never meet","equal distance lines"],"jing_culture":"Twin wakes of boat oars","explanation_text":"The twin wakes trailing behind a rowed boat spread side by side and never meet—exactly like parallel lines.","image_prompt":"Show two straight boat wakes running side by side across the water behind a small fishing boat."},{"concept_id":"polygons","concept_name":"Polygons","aliases":["shapes","closed figure","many-sided shape"],"jing_culture":"Fishing nets laid flat to dry","explanation_text":"Laid flat to dry on the beach, the frames and mesh of different nets form closed geometric shapes with straight edges—polygons.","image_prompt":"Show fishing nets spread flat on the beach forming various closed geometric shapes."},{"concept_id":"triangles","concept_name":"Triangles","aliases":["three sides","triangular","triangle shape"],"jing_culture":"Sails on bamboo boats","explanation_text":"The small sails raised on Jing bamboo boats are cut in triangles, giving them three straight sides and three corners.","image_prompt":"Show triangular sails on bamboo fishing boats near the Guangxi coast."},{"concept_id":"quadrilaterals","concept_name":"Quadrilaterals","aliases":["four sides","rectangles","squares","trapezoids"],"jing_culture":"Mesh of woven fishing nets","explanation_text":"The openings woven into fishing nets form four-sided shapes—squares and rectangles that repeat across the whole net.","image_prompt":"Show a close view of woven fishing net mesh with repeating square and rectangular openings."},{"concept_id":"perimeter","concept_name":"Perimeter","aliases":["boundary length","distance around","outline measure"],"jing_culture":"Walking the edge of a fish corral","explanation_text":"Measuring the distance all the way around the outside of a fish corral is like finding the perimeter of a shape.","image_prompt":"Show people walking around the outside edge of a round jili fish corral with a dashed perimeter line."},{"concept_id":"area","concept_name":"Area","aliases":["surface area","space inside","coverage"],"jing_culture":"Drying nets spread on the beach","explanation_text":"The amount of beach covered by a drying net spread flat represents its area—the space inside its outline.","image_prompt":"Show a fishing net spread on the beach, shaded to show the area it covers."},{"concept_id":"volume","concept_name":"Volume","aliases":["capacity","space inside 3D shape","liquid amount"],"jing_culture":"Holding tanks for live fish","explanation_text":"The amount of seawater a holding tank can carry for live fish represents its volume.","image_prompt":"Show holding tanks filled to different levels to illustrate volume."},{"concept_id":"circle_properties","concept_name":"Circle Properties","aliases":["radius","diameter","circumference","circle geometry"],"jing_culture":"Round jili fish trap","explanation_text":"The round jili fish corral and the round soundboard of the duxianqin monochord are perfect circles, illustrating radius, diameter, and circumference.","image_prompt":"Show a round jili fish trap seen from above, labeled with radius and diameter lines."},{"concept_id":"pi","concept_name":"Pi (π)","aliases":["pi","ratio of circumference","3.14"],"jing_culture":"Round monochord resonator","explanation_text":"No matter the size of the round resonator of a duxianqin, its circumference divided by its diameter is always the same constant—π.","image_prompt":"Show a circular duxianqin resonator labeled with circumference and diameter measurements."},{"concept_id":"coordinate_plane","concept_name":"Coordinate Plane","aliases":["x-y plane","graph grid","axes"],"jing_culture":"Grid of oyster racks","explanation_text":"Oyster racks arranged in tidy rows and columns across the tidal flats resemble a coordinate grid, where each rack has its own position.","image_prompt":"Show an aerial view of oyster racks in rows and columns, labeled with x and y coordinates."},{"concept_id":"plotting_points","concept_name":"Plotting Points","aliases":["graphing points","coordinates","x-y plotting"],"jing_culture":"Marking boat positions on a sea chart","explanation_text":"Marking each fishing boat's position on a sea chart is like plotting points on a coordinate plane.","image_prompt":"Show a sea chart of the waters around the three Jing islands with boat positions marked as points."},{"concept_id":"symmetry","concept_name":"Symmetry","aliases":["mirror image","balanced halves","reflection symmetry"],"jing_culture":"Woven patterns on fishing nets","explanation_text":"The woven patterns of Jing fishing nets and the decorations at the Ha festival mirror each other across a center line, showing symmetry.","image_prompt":"Show a symmetrical fishing net pattern split by a mirror line."},{"concept_id":"transformations","concept_name":"Transformations","aliases":["translate","rotate","reflect","dilate"],"jing_culture":"Boats turning at sea","explanation_text":"When boats turn, shift position, or mirror their course during a day of fishing, they move through geometric transformations.","image_prompt":"Show fishing boats turning and shifting positions on the water to illustrate transformations."},{"concept_id":"ratios","concept_name":"Ratios","aliases":["comparison","proportion of quantities","rate"],"jing_culture":"Mixing shrimp and salt","explanation_text":"When making shrimp sauce, the balance of shrimp to salt represents a ratio, like 3 parts shrimp to 1 part salt.","image_prompt":"Show a shrimp sauce jar labeled with shrimp and salt ratios, like 3:1."},{"concept_id":"proportions","concept_name":"Proportions","aliases":["equal ratios","scaling","balance of ratios"],"jing_culture":"Enlarging a net design","explanation_text":"When a fisherman scales up a small net pattern to weave a larger one while keeping the mesh identical, that is maintaining proportion.","image_prompt":"Show a small and a large fishing net with the same proportions."},{"concept_id":"unit_rate","concept_name":"Unit Rate","aliases":["per unit","rate per one","comparison per one unit"],"jing_culture":"Fish caught per hour","explanation_text":"The number of fish a boat catches in one hour of fishing is a unit rate.","image_prompt":"Show a fishing boat with its catch measured as fish caught per hour."},{"concept_id":"scale_drawings","concept_name":"Scale Drawings","aliases":["map scale","drawing proportion","scaled map"],"jing_culture":"Mapping the three islands","explanation_text":"Drawing a small map of the three Jing islands while keeping real distances proportional is a scale drawing.","image_prompt":"Show the three islands and a smaller scaled map beside them with a scale legend."},{"concept_id":"percent_change","concept_name":"Percent Change","aliases":["percent increase","percent decrease","growth rate"],"jing_culture":"Rise in the daily catch","explanation_text":"If a boat's daily catch grows from 100 to 120 kilograms, that is a 20% increase—an example of percent change.","image_prompt":"Show a pile of fish growing in size with a +20% label."},{"concept_id":"data_collection","concept_name":"Data Collection","aliases":["gather data","record information","collect numbers"],"jing_culture":"Recording daily catches","explanation_text":"Writing down how many kilograms of fish, shrimp, and oysters each boat brings in every day is an example of data collection.","image_prompt":"Show a fisherman marking tallies of the daily catch on a clipboard at the dock."},{"concept_id":"tables_graphs","concept_name":"Tables and Graphs","aliases":["data table","bar graph","chart"],"jing_culture":"Comparing catches across seasons","explanation_text":"Using a graph to show how much fish was caught in each season helps visualize trends in the fishing year.","image_prompt":"Show a bar graph comparing fish catches across the four seasons."},{"concept_id":"mean","concept_name":"Mean","aliases":["average","arithmetic mean","mean value"],"jing_culture":"Average daily catch","explanation_text":"Finding the average number of fish a boat catches per day shows the mean of all its daily catches.","image_prompt":"Show a table of daily catches with the average value highlighted."},{"concept_id":"median","concept_name":"Median","aliases":["middle value","data median"],"jing_culture":"Middle catch of the boats","explanation_text":"When the daily catches of all the boats are arranged from smallest to largest, the catch in the middle is the median.","image_prompt":"Show baskets of catches lined up in order with the middle one highlighted as the median."},{"concept_id":"mode","concept_name":"Mode","aliases":["most frequent value","common value"],"jing_culture":"Most common fish caught","explanation_text":"If most of the fish brought in on a given day are anchovies, then anchovy is the mode of that day's catch.","image_prompt":"Show different kinds of fish with one type being clearly the most common."},{"concept_id":"range","concept_name":"Range","aliases":["difference","spread of data","highest minus lowest"],"jing_culture":"Gap between catches","explanation_text":"The gap between the biggest and smallest catch among the boats shows the range of the data.","image_prompt":"Show a bar chart with the shortest and tallest bars marked for the range."},{"concept_id":"bar_graphs","concept_name":"Bar Graphs","aliases":["bar chart","column graph"],"jing_culture":"Comparing each boat's catch","explanation_text":"Each bar in the graph represents the catch of one boat, making quick comparisons easy.","image_prompt":"Show a bar graph labeled by boat names with their daily catch totals."},{"concept_id":"line_graphs","concept_name":"Line Graphs","aliases":["trend graph","line chart"],"jing_culture":"Tracking catch over the year","explanation_text":"A line graph shows how the size of the catch changes from month to month across the fishing year.","image_prompt":"Show a line graph labeled with months and fish catch amounts."},{"concept_id":"pie_charts","concept_name":"Pie Charts","aliases":["circle chart","percentage chart"],"jing_culture":"Share of each seafood type","explanation_text":"A pie chart can show the share of fish, shrimp, oysters, and crabs in a boat's total catch.","image_prompt":"Show a pie chart divided into seafood categories with percentages."},{"concept_id":"probability","concept_name":"Probability","aliases":["chance","likelihood","odds"],"jing_culture":"Fishing luck on the sea","explanation_text":"Before setting out, a fisherman may guess how likely it is that the day's catch will be good—that likelihood is probability.","image_prompt":"Show boats heading out at dawn with probability labels above each one showing the chance of a good catch."},{"concept_id":"patterns","concept_name":"Patterns","aliases":["repeating design","sequence","recurrence"],"jing_culture":"Woven border designs","explanation_text":"The repeated wave-and-fish motifs on Jing nets and Ha festival banners represent visual patterns that repeat in sequence.","image_prompt":"Show repeating wave and fish designs in traditional Jing craft."},{"concept_id":"functions","concept_name":"Functions","aliases":["input-output rule","function relation","mapping"],"jing_culture":"Boat speed vs distance","explanation_text":"If each speed of a boat gives one specific distance traveled per hour, it is like a function—each input gives exactly one output.","image_prompt":"Show a graph linking boat speed (input) to distance traveled (output)."}]
+[
+    {
+        "concept_id": "place_value",
+        "concept_name": "Place Value",
+        "aliases": [
+            "place value",
+            "digit place",
+            "number place",
+            "units place",
+            "tens place",
+            "hundreds place",
+            "position of digits",
+            "digit position"
+        ],
+        "jing_culture": "Numbered boat berths on Wanwei",
+        "explanation_text": "Fishing boats on Wanwei Island park in numbered berths, and the position of a berth determines where each boat belongs, just like the position of a digit determines its value. A '1' in the tens place means ten, but in the hundreds place it means a hundred.",
+        "image_prompt": "Illustrate a row of fishing boats docked in numbered berths on Wanwei Island beach, with the digits labeled as ones, tens, and hundreds to show how position changes value."
+    },
+    {
+        "concept_id": "addition_subtraction",
+        "concept_name": "Addition & Subtraction",
+        "aliases": [
+            "add",
+            "addition",
+            "plus",
+            "sum",
+            "combine",
+            "total",
+            "subtract",
+            "subtraction",
+            "minus",
+            "take away",
+            "difference"
+        ],
+        "jing_culture": "Fish baskets filled or emptied",
+        "explanation_text": "When a fisherman tosses more fish into a basket on the dock, the total grows; when some are sold or carried off, the total shrinks. That is exactly how addition and subtraction change an amount.",
+        "image_prompt": "Show bamboo baskets of freshly caught fish being filled up and emptied out on a Guangxi fishing dock, with totals changing as fish are added or removed."
+    },
+    {
+        "concept_id": "multiplication_division",
+        "concept_name": "Multiplication & Division",
+        "aliases": [
+            "multiply",
+            "multiplication",
+            "times",
+            "groups of",
+            "repeated addition",
+            "divide",
+            "division",
+            "split equally",
+            "sharing"
+        ],
+        "jing_culture": "Rows of jili fish traps",
+        "explanation_text": "Setting out equal rows of jili fish traps in the tidal flats shows multiplication—a quick way to count repeated groups. Splitting the evening catch evenly among the boats shows division.",
+        "image_prompt": "Display rows of identical jili fish traps arranged evenly across the tidal flats, showing equal grouping for multiplication and even sharing for division."
+    },
+    {
+        "concept_id": "even_odd",
+        "concept_name": "Even and Odd Numbers",
+        "aliases": [
+            "even numbers",
+            "odd numbers",
+            "even",
+            "odd",
+            "pairs",
+            "leftover",
+            "no remainder",
+            "remains one"
+        ],
+        "jing_culture": "Pairs of oars on fishing boats",
+        "explanation_text": "Fishing boats are rowed with oars in pairs; every boat uses two oars, so the oars line up in even numbers. If one oar is left over and no partner, that leftover represents an odd number.",
+        "image_prompt": "Show fishing boats with their oars arranged in pairs on the beach, with one single oar standing alone to represent an odd number."
+    },
+    {
+        "concept_id": "skip_counting",
+        "concept_name": "Skip Counting / Number Patterns",
+        "aliases": [
+            "skip counting",
+            "count by 2s",
+            "count by 5s",
+            "count by 10s",
+            "jump counting",
+            "repeating numbers",
+            "number patterns"
+        ],
+        "jing_culture": "Colored floats on fishing nets",
+        "explanation_text": "The colored floats strung along a fishing net repeat in rhythmic color sequences—blue, red, blue, red—just like skip counting repeats every 2, 5, or 10 in a number pattern.",
+        "image_prompt": "Show a fishing net with repeating colored floats, highlighting every 5th float to illustrate skip counting by fives."
+    },
+    {
+        "concept_id": "comparing_numbers",
+        "concept_name": "Comparing and Ordering Numbers",
+        "aliases": [
+            "compare numbers",
+            "greater than",
+            "less than",
+            "more than",
+            "fewer than",
+            "biggest",
+            "smallest",
+            "ordering numbers",
+            "number order"
+        ],
+        "jing_culture": "Baskets with different catches",
+        "explanation_text": "Comparing the piles of fish in two baskets shows which boat had a greater or smaller catch—the same way we compare numbers with greater than and less than.",
+        "image_prompt": "Show several fish baskets with different amounts of seafood, using > and < symbols between them."
+    },
+    {
+        "concept_id": "rounding_estimation",
+        "concept_name": "Rounding & Estimation",
+        "aliases": [
+            "round",
+            "rounding",
+            "estimate",
+            "estimation",
+            "approximate",
+            "about how much",
+            "close to",
+            "nearby number"
+        ],
+        "jing_culture": "Estimating the day's catch",
+        "explanation_text": "A fisher may quickly guess that today's catch is 'about 80 kilograms' without weighing every fish. Estimating to a convenient rounded amount is exactly how rounding works.",
+        "image_prompt": "Show a fisherman estimating a pile of fish by eye on the dock, with rounded weight labels such as 'about 80 kg' marked alongside."
+    },
+    {
+        "concept_id": "fractions",
+        "concept_name": "Fractions",
+        "aliases": ["fraction", "part of a whole", "portion", "share", "numerator", "denominator"],
+        "jing_culture": "Sharing a fish catch",
+        "explanation_text": "When a boat's catch is shared equally among several families at the Three Saints' Temple fair, each family receives a fraction of the total catch.",
+        "image_prompt": "Show a pile of fish being divided into equal shares among several families, each share labeled as a fraction of the whole catch."
+    },
+    {
+        "concept_id": "equivalent_fractions",
+        "concept_name": "Equivalent Fractions",
+        "aliases": ["equal fractions", "same value", "fraction equality", "equivalent"],
+        "jing_culture": "Cutting a fish into equal parts",
+        "explanation_text": "Cutting one fish into 2 equal halves or into 4 equal quarters still gives the very same fish—different fractions describing one equal amount, like equivalent fractions.",
+        "image_prompt": "Show a fish cut first into halves, then into quarters, demonstrating equal portions that represent the same whole."
+    },
+    {
+        "concept_id": "simplifying_fractions",
+        "concept_name": "Simplifying Fractions",
+        "aliases": ["reduce fraction", "lowest terms", "simplify fraction"],
+        "jing_culture": "Combining small catches",
+        "explanation_text": "If several small catches combine into one larger pile, you describe the whole catch more simply—just as you reduce a fraction to its lowest terms.",
+        "image_prompt": "Depict smaller piles of fish merging into one larger pile, with the fraction labels reduced to simplest form."
+    },
+    {
+        "concept_id": "mixed_numbers",
+        "concept_name": "Mixed Numbers",
+        "aliases": ["mixed number", "whole and fraction", "whole part and fraction part"],
+        "jing_culture": "Counting full and half baskets",
+        "explanation_text": "If a fisherman has 3 full baskets of shrimp and half a basket more, that is 3½—exactly the form of a mixed number.",
+        "image_prompt": "Show three full baskets and one half-full basket of shrimp labeled as 3½."
+    },
+    {
+        "concept_id": "improper_fractions",
+        "concept_name": "Improper Fractions",
+        "aliases": ["top-heavy fraction", "numerator larger", "greater than one fraction"],
+        "jing_culture": "Overflowing holding tanks",
+        "explanation_text": "When live fish fill more than one holding tank but are counted in equal tankfuls, the amount is greater than one whole—an improper fraction.",
+        "image_prompt": "Show several holding tanks filled past one full portion, symbolizing fractions greater than 1."
+    },
+    {
+        "concept_id": "adding_fractions",
+        "concept_name": "Adding Fractions",
+        "aliases": ["fraction addition", "add fractions", "sum of fractions"],
+        "jing_culture": "Combining portions of shrimp sauce",
+        "explanation_text": "Pouring portions of shrimp sauce from different jars into one big jar shows how fractional amounts add together to make a larger total.",
+        "image_prompt": "Show smaller jars of shrimp sauce being poured together into one larger jar to make a total."
+    },
+    {
+        "concept_id": "subtracting_fractions",
+        "concept_name": "Subtracting Fractions",
+        "aliases": ["fraction subtraction", "take away fractions", "difference of fractions"],
+        "jing_culture": "Scooping out part of a bucket",
+        "explanation_text": "Scooping part of the fish water out of a bucket leaves a fractional part behind—this shows subtraction of a fraction from a whole.",
+        "image_prompt": "Show a bucket of water on a fishing boat with part being scooped out, the remainder labeled as the fraction left."
+    },
+    {
+        "concept_id": "multiplying_fractions",
+        "concept_name": "Multiplying Fractions",
+        "aliases": ["fraction multiplication", "part of a part", "multiply fractions"],
+        "jing_culture": "Portions of fish servings",
+        "explanation_text": "If each family gets half of a half-share of fish, you are taking a fraction of a fraction—exactly what multiplying fractions means.",
+        "image_prompt": "Show a plate of fish divided into halves, and one half divided again to show smaller portions."
+    },
+    {
+        "concept_id": "dividing_fractions",
+        "concept_name": "Dividing Fractions",
+        "aliases": ["fraction division", "divide fractions", "how many times in"],
+        "jing_culture": "Splitting a netful of fish",
+        "explanation_text": "If one netful of fish is divided evenly into smaller shares, you are finding how many smaller portions fit into the whole—like dividing a fraction by a fraction.",
+        "image_prompt": "Show a netful of fish being split into smaller even shares to illustrate fractional division."
+    },
+    {
+        "concept_id": "decimals",
+        "concept_name": "Decimals",
+        "aliases": ["decimal point", "tenths", "hundredths", "decimal number"],
+        "jing_culture": "Weighing fish in kilograms",
+        "explanation_text": "Weighing fish at the Fangchenggang market in kilograms and grams introduces decimals, like 1.5 kilograms meaning one and a half kilograms.",
+        "image_prompt": "Show a market scale weighing a fish marked at 1.5 kg, with labels for 1.0, 1.5, and 2.0 kilograms."
+    },
+    {
+        "concept_id": "converting_fractions_decimals",
+        "concept_name": "Converting Fractions and Decimals",
+        "aliases": ["fraction to decimal", "decimal to fraction", "convert fractions"],
+        "jing_culture": "Comparing fish amounts",
+        "explanation_text": "Whether a seller says 'half a kilogram' or '0.5 kilograms', both describe the same amount of fish—just like converting between fractions and decimals.",
+        "image_prompt": "Show two labeled baskets, one marked ½ kg and another 0.5 kg, holding the same amount of fish."
+    },
+    {
+        "concept_id": "percents",
+        "concept_name": "Percents",
+        "aliases": ["percent", "percentage", "per hundred", "rate per 100"],
+        "jing_culture": "School test scores on Wanwei",
+        "explanation_text": "When a student on Wanwei Island scores 90 out of 100 on a Vietnamese language test, that is 90%—a way to express parts per hundred.",
+        "image_prompt": "Show a test paper with 90/100 written and a 90% mark beside it."
+    },
+    {
+        "concept_id": "percent_of_number",
+        "concept_name": "Percent of a Number",
+        "aliases": ["percentage of number", "find percent", "portion of total"],
+        "jing_culture": "Discounts at the seafood market",
+        "explanation_text": "A 10% discount on a basket of oysters at the market shows how percents are used to find a part of a total number.",
+        "image_prompt": "Show a market stall sign with oysters marked 'giảm 10%' (10% off) and price tags with reduced amounts."
+    },
+    {
+        "concept_id": "variables",
+        "concept_name": "Variables",
+        "aliases": ["variable", "unknown", "letter as number", "symbol in math"],
+        "jing_culture": "Unlabeled fish baskets",
+        "explanation_text": "If some baskets of fish arrive without a label, each represents an unknown weight—just like a variable in math stands for an unknown number.",
+        "image_prompt": "Show labeled fish baskets (2 kg, 3 kg) and one unlabeled basket marked as x."
+    },
+    {
+        "concept_id": "expressions",
+        "concept_name": "Expressions",
+        "aliases": ["math expressions", "numerical expressions", "algebraic expressions"],
+        "jing_culture": "Combining known and unknown items",
+        "explanation_text": "If you have 2 known baskets of shrimp and x more unknown ones on the boat, that is like writing the expression 2 + x.",
+        "image_prompt": "Show two shrimp baskets plus one unlabeled basket, symbolized as 2 + x."
+    },
+    {
+        "concept_id": "equations",
+        "concept_name": "Equations",
+        "aliases": ["math equations", "equal statements", "algebra equations"],
+        "jing_culture": "Balancing a bamboo pole load",
+        "explanation_text": "When two sides of a bamboo carry-pole hold equal weight, the pole balances level—just like both sides of an equation are equal.",
+        "image_prompt": "Show a bamboo carry-pole balanced with equal loads on both sides, labeled as an equation."
+    },
+    {
+        "concept_id": "solving_one_step_equations",
+        "concept_name": "Solving One-Step Equations",
+        "aliases": ["one-step equations", "simple equations"],
+        "jing_culture": "Adjusting a boat's load",
+        "explanation_text": "If one side of a boat sits low because it is heavier, you fix the balance by adding or removing weight in one move—like solving a one-step equation.",
+        "image_prompt": "Show a small fishing boat balanced level, with weights adjusted on one side to illustrate solving one-step equations."
+    },
+    {
+        "concept_id": "solving_two_step_equations",
+        "concept_name": "Solving Two-Step Equations",
+        "aliases": ["two-step equations", "multi-step equations"],
+        "jing_culture": "Making fish sauce step-by-step",
+        "explanation_text": "Making fish sauce requires salting the fish first, then leaving it to ferment—two steps in the right order, just like solving a two-step equation.",
+        "image_prompt": "Show the step sequence: salt the fish, then ferment in jars, then get the sauce, symbolizing step-by-step solving."
+    },
+    {
+        "concept_id": "inequalities",
+        "concept_name": "Inequalities",
+        "aliases": ["greater than", "less than", "not equal", "comparison statements"],
+        "jing_culture": "Comparing boat catches",
+        "explanation_text": "When one boat's catch is larger than another's, it shows inequality—the same idea as greater than or less than in math.",
+        "image_prompt": "Show two piles of fish of different sizes with > and < symbols between them."
+    },
+    {
+        "concept_id": "order_of_operations",
+        "concept_name": "Order of Operations (PEMDAS)",
+        "aliases": ["PEMDAS", "BODMAS", "math order", "operations order"],
+        "jing_culture": "Steaming fish step-by-step",
+        "explanation_text": "Before steaming a fish you must first clean it and season it—the order matters. Math has its own required order of operations, like parentheses before exponents.",
+        "image_prompt": "Show a cooking sequence for steamed fish where steps must happen in order, labeled like parentheses, exponents, etc."
+    },
+    {
+        "concept_id": "substitution",
+        "concept_name": "Substitution",
+        "aliases": ["replace variable", "substitute value", "replace letter with number"],
+        "jing_culture": "Replacing a broken oar",
+        "explanation_text": "If a broken oar is replaced with another of the same size, the boat rows the same—this is like substituting a value for a variable in an expression.",
+        "image_prompt": "Show a missing oar being replaced with an identical one, representing substitution."
+    },
+    {
+        "concept_id": "points",
+        "concept_name": "Points",
+        "aliases": ["dot", "location", "coordinate point"],
+        "jing_culture": "Boat lights on the sea at night",
+        "explanation_text": "Each fishing boat light glowing on the night sea marks a single position—just like a point in geometry marks a location.",
+        "image_prompt": "Show a night seascape with individual boat lights labeled as points on a coordinate grid."
+    },
+    {
+        "concept_id": "lines",
+        "concept_name": "Lines",
+        "aliases": ["straight line", "geometry line", "infinite line"],
+        "jing_culture": "Fishing lines dropped from a boat",
+        "explanation_text": "Fishing lines lowered straight into the water stretch away from the boat and can extend forever in both directions, like geometric lines.",
+        "image_prompt": "Show straight fishing lines extending down from a bamboo boat into the sea, representing geometric lines."
+    },
+    {
+        "concept_id": "angles",
+        "concept_name": "Angles",
+        "aliases": ["angle", "degree", "corner measure"],
+        "jing_culture": "The spread of a cast net",
+        "explanation_text": "When a fisherman casts his round net, the net opens into a spread that forms an angle at the caster's hands.",
+        "image_prompt": "Show a fisherman casting a round net, with the opening angle clearly marked between the two edges."
+    },
+    {
+        "concept_id": "perpendicular_lines",
+        "concept_name": "Perpendicular Lines",
+        "aliases": ["right angle lines", "intersecting lines", "orthogonal lines"],
+        "jing_culture": "Bamboo frames of fish traps",
+        "explanation_text": "The bamboo poles of a jili fish-trap frame cross at perfect right angles, making the trap strong and square—like perpendicular lines.",
+        "image_prompt": "Show the bamboo frame of a fish trap with poles meeting at 90° angles."
+    },
+    {
+        "concept_id": "parallel_lines",
+        "concept_name": "Parallel Lines",
+        "aliases": ["side-by-side lines", "never meet", "equal distance lines"],
+        "jing_culture": "Twin wakes of boat oars",
+        "explanation_text": "The twin wakes trailing behind a rowed boat spread side by side and never meet—exactly like parallel lines.",
+        "image_prompt": "Show two straight boat wakes running side by side across the water behind a small fishing boat."
+    },
+    {
+        "concept_id": "polygons",
+        "concept_name": "Polygons",
+        "aliases": ["shapes", "closed figure", "many-sided shape"],
+        "jing_culture": "Fishing nets laid flat to dry",
+        "explanation_text": "Laid flat to dry on the beach, the frames and mesh of different nets form closed geometric shapes with straight edges—polygons.",
+        "image_prompt": "Show fishing nets spread flat on the beach forming various closed geometric shapes."
+    },
+    {
+        "concept_id": "triangles",
+        "concept_name": "Triangles",
+        "aliases": ["three sides", "triangular", "triangle shape"],
+        "jing_culture": "Sails on bamboo boats",
+        "explanation_text": "The small sails raised on Jing bamboo boats are cut in triangles, giving them three straight sides and three corners.",
+        "image_prompt": "Show triangular sails on bamboo fishing boats near the Guangxi coast."
+    },
+    {
+        "concept_id": "quadrilaterals",
+        "concept_name": "Quadrilaterals",
+        "aliases": ["four sides", "rectangles", "squares", "trapezoids"],
+        "jing_culture": "Mesh of woven fishing nets",
+        "explanation_text": "The openings woven into fishing nets form four-sided shapes—squares and rectangles that repeat across the whole net.",
+        "image_prompt": "Show a close view of woven fishing net mesh with repeating square and rectangular openings."
+    },
+    {
+        "concept_id": "perimeter",
+        "concept_name": "Perimeter",
+        "aliases": ["boundary length", "distance around", "outline measure"],
+        "jing_culture": "Walking the edge of a fish corral",
+        "explanation_text": "Measuring the distance all the way around the outside of a fish corral is like finding the perimeter of a shape.",
+        "image_prompt": "Show people walking around the outside edge of a round jili fish corral with a dashed perimeter line."
+    },
+    {
+        "concept_id": "area",
+        "concept_name": "Area",
+        "aliases": ["surface area", "space inside", "coverage"],
+        "jing_culture": "Drying nets spread on the beach",
+        "explanation_text": "The amount of beach covered by a drying net spread flat represents its area—the space inside its outline.",
+        "image_prompt": "Show a fishing net spread on the beach, shaded to show the area it covers."
+    },
+    {
+        "concept_id": "volume",
+        "concept_name": "Volume",
+        "aliases": ["capacity", "space inside 3D shape", "liquid amount"],
+        "jing_culture": "Holding tanks for live fish",
+        "explanation_text": "The amount of seawater a holding tank can carry for live fish represents its volume.",
+        "image_prompt": "Show holding tanks filled to different levels to illustrate volume."
+    },
+    {
+        "concept_id": "circle_properties",
+        "concept_name": "Circle Properties",
+        "aliases": ["radius", "diameter", "circumference", "circle geometry"],
+        "jing_culture": "Round jili fish trap",
+        "explanation_text": "The round jili fish corral and the round soundboard of the duxianqin monochord are perfect circles, illustrating radius, diameter, and circumference.",
+        "image_prompt": "Show a round jili fish trap seen from above, labeled with radius and diameter lines."
+    },
+    {
+        "concept_id": "pi",
+        "concept_name": "Pi (π)",
+        "aliases": ["pi", "ratio of circumference", "3.14"],
+        "jing_culture": "Round monochord resonator",
+        "explanation_text": "No matter the size of the round resonator of a duxianqin, its circumference divided by its diameter is always the same constant—π.",
+        "image_prompt": "Show a circular duxianqin resonator labeled with circumference and diameter measurements."
+    },
+    {
+        "concept_id": "coordinate_plane",
+        "concept_name": "Coordinate Plane",
+        "aliases": ["x-y plane", "graph grid", "axes"],
+        "jing_culture": "Grid of oyster racks",
+        "explanation_text": "Oyster racks arranged in tidy rows and columns across the tidal flats resemble a coordinate grid, where each rack has its own position.",
+        "image_prompt": "Show an aerial view of oyster racks in rows and columns, labeled with x and y coordinates."
+    },
+    {
+        "concept_id": "plotting_points",
+        "concept_name": "Plotting Points",
+        "aliases": ["graphing points", "coordinates", "x-y plotting"],
+        "jing_culture": "Marking boat positions on a sea chart",
+        "explanation_text": "Marking each fishing boat's position on a sea chart is like plotting points on a coordinate plane.",
+        "image_prompt": "Show a sea chart of the waters around the three Jing islands with boat positions marked as points."
+    },
+    {
+        "concept_id": "symmetry",
+        "concept_name": "Symmetry",
+        "aliases": ["mirror image", "balanced halves", "reflection symmetry"],
+        "jing_culture": "Woven patterns on fishing nets",
+        "explanation_text": "The woven patterns of Jing fishing nets and the decorations at the Ha festival mirror each other across a center line, showing symmetry.",
+        "image_prompt": "Show a symmetrical fishing net pattern split by a mirror line."
+    },
+    {
+        "concept_id": "transformations",
+        "concept_name": "Transformations",
+        "aliases": ["translate", "rotate", "reflect", "dilate"],
+        "jing_culture": "Boats turning at sea",
+        "explanation_text": "When boats turn, shift position, or mirror their course during a day of fishing, they move through geometric transformations.",
+        "image_prompt": "Show fishing boats turning and shifting positions on the water to illustrate transformations."
+    },
+    {
+        "concept_id": "ratios",
+        "concept_name": "Ratios",
+        "aliases": ["comparison", "proportion of quantities", "rate"],
+        "jing_culture": "Mixing shrimp and salt",
+        "explanation_text": "When making shrimp sauce, the balance of shrimp to salt represents a ratio, like 3 parts shrimp to 1 part salt.",
+        "image_prompt": "Show a shrimp sauce jar labeled with shrimp and salt ratios, like 3:1."
+    },
+    {
+        "concept_id": "proportions",
+        "concept_name": "Proportions",
+        "aliases": ["equal ratios", "scaling", "balance of ratios"],
+        "jing_culture": "Enlarging a net design",
+        "explanation_text": "When a fisherman scales up a small net pattern to weave a larger one while keeping the mesh identical, that is maintaining proportion.",
+        "image_prompt": "Show a small and a large fishing net with the same proportions."
+    },
+    {
+        "concept_id": "unit_rate",
+        "concept_name": "Unit Rate",
+        "aliases": ["per unit", "rate per one", "comparison per one unit"],
+        "jing_culture": "Fish caught per hour",
+        "explanation_text": "The number of fish a boat catches in one hour of fishing is a unit rate.",
+        "image_prompt": "Show a fishing boat with its catch measured as fish caught per hour."
+    },
+    {
+        "concept_id": "scale_drawings",
+        "concept_name": "Scale Drawings",
+        "aliases": ["map scale", "drawing proportion", "scaled map"],
+        "jing_culture": "Mapping the three islands",
+        "explanation_text": "Drawing a small map of the three Jing islands while keeping real distances proportional is a scale drawing.",
+        "image_prompt": "Show the three islands and a smaller scaled map beside them with a scale legend."
+    },
+    {
+        "concept_id": "percent_change",
+        "concept_name": "Percent Change",
+        "aliases": ["percent increase", "percent decrease", "growth rate"],
+        "jing_culture": "Rise in the daily catch",
+        "explanation_text": "If a boat's daily catch grows from 100 to 120 kilograms, that is a 20% increase—an example of percent change.",
+        "image_prompt": "Show a pile of fish growing in size with a +20% label."
+    },
+    {
+        "concept_id": "data_collection",
+        "concept_name": "Data Collection",
+        "aliases": ["gather data", "record information", "collect numbers"],
+        "jing_culture": "Recording daily catches",
+        "explanation_text": "Writing down how many kilograms of fish, shrimp, and oysters each boat brings in every day is an example of data collection.",
+        "image_prompt": "Show a fisherman marking tallies of the daily catch on a clipboard at the dock."
+    },
+    {
+        "concept_id": "tables_graphs",
+        "concept_name": "Tables and Graphs",
+        "aliases": ["data table", "bar graph", "chart"],
+        "jing_culture": "Comparing catches across seasons",
+        "explanation_text": "Using a graph to show how much fish was caught in each season helps visualize trends in the fishing year.",
+        "image_prompt": "Show a bar graph comparing fish catches across the four seasons."
+    },
+    {
+        "concept_id": "mean",
+        "concept_name": "Mean",
+        "aliases": ["average", "arithmetic mean", "mean value"],
+        "jing_culture": "Average daily catch",
+        "explanation_text": "Finding the average number of fish a boat catches per day shows the mean of all its daily catches.",
+        "image_prompt": "Show a table of daily catches with the average value highlighted."
+    },
+    {
+        "concept_id": "median",
+        "concept_name": "Median",
+        "aliases": ["middle value", "data median"],
+        "jing_culture": "Middle catch of the boats",
+        "explanation_text": "When the daily catches of all the boats are arranged from smallest to largest, the catch in the middle is the median.",
+        "image_prompt": "Show baskets of catches lined up in order with the middle one highlighted as the median."
+    },
+    {
+        "concept_id": "mode",
+        "concept_name": "Mode",
+        "aliases": ["most frequent value", "common value"],
+        "jing_culture": "Most common fish caught",
+        "explanation_text": "If most of the fish brought in on a given day are anchovies, then anchovy is the mode of that day's catch.",
+        "image_prompt": "Show different kinds of fish with one type being clearly the most common."
+    },
+    {
+        "concept_id": "range",
+        "concept_name": "Range",
+        "aliases": ["difference", "spread of data", "highest minus lowest"],
+        "jing_culture": "Gap between catches",
+        "explanation_text": "The gap between the biggest and smallest catch among the boats shows the range of the data.",
+        "image_prompt": "Show a bar chart with the shortest and tallest bars marked for the range."
+    },
+    {
+        "concept_id": "bar_graphs",
+        "concept_name": "Bar Graphs",
+        "aliases": ["bar chart", "column graph"],
+        "jing_culture": "Comparing each boat's catch",
+        "explanation_text": "Each bar in the graph represents the catch of one boat, making quick comparisons easy.",
+        "image_prompt": "Show a bar graph labeled by boat names with their daily catch totals."
+    },
+    {
+        "concept_id": "line_graphs",
+        "concept_name": "Line Graphs",
+        "aliases": ["trend graph", "line chart"],
+        "jing_culture": "Tracking catch over the year",
+        "explanation_text": "A line graph shows how the size of the catch changes from month to month across the fishing year.",
+        "image_prompt": "Show a line graph labeled with months and fish catch amounts."
+    },
+    {
+        "concept_id": "pie_charts",
+        "concept_name": "Pie Charts",
+        "aliases": ["circle chart", "percentage chart"],
+        "jing_culture": "Share of each seafood type",
+        "explanation_text": "A pie chart can show the share of fish, shrimp, oysters, and crabs in a boat's total catch.",
+        "image_prompt": "Show a pie chart divided into seafood categories with percentages."
+    },
+    {
+        "concept_id": "probability",
+        "concept_name": "Probability",
+        "aliases": ["chance", "likelihood", "odds"],
+        "jing_culture": "Fishing luck on the sea",
+        "explanation_text": "Before setting out, a fisherman may guess how likely it is that the day's catch will be good—that likelihood is probability.",
+        "image_prompt": "Show boats heading out at dawn with probability labels above each one showing the chance of a good catch."
+    },
+    {
+        "concept_id": "patterns",
+        "concept_name": "Patterns",
+        "aliases": ["repeating design", "sequence", "recurrence"],
+        "jing_culture": "Woven border designs",
+        "explanation_text": "The repeated wave-and-fish motifs on Jing nets and Ha festival banners represent visual patterns that repeat in sequence.",
+        "image_prompt": "Show repeating wave and fish designs in traditional Jing craft."
+    },
+    {
+        "concept_id": "functions",
+        "concept_name": "Functions",
+        "aliases": ["input-output rule", "function relation", "mapping"],
+        "jing_culture": "Boat speed vs distance",
+        "explanation_text": "If each speed of a boat gives one specific distance traveled per hour, it is like a function—each input gives exactly one output.",
+        "image_prompt": "Show a graph linking boat speed (input) to distance traveled (output)."
+    }
+]
