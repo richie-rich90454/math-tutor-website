@@ -246,4 +246,10 @@ TRANSLATION_TABLES["bo"] = {
     sheetsLoadError: "ཤོག་ཤེལ་འཚོལ་མ་ཐུབ་པས་སླར་ཚོད་ལྟོས།",
     chatAskedBefore: "སྔོན་དུ་དྲིས་ཡོད།",
     chatFreshAnswer: "ལན་གསར་པ་ལེན་པ།",
+    settingsResumeLastChat: "恢复上次对话",
+    continueLearning: "继续学习",
+    recentTopics: "最近主题",
+    followUpExplain: "解释得更简单",
+    followUpExamples: "更多例子",
+    followUpAnother: "再来一题",
 };
