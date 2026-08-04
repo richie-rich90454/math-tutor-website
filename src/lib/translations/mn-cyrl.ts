@@ -246,6 +246,8 @@ const mnCyrl: Translations = {
     topicStatistics: "Статистик",
     gradeAll: "Бүгд",
     sheetsLoadError: "Хүснэгт ачаалах боломжгүй. Дахин оролдоно уу.",
+    chatAskedBefore: "Өмнө нь асуусан",
+    chatFreshAnswer: "Шинэ хариулт авах",
 };
 
 export default mnCyrl;
