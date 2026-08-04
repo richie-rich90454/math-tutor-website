@@ -244,4 +244,6 @@ TRANSLATION_TABLES["mn-cyrl"] = {
     topicStatistics: "Статистик",
     gradeAll: "Бүгд",
     sheetsLoadError: "Хүснэгт ачаалах боломжгүй. Дахин оролдоно уу.",
+    chatAskedBefore: "Өмнө нь асуусан",
+    chatFreshAnswer: "Шинэ хариулт авах",
 };
