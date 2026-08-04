@@ -10,7 +10,8 @@ import {
     useRef,
     ReactNode,
 } from "react";
-import { translations, Translations } from "@/lib/translations";
+import { translationLoaders, Translations } from "@/lib/translations";
+import en from "@/lib/translations/en";
 
 export interface Language {
     code: string;
@@ -63,9 +64,13 @@ const languages: Language[] = [
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
+// Translations are code-split per language; only English ships in the initial bundle.
+const loadedTranslations: Record<string, Translations> = { en };
+
 export function LanguageProvider({ children }: { children: ReactNode }) {
     // Always initialize with English to match server render
     const [currentLanguage, setCurrentLanguage] = useState<Language>(languages[0]);
+    const [translations, setTranslations] = useState<Translations>(en);
 
     // Load saved language after mount (client-only)
     const initialLang = useRef(currentLanguage);
@@ -88,15 +93,39 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
         } catch {}
     }, [currentLanguage.code]);
 
+    // Lazy-load the translation table for the active language.
+    useEffect(() => {
+        let cancelled = false;
+        const code = currentLanguage.code;
+        if (loadedTranslations[code]) {
+            setTranslations(loadedTranslations[code]);
+            return;
+        }
+        translationLoaders[code]?.()
+            .then((mod) => {
+                if (cancelled) {
+                    return;
+                }
+                loadedTranslations[code] = mod.default;
+                setTranslations(mod.default);
+            })
+            .catch(() => {
+                // Fall back to English; t() handles missing keys.
+            });
+        return () => {
+            cancelled = true;
+        };
+    }, [currentLanguage.code]);
+
     const setLanguage = useCallback((language: Language) => {
         setCurrentLanguage(language);
     }, []);
 
     const t = useCallback(
         (key: keyof Translations): string => {
-            return translations[currentLanguage.code]?.[key] || translations.en[key] || String(key);
+            return translations[key] || en[key] || String(key);
         },
-        [currentLanguage.code],
+        [translations],
     );
 
     const value = useMemo(
