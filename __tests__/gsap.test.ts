@@ -96,4 +96,11 @@ describe("particleBurst", () => {
         expect(gsapMock.to.mock.calls[0][0].style.cssText).toContain("#60a5fa");
         expect(gsapMock.to.mock.calls[4][0].style.cssText).toContain("#60a5fa");
     });
+
+    it("registers plugins when a window exists (browser path)", async () => {
+        vi.stubGlobal("window", {});
+        vi.resetModules();
+        await import("@/lib/gsap");
+        expect(gsapMock.registerPlugin).toHaveBeenCalled();
+    });
 });
