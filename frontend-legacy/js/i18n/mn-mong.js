@@ -244,4 +244,6 @@ TRANSLATION_TABLES["mn-mong"] = {
     topicStatistics: "ᠰᠲᠠᠲᠢᠰᠲᠢᠺ",
     gradeAll: "ᠪᠦᠬᠦ",
     sheetsLoadError: "ᠬᠦᠰᠨᠡᠭᠡ ᠠᠴᠢᠶᠠᠯᠠᠬᠤ ᠪᠣᠯᠣᠮᠵᠢᠭᠦᠢ᠃ ᠳᠠᠬᠢᠨ ᠣᠷᠣᠯᠳᠣᠨᠣ ᠤᠤ᠃",
+    chatAskedBefore: "ᠤᠷᠢᠳᠤ ᠠᠰᠠᠭᠤᠭᠰᠠᠨ",
+    chatFreshAnswer: "ᠰᠢᠨᠡ ᠬᠠᠷᠢᠭᠤᠯᠲᠠ ᠠᠪᠬᠤ",
 };
