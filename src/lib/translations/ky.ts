@@ -246,6 +246,8 @@ const ky: Translations = {
     topicStatistics: "Статистика",
     gradeAll: "Баары",
     sheetsLoadError: "Таблицаларды жүктөө мүмкүн болгон жок. Кайра аракет кылыңыз.",
+    chatAskedBefore: "Мурун суралган",
+    chatFreshAnswer: "Жаңы жооп алуу",
 };
 
 export default ky;
