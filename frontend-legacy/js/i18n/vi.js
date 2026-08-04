@@ -244,4 +244,6 @@ TRANSLATION_TABLES["vi"] = {
     topicStatistics: "Thống kê",
     gradeAll: "Tất cả",
     sheetsLoadError: "Không thể tải bảng. Vui lòng thử lại.",
+    chatAskedBefore: "Đã hỏi trước đó",
+    chatFreshAnswer: "Nhận câu trả lời mới",
 };
