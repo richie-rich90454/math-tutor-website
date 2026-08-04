@@ -48,12 +48,18 @@ describe("apiFetch", () => {
 
         await apiFetch("/api/y", { method: "DELETE" });
 
-        expect(fetchMock).toHaveBeenCalledWith("/api/y", expect.objectContaining({ method: "DELETE" }));
+        expect(fetchMock).toHaveBeenCalledWith(
+            "/api/y",
+            expect.objectContaining({ method: "DELETE" }),
+        );
     });
 
     it("returns the underlying response", async () => {
         const response = new Response(null, { status: 204 });
-        vi.stubGlobal("fetch", vi.fn(() => Promise.resolve(response)));
+        vi.stubGlobal(
+            "fetch",
+            vi.fn(() => Promise.resolve(response)),
+        );
 
         const result = await apiFetch("/api/z");
         expect(result).toBe(response);
