@@ -287,6 +287,17 @@ MathTutor.renderMarkdownSafe = function (text) {
     return escaped;
 };
 
+// Pull out [SUGGESTION: ...] markers from assistant text and return the clean
+// content plus the suggestion list (mirrors the modern MarkdownRenderer).
+MathTutor.extractSuggestions = function (content) {
+    var suggestions = [];
+    var clean = content.replace(/\[SUGGESTION:\s*([^\]]+)\]/g, function (match, text) {
+        suggestions.push(text.replace(/^\s+|\s+$/g, ""));
+        return "";
+    });
+    return { suggestions: suggestions, clean: clean };
+};
+
 // ---------- Time formatting ----------
 MathTutor.formatTime = function (isoOrSql) {
     if (!isoOrSql) {
