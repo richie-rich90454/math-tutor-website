@@ -244,4 +244,6 @@ TRANSLATION_TABLES["kk"] = {
     topicStatistics: "Статистика",
     gradeAll: "Барлығы",
     sheetsLoadError: "Кестелерді жүктеу мүмкін болмады. Қайталап көріңіз.",
+    chatAskedBefore: "Бұрын сұралған",
+    chatFreshAnswer: "Жаңа жауап алу",
 };
