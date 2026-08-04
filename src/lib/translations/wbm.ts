@@ -244,6 +244,8 @@ const wbm: Translations = {
     topicStatistics: "Kong kaux",
     gradeAll: "A tɛ",
     sheetsLoadError: "A kae siak lix a sang. Kae mhang law.",
+    chatAskedBefore: "之前问过",
+    chatFreshAnswer: "获取新答案",
 };
 
 export default wbm;
