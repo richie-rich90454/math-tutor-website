@@ -246,6 +246,8 @@ const fr: Translations = {
     topicStatistics: "Statistiques",
     gradeAll: "Tous",
     sheetsLoadError: "Impossible de charger les fiches. Réessayez.",
+    chatAskedBefore: "Déjà demandé",
+    chatFreshAnswer: "Obtenir une nouvelle réponse",
 };
 
 export default fr;
