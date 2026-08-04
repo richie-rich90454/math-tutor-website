@@ -242,4 +242,6 @@ TRANSLATION_TABLES["lis"] = {
     topicStatistics: "Statistics",
     gradeAll: "ꓟꓬ ꓐꓶꓽ",
     sheetsLoadError: "ꓫꓬ ꓕꓯꓽ ꓔꓯ ꓓꓴ ꓟꓽ ꓐꓶꓽ. ꓫꓬ ꓠꓲꓹ ꓗꓷ.",
+    chatAskedBefore: "之前问过",
+    chatFreshAnswer: "获取新答案",
 };
