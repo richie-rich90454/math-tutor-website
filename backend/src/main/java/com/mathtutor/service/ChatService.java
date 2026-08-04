@@ -81,7 +81,8 @@ public class ChatService {
             boolean checkMode) {
     }
 
-    public StreamSetup prepareMessageStream(String userId, String message, String chatId, String preferredLanguage)
+    public StreamSetup prepareMessageStream(String userId, String message, String chatId, String preferredLanguage,
+            boolean bypassCache)
             throws java.io.IOException {
         String language = preferredLanguage == null || preferredLanguage.isBlank()
                 ? "en"
@@ -121,7 +122,9 @@ public class ChatService {
             return new StreamSetup(activeChatId, stream, false, true);
         }
 
-        Optional<String> cached = answerCache.lookup(content, language, topic, activeChatId, userId);
+        Optional<String> cached = bypassCache
+                ? Optional.empty()
+                : answerCache.lookup(content, language, topic, activeChatId, userId);
         if (cached.isPresent()) {
             answerCache.store(content, language, topic, cached.get(), activeChatId, userId);
             return new StreamSetup(activeChatId, new CachedStream(cached.get()), true, false);
