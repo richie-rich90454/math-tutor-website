@@ -7,9 +7,7 @@ const secret = process.env.SESSION_SECRET!;
 function signedToken(payload: Record<string, unknown>, useSecret: string): string {
     const header = Buffer.from(JSON.stringify({ alg: "HS256", typ: "JWT" })).toString("base64url");
     const body = Buffer.from(JSON.stringify(payload)).toString("base64url");
-    const sig = createHmac("sha256", useSecret)
-        .update(`${header}.${body}`)
-        .digest("base64url");
+    const sig = createHmac("sha256", useSecret).update(`${header}.${body}`).digest("base64url");
     return `${header}.${body}.${sig}`;
 }
 
@@ -36,7 +34,11 @@ describe("signToken / verifyToken edge cases", () => {
 
     it("rejects an expired token that has a valid signature", () => {
         const token = signedToken(
-            { sub: "x", iat: Math.floor(Date.now() / 1000) - 2000, exp: Math.floor(Date.now() / 1000) - 1000 },
+            {
+                sub: "x",
+                iat: Math.floor(Date.now() / 1000) - 2000,
+                exp: Math.floor(Date.now() / 1000) - 1000,
+            },
             secret,
         );
         expect(verifyToken(token)).toBeNull();
@@ -50,11 +52,11 @@ describe("signToken / verifyToken edge cases", () => {
     });
 
     it("returns null when the payload body cannot be parsed", () => {
-        const header = Buffer.from(JSON.stringify({ alg: "HS256", typ: "JWT" })).toString("base64url");
+        const header = Buffer.from(JSON.stringify({ alg: "HS256", typ: "JWT" })).toString(
+            "base64url",
+        );
         const badBody = Buffer.from("{ not-json").toString("base64url");
-        const sig = createHmac("sha256", secret)
-            .update(`${header}.${badBody}`)
-            .digest("base64url");
+        const sig = createHmac("sha256", secret).update(`${header}.${badBody}`).digest("base64url");
         expect(verifyToken(`${header}.${badBody}.${sig}`)).toBeNull();
     });
 
