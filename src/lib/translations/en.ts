@@ -245,6 +245,8 @@ const en: Translations = {
     topicStatistics: "Statistics",
     gradeAll: "All",
     sheetsLoadError: "Could not load sheets. Please try again.",
+    chatAskedBefore: "Asked before",
+    chatFreshAnswer: "Get fresh answer",
 };
 
 export default en;
