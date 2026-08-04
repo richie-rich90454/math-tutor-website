@@ -248,6 +248,12 @@ const vi: Translations = {
     sheetsLoadError: "Không thể tải bảng. Vui lòng thử lại.",
     chatAskedBefore: "Đã hỏi trước đó",
     chatFreshAnswer: "Nhận câu trả lời mới",
+    settingsResumeLastChat: "Tiếp tục cuộc trò chuyện gần nhất",
+    continueLearning: "Tiếp tục học",
+    recentTopics: "Chủ đề gần đây",
+    followUpExplain: "Giải thích đơn giản hơn",
+    followUpExamples: "Thêm ví dụ",
+    followUpAnother: "Một bài nữa",
 };
 
 export default vi;
