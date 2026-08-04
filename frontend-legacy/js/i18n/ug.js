@@ -244,4 +244,6 @@ TRANSLATION_TABLES["ug"] = {
     topicStatistics: "ستاتىستىكا",
     gradeAll: "ھەممىسى",
     sheetsLoadError: "جەدۋەللەرنى يۈكلەش مۇمكىن بولمىدى. قايتا سىناڭ.",
+    chatAskedBefore: "ئىلگىرى سورالغان",
+    chatFreshAnswer: "يېڭى جاۋاب ئېلىش",
 };
