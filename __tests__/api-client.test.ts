@@ -52,7 +52,7 @@ describe("apiFetch", () => {
     });
 
     it("returns the underlying response", async () => {
-        const response = new Response("ok", { status: 204 });
+        const response = new Response(null, { status: 204 });
         vi.stubGlobal("fetch", vi.fn(() => Promise.resolve(response)));
 
         const result = await apiFetch("/api/z");
