@@ -245,6 +245,8 @@ const hni: Translations = {
     topicStatistics: "Statistics",
     gradeAll: "Teihhaovq",
     sheetsLoadError: "Ssolpeil dol maq hhaol. Naq peilqil ngaq hhyul.",
+    chatAskedBefore: "之前问过",
+    chatFreshAnswer: "获取新答案",
 };
 
 export default hni;
