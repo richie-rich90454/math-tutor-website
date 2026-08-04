@@ -4,4 +4,5 @@ export interface Message {
     role: "user" | "assistant";
     timestamp: Date;
     isPinned?: boolean;
+    isCached?: boolean;
 }
