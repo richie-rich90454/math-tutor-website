@@ -243,4 +243,6 @@ TRANSLATION_TABLES["tdd"] = {
     topicStatistics: "ᥟᥤᥢᥰ ᥙᥣᥢᥰ",
     gradeAll: "ᥖᥥᥒᥰ ᥘᥣᥭᥰ",
     sheetsLoadError: "ᥛᥥᥢᥰ ᥖᥣᥛᥰ ᥐᥣᥭᥰ ᥚᥣᥐᥰ. ᥖᥫᥰ ᥘᥨᥝᥰ.",
+    chatAskedBefore: "之前问过",
+    chatFreshAnswer: "获取新答案",
 };
