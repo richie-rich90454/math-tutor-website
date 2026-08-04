@@ -12,6 +12,7 @@
     var pendingImage = null;
     var xhr = null;
     var stopRequested = false;
+    var bypassCacheNext = false;
     var currentAssistantId = null;
     var assistantBuf = "";
 
@@ -340,6 +341,10 @@
                 + MathTutor.escapeHtml(MathTutor.t("chatCopyMessage")) + "</a>"
                 + '<a href="#" data-action="pin" data-msg-id="' + MathTutor.escapeHtml(msg.id) + '">'
                 + MathTutor.escapeHtml(msg.is_pinned ? MathTutor.t("unpin") : MathTutor.t("pin")) + "</a>"
+                + (msg.is_cached
+                    ? '<a href="#" data-action="fresh" data-msg-id="' + MathTutor.escapeHtml(msg.id) + '">'
+                        + MathTutor.escapeHtml(MathTutor.t("chatFreshAnswer")) + "</a>"
+                    : "")
                 + '<a href="#" data-action="regenerate" data-msg-id="' + MathTutor.escapeHtml(msg.id) + '">'
                 + MathTutor.escapeHtml(MathTutor.t("chatRegenerate")) + "</a></div>";
         } else {
@@ -350,6 +355,7 @@
         return '<div class="msg-row ' + cls + '" data-msg-id="' + MathTutor.escapeHtml(msg.id) + '">'
             + '<div class="msg-role">' + MathTutor.escapeHtml(role) + "</div>"
             + '<div class="msg-body">' + MathTutor.renderMarkdownSafe(body) + "</div>"
+            + (msg.is_cached ? '<span class="msg-cached-badge">' + MathTutor.escapeHtml(MathTutor.t("chatAskedBefore")) + "</span>" : "")
             + suggestionButtons(suggestions)
             + '<div class="msg-time">' + MathTutor.escapeHtml(MathTutor.formatTime(msg.timestamp)) + "</div>"
             + actions
@@ -622,8 +628,10 @@
         var body = {
             message: text,
             preferredLanguage: MathTutor.currentLanguage,
-            chatId: activeChatId
+            chatId: activeChatId,
+            bypassCache: bypassCacheNext
         };
+        bypassCacheNext = false;
         currentAssistantId = "a-" + new Date().getTime();
         assistantBuf = "";
         messages.push({ id: currentAssistantId, role: "assistant", content: "", timestamp: new Date() });
@@ -697,6 +705,15 @@
                 return;
             }
             done = true;
+            var wasCached = xhr.getResponseHeader && xhr.getResponseHeader("X-Cache") === "hit";
+            if (currentAssistantId) {
+                for (var mi = 0; mi < messages.length; mi++) {
+                    if (messages[mi].id === currentAssistantId) {
+                        messages[mi].is_cached = wasCached;
+                        break;
+                    }
+                }
+            }
             var serverChatId = xhr.getResponseHeader && xhr.getResponseHeader("X-Chat-Id");
             if (serverChatId && serverChatId !== activeChatId) {
                 var wasNewChat = !activeChatId;
@@ -801,6 +818,27 @@
             return;
         }
         truncateTo(lastUser.id);
+        el("chatInput").value = lastUser.content;
+        sendMessage(lastUser.content);
+    }
+
+    // Re-ask the last question with the answer cache bypassed.
+    function handleFreshAnswer() {
+        if (isLoading || messages.length < 2) {
+            return;
+        }
+        var lastUser = null;
+        for (var i = messages.length - 1; i >= 0; i--) {
+            if (messages[i].role === "user") {
+                lastUser = messages[i];
+                break;
+            }
+        }
+        if (!lastUser) {
+            return;
+        }
+        truncateTo(lastUser.id);
+        bypassCacheNext = true;
         el("chatInput").value = lastUser.content;
         sendMessage(lastUser.content);
     }
@@ -1061,6 +1099,8 @@
                 togglePinMsg(msgId);
             } else if (action === "regenerate") {
                 handleRegenerate();
+            } else if (action === "fresh") {
+                handleFreshAnswer();
             } else if (action === "edit") {
                 handleEdit(msgId);
             }
