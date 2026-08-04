@@ -11,7 +11,7 @@ import { apiFetch } from "@/lib/api-client";
 
 export function useChatMessages() {
     const { t, currentLanguage } = useLanguage();
-    const { currentChat, setCurrentChat, addChatSession } = useChat();
+    const { currentChat, setCurrentChat, addChatSession, chatHistory } = useChat();
     const { addToast } = useToast();
 
     const [input, setInput] = useState("");
@@ -102,6 +102,37 @@ export function useChatMessages() {
             prevMessagesLenRef.current = 0;
         }
     }, [currentChat, setPinned]);
+
+    // Persist the active chat so it can be resumed on the next visit.
+    useEffect(() => {
+        if (activeChatId) {
+            try {
+                localStorage.setItem("mt-last-chat-id", activeChatId);
+            } catch {}
+        }
+    }, [activeChatId]);
+
+    // Resume the last active chat once history is loaded, unless the user
+    // disabled the preference in settings.
+    const resumedRef = useRef(false);
+    useEffect(() => {
+        if (resumedRef.current || isLoaded || chatHistory.length === 0) return;
+        try {
+            if (localStorage.getItem("mt-resume-last-chat") === "0") {
+                resumedRef.current = true;
+                return;
+            }
+            const lastId = localStorage.getItem("mt-last-chat-id");
+            const found = lastId ? chatHistory.find((c) => c.id === lastId) : undefined;
+            if (found) {
+                resumedRef.current = true;
+                setCurrentChat(found);
+                setIsLoaded(false);
+            }
+        } catch {
+            resumedRef.current = true;
+        }
+    }, [chatHistory, isLoaded, setCurrentChat]);
 
     const sendMessage = useCallback(
         async (overrideInput?: string) => {
