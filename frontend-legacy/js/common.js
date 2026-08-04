@@ -203,24 +203,6 @@ MathTutor.setLanguage = function (lang, callback) {
             }
         }
     });
-    MathTutor.saveUserLanguage(lang);
-};
-
-MathTutor.saveUserLanguage = function (lang) {
-    if (!MathTutor.session || !MathTutor.session.user) {
-        return;
-    }
-    if (MathTutor.session.user.preferred_language === lang) {
-        return;
-    }
-    $.ajax({
-        url: API_BASE_URL + "/api/auth/me",
-        type: "GET",
-        success: function () {
-        },
-        error: function () {
-        }
-    });
 };
 
 // ---------- Theme ----------
