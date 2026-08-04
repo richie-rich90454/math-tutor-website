@@ -243,4 +243,6 @@ TRANSLATION_TABLES["hni"] = {
     topicStatistics: "Statistics",
     gradeAll: "Teihhaovq",
     sheetsLoadError: "Ssolpeil dol maq hhaol. Naq peilqil ngaq hhyul.",
+    chatAskedBefore: "之前问过",
+    chatFreshAnswer: "获取新答案",
 };
