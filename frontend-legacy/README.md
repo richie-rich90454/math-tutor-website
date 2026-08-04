@@ -54,9 +54,10 @@ the client is hosted separately from the backend.
 
 ## Language Support
 
-All 12 languages (en, zh-hans, zh-hant, mn-cyrl, mn-mong, bo, es, fr, de, ja,
-ar, he) with RTL support for Arabic and Hebrew. Translations are generated from
-`src/lib/translations.ts` into `js/i18n.js`. Re-generate with:
+All 35 languages with RTL support for Arabic, Hebrew, and Uyghur. Translations
+are generated from `src/lib/translations/<code>.ts` (one file per language)
+into `js/i18n.js` (language list + English bootstrap) and `js/i18n/<code>.js`
+(one lazy-loaded file per language). Re-generate with:
 
 ```
 node scripts/generate-legacy-i18n.js
