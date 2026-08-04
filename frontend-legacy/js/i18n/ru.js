@@ -243,4 +243,6 @@ TRANSLATION_TABLES["ru"] = {
     topicStatistics: "Статистика",
     gradeAll: "Все",
     sheetsLoadError: "Не удалось загрузить таблицы. Попробуйте ещё раз.",
+    chatAskedBefore: "Спрашивалось ранее",
+    chatFreshAnswer: "Получить новый ответ",
 };
