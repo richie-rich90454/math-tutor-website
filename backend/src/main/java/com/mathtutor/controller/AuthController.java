@@ -199,8 +199,8 @@ public class AuthController {
             return ResponseEntity.status(401).body(Map.of("error", "Not authenticated"));
         }
         JsonLike body = JsonBody.parse(rawBody);
-        String current = body.node().get("currentPassword") == null ? "" : body.node().get("currentPassword").asText();
-        String next = body.node().get("newPassword") == null ? "" : body.node().get("newPassword").asText();
+        String current = body.node().get("currentPassword") == null ? "" : body.node().get("currentPassword").asString();
+        String next = body.node().get("newPassword") == null ? "" : body.node().get("newPassword").asString();
         if (next.length() < 8) {
             return ResponseEntity.badRequest().body(Map.of("error", "New password must be at least 8 characters"));
         }
