@@ -245,6 +245,8 @@ const he: Translations = {
     topicStatistics: "סטטיסטיקה",
     gradeAll: "הכל",
     sheetsLoadError: "לא ניתן לטעון את הדפים. נסה שוב.",
+    chatAskedBefore: "נשאל בעבר",
+    chatFreshAnswer: "קבל תשובה חדשה",
 };
 
 export default he;
