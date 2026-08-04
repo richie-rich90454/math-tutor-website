@@ -21,6 +21,8 @@ public class AnswerCache {
     private static final int MIN_QUESTION_LENGTH = 6;
     private static final int MAX_QUESTION_LENGTH = 300;
     private static final int MAX_NUMERIC_TOKENS = 2;
+    private static final int SIMILAR_CANDIDATES = 50;
+    private static final double SIMILAR_THRESHOLD = 0.9;
     private static final Pattern NUMERIC = Pattern.compile("\\d+");
 
     private final AnswerCacheRepository repo;
@@ -36,14 +38,45 @@ public class AnswerCache {
         if (normalized.isEmpty()) {
             return Optional.empty();
         }
-        Optional<AnswerCacheRepository.CacheRecord> hit =
-                repo.findByKeyInChats(key(language, normalized), computeScope(chatId, userId));
-        if (hit.isPresent()) {
-            repo.incrementHit(hit.get().cache_key());
-            repo.rehome(hit.get().cache_key(), chatId);
-            return Optional.of(hit.get().answer());
+        List<String> scope = computeScope(chatId, userId);
+        Optional<AnswerCacheRepository.CacheRecord> exact =
+                repo.findByKeyInChats(key(language, normalized), scope);
+        if (exact.isPresent()) {
+            markHit(exact.get(), chatId);
+            return Optional.of(exact.get().answer());
+        }
+        // Similar-question reuse: safe because it is scoped to the user's own
+        // recent conversations, and the client tags the response so the user can
+        // override with a fresh answer.
+        Optional<AnswerCacheRepository.CacheRecord> similar = findSimilar(language, normalized, scope);
+        if (similar.isPresent()) {
+            markHit(similar.get(), chatId);
+            return Optional.of(similar.get().answer());
         }
         return Optional.empty();
+    }
+
+    private void markHit(AnswerCacheRepository.CacheRecord record, String chatId) {
+        repo.incrementHit(record.cache_key());
+        repo.rehome(record.cache_key(), chatId);
+    }
+
+    private Optional<AnswerCacheRepository.CacheRecord> findSimilar(
+            String language, String normalized, List<String> scope) {
+        double best = SIMILAR_THRESHOLD;
+        AnswerCacheRepository.CacheRecord bestRecord = null;
+        Set<String> questionBigrams = bigrams(normalized);
+        for (AnswerCacheRepository.CacheRecord rec : repo.findRecentInChats(scope, SIMILAR_CANDIDATES)) {
+            if (!language.equals(rec.language())) {
+                continue;
+            }
+            double score = jaccard(questionBigrams, bigrams(normalize(rec.question())));
+            if (score > best) {
+                best = score;
+                bestRecord = rec;
+            }
+        }
+        return Optional.ofNullable(bestRecord);
     }
 
     public void store(String question, String language, String topic, String answer, String chatId, String userId) {
