@@ -39,10 +39,10 @@ public class CultureService {
             for (Resource resource : resources) {
                 try (InputStream in = resource.getInputStream()) {
                     JsonNode root = objectMapper.readTree(in);
-                    String language = root.path("language").asText();
+                    String language = root.path("language").asString();
                     List<String> keywords = new ArrayList<>();
                     for (JsonNode node : root.path("keywords")) {
-                        keywords.add(node.asText());
+                        keywords.add(node.asString());
                     }
                     keywordsByLanguage.put(language, keywords);
                 }
