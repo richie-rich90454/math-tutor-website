@@ -68,10 +68,10 @@ public class AnswerCacheRepository {
         }
         String placeholders = String.join(",", Collections.nCopies(chatIds.size(), "?"));
         Object[] args = new Object[chatIds.size() + 1];
-        args[0] = limit;
         for (int i = 0; i < chatIds.size(); i++) {
-            args[i + 1] = chatIds.get(i);
+            args[i] = chatIds.get(i);
         }
+        args[chatIds.size()] = limit;
         return jdbc.query(
                 "SELECT * FROM answer_cache WHERE chat_id IN (" + placeholders + ")"
                         + " AND created_at >= datetime('now', '-7 days')"
