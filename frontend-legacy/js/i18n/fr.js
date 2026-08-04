@@ -244,4 +244,6 @@ TRANSLATION_TABLES["fr"] = {
     topicStatistics: "Statistiques",
     gradeAll: "Tous",
     sheetsLoadError: "Impossible de charger les fiches. Réessayez.",
+    chatAskedBefore: "Déjà demandé",
+    chatFreshAnswer: "Obtenir une nouvelle réponse",
 };
