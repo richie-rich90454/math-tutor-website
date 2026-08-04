@@ -37,9 +37,7 @@ export default function LanguageSwitcher() {
             if (items.length === 0) return;
             const idx = items.indexOf(document.activeElement as HTMLButtonElement);
             const next =
-                e.key === "ArrowDown"
-                    ? Math.min(idx + 1, items.length - 1)
-                    : Math.max(idx - 1, 0);
+                e.key === "ArrowDown" ? Math.min(idx + 1, items.length - 1) : Math.max(idx - 1, 0);
             items[next]?.focus();
         }
     };

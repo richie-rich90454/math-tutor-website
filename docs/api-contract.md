@@ -11,24 +11,24 @@ stream. Legacy clients talk to the backend directly over `/api/*`.
 
 ## Auth
 
-| Method | Path | Body / Notes |
-|--------|------|--------------|
-| POST | `/api/auth/signup` | `{ name, email, password, math_level, preferred_language }` |
-| POST | `/api/auth/login` | `{ email, password, remember }` → sets `session_token` cookie |
-| POST | `/api/auth/logout` | |
-| GET | `/api/auth/me` | current user (id, name, email, math_level, preferred_language) |
-| POST | `/api/auth/guest` | create a guest session |
-| POST | `/api/auth/change-password` | `{ current_password, new_password }` |
-| GET | `/api/auth/sessions` | active sessions |
-| POST | `/api/auth/sessions/revoke-all` | sign out everywhere else |
+| Method | Path                            | Body / Notes                                                   |
+| ------ | ------------------------------- | -------------------------------------------------------------- |
+| POST   | `/api/auth/signup`              | `{ name, email, password, math_level, preferred_language }`    |
+| POST   | `/api/auth/login`               | `{ email, password, remember }` → sets `session_token` cookie  |
+| POST   | `/api/auth/logout`              |                                                                |
+| GET    | `/api/auth/me`                  | current user (id, name, email, math_level, preferred_language) |
+| POST   | `/api/auth/guest`               | create a guest session                                         |
+| POST   | `/api/auth/change-password`     | `{ current_password, new_password }`                           |
+| GET    | `/api/auth/sessions`            | active sessions                                                |
+| POST   | `/api/auth/sessions/revoke-all` | sign out everywhere else                                       |
 
 ## Chat
 
-| Method | Path | Notes |
-|--------|------|-------|
-| POST | `/api/chat/message` | **Streaming** (`text/plain`). Body `{ message, chatId?, preferredLanguage?, bypassCache? }`. Headers: `X-Chat-Id`, `X-Cache: hit\|miss`, `X-Quota-Warning`. |
-| POST | `/api/chat/image` | Streaming vision turn. Body `{ image, mimeType, message, preferredLanguage, chatId? }`. |
-| POST | `/api/chat/translate` | Translate a block. |
+| Method | Path                  | Notes                                                                                                                                                       |
+| ------ | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| POST   | `/api/chat/message`   | **Streaming** (`text/plain`). Body `{ message, chatId?, preferredLanguage?, bypassCache? }`. Headers: `X-Chat-Id`, `X-Cache: hit\|miss`, `X-Quota-Warning`. |
+| POST   | `/api/chat/image`     | Streaming vision turn. Body `{ image, mimeType, message, preferredLanguage, chatId? }`.                                                                     |
+| POST   | `/api/chat/translate` | Translate a block.                                                                                                                                          |
 
 ### Streaming response contract
 
@@ -42,47 +42,47 @@ stream. Legacy clients talk to the backend directly over `/api/*`.
 
 ## Chats
 
-| Method | Path | Notes |
-|--------|------|-------|
-| GET | `/api/chats` | list, `{ chats: [...] }`, ordered `is_pinned DESC, updated_at DESC` |
-| POST | `/api/chats` | create |
-| GET | `/api/chats/{id}` | detail `{ id, title, messages: ApiMessage[] }` |
-| PATCH | `/api/chats/{id}` | update fields (title, preview, topic, is_pinned, is_archived) |
-| DELETE | `/api/chats/{id}` | |
-| GET | `/api/chats?q=` | search |
-| POST | `/api/chats/{id}/messages/{mid}/pin` | `{ pinned: bool }` |
+| Method | Path                                 | Notes                                                               |
+| ------ | ------------------------------------ | ------------------------------------------------------------------- |
+| GET    | `/api/chats`                         | list, `{ chats: [...] }`, ordered `is_pinned DESC, updated_at DESC` |
+| POST   | `/api/chats`                         | create                                                              |
+| GET    | `/api/chats/{id}`                    | detail `{ id, title, messages: ApiMessage[] }`                      |
+| PATCH  | `/api/chats/{id}`                    | update fields (title, preview, topic, is_pinned, is_archived)       |
+| DELETE | `/api/chats/{id}`                    |                                                                     |
+| GET    | `/api/chats?q=`                      | search                                                              |
+| POST   | `/api/chats/{id}/messages/{mid}/pin` | `{ pinned: bool }`                                                  |
 
 `ApiMessage` wire shape: `{ id, content, role, created_at, is_pinned? }`.
 
 ## Practice / Review / Sheets
 
-| Method | Path | Notes |
-|--------|------|-------|
-| GET | `/api/problems?topic=&grade=` | practice problem |
-| POST | `/api/problems/check` | check an answer |
-| GET | `/api/problem-of-day` | |
-| GET | `/api/review` | due review items |
-| GET | `/api/sheets?topic=` | formula/glossary sheets |
-| POST | `/api/study-plan` | generate a 7-day study plan |
+| Method | Path                          | Notes                       |
+| ------ | ----------------------------- | --------------------------- |
+| GET    | `/api/problems?topic=&grade=` | practice problem            |
+| POST   | `/api/problems/check`         | check an answer             |
+| GET    | `/api/problem-of-day`         |                             |
+| GET    | `/api/review`                 | due review items            |
+| GET    | `/api/sheets?topic=`          | formula/glossary sheets     |
+| POST   | `/api/study-plan`             | generate a 7-day study plan |
 
 ## Progress / Usage
 
-| Method | Path | Notes |
-|--------|------|-------|
-| GET | `/api/progress` | conversations, messages, streak, topics, activity |
-| GET | `/api/usage` | today's token usage + cache hits + est. cost |
+| Method | Path            | Notes                                             |
+| ------ | --------------- | ------------------------------------------------- |
+| GET    | `/api/progress` | conversations, messages, streak, topics, activity |
+| GET    | `/api/usage`    | today's token usage + cache hits + est. cost      |
 
 ## Culture
 
-| Method | Path | Notes |
-|--------|------|-------|
-| GET | `/api/culture/{lang}` | culture keyword packs |
+| Method | Path                  | Notes                 |
+| ------ | --------------------- | --------------------- |
+| GET    | `/api/culture/{lang}` | culture keyword packs |
 
 ## Health
 
-| Method | Path | Notes |
-|--------|------|-------|
-| GET | `/api/health` | `{"status":"ok"}` (backend liveness) |
+| Method | Path          | Notes                                |
+| ------ | ------------- | ------------------------------------ |
+| GET    | `/api/health` | `{"status":"ok"}` (backend liveness) |
 
 ## Conventions
 

@@ -371,7 +371,9 @@ export default function SettingsPage() {
                         <div className="settings-card">
                             <div className="settings-row">
                                 <div className="settings-row-label">
-                                    <span className="settings-row-title">{t("settingsResumeLastChat")}</span>
+                                    <span className="settings-row-title">
+                                        {t("settingsResumeLastChat")}
+                                    </span>
                                 </div>
                                 <button
                                     role="switch"

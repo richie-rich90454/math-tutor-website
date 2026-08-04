@@ -116,13 +116,25 @@ const MessageRow = memo(function MessageRow({
                         )}
                         {!isStreaming && onFollowUp && (
                             <div className="followup-chips">
-                                <button type="button" className="followup-chip" onClick={() => onFollowUp(t("followUpExplain"))}>
+                                <button
+                                    type="button"
+                                    className="followup-chip"
+                                    onClick={() => onFollowUp(t("followUpExplain"))}
+                                >
                                     {t("followUpExplain")}
                                 </button>
-                                <button type="button" className="followup-chip" onClick={() => onFollowUp(t("followUpExamples"))}>
+                                <button
+                                    type="button"
+                                    className="followup-chip"
+                                    onClick={() => onFollowUp(t("followUpExamples"))}
+                                >
                                     {t("followUpExamples")}
                                 </button>
-                                <button type="button" className="followup-chip" onClick={() => onFollowUp(t("followUpAnother"))}>
+                                <button
+                                    type="button"
+                                    className="followup-chip"
+                                    onClick={() => onFollowUp(t("followUpAnother"))}
+                                >
                                     {t("followUpAnother")}
                                 </button>
                             </div>

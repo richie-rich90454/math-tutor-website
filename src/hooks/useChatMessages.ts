@@ -207,7 +207,13 @@ export function useChatMessages() {
                 const isCached = response.headers.get("X-Cache") === "hit";
                 setMessages((prev) => [
                     ...prev,
-                    { id: assistantId, role: "assistant", content: "", timestamp: new Date(), isCached },
+                    {
+                        id: assistantId,
+                        role: "assistant",
+                        content: "",
+                        timestamp: new Date(),
+                        isCached,
+                    },
                 ]);
 
                 const reader = response.body?.getReader();

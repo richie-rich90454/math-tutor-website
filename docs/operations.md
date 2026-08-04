@@ -34,15 +34,15 @@ node scripts/minify-json.js
 Backend config lives in `backend/src/main/resources/application.properties` (gitignored); the
 tracked template is `application.properties.example`. Key variables:
 
-| Variable | Purpose |
-|----------|---------|
-| `SESSION_SECRET` | **Required.** Long random string for session/JWT signing. |
-| `DATABASE_PATH` | SQLite file path (default `./data/math-tutor.db`). |
-| `OPENAI_COMPATIBLE_API_KEY` | LLM provider key. |
-| `OPENAI_COMPATIBLE_BASE_URL` / `MODEL` / `VISION_MODEL` | Provider endpoints. |
-| `LEGACY_STATIC_DIR` | Directory served as `/legacy/**` (default `../frontend-legacy`). |
-| `APP_QUOTA_DAILY_TOKENS` / `SOFT_RATIO` / `MONTHLY_TOKENS` | Token quota. |
-| `CORS_ALLOWED_ORIGINS` | Allowed origins for browser access. |
+| Variable                                                   | Purpose                                                          |
+| ---------------------------------------------------------- | ---------------------------------------------------------------- |
+| `SESSION_SECRET`                                           | **Required.** Long random string for session/JWT signing.        |
+| `DATABASE_PATH`                                            | SQLite file path (default `./data/math-tutor.db`).               |
+| `OPENAI_COMPATIBLE_API_KEY`                                | LLM provider key.                                                |
+| `OPENAI_COMPATIBLE_BASE_URL` / `MODEL` / `VISION_MODEL`    | Provider endpoints.                                              |
+| `LEGACY_STATIC_DIR`                                        | Directory served as `/legacy/**` (default `../frontend-legacy`). |
+| `APP_QUOTA_DAILY_TOKENS` / `SOFT_RATIO` / `MONTHLY_TOKENS` | Token quota.                                                     |
+| `CORS_ALLOWED_ORIGINS`                                     | Allowed origins for browser access.                              |
 
 ## Health checks
 
