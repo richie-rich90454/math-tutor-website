@@ -31,8 +31,8 @@ class JwtUtilTest {
         String token = jwt.signToken("user123", "test@example.com");
         JsonNode payload = jwt.verifyToken(token);
         assertNotNull(payload);
-        assertEquals("user123", payload.get("sub").asText());
-        assertEquals("test@example.com", payload.get("email").asText());
+        assertEquals("user123", payload.get("sub").asString());
+        assertEquals("test@example.com", payload.get("email").asString());
     }
 
     @Test
