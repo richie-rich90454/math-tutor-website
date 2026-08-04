@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import type { Message } from "@/types/chat";
 import Skeleton from "@/components/ui/Skeleton";
 import BilingualToggle from "@/components/chat/BilingualToggle";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const MarkdownRenderer = dynamic(() => import("@/components/ui/MarkdownRenderer"), {
     loading: () => <Skeleton height="60px" variant="card" />,
@@ -16,6 +17,7 @@ interface MessageRowProps {
     isLastMessage: boolean;
     formatTime: (d: Date) => string;
     onRegenerate: () => void;
+    onFresh: () => void;
     onFeedback: (msgId: string, type: "up" | "down") => void;
     feedbackValue: "up" | "down" | null;
     onEdit: (messageId: string, content: string) => void;
@@ -34,6 +36,7 @@ const MessageRow = memo(function MessageRow({
     isLastMessage,
     formatTime,
     onRegenerate,
+    onFresh,
     onFeedback,
     feedbackValue,
     onEdit,
@@ -44,6 +47,7 @@ const MessageRow = memo(function MessageRow({
     onTogglePin,
     isPinned,
 }: MessageRowProps) {
+    const { t } = useLanguage();
     return (
         <div
             className={`message-row ${message.role === "user" ? "is-user" : "is-assistant"}`}
@@ -97,12 +101,17 @@ const MessageRow = memo(function MessageRow({
                             messageId={message.id}
                             content={message.content}
                             onRegenerate={onRegenerate}
+                            onFresh={onFresh}
+                            isCached={message.isCached}
                             onFeedback={(type) => onFeedback(message.id, type)}
                             feedback={feedbackValue}
                             isVisible={isHovered}
                             onTogglePin={onTogglePin ? () => onTogglePin(message.id) : undefined}
                             isPinned={isPinned}
                         />
+                        {message.isCached && (
+                            <span className="msg-cached-badge">{t("chatAskedBefore")}</span>
+                        )}
                         <div
                             className="message-bubble-assistant"
                             data-streaming={isStreaming && isLastMessage ? "true" : undefined}
