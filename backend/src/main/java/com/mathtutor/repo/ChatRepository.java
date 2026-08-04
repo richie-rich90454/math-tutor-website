@@ -42,10 +42,16 @@ public class ChatRepository {
                         rs.getString("preview"),
                         rs.getString("topic"),
                         rs.getInt("is_archived"),
-                        rs.getInt("is_pinned"),
-                        rs.getString("created_at"),
+                        rs.getInt("is_pinned"),                        rs.getString("created_at"),
                         rs.getString("updated_at")),
                 userId);
+    }
+
+    public List<String> findRecentChatIds(String userId, int limit) {
+        return jdbc.queryForList(
+                "SELECT id FROM chat_sessions WHERE user_id = ? AND is_archived = 0 "
+                        + "ORDER BY is_pinned DESC, updated_at DESC LIMIT ?",
+                String.class, userId, limit);
     }
 
     public Optional<ChatRecord> findById(String chatId) {
