@@ -245,4 +245,10 @@ TRANSLATION_TABLES["ru"] = {
     sheetsLoadError: "Не удалось загрузить таблицы. Попробуйте ещё раз.",
     chatAskedBefore: "Спрашивалось ранее",
     chatFreshAnswer: "Получить новый ответ",
+    settingsResumeLastChat: "Продолжить последний чат",
+    continueLearning: "Продолжить обучение",
+    recentTopics: "Последние темы",
+    followUpExplain: "Объясни проще",
+    followUpExamples: "Больше примеров",
+    followUpAnother: "Ещё одну задачу",
 };
