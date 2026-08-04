@@ -42,7 +42,7 @@ public class SessionService {
             return Optional.empty();
         }
 
-        String userId = payload.has("sub") ? payload.get("sub").asText() : null;
+        String userId = payload.has("sub") ? payload.get("sub").asString() : null;
         if (userId == null || userId.isEmpty()) {
             return Optional.empty();
         }
