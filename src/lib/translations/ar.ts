@@ -245,6 +245,8 @@ const ar: Translations = {
     topicStatistics: "الإحصاء",
     gradeAll: "الكل",
     sheetsLoadError: "تعذر تحميل الجداول. حاول مرة أخرى.",
+    chatAskedBefore: "سُئل سابقًا",
+    chatFreshAnswer: "الحصول على إجابة جديدة",
 };
 
 export default ar;
