@@ -244,4 +244,6 @@ TRANSLATION_TABLES["bo"] = {
     topicStatistics: "གྲངས་ཐོན་རིག་པ",
     gradeAll: "ཚང་མ",
     sheetsLoadError: "ཤོག་ཤེལ་འཚོལ་མ་ཐུབ་པས་སླར་ཚོད་ལྟོས།",
+    chatAskedBefore: "སྔོན་དུ་དྲིས་ཡོད།",
+    chatFreshAnswer: "ལན་གསར་པ་ལེན་པ།",
 };
