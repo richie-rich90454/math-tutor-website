@@ -18,8 +18,7 @@
         var sel = el("langSelect");
         sel.value = MathTutor.currentLanguage;
         $(sel).on("change", function () {
-            MathTutor.setLanguage(this.value);
-            reapply();
+            MathTutor.setLanguage(this.value, reapply);
         });
     }
 
@@ -32,11 +31,12 @@
         }
         sel.value = MathTutor.currentLanguage;
         $(sel).on("change", function () {
-            MathTutor.setLanguage(this.value);
-            var saved = el("langSaved");
-            saved.textContent = MathTutor.t("settingsLanguageSaved");
-            saved.className = "auth-ok";
-            reapply();
+            MathTutor.setLanguage(this.value, function () {
+                var saved = el("langSaved");
+                saved.textContent = MathTutor.t("settingsLanguageSaved");
+                saved.className = "auth-ok";
+                reapply();
+            });
         });
     }
 
