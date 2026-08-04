@@ -247,6 +247,12 @@ const en: Translations = {
     sheetsLoadError: "Could not load sheets. Please try again.",
     chatAskedBefore: "Asked before",
     chatFreshAnswer: "Get fresh answer",
+    settingsResumeLastChat: "Resume last chat",
+    continueLearning: "Continue learning",
+    recentTopics: "Recent topics",
+    followUpExplain: "Explain simpler",
+    followUpExamples: "More examples",
+    followUpAnother: "Another problem",
 };
 
 export default en;
