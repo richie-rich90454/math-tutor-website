@@ -325,22 +325,22 @@ export function useChatMessages() {
             }
         } catch (error: unknown) {
             clearTimeout(timeoutId);
-                const isAbort = error instanceof DOMException && error.name === "AbortError";
-                if (isAbort) {
-                    if (!stopRequestedRef.current) {
-                        setMessages((prev) => [
-                            ...prev,
-                            {
-                                id: (Date.now() + 1).toString(),
-                                role: "assistant",
-                                content: "Request timed out. Please try again.",
-                                timestamp: new Date(),
-                            },
-                        ]);
-                    }
-                    return;
+            const isAbort = error instanceof DOMException && error.name === "AbortError";
+            if (isAbort) {
+                if (!stopRequestedRef.current) {
+                    setMessages((prev) => [
+                        ...prev,
+                        {
+                            id: (Date.now() + 1).toString(),
+                            role: "assistant",
+                            content: "Request timed out. Please try again.",
+                            timestamp: new Date(),
+                        },
+                    ]);
                 }
-                const errMsg = error instanceof Error ? error.message : "Failed to send image";
+                return;
+            }
+            const errMsg = error instanceof Error ? error.message : "Failed to send image";
             console.error("Send image error:", error);
             setMessages((prev) => [
                 ...prev,
