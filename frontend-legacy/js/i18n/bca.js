@@ -243,4 +243,6 @@ TRANSLATION_TABLES["bca"] = {
     topicStatistics: "Tov Jit",
     gradeAll: "Zal",
     sheetsLoadError: "Mo dah zairux biautgef. Qif zaif suan.",
+    chatAskedBefore: "之前问过",
+    chatFreshAnswer: "获取新答案",
 };
