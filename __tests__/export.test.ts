@@ -28,7 +28,10 @@ describe("exportChatAsMarkdown", () => {
     });
 
     it("maps unknown roles to the assistant label", () => {
-        const md = exportChatAsMarkdown([{ role: "system", content: "x", timestamp: "2024-01-01T00:00:00Z" }], "T");
+        const md = exportChatAsMarkdown(
+            [{ role: "system", content: "x", timestamp: "2024-01-01T00:00:00Z" }],
+            "T",
+        );
         expect(md).toContain("**AI Math Tutor**");
         expect(md).not.toContain("**You**");
     });
