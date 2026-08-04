@@ -247,6 +247,12 @@ const he: Translations = {
     sheetsLoadError: "לא ניתן לטעון את הדפים. נסה שוב.",
     chatAskedBefore: "נשאל בעבר",
     chatFreshAnswer: "קבל תשובה חדשה",
+    settingsResumeLastChat: "המשך שיחה אחרונה",
+    continueLearning: "המשך ללמוד",
+    recentTopics: "נושאים אחרונים",
+    followUpExplain: "הסבר פשוט יותר",
+    followUpExamples: "עוד דוגמאות",
+    followUpAnother: "בעיה נוספת",
 };
 
 export default he;
