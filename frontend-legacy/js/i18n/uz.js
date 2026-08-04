@@ -243,4 +243,6 @@ TRANSLATION_TABLES["uz"] = {
     topicStatistics: "Статистика",
     gradeAll: "Ҳаммаси",
     sheetsLoadError: "Жадвалларни юклаш имкони бўлмади. Қайта уриниб кўринг.",
+    chatAskedBefore: "Ilgari so'ralgan",
+    chatFreshAnswer: "Yangi javob olish",
 };
