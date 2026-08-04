@@ -245,6 +245,8 @@ const zhHans: Translations = {
     topicStatistics: "统计学",
     gradeAll: "全部",
     sheetsLoadError: "无法加载公式表，请重试。",
+    chatAskedBefore: "之前问过",
+    chatFreshAnswer: "获取新答案",
 };
 
 export default zhHans;
