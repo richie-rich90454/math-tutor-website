@@ -245,4 +245,10 @@ TRANSLATION_TABLES["zh-hant"] = {
     sheetsLoadError: "無法載入公式表，請重試。",
     chatAskedBefore: "之前問過",
     chatFreshAnswer: "取得新答案",
+    settingsResumeLastChat: "恢復上次對話",
+    continueLearning: "繼續學習",
+    recentTopics: "最近主題",
+    followUpExplain: "解釋得更簡單",
+    followUpExamples: "更多例子",
+    followUpAnother: "再來一題",
 };
