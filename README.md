@@ -235,7 +235,8 @@ node scripts/generate-legacy-i18n.js
    `src/app/api/chat/prompts/` named `prompt-<code>.txt`
 2. Register the file in `PromptService.LANGUAGE_FILE_MAP` and
    `src/lib/ai/prompts.ts`
-3. Add translation keys to `src/lib/translations.ts`
+3. Add translation keys to `src/lib/translations/types.ts` and the per-language
+   files in `src/lib/translations/` (one file per language code)
 4. Regenerate the legacy client translations (see above)
 5. Add the language to the language list in both frontends
 
