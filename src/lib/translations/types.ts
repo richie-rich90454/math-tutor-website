@@ -278,4 +278,6 @@ export interface Translations {
     topicStatistics?: string;
     gradeAll?: string;
     sheetsLoadError?: string;
+    chatAskedBefore?: string;
+    chatFreshAnswer?: string;
 }
