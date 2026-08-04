@@ -121,9 +121,9 @@ public class ChatService {
             return new StreamSetup(activeChatId, stream, false, true);
         }
 
-        Optional<String> cached = answerCache.lookup(content, language, topic);
+        Optional<String> cached = answerCache.lookup(content, language, topic, activeChatId, userId);
         if (cached.isPresent()) {
-            answerCache.store(content, language, topic, cached.get());
+            answerCache.store(content, language, topic, cached.get(), activeChatId, userId);
             return new StreamSetup(activeChatId, new CachedStream(cached.get()), true, false);
         }
 
@@ -180,7 +180,7 @@ public class ChatService {
         int response = tokenUsage == null ? 0 : tokenUsage.responseTokens();
         usage.logUsage(userId, chatId, request, response, cacheHit ? "answer-cache" : "deepseek-v4-flash", ip);
         if (question != null && !question.isBlank()) {
-            answerCache.store(question, language == null ? "en" : language, null, fullResponse);
+            answerCache.store(question, language == null ? "en" : language, null, fullResponse, chatId, userId);
         }
     }
 
