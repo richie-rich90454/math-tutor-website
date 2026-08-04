@@ -248,6 +248,12 @@ const de: Translations = {
     sheetsLoadError: "Tabellen konnten nicht geladen werden. Bitte erneut versuchen.",
     chatAskedBefore: "Zuvor gefragt",
     chatFreshAnswer: "Neue Antwort erhalten",
+    settingsResumeLastChat: "Letzten Chat fortsetzen",
+    continueLearning: "Weiterlernen",
+    recentTopics: "Letzte Themen",
+    followUpExplain: "Einfacher erklären",
+    followUpExamples: "Mehr Beispiele",
+    followUpAnother: "Noch eine Aufgabe",
 };
 
 export default de;
