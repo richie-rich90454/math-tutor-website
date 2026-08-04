@@ -284,6 +284,12 @@ TRANSLATION_TABLES["en"] = {
     sheetsLoadError: "Could not load sheets. Please try again.",
     chatAskedBefore: "Asked before",
     chatFreshAnswer: "Get fresh answer",
+    settingsResumeLastChat: "Resume last chat",
+    continueLearning: "Continue learning",
+    recentTopics: "Recent topics",
+    followUpExplain: "Explain simpler",
+    followUpExamples: "More examples",
+    followUpAnother: "Another problem",
 };
 (function () {
     var lang = null;
