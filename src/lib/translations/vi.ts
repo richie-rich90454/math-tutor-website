@@ -246,6 +246,8 @@ const vi: Translations = {
     topicStatistics: "Thống kê",
     gradeAll: "Tất cả",
     sheetsLoadError: "Không thể tải bảng. Vui lòng thử lại.",
+    chatAskedBefore: "Đã hỏi trước đó",
+    chatFreshAnswer: "Nhận câu trả lời mới",
 };
 
 export default vi;
