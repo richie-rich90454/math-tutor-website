@@ -1,5 +1,6 @@
 import { useState, useRef, useCallback, useEffect } from "react";
 import type { Message } from "@/types/chat";
+import type { ApiMessage } from "@/contracts/chat";
 import { parseUTCTimestamp } from "@/lib/date";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useChat } from "@/contexts/ChatContext";
@@ -61,13 +62,6 @@ export function useChatMessages() {
                 if (!res.ok || cancelled) return;
                 const data = await res.json();
                 if (cancelled) return;
-                type ApiMessage = {
-                    id: string;
-                    content: string;
-                    role: string;
-                    created_at: string;
-                    is_pinned?: number;
-                };
                 const formatted = ((data.messages ?? []) as ApiMessage[]).map((msg) => ({
                     id: msg.id,
                     content: msg.content,
