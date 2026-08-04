@@ -245,4 +245,10 @@ TRANSLATION_TABLES["uz"] = {
     sheetsLoadError: "Жадвалларни юклаш имкони бўлмади. Қайта уриниб кўринг.",
     chatAskedBefore: "Ilgari so'ralgan",
     chatFreshAnswer: "Yangi javob olish",
+    settingsResumeLastChat: "Oxirgi suhbatni davom ettirish",
+    continueLearning: "O'qishni davom ettirish",
+    recentTopics: "So'nggi mavzular",
+    followUpExplain: "Oddiyroq tushuntir",
+    followUpExamples: "Ko'proq misol",
+    followUpAnother: "Yana bir masala",
 };
