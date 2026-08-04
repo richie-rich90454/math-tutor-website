@@ -245,6 +245,8 @@ const dng: Translations = {
     topicStatistics: "Tongx Jiv",
     gradeAll: "Xedt",
     sheetsLoadError: "Lianx dah laoh bav. Weex meik luh.",
+    chatAskedBefore: "之前问过",
+    chatFreshAnswer: "获取新答案",
 };
 
 export default dng;
