@@ -1,6 +1,9 @@
 import { describe, it, expect } from "vitest";
+import { readFileSync } from "fs";
+import { resolve } from "path";
 import { APP_VERSION, APP_NAME } from "@/lib/config";
-import pkg from "../../package.json";
+
+const pkg = JSON.parse(readFileSync(resolve(__dirname, "../package.json"), "utf8"));
 
 describe("config", () => {
     it("exposes the app name", () => {
