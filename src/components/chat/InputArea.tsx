@@ -30,7 +30,7 @@ const InputArea = memo(function InputArea({
     pendingImage,
     onClearImage,
 }: InputAreaProps) {
-    const { t } = useLanguage();
+    const { t, currentLanguage } = useLanguage();
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     const fileInputRef = useRef<HTMLInputElement>(null);
     const [isDragOver, setIsDragOver] = useState(false);
@@ -169,9 +169,8 @@ const InputArea = memo(function InputArea({
             ru: "ru-RU",
             vi: "vi-VN",
         };
-        // Use current language from document or default to en-US
-        const currentLang = document.documentElement.lang || "en";
-        recognition.lang = langMap[currentLang] || "en-US";
+        // Use the active UI language (not documentElement.lang, which is BCP47)
+        recognition.lang = langMap[currentLanguage.code] || "en-US";
 
         recognition.onresult = (event: SpeechRecognitionEvent) => {
             let transcript = "";
