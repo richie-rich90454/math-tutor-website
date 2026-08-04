@@ -244,6 +244,8 @@ const yi: Translations = {
     topicStatistics: "ꈍꌠꌧꇐ",
     gradeAll: "ꈀꐥꑌ",
     sheetsLoadError: "ꊿꌠ ꁱꊿꀋꄐ. ꀊꐯ ꐂꃅꄉꂿ.",
+    chatAskedBefore: "之前问过",
+    chatFreshAnswer: "获取新答案",
 };
 
 export default yi;
