@@ -246,4 +246,10 @@ TRANSLATION_TABLES["ko"] = {
     sheetsLoadError: "표를 불러올 수 없습니다. 다시 시도해 주세요.",
     chatAskedBefore: "이전에 질문함",
     chatFreshAnswer: "새 답변 받기",
+    settingsResumeLastChat: "마지막 대화 재개",
+    continueLearning: "학습 계속하기",
+    recentTopics: "최근 주제",
+    followUpExplain: "더 쉽게 설명",
+    followUpExamples: "예시 더 보기",
+    followUpAnother: "문제 하나 더",
 };
