@@ -245,6 +245,8 @@ const lic: Translations = {
     topicStatistics: "Doh Kafux",
     gradeAll: "Doh Hlaeu",
     sheetsLoadError: "Loem kafu dung biaenx. Goms, fong gaez.",
+    chatAskedBefore: "之前问过",
+    chatFreshAnswer: "获取新答案",
 };
 
 export default lic;
