@@ -248,6 +248,12 @@ const ug: Translations = {
     sheetsLoadError: "جەدۋەللەرنى يۈكلەش مۇمكىن بولمىدى. قايتا سىناڭ.",
     chatAskedBefore: "ئىلگىرى سورالغان",
     chatFreshAnswer: "يېڭى جاۋاب ئېلىش",
+    settingsResumeLastChat: "ئاخىرقى پاراڭنى داۋاملاشتۇرۇش",
+    continueLearning: "ئۆگىنىشنى داۋاملاشتۇرۇش",
+    recentTopics: "يېقىنقى تېمىلار",
+    followUpExplain: "ئاددىيراق چۈشەندۈرۈش",
+    followUpExamples: "تېخىمۇ كۆپ مىسال",
+    followUpAnother: "يەنە بىر مەسىلە",
 };
 
 export default ug;
