@@ -246,4 +246,10 @@ TRANSLATION_TABLES["za"] = {
     sheetsLoadError: "Mbouj ndaej dawz bawj cingj. Cawz caiq demq.",
     chatAskedBefore: "Daeq gvaq",
     chatFreshAnswer: "Aeu daejmoeg moq",
+    settingsResumeLastChat: "Gvaq laih lai",
+    continueLearning: "Doxgyaq hag",
+    recentTopics: "Daeq gyaq dajyoz",
+    followUpExplain: "Gangj vaiq yungz",
+    followUpExamples: "Gyoengq lai geq",
+    followUpAnother: "Daeq gyaq vunz",
 };
