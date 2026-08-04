@@ -247,6 +247,12 @@ const lhu: Translations = {
     sheetsLoadError: "Šɛ law ma t'hɔ law. Tɛ law tɛ law te law šɛ pɛ law.",
     chatAskedBefore: "之前问过",
     chatFreshAnswer: "获取新答案",
+    settingsResumeLastChat: "恢复上次对话",
+    continueLearning: "继续学习",
+    recentTopics: "最近主题",
+    followUpExplain: "解释得更简单",
+    followUpExamples: "更多例子",
+    followUpAnother: "再来一题",
 };
 
 export default lhu;
