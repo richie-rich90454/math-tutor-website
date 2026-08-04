@@ -1,0 +1,565 @@
+[
+    {
+        "concept_id": "place_value",
+        "concept_name": "Place Value",
+        "aliases": [
+            "place value",
+            "digit place",
+            "number place",
+            "units place",
+            "tens place",
+            "hundreds place",
+            "position of digits",
+            "digit position"
+        ],
+        "russian_culture": "Balalaika string positions",
+        "explanation_text": "Each string on a balalaika has a position and pitch, just like digits have places that determine their value. Moving a digit to a different position changes its value, exactly as pressing a different string changes the note.",
+        "image_prompt": "Illustrate a balalaika with its strings labeled as ones, tens, and hundreds, showing how string position changes tone just as digit position changes value."
+    },
+    {
+        "concept_id": "addition_subtraction",
+        "concept_name": "Addition & Subtraction",
+        "aliases": [
+            "add",
+            "addition",
+            "plus",
+            "sum",
+            "combine",
+            "total",
+            "subtract",
+            "subtraction",
+            "minus",
+            "take away",
+            "difference"
+        ],
+        "russian_culture": "Liba bread loaves on a festival table",
+        "explanation_text": "When you place more liba loaves onto the festival table in Yining, the total count increases. When guests take some away, the count decreases—just like addition and subtraction.",
+        "image_prompt": "Show round liba loaves being added to and taken from a festival table, with the total count changing accordingly."
+    },
+    {
+        "concept_id": "multiplication_division",
+        "concept_name": "Multiplication & Division",
+        "aliases": [
+            "multiply",
+            "multiplication",
+            "times",
+            "groups of",
+            "repeated addition",
+            "divide",
+            "division",
+            "split equally",
+            "sharing"
+        ],
+        "russian_culture": "Vareniki dumplings arranged in rows",
+        "explanation_text": "Arranging vareniki dumplings in equal rows on a board shows multiplication—each row has the same number of dumplings. Splitting the dumplings evenly among family members shows division.",
+        "image_prompt": "Display rows of identical vareniki dumplings on a floured board, showing equal grouping (multiplication) and even sharing (division)."
+    },
+    {
+        "concept_id": "even_odd",
+        "concept_name": "Even and Odd Numbers",
+        "aliases": [
+            "even numbers",
+            "odd numbers",
+            "even",
+            "odd",
+            "pairs",
+            "leftover",
+            "no remainder",
+            "remains one"
+        ],
+        "russian_culture": "Birch trees planted in pairs",
+        "explanation_text": "Birch trees planted in pairs along the street in Tacheng represent even numbers. If one tree is left standing alone at the end, it represents an odd number.",
+        "image_prompt": "Show birch trees standing in pairs along a village street, with one single tree at the end to represent an odd number."
+    },
+    {
+        "concept_id": "skip_counting",
+        "concept_name": "Skip Counting / Number Patterns",
+        "aliases": [
+            "skip counting",
+            "count by 2s",
+            "count by 5s",
+            "count by 10s",
+            "jump counting",
+            "repeating numbers",
+            "number patterns"
+        ],
+        "russian_culture": "Accordion rhythm patterns",
+        "explanation_text": "The repeating beats an accordion plays follow rhythmic patterns—every second or third beat, like counting by 2s or 3s. These repeating rhythms mirror number patterns and skip counting.",
+        "image_prompt": "Show an accordion with beats highlighted every 2nd and 3rd count, illustrating skip counting through rhythm patterns."
+    },
+    {
+        "concept_id": "comparing_numbers",
+        "concept_name": "Comparing and Ordering Numbers",
+        "aliases": [
+            "compare numbers",
+            "greater than",
+            "less than",
+            "more than",
+            "fewer than",
+            "biggest",
+            "smallest",
+            "ordering numbers",
+            "number order"
+        ],
+        "russian_culture": "Honey jars of different sizes",
+        "explanation_text": "Comparing the honey levels in different jars helps show which holds more or less—like comparing numbers. Arranging the jars from fullest to emptiest is like ordering numbers.",
+        "image_prompt": "Show several honey jars filled to different levels, using > and < symbols between them."
+    },
+    {
+        "concept_id": "rounding_estimation",
+        "concept_name": "Rounding & Estimation",
+        "aliases": [
+            "round",
+            "rounding",
+            "estimate",
+            "estimation",
+            "approximate",
+            "about how much",
+            "close to",
+            "nearby number"
+        ],
+        "russian_culture": "Estimating dough for liba bread",
+        "explanation_text": "When baking liba bread, cooks estimate how much flour and water to mix—similar to rounding to the nearest convenient number. Rough estimates come first, then exact measurement.",
+        "image_prompt": "Show a baker estimating flour for liba dough, labeling rough amounts with rounded numbers."
+    },
+    {
+        "concept_id": "fractions",
+        "concept_name": "Fractions",
+        "aliases": ["fraction", "part of a whole", "portion", "share", "numerator", "denominator"],
+        "russian_culture": "Slicing round liba bread",
+        "explanation_text": "When a round liba loaf is sliced into equal wedges and shared among friends, each person receives a fraction of the whole loaf. The number of slices shows the denominator, and each share is a fraction.",
+        "image_prompt": "Show a round liba loaf cut into equal wedges, each wedge labeled as a fraction of the whole."
+    },
+    {
+        "concept_id": "equivalent_fractions",
+        "concept_name": "Equivalent Fractions",
+        "aliases": ["equal fractions", "same value", "fraction equality", "equivalent"],
+        "russian_culture": "Cutting liba loaves into different slices",
+        "explanation_text": "Cutting a liba loaf into 2 equal halves or into 4 equal quarters gives the same total bread—like equivalent fractions. Half of the loaf equals two quarters even though the slices look different.",
+        "image_prompt": "Show one liba loaf divided first into halves, then into quarters, demonstrating equal portions."
+    },
+    {
+        "concept_id": "simplifying_fractions",
+        "concept_name": "Simplifying Fractions",
+        "aliases": ["reduce fraction", "lowest terms", "simplify fraction"],
+        "russian_culture": "Combining small honey portions",
+        "explanation_text": "If several small jars of honey are combined into one larger jar, you simplify the count—like reducing a fraction to its simplest form. The honey amount stays the same, only the description becomes simpler.",
+        "image_prompt": "Depict smaller honey jars merging into one larger jar, labeled with a reduced fraction."
+    },
+    {
+        "concept_id": "mixed_numbers",
+        "concept_name": "Mixed Numbers",
+        "aliases": ["mixed number", "whole and fraction", "whole part and fraction part"],
+        "russian_culture": "Full and half liba loaves",
+        "explanation_text": "If you have 3 full liba loaves and half a loaf more, that is 3½—just like a mixed number. A whole number plus a fraction together describe the total amount.",
+        "image_prompt": "Show three full liba loaves and one half loaf labeled as 3½."
+    },
+    {
+        "concept_id": "improper_fractions",
+        "concept_name": "Improper Fractions",
+        "aliases": ["top-heavy fraction", "numerator larger", "greater than one fraction"],
+        "russian_culture": "Vareniki piled above one plate",
+        "explanation_text": "When vareniki dumplings fill more than one plate but are counted in equal portions of a single plate, they represent an improper fraction. The numerator is larger than the denominator because there is more than one whole.",
+        "image_prompt": "Show vareniki dumplings piled past one full plate, symbolizing fractions greater than 1."
+    },
+    {
+        "concept_id": "adding_fractions",
+        "concept_name": "Adding Fractions",
+        "aliases": ["fraction addition", "add fractions", "sum of fractions"],
+        "russian_culture": "Combining okroshka portions",
+        "explanation_text": "Adding okroshka portions from different bowls shows how fractional amounts combine to make a whole serving. Two halves fill one bowl, just like adding fractions.",
+        "image_prompt": "Show smaller bowls of okroshka being poured together into one full bowl."
+    },
+    {
+        "concept_id": "subtracting_fractions",
+        "concept_name": "Subtracting Fractions",
+        "aliases": ["fraction subtraction", "take away fractions", "difference of fractions"],
+        "russian_culture": "Eating part of a liba loaf",
+        "explanation_text": "Removing a slice from a liba loaf shows subtraction of a fractional part. What remains is the difference—the fraction of bread still on the table.",
+        "image_prompt": "Show a liba loaf with one slice removed, the remaining part labeled as the fraction left."
+    },
+    {
+        "concept_id": "multiplying_fractions",
+        "concept_name": "Multiplying Fractions",
+        "aliases": ["fraction multiplication", "part of a part", "multiply fractions"],
+        "russian_culture": "Half of a half liba share",
+        "explanation_text": "If each person receives half of half a liba loaf, you are finding a fraction of a fraction—like multiplying fractions. Half of a half is a quarter of the whole loaf.",
+        "image_prompt": "Show a liba loaf divided into halves, and one half divided again to show smaller portions."
+    },
+    {
+        "concept_id": "dividing_fractions",
+        "concept_name": "Dividing Fractions",
+        "aliases": ["fraction division", "divide fractions", "how many times in"],
+        "russian_culture": "Cutting vareniki dough pieces",
+        "explanation_text": "If one portion of dough is cut into smaller equal pieces, it represents dividing a fraction by another fraction. Each small piece shows how many pieces fit into the larger portion.",
+        "image_prompt": "Show dough being cut into smaller even pieces to illustrate fractional division."
+    },
+    {
+        "concept_id": "decimals",
+        "concept_name": "Decimals",
+        "aliases": ["decimal point", "tenths", "hundredths", "decimal number"],
+        "russian_culture": "Weighing honey in kilograms",
+        "explanation_text": "Using kilograms when weighing honey introduces decimals, like 1.5 kilograms meaning one and a half kilograms. The decimal point separates whole kilograms from tenths and hundredths.",
+        "image_prompt": "Show a scale weighing honey marked with 1.0, 1.5, and 2.0 kilograms."
+    },
+    {
+        "concept_id": "converting_fractions_decimals",
+        "concept_name": "Converting Fractions and Decimals",
+        "aliases": ["fraction to decimal", "decimal to fraction", "convert fractions"],
+        "russian_culture": "Comparing honey measurements",
+        "explanation_text": "Whether you say half a kilogram or 0.5 kilograms, both describe the same amount of honey—like converting between fractions and decimals. The two ways of writing describe the same value.",
+        "image_prompt": "Show two labeled honey jars, one marked ½ and another 0.5, holding the same amount."
+    },
+    {
+        "concept_id": "percents",
+        "concept_name": "Percents",
+        "aliases": ["percent", "percentage", "per hundred", "rate per 100"],
+        "russian_culture": "School test scores",
+        "explanation_text": "When a student in a Yining school scores 90 out of 100 on a Russian language test, that is 90%—a way to express parts per hundred. Percents always compare a part to one hundred.",
+        "image_prompt": "Show a test paper with 90/100 written and a 90% mark beside it."
+    },
+    {
+        "concept_id": "percent_of_number",
+        "concept_name": "Percent of a Number",
+        "aliases": ["percentage of number", "find percent", "portion of total"],
+        "russian_culture": "Discounts at the Harbin market",
+        "explanation_text": "A 10% discount on goods at the Harbin market shows how percents are used to find parts of a number. Multiplying the price by 10% finds how much money you save.",
+        "image_prompt": "Show a shop sign with a 10% off label and price tags with reduced amounts."
+    },
+    {
+        "concept_id": "variables",
+        "concept_name": "Variables",
+        "aliases": ["variable", "unknown", "letter as number", "symbol in math"],
+        "russian_culture": "Unlabeled honey jars",
+        "explanation_text": "If some honey jars have no labels, each represents an unknown quantity—like a variable in math. A letter stands in for the number you have not measured yet.",
+        "image_prompt": "Show labeled honey jars (2 kg, 3 kg) and an unlabeled jar marked as x."
+    },
+    {
+        "concept_id": "expressions",
+        "concept_name": "Expressions",
+        "aliases": ["math expressions", "numerical expressions", "algebraic expressions"],
+        "russian_culture": "Known and unknown honey jars",
+        "explanation_text": "If you have 2 known honey jars and x more unlabeled ones, that is like writing the expression 2 + x. Expressions combine known numbers and variables into one mathematical phrase.",
+        "image_prompt": "Show two honey jars plus an unlabeled one, symbolized as 2 + x."
+    },
+    {
+        "concept_id": "equations",
+        "concept_name": "Equations",
+        "aliases": ["math equations", "equal statements", "algebra equations"],
+        "russian_culture": "Balancing bread-making scales",
+        "explanation_text": "When the two pans of a flour scale hold equal weight, it represents equality—just like both sides of an equation. Whatever is on the left equals whatever is on the right.",
+        "image_prompt": "Show a balance scale with equal flour sacks on both sides labeled as an equation."
+    },
+    {
+        "concept_id": "solving_one_step_equations",
+        "concept_name": "Solving One-Step Equations",
+        "aliases": ["one-step equations", "simple equations"],
+        "russian_culture": "Balancing water buckets on a yoke",
+        "explanation_text": "If one bucket hanging from a wooden yoke is heavier, you adjust it by adding or removing water—like solving one-step equations. One careful change balances both sides.",
+        "image_prompt": "Show a wooden yoke carrying two water buckets of equal weight to illustrate equal sides."
+    },
+    {
+        "concept_id": "solving_two_step_equations",
+        "concept_name": "Solving Two-Step Equations",
+        "aliases": ["two-step equations", "multi-step equations"],
+        "russian_culture": "Baking liba bread step-by-step",
+        "explanation_text": "Baking liba bread requires kneading the dough first and then baking it—like solving an equation in two steps. Each step must happen in the right order to reach the result.",
+        "image_prompt": "Show the step sequence: knead the dough then bake the bread then serve, symbolizing step-by-step solving."
+    },
+    {
+        "concept_id": "inequalities",
+        "concept_name": "Inequalities",
+        "aliases": ["greater than", "less than", "not equal", "comparison statements"],
+        "russian_culture": "Comparing village honey harvests",
+        "explanation_text": "When one family's honey harvest is larger than another's, it shows inequality—like greater than or less than in math. The symbols > and < compare two different amounts.",
+        "image_prompt": "Show two jars of honey of different sizes with > and < symbols between them."
+    },
+    {
+        "concept_id": "order_of_operations",
+        "concept_name": "Order of Operations (PEMDAS)",
+        "aliases": ["PEMDAS", "BODMAS", "math order", "operations order"],
+        "russian_culture": "Vareniki cooking sequence",
+        "explanation_text": "When preparing vareniki, you must make the dough before boiling the dumplings—it matters what you do first, just like in the math order of operations. Some steps must come before others.",
+        "image_prompt": "Show a cooking sequence where steps must happen in order, labeled like parentheses, exponents, etc."
+    },
+    {
+        "concept_id": "substitution",
+        "concept_name": "Substitution",
+        "aliases": ["replace variable", "substitute value", "replace letter with number"],
+        "russian_culture": "Replacing a worn rolling pin",
+        "explanation_text": "If a worn rolling pin is replaced with a new one of the same size, that is like substituting a value for a variable. The letter in an expression is replaced with its actual number.",
+        "image_prompt": "Show a worn rolling pin replaced with an identical new one, representing substitution."
+    },
+    {
+        "concept_id": "points",
+        "concept_name": "Points",
+        "aliases": ["dot", "location", "coordinate point"],
+        "russian_culture": "Stars over Shiwei village",
+        "explanation_text": "Each star in the night sky above the village of Shiwei marks a position, like a point in geometry. Points name exact locations without size or shape.",
+        "image_prompt": "Show a starry sky over wooden village houses, with individual stars labeled as points on a coordinate grid."
+    },
+    {
+        "concept_id": "lines",
+        "concept_name": "Lines",
+        "aliases": ["straight line", "geometry line", "infinite line"],
+        "russian_culture": "Straight fence rails",
+        "explanation_text": "The straight wooden rails of a village fence stretch in both directions, resembling geometric lines. Like the rails, a line has no endpoints and continues forever.",
+        "image_prompt": "Show straight wooden fence rails extending toward the horizon, representing geometric lines."
+    },
+    {
+        "concept_id": "angles",
+        "concept_name": "Angles",
+        "aliases": ["angle", "degree", "corner measure"],
+        "russian_culture": "Pitch of a wooden roof",
+        "explanation_text": "Where the two slopes of an izba roof meet, they form an angle. The steeper the roof, the larger the angle between its slopes and the walls.",
+        "image_prompt": "Show a village wooden house with its roof pitch angle clearly marked."
+    },
+    {
+        "concept_id": "perpendicular_lines",
+        "concept_name": "Perpendicular Lines",
+        "aliases": ["right angle lines", "intersecting lines", "orthogonal lines"],
+        "russian_culture": "Wooden fence posts and rails",
+        "explanation_text": "The fence posts standing straight up meet the horizontal rails at right angles, forming perpendicular lines. This right-angle join gives the fence its strength.",
+        "image_prompt": "Show wooden fence posts meeting horizontal rails at 90 degree angles."
+    },
+    {
+        "concept_id": "parallel_lines",
+        "concept_name": "Parallel Lines",
+        "aliases": ["side-by-side lines", "never meet", "equal distance lines"],
+        "russian_culture": "Fence rails side by side",
+        "explanation_text": "The wooden rails of a village fence run side by side and never meet—like parallel lines. No matter how far the fence stretches, the rails stay the same distance apart.",
+        "image_prompt": "Show parallel wooden fence rails running side by side along a village path."
+    },
+    {
+        "concept_id": "polygons",
+        "concept_name": "Polygons",
+        "aliases": ["shapes", "closed figure", "many-sided shape"],
+        "russian_culture": "Village house layouts from above",
+        "explanation_text": "Seen from above, the yards and rooftops of the wooden houses in Enhe village form closed geometric shapes. Rectangles, triangles, and other polygons appear in everyday building layouts.",
+        "image_prompt": "Show the overhead shapes of several village houses and yards forming geometric patterns."
+    },
+    {
+        "concept_id": "triangles",
+        "concept_name": "Triangles",
+        "aliases": ["three sides", "triangular", "triangle shape"],
+        "russian_culture": "Triangular gables of izba houses",
+        "explanation_text": "The triangular gable above the front wall of an izba house has three sides and three corners. Its strong shape helps the wooden roof hold up against wind and snow.",
+        "image_prompt": "Show the triangular gable of a village wooden house highlighted against the sky."
+    },
+    {
+        "concept_id": "quadrilaterals",
+        "concept_name": "Quadrilaterals",
+        "aliases": ["four sides", "rectangles", "squares", "trapezoids"],
+        "russian_culture": "Carved window frames",
+        "explanation_text": "The carved wooden frames around village house windows often form rectangular shapes. Squares and rectangles are common quadrilaterals in traditional woodwork.",
+        "image_prompt": "Show a carved wooden window frame on a village house, its rectangular shape highlighted."
+    },
+    {
+        "concept_id": "perimeter",
+        "concept_name": "Perimeter",
+        "aliases": ["boundary length", "distance around", "outline measure"],
+        "russian_culture": "Walking around a village courtyard",
+        "explanation_text": "Measuring the distance all the way around a wooden fence of a courtyard is like finding the perimeter of a shape. The perimeter is the total length of the boundary.",
+        "image_prompt": "Show people walking around the fence of a village courtyard with a dashed perimeter line."
+    },
+    {
+        "concept_id": "area",
+        "concept_name": "Area",
+        "aliases": ["surface area", "space inside", "coverage"],
+        "russian_culture": "Carpet covering a wooden house floor",
+        "explanation_text": "The amount of wooden floor covered by a woolen carpet inside an izba represents its area. Area measures how much flat space a surface takes up.",
+        "image_prompt": "Show a woolen carpet spread on a wooden house floor, shaded to show its area."
+    },
+    {
+        "concept_id": "volume",
+        "concept_name": "Volume",
+        "aliases": ["capacity", "space inside 3D shape", "liquid amount"],
+        "russian_culture": "Wooden barrels of honey",
+        "explanation_text": "The amount of honey a wooden barrel can hold represents its volume. Volume measures the space inside a three-dimensional container.",
+        "image_prompt": "Show wooden honey barrels filled to different levels to illustrate volume."
+    },
+    {
+        "concept_id": "circle_properties",
+        "concept_name": "Circle Properties",
+        "aliases": ["radius", "diameter", "circumference", "circle geometry"],
+        "russian_culture": "Top view of a round liba loaf",
+        "explanation_text": "Looking down at a round liba loaf from above shows a perfect circle, illustrating diameter, radius, and circumference. The radius reaches from the center to the edge, and the diameter crosses the whole loaf.",
+        "image_prompt": "Show a round liba loaf from above labeled with radius and diameter lines."
+    },
+    {
+        "concept_id": "pi",
+        "concept_name": "Pi (π)",
+        "aliases": ["pi", "ratio of circumference", "3.14"],
+        "russian_culture": "Round liba bread loaves",
+        "explanation_text": "The relationship between a round liba loaf's circumference and its diameter always shows the constant ratio π. No matter the size of the loaf, this ratio stays close to 3.14.",
+        "image_prompt": "Show a circular liba loaf labeled with circumference and diameter measurements."
+    },
+    {
+        "concept_id": "coordinate_plane",
+        "concept_name": "Coordinate Plane",
+        "aliases": ["x-y plane", "graph grid", "axes"],
+        "russian_culture": "Market stalls in rows",
+        "explanation_text": "The market in Yining arranged in rows and columns resembles a coordinate grid, where each stall has a row number and a column number. The two directions act like the x and y axes.",
+        "image_prompt": "Show a market map labeled with row and column coordinates along two axes."
+    },
+    {
+        "concept_id": "plotting_points",
+        "concept_name": "Plotting Points",
+        "aliases": ["graphing points", "coordinates", "x-y plotting"],
+        "russian_culture": "Marking house locations on a village map",
+        "explanation_text": "Plotting the location of each family's wooden house on a map of Shiwei is like plotting points on a coordinate plane. Every house gets a pair of coordinates.",
+        "image_prompt": "Show a map of a riverside village with labeled house locations marked as points."
+    },
+    {
+        "concept_id": "symmetry",
+        "concept_name": "Symmetry",
+        "aliases": ["mirror image", "balanced halves", "reflection symmetry"],
+        "russian_culture": "Mirrored gables of wooden houses",
+        "explanation_text": "The two slopes of a house gable mirror each other across the center line, showing symmetry. Carved window frames are also designed so each side matches the other.",
+        "image_prompt": "Show a symmetric house gable split by a vertical mirror line."
+    },
+    {
+        "concept_id": "transformations",
+        "concept_name": "Transformations",
+        "aliases": ["translate", "rotate", "reflect", "dilate"],
+        "russian_culture": "Dancers turning in a festival circle",
+        "explanation_text": "When dancers turn and change position during the festival circle dance, it represents geometric transformations. Rotating in place and shifting across the square are both transformations.",
+        "image_prompt": "Show festival dancers turning and shifting positions in a circle to illustrate transformations."
+    },
+    {
+        "concept_id": "ratios",
+        "concept_name": "Ratios",
+        "aliases": ["comparison", "proportion of quantities", "rate"],
+        "russian_culture": "Mixing flour and water for bread",
+        "explanation_text": "When preparing liba bread dough, the balance of flour to water represents a ratio. A recipe of 2 parts flour to 1 part water is written as the ratio 2:1.",
+        "image_prompt": "Show a mixing bowl labeled with flour and water ratios, like 2:1."
+    },
+    {
+        "concept_id": "proportions",
+        "concept_name": "Proportions",
+        "aliases": ["equal ratios", "scaling", "balance of ratios"],
+        "russian_culture": "Scaling a bread recipe",
+        "explanation_text": "When doubling a bread recipe while keeping every ingredient in the same relation, you maintain proportion. A larger batch still uses the same ratio of flour to water.",
+        "image_prompt": "Show a small and a large bowl of bread dough with the same ingredient proportions."
+    },
+    {
+        "concept_id": "unit_rate",
+        "concept_name": "Unit Rate",
+        "aliases": ["per unit", "rate per one", "comparison per one unit"],
+        "russian_culture": "Honey yield per hive",
+        "explanation_text": "The amount of honey one beehive produces in a single season is a unit rate. Measuring per one hive makes it easy to compare different apiaries.",
+        "image_prompt": "Show beehives with honey yield measured as kilograms per hive per season."
+    },
+    {
+        "concept_id": "scale_drawings",
+        "concept_name": "Scale Drawings",
+        "aliases": ["map scale", "drawing proportion", "scaled map"],
+        "russian_culture": "Mapping the village of Shiwei",
+        "explanation_text": "Drawing a smaller map of the large village of Shiwei while keeping distances proportional is a scale drawing. One centimeter on the map can stand for many meters in real life.",
+        "image_prompt": "Show the riverside village and a smaller scaled map side by side with a scale legend."
+    },
+    {
+        "concept_id": "percent_change",
+        "concept_name": "Percent Change",
+        "aliases": ["percent increase", "percent decrease", "growth rate"],
+        "russian_culture": "Growth of the honey harvest",
+        "explanation_text": "If a family's honey harvest grows from 100 to 120 kilograms, that is a 20% increase—an example of percent change. Percent change measures how much a value grows or shrinks compared to its start.",
+        "image_prompt": "Show honey jars increasing in number with a +20% label."
+    },
+    {
+        "concept_id": "data_collection",
+        "concept_name": "Data Collection",
+        "aliases": ["gather data", "record information", "collect numbers"],
+        "russian_culture": "Counting bread loaves for a festival",
+        "explanation_text": "Recording how many liba loaves each family bakes for the festival is an example of data collection. Writing the counts down turns observations into usable numbers.",
+        "image_prompt": "Show a villager marking tallies of bread loaves on a clipboard."
+    },
+    {
+        "concept_id": "tables_graphs",
+        "concept_name": "Tables and Graphs",
+        "aliases": ["data table", "bar graph", "chart"],
+        "russian_culture": "Comparing honey production by season",
+        "explanation_text": "Using a graph to show how much honey was produced each season helps visualize data trends. Tables organize the numbers, and graphs make the pattern easy to see.",
+        "image_prompt": "Show a bar graph comparing honey production across four seasons."
+    },
+    {
+        "concept_id": "mean",
+        "concept_name": "Mean",
+        "aliases": ["average", "arithmetic mean", "mean value"],
+        "russian_culture": "Average honey yield per hive",
+        "explanation_text": "Finding the average amount of honey each hive produces shows the mean. Add all the yields together, then divide by the number of hives.",
+        "image_prompt": "Show a table of honey yields with the average value highlighted."
+    },
+    {
+        "concept_id": "median",
+        "concept_name": "Median",
+        "aliases": ["middle value", "data median"],
+        "russian_culture": "Middle bread count of families",
+        "explanation_text": "When the numbers of loaves each family baked are arranged from smallest to largest, the middle one is the median. Half the families baked fewer, and half baked more.",
+        "image_prompt": "Show loaves lined up in order with the middle one highlighted as the median."
+    },
+    {
+        "concept_id": "mode",
+        "concept_name": "Mode",
+        "aliases": ["most frequent value", "common value"],
+        "russian_culture": "Most common honey color",
+        "explanation_text": "If most of the honey in the village is a light golden color, that color is the mode. The mode is simply the value that appears most often.",
+        "image_prompt": "Show honey jars of various colors with the golden one being the most common."
+    },
+    {
+        "concept_id": "range",
+        "concept_name": "Range",
+        "aliases": ["difference", "spread of data", "highest minus lowest"],
+        "russian_culture": "Difference in honey harvests",
+        "explanation_text": "The gap between the largest and smallest honey harvest shows the range. Subtract the smallest amount from the largest to find how spread out the data is.",
+        "image_prompt": "Show a bar chart with the shortest and tallest bars marked for range."
+    },
+    {
+        "concept_id": "bar_graphs",
+        "concept_name": "Bar Graphs",
+        "aliases": ["bar chart", "column graph"],
+        "russian_culture": "Comparing vareniki made by each family",
+        "explanation_text": "Each bar represents how many vareniki dumplings each family prepared—useful for quick comparisons. Taller bars show bigger totals at a glance.",
+        "image_prompt": "Show a bar graph labeled by family names with vareniki counts."
+    },
+    {
+        "concept_id": "line_graphs",
+        "concept_name": "Line Graphs",
+        "aliases": ["trend graph", "line chart"],
+        "russian_culture": "Tracking the Irtysh river's water level",
+        "explanation_text": "A line graph shows how the Irtysh river's water level changes through the year. The rising and falling line makes seasonal trends easy to follow.",
+        "image_prompt": "Show a line graph labeled with months and river water levels."
+    },
+    {
+        "concept_id": "pie_charts",
+        "concept_name": "Pie Charts",
+        "aliases": ["circle chart", "percentage chart"],
+        "russian_culture": "Kinds of crops in village gardens",
+        "explanation_text": "A pie chart can show the proportion of potatoes, beets, carrots, and other crops in a village garden. The whole circle stands for the total harvest, and each slice shows one share.",
+        "image_prompt": "Show a pie chart divided into garden crop categories with percentages."
+    },
+    {
+        "concept_id": "probability",
+        "concept_name": "Probability",
+        "aliases": ["chance", "likelihood", "odds"],
+        "russian_culture": "Church bell ringing times",
+        "explanation_text": "If the village church bell rings at fixed hours of the day, estimating the chance it rings in a given hour involves probability. Probability measures how likely an event is to happen.",
+        "image_prompt": "Show a church bell tower with a clock, with probability labels for each hour of ringing."
+    },
+    {
+        "concept_id": "patterns",
+        "concept_name": "Patterns",
+        "aliases": ["repeating design", "sequence", "recurrence"],
+        "russian_culture": "Carved borders on wooden houses",
+        "explanation_text": "Repeated geometric motifs carved along the frames of wooden houses represent visual patterns. Noticing the repetition helps predict what comes next in the design.",
+        "image_prompt": "Show repeating carved geometric designs along the trim of a village wooden house."
+    },
+    {
+        "concept_id": "functions",
+        "concept_name": "Functions",
+        "aliases": ["input-output rule", "function relation", "mapping"],
+        "russian_culture": "Beehives and honey production",
+        "explanation_text": "If each beehive in an apiary gives a specific amount of honey for the season, it is like a function—each input gives exactly one output. Knowing the number of hives lets you predict the honey.",
+        "image_prompt": "Show a diagram linking beehives (input) to kilograms of honey (output)."
+    }
+]

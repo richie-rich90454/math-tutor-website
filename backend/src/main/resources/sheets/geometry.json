@@ -1,0 +1,127 @@
+{
+    "topic": "geometry",
+    "formulas": [
+        {
+            "name": "Area of a rectangle",
+            "formula": "A = lw",
+            "native": "area of a rectangle",
+            "mandarin": "长方形面积"
+        },
+        {
+            "name": "Area of a triangle",
+            "formula": "A = \\frac{1}{2}bh",
+            "native": "area of a triangle",
+            "mandarin": "三角形面积"
+        },
+        {
+            "name": "Area of a circle",
+            "formula": "A = \\pi r^2",
+            "native": "area of a circle",
+            "mandarin": "圆的面积"
+        },
+        {
+            "name": "Circumference",
+            "formula": "C = 2\\pi r",
+            "native": "circumference",
+            "mandarin": "圆周长"
+        },
+        {
+            "name": "Perimeter of a rectangle",
+            "formula": "P = 2(l + w)",
+            "native": "perimeter of a rectangle",
+            "mandarin": "长方形周长"
+        },
+        {
+            "name": "Pythagorean theorem",
+            "formula": "a^2 + b^2 = c^2",
+            "native": "Pythagorean theorem",
+            "mandarin": "勾股定理"
+        },
+        {
+            "name": "Volume of a rectangular prism",
+            "formula": "V = lwh",
+            "native": "volume of a rectangular prism",
+            "mandarin": "长方体体积"
+        },
+        {
+            "name": "Volume of a sphere",
+            "formula": "V = \\frac{4}{3}\\pi r^3",
+            "native": "volume of a sphere",
+            "mandarin": "球体体积"
+        },
+        {
+            "name": "Angle sum of a triangle",
+            "formula": "\\angle A + \\angle B + \\angle C = 180^{\\circ}",
+            "native": "angle sum of a triangle",
+            "mandarin": "三角形内角和"
+        },
+        {
+            "name": "Area of a trapezoid",
+            "formula": "A = \\frac{1}{2}(a + b)h",
+            "native": "area of a trapezoid",
+            "mandarin": "梯形面积"
+        }
+    ],
+    "terms": [
+        {
+            "term": "point",
+            "native": "point",
+            "mandarin": "点"
+        },
+        {
+            "term": "line",
+            "native": "line",
+            "mandarin": "直线"
+        },
+        {
+            "term": "ray",
+            "native": "ray",
+            "mandarin": "射线"
+        },
+        {
+            "term": "segment",
+            "native": "segment",
+            "mandarin": "线段"
+        },
+        {
+            "term": "angle",
+            "native": "angle",
+            "mandarin": "角"
+        },
+        {
+            "term": "triangle",
+            "native": "triangle",
+            "mandarin": "三角形"
+        },
+        {
+            "term": "circle",
+            "native": "circle",
+            "mandarin": "圆"
+        },
+        {
+            "term": "diameter",
+            "native": "diameter",
+            "mandarin": "直径"
+        },
+        {
+            "term": "radius",
+            "native": "radius",
+            "mandarin": "半径"
+        },
+        {
+            "term": "perpendicular",
+            "native": "perpendicular",
+            "mandarin": "垂直"
+        },
+        {
+            "term": "parallel",
+            "native": "parallel",
+            "mandarin": "平行"
+        },
+        {
+            "term": "hypotenuse",
+            "native": "hypotenuse",
+            "mandarin": "斜边"
+        }
+    ]
+}

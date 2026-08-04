@@ -1,0 +1,127 @@
+{
+    "topic": "statistics",
+    "formulas": [
+        {
+            "name": "Mean",
+            "formula": "\\bar{x} = \\frac{\\sum x_i}{n}",
+            "native": "mean",
+            "mandarin": "平均数"
+        },
+        {
+            "name": "Variance",
+            "formula": "\\sigma^2 = \\frac{\\sum (x_i - \\bar{x})^2}{n}",
+            "native": "variance",
+            "mandarin": "方差"
+        },
+        {
+            "name": "Standard deviation",
+            "formula": "\\sigma = \\sqrt{\\frac{\\sum (x_i - \\bar{x})^2}{n}}",
+            "native": "standard deviation",
+            "mandarin": "标准差"
+        },
+        {
+            "name": "Median",
+            "formula": "\\text{median} = \\text{middle value of sorted data}",
+            "native": "median",
+            "mandarin": "中位数"
+        },
+        {
+            "name": "Mode",
+            "formula": "\\text{mode} = \\text{most frequent value}",
+            "native": "mode",
+            "mandarin": "众数"
+        },
+        {
+            "name": "Probability",
+            "formula": "P(A) = \\frac{\\text{favorable outcomes}}{\\text{total outcomes}}",
+            "native": "probability",
+            "mandarin": "概率"
+        },
+        {
+            "name": "Complement rule",
+            "formula": "P(A^c) = 1 - P(A)",
+            "native": "complement rule",
+            "mandarin": "补集法则"
+        },
+        {
+            "name": "Addition rule",
+            "formula": "P(A \\cup B) = P(A) + P(B) - P(A \\cap B)",
+            "native": "addition rule",
+            "mandarin": "加法法则"
+        },
+        {
+            "name": "Multiplication rule",
+            "formula": "P(A \\cap B) = P(A) \\cdot P(B|A)",
+            "native": "multiplication rule",
+            "mandarin": "乘法法则"
+        },
+        {
+            "name": "Range",
+            "formula": "\\text{range} = \\max - \\min",
+            "native": "range",
+            "mandarin": "极差"
+        }
+    ],
+    "terms": [
+        {
+            "term": "mean",
+            "native": "mean",
+            "mandarin": "平均数"
+        },
+        {
+            "term": "median",
+            "native": "median",
+            "mandarin": "中位数"
+        },
+        {
+            "term": "mode",
+            "native": "mode",
+            "mandarin": "众数"
+        },
+        {
+            "term": "data set",
+            "native": "data set",
+            "mandarin": "数据集"
+        },
+        {
+            "term": "frequency",
+            "native": "frequency",
+            "mandarin": "频数"
+        },
+        {
+            "term": "probability",
+            "native": "probability",
+            "mandarin": "概率"
+        },
+        {
+            "term": "outcome",
+            "native": "outcome",
+            "mandarin": "结果"
+        },
+        {
+            "term": "sample space",
+            "native": "sample space",
+            "mandarin": "样本空间"
+        },
+        {
+            "term": "variance",
+            "native": "variance",
+            "mandarin": "方差"
+        },
+        {
+            "term": "standard deviation",
+            "native": "standard deviation",
+            "mandarin": "标准差"
+        },
+        {
+            "term": "distribution",
+            "native": "distribution",
+            "mandarin": "分布"
+        },
+        {
+            "term": "sample",
+            "native": "sample",
+            "mandarin": "样本"
+        }
+    ]
+}

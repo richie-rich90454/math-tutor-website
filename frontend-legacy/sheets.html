@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="/legacy/img/favicon.png">
+<title data-i18n="sheetsTitle">Sheets</title>
+<link rel="stylesheet" href="/legacy/css/style.css">
+</head>
+<body>
+<div class="legacy-shell">
+    <div class="legacy-header">
+        <img src="/legacy/img/logo.png" alt="" class="legacy-logo"><span class="brand">MathTutor AI</span>
+        <span class="right">
+            <span id="langSwitcher"></span>
+            <span> | </span>
+            <a href="/legacy/index.html" data-i18n="navBackToApp">Back to app</a>
+        </span>
+    </div>
+
+    <div class="legacy-content" style="max-width:760px;">
+        <h1 data-i18n="sheetsTitle">Formula &amp; Glossary Sheets</h1>
+        <div class="auth-msg hidden" id="errorBox"></div>
+
+        <div class="card">
+            <div class="row" id="topicChips"></div>
+        </div>
+
+        <div class="card">
+            <h3 data-i18n="sheetsFormula">Formulas</h3>
+            <div id="formulasList"></div>
+        </div>
+
+        <div class="card">
+            <h3 data-i18n="sheetsTerm">Key terms</h3>
+            <div id="termsList"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/legacy/js/json2.min.js"></script>
+<script src="/legacy/js/jquery-1.12.4.min.js"></script>
+<script src="/legacy/js/config.js"></script>
+<script src="/legacy/js/i18n.js"></script>
+<script src="/legacy/js/common.js"></script>
+<script src="/legacy/js/sheets.js"></script>
+</body>
+</html>

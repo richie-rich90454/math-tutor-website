@@ -1,0 +1,365 @@
+{
+    "topic": "geometry",
+    "problems": [
+        {
+            "id": "geom-001-en",
+            "topic": "geometry",
+            "grade": 4,
+            "question": "A rectangle is 5 units wide and 8 units long. What is its area?",
+            "options": ["13", "26", "40", "45"],
+            "answerIndex": 2,
+            "explanation": "Area = 5 × 8 = 40.",
+            "language": "en"
+        },
+        {
+            "id": "geom-002-en",
+            "topic": "geometry",
+            "grade": 4,
+            "question": "A square has a side length of 6. What is its perimeter?",
+            "options": ["24", "36", "12", "30"],
+            "answerIndex": 0,
+            "explanation": "Perimeter = 4 × 6 = 24.",
+            "language": "en"
+        },
+        {
+            "id": "geom-003-en",
+            "topic": "geometry",
+            "grade": 5,
+            "question": "A triangle has base 10 and height 6. What is its area?",
+            "options": ["30", "60", "16", "40"],
+            "answerIndex": 0,
+            "explanation": "Area = 1/2 × 10 × 6 = 30.",
+            "language": "en"
+        },
+        {
+            "id": "geom-004-en",
+            "topic": "geometry",
+            "grade": 5,
+            "question": "Two angles of a triangle are 60° and 50°. What is the third angle?",
+            "options": ["70°", "60°", "80°", "90°"],
+            "answerIndex": 0,
+            "explanation": "180 - 60 - 50 = 70.",
+            "language": "en"
+        },
+        {
+            "id": "geom-005-en",
+            "topic": "geometry",
+            "grade": 7,
+            "question": "A circle has radius 7. What is its circumference? (Use π ≈ 22/7.)",
+            "options": ["44", "49", "22", "88"],
+            "answerIndex": 0,
+            "explanation": "Circumference = 2 × 22/7 × 7 = 44.",
+            "language": "en"
+        },
+        {
+            "id": "geom-006-en",
+            "topic": "geometry",
+            "grade": 7,
+            "question": "A circle has radius 3. What is its area? (Use π ≈ 3.14.)",
+            "options": ["28.26", "18.84", "9.42", "9"],
+            "answerIndex": 0,
+            "explanation": "Area = πr² = 3.14 × 9 = 28.26.",
+            "language": "en"
+        },
+        {
+            "id": "geom-007-en",
+            "topic": "geometry",
+            "grade": 6,
+            "question": "A parallelogram has base 9 and height 5. What is its area?",
+            "options": ["45", "14", "28", "40"],
+            "answerIndex": 0,
+            "explanation": "Area = base × height = 9 × 5 = 45.",
+            "language": "en"
+        },
+        {
+            "id": "geom-008-en",
+            "topic": "geometry",
+            "grade": 5,
+            "question": "What is the sum of the interior angles of a triangle?",
+            "options": ["90°", "180°", "270°", "360°"],
+            "answerIndex": 1,
+            "explanation": "The sum of interior angles of a triangle is always 180°.",
+            "language": "en"
+        },
+        {
+            "id": "geom-009-en",
+            "topic": "geometry",
+            "grade": 6,
+            "question": "A cube has edge length 4. What is its volume?",
+            "options": ["16", "24", "64", "32"],
+            "answerIndex": 2,
+            "explanation": "Volume = 4³ = 64.",
+            "language": "en"
+        },
+        {
+            "id": "geom-010-en",
+            "topic": "geometry",
+            "grade": 4,
+            "question": "A rectangle is 7 units long and 3 units wide. What is its perimeter?",
+            "options": ["20", "21", "10", "24"],
+            "answerIndex": 0,
+            "explanation": "Perimeter = 2 × (7 + 3) = 20.",
+            "language": "en"
+        },
+        {
+            "id": "geom-011-en",
+            "topic": "geometry",
+            "grade": 4,
+            "question": "What type of angle measures 120°?",
+            "options": ["Acute", "Right", "Obtuse", "Straight"],
+            "answerIndex": 2,
+            "explanation": "An angle between 90° and 180° is obtuse.",
+            "language": "en"
+        },
+        {
+            "id": "geom-012-en",
+            "topic": "geometry",
+            "grade": 7,
+            "question": "A trapezoid has bases 6 and 10 and height 4. What is its area?",
+            "options": ["32", "40", "24", "48"],
+            "answerIndex": 0,
+            "explanation": "Area = (6 + 10) × 4 ÷ 2 = 32.",
+            "language": "en"
+        },
+        {
+            "id": "geom-001-zh-hans",
+            "topic": "geometry",
+            "grade": 4,
+            "question": "一个长方形长 8 个单位、宽 5 个单位。它的面积是多少？",
+            "options": ["13", "26", "40", "45"],
+            "answerIndex": 2,
+            "explanation": "面积 = 5 × 8 = 40。",
+            "language": "zh-hans"
+        },
+        {
+            "id": "geom-002-zh-hans",
+            "topic": "geometry",
+            "grade": 4,
+            "question": "正方形的边长为 6。它的周长是多少？",
+            "options": ["24", "36", "12", "30"],
+            "answerIndex": 0,
+            "explanation": "周长 = 4 × 6 = 24。",
+            "language": "zh-hans"
+        },
+        {
+            "id": "geom-003-zh-hans",
+            "topic": "geometry",
+            "grade": 5,
+            "question": "三角形的底为 10、高为 6。它的面积是多少？",
+            "options": ["30", "60", "16", "40"],
+            "answerIndex": 0,
+            "explanation": "面积 = 1/2 × 10 × 6 = 30。",
+            "language": "zh-hans"
+        },
+        {
+            "id": "geom-004-zh-hans",
+            "topic": "geometry",
+            "grade": 5,
+            "question": "三角形的两个内角分别是 60° 和 50°。第三个角是多少度？",
+            "options": ["70°", "60°", "80°", "90°"],
+            "answerIndex": 0,
+            "explanation": "180 - 60 - 50 = 70。",
+            "language": "zh-hans"
+        },
+        {
+            "id": "geom-005-zh-hans",
+            "topic": "geometry",
+            "grade": 7,
+            "question": "圆的半径为 7。它的周长是多少？（π 取 22/7。）",
+            "options": ["44", "49", "22", "88"],
+            "answerIndex": 0,
+            "explanation": "周长 = 2 × 22/7 × 7 = 44。",
+            "language": "zh-hans"
+        },
+        {
+            "id": "geom-006-zh-hans",
+            "topic": "geometry",
+            "grade": 7,
+            "question": "圆的半径为 3。它的面积是多少？（π 取 3.14。）",
+            "options": ["28.26", "18.84", "9.42", "9"],
+            "answerIndex": 0,
+            "explanation": "面积 = πr² = 3.14 × 9 = 28.26。",
+            "language": "zh-hans"
+        },
+        {
+            "id": "geom-007-zh-hans",
+            "topic": "geometry",
+            "grade": 6,
+            "question": "平行四边形的底为 9、高为 5。它的面积是多少？",
+            "options": ["45", "14", "28", "40"],
+            "answerIndex": 0,
+            "explanation": "面积 = 底 × 高 = 9 × 5 = 45。",
+            "language": "zh-hans"
+        },
+        {
+            "id": "geom-008-zh-hans",
+            "topic": "geometry",
+            "grade": 5,
+            "question": "三角形的内角和是多少度？",
+            "options": ["90°", "180°", "270°", "360°"],
+            "answerIndex": 1,
+            "explanation": "三角形内角和始终为 180°。",
+            "language": "zh-hans"
+        },
+        {
+            "id": "geom-009-zh-hans",
+            "topic": "geometry",
+            "grade": 6,
+            "question": "正方体的棱长为 4。它的体积是多少？",
+            "options": ["16", "24", "64", "32"],
+            "answerIndex": 2,
+            "explanation": "体积 = 4³ = 64。",
+            "language": "zh-hans"
+        },
+        {
+            "id": "geom-010-zh-hans",
+            "topic": "geometry",
+            "grade": 4,
+            "question": "一个长方形长 7 个单位、宽 3 个单位。它的周长是多少？",
+            "options": ["20", "21", "10", "24"],
+            "answerIndex": 0,
+            "explanation": "周长 = 2 × (7 + 3) = 20。",
+            "language": "zh-hans"
+        },
+        {
+            "id": "geom-011-zh-hans",
+            "topic": "geometry",
+            "grade": 4,
+            "question": "120° 是什么类型的角？",
+            "options": ["锐角", "直角", "钝角", "平角"],
+            "answerIndex": 2,
+            "explanation": "大于 90° 小于 180° 的角是钝角。",
+            "language": "zh-hans"
+        },
+        {
+            "id": "geom-012-zh-hans",
+            "topic": "geometry",
+            "grade": 7,
+            "question": "梯形的上底为 6、下底为 10、高为 4。它的面积是多少？",
+            "options": ["32", "40", "24", "48"],
+            "answerIndex": 0,
+            "explanation": "面积 = (6 + 10) × 4 ÷ 2 = 32。",
+            "language": "zh-hans"
+        },
+        {
+            "id": "geom-001-mn-cyrl",
+            "topic": "geometry",
+            "grade": 4,
+            "question": "Тэгш өнцөгт 8 нэгж урт, 5 нэгж өргөнтэй. Түүний талбай хэд вэ?",
+            "options": ["13", "26", "40", "45"],
+            "answerIndex": 2,
+            "explanation": "Талбай = 5 × 8 = 40.",
+            "language": "mn-cyrl"
+        },
+        {
+            "id": "geom-002-mn-cyrl",
+            "topic": "geometry",
+            "grade": 4,
+            "question": "Дөрвөлжингийн талын урт 6. Түүний периметр хэд вэ?",
+            "options": ["24", "36", "12", "30"],
+            "answerIndex": 0,
+            "explanation": "Периметр = 4 × 6 = 24.",
+            "language": "mn-cyrl"
+        },
+        {
+            "id": "geom-003-mn-cyrl",
+            "topic": "geometry",
+            "grade": 5,
+            "question": "Гурвалжны суурь 10, өндөр 6. Түүний талбай хэд вэ?",
+            "options": ["30", "60", "16", "40"],
+            "answerIndex": 0,
+            "explanation": "Талбай = 1/2 × 10 × 6 = 30.",
+            "language": "mn-cyrl"
+        },
+        {
+            "id": "geom-004-mn-cyrl",
+            "topic": "geometry",
+            "grade": 5,
+            "question": "Гурвалжны хоёр өнцөг 60° ба 50°. Гурав дахь өнцөг хэд вэ?",
+            "options": ["70°", "60°", "80°", "90°"],
+            "answerIndex": 0,
+            "explanation": "180 - 60 - 50 = 70.",
+            "language": "mn-cyrl"
+        },
+        {
+            "id": "geom-005-mn-cyrl",
+            "topic": "geometry",
+            "grade": 7,
+            "question": "Тойргийн радиус 7. Түүний тойргийн урт хэд вэ? (π ≈ 22/7.)",
+            "options": ["44", "49", "22", "88"],
+            "answerIndex": 0,
+            "explanation": "Тойргийн урт = 2 × 22/7 × 7 = 44.",
+            "language": "mn-cyrl"
+        },
+        {
+            "id": "geom-006-mn-cyrl",
+            "topic": "geometry",
+            "grade": 7,
+            "question": "Тойргийн радиус 3. Түүний талбай хэд вэ? (π ≈ 3.14.)",
+            "options": ["28.26", "18.84", "9.42", "9"],
+            "answerIndex": 0,
+            "explanation": "Талбай = πr² = 3.14 × 9 = 28.26.",
+            "language": "mn-cyrl"
+        },
+        {
+            "id": "geom-007-mn-cyrl",
+            "topic": "geometry",
+            "grade": 6,
+            "question": "Параллелограммын суурь 9, өндөр 5. Түүний талбай хэд вэ?",
+            "options": ["45", "14", "28", "40"],
+            "answerIndex": 0,
+            "explanation": "Талбай = суурь × өндөр = 9 × 5 = 45.",
+            "language": "mn-cyrl"
+        },
+        {
+            "id": "geom-008-mn-cyrl",
+            "topic": "geometry",
+            "grade": 5,
+            "question": "Гурвалжны дотоод өнцгүүдийн нийлбэр хэд вэ?",
+            "options": ["90°", "180°", "270°", "360°"],
+            "answerIndex": 1,
+            "explanation": "Гурвалжны дотоод өнцгүүдийн нийлбэр үргэлж 180° байдаг.",
+            "language": "mn-cyrl"
+        },
+        {
+            "id": "geom-009-mn-cyrl",
+            "topic": "geometry",
+            "grade": 6,
+            "question": "Кубын ирмэгийн урт 4. Түүний эзэлхүүн хэд вэ?",
+            "options": ["16", "24", "64", "32"],
+            "answerIndex": 2,
+            "explanation": "Эзэлхүүн = 4³ = 64.",
+            "language": "mn-cyrl"
+        },
+        {
+            "id": "geom-010-mn-cyrl",
+            "topic": "geometry",
+            "grade": 4,
+            "question": "Тэгш өнцөгт 7 нэгж урт, 3 нэгж өргөнтэй. Түүний периметр хэд вэ?",
+            "options": ["20", "21", "10", "24"],
+            "answerIndex": 0,
+            "explanation": "Периметр = 2 × (7 + 3) = 20.",
+            "language": "mn-cyrl"
+        },
+        {
+            "id": "geom-011-mn-cyrl",
+            "topic": "geometry",
+            "grade": 4,
+            "question": "120° ямар төрлийн өнцөг вэ?",
+            "options": ["Хурц өнцөг", "Тэгш өнцөг", "Мохоо өнцөг", "Шулуун өнцөг"],
+            "answerIndex": 2,
+            "explanation": "90°-аас их, 180°-аас бага өнцгийг мохоо өнцөг гэнэ.",
+            "language": "mn-cyrl"
+        },
+        {
+            "id": "geom-012-mn-cyrl",
+            "topic": "geometry",
+            "grade": 7,
+            "question": "Трапецын сууриуд 6 ба 10, өндөр 4. Түүний талбай хэд вэ?",
+            "options": ["32", "40", "24", "48"],
+            "answerIndex": 0,
+            "explanation": "Талбай = (6 + 10) × 4 ÷ 2 = 32.",
+            "language": "mn-cyrl"
+        }
+    ]
+}

@@ -1,3 +1,4 @@
+import { createHash } from "crypto";
 import { hashPassword, comparePassword, signToken, verifyToken } from "@/lib/auth";
 
 describe("Auth", () => {
@@ -28,10 +29,8 @@ describe("Auth", () => {
 
         it("handles legacy 2-part format", () => {
             // Legacy format: salt:hash (SHA-256)
-            const crypto = require("crypto");
             const salt = "abc123";
-            const hash = crypto
-                .createHash("sha256")
+            const hash = createHash("sha256")
                 .update("test" + salt)
                 .digest("hex");
             const stored = `${salt}:${hash}`;

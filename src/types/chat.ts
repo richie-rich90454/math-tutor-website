@@ -3,4 +3,6 @@ export interface Message {
     content: string;
     role: "user" | "assistant";
     timestamp: Date;
+    isPinned?: boolean;
+    isCached?: boolean;
 }

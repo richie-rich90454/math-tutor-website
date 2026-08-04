@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const RTL_LANGUAGES = new Set(["ar", "he"]);
+const RTL_LANGUAGES = new Set(["ar", "he", "ug"]);
 
 function getBcp47(code: string): string {
     const map: Record<string, string> = {

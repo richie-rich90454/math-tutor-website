@@ -44,12 +44,15 @@ export default function SignupPage() {
 
     useEffect(() => {
         if (cardRef.current) {
-            gsap.from(cardRef.current, {
-                y: 40,
-                opacity: 0,
-                duration: 0.8,
-                ease: "elastic.out(1, 0.6)",
-            });
+            const ctx = gsap.context(() => {
+                gsap.from(cardRef.current, {
+                    y: 40,
+                    opacity: 0,
+                    duration: 0.8,
+                    ease: "elastic.out(1, 0.6)",
+                });
+            }, cardRef);
+            return () => ctx.revert();
         }
     }, []);
 

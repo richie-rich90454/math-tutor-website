@@ -1,0 +1,565 @@
+[
+    {
+        "concept_id": "place_value",
+        "concept_name": "Place Value",
+        "aliases": [
+            "place value",
+            "digit place",
+            "number place",
+            "units place",
+            "tens place",
+            "hundreds place",
+            "position of digits",
+            "digit position"
+        ],
+        "dai_culture": "Floors of the bamboo stilt house",
+        "explanation_text": "A Dai bamboo stilt house (竹楼) rises in distinct levels—the ground floor, the living floor, and the roof. Each level has its own role, just as each digit in a number has a place that gives it value.",
+        "image_prompt": "Show a Dai bamboo stilt house with each floor labeled as ones, tens, and hundreds, illustrating how position gives value."
+    },
+    {
+        "concept_id": "addition_subtraction",
+        "concept_name": "Addition & Subtraction",
+        "aliases": [
+            "add",
+            "addition",
+            "plus",
+            "sum",
+            "combine",
+            "total",
+            "subtract",
+            "subtraction",
+            "minus",
+            "take away",
+            "difference"
+        ],
+        "dai_culture": "Splashing and pouring festival water",
+        "explanation_text": "During the Water Splashing Festival, splashing more water into a basin makes the total rise, while tipping some out makes it fall. This is exactly how addition increases a number and subtraction decreases it.",
+        "image_prompt": "Show a festival basin being filled with splashed water and then some water poured out, with the amounts labeled."
+    },
+    {
+        "concept_id": "multiplication_division",
+        "concept_name": "Multiplication & Division",
+        "aliases": [
+            "multiply",
+            "multiplication",
+            "times",
+            "groups of",
+            "repeated addition",
+            "divide",
+            "division",
+            "split equally",
+            "sharing"
+        ],
+        "dai_culture": "Rows of rice seedlings in a paddy",
+        "explanation_text": "Planting rice seedlings in equal rows in a Xishuangbanna paddy shows multiplication—rows times seedlings per row. Sharing the seedlings evenly among families shows division.",
+        "image_prompt": "Display neat rows of rice seedlings in a green paddy, showing equal grouping for multiplication and even sharing for division."
+    },
+    {
+        "concept_id": "even_odd",
+        "concept_name": "Even and Odd Numbers",
+        "aliases": [
+            "even numbers",
+            "odd numbers",
+            "even",
+            "odd",
+            "pairs",
+            "leftover",
+            "no remainder",
+            "remains one"
+        ],
+        "dai_culture": "Peacock feathers in pairs",
+        "explanation_text": "A peacock's tail feathers often fan out in matching pairs. Feathers that pair up evenly represent even numbers, while one feather left alone represents an odd number.",
+        "image_prompt": "Show peacock feathers arranged in pairs with one single feather at the end to represent an odd number."
+    },
+    {
+        "concept_id": "skip_counting",
+        "concept_name": "Skip Counting / Number Patterns",
+        "aliases": [
+            "skip counting",
+            "count by 2s",
+            "count by 5s",
+            "count by 10s",
+            "jump counting",
+            "repeating numbers",
+            "number patterns"
+        ],
+        "dai_culture": "Repeating patterns on Dai brocade",
+        "explanation_text": "Dai brocade (傣锦) weaves repeating color motifs across the cloth. Counting every fifth motif reveals a rhythm—just like skip counting by 5s.",
+        "image_prompt": "Show a strip of Dai brocade with repeating motifs, highlighting every 5th motif to illustrate skip counting."
+    },
+    {
+        "concept_id": "comparing_numbers",
+        "concept_name": "Comparing and Ordering Numbers",
+        "aliases": [
+            "compare numbers",
+            "greater than",
+            "less than",
+            "more than",
+            "fewer than",
+            "biggest",
+            "smallest",
+            "ordering numbers",
+            "number order"
+        ],
+        "dai_culture": "Tea bowls with different amounts",
+        "explanation_text": "At a Dai tea garden, pouring more or less tea into bowls shows which has more and which has less. Comparing the levels is like comparing numbers with greater than and less than.",
+        "image_prompt": "Show several tea bowls filled to different levels, with > and < symbols between them."
+    },
+    {
+        "concept_id": "rounding_estimation",
+        "concept_name": "Rounding & Estimation",
+        "aliases": [
+            "round",
+            "rounding",
+            "estimate",
+            "estimation",
+            "approximate",
+            "about how much",
+            "close to",
+            "nearby number"
+        ],
+        "dai_culture": "Estimating sticky rice for festival guests",
+        "explanation_text": "When a village cooks sticky rice for the Water Splashing Festival, cooks estimate how many baskets they need for the crowd. Estimating the nearest convenient amount is like rounding a number.",
+        "image_prompt": "Show cooks estimating baskets of sticky rice for festival guests, with rounded numbers on the baskets."
+    },
+    {
+        "concept_id": "fractions",
+        "concept_name": "Fractions",
+        "aliases": ["fraction", "part of a whole", "portion", "share", "numerator", "denominator"],
+        "dai_culture": "Sharing sticky rice equally",
+        "explanation_text": "When a basket of sticky rice is shared equally among several people at a Dai gathering, each person receives a fraction of the whole basket.",
+        "image_prompt": "Show a basket of sticky rice divided into equal portions, each labeled as a fraction of the whole."
+    },
+    {
+        "concept_id": "equivalent_fractions",
+        "concept_name": "Equivalent Fractions",
+        "aliases": ["equal fractions", "same value", "fraction equality", "equivalent"],
+        "dai_culture": "Cutting a rice cake into halves or quarters",
+        "explanation_text": "Cutting a Dai rice cake into 2 large pieces or into 4 smaller pieces gives the same total amount. This shows how different fractions can name the same quantity.",
+        "image_prompt": "Show a rice cake cut first into halves, then into quarters, demonstrating equal total portions."
+    },
+    {
+        "concept_id": "simplifying_fractions",
+        "concept_name": "Simplifying Fractions",
+        "aliases": ["reduce fraction", "lowest terms", "simplify fraction"],
+        "dai_culture": "Tying betel nut bundles",
+        "explanation_text": "If many small bundles of betel nut are tied into fewer, larger bundles, the total amount stays the same. This mirrors reducing a fraction to its simplest form.",
+        "image_prompt": "Depict small betel nut bundles being combined into larger bundles, labeled with the simplified fraction."
+    },
+    {
+        "concept_id": "mixed_numbers",
+        "concept_name": "Mixed Numbers",
+        "aliases": ["mixed number", "whole and fraction", "whole part and fraction part"],
+        "dai_culture": "Full baskets of bananas plus half a basket",
+        "explanation_text": "If a farmer has 3 full baskets of bananas and one half-full basket, that is 3 and a half baskets—just like the mixed number 3½.",
+        "image_prompt": "Show three full baskets of bananas and one half-full basket labeled as 3½."
+    },
+    {
+        "concept_id": "improper_fractions",
+        "concept_name": "Improper Fractions",
+        "aliases": ["top-heavy fraction", "numerator larger", "greater than one fraction"],
+        "dai_culture": "Rice overflowing a woven basket",
+        "explanation_text": "When sticky rice fills more than one equal-sized woven basket but is still counted in same-size portions, the total is an improper fraction, larger than one whole.",
+        "image_prompt": "Show several woven baskets filled past one full portion, symbolizing fractions greater than 1."
+    },
+    {
+        "concept_id": "adding_fractions",
+        "concept_name": "Adding Fractions",
+        "aliases": ["fraction addition", "add fractions", "sum of fractions"],
+        "dai_culture": "Combining rice portions into one pot",
+        "explanation_text": "Pouring rice portions from several small bowls into one cooking pot shows how fractional amounts add together into a larger whole.",
+        "image_prompt": "Show small bowls of rice being poured together into one pot to make a total."
+    },
+    {
+        "concept_id": "subtracting_fractions",
+        "concept_name": "Subtracting Fractions",
+        "aliases": ["fraction subtraction", "take away fractions", "difference of fractions"],
+        "dai_culture": "Scooping out part of a congee pot",
+        "explanation_text": "Scooping out a portion of rice congee from a pot leaves a smaller amount behind. Taking part of a fractional amount is fraction subtraction.",
+        "image_prompt": "Show a pot of congee with a portion being scooped out, the remainder labeled as the fraction left."
+    },
+    {
+        "concept_id": "multiplying_fractions",
+        "concept_name": "Multiplying Fractions",
+        "aliases": ["fraction multiplication", "part of a part", "multiply fractions"],
+        "dai_culture": "Sharing half of a half rice cake",
+        "explanation_text": "If each guest at a festival receives half of a half rice cake, they are finding a fraction of a fraction—exactly what multiplying fractions means.",
+        "image_prompt": "Show a rice cake divided into halves, and one half divided again into smaller portions."
+    },
+    {
+        "concept_id": "dividing_fractions",
+        "concept_name": "Dividing Fractions",
+        "aliases": ["fraction division", "divide fractions", "how many times in"],
+        "dai_culture": "Splitting a bamboo tube of rice",
+        "explanation_text": "When a bamboo tube filled with rice is shared into smaller equal portions, you are dividing a fraction by another fraction.",
+        "image_prompt": "Show a bamboo rice tube being cut into smaller even portions to illustrate fractional division."
+    },
+    {
+        "concept_id": "decimals",
+        "concept_name": "Decimals",
+        "aliases": ["decimal point", "tenths", "hundredths", "decimal number"],
+        "dai_culture": "Weighing tea leaves in kilograms",
+        "explanation_text": "Weighing tea leaves at a Dehong tea garden gives amounts like 1.5 kilograms, meaning one and a half kilograms. Measuring with scales introduces decimals.",
+        "image_prompt": "Show a market scale marked at 1.0, 1.5, and 2.0 kilograms of tea leaves."
+    },
+    {
+        "concept_id": "converting_fractions_decimals",
+        "concept_name": "Converting Fractions and Decimals",
+        "aliases": ["fraction to decimal", "decimal to fraction", "convert fractions"],
+        "dai_culture": "Half a basket or 0.5 basket",
+        "explanation_text": "Whether a farmer says half a basket of pineapples or 0.5 of a basket, both describe the same amount. Converting between fractions and decimals works the same way.",
+        "image_prompt": "Show two labeled baskets, one marked ½ and another 0.5, holding the same amount."
+    },
+    {
+        "concept_id": "percents",
+        "concept_name": "Percents",
+        "aliases": ["percent", "percentage", "per hundred", "rate per 100"],
+        "dai_culture": "Dai language test scores",
+        "explanation_text": "When a student scores 90 out of 100 on a Dai language test, that is 90%. Percents express parts out of one hundred.",
+        "image_prompt": "Show a test paper with 90/100 written and a 90% mark beside it."
+    },
+    {
+        "concept_id": "percent_of_number",
+        "concept_name": "Percent of a Number",
+        "aliases": ["percentage of number", "find percent", "portion of total"],
+        "dai_culture": "Discounts on brocade at the market",
+        "explanation_text": "A 10% discount on a length of Dai brocade at the Jinghong market shows how percents are used to find a part of a total price.",
+        "image_prompt": "Show a market stall sign with brocade marked '10% off' and reduced price tags."
+    },
+    {
+        "concept_id": "variables",
+        "concept_name": "Variables",
+        "aliases": ["variable", "unknown", "letter as number", "symbol in math"],
+        "dai_culture": "Unlabeled bamboo baskets",
+        "explanation_text": "If some bamboo baskets in a storehouse are unlabeled, each represents an unknown quantity—just like a variable in math.",
+        "image_prompt": "Show labeled baskets and an unlabeled one marked as x."
+    },
+    {
+        "concept_id": "expressions",
+        "concept_name": "Expressions",
+        "aliases": ["math expressions", "numerical expressions", "algebraic expressions"],
+        "dai_culture": "Known baskets plus unknown ones",
+        "explanation_text": "If a farmer has 2 known baskets of pineapples and x more unknown ones, that total is expressed as 2 + x, a mathematical expression.",
+        "image_prompt": "Show two pineapple baskets plus an unlabeled basket, symbolized as 2 + x."
+    },
+    {
+        "concept_id": "equations",
+        "concept_name": "Equations",
+        "aliases": ["math equations", "equal statements", "algebra equations"],
+        "dai_culture": "Balancing a shoulder-carrying pole",
+        "explanation_text": "When the two loads hanging from a Dai farmer's carrying pole weigh the same, the pole balances—just like both sides of an equation.",
+        "image_prompt": "Show a carrying pole with equal baskets on both sides, labeled as an equation."
+    },
+    {
+        "concept_id": "solving_one_step_equations",
+        "concept_name": "Solving One-Step Equations",
+        "aliases": ["one-step equations", "simple equations"],
+        "dai_culture": "Balancing a market load",
+        "explanation_text": "If one side of a carrying pole is heavier, the farmer adds or removes weight until it balances. This is exactly solving a one-step equation.",
+        "image_prompt": "Show a carrying pole being adjusted by adding or removing a basket to balance both sides."
+    },
+    {
+        "concept_id": "solving_two_step_equations",
+        "concept_name": "Solving Two-Step Equations",
+        "aliases": ["two-step equations", "multi-step equations"],
+        "dai_culture": "Preparing tea step by step",
+        "explanation_text": "Making Dai tea needs picking the leaves first and then brewing them—two ordered steps. Solving a two-step equation follows the same discipline.",
+        "image_prompt": "Show the sequence: pick tea leaves, then brew, then serve, symbolizing step-by-step solving."
+    },
+    {
+        "concept_id": "inequalities",
+        "concept_name": "Inequalities",
+        "aliases": ["greater than", "less than", "not equal", "comparison statements"],
+        "dai_culture": "Comparing paddy harvests",
+        "explanation_text": "When one family's rice harvest is larger than another's, it shows an inequality—like using greater than or less than.",
+        "image_prompt": "Show two piles of harvested rice of different sizes with > and < symbols between them."
+    },
+    {
+        "concept_id": "order_of_operations",
+        "concept_name": "Order of Operations (PEMDAS)",
+        "aliases": ["PEMDAS", "BODMAS", "math order", "operations order"],
+        "dai_culture": "Weaving brocade in order",
+        "explanation_text": "Before weaving Dai brocade, the cotton threads must be dyed and then arranged on the loom. The order of these steps matters, just like the order of operations in math.",
+        "image_prompt": "Show the brocade process—dyeing threads, setting the loom, weaving—in a fixed order."
+    },
+    {
+        "concept_id": "substitution",
+        "concept_name": "Substitution",
+        "aliases": ["replace variable", "substitute value", "replace letter with number"],
+        "dai_culture": "Replacing a broken bamboo strip",
+        "explanation_text": "When a broken bamboo strip in a stilt house is replaced with a new one of the same size, the wall stays the same. That is like substituting a value for a variable.",
+        "image_prompt": "Show a missing bamboo strip being replaced by an identical one, representing substitution."
+    },
+    {
+        "concept_id": "points",
+        "concept_name": "Points",
+        "aliases": ["dot", "location", "coordinate point"],
+        "dai_culture": "Stars in the tropical night",
+        "explanation_text": "Each star glowing in the night sky above Xishuangbanna marks a single position, just like a point in geometry.",
+        "image_prompt": "Show a starry tropical night with individual stars labeled as points on a coordinate grid."
+    },
+    {
+        "concept_id": "lines",
+        "concept_name": "Lines",
+        "aliases": ["straight line", "geometry line", "infinite line"],
+        "dai_culture": "Straight beams of a stilt house",
+        "explanation_text": "The long, straight bamboo beams of a Dai stilt house extend evenly from one support to another, resembling geometric lines.",
+        "image_prompt": "Show straight bamboo beams of a stilt house extending to represent geometric lines."
+    },
+    {
+        "concept_id": "angles",
+        "concept_name": "Angles",
+        "aliases": ["angle", "degree", "corner measure"],
+        "dai_culture": "Opening a stilt house door",
+        "explanation_text": "When the door of a bamboo stilt house swings open, it forms an angle between the door and the doorframe.",
+        "image_prompt": "Show a stilt house door partially open with the angle clearly marked."
+    },
+    {
+        "concept_id": "perpendicular_lines",
+        "concept_name": "Perpendicular Lines",
+        "aliases": ["right angle lines", "intersecting lines", "orthogonal lines"],
+        "dai_culture": "Crossbeams of a stilt house",
+        "explanation_text": "The bamboo crossbeams of a Dai stilt house meet the upright posts at right angles, forming strong perpendicular lines.",
+        "image_prompt": "Show stilt house crossbeams meeting upright posts at 90° angles."
+    },
+    {
+        "concept_id": "parallel_lines",
+        "concept_name": "Parallel Lines",
+        "aliases": ["side-by-side lines", "never meet", "equal distance lines"],
+        "dai_culture": "Rows of banana trees",
+        "explanation_text": "Banana trees planted in long straight rows in a Yunnan plantation run side by side and never meet—like parallel lines.",
+        "image_prompt": "Show two long rows of banana trees running side by side through a plantation."
+    },
+    {
+        "concept_id": "polygons",
+        "concept_name": "Polygons",
+        "aliases": ["shapes", "closed figure", "many-sided shape"],
+        "dai_culture": "Temple floor tile patterns",
+        "explanation_text": "The stone tiles around a golden Dai temple form squares, triangles, and other many-sided shapes. These closed figures are polygons.",
+        "image_prompt": "Show the geometric tile shapes around a golden Dai temple."
+    },
+    {
+        "concept_id": "triangles",
+        "concept_name": "Triangles",
+        "aliases": ["three sides", "triangular", "triangle shape"],
+        "dai_culture": "Pagoda roof gables",
+        "explanation_text": "The tiered roof edges of a Dai pagoda rise in triangular gables, one stacked above another.",
+        "image_prompt": "Show the triangular roof gables of a golden pagoda."
+    },
+    {
+        "concept_id": "quadrilaterals",
+        "concept_name": "Quadrilaterals",
+        "aliases": ["four sides", "rectangles", "squares", "trapezoids"],
+        "dai_culture": "Woven bamboo mats",
+        "explanation_text": "The woven strands of a Dai bamboo mat cross to form rectangular and square patterns, which are quadrilaterals.",
+        "image_prompt": "Show a woven bamboo mat with repeating square and rectangular motifs."
+    },
+    {
+        "concept_id": "perimeter",
+        "concept_name": "Perimeter",
+        "aliases": ["boundary length", "distance around", "outline measure"],
+        "dai_culture": "Walking around a temple courtyard",
+        "explanation_text": "Measuring the distance all the way around a temple courtyard is like finding the perimeter of a shape.",
+        "image_prompt": "Show people walking around a temple courtyard with a dashed perimeter line."
+    },
+    {
+        "concept_id": "area",
+        "concept_name": "Area",
+        "aliases": ["surface area", "space inside", "coverage"],
+        "dai_culture": "A field of rice paddies",
+        "explanation_text": "The amount of land covered by a rice paddy in Dehong is its area, measured in units such as square meters or mu.",
+        "image_prompt": "Show a green rice paddy with its surface shaded to represent area."
+    },
+    {
+        "concept_id": "volume",
+        "concept_name": "Volume",
+        "aliases": ["capacity", "space inside 3D shape", "liquid amount"],
+        "dai_culture": "Bamboo water jars",
+        "explanation_text": "The amount of water a tall bamboo jar can hold is its volume, just as the space inside any container is its capacity.",
+        "image_prompt": "Show bamboo water jars filled to different levels to illustrate volume."
+    },
+    {
+        "concept_id": "circle_properties",
+        "concept_name": "Circle Properties",
+        "aliases": ["radius", "diameter", "circumference", "circle geometry"],
+        "dai_culture": "The dome of a golden pagoda",
+        "explanation_text": "Looking down at the round dome and circular base of a Dai golden pagoda from above shows a perfect circle, illustrating radius, diameter, and circumference.",
+        "image_prompt": "Show a pagoda viewed from above labeled with radius and diameter lines."
+    },
+    {
+        "concept_id": "pi",
+        "concept_name": "Pi (π)",
+        "aliases": ["pi", "ratio of circumference", "3.14"],
+        "dai_culture": "Round elephant-foot drum face",
+        "explanation_text": "The relationship between the distance around the circular head of an elephant-foot drum and the distance across it is the constant ratio π.",
+        "image_prompt": "Show a circular elephant-foot drum head labeled with circumference and diameter measurements."
+    },
+    {
+        "concept_id": "coordinate_plane",
+        "concept_name": "Coordinate Plane",
+        "aliases": ["x-y plane", "graph grid", "axes"],
+        "dai_culture": "Bamboo stilt grid",
+        "explanation_text": "The bamboo posts under a Dai stilt house are arranged in rows and columns, forming a grid. Each post can be located by its row and column—just like coordinates.",
+        "image_prompt": "Show the bamboo post grid under a stilt house labeled with row and column coordinates."
+    },
+    {
+        "concept_id": "plotting_points",
+        "concept_name": "Plotting Points",
+        "aliases": ["graphing points", "coordinates", "x-y plotting"],
+        "dai_culture": "Marking village houses on a map",
+        "explanation_text": "Locating each stilt house of a village on a hand-drawn map is like plotting points on a coordinate plane.",
+        "image_prompt": "Show a map of a Dai village with each stilt house marked as a labeled point."
+    },
+    {
+        "concept_id": "symmetry",
+        "concept_name": "Symmetry",
+        "aliases": ["mirror image", "balanced halves", "reflection symmetry"],
+        "dai_culture": "Peacock feather fan",
+        "explanation_text": "When a peacock opens its tail feathers, the pattern mirrors itself across the center—perfect symmetry, like the balanced designs on a temple gate.",
+        "image_prompt": "Show a peacock feather fan with a mirror line down its center."
+    },
+    {
+        "concept_id": "transformations",
+        "concept_name": "Transformations",
+        "aliases": ["translate", "rotate", "reflect", "dilate"],
+        "dai_culture": "Peacock dance formations",
+        "explanation_text": "During the peacock dance, dancers turn, shift, and glide across the stage. Moving and rotating shapes in this way is what geometric transformations do.",
+        "image_prompt": "Show peacock dancers turning and shifting positions to illustrate geometric transformations."
+    },
+    {
+        "concept_id": "ratios",
+        "concept_name": "Ratios",
+        "aliases": ["comparison", "proportion of quantities", "rate"],
+        "dai_culture": "Mixing rice and water",
+        "explanation_text": "When cooking rice, the balance of rice to water, such as 2 cups of rice to 1 cup of water, is a ratio.",
+        "image_prompt": "Show a cooking pot labeled with a rice-to-water ratio, like 2:1."
+    },
+    {
+        "concept_id": "proportions",
+        "concept_name": "Proportions",
+        "aliases": ["equal ratios", "scaling", "balance of ratios"],
+        "dai_culture": "Enlarging a brocade design",
+        "explanation_text": "When a weaver scales up a small brocade design to a large wall hanging while keeping it identical, they are maintaining proportion.",
+        "image_prompt": "Show a small and a large piece of Dai brocade with the same geometric proportions."
+    },
+    {
+        "concept_id": "unit_rate",
+        "concept_name": "Unit Rate",
+        "aliases": ["per unit", "rate per one", "comparison per one unit"],
+        "dai_culture": "Weaving meters of brocade per day",
+        "explanation_text": "If a Dai weaver produces 2 meters of brocade each day, that is a unit rate—a comparison per one unit of time.",
+        "image_prompt": "Show a weaver at a loom with brocade measured as meters per day."
+    },
+    {
+        "concept_id": "scale_drawings",
+        "concept_name": "Scale Drawings",
+        "aliases": ["map scale", "drawing proportion", "scaled map"],
+        "dai_culture": "Mapping a village at smaller scale",
+        "explanation_text": "Drawing a smaller map of a whole Dai village while keeping distances in proportion is a scale drawing.",
+        "image_prompt": "Show a Dai village and a smaller scaled map side by side with a scale legend."
+    },
+    {
+        "concept_id": "percent_change",
+        "concept_name": "Percent Change",
+        "aliases": ["percent increase", "percent decrease", "growth rate"],
+        "dai_culture": "Growth of a tea harvest",
+        "explanation_text": "If a family's tea harvest grows from 100 baskets to 120 baskets, that is a 20% increase—an example of percent change.",
+        "image_prompt": "Show a tea harvest growing in size with a +20% label."
+    },
+    {
+        "concept_id": "data_collection",
+        "concept_name": "Data Collection",
+        "aliases": ["gather data", "record information", "collect numbers"],
+        "dai_culture": "Counting the village harvest",
+        "explanation_text": "Recording how many baskets of bananas, pineapples, and rice each family harvests is an example of data collection.",
+        "image_prompt": "Show a village elder marking tallies of harvest baskets on a clipboard."
+    },
+    {
+        "concept_id": "tables_graphs",
+        "concept_name": "Tables and Graphs",
+        "aliases": ["data table", "bar graph", "chart"],
+        "dai_culture": "Comparing harvests across seasons",
+        "explanation_text": "Using a graph to show how many baskets each crop produced in each season helps villagers spot trends in their harvest data.",
+        "image_prompt": "Show a bar graph comparing crop harvests across four seasons."
+    },
+    {
+        "concept_id": "mean",
+        "concept_name": "Mean",
+        "aliases": ["average", "arithmetic mean", "mean value"],
+        "dai_culture": "Average daily tea picked",
+        "explanation_text": "Finding the average amount of tea leaves a picker gathers each day shows the mean of the daily amounts.",
+        "image_prompt": "Show a table of daily tea-picking amounts with the average value highlighted."
+    },
+    {
+        "concept_id": "median",
+        "concept_name": "Median",
+        "aliases": ["middle value", "data median"],
+        "dai_culture": "Middle harvest of the village",
+        "explanation_text": "When the rice harvests of village families are lined up from smallest to largest, the middle value is the median.",
+        "image_prompt": "Show harvest amounts lined up with the middle one highlighted as the median."
+    },
+    {
+        "concept_id": "mode",
+        "concept_name": "Mode",
+        "aliases": ["most frequent value", "common value"],
+        "dai_culture": "Most common fruit at market",
+        "explanation_text": "If most stalls at the Jinghong market sell bananas, then bananas are the mode—the most frequent item.",
+        "image_prompt": "Show market fruit stalls with bananas appearing most often."
+    },
+    {
+        "concept_id": "range",
+        "concept_name": "Range",
+        "aliases": ["difference", "spread of data", "highest minus lowest"],
+        "dai_culture": "Spread of paddy harvests",
+        "explanation_text": "The gap between the largest and smallest rice harvest in a village shows the range of the data.",
+        "image_prompt": "Show a bar chart with the shortest and tallest bars marked for range."
+    },
+    {
+        "concept_id": "bar_graphs",
+        "concept_name": "Bar Graphs",
+        "aliases": ["bar chart", "column graph"],
+        "dai_culture": "Comparing families' harvests",
+        "explanation_text": "Each bar in the graph shows how many baskets one family harvested—making quick comparisons easy and clear.",
+        "image_prompt": "Show a bar graph labeled by family names with harvest totals."
+    },
+    {
+        "concept_id": "line_graphs",
+        "concept_name": "Line Graphs",
+        "aliases": ["trend graph", "line chart"],
+        "dai_culture": "Tracking rainfall over months",
+        "explanation_text": "A line graph shows how monthly rainfall in Xishuangbanna rises and falls across the year.",
+        "image_prompt": "Show a line graph labeled with months and rainfall amounts."
+    },
+    {
+        "concept_id": "pie_charts",
+        "concept_name": "Pie Charts",
+        "aliases": ["circle chart", "percentage chart"],
+        "dai_culture": "Distribution of village crops",
+        "explanation_text": "A pie chart can show what share of the village's fields grow rice, bananas, tea, and pineapples.",
+        "image_prompt": "Show a pie chart divided into crop categories with percentages."
+    },
+    {
+        "concept_id": "probability",
+        "concept_name": "Probability",
+        "aliases": ["chance", "likelihood", "odds"],
+        "dai_culture": "Games at the Water Splashing Festival",
+        "explanation_text": "Guessing which of several water-filled bamboo tubes will be splashed next, or picking the lucky flower from a basket, involves estimating chances—probability.",
+        "image_prompt": "Show Water Splashing Festival games with probability labels above each outcome."
+    },
+    {
+        "concept_id": "patterns",
+        "concept_name": "Patterns",
+        "aliases": ["repeating design", "sequence", "recurrence"],
+        "dai_culture": "Motifs in Dai brocade",
+        "explanation_text": "The repeated diamond, wave, and peacock motifs in Dai brocade are visual patterns that repeat in a predictable way.",
+        "image_prompt": "Show repeating peacock and diamond motifs in traditional Dai brocade."
+    },
+    {
+        "concept_id": "functions",
+        "concept_name": "Functions",
+        "aliases": ["input-output rule", "function relation", "mapping"],
+        "dai_culture": "Tea tree age and yield",
+        "explanation_text": "If each tea tree of a certain age gives a certain number of baskets of leaves, then age is the input and yield is the output—each input gives one output, like a function.",
+        "image_prompt": "Show a graph linking tea tree age (input) to leaf yield (output)."
+    }
+]

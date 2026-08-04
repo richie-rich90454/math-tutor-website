@@ -10,7 +10,8 @@ import {
     useRef,
     ReactNode,
 } from "react";
-import { translations, Translations } from "@/lib/translations";
+import { translationLoaders, Translations } from "@/lib/translations";
+import en from "@/lib/translations/en";
 
 export interface Language {
     code: string;
@@ -36,13 +37,40 @@ const languages: Language[] = [
     { code: "ja", name: "日本語" },
     { code: "ar", name: "العربية" },
     { code: "he", name: "עברית" },
+    { code: "kk", name: "Қазақша" },
+    { code: "ug", name: "ئۇيغۇرچە" },
+    { code: "ko", name: "한국어" },
+    { code: "za", name: "Vahcuengh" },
+    { code: "ru", name: "Русский (Russian)" },
+    { code: "yi", name: "彝语 (Yi)" },
+    { code: "tg", name: "Тоҷикӣ (Tajik)" },
+    { code: "vi", name: "Tiếng Việt (Jing)" },
+    { code: "uz", name: "O'zbekcha (Uzbek)" },
+    { code: "ky", name: "Кыргызча (Kyrgyz)" },
+    { code: "hmn", name: "苗语 (Miao)" },
+    { code: "dng", name: "侗语 (Kam)" },
+    { code: "bca", name: "白语 (Bai)" },
+    { code: "tdd", name: "傣语 (Dai)" },
+    { code: "nxq", name: "纳西语 (Naxi)" },
+    { code: "tji", name: "土家语 (Tujia)" },
+    { code: "pcc", name: "布依语 (Buyi)" },
+    { code: "hni", name: "哈尼语 (Hani)" },
+    { code: "lic", name: "黎语 (Hlai)" },
+    { code: "iom", name: "瑶语 (Iu Mien)" },
+    { code: "lis", name: "傈僳语 (Lisu)" },
+    { code: "lhu", name: "拉祜语 (Lahu)" },
+    { code: "wbm", name: "佤语 (Wa)" },
 ];
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
+// Translations are code-split per language; only English ships in the initial bundle.
+const loadedTranslations: Record<string, Translations> = { en };
+
 export function LanguageProvider({ children }: { children: ReactNode }) {
     // Always initialize with English to match server render
     const [currentLanguage, setCurrentLanguage] = useState<Language>(languages[0]);
+    const [translations, setTranslations] = useState<Translations>(en);
 
     // Load saved language after mount (client-only)
     const initialLang = useRef(currentLanguage);
@@ -65,15 +93,39 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
         } catch {}
     }, [currentLanguage.code]);
 
+    // Lazy-load the translation table for the active language.
+    useEffect(() => {
+        let cancelled = false;
+        const code = currentLanguage.code;
+        if (loadedTranslations[code]) {
+            setTranslations(loadedTranslations[code]);
+            return;
+        }
+        translationLoaders[code]?.()
+            .then((mod) => {
+                if (cancelled) {
+                    return;
+                }
+                loadedTranslations[code] = mod.default;
+                setTranslations(mod.default);
+            })
+            .catch(() => {
+                // Fall back to English; t() handles missing keys.
+            });
+        return () => {
+            cancelled = true;
+        };
+    }, [currentLanguage.code]);
+
     const setLanguage = useCallback((language: Language) => {
         setCurrentLanguage(language);
     }, []);
 
     const t = useCallback(
         (key: keyof Translations): string => {
-            return translations[currentLanguage.code]?.[key] || translations.en[key];
+            return translations[key] || en[key] || String(key);
         },
-        [currentLanguage.code],
+        [translations],
     );
 
     const value = useMemo(

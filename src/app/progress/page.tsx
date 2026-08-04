@@ -7,6 +7,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { gsap, useGSAP } from "@/lib/gsap";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
+import { apiFetch } from "@/lib/api-client";
 
 interface TopicData {
     topic: string;
@@ -28,6 +29,26 @@ interface ProgressData {
     dailyActivity: { date: string; count: number }[];
     memberSince: string | null;
     longestStreak: number;
+    topicAccuracy?: { topic: string; correct: number; total: number; accuracy: number }[];
+}
+
+interface WeakTopic {
+    topic: string;
+    accuracy: number;
+    correct: number;
+    total: number;
+    problems: Problem[];
+}
+
+interface Problem {
+    id: string;
+    topic: string;
+    grade: number;
+    question: string;
+    options: string[];
+    answerIndex: number;
+    explanation: string;
+    language: string;
 }
 
 const TOPIC_COLORS: Record<string, string> = {
@@ -45,10 +66,12 @@ const TOPIC_COLORS: Record<string, string> = {
 
 export default function ProgressPage() {
     const router = useRouter();
-    const { user, isAuthenticated, isLoading } = useAuth();
-    const { t } = useLanguage();
+    const { isAuthenticated, isLoading } = useAuth();
+    const { t, currentLanguage } = useLanguage();
     const [data, setData] = useState<ProgressData | null>(null);
+    const [weakTopics, setWeakTopics] = useState<WeakTopic[]>([]);
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
     const pageRef = useRef<HTMLDivElement>(null);
     const statsRef = useRef<HTMLDivElement>(null);
 
@@ -60,13 +83,22 @@ export default function ProgressPage() {
 
     useEffect(() => {
         if (isAuthenticated) {
-            fetch("/api/progress")
-                .then((r) => r.json())
+            apiFetch("/api/progress")
+                .then((r) => {
+                    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+                    return r.json();
+                })
                 .then(setData)
-                .catch(() => {})
+                .catch(() => setError(true))
                 .finally(() => setLoading(false));
+            apiFetch(
+                `/api/progress/suggestions?language=${encodeURIComponent(currentLanguage.code)}`,
+            )
+                .then((r) => (r.ok ? r.json() : { weakTopics: [] }))
+                .then((d) => setWeakTopics(d.weakTopics || []))
+                .catch(() => {});
         }
-    }, [isAuthenticated]);
+    }, [isAuthenticated, currentLanguage.code]);
 
     // Scroll-triggered entrance animations
     useGSAP(
@@ -87,6 +119,51 @@ export default function ProgressPage() {
                     start: "top 90%",
                 },
             });
+
+            const bars = pageRef.current.querySelectorAll(".progress-topic-bar");
+            if (bars.length) {
+                gsap.from(bars, {
+                    width: "0%",
+                    duration: 0.9,
+                    stagger: 0.07,
+                    ease: "power2.out",
+                    delay: 0.15,
+                    scrollTrigger: {
+                        trigger: pageRef.current,
+                        start: "top 85%",
+                    },
+                });
+            }
+
+            const heatCells = pageRef.current.querySelectorAll(".progress-heatmap-cell");
+            if (heatCells.length) {
+                gsap.from(heatCells, {
+                    scale: 0.2,
+                    opacity: 0,
+                    duration: 0.4,
+                    stagger: 0.015,
+                    ease: "back.out(2)",
+                    scrollTrigger: {
+                        trigger: pageRef.current,
+                        start: "top 85%",
+                    },
+                });
+            }
+
+            const activityRows = pageRef.current.querySelectorAll(".progress-activity-row");
+            if (activityRows.length) {
+                gsap.from(activityRows, {
+                    x: -24,
+                    opacity: 0,
+                    duration: 0.5,
+                    stagger: 0.06,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: pageRef.current,
+                        start: "top 90%",
+                    },
+                });
+            }
         },
         { scope: pageRef },
     );
@@ -130,6 +207,12 @@ export default function ProgressPage() {
                             className="skeleton"
                             style={{ height: 200, marginBottom: "var(--space-6)" }}
                         />
+                    </div>
+                ) : error ? (
+                    <div className="settings-card" role="alert">
+                        <p style={{ color: "var(--danger)" }}>
+                            Could not load your progress. Please try again.
+                        </p>
                     </div>
                 ) : data ? (
                     <>
@@ -210,6 +293,32 @@ export default function ProgressPage() {
                                             </div>
                                             <span className="progress-topic-count">
                                                 {topic.count}
+                                            </span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </section>
+                        )}
+
+                        {/* Weak topics */}
+                        {weakTopics.length > 0 && (
+                            <section className="settings-section">
+                                <h2 className="settings-section-title">
+                                    {t("weakTopics") || "Weak topics"}
+                                </h2>
+                                <div className="settings-card">
+                                    {weakTopics.map((weak) => (
+                                        <div key={weak.topic} className="progress-activity-row">
+                                            <div className="progress-activity-info">
+                                                <span className="progress-activity-title">
+                                                    {weak.topic}
+                                                </span>
+                                                <span className="progress-activity-topic">
+                                                    {Math.round(weak.accuracy * 100)}%
+                                                </span>
+                                            </div>
+                                            <span className="progress-activity-date">
+                                                {t("reviewNext") || "Review next"} →
                                             </span>
                                         </div>
                                     ))}

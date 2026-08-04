@@ -1,0 +1,127 @@
+{
+    "topic": "arithmetic",
+    "formulas": [
+        {
+            "name": "Addition",
+            "formula": "a + b = c",
+            "native": "addition",
+            "mandarin": "加法"
+        },
+        {
+            "name": "Subtraction",
+            "formula": "a - b = c",
+            "native": "subtraction",
+            "mandarin": "减法"
+        },
+        {
+            "name": "Multiplication",
+            "formula": "a \\times b = c",
+            "native": "multiplication",
+            "mandarin": "乘法"
+        },
+        {
+            "name": "Division",
+            "formula": "a \\div b = c",
+            "native": "division",
+            "mandarin": "除法"
+        },
+        {
+            "name": "Associative property",
+            "formula": "(a + b) + c = a + (b + c)",
+            "native": "associative property",
+            "mandarin": "结合律"
+        },
+        {
+            "name": "Commutative property",
+            "formula": "a + b = b + a",
+            "native": "commutative property",
+            "mandarin": "交换律"
+        },
+        {
+            "name": "Distributive property",
+            "formula": "a(b + c) = ab + ac",
+            "native": "distributive property",
+            "mandarin": "分配律"
+        },
+        {
+            "name": "Fraction addition",
+            "formula": "\\frac{a}{b} + \\frac{c}{d} = \\frac{ad + bc}{bd}",
+            "native": "fraction addition",
+            "mandarin": "分数加法"
+        },
+        {
+            "name": "Fraction multiplication",
+            "formula": "\\frac{a}{b} \\times \\frac{c}{d} = \\frac{ac}{bd}",
+            "native": "fraction multiplication",
+            "mandarin": "分数乘法"
+        },
+        {
+            "name": "Percentage",
+            "formula": "p\\% = \\frac{p}{100}",
+            "native": "percentage",
+            "mandarin": "百分数"
+        }
+    ],
+    "terms": [
+        {
+            "term": "addition",
+            "native": "addition",
+            "mandarin": "加法"
+        },
+        {
+            "term": "subtraction",
+            "native": "subtraction",
+            "mandarin": "减法"
+        },
+        {
+            "term": "multiplication",
+            "native": "multiplication",
+            "mandarin": "乘法"
+        },
+        {
+            "term": "division",
+            "native": "division",
+            "mandarin": "除法"
+        },
+        {
+            "term": "fraction",
+            "native": "fraction",
+            "mandarin": "分数"
+        },
+        {
+            "term": "numerator",
+            "native": "numerator",
+            "mandarin": "分子"
+        },
+        {
+            "term": "denominator",
+            "native": "denominator",
+            "mandarin": "分母"
+        },
+        {
+            "term": "integer",
+            "native": "integer",
+            "mandarin": "整数"
+        },
+        {
+            "term": "decimal",
+            "native": "decimal",
+            "mandarin": "小数"
+        },
+        {
+            "term": "place value",
+            "native": "place value",
+            "mandarin": "位值"
+        },
+        {
+            "term": "remainder",
+            "native": "remainder",
+            "mandarin": "余数"
+        },
+        {
+            "term": "prime number",
+            "native": "prime number",
+            "mandarin": "质数"
+        }
+    ]
+}

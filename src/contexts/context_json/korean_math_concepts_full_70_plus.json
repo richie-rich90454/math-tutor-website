@@ -1,0 +1,565 @@
+[
+    {
+        "concept_id": "place_value",
+        "concept_name": "Place Value",
+        "aliases": [
+            "place value",
+            "digit place",
+            "number place",
+            "units place",
+            "tens place",
+            "hundreds place",
+            "position of digits",
+            "digit position"
+        ],
+        "korean_culture": "Korean won coins and bills",
+        "explanation_text": "On Korean money, one 10,000-won bill equals ten 1,000-won notes, and one 1,000-won note equals ten 100-won coins. Each place in a number is worth ten times the place to its right. Place value is how a digit's position gives it its value, exactly like the denominations of won.",
+        "image_prompt": "Show Korean won coins (100, 500) and notes (1,000, 10,000) lined up so each bigger denomination equals ten of the smaller one, with place value labels."
+    },
+    {
+        "concept_id": "addition_subtraction",
+        "concept_name": "Addition & Subtraction",
+        "aliases": [
+            "add",
+            "addition",
+            "plus",
+            "sum",
+            "combine",
+            "total",
+            "subtract",
+            "subtraction",
+            "minus",
+            "take away",
+            "difference"
+        ],
+        "korean_culture": "Tteokguk for Seollal",
+        "explanation_text": "On Seollal, families cook tteokguk in one large pot. Adding more rice cake slices to the pot increases the total, while ladling bowls of soup out for each guest decreases it.",
+        "image_prompt": "Show a pot of tteokguk being filled with more rice cake slices and bowls being filled and removed, with plus and minus labels."
+    },
+    {
+        "concept_id": "multiplication_division",
+        "concept_name": "Multiplication & Division",
+        "aliases": [
+            "multiply",
+            "multiplication",
+            "times",
+            "groups of",
+            "repeated addition",
+            "divide",
+            "division",
+            "split equally",
+            "sharing"
+        ],
+        "korean_culture": "Galbi meat slices",
+        "explanation_text": "A platter of galbi arranged in 4 neat rows of 5 slices shows multiplication, 4 groups of 5 is 20. Splitting that same platter evenly among 6 diners shows division, 20 divided by 6 is about 3 slices each.",
+        "image_prompt": "Show a platter of galbi ribs in equal rows and then being shared out equally among several plates."
+    },
+    {
+        "concept_id": "even_odd",
+        "concept_name": "Even and Odd Numbers",
+        "aliases": [
+            "even numbers",
+            "odd numbers",
+            "even",
+            "odd",
+            "pairs",
+            "leftover",
+            "no remainder",
+            "remains one"
+        ],
+        "korean_culture": "Samulnori drum beats",
+        "explanation_text": "In samulnori, drumbeats often fall in pairs on the janggu, and paired beats can be counted evenly. A single striking beat that stands alone is like an odd number, leaving no pair.",
+        "image_prompt": "Show janggu and buk drum patterns with beats grouped in pairs, with one single beat highlighted as odd."
+    },
+    {
+        "concept_id": "skip_counting",
+        "concept_name": "Skip Counting / Number Patterns",
+        "aliases": [
+            "skip counting",
+            "count by 2s",
+            "count by 5s",
+            "count by 10s",
+            "jump counting",
+            "repeating numbers",
+            "number patterns"
+        ],
+        "korean_culture": "Yut Nori stick throws",
+        "explanation_text": "In Yut Nori, a throw of geol moves a piece 3 spaces. If a player rolls geol again and again, the piece lands on 3, 6, 9, 12, a pattern made by counting by threes.",
+        "image_prompt": "Show a Yut Nori board with a marker landing on every third space, numbered 3, 6, 9, 12."
+    },
+    {
+        "concept_id": "comparing_numbers",
+        "concept_name": "Comparing and Ordering Numbers",
+        "aliases": [
+            "compare numbers",
+            "greater than",
+            "less than",
+            "more than",
+            "fewer than",
+            "biggest",
+            "smallest",
+            "ordering numbers",
+            "number order"
+        ],
+        "korean_culture": "Namsan and Bukhansan peaks",
+        "explanation_text": "Namsan rises 262 meters while Bukhansan reaches 836 meters. Reading altitudes like these means comparing numbers to find which is greater, which is less, and how they are ordered.",
+        "image_prompt": "Show two mountain silhouettes labeled Namsan 262 m and Bukhansan 836 m with a greater-than sign between them."
+    },
+    {
+        "concept_id": "rounding_estimation",
+        "concept_name": "Rounding & Estimation",
+        "aliases": [
+            "round",
+            "rounding",
+            "estimate",
+            "estimation",
+            "approximate",
+            "about how much",
+            "close to",
+            "nearby number"
+        ],
+        "korean_culture": "Traditional market bargaining",
+        "explanation_text": "At a traditional market, a shopper who pays 4,800 won for radishes will round the amount to about 5,000 won when estimating the total for the day. Rounding to a convenient nearby number makes quick mental sums easier.",
+        "image_prompt": "Show a market shopper estimating prices, with a 4,800 won tag rounded to about 5,000 won."
+    },
+    {
+        "concept_id": "fractions",
+        "concept_name": "Fractions",
+        "aliases": ["fraction", "part of a whole", "portion", "share", "numerator", "denominator"],
+        "korean_culture": "Half-moon songpyeon",
+        "explanation_text": "Songpyeon are shaped like half-moons, naturally half of a round rice cake. When one songpyeon is cut in half, each piece is the fraction 1/2 of the whole, and a quarter of the cake would be 1/4.",
+        "image_prompt": "Show half-moon songpyeon on a tray with one cut in half and labeled as one-half of the whole."
+    },
+    {
+        "concept_id": "equivalent_fractions",
+        "concept_name": "Equivalent Fractions",
+        "aliases": ["equal fractions", "same value", "fraction equality", "equivalent"],
+        "korean_culture": "Yut Nori move distances",
+        "explanation_text": "On the Yut Nori board, two moves of 3 spaces each and three moves of 2 spaces each both cover 6 spaces. Different combinations reach the same total, just as 2/4 and 1/2 name the same amount.",
+        "image_prompt": "Show a Yut Nori board with two routes marked, one by three twos and one by two threes, both ending at the same space."
+    },
+    {
+        "concept_id": "simplifying_fractions",
+        "concept_name": "Simplifying Fractions",
+        "aliases": ["reduce fraction", "lowest terms", "simplify fraction"],
+        "korean_culture": "Hanbok skirt panels",
+        "explanation_text": "A hanbok skirt is built from straight-cut rectangular panels of equal width. Two of a skirt's four identical panels make half the skirt, so the fraction 2/4 is simplified to its lowest terms, 1/2.",
+        "image_prompt": "Show a hanbok skirt made of four equal panels with two panels highlighted as half the skirt."
+    },
+    {
+        "concept_id": "mixed_numbers",
+        "concept_name": "Mixed Numbers",
+        "aliases": ["mixed number", "whole and fraction", "whole part and fraction part"],
+        "korean_culture": "Onggi jars of gochujang",
+        "explanation_text": "A kitchen stores three full onggi jars of gochujang and one jar that is only half full. That total, three whole jars plus a half, is written as the mixed number 3 and 1/2.",
+        "image_prompt": "Show three full onggi jars and one half-full jar labeled as 3 and 1/2."
+    },
+    {
+        "concept_id": "improper_fractions",
+        "concept_name": "Improper Fractions",
+        "aliases": ["top-heavy fraction", "numerator larger", "greater than one fraction"],
+        "korean_culture": "Galbi trays by the half kilo",
+        "explanation_text": "Galbi at a market is often weighed in half-kilogram trays. Five half-kilogram trays hold 5/2 kilograms in total, which is more than one whole kilogram, an improper fraction.",
+        "image_prompt": "Show five trays of galbi each marked half a kilogram, labeled with the improper fraction 5/2."
+    },
+    {
+        "concept_id": "adding_fractions",
+        "concept_name": "Adding Fractions",
+        "aliases": ["fraction addition", "add fractions", "sum of fractions"],
+        "korean_culture": "Hanbok cloth pieces",
+        "explanation_text": "When a tailor sews one-quarter of one length of hanbok cloth onto two-quarters of another, the pieces join into three-quarters of the needed length. Adding fractions means combining these parts of a whole.",
+        "image_prompt": "Show hanbok cloth pieces of one-quarter and two-quarters being sewn together into three-quarters."
+    },
+    {
+        "concept_id": "subtracting_fractions",
+        "concept_name": "Subtracting Fractions",
+        "aliases": ["fraction subtraction", "take away fractions", "difference of fractions"],
+        "korean_culture": "Tteokguk bowls at Seollal",
+        "explanation_text": "A child who eats two-thirds of a bowl of tteokguk has one-third of the bowl left. Removing a fractional part from a whole shows how subtracting fractions works.",
+        "image_prompt": "Show a bowl of tteokguk with two-thirds eaten and the remaining third highlighted."
+    },
+    {
+        "concept_id": "multiplying_fractions",
+        "concept_name": "Multiplying Fractions",
+        "aliases": ["fraction multiplication", "part of a part", "multiply fractions"],
+        "korean_culture": "Half of a songpyeon",
+        "explanation_text": "Taking half of a half-moon songpyeon gives a quarter of the whole cake. Finding a fraction of a fraction is what it means to multiply fractions, half of one half is one quarter.",
+        "image_prompt": "Show a songpyeon cut in half, then one half cut again, with the quarter piece highlighted."
+    },
+    {
+        "concept_id": "dividing_fractions",
+        "concept_name": "Dividing Fractions",
+        "aliases": ["fraction division", "divide fractions", "how many times in"],
+        "korean_culture": "Galbi platters shared",
+        "explanation_text": "If three-quarters of a platter of galbi is shared out into quarter-portions, the number of portions found is 3/4 divided by 1/4, which equals 3. Dividing fractions asks how many of one size fit into another.",
+        "image_prompt": "Show three-quarters of a galbi platter split into quarter-size portions, with three portions labeled."
+    },
+    {
+        "concept_id": "decimals",
+        "concept_name": "Decimals",
+        "aliases": ["decimal point", "tenths", "hundredths", "decimal number"],
+        "korean_culture": "Hanji paper lengths",
+        "explanation_text": "Traditional hanji paper is often sold by the roll in lengths measured in meters. A roll of 2.5 meters is two whole meters plus five tenths of a meter, which is how decimals write parts of a whole.",
+        "image_prompt": "Show a roll of hanji paper measured along a meter rule with 2.5 meters marked."
+    },
+    {
+        "concept_id": "converting_fractions_decimals",
+        "concept_name": "Converting Fractions and Decimals",
+        "aliases": ["fraction to decimal", "decimal to fraction", "convert fractions"],
+        "korean_culture": "Hanji sheets cut in half",
+        "explanation_text": "Half a sheet of hanji can be written as the fraction 1/2 or as the decimal 0.5. Both names describe the very same amount of paper.",
+        "image_prompt": "Show a sheet of hanji divided in half with one side labeled 1/2 and the other 0.5."
+    },
+    {
+        "concept_id": "percents",
+        "concept_name": "Percents",
+        "aliases": ["percent", "percentage", "per hundred", "rate per 100"],
+        "korean_culture": "Suneung test scores",
+        "explanation_text": "On a Suneung practice test of 100 math questions, a student who answers 95 correctly has a score of 95 percent. Percents count parts out of one hundred.",
+        "image_prompt": "Show a test paper with 95 of 100 questions marked correct and a big 95% label."
+    },
+    {
+        "concept_id": "percent_of_number",
+        "concept_name": "Percent of a Number",
+        "aliases": ["percentage of number", "find percent", "portion of total"],
+        "korean_culture": "Market discount signs",
+        "explanation_text": "A stall at the market advertises 20 percent off a 5,000-won pouch. Twenty percent of 5,000 won is 1,000 won, so the buyer pays 4,000 won, which is finding the percent of a number.",
+        "image_prompt": "Show a market stall sign reading 20 percent off and a 5,000-won pouch with 1,000 won crossed out."
+    },
+    {
+        "concept_id": "variables",
+        "concept_name": "Variables",
+        "aliases": ["variable", "unknown", "letter as number", "symbol in math"],
+        "korean_culture": "Covered songpyeon tray",
+        "explanation_text": "A covered tray at Chuseok holds songpyeon, but the number underneath is not yet known. That unknown count can be written as x, which is what a variable is in math.",
+        "image_prompt": "Show a covered tray of songpyeon with a label reading x equals unknown."
+    },
+    {
+        "concept_id": "expressions",
+        "concept_name": "Expressions",
+        "aliases": ["math expressions", "numerical expressions", "algebraic expressions"],
+        "korean_culture": "Baduk stones and captures",
+        "explanation_text": "On a baduk board, a player has 19 stones already placed and captures x more stones during the game. The total number of stones the player gains is written as the expression 19 + x.",
+        "image_prompt": "Show a baduk board with 19 stones on the grid and x captured stones off to the side."
+    },
+    {
+        "concept_id": "equations",
+        "concept_name": "Equations",
+        "aliases": ["math equations", "equal statements", "algebra equations"],
+        "korean_culture": "Market balance scale",
+        "explanation_text": "A stall keeper weighs produce on a balance scale. The two pans balance only when the weights on each side are equal, just as the two sides of an equation must be equal.",
+        "image_prompt": "Show a market balance scale with equal weights on both pans, labeled as an equation."
+    },
+    {
+        "concept_id": "solving_one_step_equations",
+        "concept_name": "Solving One-Step Equations",
+        "aliases": ["one-step equations", "simple equations"],
+        "korean_culture": "Seollal guests and bowls",
+        "explanation_text": "A family expects 12 guests for Seollal but has set out only 5 bowls of tteokguk. The number of bowls still needed is found by solving 5 + x = 12, a one-step equation.",
+        "image_prompt": "Show five bowls of tteokguk and an empty space for seven more, with the equation 5 plus x equals 12."
+    },
+    {
+        "concept_id": "solving_two_step_equations",
+        "concept_name": "Solving Two-Step Equations",
+        "aliases": ["two-step equations", "multi-step equations"],
+        "korean_culture": "Building a Korean kite",
+        "explanation_text": "Building a traditional Korean kite takes two ordered steps: lash the rectangular bamboo frame first, then glue the paper over it. Solving a two-step equation also requires carrying out operations in the right order.",
+        "image_prompt": "Show the two steps of building a Korean kite, frame first then paper, with a two-step equation beside them."
+    },
+    {
+        "concept_id": "inequalities",
+        "concept_name": "Inequalities",
+        "aliases": ["greater than", "less than", "not equal", "comparison statements"],
+        "korean_culture": "Hangang river bridges",
+        "explanation_text": "Some bridges over the Hangang are longer than others, so crossing one takes more time than crossing a shorter one. Comparing lengths this way gives statements like longer than and shorter than, which are inequalities.",
+        "image_prompt": "Show two bridges over the Han River of different lengths with greater-than and less-than symbols between them."
+    },
+    {
+        "concept_id": "order_of_operations",
+        "concept_name": "Order of Operations (PEMDAS)",
+        "aliases": ["PEMDAS", "BODMAS", "math order", "operations order"],
+        "korean_culture": "Hangul stroke order",
+        "explanation_text": "Writing the Hangul letters follows a fixed stroke order, such as drawing the top stroke of a letter before the sides. Math likewise has a fixed order of operations, so problems are solved the same way every time.",
+        "image_prompt": "Show a Hangul letter with numbered strokes showing writing order, beside the steps of PEMDAS."
+    },
+    {
+        "concept_id": "substitution",
+        "concept_name": "Substitution",
+        "aliases": ["replace variable", "substitute value", "replace letter with number"],
+        "korean_culture": "Replacing a hanji sheet",
+        "explanation_text": "When a torn sheet of hanji is replaced with a new sheet of the same size, the replacement fits exactly where the old one was. Replacing a variable with its value works the same way, and is called substitution.",
+        "image_prompt": "Show a torn hanji sheet being replaced by an identical new sheet in the same spot."
+    },
+    {
+        "concept_id": "points",
+        "concept_name": "Points",
+        "aliases": ["dot", "location", "coordinate point"],
+        "korean_culture": "Baduk grid intersections",
+        "explanation_text": "Stones in baduk are placed on the intersections of the 19 by 19 grid lines, not inside the squares. Each intersection marks a single point, exactly as a point marks one location in geometry.",
+        "image_prompt": "Show a baduk board with stones placed on grid intersections, one intersection circled as a point."
+    },
+    {
+        "concept_id": "lines",
+        "concept_name": "Lines",
+        "aliases": ["straight line", "geometry line", "infinite line"],
+        "korean_culture": "Taut kite string",
+        "explanation_text": "A taut kite string pulled straight through the air looks like a geometric line, stretching in both directions. In geometry, a line is straight and extends forever, just as the string does when fully stretched.",
+        "image_prompt": "Show a traditional Korean kite with its string pulled straight and taut, drawn as a straight line."
+    },
+    {
+        "concept_id": "angles",
+        "concept_name": "Angles",
+        "aliases": ["angle", "degree", "corner measure"],
+        "korean_culture": "Folding fan ribs",
+        "explanation_text": "A Korean folding fan opens around its pivot, and the gap between any two ribs is an angle. A half-open fan clearly shows the angle growing wider as the fan spreads.",
+        "image_prompt": "Show a folding fan half-open with the angle between two ribs marked and measured."
+    },
+    {
+        "concept_id": "perpendicular_lines",
+        "concept_name": "Perpendicular Lines",
+        "aliases": ["right angle lines", "intersecting lines", "orthogonal lines"],
+        "korean_culture": "Baduk board grid lines",
+        "explanation_text": "On the baduk board, the vertical lines cross the horizontal lines at right angles. Lines that meet at a 90-degree angle are called perpendicular lines.",
+        "image_prompt": "Show a corner of the baduk grid with a right-angle symbol where a vertical line meets a horizontal line."
+    },
+    {
+        "concept_id": "parallel_lines",
+        "concept_name": "Parallel Lines",
+        "aliases": ["side-by-side lines", "never meet", "equal distance lines"],
+        "korean_culture": "Gayageum strings",
+        "explanation_text": "The twelve strings of a gayageum run side by side down the instrument and never touch one another. Lines that stay the same distance apart and never meet are called parallel lines.",
+        "image_prompt": "Show a gayageum with its parallel strings drawn as lines that never meet."
+    },
+    {
+        "concept_id": "polygons",
+        "concept_name": "Polygons",
+        "aliases": ["shapes", "closed figure", "many-sided shape"],
+        "korean_culture": "Gyeongbokgung courtyards",
+        "explanation_text": "The courtyards of Gyeongbokgung are enclosed by straight walls on four sides. Any closed shape made of straight sides, like these rectangular courtyards, is a polygon.",
+        "image_prompt": "Show an aerial view of a Gyeongbokgung courtyard as a four-sided closed shape."
+    },
+    {
+        "concept_id": "triangles",
+        "concept_name": "Triangles",
+        "aliases": ["three sides", "triangular", "triangle shape"],
+        "korean_culture": "Pavilion roof slopes",
+        "explanation_text": "The tiled roofs of Korean pavilions slope down from a center ridge, and the front of the roof forms a triangle with the ridge and eaves. The triangle is the strong, simple shape that frames many traditional buildings.",
+        "image_prompt": "Show a Korean pavilion with its roof outlined as a triangle against the sky."
+    },
+    {
+        "concept_id": "quadrilaterals",
+        "concept_name": "Quadrilaterals",
+        "aliases": ["four sides", "rectangles", "squares", "trapezoids"],
+        "korean_culture": "Palace gate and window frames",
+        "explanation_text": "The wooden frames of Gyeongbokgung's gates and the grilles of its windows are built from rectangles and squares. Four-sided shapes are quadrilaterals, and these frames are everyday examples.",
+        "image_prompt": "Show a Gyeongbokgung gate with its rectangular and square window frames highlighted."
+    },
+    {
+        "concept_id": "perimeter",
+        "concept_name": "Perimeter",
+        "aliases": ["boundary length", "distance around", "outline measure"],
+        "korean_culture": "Rectangular kite frame",
+        "explanation_text": "The frame of a traditional rectangular Korean kite is made of bamboo strips. The total length of the strips around the edge is the perimeter, the distance all the way around the kite.",
+        "image_prompt": "Show a rectangular Korean kite with its bamboo frame outlined and the full perimeter traced with a dashed line."
+    },
+    {
+        "concept_id": "area",
+        "concept_name": "Area",
+        "aliases": ["surface area", "space inside", "coverage"],
+        "korean_culture": "Hanbok straight-cut panels",
+        "explanation_text": "A hanbok is made from straight-cut rectangles of cloth, and each panel covers a flat region of fabric. The amount of flat space a panel covers is its area.",
+        "image_prompt": "Show a hanbok laid flat with one rectangular panel shaded to show its area."
+    },
+    {
+        "concept_id": "volume",
+        "concept_name": "Volume",
+        "aliases": ["capacity", "space inside 3D shape", "liquid amount"],
+        "korean_culture": "Onggi jar capacity",
+        "explanation_text": "An onggi jar is rounded and hollow, and its volume is the amount of kimchi or water it can hold. A larger jar holds more, so it has a greater volume.",
+        "image_prompt": "Show onggi jars of different sizes with measuring labels showing how much each holds."
+    },
+    {
+        "concept_id": "circle_properties",
+        "concept_name": "Circle Properties",
+        "aliases": ["radius", "diameter", "circumference", "circle geometry"],
+        "korean_culture": "Taegeukgi taegeuk circle",
+        "explanation_text": "At the center of the Korean flag sits the taegeuk, a perfect circle split into red and blue. A line through its middle is the diameter, half of that is the radius, and the distance around the ring is the circumference.",
+        "image_prompt": "Show the taegeukgi taegeuk circle with radius, diameter, and circumference lines labeled."
+    },
+    {
+        "concept_id": "pi",
+        "concept_name": "Pi (π)",
+        "aliases": ["pi", "ratio of circumference", "3.14"],
+        "korean_culture": "Round brass rice bowls",
+        "explanation_text": "A round brass rice bowl has a circular rim. Measuring the distance around the rim and dividing it by the distance across always gives about 3.14, the constant pi.",
+        "image_prompt": "Show a round brass rice bowl with a measuring string around the rim and a line across the mouth."
+    },
+    {
+        "concept_id": "coordinate_plane",
+        "concept_name": "Coordinate Plane",
+        "aliases": ["x-y plane", "graph grid", "axes"],
+        "korean_culture": "Hangul letter grid",
+        "explanation_text": "Hangul letters are drawn from straight strokes on an imaginary grid. Each stroke sits in a row and a column of that grid, just as a coordinate plane locates every point with an x-value and a y-value.",
+        "image_prompt": "Show a Hangul letter such as the box-shaped letter drawn over a faint grid with row and column axes."
+    },
+    {
+        "concept_id": "plotting_points",
+        "concept_name": "Plotting Points",
+        "aliases": ["graphing points", "coordinates", "x-y plotting"],
+        "korean_culture": "Hangul stroke positions",
+        "explanation_text": "To draw the square box letter, a writer places each stroke at a chosen row and column on the grid. Placing points at exact grid positions is the same skill as plotting points on a coordinate plane.",
+        "image_prompt": "Show the four corner points of a box-shaped Hangul letter marked on a grid with coordinates."
+    },
+    {
+        "concept_id": "symmetry",
+        "concept_name": "Symmetry",
+        "aliases": ["mirror image", "balanced halves", "reflection symmetry"],
+        "korean_culture": "Jesa food arrangement",
+        "explanation_text": "At jesa, ancestral rites, foods are set out so the rows on the left mirror the rows on the right of the table. When one half of an arrangement is the mirror of the other, the table shows symmetry.",
+        "image_prompt": "Show a jesa table with matching rows of food bowls mirrored across the center."
+    },
+    {
+        "concept_id": "transformations",
+        "concept_name": "Transformations",
+        "aliases": ["translate", "rotate", "reflect", "dilate"],
+        "korean_culture": "Opening a folding fan",
+        "explanation_text": "A folding fan spins every rib around a single pivot at the base when it opens. Rotating each part together around a fixed point is a rotation, one kind of geometric transformation.",
+        "image_prompt": "Show a closed folding fan beside an open one, with arrows tracing the rotation of the ribs."
+    },
+    {
+        "concept_id": "ratios",
+        "concept_name": "Ratios",
+        "aliases": ["comparison", "proportion of quantities", "rate"],
+        "korean_culture": "Samulnori rhythm mixing",
+        "explanation_text": "In samulnori, the janggu and buk drummers play interlocking rhythms, so a fixed number of janggu beats pairs with a fixed number of buk beats. A steady pairing like two janggu beats for every one buk beat is a ratio.",
+        "image_prompt": "Show four samulnori instruments with beat counts labeled in pairs, like 2 to 1."
+    },
+    {
+        "concept_id": "proportions",
+        "concept_name": "Proportions",
+        "aliases": ["equal ratios", "scaling", "balance of ratios"],
+        "korean_culture": "Gyeongbokgung blueprint",
+        "explanation_text": "When builders enlarged a plan of a Gyeongbokgung courtyard, every wall and gate kept the same length relationship as in the original. When all the parts of a design are scaled by the same factor, it stays in proportion.",
+        "image_prompt": "Show a small courtyard drawing and a larger one beside it with matching proportions and a scaling arrow."
+    },
+    {
+        "concept_id": "unit_rate",
+        "concept_name": "Unit Rate",
+        "aliases": ["per unit", "rate per one", "comparison per one unit"],
+        "korean_culture": "Hangang bike paths",
+        "explanation_text": "Riders on the bicycle paths along the Hangang measure how many kilometers they cover in one hour. A rate for a single unit of time, like kilometers per hour, is a unit rate.",
+        "image_prompt": "Show a bicycle path along the Han River with a speed sign reading kilometers per hour."
+    },
+    {
+        "concept_id": "scale_drawings",
+        "concept_name": "Scale Drawings",
+        "aliases": ["map scale", "drawing proportion", "scaled map"],
+        "korean_culture": "Namsan trail map",
+        "explanation_text": "A trail map of Namsan shows the real mountain shrunk to fit a card, but every real distance is divided by the same amount. A drawing made this way, with one consistent scale, is a scale drawing.",
+        "image_prompt": "Show a Namsan trail map next to the real mountain, with a scale legend linking centimeters to meters."
+    },
+    {
+        "concept_id": "percent_change",
+        "concept_name": "Percent Change",
+        "aliases": ["percent increase", "percent decrease", "growth rate"],
+        "korean_culture": "Onggi kimchi fermentation",
+        "explanation_text": "As kimchi ferments in an onggi jar, the liquid can rise. If the brine level climbs from 20 centimeters to 24 centimeters, the increase of 4 centimeters is 20 percent of the original level, a percent change.",
+        "image_prompt": "Show an onggi jar with the fermenting brine marked at 20 and 24 centimeters and a plus 20 percent label."
+    },
+    {
+        "concept_id": "data_collection",
+        "concept_name": "Data Collection",
+        "aliases": ["gather data", "record information", "collect numbers"],
+        "korean_culture": "Recording yut throws",
+        "explanation_text": "Players of Yut Nori write down each throw of the four sticks as do, gae, geol, yut, or mo. Recording results one by one is the start of data collection.",
+        "image_prompt": "Show a Yut Nori score sheet with tallies next to do, gae, geol, yut, and mo."
+    },
+    {
+        "concept_id": "tables_graphs",
+        "concept_name": "Tables and Graphs",
+        "aliases": ["data table", "bar graph", "chart"],
+        "korean_culture": "The 24 solar terms",
+        "explanation_text": "The 24 solar terms divide the Korean year into named seasons and weather markers. Listing the daylight hours for each term in a table, then drawing the numbers as a graph, makes the pattern of the year easy to read.",
+        "image_prompt": "Show a table of the 24 solar terms with daylight hours and a bar graph drawn from the same numbers."
+    },
+    {
+        "concept_id": "mean",
+        "concept_name": "Mean",
+        "aliases": ["average", "arithmetic mean", "mean value"],
+        "korean_culture": "Bukhansan hiking gains",
+        "explanation_text": "A hiker records the elevation gained on three climbs up Bukhansan. Adding the three totals and dividing by three gives the average elevation gain, which is the mean.",
+        "image_prompt": "Show a hiker's notebook with three climb totals and their average calculated below."
+    },
+    {
+        "concept_id": "median",
+        "concept_name": "Median",
+        "aliases": ["middle value", "data median"],
+        "korean_culture": "Suneung practice scores",
+        "explanation_text": "A class lines up its Suneung practice scores from lowest to highest. The score in the exact middle of this ordered list is the median.",
+        "image_prompt": "Show Suneung practice scores arranged from low to high with the middle score highlighted."
+    },
+    {
+        "concept_id": "mode",
+        "concept_name": "Mode",
+        "aliases": ["most frequent value", "common value"],
+        "korean_culture": "Most common test score",
+        "explanation_text": "In a set of Suneung practice scores, the number 85 appears more often than any other score. The value that appears most often is called the mode.",
+        "image_prompt": "Show a list of test scores with 85 circled several times as the most frequent value."
+    },
+    {
+        "concept_id": "range",
+        "concept_name": "Range",
+        "aliases": ["difference", "spread of data", "highest minus lowest"],
+        "korean_culture": "Solar term temperatures",
+        "explanation_text": "Temperatures across the 24 solar terms stretch from the cold of the winter terms to the heat of the summer terms. The highest value minus the lowest value is the range of the data.",
+        "image_prompt": "Show a thermometer spanning the coldest and hottest solar terms with the range marked."
+    },
+    {
+        "concept_id": "bar_graphs",
+        "concept_name": "Bar Graphs",
+        "aliases": ["bar chart", "column graph"],
+        "korean_culture": "Hangang bridge decades",
+        "explanation_text": "Many bridges now span the Hangang, built over many decades. A bar graph with one bar per decade shows at a glance which decades added the most bridges.",
+        "image_prompt": "Show a bar graph with one bar for each decade of bridge building over the Han River."
+    },
+    {
+        "concept_id": "line_graphs",
+        "concept_name": "Line Graphs",
+        "aliases": ["trend graph", "line chart"],
+        "korean_culture": "Daylight across solar terms",
+        "explanation_text": "Daylight grows longer from the winter solstice to the summer solstice and then shortens again. Plotting daylight across the 24 solar terms draws a smooth line graph shaped like the seasons themselves.",
+        "image_prompt": "Show a line graph of daylight hours across the 24 solar terms rising and falling through the year."
+    },
+    {
+        "concept_id": "pie_charts",
+        "concept_name": "Pie Charts",
+        "aliases": ["circle chart", "percentage chart"],
+        "korean_culture": "Red and blue taegeuk",
+        "explanation_text": "The taegeuk circle on the Korean flag is split into a red half and a blue half. A pie chart showing this would give each color 50 percent of the circle, since each is exactly half of the whole.",
+        "image_prompt": "Show the taegeuk circle next to a pie chart divided into red 50 percent and blue 50 percent."
+    },
+    {
+        "concept_id": "probability",
+        "concept_name": "Probability",
+        "aliases": ["chance", "likelihood", "odds"],
+        "korean_culture": "Yut Nori odds",
+        "explanation_text": "When four yut sticks are thrown, all four landing the same way to give yut or mo is rare, while mixed results like gae are far more common. The chance of each result is what probability measures.",
+        "image_prompt": "Show four yut sticks tossed in the air with the five possible results and their odds labeled below."
+    },
+    {
+        "concept_id": "patterns",
+        "concept_name": "Patterns",
+        "aliases": ["repeating design", "sequence", "recurrence"],
+        "korean_culture": "Samulnori repeating rhythms",
+        "explanation_text": "Samulnori rhythms repeat in fixed cycles, with the kkwaenggwari and janggu trading the same short phrases over and over. A sequence that repeats in a regular way is a pattern.",
+        "image_prompt": "Show a line of samulnori beat symbols repeating in a regular cycle."
+    },
+    {
+        "concept_id": "functions",
+        "concept_name": "Functions",
+        "aliases": ["input-output rule", "function relation", "mapping"],
+        "korean_culture": "Solar terms of the year",
+        "explanation_text": "Every day of the year belongs to exactly one of the 24 solar terms, and each term has one fixed position in the calendar. This one-to-one link, where each input gives exactly one output, is what a function is.",
+        "image_prompt": "Show a calendar where each day maps to one solar term, drawn as input and output arrows."
+    }
+]

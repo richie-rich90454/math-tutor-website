@@ -6,8 +6,9 @@ import Link from "next/link";
 import gsap from "gsap";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage, languages } from "@/contexts/LanguageContext";
-import { Translations } from "@/lib/translations";
-import { particleBurst, useGSAP, ScrollTrigger } from "@/lib/gsap";
+import { apiFetch } from "@/lib/api-client";
+import type { Translations } from "@/lib/translations";
+import { particleBurst, useGSAP } from "@/lib/gsap";
 import { APP_VERSION } from "@/lib/config";
 
 type Theme = "light" | "dark" | "system";
@@ -33,6 +34,7 @@ export default function SettingsPage() {
     const { user, isAuthenticated, isLoading, logout } = useAuth();
     const { t, currentLanguage, setLanguage } = useLanguage();
     const [theme, setTheme] = useState<Theme>("system");
+    const [resumeLastChat, setResumeLastChat] = useState(true);
     const [mounted, setMounted] = useState(false);
     const [saved, setSaved] = useState(false);
     const pageRef = useRef<HTMLDivElement>(null);
@@ -44,7 +46,13 @@ export default function SettingsPage() {
         setMounted(true);
         const stored = localStorage.getItem("theme") as Theme | null;
         if (stored) setTheme(stored);
+        setResumeLastChat(localStorage.getItem("mt-resume-last-chat") !== "0");
     }, []);
+
+    useEffect(() => {
+        if (!mounted) return;
+        localStorage.setItem("mt-resume-last-chat", resumeLastChat ? "1" : "0");
+    }, [resumeLastChat, mounted]);
 
     useEffect(() => {
         if (!mounted) return;
@@ -133,6 +141,56 @@ export default function SettingsPage() {
         setLanguage(lang);
         setSaved(true);
         setTimeout(() => setSaved(false), 2000);
+    };
+
+    const [currentPassword, setCurrentPassword] = useState("");
+    const [newPassword, setNewPassword] = useState("");
+    const [securityMsg, setSecurityMsg] = useState("");
+    const [securityError, setSecurityError] = useState("");
+    const [sessionCount, setSessionCount] = useState(0);
+
+    useEffect(() => {
+        apiFetch("/api/auth/sessions")
+            .then((r) => (r.ok ? r.json() : { sessions: [] }))
+            .then((d) => setSessionCount((d.sessions as unknown[]).length || 0))
+            .catch(() => {});
+    }, []);
+
+    const changePassword = async () => {
+        setSecurityError("");
+        setSecurityMsg("");
+        if (newPassword.length < 8) {
+            setSecurityError(t("authPasswordTooShort") || "Password must be at least 8 characters");
+            return;
+        }
+        try {
+            const res = await apiFetch("/api/auth/change-password", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ currentPassword, newPassword }),
+            });
+            const data = await res.json();
+            if (!res.ok) {
+                setSecurityError(data?.error || t("settingsCurrentPasswordWrong"));
+                return;
+            }
+            setCurrentPassword("");
+            setNewPassword("");
+            setSecurityMsg(t("settingsPasswordChanged") || "Password changed");
+            setSessionCount(1);
+        } catch {
+            setSecurityError(t("errorNetwork") || "Failed");
+        }
+    };
+
+    const revokeAll = async () => {
+        const res = await apiFetch("/api/auth/sessions/revoke-all", {
+            method: "POST",
+        });
+        if (res.ok) {
+            setSessionCount(1);
+            setSecurityMsg(t("settingsRevokeAll") || "Signed out everywhere else");
+        }
     };
 
     if (isLoading) {
@@ -307,6 +365,30 @@ export default function SettingsPage() {
                         </div>
                     </section>
 
+                    {/* Resume last chat */}
+                    <section className="settings-section">
+                        <h2 className="settings-section-title">{t("settingsResumeLastChat")}</h2>
+                        <div className="settings-card">
+                            <div className="settings-row">
+                                <div className="settings-row-label">
+                                    <span className="settings-row-title">
+                                        {t("settingsResumeLastChat")}
+                                    </span>
+                                </div>
+                                <button
+                                    role="switch"
+                                    aria-checked={resumeLastChat}
+                                    onClick={() => setResumeLastChat((v) => !v)}
+                                    className={`settings-radio ${resumeLastChat ? "is-active" : ""}`}
+                                >
+                                    <span className="settings-switch-track">
+                                        <span className="settings-switch-thumb" />
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+
                     {/* Language Section */}
                     <section className="settings-section">
                         <h2 className="settings-section-title">{t("settingsLanguage")}</h2>
@@ -341,6 +423,73 @@ export default function SettingsPage() {
                         {saved && (
                             <p className="settings-saved-hint">{t("settingsLanguageSaved")}</p>
                         )}
+                    </section>
+
+                    {/* Security Section */}
+                    <section className="settings-section">
+                        <h2 className="settings-section-title">
+                            {t("settingsPassword") || "Password"}
+                        </h2>
+                        <div className="settings-card">
+                            <div className="settings-row">
+                                <label className="settings-row-title">
+                                    {t("settingsCurrentPassword") || "Current password"}
+                                </label>
+                                <input
+                                    type="password"
+                                    value={currentPassword}
+                                    onChange={(e) => setCurrentPassword(e.target.value)}
+                                    className="auth-input"
+                                    style={{ maxWidth: 260 }}
+                                />
+                            </div>
+                            <div className="settings-row">
+                                <label className="settings-row-title">
+                                    {t("settingsNewPassword") || "New password"}
+                                </label>
+                                <input
+                                    type="password"
+                                    value={newPassword}
+                                    onChange={(e) => setNewPassword(e.target.value)}
+                                    className="auth-input"
+                                    style={{ maxWidth: 260 }}
+                                />
+                            </div>
+                            <div className="settings-row">
+                                <button onClick={changePassword} className="settings-save-btn">
+                                    {t("settingsChangePassword") || "Change password"}
+                                </button>
+                            </div>
+                            {securityError && (
+                                <p style={{ color: "var(--danger)", fontSize: 13 }}>
+                                    {securityError}
+                                </p>
+                            )}
+                            {securityMsg && (
+                                <p style={{ color: "var(--success, #22c55e)", fontSize: 13 }}>
+                                    {securityMsg}
+                                </p>
+                            )}
+                        </div>
+                    </section>
+
+                    <section className="settings-section">
+                        <h2 className="settings-section-title">
+                            {t("settingsSessions") || "Active sessions"}
+                        </h2>
+                        <div className="settings-card">
+                            <div className="settings-row">
+                                <div className="settings-row-label">
+                                    <span className="settings-row-title">
+                                        {t("settingsSessions") || "Active sessions"}
+                                    </span>
+                                    <span className="settings-row-value">{sessionCount}</span>
+                                </div>
+                                <button onClick={revokeAll} className="settings-danger-btn">
+                                    {t("settingsRevokeAll") || "Sign out everywhere else"}
+                                </button>
+                            </div>
+                        </div>
                     </section>
 
                     {/* Keyboard Shortcuts Section */}

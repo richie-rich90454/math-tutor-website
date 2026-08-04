@@ -1,0 +1,565 @@
+[
+    {
+        "concept_id": "place_value",
+        "concept_name": "Place Value",
+        "aliases": [
+            "place value",
+            "digit place",
+            "number place",
+            "units place",
+            "tens place",
+            "hundreds place",
+            "position of digits",
+            "digit position"
+        ],
+        "lisu_culture": "Fraser script letter order",
+        "explanation_text": "The Fraser script, created for writing the Lisu language, gives every letter a fixed position in its alphabet. Just as a digit's place (ones, tens, hundreds) decides its value, each letter's position gives it a place in the writing system.",
+        "image_prompt": "Show a row of Fraser script letters numbered by their alphabet position next to digits arranged in ones, tens, and hundreds columns."
+    },
+    {
+        "concept_id": "addition_subtraction",
+        "concept_name": "Addition & Subtraction",
+        "aliases": [
+            "add",
+            "addition",
+            "plus",
+            "sum",
+            "combine",
+            "total",
+            "subtract",
+            "subtraction",
+            "minus",
+            "take away",
+            "difference"
+        ],
+        "lisu_culture": "Filling bamboo water buckets",
+        "explanation_text": "When you pour water into a bamboo bucket, the amount increases, just like addition. When you pour some out for cooking, the amount decreases, just like subtraction.",
+        "image_prompt": "Show bamboo water buckets beside the Nujiang river being filled and emptied, with the water level changing as amounts are added and removed."
+    },
+    {
+        "concept_id": "multiplication_division",
+        "concept_name": "Multiplication & Division",
+        "aliases": [
+            "multiply",
+            "multiplication",
+            "times",
+            "groups of",
+            "repeated addition",
+            "divide",
+            "division",
+            "split equally",
+            "sharing"
+        ],
+        "lisu_culture": "Arranging crossbow arrows",
+        "explanation_text": "Laying crossbow arrows in equal rows of the same size shows multiplication. Splitting the arrows evenly among hunters shows division.",
+        "image_prompt": "Show bundles of crossbow arrows arranged in equal rows to show multiplication, and the same arrows shared evenly among hunters to show division."
+    },
+    {
+        "concept_id": "even_odd",
+        "concept_name": "Even and Odd Numbers",
+        "aliases": [
+            "even numbers",
+            "odd numbers",
+            "even",
+            "odd",
+            "pairs",
+            "leftover",
+            "no remainder",
+            "remains one"
+        ],
+        "lisu_culture": "Dancers in pairs at Kuoshi",
+        "explanation_text": "At the Kuoshi (New Year) festival, dancers often stand in pairs as they circle the bonfire. When everyone is paired up the number is even; when one dancer is left alone it is odd.",
+        "image_prompt": "Show Kuoshi festival dancers in pairs around a bonfire, with one single dancer standing apart to represent an odd number."
+    },
+    {
+        "concept_id": "skip_counting",
+        "concept_name": "Skip Counting / Number Patterns",
+        "aliases": [
+            "skip counting",
+            "count by 2s",
+            "count by 5s",
+            "count by 10s",
+            "jump counting",
+            "repeating numbers",
+            "number patterns"
+        ],
+        "lisu_culture": "Rhythms of woven bamboo strips",
+        "explanation_text": "A basket woven from bamboo strips repeats a color or pattern every few rows. Counting every 2nd, 5th, or 10th strip follows the same rhythm as skip counting.",
+        "image_prompt": "Show a woven bamboo basket with repeating colored strips, highlighting every 5th strip to illustrate skip counting."
+    },
+    {
+        "concept_id": "comparing_numbers",
+        "concept_name": "Comparing and Ordering Numbers",
+        "aliases": [
+            "compare numbers",
+            "greater than",
+            "less than",
+            "more than",
+            "fewer than",
+            "biggest",
+            "smallest",
+            "ordering numbers",
+            "number order"
+        ],
+        "lisu_culture": "Grain stacks of different sizes",
+        "explanation_text": "After the harvest, families stack bundles of grain into piles of different heights. Comparing the piles is just like comparing numbers with greater-than and less-than signs.",
+        "image_prompt": "Show grain stacks of different heights on a mountain terrace with greater-than and less-than symbols between them."
+    },
+    {
+        "concept_id": "rounding_estimation",
+        "concept_name": "Rounding & Estimation",
+        "aliases": [
+            "round",
+            "rounding",
+            "estimate",
+            "estimation",
+            "approximate",
+            "about how much",
+            "close to",
+            "nearby number"
+        ],
+        "lisu_culture": "Estimating rice for the festival",
+        "explanation_text": "When cooking rice for the Kuoshi festival feast, cooks estimate how many cups are needed instead of counting every grain. That is rounding and estimation.",
+        "image_prompt": "Show a cook estimating rice for a festival pot, with amounts labeled as about 5 cups or around 2 kilograms."
+    },
+    {
+        "concept_id": "fractions",
+        "concept_name": "Fractions",
+        "aliases": ["fraction", "part of a whole", "portion", "share", "numerator", "denominator"],
+        "lisu_culture": "Sharing hunted meat equally",
+        "explanation_text": "When a hunting catch is shared equally among the families of a village, each family receives a part of the whole. Each equal part is a fraction of the total meat.",
+        "image_prompt": "Show a piece of hunted meat being divided equally among Lisu families, with each portion labeled as a fraction of the whole."
+    },
+    {
+        "concept_id": "equivalent_fractions",
+        "concept_name": "Equivalent Fractions",
+        "aliases": ["equal fractions", "same value", "fraction equality", "equivalent"],
+        "lisu_culture": "Cutting buckwheat cakes",
+        "explanation_text": "A buckwheat cake cut into 2 equal halves and another cake cut into 4 equal quarters still make the same whole. This shows that one half equals two quarters, so they are equivalent fractions.",
+        "image_prompt": "Show a buckwheat cake cut into halves and another cut into quarters, with one half and two quarters labeled as equal."
+    },
+    {
+        "concept_id": "simplifying_fractions",
+        "concept_name": "Simplifying Fractions",
+        "aliases": ["reduce fraction", "lowest terms", "simplify fraction"],
+        "lisu_culture": "Combining bundles of firewood",
+        "explanation_text": "Bundles of firewood gathered separately can be combined into one larger stack. Just as smaller groups merge into one, a fraction can be reduced to its simplest form.",
+        "image_prompt": "Show smaller bundles of firewood being combined into one stack, labeled with a fraction reduced to lowest terms."
+    },
+    {
+        "concept_id": "mixed_numbers",
+        "concept_name": "Mixed Numbers",
+        "aliases": ["mixed number", "whole and fraction", "whole part and fraction part"],
+        "lisu_culture": "Full and half grain baskets",
+        "explanation_text": "If a family stores 3 full baskets of grain and one half-full basket, the total is written as 3 and a half, which is a mixed number.",
+        "image_prompt": "Show three full grain baskets and one half-filled basket labeled together as 3 and one half."
+    },
+    {
+        "concept_id": "improper_fractions",
+        "concept_name": "Improper Fractions",
+        "aliases": ["top-heavy fraction", "numerator larger", "greater than one fraction"],
+        "lisu_culture": "Grain overflowing one basket",
+        "explanation_text": "When the corn harvest fills one basket and spills over into parts of more baskets, the amount is still measured in basket-sized parts. Since it is more than one whole basket, it is an improper fraction.",
+        "image_prompt": "Show a basket overflowing with corn, measured in basket-sized portions, to represent fractions greater than one."
+    },
+    {
+        "concept_id": "adding_fractions",
+        "concept_name": "Adding Fractions",
+        "aliases": ["fraction addition", "add fractions", "sum of fractions"],
+        "lisu_culture": "Combining grain from different baskets",
+        "explanation_text": "Adding portions of grain scooped from several small baskets shows how fractional amounts combine to make a whole.",
+        "image_prompt": "Show grain scooped from several small baskets being combined into one large basket."
+    },
+    {
+        "concept_id": "subtracting_fractions",
+        "concept_name": "Subtracting Fractions",
+        "aliases": ["fraction subtraction", "take away fractions", "difference of fractions"],
+        "lisu_culture": "Scooping grain out for a meal",
+        "explanation_text": "When a portion of grain is scooped out of a basket to cook dinner, the amount remaining is the difference, which shows subtracting a fraction.",
+        "image_prompt": "Show a grain basket with part scooped out, the remainder labeled as the fraction left behind."
+    },
+    {
+        "concept_id": "multiplying_fractions",
+        "concept_name": "Multiplying Fractions",
+        "aliases": ["fraction multiplication", "part of a part", "multiply fractions"],
+        "lisu_culture": "Halves of a dried meat portion",
+        "explanation_text": "If a hunter keeps half of a half portion of dried meat, they are finding a fraction of a fraction, which is multiplying fractions.",
+        "image_prompt": "Show a strip of dried meat cut in half, with one half cut again to show a fraction of a fraction."
+    },
+    {
+        "concept_id": "dividing_fractions",
+        "concept_name": "Dividing Fractions",
+        "aliases": ["fraction division", "divide fractions", "how many times in"],
+        "lisu_culture": "Splitting a flatbread among guests",
+        "explanation_text": "If one round flatbread is split into smaller equal pieces for guests, it represents dividing a fraction by another fraction.",
+        "image_prompt": "Show a round flatbread being cut into smaller even pieces to illustrate fractional division."
+    },
+    {
+        "concept_id": "decimals",
+        "concept_name": "Decimals",
+        "aliases": ["decimal point", "tenths", "hundredths", "decimal number"],
+        "lisu_culture": "Measuring water in liters",
+        "explanation_text": "When water is measured in liters, amounts such as 1.5 liters, meaning one and a half liters, introduce decimal numbers.",
+        "image_prompt": "Show a water container marked at 1.0, 1.5, and 2.0 liters beside a bamboo bucket."
+    },
+    {
+        "concept_id": "converting_fractions_decimals",
+        "concept_name": "Converting Fractions and Decimals",
+        "aliases": ["fraction to decimal", "decimal to fraction", "convert fractions"],
+        "lisu_culture": "Half a bucket of water",
+        "explanation_text": "Whether you say half a bucket or 0.5 buckets, both describe the same amount, just like converting between fractions and decimals.",
+        "image_prompt": "Show two bamboo buckets, one labeled one half and the other labeled 0.5, holding the same amount of water."
+    },
+    {
+        "concept_id": "percents",
+        "concept_name": "Percents",
+        "aliases": ["percent", "percentage", "per hundred", "rate per 100"],
+        "lisu_culture": "School test scores",
+        "explanation_text": "When a student in the Nujiang area scores 90 out of 100 on a test, that is 90 percent, a way to express parts out of a hundred.",
+        "image_prompt": "Show a school test paper with 90 out of 100 written and a 90 percent mark beside it."
+    },
+    {
+        "concept_id": "percent_of_number",
+        "concept_name": "Percent of a Number",
+        "aliases": ["percentage of number", "find percent", "portion of total"],
+        "lisu_culture": "Discounts at the mountain market",
+        "explanation_text": "A 20 percent discount on goods at the local mountain market shows how percents are used to find parts of a number.",
+        "image_prompt": "Show a market stall with a twenty percent off sign and price tags showing reduced amounts."
+    },
+    {
+        "concept_id": "variables",
+        "concept_name": "Variables",
+        "aliases": ["variable", "unknown", "letter as number", "symbol in math"],
+        "lisu_culture": "Unmarked grain baskets",
+        "explanation_text": "If some grain baskets are unmarked, each one holds an unknown amount, just like a variable in math.",
+        "image_prompt": "Show grain baskets labeled 5 kilograms and 3 kilograms next to an unmarked basket labeled x."
+    },
+    {
+        "concept_id": "expressions",
+        "concept_name": "Expressions",
+        "aliases": ["math expressions", "numerical expressions", "algebraic expressions"],
+        "lisu_culture": "Known and unknown baskets",
+        "explanation_text": "If a family has 2 full baskets of grain plus x unmarked baskets, that situation is written as the expression 2 plus x.",
+        "image_prompt": "Show two grain baskets plus one unmarked basket, symbolized as 2 plus x."
+    },
+    {
+        "concept_id": "equations",
+        "concept_name": "Equations",
+        "aliases": ["math equations", "equal statements", "algebra equations"],
+        "lisu_culture": "Balancing a weighing scale",
+        "explanation_text": "When the two sides of a weighing scale hold equal grain, the scale balances. This is just like both sides of an equation being equal.",
+        "image_prompt": "Show a balance scale with equal grain on both sides, labeled as an equation."
+    },
+    {
+        "concept_id": "solving_one_step_equations",
+        "concept_name": "Solving One-Step Equations",
+        "aliases": ["one-step equations", "simple equations"],
+        "lisu_culture": "Balancing a carrying pole",
+        "explanation_text": "When a carrying pole with baskets tips to one side, adding or removing one basket balances it again, just like solving a one-step equation.",
+        "image_prompt": "Show a Lisu farmer balancing a carrying pole by adding or removing one basket to level the load."
+    },
+    {
+        "concept_id": "solving_two_step_equations",
+        "concept_name": "Solving Two-Step Equations",
+        "aliases": ["two-step equations", "multi-step equations"],
+        "lisu_culture": "Cooking buckwheat in two steps",
+        "explanation_text": "Making a buckwheat meal requires grinding the flour first and then steaming it. Two ordered steps must happen in sequence, just like solving a two-step equation.",
+        "image_prompt": "Show the sequence of grinding buckwheat first and then steaming it, symbolizing two-step equation solving."
+    },
+    {
+        "concept_id": "inequalities",
+        "concept_name": "Inequalities",
+        "aliases": ["greater than", "less than", "not equal", "comparison statements"],
+        "lisu_culture": "Comparing harvest sizes",
+        "explanation_text": "When one family's grain harvest is larger than another's, it shows inequality, just like greater than or less than in math.",
+        "image_prompt": "Show two piles of harvested grain of different sizes with greater-than and less-than symbols between them."
+    },
+    {
+        "concept_id": "order_of_operations",
+        "concept_name": "Order of Operations (PEMDAS)",
+        "aliases": ["PEMDAS", "BODMAS", "math order", "operations order"],
+        "lisu_culture": "Sequence of festival preparations",
+        "explanation_text": "Preparing for the Kuoshi festival has a fixed order: you clean the courtyard first, then prepare the food. Doing steps in the right order matters, just like in math's order of operations.",
+        "image_prompt": "Show a festival preparation sequence where each step must happen in order, labeled like parentheses, exponents, and so on."
+    },
+    {
+        "concept_id": "substitution",
+        "concept_name": "Substitution",
+        "aliases": ["replace variable", "substitute value", "replace letter with number"],
+        "lisu_culture": "Replacing a worn crossbow string",
+        "explanation_text": "When a worn crossbow string is replaced with a new one of the same length, the crossbow works the same as before, just like substituting a value for a variable.",
+        "image_prompt": "Show a crossbow with its old string replaced by an identical new string, representing substitution."
+    },
+    {
+        "concept_id": "points",
+        "concept_name": "Points",
+        "aliases": ["dot", "location", "coordinate point"],
+        "lisu_culture": "Stars over the canyon",
+        "explanation_text": "Each star in the night sky above the Nujiang canyon marks a position, just like a point in geometry.",
+        "image_prompt": "Show a starry night over a Nujiang canyon village, with individual stars marked as points on a coordinate grid."
+    },
+    {
+        "concept_id": "lines",
+        "concept_name": "Lines",
+        "aliases": ["straight line", "geometry line", "infinite line"],
+        "lisu_culture": "Flight of a crossbow arrow",
+        "explanation_text": "A crossbow arrow flies in a nearly straight path toward its target, just like a geometric line that continues in both directions.",
+        "image_prompt": "Show a crossbow arrow flying in a straight line toward a target, with the line extended in both directions."
+    },
+    {
+        "concept_id": "angles",
+        "concept_name": "Angles",
+        "aliases": ["angle", "degree", "corner measure"],
+        "lisu_culture": "Corner of a wooden house",
+        "explanation_text": "Where two walls of a traditional Lisu wooden house meet, they form an angle that can be measured in degrees.",
+        "image_prompt": "Show the corner of a Lisu wooden house where two walls meet, with the angle clearly marked."
+    },
+    {
+        "concept_id": "perpendicular_lines",
+        "concept_name": "Perpendicular Lines",
+        "aliases": ["right angle lines", "intersecting lines", "orthogonal lines"],
+        "lisu_culture": "Crossbeams of the wooden house",
+        "explanation_text": "The crossbeams that hold up a Lisu wooden house meet the upright posts at right angles, forming perpendicular lines that give the house its strength.",
+        "image_prompt": "Show wooden house crossbeams meeting upright posts at 90 degree angles."
+    },
+    {
+        "concept_id": "parallel_lines",
+        "concept_name": "Parallel Lines",
+        "aliases": ["side-by-side lines", "never meet", "equal distance lines"],
+        "lisu_culture": "Twin trails along the river",
+        "explanation_text": "The twin footpaths that run side by side along the Nujiang river terrace never meet, just like parallel lines.",
+        "image_prompt": "Show two footpaths running side by side along a mountain terrace without ever crossing."
+    },
+    {
+        "concept_id": "polygons",
+        "concept_name": "Polygons",
+        "aliases": ["shapes", "closed figure", "many-sided shape"],
+        "lisu_culture": "Bamboo mat weaves",
+        "explanation_text": "The closed loops of woven bamboo strips on a mat form many-sided geometric shapes, which are called polygons.",
+        "image_prompt": "Show a bamboo mat with closed multi-sided geometric shapes woven into its surface."
+    },
+    {
+        "concept_id": "triangles",
+        "concept_name": "Triangles",
+        "aliases": ["three sides", "triangular", "triangle shape"],
+        "lisu_culture": "Gable of the wooden house",
+        "explanation_text": "The pointed gable end of a Lisu wooden house roof forms a triangle, a shape with three sides.",
+        "image_prompt": "Show the triangular gable end of a Lisu wooden house roof."
+    },
+    {
+        "concept_id": "quadrilaterals",
+        "concept_name": "Quadrilaterals",
+        "aliases": ["four sides", "rectangles", "squares", "trapezoids"],
+        "lisu_culture": "Hemp cloth weaving motifs",
+        "explanation_text": "The motifs woven into hemp cloth often form rectangles and squares, which are four-sided shapes called quadrilaterals.",
+        "image_prompt": "Show a piece of hemp cloth with repeating square and rectangular motifs."
+    },
+    {
+        "concept_id": "perimeter",
+        "concept_name": "Perimeter",
+        "aliases": ["boundary length", "distance around", "outline measure"],
+        "lisu_culture": "Walking around a terraced field",
+        "explanation_text": "Walking along the outer edge of a terraced field measures its boundary, which is the field's perimeter.",
+        "image_prompt": "Show someone walking around the edge of a terraced field with a dashed line marking the boundary."
+    },
+    {
+        "concept_id": "area",
+        "concept_name": "Area",
+        "aliases": ["surface area", "space inside", "coverage"],
+        "lisu_culture": "Planting a terraced field",
+        "explanation_text": "The amount of land planted inside a mountain terrace represents its area, measured in square units.",
+        "image_prompt": "Show a terraced field shaded and divided into square units to show its area."
+    },
+    {
+        "concept_id": "volume",
+        "concept_name": "Volume",
+        "aliases": ["capacity", "space inside 3D shape", "liquid amount"],
+        "lisu_culture": "Bamboo water containers",
+        "explanation_text": "The amount of water a bamboo container can hold represents its volume.",
+        "image_prompt": "Show bamboo water containers filled to different levels to illustrate volume."
+    },
+    {
+        "concept_id": "circle_properties",
+        "concept_name": "Circle Properties",
+        "aliases": ["radius", "diameter", "circumference", "circle geometry"],
+        "lisu_culture": "Rim of a round basket",
+        "explanation_text": "Looking at a round woven basket from above shows a perfect circle, with a center, radius, and diameter.",
+        "image_prompt": "Show a round woven basket from above with radius and diameter lines marked."
+    },
+    {
+        "concept_id": "pi",
+        "concept_name": "Pi (π)",
+        "aliases": ["pi", "ratio of circumference", "3.14"],
+        "lisu_culture": "Round bamboo steam trays",
+        "explanation_text": "The ratio of a round steam tray's circumference to its diameter is always the same constant, pi.",
+        "image_prompt": "Show a round bamboo steam tray labeled with circumference and diameter measurements."
+    },
+    {
+        "concept_id": "coordinate_plane",
+        "concept_name": "Coordinate Plane",
+        "aliases": ["x-y plane", "graph grid", "axes"],
+        "lisu_culture": "The weaving grid",
+        "explanation_text": "The warp and weft threads on a weaving loom form a grid of rows and columns, just like the coordinate plane where every crossing point has a position.",
+        "image_prompt": "Show a loom with warp and weft threads forming a grid, labeled with x and y axes."
+    },
+    {
+        "concept_id": "plotting_points",
+        "concept_name": "Plotting Points",
+        "aliases": ["graphing points", "coordinates", "x-y plotting"],
+        "lisu_culture": "Marking corn planting spots",
+        "explanation_text": "A farmer marks the exact spots to plant corn in even rows, like plotting points at grid coordinates.",
+        "image_prompt": "Show a field with corn planted in even rows, each plant marked as a point with coordinates."
+    },
+    {
+        "concept_id": "symmetry",
+        "concept_name": "Symmetry",
+        "aliases": ["mirror image", "balanced halves", "reflection symmetry"],
+        "lisu_culture": "Hemp cloth mirror patterns",
+        "explanation_text": "The patterns woven into hemp cloth mirror each other across the center line of the cloth, showing symmetry.",
+        "image_prompt": "Show a hemp cloth pattern split by a mirror line with matching halves on each side."
+    },
+    {
+        "concept_id": "transformations",
+        "concept_name": "Transformations",
+        "aliases": ["translate", "rotate", "reflect", "dilate"],
+        "lisu_culture": "Dance moves at Kuoshi",
+        "explanation_text": "When dancers at the Kuoshi festival turn, slide, and mirror each other's movements, they perform geometric transformations: rotation, translation, and reflection.",
+        "image_prompt": "Show Kuoshi festival dancers turning and shifting positions to illustrate geometric transformations."
+    },
+    {
+        "concept_id": "ratios",
+        "concept_name": "Ratios",
+        "aliases": ["comparison", "proportion of quantities", "rate"],
+        "lisu_culture": "Mixing buckwheat flour and water",
+        "explanation_text": "When making buckwheat cakes, the balance of flour to water is a ratio, such as 2 parts flour to 1 part water.",
+        "image_prompt": "Show a mixing bowl with buckwheat flour and water labeled in a two to one ratio."
+    },
+    {
+        "concept_id": "proportions",
+        "concept_name": "Proportions",
+        "aliases": ["equal ratios", "scaling", "balance of ratios"],
+        "lisu_culture": "Enlarging a weaving design",
+        "explanation_text": "When a weaver enlarges a hemp cloth design while keeping the pattern identical, the design keeps its proportion.",
+        "image_prompt": "Show a small and a large hemp cloth swatch with the same geometric proportions."
+    },
+    {
+        "concept_id": "unit_rate",
+        "concept_name": "Unit Rate",
+        "aliases": ["per unit", "rate per one", "comparison per one unit"],
+        "lisu_culture": "Corn gathered per hour",
+        "explanation_text": "The number of corn ears a farmer gathers in one hour is a unit rate, a comparison for a single unit of time.",
+        "image_prompt": "Show a farmer harvesting corn with the rate labeled as ears of corn per hour."
+    },
+    {
+        "concept_id": "scale_drawings",
+        "concept_name": "Scale Drawings",
+        "aliases": ["map scale", "drawing proportion", "scaled map"],
+        "lisu_culture": "Mapping the mountain village",
+        "explanation_text": "Drawing a small map of a large mountain village while keeping distances proportional is a scale drawing.",
+        "image_prompt": "Show a mountain village and a smaller scaled map beside it with a scale legend."
+    },
+    {
+        "concept_id": "percent_change",
+        "concept_name": "Percent Change",
+        "aliases": ["percent increase", "percent decrease", "growth rate"],
+        "lisu_culture": "Growing grain harvest",
+        "explanation_text": "If a family's grain harvest grows from 100 bundles to 120 bundles, that is a 20 percent increase, an example of percent change.",
+        "image_prompt": "Show a grain stack growing in size with a plus twenty percent label."
+    },
+    {
+        "concept_id": "data_collection",
+        "concept_name": "Data Collection",
+        "aliases": ["gather data", "record information", "collect numbers"],
+        "lisu_culture": "Recording mountain harvests",
+        "explanation_text": "Writing down how many sacks of corn, potatoes, and buckwheat each family harvested is an example of data collection.",
+        "image_prompt": "Show a village ledger recording harvest tallies for different crops."
+    },
+    {
+        "concept_id": "tables_graphs",
+        "concept_name": "Tables and Graphs",
+        "aliases": ["data table", "bar graph", "chart"],
+        "lisu_culture": "Harvest data by season",
+        "explanation_text": "Using a graph to show how much grain was harvested each season helps visualize data trends.",
+        "image_prompt": "Show a bar graph comparing grain harvests across the four seasons."
+    },
+    {
+        "concept_id": "mean",
+        "concept_name": "Mean",
+        "aliases": ["average", "arithmetic mean", "mean value"],
+        "lisu_culture": "Average daily harvest",
+        "explanation_text": "Finding the average amount of corn gathered per day gives the mean of the daily harvests.",
+        "image_prompt": "Show a table of daily corn harvests with the average value highlighted."
+    },
+    {
+        "concept_id": "median",
+        "concept_name": "Median",
+        "aliases": ["middle value", "data median"],
+        "lisu_culture": "Middle harvest of the families",
+        "explanation_text": "When family harvests are arranged from smallest to largest, the middle value is the median.",
+        "image_prompt": "Show grain sacks lined up from smallest to largest with the middle one highlighted as the median."
+    },
+    {
+        "concept_id": "mode",
+        "concept_name": "Mode",
+        "aliases": ["most frequent value", "common value"],
+        "lisu_culture": "Most common crop",
+        "explanation_text": "If corn is the crop grown by most families in the village, then corn is the mode of the data.",
+        "image_prompt": "Show baskets of different crops with corn being the most common."
+    },
+    {
+        "concept_id": "range",
+        "concept_name": "Range",
+        "aliases": ["difference", "spread of data", "highest minus lowest"],
+        "lisu_culture": "Gap between harvests",
+        "explanation_text": "The gap between the largest and smallest harvest in the village shows the range of the data.",
+        "image_prompt": "Show a bar chart with the shortest and tallest bars marked to show the range."
+    },
+    {
+        "concept_id": "bar_graphs",
+        "concept_name": "Bar Graphs",
+        "aliases": ["bar chart", "column graph"],
+        "lisu_culture": "Comparing family harvests",
+        "explanation_text": "Each bar on a chart represents how many sacks one family harvested, which makes quick comparisons easy.",
+        "image_prompt": "Show a bar graph with family names and their grain totals."
+    },
+    {
+        "concept_id": "line_graphs",
+        "concept_name": "Line Graphs",
+        "aliases": ["trend graph", "line chart"],
+        "lisu_culture": "Tracking river levels by month",
+        "explanation_text": "A line graph shows how the Nujiang river level changes across the months of the year.",
+        "image_prompt": "Show a line graph labeled with months and river levels."
+    },
+    {
+        "concept_id": "pie_charts",
+        "concept_name": "Pie Charts",
+        "aliases": ["circle chart", "percentage chart"],
+        "lisu_culture": "Crops of the mountains",
+        "explanation_text": "A pie chart can show the proportion of corn, buckwheat, rice, and potatoes grown on the mountain terraces.",
+        "image_prompt": "Show a pie chart divided into crop categories with percentages."
+    },
+    {
+        "concept_id": "probability",
+        "concept_name": "Probability",
+        "aliases": ["chance", "likelihood", "odds"],
+        "lisu_culture": "Festival guessing games",
+        "explanation_text": "At the Kuoshi festival, a guessing game hides one marked stick among plain sticks. The chance of drawing the marked one is probability.",
+        "image_prompt": "Show a Kuoshi festival guessing game with marked sticks, each option given a probability label."
+    },
+    {
+        "concept_id": "patterns",
+        "concept_name": "Patterns",
+        "aliases": ["repeating design", "sequence", "recurrence"],
+        "lisu_culture": "Rhythms of mountain songs",
+        "explanation_text": "Lisu mountain songs repeat simple rhythms in a steady order, just like number patterns repeat in sequences.",
+        "image_prompt": "Show musical notes repeating in a rhythm with the repeated pattern highlighted."
+    },
+    {
+        "concept_id": "functions",
+        "concept_name": "Functions",
+        "aliases": ["input-output rule", "function relation", "mapping"],
+        "lisu_culture": "Arrows and hunted game",
+        "explanation_text": "If a fixed number of arrows reliably brings in a predictable amount of game, then each input of arrows gives one output of game caught, just like a function.",
+        "image_prompt": "Show a hunter with arrows on one side and caught game on the other, linked like a function mapping inputs to outputs."
+    }
+]

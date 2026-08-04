@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 export function useChatUI(
     sendMessage: (overrideInput?: string) => Promise<void>,
@@ -11,18 +11,29 @@ export function useChatUI(
 ) {
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
     const [isMobile, setIsMobile] = useState(false);
+    const [isTouchDevice, setIsTouchDevice] = useState(false);
     const [showShortcuts, setShowShortcuts] = useState(false);
     const [showCommandPalette, setShowCommandPalette] = useState(false);
     const [showScrollBtn, setShowScrollBtn] = useState(false);
     const [hoveredMsgId, setHoveredMsgId] = useState<string | null>(null);
     const [feedback, setFeedback] = useState<Map<string, "up" | "down">>(new Map());
 
+    // Touch devices have no hover, so hover-dependent UI must stay reachable
+    useEffect(() => {
+        const mq = window.matchMedia("(hover: none)");
+        const update = () => setIsTouchDevice(mq.matches);
+        update();
+        mq.addEventListener?.("change", update);
+        return () => mq.removeEventListener?.("change", update);
+    }, []);
+
     // Responsive sidebar
     useEffect(() => {
         const handleResize = () => {
             const width = window.innerWidth;
-            setIsMobile(width < 1024);
-            if (width >= 1024) setIsSidebarOpen(true);
+            setIsMobile(width <= 768);
+            if (width > 768) setIsSidebarOpen(true);
+            else setIsSidebarOpen(false);
         };
         handleResize();
         window.addEventListener("resize", handleResize);
@@ -55,7 +66,7 @@ export function useChatUI(
     }, [isMobile, isSidebarOpen]);
 
     const handleSidebarToggle = useCallback(() => {
-        if (window.innerWidth < 1024) setIsSidebarOpen((p) => !p);
+        if (window.innerWidth <= 768) setIsSidebarOpen((p) => !p);
     }, []);
 
     // Scroll helpers
@@ -115,7 +126,7 @@ export function useChatUI(
             if (e.key === "Escape") {
                 if (showCommandPalette) setShowCommandPalette(false);
                 else if (showShortcuts) setShowShortcuts(false);
-                else if (window.innerWidth < 1024 && isSidebarOpen) setIsSidebarOpen(false);
+                else if (window.innerWidth <= 768 && isSidebarOpen) setIsSidebarOpen(false);
             }
         };
         window.addEventListener("keydown", handler);
@@ -142,6 +153,7 @@ export function useChatUI(
         isSidebarOpen,
         setIsSidebarOpen,
         isMobile,
+        isTouchDevice,
         showShortcuts,
         setShowShortcuts,
         showCommandPalette,

@@ -1,0 +1,565 @@
+[
+    {
+        "concept_id": "place_value",
+        "concept_name": "Place Value",
+        "aliases": [
+            "place value",
+            "digit place",
+            "number place",
+            "units place",
+            "tens place",
+            "hundreds place",
+            "position of digits",
+            "digit position"
+        ],
+        "hani_culture": "Yuanyang terrace field plots",
+        "explanation_text": "Each terraced paddy plot in the Yuanyang mountains holds a position on the hillside, and its position tells you its size and value. In the same way, a digit's place in a number decides how much it is worth.",
+        "image_prompt": "Illustrate cascading Yuanyang rice terraces with the lowest plots labeled as ones, the middle rows as tens, and the high plots as hundreds, showing how position sets each plot's value."
+    },
+    {
+        "concept_id": "addition_subtraction",
+        "concept_name": "Addition & Subtraction",
+        "aliases": [
+            "add",
+            "addition",
+            "plus",
+            "sum",
+            "combine",
+            "total",
+            "subtract",
+            "subtraction",
+            "minus",
+            "take away",
+            "difference"
+        ],
+        "hani_culture": "Pouring rice into a village storehouse",
+        "explanation_text": "When villagers carry more baskets of rice into the shared storehouse, the total grows; when rice is taken out to cook, the total shrinks. This mirrors how addition increases a number and subtraction decreases it.",
+        "image_prompt": "Show Hani villagers adding rice baskets to a storehouse and later removing some, with a growing and shrinking total labeled above."
+    },
+    {
+        "concept_id": "multiplication_division",
+        "concept_name": "Multiplication & Division",
+        "aliases": [
+            "multiply",
+            "multiplication",
+            "times",
+            "groups of",
+            "repeated addition",
+            "divide",
+            "division",
+            "split equally",
+            "sharing"
+        ],
+        "hani_culture": "Rows of bundled rice sheaves",
+        "explanation_text": "Lining up equal rows of freshly bundled rice sheaves in the field shows multiplication as repeated groups. Dividing the bundles evenly among families to thresh shows division.",
+        "image_prompt": "Display neat rows of identical rice sheaves standing in a terrace field, with equal grouping marked for multiplication and even sharing marked for division."
+    },
+    {
+        "concept_id": "even_odd",
+        "concept_name": "Even and Odd Numbers",
+        "aliases": [
+            "even numbers",
+            "odd numbers",
+            "even",
+            "odd",
+            "pairs",
+            "leftover",
+            "no remainder",
+            "remains one"
+        ],
+        "hani_culture": "Buffalo yoked in pairs for plowing",
+        "explanation_text": "During spring plowing, water buffalos work in pairs yoked to the plow. When every buffalo has a partner the team is even; when one buffalo is left unmatched, the team is odd.",
+        "image_prompt": "Show water buffalos in the Yuanyang terraces standing in yoked pairs, with one single buffalo at the end to represent an odd number."
+    },
+    {
+        "concept_id": "skip_counting",
+        "concept_name": "Skip Counting / Number Patterns",
+        "aliases": [
+            "skip counting",
+            "count by 2s",
+            "count by 5s",
+            "count by 10s",
+            "jump counting",
+            "repeating numbers",
+            "number patterns"
+        ],
+        "hani_culture": "Bands of Hani embroidery braid",
+        "explanation_text": "The colorful bands woven into Hani headbands repeat in a steady rhythm, color after color, exactly as skip counting follows a fixed step such as 2, 4, 6, 8.",
+        "image_prompt": "Show a Hani embroidered headband with repeating colored triangles, highlighting every third shape to illustrate skip counting."
+    },
+    {
+        "concept_id": "comparing_numbers",
+        "concept_name": "Comparing and Ordering Numbers",
+        "aliases": [
+            "compare numbers",
+            "greater than",
+            "less than",
+            "more than",
+            "fewer than",
+            "biggest",
+            "smallest",
+            "ordering numbers",
+            "number order"
+        ],
+        "hani_culture": "Rice baskets of different fullness",
+        "explanation_text": "Comparing how full each family's rice basket is tells which is greater and which is smaller, just as comparing numbers uses greater-than and less-than signs.",
+        "image_prompt": "Show several rice baskets filled to different levels, with greater-than and less-than symbols placed between them."
+    },
+    {
+        "concept_id": "rounding_estimation",
+        "concept_name": "Rounding & Estimation",
+        "aliases": [
+            "round",
+            "rounding",
+            "estimate",
+            "estimation",
+            "approximate",
+            "about how much",
+            "close to",
+            "nearby number"
+        ],
+        "hani_culture": "Estimating rice for the Long Street Banquet",
+        "explanation_text": "When cooks prepare the Long Street Banquet, they estimate roughly how much sticky rice each table needs and round to easy quantities. Estimation works the same way, using convenient nearby numbers.",
+        "image_prompt": "Show Hani cooks ladling rice along the Long Street Banquet tables, labeling portions with rounded amounts like 'about 50 bowls'."
+    },
+    {
+        "concept_id": "fractions",
+        "concept_name": "Fractions",
+        "aliases": ["fraction", "part of a whole", "portion", "share", "numerator", "denominator"],
+        "hani_culture": "Sharing the harvested rice",
+        "explanation_text": "When a full basket of harvested rice is shared equally among the families of the village, each family receives a fraction of the whole harvest.",
+        "image_prompt": "Show one large basket of rice divided into equal shares for several family bowls, each bowl labeled as a fraction of the whole."
+    },
+    {
+        "concept_id": "equivalent_fractions",
+        "concept_name": "Equivalent Fractions",
+        "aliases": ["equal fractions", "same value", "fraction equality", "equivalent"],
+        "hani_culture": "Dividing a paddy plot into plots",
+        "explanation_text": "A terrace plot divided into 2 equal halves or into 4 equal quarters covers the same field. Half of the plot equals two quarters, just like equivalent fractions.",
+        "image_prompt": "Show one terrace plot divided first into halves and then into quarters, with the equal shares labeled as 1/2 and 2/4."
+    },
+    {
+        "concept_id": "simplifying_fractions",
+        "concept_name": "Simplifying Fractions",
+        "aliases": ["reduce fraction", "lowest terms", "simplify fraction"],
+        "hani_culture": "Joining small irrigation channels",
+        "explanation_text": "Two small bamboo channels that carry water together can be described as one larger channel. Combining and naming it more simply is like reducing a fraction to its lowest terms.",
+        "image_prompt": "Depict two small bamboo water channels merging into one, labeled with an unsimplified fraction changing to its simplified form."
+    },
+    {
+        "concept_id": "mixed_numbers",
+        "concept_name": "Mixed Numbers",
+        "aliases": ["mixed number", "whole and fraction", "whole part and fraction part"],
+        "hani_culture": "Full and half baskets of rice",
+        "explanation_text": "If a family stores 3 full baskets of rice and half a basket more, that total is 3½ baskets, exactly like a mixed number combining a whole and a fraction.",
+        "image_prompt": "Show three full rice baskets and one half-full basket labeled together as 3½."
+    },
+    {
+        "concept_id": "improper_fractions",
+        "concept_name": "Improper Fractions",
+        "aliases": ["top-heavy fraction", "numerator larger", "greater than one fraction"],
+        "hani_culture": "Rice spilling over the basket rim",
+        "explanation_text": "When the harvest fills more than one basket but is counted in baskets of the same size, the amount is an improper fraction, greater than one whole.",
+        "image_prompt": "Show several rice baskets with a mound of rice rising above the rim of the last one, symbolizing a fraction greater than 1."
+    },
+    {
+        "concept_id": "adding_fractions",
+        "concept_name": "Adding Fractions",
+        "aliases": ["fraction addition", "add fractions", "sum of fractions"],
+        "hani_culture": "Combining portions of tea and rice",
+        "explanation_text": "Pouring leftover portions of rice from several small bowls into one serving bowl shows how fractional amounts join together to make a total.",
+        "image_prompt": "Show several small bowls of rice being tipped together to fill one serving bowl, with the added fractions labeled."
+    },
+    {
+        "concept_id": "subtracting_fractions",
+        "concept_name": "Subtracting Fractions",
+        "aliases": ["fraction subtraction", "take away fractions", "difference of fractions"],
+        "hani_culture": "Scooping rice out of a basket",
+        "explanation_text": "Scooping a portion of rice out of a full basket leaves less behind, showing how subtracting a fraction reduces the whole.",
+        "image_prompt": "Show a bamboo rice basket with a scoop of rice being lifted out, the remaining amount labeled as a fraction."
+    },
+    {
+        "concept_id": "multiplying_fractions",
+        "concept_name": "Multiplying Fractions",
+        "aliases": ["fraction multiplication", "part of a part", "multiply fractions"],
+        "hani_culture": "Sharing halves of festival meat",
+        "explanation_text": "At festival feasts, if each guest takes half of a half portion of meat, they are finding a fraction of a fraction, which is multiplying fractions.",
+        "image_prompt": "Show a platter of festival meat divided into halves, with one half split again to show the smaller portion of a portion."
+    },
+    {
+        "concept_id": "dividing_fractions",
+        "concept_name": "Dividing Fractions",
+        "aliases": ["fraction division", "divide fractions", "how many times in"],
+        "hani_culture": "Cutting bamboo into equal pipes",
+        "explanation_text": "A length of bamboo split into equal water pipes shows how many smaller pieces fit into the whole, just like dividing one fraction by another.",
+        "image_prompt": "Show a bamboo pole cut into equal pipe lengths to illustrate how many smaller pieces fit inside the whole."
+    },
+    {
+        "concept_id": "decimals",
+        "concept_name": "Decimals",
+        "aliases": ["decimal point", "tenths", "hundredths", "decimal number"],
+        "hani_culture": "Measuring irrigation water",
+        "explanation_text": "When villagers measure water for the terraces in liters and smaller parts of a liter, they use decimals, such as 1.5 liters for one and a half liters.",
+        "image_prompt": "Show a bamboo flume carrying water past measuring marks at 1.0, 1.5, and 2.0 liters."
+    },
+    {
+        "concept_id": "converting_fractions_decimals",
+        "concept_name": "Converting Fractions and Decimals",
+        "aliases": ["fraction to decimal", "decimal to fraction", "convert fractions"],
+        "hani_culture": "Two names for the same rice amount",
+        "explanation_text": "Calling the same amount of rice half a basket or 0.5 baskets describes the same quantity, just like fractions and decimals that name equal values.",
+        "image_prompt": "Show two bowls with the same amount of rice, one labeled 1/2 and the other 0.5."
+    },
+    {
+        "concept_id": "percents",
+        "concept_name": "Percents",
+        "aliases": ["percent", "percentage", "per hundred", "rate per 100"],
+        "hani_culture": "Splitting irrigation water shares",
+        "explanation_text": "Village elders divide the mountain spring water among terraces by shares of the whole, for example 30 parts of every 100, which is a way of expressing percent.",
+        "image_prompt": "Show a spring feeding terrace channels with each channel labeled by a percentage share of the water."
+    },
+    {
+        "concept_id": "percent_of_number",
+        "concept_name": "Percent of a Number",
+        "aliases": ["percentage of number", "find percent", "portion of total"],
+        "hani_culture": "Reserving seed for next season",
+        "explanation_text": "If a family sets aside 10% of this year's harvest for next year's seed, they are finding a percent of a number.",
+        "image_prompt": "Show a granary with rice baskets marked 90% for eating and 10% set aside as seed for the coming season."
+    },
+    {
+        "concept_id": "variables",
+        "concept_name": "Variables",
+        "aliases": ["variable", "unknown", "letter as number", "symbol in math"],
+        "hani_culture": "Unmarked rice jars in storage",
+        "explanation_text": "If some storage jars have no labels, each one stands for an unknown amount of rice, just as a variable stands for an unknown number in math.",
+        "image_prompt": "Show labeled rice jars (2 斗, 3 斗) next to unlabeled jars marked with the letter x."
+    },
+    {
+        "concept_id": "expressions",
+        "concept_name": "Expressions",
+        "aliases": ["math expressions", "numerical expressions", "algebraic expressions"],
+        "hani_culture": "Known jars plus unknown jars",
+        "explanation_text": "If a storeroom holds 2 labeled jars of rice and x jars whose size is unknown, the total is written as the expression 2 + x.",
+        "image_prompt": "Show two full rice jars beside one unlabeled jar, summarized as the expression 2 + x."
+    },
+    {
+        "concept_id": "equations",
+        "concept_name": "Equations",
+        "aliases": ["math equations", "equal statements", "algebra equations"],
+        "hani_culture": "Balancing the water-carrying pole",
+        "explanation_text": "When a Hani villager carries two water buckets on a shoulder pole and both sides balance evenly, it shows equality, just like the two sides of an equation.",
+        "image_prompt": "Show a villager with a shoulder pole carrying two equal buckets of water, both sides balanced and labeled as equal."
+    },
+    {
+        "concept_id": "solving_one_step_equations",
+        "concept_name": "Solving One-Step Equations",
+        "aliases": ["one-step equations", "simple equations"],
+        "hani_culture": "Leveling a carrying pole",
+        "explanation_text": "If one side of a carrying pole tips low, adding or removing a single bucket balances it again, just like solving a one-step equation with one operation.",
+        "image_prompt": "Show a shoulder pole with one heavy bucket, and a single scoop being added or removed to make both sides level."
+    },
+    {
+        "concept_id": "solving_two_step_equations",
+        "concept_name": "Solving Two-Step Equations",
+        "aliases": ["two-step equations", "multi-step equations"],
+        "hani_culture": "Steaming sticky rice in order",
+        "explanation_text": "Preparing festival sticky rice needs two steps in order: first soaking the rice, then steaming it. Solving a two-step equation also follows a fixed sequence of operations.",
+        "image_prompt": "Show the two-step sequence of soaking rice in a basin and then steaming it in a bamboo steamer, symbolizing step-by-step solving."
+    },
+    {
+        "concept_id": "inequalities",
+        "concept_name": "Inequalities",
+        "aliases": ["greater than", "less than", "not equal", "comparison statements"],
+        "hani_culture": "Comparing two village harvests",
+        "explanation_text": "When one village's rice harvest is larger than another's, the amounts are not equal. Comparing them uses greater-than or less-than, just like inequalities.",
+        "image_prompt": "Show two stacks of rice baskets of different heights with a greater-than symbol between them."
+    },
+    {
+        "concept_id": "order_of_operations",
+        "concept_name": "Order of Operations (PEMDAS)",
+        "aliases": ["PEMDAS", "BODMAS", "math order", "operations order"],
+        "hani_culture": "Building a mushroom house",
+        "explanation_text": "Building a mushroom house has a strict order: raise the timber frame first, then lay the mud walls, then thatch the roof. What you do first matters, exactly as in the order of operations.",
+        "image_prompt": "Show the building stages of a Hani mushroom house in sequence, labeled to stand for the ordered steps of a calculation."
+    },
+    {
+        "concept_id": "substitution",
+        "concept_name": "Substitution",
+        "aliases": ["replace variable", "substitute value", "replace letter with number"],
+        "hani_culture": "Replacing a worn bamboo pipe",
+        "explanation_text": "When a cracked bamboo water pipe is replaced by a new one of the same length, the flow stays the same. Replacing a variable with its value works the same way.",
+        "image_prompt": "Show an old cracked bamboo pipe being swapped for an identical new pipe, with the variable x being replaced by its number."
+    },
+    {
+        "concept_id": "points",
+        "concept_name": "Points",
+        "aliases": ["dot", "location", "coordinate point"],
+        "hani_culture": "Oil lamps in mountain villages",
+        "explanation_text": "At night, each warm oil lamp glowing in a mountain Hani village marks a single spot, just like a point marks an exact location in geometry.",
+        "image_prompt": "Show a hillside of Hani villages with individual glowing lamps marked as points on a grid."
+    },
+    {
+        "concept_id": "lines",
+        "concept_name": "Lines",
+        "aliases": ["straight line", "geometry line", "infinite line"],
+        "hani_culture": "Bamboo rails on mountain paths",
+        "explanation_text": "Long straight bamboo rails run along the steep mountain paths between terraces, stretching onward in both directions like geometric lines.",
+        "image_prompt": "Show long straight bamboo railings extending along a terraced mountain path, representing geometric lines."
+    },
+    {
+        "concept_id": "angles",
+        "concept_name": "Angles",
+        "aliases": ["angle", "degree", "corner measure"],
+        "hani_culture": "Opening a mushroom house door",
+        "explanation_text": "As the wooden door of a mushroom house swings open, it forms an angle between the door and the frame, from a small opening to a wide one.",
+        "image_prompt": "Show a mushroom house door partially open with the angle between door and frame clearly marked."
+    },
+    {
+        "concept_id": "perpendicular_lines",
+        "concept_name": "Perpendicular Lines",
+        "aliases": ["right angle lines", "intersecting lines", "orthogonal lines"],
+        "hani_culture": "Timber beams of the mushroom house",
+        "explanation_text": "The strong timber beams of a mushroom house meet its mud walls at right angles, making perpendicular lines that give the structure its sturdy corners.",
+        "image_prompt": "Show mushroom house timber beams meeting walls at 90° angles."
+    },
+    {
+        "concept_id": "parallel_lines",
+        "concept_name": "Parallel Lines",
+        "aliases": ["side-by-side lines", "never meet", "equal distance lines"],
+        "hani_culture": "Contour rows of rice terraces",
+        "explanation_text": "The contour rows of Yuanyang terraces run side by side along the hillside and never meet, exactly like parallel lines that stay an equal distance apart.",
+        "image_prompt": "Show parallel contour rows of rice terraces snaking across the hillside, never crossing."
+    },
+    {
+        "concept_id": "polygons",
+        "concept_name": "Polygons",
+        "aliases": ["shapes", "closed figure", "many-sided shape"],
+        "hani_culture": "Terrace ponds from above",
+        "explanation_text": "Seen from a high lookout, the water-filled terraces below form closed geometric shapes with many sides, such as rectangles, trapezoids, and curving polygons.",
+        "image_prompt": "Show an aerial view of Yuanyang terraces forming many-sided closed shapes in the water."
+    },
+    {
+        "concept_id": "triangles",
+        "concept_name": "Triangles",
+        "aliases": ["three sides", "triangular", "triangle shape"],
+        "hani_culture": "Steep gables of mushroom houses",
+        "explanation_text": "The steep thatched gable of a mushroom house rises to a peak, tracing a strong triangle that sheds the mountain rain.",
+        "image_prompt": "Show the triangular gable of a Hani mushroom house under a misty mountain sky."
+    },
+    {
+        "concept_id": "quadrilaterals",
+        "concept_name": "Quadrilaterals",
+        "aliases": ["four sides", "rectangles", "squares", "trapezoids"],
+        "hani_culture": "Carved window frames in old houses",
+        "explanation_text": "The carved wooden window frames of older Hani houses form squares, rectangles, and trapezoids, each a four-sided shape called a quadrilateral.",
+        "image_prompt": "Show wooden window frames with square, rectangular, and trapezoid carvings."
+    },
+    {
+        "concept_id": "perimeter",
+        "concept_name": "Perimeter",
+        "aliases": ["boundary length", "distance around", "outline measure"],
+        "hani_culture": "Walking the bank of a terrace",
+        "explanation_text": "Walking the whole earthen bank around a single terrace measures its perimeter, the distance around the outside of the field.",
+        "image_prompt": "Show a farmer walking the muddy bank around a terrace with a dashed line tracing the perimeter."
+    },
+    {
+        "concept_id": "area",
+        "concept_name": "Area",
+        "aliases": ["surface area", "space inside", "coverage"],
+        "hani_culture": "Flooded surface of a terrace",
+        "explanation_text": "The flat flooded surface of a rice terrace that the farmer plants is its area, the space the field covers.",
+        "image_prompt": "Show a flooded Yuanyang terrace with its full surface shaded to show the area being measured."
+    },
+    {
+        "concept_id": "volume",
+        "concept_name": "Volume",
+        "aliases": ["capacity", "space inside 3D shape", "liquid amount"],
+        "hani_culture": "Bamboo rice bins in the granary",
+        "explanation_text": "The amount of rice a tall bamboo storage bin can hold is its volume, the space inside the container.",
+        "image_prompt": "Show bamboo rice bins in a village granary filled to different levels to illustrate volume."
+    },
+    {
+        "concept_id": "circle_properties",
+        "concept_name": "Circle Properties",
+        "aliases": ["radius", "diameter", "circumference", "circle geometry"],
+        "hani_culture": "Round bamboo winnowing tray",
+        "explanation_text": "Looking down at a round bamboo winnowing tray shows a perfect circle, and its center, rim, and width illustrate radius, diameter, and circumference.",
+        "image_prompt": "Show a round bamboo winnowing tray from above, labeled with radius and diameter lines drawn to the rim."
+    },
+    {
+        "concept_id": "pi",
+        "concept_name": "Pi (π)",
+        "aliases": ["pi", "ratio of circumference", "3.14"],
+        "hani_culture": "Rim of the winnowing tray",
+        "explanation_text": "Measuring the round rim of a winnowing tray and comparing it with the width across the tray shows the constant ratio known as π.",
+        "image_prompt": "Show a round bamboo winnowing tray labeled with its circumference around the rim and diameter across the middle."
+    },
+    {
+        "concept_id": "coordinate_plane",
+        "concept_name": "Coordinate Plane",
+        "aliases": ["x-y plane", "graph grid", "axes"],
+        "hani_culture": "Terrace grids on the hillside",
+        "explanation_text": "The terraces are arranged in rows and columns across the hillside like a giant grid, so every plot can be found by its row and column, just like points on a coordinate plane.",
+        "image_prompt": "Show a hillside of terraces mapped onto x and y axes with plots addressed by row and column."
+    },
+    {
+        "concept_id": "plotting_points",
+        "concept_name": "Plotting Points",
+        "aliases": ["graphing points", "coordinates", "x-y plotting"],
+        "hani_culture": "Marking family plots on a map",
+        "explanation_text": "The village elders mark where each family's terrace lies on a hand-drawn map, which is like plotting points on a coordinate plane.",
+        "image_prompt": "Show a hand-drawn village map of terraces with each family's plot marked as a plotted point."
+    },
+    {
+        "concept_id": "symmetry",
+        "concept_name": "Symmetry",
+        "aliases": ["mirror image", "balanced halves", "reflection symmetry"],
+        "hani_culture": "Mirrored Hani embroidery",
+        "explanation_text": "The diamond and wave motifs in Hani embroidery repeat in matching halves across a center line, showing line symmetry in the cloth.",
+        "image_prompt": "Show a symmetrical Hani embroidery panel split by a vertical mirror line."
+    },
+    {
+        "concept_id": "transformations",
+        "concept_name": "Transformations",
+        "aliases": ["translate", "rotate", "reflect", "dilate"],
+        "hani_culture": "Terrace levels sliding and mirroring",
+        "explanation_text": "Stepping from one terrace level to the next slides a shape along the slope, and the terraces mirrored in the still water of the paddies reflect the same shape, illustrating translation and reflection.",
+        "image_prompt": "Show terrace rows shifting level by level down the slope, with the whole scene reflected in the paddy water."
+    },
+    {
+        "concept_id": "ratios",
+        "concept_name": "Ratios",
+        "aliases": ["comparison", "proportion of quantities", "rate"],
+        "hani_culture": "Mixing rice and water for cooking",
+        "explanation_text": "Cooking rice properly depends on the balance of water to rice, for example two cups of water for one cup of rice, which is a ratio of 2 to 1.",
+        "image_prompt": "Show a rice pot with water and rice measured side by side, labeled with the ratio 2:1."
+    },
+    {
+        "concept_id": "proportions",
+        "concept_name": "Proportions",
+        "aliases": ["equal ratios", "scaling", "balance of ratios"],
+        "hani_culture": "Enlarging an embroidery design",
+        "explanation_text": "When an embroiderer copies a small pattern onto a larger cloth while keeping every shape in the same relative size, the two designs stay in proportion.",
+        "image_prompt": "Show a small and a large Hani embroidery panel with the same pattern scaled proportionally."
+    },
+    {
+        "concept_id": "unit_rate",
+        "concept_name": "Unit Rate",
+        "aliases": ["per unit", "rate per one", "comparison per one unit"],
+        "hani_culture": "Buffalo plowing speed",
+        "explanation_text": "Counting how many terrace plots one buffalo plows in a single hour is a unit rate, an amount for one unit of time.",
+        "image_prompt": "Show a water buffalo plowing with a label reading 'plots per hour' beside it."
+    },
+    {
+        "concept_id": "scale_drawings",
+        "concept_name": "Scale Drawings",
+        "aliases": ["map scale", "drawing proportion", "scaled map"],
+        "hani_culture": "Mapping the terraced hills",
+        "explanation_text": "Sketching the vast terraced hills onto a small piece of paper while keeping every distance in proportion is a scale drawing of the landscape.",
+        "image_prompt": "Show the vast Yuanyang terraces beside a small scaled map with a scale legend and ruler."
+    },
+    {
+        "concept_id": "percent_change",
+        "concept_name": "Percent Change",
+        "aliases": ["percent increase", "percent decrease", "growth rate"],
+        "hani_culture": "Rising rice yield season to season",
+        "explanation_text": "When a village's rice harvest grows from 100 baskets to 120 baskets, that is a 20% increase, a clear example of percent change.",
+        "image_prompt": "Show harvest baskets stacked from 100 to 120 with a '+20%' label between them."
+    },
+    {
+        "concept_id": "data_collection",
+        "concept_name": "Data Collection",
+        "aliases": ["gather data", "record information", "collect numbers"],
+        "hani_culture": "Recording crop yields",
+        "explanation_text": "Recording how many baskets each terrace produces and how much water each channel carries is an example of collecting data for the village records.",
+        "image_prompt": "Show a village elder noting tallies of rice yields and water flow on a clipboard beside the terraces."
+    },
+    {
+        "concept_id": "tables_graphs",
+        "concept_name": "Tables and Graphs",
+        "aliases": ["data table", "bar graph", "chart"],
+        "hani_culture": "Comparing harvests across villages",
+        "explanation_text": "Listing each village's rice harvest in a table and drawing bars to compare them helps everyone see the trend at a glance.",
+        "image_prompt": "Show a table and a bar graph comparing rice harvests across several Hani villages."
+    },
+    {
+        "concept_id": "mean",
+        "concept_name": "Mean",
+        "aliases": ["average", "arithmetic mean", "mean value"],
+        "hani_culture": "Average rice per terrace",
+        "explanation_text": "Adding the harvest of every terrace and dividing by the number of terraces gives the mean harvest, the average each terrace produces.",
+        "image_prompt": "Show a table of terrace yields with the average value highlighted as the mean."
+    },
+    {
+        "concept_id": "median",
+        "concept_name": "Median",
+        "aliases": ["middle value", "data median"],
+        "hani_culture": "Middle harvest of the village",
+        "explanation_text": "When the harvests of all families are lined up from smallest to largest, the family in the very middle holds the median harvest.",
+        "image_prompt": "Show a row of rice baskets arranged by size with the middle basket highlighted as the median."
+    },
+    {
+        "concept_id": "mode",
+        "concept_name": "Mode",
+        "aliases": ["most frequent value", "common value"],
+        "hani_culture": "Most common rice variety",
+        "explanation_text": "If most families plant the same variety of rice, that variety is the mode, the value that appears most often.",
+        "image_prompt": "Show rice sheaves of several varieties with one variety appearing most often, marked as the mode."
+    },
+    {
+        "concept_id": "range",
+        "concept_name": "Range",
+        "aliases": ["difference", "spread of data", "highest minus lowest"],
+        "hani_culture": "Spread of family harvests",
+        "explanation_text": "The gap between the largest and smallest family harvest in the village shows the range of the data.",
+        "image_prompt": "Show a chart of family harvests with the tallest and shortest bars marked to show the range."
+    },
+    {
+        "concept_id": "bar_graphs",
+        "concept_name": "Bar Graphs",
+        "aliases": ["bar chart", "column graph"],
+        "hani_culture": "Comparing family harvests",
+        "explanation_text": "Drawing one bar for each family's harvest makes the largest and smallest harvests easy to compare at a glance.",
+        "image_prompt": "Show a bar graph labeled by family names with rice harvest totals."
+    },
+    {
+        "concept_id": "line_graphs",
+        "concept_name": "Line Graphs",
+        "aliases": ["trend graph", "line chart"],
+        "hani_culture": "Rice growth across the season",
+        "explanation_text": "A line graph joining points from planting to harvest shows how the rice grows taller through the months, revealing the trend over time.",
+        "image_prompt": "Show a line graph labeled with months of the growing season and rice height."
+    },
+    {
+        "concept_id": "pie_charts",
+        "concept_name": "Pie Charts",
+        "aliases": ["circle chart", "percentage chart"],
+        "hani_culture": "Crops grown on the terraces",
+        "explanation_text": "A pie chart can show how the terrace land is divided, with large slices for rice and smaller slices for corn, beans, and vegetables.",
+        "image_prompt": "Show a pie chart dividing terrace crops into rice, corn, beans, and vegetables with percentages."
+    },
+    {
+        "concept_id": "probability",
+        "concept_name": "Probability",
+        "aliases": ["chance", "likelihood", "odds"],
+        "hani_culture": "Forecasting rain for planting",
+        "explanation_text": "Elders judge the chance of rain before the planting season from the clouds and wind, an everyday estimate of probability.",
+        "image_prompt": "Show rain clouds over the terraces with a small probability label above the fields."
+    },
+    {
+        "concept_id": "patterns",
+        "concept_name": "Patterns",
+        "aliases": ["repeating design", "sequence", "recurrence"],
+        "hani_culture": "Stepped terrace patterns",
+        "explanation_text": "The staircase of terraces repeats its stepped outline again and again down the mountain, a natural pattern of shapes and levels.",
+        "image_prompt": "Show the repeating stepped rows of Yuanyang terraces receding down the hillside."
+    },
+    {
+        "concept_id": "functions",
+        "concept_name": "Functions",
+        "aliases": ["input-output rule", "function relation", "mapping"],
+        "hani_culture": "Rice seed to harvest",
+        "explanation_text": "If each amount of rice seed planted gives one expected harvest, the seed is an input and the harvest a single output, exactly like a function.",
+        "image_prompt": "Show a graph linking the amount of rice seed planted (input) to the harvest produced (output)."
+    }
+]

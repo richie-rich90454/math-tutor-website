@@ -15,9 +15,12 @@ export default function BottomSheet({ isOpen, onClose, title, children }: Bottom
     const backdropRef = useRef<HTMLDivElement>(null);
     const startYRef = useRef(0);
     const currentYRef = useRef(0);
+    const prevOpenRef = useRef(isOpen);
 
     // Open/close animation
     useEffect(() => {
+        if (prevOpenRef.current === isOpen) return; // skip initial mount so a corrected default doesn't flash
+        prevOpenRef.current = isOpen;
         const sheet = sheetRef.current;
         const backdrop = backdropRef.current;
         if (!sheet || !backdrop) return;

@@ -6,7 +6,7 @@ export default defineConfig({
         environment: "node",
         globals: true,
         watch: true,
-        include: ["**/__tests__/**/*.test.ts"],
+        include: ["**/__tests__/**/*.test.{ts,tsx}"],
         coverage: {
             provider: "v8",
         },

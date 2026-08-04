@@ -30,12 +30,12 @@ const InputArea = memo(function InputArea({
     pendingImage,
     onClearImage,
 }: InputAreaProps) {
-    const { t } = useLanguage();
+    const { t, currentLanguage } = useLanguage();
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     const fileInputRef = useRef<HTMLInputElement>(null);
     const [isDragOver, setIsDragOver] = useState(false);
     const [isListening, setIsListening] = useState(false);
-    const recognitionRef = useRef<any>(null);
+    const recognitionRef = useRef<SpeechRecognition | null>(null);
     const charCount = value.length;
     const createRipple = useRipple();
 
@@ -147,8 +147,7 @@ const InputArea = memo(function InputArea({
             return;
         }
 
-        const SpeechRecognition =
-            (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
         if (!SpeechRecognition) return;
 
         const recognition = new SpeechRecognition();
@@ -167,10 +166,11 @@ const InputArea = memo(function InputArea({
             fr: "fr-FR",
             de: "de-DE",
             ja: "ja-JP",
+            ru: "ru-RU",
+            vi: "vi-VN",
         };
-        // Use current language from document or default to en-US
-        const currentLang = document.documentElement.lang || "en";
-        recognition.lang = langMap[currentLang] || "en-US";
+        // Use the active UI language (not documentElement.lang, which is BCP47)
+        recognition.lang = langMap[currentLanguage.code] || "en-US";
 
         recognition.onresult = (event: SpeechRecognitionEvent) => {
             let transcript = "";
@@ -190,7 +190,7 @@ const InputArea = memo(function InputArea({
         recognitionRef.current = recognition;
         recognition.start();
         setIsListening(true);
-    }, [isListening, value, onChange]);
+    }, [isListening, value, onChange, currentLanguage.code]);
 
     return (
         <div className="ia-root">
@@ -211,14 +211,14 @@ const InputArea = memo(function InputArea({
                     {/* eslint-disable-next-line @next/next/no-img-element -- data URL, can't use next/image */}
                     <img
                         src={pendingImage.data}
-                        alt="Selected"
+                        alt={t("chatImageSelected")}
                         className="ia-image-preview-img"
                         loading="lazy"
                     />
                     <button
                         className="ia-image-preview-remove"
                         onClick={onClearImage}
-                        aria-label="Remove image"
+                        aria-label={t("chatRemoveImage")}
                     >
                         <svg
                             width="12"

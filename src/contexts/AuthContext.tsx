@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
 import { useRouter } from "next/navigation";
+import { apiFetch } from "@/lib/api-client";
 
 interface User {
     id: string;
@@ -9,6 +10,7 @@ interface User {
     name: string;
     preferred_language: string;
     math_level: string;
+    guest?: boolean;
 }
 
 interface AuthContextType {
@@ -19,6 +21,7 @@ interface AuthContextType {
     signup: (name: string, email: string, password: string, mathLevel: string) => Promise<void>;
     logout: () => Promise<void>;
     refreshUser: () => Promise<void>;
+    startGuest: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -30,7 +33,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     const refreshUser = useCallback(async () => {
         try {
-            const res = await fetch("/api/auth/me");
+            const res = await apiFetch("/api/auth/me");
             if (res.ok) {
                 const data = await res.json();
                 setUser(data.user);
@@ -49,7 +52,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }, [refreshUser]);
 
     const login = async (email: string, password: string, remember?: boolean) => {
-        const res = await fetch("/api/auth/login", {
+        const res = await apiFetch("/api/auth/login", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ email, password, remember }),
@@ -65,7 +68,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     };
 
     const signup = async (name: string, email: string, password: string, mathLevel: string) => {
-        const res = await fetch("/api/auth/signup", {
+        const res = await apiFetch("/api/auth/signup", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ name, email, password, math_level: mathLevel }),
@@ -81,9 +84,19 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     };
 
     const logout = async () => {
-        await fetch("/api/auth/logout", { method: "POST" });
+        await apiFetch("/api/auth/logout", { method: "POST" });
         setUser(null);
         router.push("/login");
+    };
+
+    const startGuest = async () => {
+        const res = await apiFetch("/api/auth/guest", { method: "POST" });
+        if (!res.ok) {
+            const data = await res.json();
+            throw new Error(data.error || "Failed to start guest session");
+        }
+        const data = await res.json();
+        setUser(data.user);
     };
 
     return (
@@ -96,6 +109,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
                 signup,
                 logout,
                 refreshUser,
+                startGuest,
             }}
         >
             {children}

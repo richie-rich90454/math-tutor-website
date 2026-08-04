@@ -1,0 +1,565 @@
+[
+    {
+        "concept_id": "place_value",
+        "concept_name": "Place Value",
+        "aliases": [
+            "place value",
+            "digit place",
+            "number place",
+            "units place",
+            "tens place",
+            "hundreds place",
+            "position of digits",
+            "digit position"
+        ],
+        "kyrgyz_culture": "Komuz string positions",
+        "explanation_text": "Each string on a komuz (three-stringed lute) sits at its own position and gives its own pitch, just as digits sit in places—ones, tens, hundreds—that decide their value.",
+        "image_prompt": "Illustrate a komuz with its strings labeled as ones, tens, and hundreds, showing how position affects pitch and value."
+    },
+    {
+        "concept_id": "addition_subtraction",
+        "concept_name": "Addition & Subtraction",
+        "aliases": [
+            "add",
+            "addition",
+            "plus",
+            "sum",
+            "combine",
+            "total",
+            "subtract",
+            "subtraction",
+            "minus",
+            "take away",
+            "difference"
+        ],
+        "kyrgyz_culture": "Kymyz cups being poured or shared",
+        "explanation_text": "When more kymyz (fermented mare's milk) is poured into guests' cups, the total rises. When a cup is drunk or poured out, it falls—just like addition and subtraction.",
+        "image_prompt": "Show cups of kymyz being filled and emptied, with the total changing as cups are added or removed."
+    },
+    {
+        "concept_id": "multiplication_division",
+        "concept_name": "Multiplication & Division",
+        "aliases": [
+            "multiply",
+            "multiplication",
+            "times",
+            "groups of",
+            "repeated addition",
+            "divide",
+            "division",
+            "split equally",
+            "sharing"
+        ],
+        "kyrgyz_culture": "Rows of racing horses",
+        "explanation_text": "Arranging horses in equal rows for a race shows multiplication: 4 rows of 5 is 20. Splitting them into even groups at the starting line shows division.",
+        "image_prompt": "Display rows of horses lined up evenly, showing equal grouping (multiplication) and even sharing (division)."
+    },
+    {
+        "concept_id": "even_odd",
+        "concept_name": "Even and Odd Numbers",
+        "aliases": [
+            "even numbers",
+            "odd numbers",
+            "even",
+            "odd",
+            "pairs",
+            "leftover",
+            "no remainder",
+            "remains one"
+        ],
+        "kyrgyz_culture": "Riders paired for the race",
+        "explanation_text": "When riders pair up two by two for a race, that is an even number. If one rider is left without a partner, the count is odd.",
+        "image_prompt": "Show horse riders standing in pairs, with one single rider at the end to represent an odd number."
+    },
+    {
+        "concept_id": "skip_counting",
+        "concept_name": "Skip Counting / Number Patterns",
+        "aliases": [
+            "skip counting",
+            "count by 2s",
+            "count by 5s",
+            "count by 10s",
+            "jump counting",
+            "repeating numbers",
+            "number patterns"
+        ],
+        "kyrgyz_culture": "Felt border color patterns",
+        "explanation_text": "The repeating colored motifs on a Kyrgyz felt carpet follow rhythmic sequences—like skip counting by 2s, 5s, or 10s.",
+        "image_prompt": "Show a felt carpet border with repeating colored shapes, highlighting every 5th motif to illustrate skip counting."
+    },
+    {
+        "concept_id": "comparing_numbers",
+        "concept_name": "Comparing and Ordering Numbers",
+        "aliases": [
+            "compare numbers",
+            "greater than",
+            "less than",
+            "more than",
+            "fewer than",
+            "biggest",
+            "smallest",
+            "ordering numbers",
+            "number order"
+        ],
+        "kyrgyz_culture": "Kymyz cups with different amounts",
+        "explanation_text": "Comparing the levels of kymyz in two cups shows which is greater or smaller—just like comparing numbers with > and <.",
+        "image_prompt": "Show several cups holding different amounts of kymyz, with > and < symbols between them."
+    },
+    {
+        "concept_id": "rounding_estimation",
+        "concept_name": "Rounding & Estimation",
+        "aliases": [
+            "round",
+            "rounding",
+            "estimate",
+            "estimation",
+            "approximate",
+            "about how much",
+            "close to",
+            "nearby number"
+        ],
+        "kyrgyz_culture": "Estimating dough for boorsok",
+        "explanation_text": "When making boorsok (fried dough pieces), cooks estimate how much flour and milk to use—much like rounding to a convenient nearby number.",
+        "image_prompt": "Show a cook preparing boorsok dough, roughly estimating the amount of flour and labeling rounded quantities."
+    },
+    {
+        "concept_id": "fractions",
+        "concept_name": "Fractions",
+        "aliases": ["fraction", "part of a whole", "portion", "share", "numerator", "denominator"],
+        "kyrgyz_culture": "Sharing meat at a feast",
+        "explanation_text": "At a feast, a leg of lamb is shared fairly among the guests. Each person's equal portion is a fraction of the whole.",
+        "image_prompt": "Show a roast lamb being divided into equal portions for guests, each labeled as a fraction of the whole."
+    },
+    {
+        "concept_id": "equivalent_fractions",
+        "concept_name": "Equivalent Fractions",
+        "aliases": ["equal fractions", "same value", "fraction equality", "equivalent"],
+        "kyrgyz_culture": "Cutting meat into even pieces",
+        "explanation_text": "Cutting a piece of meat into 2 equal halves or into 4 smaller equal pieces gives the same total amount—like equivalent fractions.",
+        "image_prompt": "Show a slab of meat divided first into halves, then into quarters, demonstrating equal portions."
+    },
+    {
+        "concept_id": "simplifying_fractions",
+        "concept_name": "Simplifying Fractions",
+        "aliases": ["reduce fraction", "lowest terms", "simplify fraction"],
+        "kyrgyz_culture": "Combining small yak herds",
+        "explanation_text": "When two small yak herds are combined into one large group, the count can be shown more simply—like reducing a fraction to lowest terms.",
+        "image_prompt": "Depict smaller groups of yaks merging into one larger group, labeled with reduced fractions."
+    },
+    {
+        "concept_id": "mixed_numbers",
+        "concept_name": "Mixed Numbers",
+        "aliases": ["mixed number", "whole and fraction", "whole part and fraction part"],
+        "kyrgyz_culture": "Full and half kymyz containers",
+        "explanation_text": "If you have 3 full containers of kymyz and half a container more, that is 3½—a whole part plus a fraction, a mixed number.",
+        "image_prompt": "Show three full containers and one half-full container of kymyz labeled as 3½."
+    },
+    {
+        "concept_id": "improper_fractions",
+        "concept_name": "Improper Fractions",
+        "aliases": ["top-heavy fraction", "numerator larger", "greater than one fraction"],
+        "kyrgyz_culture": "Kymyz filling beyond a full vessel",
+        "explanation_text": "When kymyz is measured in equal portions and fills more than one full vessel, the amount can be written as an improper fraction, greater than 1.",
+        "image_prompt": "Show several small bowls filled past one full portion, symbolizing fractions greater than 1."
+    },
+    {
+        "concept_id": "adding_fractions",
+        "concept_name": "Adding Fractions",
+        "aliases": ["fraction addition", "add fractions", "sum of fractions"],
+        "kyrgyz_culture": "Combining portions of kaymak",
+        "explanation_text": "Pouring kaymak (clotted cream) from several bowls into one dish shows how fractional amounts add up to a whole.",
+        "image_prompt": "Show smaller bowls of kaymak being poured together to make one total bowl."
+    },
+    {
+        "concept_id": "subtracting_fractions",
+        "concept_name": "Subtracting Fractions",
+        "aliases": ["fraction subtraction", "take away fractions", "difference of fractions"],
+        "kyrgyz_culture": "Pouring out part of a kymyz bowl",
+        "explanation_text": "Removing part of the kymyz from a bowl leaves a smaller portion—the remainder is what is left after subtracting a fraction.",
+        "image_prompt": "Show a cup of kymyz with part of it being poured out, the remainder labeled as the fraction left."
+    },
+    {
+        "concept_id": "multiplying_fractions",
+        "concept_name": "Multiplying Fractions",
+        "aliases": ["fraction multiplication", "part of a part", "multiply fractions"],
+        "kyrgyz_culture": "Portions of a meat serving",
+        "explanation_text": "If each guest takes half of a half serving of meat, you are finding a part of a part—exactly how fractions are multiplied.",
+        "image_prompt": "Show a plate of meat divided into halves, with one half divided again to show smaller portions."
+    },
+    {
+        "concept_id": "dividing_fractions",
+        "concept_name": "Dividing Fractions",
+        "aliases": ["fraction division", "divide fractions", "how many times in"],
+        "kyrgyz_culture": "Splitting dough into small pieces",
+        "explanation_text": "When a portion of dough is cut into smaller even pieces, you are dividing one fraction by another.",
+        "image_prompt": "Show dough being cut into smaller even pieces to illustrate fractional division."
+    },
+    {
+        "concept_id": "decimals",
+        "concept_name": "Decimals",
+        "aliases": ["decimal point", "tenths", "hundredths", "decimal number"],
+        "kyrgyz_culture": "Measuring kymyz in liters",
+        "explanation_text": "Measuring kymyz with liters and milliliters brings in decimals: 1.5 liters means one whole liter and half of another.",
+        "image_prompt": "Show a measuring container marked with 1.0, 1.5, and 2.0 liters of kymyz."
+    },
+    {
+        "concept_id": "converting_fractions_decimals",
+        "concept_name": "Converting Fractions and Decimals",
+        "aliases": ["fraction to decimal", "decimal to fraction", "convert fractions"],
+        "kyrgyz_culture": "Half a liter or 0.5 liter",
+        "explanation_text": "Whether you say half a liter or 0.5 liters, you mean the same amount—this is converting between fractions and decimals.",
+        "image_prompt": "Show two labeled cups, one marked ½ and another 0.5, filled with the same amount."
+    },
+    {
+        "concept_id": "percents",
+        "concept_name": "Percents",
+        "aliases": ["percent", "percentage", "per hundred", "rate per 100"],
+        "kyrgyz_culture": "School test scores",
+        "explanation_text": "When a student scores 90 out of 100 on a Kyrgyz language test, that is 90%—a way of counting parts out of a hundred.",
+        "image_prompt": "Show a test paper with 90/100 written and a 90% mark beside it."
+    },
+    {
+        "concept_id": "percent_of_number",
+        "concept_name": "Percent of a Number",
+        "aliases": ["percentage of number", "find percent", "portion of total"],
+        "kyrgyz_culture": "Discounts at the Kashgar market",
+        "explanation_text": "A 10% discount on an embroidered kalpak at the market shows how a percent finds a part of a total price.",
+        "image_prompt": "Show a market stall sign with a kalpak marked '10% off' and price tags with reduced amounts."
+    },
+    {
+        "concept_id": "variables",
+        "concept_name": "Variables",
+        "aliases": ["variable", "unknown", "letter as number", "symbol in math"],
+        "kyrgyz_culture": "Unlabeled wool sacks",
+        "explanation_text": "If some sacks of wool in a storeroom have no weight written on them, each represents an unknown quantity—like a variable in math.",
+        "image_prompt": "Show labeled wool sacks (5 kg, 8 kg) and an unlabeled sack marked as x."
+    },
+    {
+        "concept_id": "expressions",
+        "concept_name": "Expressions",
+        "aliases": ["math expressions", "numerical expressions", "algebraic expressions"],
+        "kyrgyz_culture": "Known and unknown wool sacks",
+        "explanation_text": "If you have 2 weighed sacks of wool and x more unweighed ones, the total is written as the expression 2 + x.",
+        "image_prompt": "Show two wool sacks plus an unlabeled one, symbolized as 2 + x."
+    },
+    {
+        "concept_id": "equations",
+        "concept_name": "Equations",
+        "aliases": ["math equations", "equal statements", "algebra equations"],
+        "kyrgyz_culture": "Balancing wool on a scale",
+        "explanation_text": "When the two pans of a scale hold equal wool, they balance—the two sides are equal, like the two sides of an equation.",
+        "image_prompt": "Show a balance scale with equal bundles of wool on both sides, labeled as an equation."
+    },
+    {
+        "concept_id": "solving_one_step_equations",
+        "concept_name": "Solving One-Step Equations",
+        "aliases": ["one-step equations", "simple equations"],
+        "kyrgyz_culture": "Balancing a yak's load",
+        "explanation_text": "If one side of a yak's load is heavier, you add or remove weight to balance it—like solving a one-step equation.",
+        "image_prompt": "Show a yak with balanced saddle bags illustrating equal sides."
+    },
+    {
+        "concept_id": "solving_two_step_equations",
+        "concept_name": "Solving Two-Step Equations",
+        "aliases": ["two-step equations", "multi-step equations"],
+        "kyrgyz_culture": "Making boorsok step by step",
+        "explanation_text": "Making boorsok needs kneading the dough first, then frying it—two steps in order, just like solving a two-step equation.",
+        "image_prompt": "Show the sequence: knead dough, fry, then serve, symbolizing step-by-step solving."
+    },
+    {
+        "concept_id": "inequalities",
+        "concept_name": "Inequalities",
+        "aliases": ["greater than", "less than", "not equal", "comparison statements"],
+        "kyrgyz_culture": "Comparing herd sizes",
+        "explanation_text": "When one family's herd of sheep is larger than another's, the sizes are unequal—like greater than or less than in math.",
+        "image_prompt": "Show two herds of sheep of different sizes with > and < symbols between them."
+    },
+    {
+        "concept_id": "order_of_operations",
+        "concept_name": "Order of Operations (PEMDAS)",
+        "aliases": ["PEMDAS", "BODMAS", "math order", "operations order"],
+        "kyrgyz_culture": "The order of preparing boorsok",
+        "explanation_text": "Boorsok must be kneaded before it is cut and fried; the order of steps matters, just as operations follow a fixed order in math.",
+        "image_prompt": "Show a cooking sequence where steps must happen in order, labeled like parentheses, exponents, etc."
+    },
+    {
+        "concept_id": "substitution",
+        "concept_name": "Substitution",
+        "aliases": ["replace variable", "substitute value", "replace letter with number"],
+        "kyrgyz_culture": "Replacing a worn komuz string",
+        "explanation_text": "When a worn komuz string is replaced with a matching one, the new string stands in for the old—like substituting a number for a variable.",
+        "image_prompt": "Show a missing komuz string being replaced with an identical one, representing substitution."
+    },
+    {
+        "concept_id": "points",
+        "concept_name": "Points",
+        "aliases": ["dot", "location", "coordinate point"],
+        "kyrgyz_culture": "Stars over the Tianshan foothills",
+        "explanation_text": "Each star over the Tianshan foothills marks a single position in the sky—just as a point marks a location in geometry.",
+        "image_prompt": "Show a starry sky above the mountains with individual stars labeled as points on a coordinate grid."
+    },
+    {
+        "concept_id": "lines",
+        "concept_name": "Lines",
+        "aliases": ["straight line", "geometry line", "infinite line"],
+        "kyrgyz_culture": "Ropes from the yurt crown",
+        "explanation_text": "The ropes stretched straight from a yurt's crown (shanyrak) reach toward the ground in both directions—like geometric lines.",
+        "image_prompt": "Show straight ropes extending from a yurt's crown, representing geometric lines."
+    },
+    {
+        "concept_id": "angles",
+        "concept_name": "Angles",
+        "aliases": ["angle", "degree", "corner measure"],
+        "kyrgyz_culture": "Opening a yurt door",
+        "explanation_text": "When a yurt door is swung open, the door and its frame form an angle between them.",
+        "image_prompt": "Show a yurt door partially open with the angle clearly marked."
+    },
+    {
+        "concept_id": "perpendicular_lines",
+        "concept_name": "Perpendicular Lines",
+        "aliases": ["right angle lines", "intersecting lines", "orthogonal lines"],
+        "kyrgyz_culture": "The lattice wall of a yurt",
+        "explanation_text": "The wooden strips of a yurt's lattice wall (kerege) cross at right angles, forming perpendicular lines that keep the wall strong.",
+        "image_prompt": "Show yurt lattice wall strips meeting at 90° angles."
+    },
+    {
+        "concept_id": "parallel_lines",
+        "concept_name": "Parallel Lines",
+        "aliases": ["side-by-side lines", "never meet", "equal distance lines"],
+        "kyrgyz_culture": "Felt strips on a carpet border",
+        "explanation_text": "The felt strips sewn side by side along a carpet border run at equal distances and never meet—like parallel lines.",
+        "image_prompt": "Show parallel felt strips running side by side along a carpet border."
+    },
+    {
+        "concept_id": "polygons",
+        "concept_name": "Polygons",
+        "aliases": ["shapes", "closed figure", "many-sided shape"],
+        "kyrgyz_culture": "Yurt layouts seen from above",
+        "explanation_text": "Seen from above, the round and polygonal layouts of a yurt camp trace closed geometric shapes.",
+        "image_prompt": "Show the overhead shapes of several yurts forming geometric patterns."
+    },
+    {
+        "concept_id": "triangles",
+        "concept_name": "Triangles",
+        "aliases": ["three sides", "triangular", "triangle shape"],
+        "kyrgyz_culture": "Sections of the yurt roof",
+        "explanation_text": "Each section of a yurt roof, between the crown and the wall poles, forms a triangle.",
+        "image_prompt": "Show triangular segments formed by yurt roof poles."
+    },
+    {
+        "concept_id": "quadrilaterals",
+        "concept_name": "Quadrilaterals",
+        "aliases": ["four sides", "rectangles", "squares", "trapezoids"],
+        "kyrgyz_culture": "Felt carpet patterns",
+        "explanation_text": "The woven motifs on Kyrgyz felt carpets (shirdak) often form squares and rectangles—quadrilaterals.",
+        "image_prompt": "Show a felt carpet with repeating square and rectangular motifs."
+    },
+    {
+        "concept_id": "perimeter",
+        "concept_name": "Perimeter",
+        "aliases": ["boundary length", "distance around", "outline measure"],
+        "kyrgyz_culture": "Walking around a yurt camp",
+        "explanation_text": "Measuring the distance around a ring of yurts gives the perimeter of the camp—the length of its outline.",
+        "image_prompt": "Show people walking around a ring of yurts with a dashed perimeter line."
+    },
+    {
+        "concept_id": "area",
+        "concept_name": "Area",
+        "aliases": ["surface area", "space inside", "coverage"],
+        "kyrgyz_culture": "Felt rug on the yurt floor",
+        "explanation_text": "The floor space covered by a felt rug inside a yurt is its area.",
+        "image_prompt": "Show a felt rug spread on the yurt floor, shaded to show its area."
+    },
+    {
+        "concept_id": "volume",
+        "concept_name": "Volume",
+        "aliases": ["capacity", "space inside 3D shape", "liquid amount"],
+        "kyrgyz_culture": "Wooden kymyz barrels",
+        "explanation_text": "The amount of kymyz a wooden barrel can hold is its volume.",
+        "image_prompt": "Show wooden barrels filled to different levels to illustrate volume."
+    },
+    {
+        "concept_id": "circle_properties",
+        "concept_name": "Circle Properties",
+        "aliases": ["radius", "diameter", "circumference", "circle geometry"],
+        "kyrgyz_culture": "The yurt crown shanyrak",
+        "explanation_text": "Looking up at the open crown (shanyrak) of a yurt shows a perfect circle, with its diameter, radius, and circumference.",
+        "image_prompt": "Show a yurt's shanyrak from below labeled with radius and diameter lines."
+    },
+    {
+        "concept_id": "pi",
+        "concept_name": "Pi (π)",
+        "aliases": ["pi", "ratio of circumference", "3.14"],
+        "kyrgyz_culture": "The round shanyrak ring",
+        "explanation_text": "The ratio of the shanyrak's circumference to its diameter is always the same constant, π (about 3.14)—no matter the size of the yurt.",
+        "image_prompt": "Show a circular yurt crown labeled with its circumference and diameter measurements."
+    },
+    {
+        "concept_id": "coordinate_plane",
+        "concept_name": "Coordinate Plane",
+        "aliases": ["x-y plane", "graph grid", "axes"],
+        "kyrgyz_culture": "Bazaar stall grid",
+        "explanation_text": "A bazaar arranged in neat rows and columns resembles a coordinate grid, where every stall has its own row and column position.",
+        "image_prompt": "Show a bazaar map labeled with x and y coordinates."
+    },
+    {
+        "concept_id": "plotting_points",
+        "concept_name": "Plotting Points",
+        "aliases": ["graphing points", "coordinates", "x-y plotting"],
+        "kyrgyz_culture": "Marking yurt locations on a map",
+        "explanation_text": "Marking the location of each family's yurt on a map of a campsite is like plotting points on a coordinate plane.",
+        "image_prompt": "Show a map of a foothill campsite with labeled yurt locations marked as points."
+    },
+    {
+        "concept_id": "symmetry",
+        "concept_name": "Symmetry",
+        "aliases": ["mirror image", "balanced halves", "reflection symmetry"],
+        "kyrgyz_culture": "Silver embroidery designs",
+        "explanation_text": "The silver embroidery on Kyrgyz hats and dresses often mirrors left to right across a center line, showing symmetry.",
+        "image_prompt": "Show a symmetrical silver embroidery pattern split by a mirror line."
+    },
+    {
+        "concept_id": "transformations",
+        "concept_name": "Transformations",
+        "aliases": ["translate", "rotate", "reflect", "dilate"],
+        "kyrgyz_culture": "Riders turning at Nooruz",
+        "explanation_text": "When riders wheel, rotate, and change direction in the horse games of Nooruz, they show geometric transformations.",
+        "image_prompt": "Show horse riders turning and shifting positions to illustrate transformations."
+    },
+    {
+        "concept_id": "ratios",
+        "concept_name": "Ratios",
+        "aliases": ["comparison", "proportion of quantities", "rate"],
+        "kyrgyz_culture": "Mixing tea and milk",
+        "explanation_text": "In a Kyrgyz home, the balance of tea to milk in each bowl is a ratio, such as two parts tea to one part milk.",
+        "image_prompt": "Show a teapot and a milk jug labeled with a 2:1 ratio."
+    },
+    {
+        "concept_id": "proportions",
+        "concept_name": "Proportions",
+        "aliases": ["equal ratios", "scaling", "balance of ratios"],
+        "kyrgyz_culture": "Enlarging felt patterns",
+        "explanation_text": "When a felt pattern is drawn larger while keeping every part in the same relation, the two drawings are in proportion.",
+        "image_prompt": "Show a small and a large felt carpet with the same geometric proportions."
+    },
+    {
+        "concept_id": "unit_rate",
+        "concept_name": "Unit Rate",
+        "aliases": ["per unit", "rate per one", "comparison per one unit"],
+        "kyrgyz_culture": "Horse pace in a race",
+        "explanation_text": "The distance a horse covers in one minute during a race is a unit rate—a comparison for a single unit of time.",
+        "image_prompt": "Show a horse race with speed measured as kilometers per minute."
+    },
+    {
+        "concept_id": "scale_drawings",
+        "concept_name": "Scale Drawings",
+        "aliases": ["map scale", "drawing proportion", "scaled map"],
+        "kyrgyz_culture": "Mapping a yurt camp",
+        "explanation_text": "Drawing a smaller map of a large yurt camp while keeping distances in proportion is a scale drawing.",
+        "image_prompt": "Show a yurt camp and a smaller scaled map side by side with a scale legend."
+    },
+    {
+        "concept_id": "percent_change",
+        "concept_name": "Percent Change",
+        "aliases": ["percent increase", "percent decrease", "growth rate"],
+        "kyrgyz_culture": "Growth of a yak herd",
+        "explanation_text": "If a family's yak herd grows from 100 to 120 animals, that is a 20% increase—an example of percent change.",
+        "image_prompt": "Show a herd growing in number with a +20% label."
+    },
+    {
+        "concept_id": "data_collection",
+        "concept_name": "Data Collection",
+        "aliases": ["gather data", "record information", "collect numbers"],
+        "kyrgyz_culture": "Counting livestock at the campsite",
+        "explanation_text": "Recording how many sheep, yaks, and horses a family owns is data collection—gathering numbers to study.",
+        "image_prompt": "Show a herder marking tallies of animals on a clipboard."
+    },
+    {
+        "concept_id": "tables_graphs",
+        "concept_name": "Tables and Graphs",
+        "aliases": ["data table", "bar graph", "chart"],
+        "kyrgyz_culture": "Livestock data in a graph",
+        "explanation_text": "Using a graph to show how many animals were born each season makes the data easy to read and compare.",
+        "image_prompt": "Show a bar graph comparing livestock births across four seasons."
+    },
+    {
+        "concept_id": "mean",
+        "concept_name": "Mean",
+        "aliases": ["average", "arithmetic mean", "mean value"],
+        "kyrgyz_culture": "Average milk yield",
+        "explanation_text": "Adding up a yak's daily milk amounts and dividing by the number of days gives the mean—the average daily yield.",
+        "image_prompt": "Show a table of milk outputs with the average value highlighted."
+    },
+    {
+        "concept_id": "median",
+        "concept_name": "Median",
+        "aliases": ["middle value", "data median"],
+        "kyrgyz_culture": "Middle herd size",
+        "explanation_text": "When families' herd sizes are arranged from smallest to largest, the middle value is the median.",
+        "image_prompt": "Show herd sizes lined up with the middle one highlighted as the median."
+    },
+    {
+        "concept_id": "mode",
+        "concept_name": "Mode",
+        "aliases": ["most frequent value", "common value"],
+        "kyrgyz_culture": "Most common yak color",
+        "explanation_text": "If most yaks in the valley are black, black is the mode—the value that appears most often.",
+        "image_prompt": "Show yaks of various colors with black being the most common."
+    },
+    {
+        "concept_id": "range",
+        "concept_name": "Range",
+        "aliases": ["difference", "spread of data", "highest minus lowest"],
+        "kyrgyz_culture": "Difference in herd sizes",
+        "explanation_text": "The gap between the largest and the smallest herd shows the range of the data.",
+        "image_prompt": "Show a bar chart with the shortest and tallest bars marked for range."
+    },
+    {
+        "concept_id": "bar_graphs",
+        "concept_name": "Bar Graphs",
+        "aliases": ["bar chart", "column graph"],
+        "kyrgyz_culture": "Comparing families' herds",
+        "explanation_text": "A bar graph shows how many animals each family owns, making quick comparisons easy.",
+        "image_prompt": "Show a bar graph labeled by family names with livestock totals."
+    },
+    {
+        "concept_id": "line_graphs",
+        "concept_name": "Line Graphs",
+        "aliases": ["trend graph", "line chart"],
+        "kyrgyz_culture": "Kymyz production over months",
+        "explanation_text": "A line graph can show how kymyz production rises and falls month by month across the year.",
+        "image_prompt": "Show a line graph labeled with months and kymyz output."
+    },
+    {
+        "concept_id": "pie_charts",
+        "concept_name": "Pie Charts",
+        "aliases": ["circle chart", "percentage chart"],
+        "kyrgyz_culture": "Types of livestock in a herd",
+        "explanation_text": "A pie chart can show the share of sheep, yaks, horses, and goats in a family's herd.",
+        "image_prompt": "Show a pie chart divided into livestock categories with percentages."
+    },
+    {
+        "concept_id": "probability",
+        "concept_name": "Probability",
+        "aliases": ["chance", "likelihood", "odds"],
+        "kyrgyz_culture": "Guessing the race winner",
+        "explanation_text": "Before a Nooruz horse race, guessing which horse is most likely to win involves probability.",
+        "image_prompt": "Show horses at a race start line with probability labels above each."
+    },
+    {
+        "concept_id": "patterns",
+        "concept_name": "Patterns",
+        "aliases": ["repeating design", "sequence", "recurrence"],
+        "kyrgyz_culture": "Repeated felt motifs",
+        "explanation_text": "The repeating geometric motifs on felt carpets and shirdaks form visual patterns you can predict.",
+        "image_prompt": "Show repeating geometric designs on traditional Kyrgyz felt work."
+    },
+    {
+        "concept_id": "functions",
+        "concept_name": "Functions",
+        "aliases": ["input-output rule", "function relation", "mapping"],
+        "kyrgyz_culture": "Horse speed vs distance",
+        "explanation_text": "Each speed a horse rides at produces a specific distance over a fixed time—each input gives one output, like a function.",
+        "image_prompt": "Show a graph linking horse speed (input) to distance traveled (output)."
+    }
+]

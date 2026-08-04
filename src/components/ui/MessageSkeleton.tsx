@@ -1,11 +1,14 @@
 "use client";
 
+import { useLanguage } from "@/contexts/LanguageContext";
+
 export default function MessageSkeleton({ isUser = false }: { isUser?: boolean }) {
+    const { t } = useLanguage();
     return (
         <div
             className={`message-row ${isUser ? "is-user" : "is-assistant"}`}
             role="status"
-            aria-label={isUser ? "Loading message..." : "Loading response..."}
+            aria-label={isUser ? t("chatLoadingMessage") : t("chatLoadingResponse")}
         >
             <div
                 className="message-row-bubble-wrapper"

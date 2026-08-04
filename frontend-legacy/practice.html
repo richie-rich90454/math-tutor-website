@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="/legacy/img/favicon.png">
+<title data-i18n="practiceTitle">Practice</title>
+<link rel="stylesheet" href="/legacy/css/style.css">
+</head>
+<body>
+<div class="legacy-shell">
+    <div class="legacy-header">
+        <img src="/legacy/img/logo.png" alt="" class="legacy-logo"><span class="brand">MathTutor AI</span>
+        <span class="right">
+            <span id="langSwitcher"></span>
+            <span> | </span>
+            <a href="/legacy/index.html" data-i18n="navBackToApp">Back to app</a>
+        </span>
+    </div>
+
+    <div class="legacy-content" style="max-width:760px;">
+        <h1 data-i18n="practiceTitle">Practice</h1>
+        <div class="auth-msg hidden" id="errorBox"></div>
+
+        <div class="card hidden" id="reviewCard">
+            <div class="row" style="align-items:center;">
+                <strong id="reviewText" data-i18n="reviewDue">Review due</strong>
+                <span style="margin-left:auto;">
+                    <a href="#" id="startReviewBtn" class="btn btn-primary" data-i18n="reviewStart">Start review</a>
+                </span>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="row">
+                <span class="stat-label" data-i18n="practiceTopic">Topic</span>:
+                <span id="topicChips"></span>
+            </div>
+            <div class="row">
+                <span class="stat-label" data-i18n="practiceGrade">Grade</span>:
+                <select id="gradeSelect">
+                    <option value="all">All</option>
+                    <option value="1">1</option><option value="2">2</option>
+                    <option value="3">3</option><option value="4">4</option>
+                    <option value="5">5</option><option value="6">6</option>
+                    <option value="7">7</option><option value="8">8</option>
+                    <option value="9">9</option><option value="10">10</option>
+                    <option value="11">11</option><option value="12">12</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="card">
+            <table class="stats-table" style="margin-bottom:12px;">
+                <tr>
+                    <td><div class="stat" id="streakVal">0</div><div class="stat-label" data-i18n="practiceStreak">Streak</div></td>
+                    <td><div class="stat" id="accuracyVal">0%</div><div class="stat-label">Accuracy</div></td>
+                    <td><div class="stat" id="progressVal">0/0</div><div class="stat-label" data-i18n="practiceQuestion">Question</div></td>
+                </tr>
+            </table>
+            <div id="questionCard">
+                <div class="muted" id="questionTag">&nbsp;</div>
+                <p id="questionText" style="font-size:1.05rem;font-weight:600;">&nbsp;</p>
+                <div id="optionsList"></div>
+                <div id="feedback" class="hidden">
+                    <p id="feedbackResult" style="font-weight:700;"></p>
+                    <p class="muted" id="feedbackExplanation"></p>
+                    <div class="row" style="justify-content:flex-end;margin-top:8px;">
+                        <a href="#" id="askAiBtn" class="btn" data-i18n="practiceAskAI">Ask AI for help</a>
+                        <a href="#" id="nextBtn" class="btn btn-primary" data-i18n="practiceNext">Next question</a>
+                    </div>
+                </div>
+                <div id="aiHelp" class="hidden" style="margin-top:10px;border-top:1px solid #ddd;padding-top:8px;"></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="row" style="align-items:center;">
+                <strong data-i18n="studyPlanTitle">7-day study plan</strong>
+                <span style="margin-left:auto;">
+                    <a href="#" id="genPlanBtn" class="btn" data-i18n="generatePlan">Generate study plan</a>
+                </span>
+            </div>
+            <div id="planText" class="muted" style="margin-top:8px;white-space:pre-wrap;"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/legacy/js/json2.min.js"></script>
+<script src="/legacy/js/jquery-1.12.4.min.js"></script>
+<script src="/legacy/js/config.js"></script>
+<script src="/legacy/js/i18n.js"></script>
+<script src="/legacy/js/common.js"></script>
+<script src="/legacy/js/practice.js"></script>
+</body>
+</html>

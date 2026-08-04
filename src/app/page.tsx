@@ -10,11 +10,14 @@ import CommandPalette from "@/components/ui/CommandPalette";
 import MessageSkeleton from "@/components/ui/MessageSkeleton";
 import BottomSheet from "@/components/ui/BottomSheet";
 import Sparkles from "@/components/ui/Sparkles";
+import UsageMeter from "@/components/ui/UsageMeter";
 import VirtualizedMessages from "@/components/chat/VirtualizedMessages";
 import MessageRow from "@/components/chat/MessageRow";
+import ChatTools from "@/components/chat/ChatTools";
+import LearningCards from "@/components/home/LearningCards";
+import ContinueLearning from "@/components/home/ContinueLearning";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useChat, ChatSession } from "@/contexts/ChatContext";
-import { useAuth } from "@/contexts/AuthContext";
+import type { ChatSession } from "@/contexts/ChatContext";
 import { gsap, useGSAP } from "@/lib/gsap";
 import { useChatMessages } from "@/hooks/useChatMessages";
 import { useChatUI } from "@/hooks/useChatUI";
@@ -30,8 +33,6 @@ const ShortcutHelp = dynamic(() => import("@/components/ui/ShortcutHelp"));
 
 export default function Home() {
     const { t } = useLanguage();
-    const { currentChat, setCurrentChat } = useChat();
-    const { isAuthenticated } = useAuth();
     const {
         input,
         setInput,
@@ -40,13 +41,12 @@ export default function Home() {
         messages,
         isLoading,
         isStreaming,
-        activeChatId,
         setActiveChatId,
-        isLoaded,
         setIsLoaded,
         sendMessage,
         sendImage,
         handleRegenerate,
+        handleFreshAnswer,
         handleStopGeneration,
         handleEdit,
         handleNewChat,
@@ -55,12 +55,16 @@ export default function Home() {
         chatMessagesRef,
         messagesEndRef,
         prevMessagesLenRef,
+        quotaWarn,
+        activeChatId,
+        togglePin,
     } = useChatMessages();
 
     const {
         isSidebarOpen,
         setIsSidebarOpen,
         isMobile,
+        isTouchDevice,
         showShortcuts,
         setShowShortcuts,
         showCommandPalette,
@@ -89,38 +93,26 @@ export default function Home() {
     const prevStreamingRef = useRef(false);
 
     // ── GSAP animations ──
-    useGSAP(
-        () => {
-            if (messages.length === 0 && welcomeRef.current) {
-                const tl = gsap.timeline();
-                const titleEl = welcomeRef.current.querySelector(".welcome-title");
-                const subtitleEl = welcomeRef.current.querySelector(".welcome-subtitle");
-                const promptBtns = welcomeRef.current.querySelectorAll(".prompt-btn");
-                const inputCard = welcomeRef.current.querySelector(".welcome-input-card");
-                if (titleEl)
-                    tl.from(titleEl, { y: 30, opacity: 0, duration: 0.6, ease: "power2.out" }, 0);
-                if (subtitleEl)
-                    tl.from(
-                        subtitleEl,
-                        { y: 30, opacity: 0, duration: 0.6, ease: "power2.out" },
-                        0.1,
-                    );
-                if (inputCard)
-                    tl.from(
-                        inputCard,
-                        { y: 30, opacity: 0, duration: 0.6, ease: "power2.out" },
-                        0.2,
-                    );
-                if (promptBtns.length)
-                    tl.from(
-                        promptBtns,
-                        { y: 20, opacity: 0, duration: 0.4, stagger: 0.08, ease: "power2.out" },
-                        0.3,
-                    );
-            }
-        },
-        { dependencies: [messages.length], scope: welcomeRef, revertOnUpdate: false },
-    );
+    useEffect(() => {
+        if (messages.length === 0 && welcomeRef.current) {
+            const titleEl = welcomeRef.current.querySelector(".welcome-title");
+            const subtitleEl = welcomeRef.current.querySelector(".welcome-subtitle");
+            const inputCard = welcomeRef.current.querySelector(".welcome-input-card");
+            const tl = gsap.timeline();
+            if (titleEl)
+                tl.from(titleEl, { y: 30, opacity: 0, duration: 0.6, ease: "power2.out" }, 0);
+            if (subtitleEl)
+                tl.from(subtitleEl, { y: 30, opacity: 0, duration: 0.6, ease: "power2.out" }, 0.1);
+            if (inputCard)
+                tl.from(inputCard, { y: 30, opacity: 0, duration: 0.6, ease: "power2.out" }, 0.2);
+            // ponytail: prompt buttons use CSS (promptBtnIn) instead of the GSAP
+            // timeline — under StrictMode double-mount the staggered tween left
+            // them stuck at opacity 0. CSS can never leave them invisible.
+            return () => {
+                tl.revert();
+            };
+        }
+    }, [messages.length]);
 
     useGSAP(
         () => {
@@ -223,52 +215,78 @@ export default function Home() {
             <MessageRow
                 key={message.id}
                 message={message}
-                isHovered={hoveredMsgId === message.id}
+                isHovered={isTouchDevice || hoveredMsgId === message.id}
                 isStreaming={isStreaming}
                 isLastMessage={index === messages.length - 1}
                 formatTime={formatTime}
                 onRegenerate={handleRegenerate}
+                onFresh={handleFreshAnswer}
                 onFeedback={handleFeedback}
                 feedbackValue={feedback.get(message.id) || null}
                 onEdit={handleEdit}
                 editLabel={t("chatEditMessage") || "Edit message"}
+                onSuggestionClick={(text: string) => setInput(text)}
+                onFollowUp={sendMessage}
                 onMouseEnter={() => setHoveredMsgId(message.id)}
                 onMouseLeave={() => setHoveredMsgId(null)}
+                onTogglePin={togglePin}
+                isPinned={!!message.isPinned}
             />
         ));
     }, [
         messages,
         hoveredMsgId,
+        isTouchDevice,
         isStreaming,
         feedback,
         formatTime,
         handleRegenerate,
+        handleFreshAnswer,
         handleFeedback,
         handleEdit,
+        togglePin,
         t,
+        sendMessage,
         setHoveredMsgId,
+        setInput,
     ]);
 
     return (
         <div className="app-shell">
             <button
                 className="mobile-menu-btn"
-                onClick={() => setIsSidebarOpen(true)}
-                aria-label={t("openMenu")}
+                onClick={() => setIsSidebarOpen((v) => !v)}
+                aria-label={isSidebarOpen ? t("sidebarMinimize") : t("openMenu")}
+                aria-expanded={isSidebarOpen}
             >
-                <svg
-                    width="22"
-                    height="22"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                >
-                    <line x1="3" y1="6" x2="21" y2="6" />
-                    <line x1="3" y1="12" x2="21" y2="12" />
-                    <line x1="3" y1="18" x2="21" y2="18" />
-                </svg>
+                {isSidebarOpen ? (
+                    <svg
+                        width="22"
+                        height="22"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                    >
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                ) : (
+                    <svg
+                        width="22"
+                        height="22"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                    >
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <line x1="3" y1="12" x2="21" y2="12" />
+                        <line x1="3" y1="18" x2="21" y2="18" />
+                    </svg>
+                )}
             </button>
 
             {isMobile ? (
@@ -277,6 +295,7 @@ export default function Home() {
                         isOpen={true}
                         onToggle={handleSidebarToggle}
                         onShowShortcuts={() => setShowShortcuts(true)}
+                        onNewChat={handleNewChat}
                         onChatSelect={(chat: ChatSession) => {
                             setActiveChatId(chat.id);
                             setIsLoaded(false);
@@ -287,7 +306,7 @@ export default function Home() {
             ) : (
                 <>
                     <div
-                        className={`sidebar-backdrop ${isSidebarOpen ? "is-visible" : ""}`}
+                        className={`sidebar-backdrop ${isMobile && isSidebarOpen ? "is-visible" : ""}`}
                         onClick={() => isMobile && setIsSidebarOpen(false)}
                     />
                     <div
@@ -297,6 +316,10 @@ export default function Home() {
                             isOpen={isSidebarOpen}
                             onToggle={handleSidebarToggle}
                             onShowShortcuts={() => setShowShortcuts(true)}
+                            onNewChat={() => {
+                                handleNewChat();
+                                setIsSidebarOpen(false);
+                            }}
                             onChatSelect={(chat: ChatSession) => {
                                 setActiveChatId(chat.id);
                                 setIsLoaded(false);
@@ -309,6 +332,24 @@ export default function Home() {
             <div
                 className={`app-main ${isSidebarOpen ? "with-sidebar" : "with-sidebar-collapsed"}`}
             >
+                {quotaWarn && (
+                    <div className="quota-banner" role="status">
+                        <svg
+                            width="14"
+                            height="14"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                        >
+                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                            <line x1="12" y1="9" x2="12" y2="13" />
+                            <line x1="12" y1="17" x2="12.01" y2="17" />
+                        </svg>
+                        {t("quotaWarning") || "You have used 80% of your daily token limit"}
+                    </div>
+                )}
                 <div className="app-header">
                     <div className="app-header-inner">
                         {messages.length > 0 && (
@@ -353,6 +394,7 @@ export default function Home() {
                                         <line x1="12" y1="15" x2="12" y2="3" />
                                     </svg>
                                 </button>
+                                <ChatTools chatId={activeChatId} />
                             </>
                         )}
                         <ThemeToggle />
@@ -425,6 +467,8 @@ export default function Home() {
                                             {t("practiceProblems") || "Practice Problems"}
                                         </button>
                                     </div>
+                                    <ContinueLearning onSelect={(text) => sendMessage(text)} />
+                                    <LearningCards />
                                 </div>
                             </div>
                         )}
@@ -491,6 +535,7 @@ export default function Home() {
 
                 <div className="app-footer">
                     <p className="app-footer-text">{t("bottomText")}</p>
+                    <UsageMeter refreshKey={messages.length} />
                 </div>
             </div>
 

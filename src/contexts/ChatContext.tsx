@@ -2,22 +2,10 @@
 
 import { createContext, useContext, useState, useCallback, useEffect, ReactNode } from "react";
 import { useAuth } from "./AuthContext";
+import { apiFetch } from "@/lib/api-client";
+import type { ChatSession, ChatMessage } from "@/contracts/chat";
 
-export interface ChatSession {
-    id: string;
-    title: string;
-    timestamp: string;
-    preview: string;
-    topic?: string | null;
-    messages: ChatMessage[];
-}
-
-export interface ChatMessage {
-    id: string;
-    content: string;
-    role: "user" | "assistant";
-    timestamp: string;
-}
+export type { ChatSession, ChatMessage } from "@/contracts/chat";
 
 interface ChatContextType {
     chatHistory: ChatSession[];
@@ -28,6 +16,7 @@ interface ChatContextType {
     addMessage: (chatId: string, message: ChatMessage) => void;
     deleteChat: (chatId: string) => Promise<void>;
     renameChat: (chatId: string, newTitle: string) => Promise<void>;
+    togglePinChat: (chatId: string) => Promise<void>;
     loadChatHistory: () => Promise<void>;
     syncChatId: (oldId: string, newId: string) => void;
 }
@@ -43,7 +32,7 @@ export function ChatProvider({ children }: { children: ReactNode }) {
     const loadChatHistory = useCallback(async () => {
         try {
             setIsHistoryLoading(true);
-            const res = await fetch("/api/chats");
+            const res = await apiFetch("/api/chats");
             if (res.ok) {
                 const data = await res.json();
                 setChatHistory(data.chats || []);
@@ -99,7 +88,7 @@ export function ChatProvider({ children }: { children: ReactNode }) {
     const deleteChat = useCallback(
         async (chatId: string) => {
             try {
-                const res = await fetch(`/api/chats/${chatId}`, { method: "DELETE" });
+                const res = await apiFetch(`/api/chats/${chatId}`, { method: "DELETE" });
                 if (res.ok) {
                     setChatHistory((prev) => prev.filter((chat) => chat.id !== chatId));
                     if (currentChat?.id === chatId) {
@@ -116,10 +105,10 @@ export function ChatProvider({ children }: { children: ReactNode }) {
     const renameChat = useCallback(
         async (chatId: string, newTitle: string) => {
             try {
-                const res = await fetch(`/api/chats/${chatId}`, {
+                const res = await apiFetch(`/api/chats/${chatId}`, {
                     method: "PATCH",
                     headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ title: newTitle }),
+                    body: JSON.stringify({ title: newTitle, preview: newTitle }),
                 });
                 if (res.ok) {
                     setChatHistory((prev) =>
@@ -140,6 +129,33 @@ export function ChatProvider({ children }: { children: ReactNode }) {
         [currentChat],
     );
 
+    const togglePinChat = useCallback(
+        async (chatId: string) => {
+            try {
+                const chat = chatHistory.find((c) => c.id === chatId);
+                const nextPinned = !(chat?.isPinned ?? false);
+                const res = await apiFetch(`/api/chats/${chatId}`, {
+                    method: "PATCH",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ is_pinned: nextPinned }),
+                });
+                if (res.ok) {
+                    setChatHistory((prev) =>
+                        prev.map((chat) =>
+                            chat.id === chatId ? { ...chat, isPinned: nextPinned } : chat,
+                        ),
+                    );
+                    if (currentChat?.id === chatId) {
+                        setCurrentChat((prev) => (prev ? { ...prev, isPinned: nextPinned } : prev));
+                    }
+                }
+            } catch {
+                // Silently fail
+            }
+        },
+        [chatHistory, currentChat],
+    );
+
     return (
         <ChatContext.Provider
             value={{
@@ -151,6 +167,7 @@ export function ChatProvider({ children }: { children: ReactNode }) {
                 addMessage,
                 deleteChat,
                 renameChat,
+                togglePinChat,
                 loadChatHistory,
                 syncChatId,
             }}

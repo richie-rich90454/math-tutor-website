@@ -2,6 +2,8 @@ import { memo } from "react";
 import dynamic from "next/dynamic";
 import type { Message } from "@/types/chat";
 import Skeleton from "@/components/ui/Skeleton";
+import BilingualToggle from "@/components/chat/BilingualToggle";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const MarkdownRenderer = dynamic(() => import("@/components/ui/MarkdownRenderer"), {
     loading: () => <Skeleton height="60px" variant="card" />,
@@ -15,12 +17,17 @@ interface MessageRowProps {
     isLastMessage: boolean;
     formatTime: (d: Date) => string;
     onRegenerate: () => void;
+    onFresh: () => void;
     onFeedback: (msgId: string, type: "up" | "down") => void;
     feedbackValue: "up" | "down" | null;
     onEdit: (messageId: string, content: string) => void;
     editLabel: string;
+    onSuggestionClick?: (text: string) => void;
+    onFollowUp?: (text: string) => void;
     onMouseEnter: () => void;
     onMouseLeave: () => void;
+    onTogglePin?: (messageId: string) => void;
+    isPinned?: boolean;
 }
 
 const MessageRow = memo(function MessageRow({
@@ -30,13 +37,19 @@ const MessageRow = memo(function MessageRow({
     isLastMessage,
     formatTime,
     onRegenerate,
+    onFresh,
     onFeedback,
     feedbackValue,
     onEdit,
     editLabel,
+    onSuggestionClick,
+    onFollowUp,
     onMouseEnter,
     onMouseLeave,
+    onTogglePin,
+    isPinned,
 }: MessageRowProps) {
+    const { t } = useLanguage();
     return (
         <div
             className={`message-row ${message.role === "user" ? "is-user" : "is-assistant"}`}
@@ -47,7 +60,10 @@ const MessageRow = memo(function MessageRow({
                 {message.role === "user" ? (
                     <>
                         <div className="message-bubble-user">
-                            <MarkdownRenderer content={message.content} />
+                            <MarkdownRenderer
+                                content={message.content}
+                                onSuggestionClick={onSuggestionClick}
+                            />
                         </div>
                         {isHovered && !isStreaming && (
                             <button
@@ -87,17 +103,52 @@ const MessageRow = memo(function MessageRow({
                             messageId={message.id}
                             content={message.content}
                             onRegenerate={onRegenerate}
+                            onFresh={onFresh}
+                            isCached={message.isCached}
                             onFeedback={(type) => onFeedback(message.id, type)}
                             feedback={feedbackValue}
                             isVisible={isHovered}
+                            onTogglePin={onTogglePin ? () => onTogglePin(message.id) : undefined}
+                            isPinned={isPinned}
                         />
+                        {message.isCached && (
+                            <span className="msg-cached-badge">{t("chatAskedBefore")}</span>
+                        )}
+                        {!isStreaming && onFollowUp && (
+                            <div className="followup-chips">
+                                <button
+                                    type="button"
+                                    className="followup-chip"
+                                    onClick={() => onFollowUp(t("followUpExplain"))}
+                                >
+                                    {t("followUpExplain")}
+                                </button>
+                                <button
+                                    type="button"
+                                    className="followup-chip"
+                                    onClick={() => onFollowUp(t("followUpExamples"))}
+                                >
+                                    {t("followUpExamples")}
+                                </button>
+                                <button
+                                    type="button"
+                                    className="followup-chip"
+                                    onClick={() => onFollowUp(t("followUpAnother"))}
+                                >
+                                    {t("followUpAnother")}
+                                </button>
+                            </div>
+                        )}
                         <div
                             className="message-bubble-assistant"
                             data-streaming={isStreaming && isLastMessage ? "true" : undefined}
                             aria-busy={isStreaming && isLastMessage ? "true" : "false"}
                         >
                             {message.content ? (
-                                <MarkdownRenderer content={message.content} />
+                                <MarkdownRenderer
+                                    content={message.content}
+                                    onSuggestionClick={onSuggestionClick}
+                                />
                             ) : (
                                 <span className="streaming-cursor" />
                             )}
@@ -105,6 +156,7 @@ const MessageRow = memo(function MessageRow({
                         <span className="message-time is-left">
                             {formatTime(message.timestamp)}
                         </span>
+                        <BilingualToggle message={message.content} disabled={isStreaming} />
                     </div>
                 )}
             </div>
