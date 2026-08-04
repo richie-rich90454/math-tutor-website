@@ -15,6 +15,7 @@ import VirtualizedMessages from "@/components/chat/VirtualizedMessages";
 import MessageRow from "@/components/chat/MessageRow";
 import ChatTools from "@/components/chat/ChatTools";
 import LearningCards from "@/components/home/LearningCards";
+import ContinueLearning from "@/components/home/ContinueLearning";
 import { useLanguage } from "@/contexts/LanguageContext";
 import type { ChatSession } from "@/contexts/ChatContext";
 import { gsap, useGSAP } from "@/lib/gsap";
@@ -225,6 +226,7 @@ export default function Home() {
                 onEdit={handleEdit}
                 editLabel={t("chatEditMessage") || "Edit message"}
                 onSuggestionClick={(text: string) => setInput(text)}
+                onFollowUp={sendMessage}
                 onMouseEnter={() => setHoveredMsgId(message.id)}
                 onMouseLeave={() => setHoveredMsgId(null)}
                 onTogglePin={togglePin}
@@ -244,6 +246,7 @@ export default function Home() {
         handleEdit,
         togglePin,
         t,
+        sendMessage,
         setHoveredMsgId,
         setInput,
     ]);
@@ -464,6 +467,7 @@ export default function Home() {
                                             {t("practiceProblems") || "Practice Problems"}
                                         </button>
                                     </div>
+                                    <ContinueLearning onSelect={(text) => sendMessage(text)} />
                                     <LearningCards />
                                 </div>
                             </div>
