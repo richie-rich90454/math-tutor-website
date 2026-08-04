@@ -11,6 +11,7 @@
     var isStreaming = false;
     var pendingImage = null;
     var xhr = null;
+    var stopRequested = false;
     var currentAssistantId = null;
     var assistantBuf = "";
 
@@ -709,6 +710,7 @@
             finishStreaming();
             return;
         }
+        stopRequested = false;
         var fullUrl = API_BASE_URL + url;
         xhr.open("POST", fullUrl, true);
         xhr.setRequestHeader("Content-Type", "application/json");
@@ -722,6 +724,10 @@
                 } else {
                     if (!done) {
                         done = true;
+                        if (stopRequested) {
+                            finishStreaming();
+                            return;
+                        }
                         var errMsg = MathTutor.t("errorNetwork");
                         try {
                             var data = JSON.parse(xhr.responseText);
@@ -955,6 +961,7 @@
             sendMessage();
         };
         el("stopBtn").onclick = function () {
+            stopRequested = true;
             if (xhr) {
                 xhr.abort();
             }
