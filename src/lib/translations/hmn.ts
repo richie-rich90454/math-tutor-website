@@ -245,6 +245,8 @@ const hmn: Translations = {
     topicStatistics: "Kev Txheeb Xyuas",
     gradeAll: "Txhua Qib",
     sheetsLoadError: "Nqa cov nplooj ntawv tsis tau. Thov sim dua.",
+    chatAskedBefore: "Yug lawm nug",
+    chatFreshAnswer: "Tau cov lus teb tshiab",
 };
 
 export default hmn;
