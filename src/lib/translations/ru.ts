@@ -245,6 +245,8 @@ const ru: Translations = {
     topicStatistics: "Статистика",
     gradeAll: "Все",
     sheetsLoadError: "Не удалось загрузить таблицы. Попробуйте ещё раз.",
+    chatAskedBefore: "Спрашивалось ранее",
+    chatFreshAnswer: "Получить новый ответ",
 };
 
 export default ru;
