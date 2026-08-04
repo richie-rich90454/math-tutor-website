@@ -9,7 +9,7 @@
         "test": "npm run frontend:test && npm run backend:test",
         "format": "oxfmt --write .",
         "frontend:dev": "next dev --turbopack",
-        "frontend:build": "next build",
+        "frontend:build": "node scripts/minify-json.js && next build",
         "frontend:start": "next start",
         "frontend:lint": "eslint src/",
         "frontend:test": "vitest run",
