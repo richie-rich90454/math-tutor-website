@@ -326,6 +326,13 @@
     function renderMessageHtml(msg) {
         var role = msg.role === "user" ? MathTutor.t("chatYou") : MathTutor.t("ciAIMathTutor");
         var cls = msg.role === "user" ? "msg-user" : "msg-assistant";
+        var body = msg.content;
+        var suggestions = [];
+        if (msg.role === "assistant") {
+            var parsed = MathTutor.extractSuggestions(msg.content);
+            body = parsed.clean;
+            suggestions = parsed.suggestions;
+        }
         var actions = "";
         if (msg.role === "assistant") {
             actions = '<div class="msg-actions">'
@@ -342,10 +349,24 @@
         }
         return '<div class="msg-row ' + cls + '" data-msg-id="' + MathTutor.escapeHtml(msg.id) + '">'
             + '<div class="msg-role">' + MathTutor.escapeHtml(role) + "</div>"
-            + '<div class="msg-body">' + MathTutor.renderMarkdownSafe(msg.content) + "</div>"
+            + '<div class="msg-body">' + MathTutor.renderMarkdownSafe(body) + "</div>"
+            + suggestionButtons(suggestions)
             + '<div class="msg-time">' + MathTutor.escapeHtml(MathTutor.formatTime(msg.timestamp)) + "</div>"
             + actions
             + "</div>";
+    }
+
+    function suggestionButtons(suggestions) {
+        if (!suggestions || suggestions.length === 0) {
+            return "";
+        }
+        var html = '<div class="suggestions">';
+        for (var i = 0; i < suggestions.length; i++) {
+            html += '<button type="button" class="suggestion-btn" data-suggestion="'
+                + MathTutor.escapeHtml(suggestions[i]) + '">'
+                + MathTutor.escapeHtml(suggestions[i]) + "</button>";
+        }
+        return html + "</div>";
     }
 
     function appendAssistantChunk(text) {
@@ -358,13 +379,7 @@
                 var row = rows[i];
                 if (row.className && row.className.indexOf("msg-row") !== -1
                     && row.getAttribute("data-msg-id") === currentAssistantId) {
-                    var children = row.getElementsByTagName("div");
-                    for (var j = 0; j < children.length; j++) {
-                        if (children[j].className === "msg-body") {
-                            children[j].innerHTML = MathTutor.renderMarkdownSafe(last.content);
-                            break;
-                        }
-                    }
+                    row.innerHTML = renderMessageHtml(last);
                     break;
                 }
             }
@@ -1025,6 +1040,16 @@
         el("chatSearch").onkeyup = function () {
             searchChats(this.value);
         };
+
+        $(el("messagesArea")).on("click", ".suggestion-btn", function (e) {
+            e.preventDefault();
+            var suggestion = this.getAttribute("data-suggestion");
+            if (suggestion) {
+                var inputEl2 = el("chatInput");
+                inputEl2.value = suggestion;
+                inputEl2.focus();
+            }
+        });
 
         $(el("messagesArea")).on("click", "a[data-action]", function (e) {
             e.preventDefault();
