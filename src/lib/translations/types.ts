@@ -280,4 +280,10 @@ export interface Translations {
     sheetsLoadError?: string;
     chatAskedBefore?: string;
     chatFreshAnswer?: string;
+    settingsResumeLastChat?: string;
+    continueLearning?: string;
+    recentTopics?: string;
+    followUpExplain?: string;
+    followUpExamples?: string;
+    followUpAnother?: string;
 }
