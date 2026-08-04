@@ -246,4 +246,10 @@ TRANSLATION_TABLES["tg"] = {
     sheetsLoadError: "Бор кардани ҷадвалҳо муяссар нашуд. Аз нав кӯшиш кунед.",
     chatAskedBefore: "Қабл пурсида шуда",
     chatFreshAnswer: "Ҷавоби нав гирифтан",
+    settingsResumeLastChat: "Давом додани сӯҳбати охир",
+    continueLearning: "Идомаи омӯзиш",
+    recentTopics: "Мавзӯъҳои охир",
+    followUpExplain: "Соддатар шарҳ диҳед",
+    followUpExamples: "Мисолҳои бештар",
+    followUpAnother: "Як масъалаи дигар",
 };
