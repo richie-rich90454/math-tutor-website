@@ -246,6 +246,8 @@ const mnMong: Translations = {
     topicStatistics: "ᠰᠲᠠᠲᠢᠰᠲᠢᠺ",
     gradeAll: "ᠪᠦᠬᠦ",
     sheetsLoadError: "ᠬᠦᠰᠨᠡᠭᠡ ᠠᠴᠢᠶᠠᠯᠠᠬᠤ ᠪᠣᠯᠣᠮᠵᠢᠭᠦᠢ᠃ ᠳᠠᠬᠢᠨ ᠣᠷᠣᠯᠳᠣᠨᠣ ᠤᠤ᠃",
+    chatAskedBefore: "ᠤᠷᠢᠳᠤ ᠠᠰᠠᠭᠤᠭᠰᠠᠨ",
+    chatFreshAnswer: "ᠰᠢᠨᠡ ᠬᠠᠷᠢᠭᠤᠯᠲᠠ ᠠᠪᠬᠤ",
 };
 
 export default mnMong;
