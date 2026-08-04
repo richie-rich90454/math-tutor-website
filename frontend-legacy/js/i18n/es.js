@@ -244,4 +244,6 @@ TRANSLATION_TABLES["es"] = {
     topicStatistics: "Estadística",
     gradeAll: "Todos",
     sheetsLoadError: "No se pudieron cargar las hojas. Inténtalo de nuevo.",
+    chatAskedBefore: "Preguntado antes",
+    chatFreshAnswer: "Obtener respuesta nueva",
 };
