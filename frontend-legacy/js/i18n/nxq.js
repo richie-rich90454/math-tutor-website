@@ -244,4 +244,6 @@ TRANSLATION_TABLES["nxq"] = {
     topicStatistics: "Suaq bbeel gge",
     gradeAll: "Ceel chee ddee",
     sheetsLoadError: "Ceel bbeel gge zziq gge meel ddo. Saiq ddee bbeq gol nee sai la.",
+    chatAskedBefore: "之前问过",
+    chatFreshAnswer: "获取新答案",
 };
