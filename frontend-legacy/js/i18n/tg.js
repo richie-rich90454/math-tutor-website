@@ -244,4 +244,6 @@ TRANSLATION_TABLES["tg"] = {
     topicStatistics: "Омор",
     gradeAll: "Ҳама",
     sheetsLoadError: "Бор кардани ҷадвалҳо муяссар нашуд. Аз нав кӯшиш кунед.",
+    chatAskedBefore: "Қабл пурсида шуда",
+    chatFreshAnswer: "Ҷавоби нав гирифтан",
 };
