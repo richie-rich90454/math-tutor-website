@@ -245,4 +245,10 @@ TRANSLATION_TABLES["hmn"] = {
     sheetsLoadError: "Nqa cov nplooj ntawv tsis tau. Thov sim dua.",
     chatAskedBefore: "Yug lawm nug",
     chatFreshAnswer: "Tau cov lus teb tshiab",
+    settingsResumeLastChat: "Txuas ntxiv qhov kawg",
+    continueLearning: "Txuas ntxiv kawm",
+    recentTopics: "Tej ntsiab tsis ntev",
+    followUpExplain: "Piav yooj yim dua",
+    followUpExamples: "Ntxiv cov piv txwv",
+    followUpAnother: "Ib qho ntxiv",
 };
