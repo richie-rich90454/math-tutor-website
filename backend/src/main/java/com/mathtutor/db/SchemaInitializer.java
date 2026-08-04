@@ -137,6 +137,8 @@ public class SchemaInitializer {
                         topic TEXT,
                         answer TEXT NOT NULL,
                         hit_count INTEGER DEFAULT 1,
+                        chat_id TEXT,
+                        user_id TEXT,
                         created_at TEXT DEFAULT (datetime('now'))
                     )
                     """);
@@ -224,6 +226,19 @@ public class SchemaInitializer {
             }
             jdbc.execute("CREATE INDEX IF NOT EXISTS idx_usage_logs_ip ON usage_logs(ip)");
             recordMigration(8, "add_usage_ip");
+        }
+
+        if (!applied.contains(9)) {
+            try {
+                jdbc.execute("ALTER TABLE answer_cache ADD COLUMN chat_id TEXT");
+                jdbc.execute("ALTER TABLE answer_cache ADD COLUMN user_id TEXT");
+            } catch (Exception e) {
+                if (!e.getMessage().contains("duplicate column")) {
+                    throw e;
+                }
+            }
+            jdbc.execute("CREATE INDEX IF NOT EXISTS idx_answer_cache_scope ON answer_cache(user_id, chat_id)");
+            recordMigration(9, "add_answer_cache_scope");
         }
     }
 
