@@ -3,23 +3,9 @@
 import { createContext, useContext, useState, useCallback, useEffect, ReactNode } from "react";
 import { useAuth } from "./AuthContext";
 import { apiFetch } from "@/lib/api-client";
+import type { ChatSession, ChatMessage } from "@/contracts/chat";
 
-export interface ChatSession {
-    id: string;
-    title: string;
-    timestamp: string;
-    preview: string;
-    topic?: string | null;
-    isPinned?: boolean;
-    messages: ChatMessage[];
-}
-
-export interface ChatMessage {
-    id: string;
-    content: string;
-    role: "user" | "assistant";
-    timestamp: string;
-}
+export type { ChatSession, ChatMessage } from "@/contracts/chat";
 
 interface ChatContextType {
     chatHistory: ChatSession[];
