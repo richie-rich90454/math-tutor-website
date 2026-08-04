@@ -244,4 +244,6 @@ TRANSLATION_TABLES["ko"] = {
     topicStatistics: "통계",
     gradeAll: "전체",
     sheetsLoadError: "표를 불러올 수 없습니다. 다시 시도해 주세요.",
+    chatAskedBefore: "이전에 질문함",
+    chatFreshAnswer: "새 답변 받기",
 };
