@@ -106,7 +106,8 @@ public class ChatMessageController {
                     session.get().id(),
                     sanitizedMessage,
                     body.chatId(),
-                    body.preferredLanguage());
+                    body.preferredLanguage(),
+                    body.bypassCache());
         } catch (com.mathtutor.web.ForbiddenException e) {
             writeJson(response, 403, "{\"error\":\"Not authorized to access this chat\"}");
             return;
