@@ -68,11 +68,11 @@ describe("particleBurst", () => {
 
         expect(created.length).toBe(3);
         expect(gsapMock.to).toHaveBeenCalledTimes(3);
-        expect(created[0].style.background).toBe("#60a5fa");
-        expect(created[1].style.background).toBe("#a78bfa");
-        expect(created[2].style.background).toBe("#f472b6");
-        expect(created[0].style.left).toBe("60px");
-        expect(created[0].style.top).toBe("45px");
+        expect(created[0].style.cssText).toContain("background: #60a5fa");
+        expect(created[1].style.cssText).toContain("background: #a78bfa");
+        expect(created[2].style.cssText).toContain("background: #f472b6");
+        expect(created[0].style.cssText).toContain("left: 60px");
+        expect(created[0].style.cssText).toContain("top: 45px");
 
         onCompletes[0]();
         expect(created[0].remove).toHaveBeenCalledTimes(1);
@@ -93,7 +93,7 @@ describe("particleBurst", () => {
             body: { appendChild: vi.fn() },
         });
         particleBurst({ getBoundingClientRect: rect } as unknown as HTMLElement, 5);
-        expect(gsapMock.to.mock.calls[0][0].style.background).toBe("#60a5fa");
-        expect(gsapMock.to.mock.calls[4][0].style.background).toBe("#60a5fa");
+        expect(gsapMock.to.mock.calls[0][0].style.cssText).toContain("#60a5fa");
+        expect(gsapMock.to.mock.calls[4][0].style.cssText).toContain("#60a5fa");
     });
 });
