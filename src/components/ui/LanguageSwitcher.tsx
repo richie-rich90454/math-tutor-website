@@ -1,23 +1,57 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useLanguage, languages, type Language } from "@/contexts/LanguageContext";
 
 export default function LanguageSwitcher() {
     const { currentLanguage, setLanguage } = useLanguage();
     const [isOpen, setIsOpen] = useState(false);
+    const buttonRef = useRef<HTMLButtonElement>(null);
+    const dropdownRef = useRef<HTMLDivElement>(null);
 
     const handleLanguageChange = (language: Language) => {
         setLanguage(language);
         setIsOpen(false);
+        buttonRef.current?.focus();
+    };
+
+    useEffect(() => {
+        if (isOpen && dropdownRef.current) {
+            const active = dropdownRef.current.querySelector<HTMLButtonElement>(".is-active");
+            (active || dropdownRef.current.querySelector<HTMLButtonElement>("button"))?.focus();
+        }
+    }, [isOpen]);
+
+    const handleDropdownKeyDown = (e: React.KeyboardEvent) => {
+        if (e.key === "Escape") {
+            e.preventDefault();
+            setIsOpen(false);
+            buttonRef.current?.focus();
+            return;
+        }
+        if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+            e.preventDefault();
+            const items = Array.from(
+                dropdownRef.current?.querySelectorAll<HTMLButtonElement>("button") ?? [],
+            );
+            if (items.length === 0) return;
+            const idx = items.indexOf(document.activeElement as HTMLButtonElement);
+            const next =
+                e.key === "ArrowDown"
+                    ? Math.min(idx + 1, items.length - 1)
+                    : Math.max(idx - 1, 0);
+            items[next]?.focus();
+        }
     };
 
     return (
         <div className="lang-switcher">
             <button
+                ref={buttonRef}
                 onClick={() => setIsOpen(!isOpen)}
                 className="lang-switcher-btn"
                 aria-label={`Language: ${currentLanguage.name}`}
+                aria-haspopup="listbox"
                 aria-expanded={isOpen}
             >
                 <svg
@@ -52,7 +86,12 @@ export default function LanguageSwitcher() {
             </button>
 
             {isOpen && (
-                <div className="lang-switcher-dropdown">
+                <div
+                    className="lang-switcher-dropdown"
+                    ref={dropdownRef}
+                    role="listbox"
+                    onKeyDown={handleDropdownKeyDown}
+                >
                     {languages.map((language) => (
                         <button
                             key={language.code}
@@ -60,6 +99,8 @@ export default function LanguageSwitcher() {
                             className={`lang-switcher-option ${
                                 currentLanguage.code === language.code ? "is-active" : ""
                             }`}
+                            role="option"
+                            aria-selected={currentLanguage.code === language.code}
                         >
                             <span>{language.name}</span>
                         </button>
