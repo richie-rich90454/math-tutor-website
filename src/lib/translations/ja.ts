@@ -246,6 +246,8 @@ const ja: Translations = {
     topicStatistics: "統計",
     gradeAll: "すべて",
     sheetsLoadError: "シートを読み込めませんでした。もう一度お試しください。",
+    chatAskedBefore: "以前に質問済み",
+    chatFreshAnswer: "新しい回答を取得",
 };
 
 export default ja;
