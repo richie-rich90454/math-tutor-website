@@ -245,6 +245,8 @@ const uz: Translations = {
     topicStatistics: "Статистика",
     gradeAll: "Ҳаммаси",
     sheetsLoadError: "Жадвалларни юклаш имкони бўлмади. Қайта уриниб кўринг.",
+    chatAskedBefore: "Ilgari so'ralgan",
+    chatFreshAnswer: "Yangi javob olish",
 };
 
 export default uz;
