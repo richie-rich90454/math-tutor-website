@@ -23,6 +23,7 @@ interface MessageRowProps {
     onEdit: (messageId: string, content: string) => void;
     editLabel: string;
     onSuggestionClick?: (text: string) => void;
+    onFollowUp?: (text: string) => void;
     onMouseEnter: () => void;
     onMouseLeave: () => void;
     onTogglePin?: (messageId: string) => void;
@@ -42,6 +43,7 @@ const MessageRow = memo(function MessageRow({
     onEdit,
     editLabel,
     onSuggestionClick,
+    onFollowUp,
     onMouseEnter,
     onMouseLeave,
     onTogglePin,
@@ -111,6 +113,19 @@ const MessageRow = memo(function MessageRow({
                         />
                         {message.isCached && (
                             <span className="msg-cached-badge">{t("chatAskedBefore")}</span>
+                        )}
+                        {!isStreaming && onFollowUp && (
+                            <div className="followup-chips">
+                                <button type="button" className="followup-chip" onClick={() => onFollowUp(t("followUpExplain"))}>
+                                    {t("followUpExplain")}
+                                </button>
+                                <button type="button" className="followup-chip" onClick={() => onFollowUp(t("followUpExamples"))}>
+                                    {t("followUpExamples")}
+                                </button>
+                                <button type="button" className="followup-chip" onClick={() => onFollowUp(t("followUpAnother"))}>
+                                    {t("followUpAnother")}
+                                </button>
+                            </div>
                         )}
                         <div
                             className="message-bubble-assistant"
