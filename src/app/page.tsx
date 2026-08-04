@@ -45,6 +45,7 @@ export default function Home() {
         sendMessage,
         sendImage,
         handleRegenerate,
+        handleFreshAnswer,
         handleStopGeneration,
         handleEdit,
         handleNewChat,
@@ -218,6 +219,7 @@ export default function Home() {
                 isLastMessage={index === messages.length - 1}
                 formatTime={formatTime}
                 onRegenerate={handleRegenerate}
+                onFresh={handleFreshAnswer}
                 onFeedback={handleFeedback}
                 feedbackValue={feedback.get(message.id) || null}
                 onEdit={handleEdit}
@@ -237,6 +239,7 @@ export default function Home() {
         feedback,
         formatTime,
         handleRegenerate,
+        handleFreshAnswer,
         handleFeedback,
         handleEdit,
         togglePin,
