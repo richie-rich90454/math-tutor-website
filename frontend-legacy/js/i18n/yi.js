@@ -244,4 +244,10 @@ TRANSLATION_TABLES["yi"] = {
     sheetsLoadError: "ꊿꌠ ꁱꊿꀋꄐ. ꀊꐯ ꐂꃅꄉꂿ.",
     chatAskedBefore: "之前问过",
     chatFreshAnswer: "获取新答案",
+    settingsResumeLastChat: "恢复上次对话",
+    continueLearning: "继续学习",
+    recentTopics: "最近主题",
+    followUpExplain: "解释得更简单",
+    followUpExamples: "更多例子",
+    followUpAnother: "再来一题",
 };
