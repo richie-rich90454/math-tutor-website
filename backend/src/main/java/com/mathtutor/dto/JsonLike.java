@@ -10,7 +10,7 @@ public record JsonLike(JsonNode node) {
 
     public String string(String field) {
         JsonNode value = node.get(field);
-        return value != null && value.isValueNode() ? value.asText() : null;
+        return value != null && value.isValueNode() ? value.asString() : null;
     }
 
     public boolean booleanOrFalse(String field) {
