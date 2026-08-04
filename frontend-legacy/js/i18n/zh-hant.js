@@ -243,4 +243,6 @@ TRANSLATION_TABLES["zh-hant"] = {
     topicStatistics: "統計學",
     gradeAll: "全部",
     sheetsLoadError: "無法載入公式表，請重試。",
+    chatAskedBefore: "之前問過",
+    chatFreshAnswer: "取得新答案",
 };
