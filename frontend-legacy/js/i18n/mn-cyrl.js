@@ -246,4 +246,10 @@ TRANSLATION_TABLES["mn-cyrl"] = {
     sheetsLoadError: "Хүснэгт ачаалах боломжгүй. Дахин оролдоно уу.",
     chatAskedBefore: "Өмнө нь асуусан",
     chatFreshAnswer: "Шинэ хариулт авах",
+    settingsResumeLastChat: "Сүүлийн яриаг үргэлжлүүлэх",
+    continueLearning: "Сурсаар байх",
+    recentTopics: "Сүүлийн сэдвүүд",
+    followUpExplain: "Илүү энгийнээр тайлбарлах",
+    followUpExamples: "Илүү олон жишээ",
+    followUpAnother: "Дахиад бодлого",
 };
