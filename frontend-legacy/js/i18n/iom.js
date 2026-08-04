@@ -243,4 +243,6 @@ TRANSLATION_TABLES["iom"] = {
     topicStatistics: "Statistics",
     gradeAll: "Hnaang",
     sheetsLoadError: "Maiv zoqc longc ndaangh. Zaangv gaenx zoux.",
+    chatAskedBefore: "之前问过",
+    chatFreshAnswer: "获取新答案",
 };
