@@ -246,4 +246,10 @@ TRANSLATION_TABLES["ky"] = {
     sheetsLoadError: "Таблицаларды жүктөө мүмкүн болгон жок. Кайра аракет кылыңыз.",
     chatAskedBefore: "Мурун суралган",
     chatFreshAnswer: "Жаңы жооп алуу",
+    settingsResumeLastChat: "Акыркы сүйлөшүүнү улантуу",
+    continueLearning: "Окууну улантуу",
+    recentTopics: "Акыркы темалар",
+    followUpExplain: "Жөнөкөйрөөк түшүндүр",
+    followUpExamples: "Көбүрөөк мисал",
+    followUpAnother: "Дагы бир маселе",
 };
