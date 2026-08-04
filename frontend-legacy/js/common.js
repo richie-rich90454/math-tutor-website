@@ -81,24 +81,9 @@ MathTutor.attr = function (node, name) {
     return v === null || v === undefined ? "" : String(v);
 };
 
-MathTutor.languages = [
-    { code: "en", name: "English" },
-    { code: "zh-hans", name: "\u6c49\u8bed" },
-    { code: "zh-hant", name: "\u6f22\u8a9e" },
-    { code: "mn-cyrl", name: "\u041c\u043e\u043d\u0433\u043e\u043b (\u041a\u0438\u0440\u0438\u043b\u043b)" },
-    { code: "mn-mong", name: "\u1834\u1830\u183d\u1828\u1834\u182b (\u041c\u043e\u043d\u0433\u043e\u043b)" },
-    { code: "bo", name: "\u0f56\u0f7c\u0f51\u0f0b\u0f61\u0f72\u0f42\u0f66\u0f0b" },
-    { code: "es", name: "Espa\u00f1ol" },
-    { code: "fr", name: "Fran\u00e7ais" },
-    { code: "de", name: "Deutsch" },
-    { code: "ja", name: "\u65e5\u672c\u8a9e" },
-    { code: "ar", name: "\u0627\u0644\u0639\u0631\u0628\u064a\u0629" },
-    { code: "he", name: "\u05e2\u05d1\u05e8\u05d9\u05ea" },
-    { code: "kk", name: "\u049a\u0430\u0437\u0430\u049b\u0448\u0430" },
-    { code: "ug", name: "\u0626\u06c7\u064a\u063a\u06c7\u0631\u0686\u06d5" },
-    { code: "ko", name: "\ud55c\uad6d\uc5b4" },
-    { code: "za", name: "Vahcuengh" }
-];
+MathTutor.languages = (typeof LANGUAGES !== "undefined" && LANGUAGES.length)
+    ? LANGUAGES
+    : [{ code: "en", name: "English" }];
 
 MathTutor.currentLanguage = "en";
 MathTutor.session = null;
@@ -133,18 +118,25 @@ MathTutor.deleteCookie = function (name) {
 };
 
 // ---------- Language ----------
+// Tables live in TRANSLATION_TABLES (defined by i18n.js). Each language is its
+// own file; English is always present so pages never render blank.
+MathTutor.translationTable = function (lang) {
+    var tables = typeof TRANSLATION_TABLES !== "undefined" ? TRANSLATION_TABLES : {};
+    return tables[lang] || tables.en || {};
+};
+
 MathTutor.t = function (key) {
-    var table = TRANSLATIONS[MathTutor.currentLanguage] || TRANSLATIONS.en;
+    var table = MathTutor.translationTable(MathTutor.currentLanguage);
     var value = table[key];
     if (value === undefined || value === null) {
-        value = TRANSLATIONS.en[key];
+        value = MathTutor.translationTable("en")[key];
     }
     return value === undefined || value === null ? key : value;
 };
 
 MathTutor.applyLang = function (lang) {
     MathTutor.currentLanguage = lang;
-    var table = TRANSLATIONS[lang] || TRANSLATIONS.en;
+    var table = MathTutor.translationTable(lang);
     var els = document.getElementsByTagName("*");
     for (var i = 0; i < els.length; i++) {
         var el = els[i];
@@ -166,9 +158,51 @@ MathTutor.applyLang = function (lang) {
     }
 };
 
-MathTutor.setLanguage = function (lang) {
+// Load a language table on demand (IE6-safe dynamic script injection). The
+// callback fires once the table is available, immediately if already loaded.
+MathTutor.loadLanguage = function (lang, callback) {
+    var tables = typeof TRANSLATION_TABLES !== "undefined" ? TRANSLATION_TABLES : {};
+    if (tables[lang]) {
+        if (callback) {
+            callback();
+        }
+        return;
+    }
+    var s = document.createElement("script");
+    s.type = "text/javascript";
+    s.src = "/legacy/js/i18n/" + lang + ".js";
+    var fired = false;
+    var done = function () {
+        if (!fired) {
+            fired = true;
+            if (callback) {
+                callback();
+            }
+        }
+    };
+    if (s.readyState !== undefined) {
+        s.onreadystatechange = function () {
+            if (s.readyState === "loaded" || s.readyState === "complete") {
+                done();
+            }
+        };
+    } else {
+        s.onload = done;
+    }
+    document.getElementsByTagName("head")[0].appendChild(s);
+};
+
+MathTutor.setLanguage = function (lang, callback) {
     MathTutor.setCookie("preferred-language", lang, 365);
     MathTutor.applyLang(lang);
+    MathTutor.loadLanguage(lang, function () {
+        if (MathTutor.currentLanguage === lang) {
+            MathTutor.applyLang(lang);
+            if (callback) {
+                callback();
+            }
+        }
+    });
     MathTutor.saveUserLanguage(lang);
 };
 
