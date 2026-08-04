@@ -76,21 +76,21 @@ public class SheetsService {
             for (Resource resource : resources) {
                 try (InputStream in = resource.getInputStream()) {
                     JsonNode root = objectMapper.readTree(in);
-                    String topic = root.path("topic").asText().toLowerCase();
+                    String topic = root.path("topic").asString().toLowerCase();
                     List<Formula> formulas = new ArrayList<>();
                     for (JsonNode node : root.path("formulas")) {
                         formulas.add(new Formula(
-                                node.path("name").asText(),
-                                node.path("formula").asText(),
-                                node.path("native").asText(),
-                                node.path("mandarin").asText()));
+                                node.path("name").asString(),
+                                node.path("formula").asString(),
+                                node.path("native").asString(),
+                                node.path("mandarin").asString()));
                     }
                     List<Term> terms = new ArrayList<>();
                     for (JsonNode node : root.path("terms")) {
                         terms.add(new Term(
-                                node.path("term").asText(),
-                                node.path("native").asText(),
-                                node.path("mandarin").asText()));
+                                node.path("term").asString(),
+                                node.path("native").asString(),
+                                node.path("mandarin").asString()));
                     }
                     topics.put(topic, new SheetTopic(topic, formulas, terms));
                 }
