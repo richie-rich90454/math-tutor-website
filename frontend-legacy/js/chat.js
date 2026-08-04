@@ -32,8 +32,7 @@
         var sel = el("langSelect");
         sel.value = MathTutor.currentLanguage;
         $(sel).on("change", function () {
-            MathTutor.setLanguage(this.value);
-            reapplyUiTexts();
+            MathTutor.setLanguage(this.value, reapplyUiTexts);
         });
     }
 
