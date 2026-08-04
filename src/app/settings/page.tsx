@@ -34,6 +34,7 @@ export default function SettingsPage() {
     const { user, isAuthenticated, isLoading, logout } = useAuth();
     const { t, currentLanguage, setLanguage } = useLanguage();
     const [theme, setTheme] = useState<Theme>("system");
+    const [resumeLastChat, setResumeLastChat] = useState(true);
     const [mounted, setMounted] = useState(false);
     const [saved, setSaved] = useState(false);
     const pageRef = useRef<HTMLDivElement>(null);
@@ -45,7 +46,13 @@ export default function SettingsPage() {
         setMounted(true);
         const stored = localStorage.getItem("theme") as Theme | null;
         if (stored) setTheme(stored);
+        setResumeLastChat(localStorage.getItem("mt-resume-last-chat") !== "0");
     }, []);
+
+    useEffect(() => {
+        if (!mounted) return;
+        localStorage.setItem("mt-resume-last-chat", resumeLastChat ? "1" : "0");
+    }, [resumeLastChat, mounted]);
 
     useEffect(() => {
         if (!mounted) return;
@@ -353,6 +360,28 @@ export default function SettingsPage() {
                                             </svg>
                                         )}
                                     </div>
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Resume last chat */}
+                    <section className="settings-section">
+                        <h2 className="settings-section-title">{t("settingsResumeLastChat")}</h2>
+                        <div className="settings-card">
+                            <div className="settings-row">
+                                <div className="settings-row-label">
+                                    <span className="settings-row-title">{t("settingsResumeLastChat")}</span>
+                                </div>
+                                <button
+                                    role="switch"
+                                    aria-checked={resumeLastChat}
+                                    onClick={() => setResumeLastChat((v) => !v)}
+                                    className={`settings-radio ${resumeLastChat ? "is-active" : ""}`}
+                                >
+                                    <span className="settings-switch-track">
+                                        <span className="settings-switch-thumb" />
+                                    </span>
                                 </button>
                             </div>
                         </div>
