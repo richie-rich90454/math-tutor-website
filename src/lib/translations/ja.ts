@@ -248,6 +248,12 @@ const ja: Translations = {
     sheetsLoadError: "シートを読み込めませんでした。もう一度お試しください。",
     chatAskedBefore: "以前に質問済み",
     chatFreshAnswer: "新しい回答を取得",
+    settingsResumeLastChat: "最後のチャットを再開",
+    continueLearning: "学習を続ける",
+    recentTopics: "最近のトピック",
+    followUpExplain: "もっと簡単に説明",
+    followUpExamples: "例をもっと",
+    followUpAnother: "もう一問",
 };
 
 export default ja;
