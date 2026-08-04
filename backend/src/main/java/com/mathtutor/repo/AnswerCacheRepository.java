@@ -62,6 +62,24 @@ public class AnswerCacheRepository {
                 language, limit);
     }
 
+    public List<CacheRecord> findRecentInChats(List<String> chatIds, int limit) {
+        if (chatIds == null || chatIds.isEmpty()) {
+            return List.of();
+        }
+        String placeholders = String.join(",", Collections.nCopies(chatIds.size(), "?"));
+        Object[] args = new Object[chatIds.size() + 1];
+        args[0] = limit;
+        for (int i = 0; i < chatIds.size(); i++) {
+            args[i + 1] = chatIds.get(i);
+        }
+        return jdbc.query(
+                "SELECT * FROM answer_cache WHERE chat_id IN (" + placeholders + ")"
+                        + " AND created_at >= datetime('now', '-7 days')"
+                        + " ORDER BY created_at DESC LIMIT ?",
+                (rs, rowNum) -> mapRow(rs),
+                args);
+    }
+
     public void put(String key, String question, String language, String topic, String answer,
             String chatId, String userId) {
         jdbc.update(
