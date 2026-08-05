@@ -144,6 +144,7 @@ const mnCyrl: Translations = {
     settingsLanguageSaved: "Хэлний тохиргоо хадгалагдлаа",
     settingsVersion: "AI Математикийн багш v1.0.0",
     legacyVersion: "Хуучин хувилбар",
+    browserOutdated: "Таны хөтөч бүх боломжийг дэмжихгүй байж магадгүй",
     modernVersion: "Орчин үеийн хувилбар",
     progressTitle: "Таны ахиц",
     progressConversations: "Ярианууд",
