@@ -592,7 +592,7 @@ select,
     border: 1px solid var(--border-default);
     background: var(--bg-surface);
     color: var(--fg-secondary);
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
     cursor: pointer;
 }
 .app-header-btn:hover {
@@ -701,7 +701,7 @@ select,
     padding: 7px 14px;
     font-size: 0.8125rem;
     color: var(--fg-secondary);
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
     white-space: normal;
     max-width: 100%;
     font-weight: 500;
@@ -939,7 +939,7 @@ select,
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
     opacity: 0;
     box-shadow: var(--shadow-sm);
 }
@@ -1080,7 +1080,7 @@ select,
     border: 1px solid transparent;
     background: transparent;
     color: var(--fg-secondary);
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
     cursor: pointer;
     flex-shrink: 0;
 }
@@ -1173,7 +1173,7 @@ select,
     border: none;
     background: transparent;
     color: var(--fg-secondary);
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
     cursor: pointer;
     position: relative;
 }
@@ -1234,7 +1234,7 @@ select,
     font-weight: 500;
     color: var(--fg-inverse);
     border: none;
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
     cursor: pointer;
 }
 .sb-new-chat-btn:hover {
@@ -1258,7 +1258,7 @@ select,
     background: var(--accent);
     color: var(--fg-inverse);
     border: none;
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
     cursor: pointer;
     position: relative;
 }
@@ -1393,7 +1393,7 @@ select,
     border: none;
     background: transparent;
     color: var(--fg-muted);
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
     cursor: pointer;
     display: flex;
     opacity: 0;
@@ -1432,7 +1432,7 @@ select,
     border: none;
     background: transparent;
     color: var(--fg-secondary);
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
 }
 .sb-collapsed-history-btn:hover {
     background: var(--bg-hover);
@@ -1626,7 +1626,7 @@ select,
     cursor: pointer;
     font-size: 13px;
     color: var(--fg-primary);
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
 }
 .sb-sign-in-btn:hover {
     background: var(--bg-hover);
@@ -1847,7 +1847,7 @@ select,
     padding: 4px 12px;
     font-size: 12px;
     cursor: pointer;
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
 }
 .followup-chip:hover {
     color: var(--fg-primary);
@@ -1891,7 +1891,7 @@ select,
     padding: 5px 14px;
     font-size: 13px;
     cursor: pointer;
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
 }
 .continue-learning-chip:hover {
     color: var(--fg-primary);
@@ -1908,7 +1908,7 @@ select,
     padding: 6px 14px;
     font-size: 0.8125rem;
     color: var(--fg-secondary);
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
     white-space: normal;
     max-width: 100%;
     text-align: left;
@@ -2030,7 +2030,7 @@ select,
     cursor: pointer;
     color: var(--fg-muted);
     font-size: 12px;
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
 }
 .msg-action-btn:hover {
     color: var(--fg-primary);
@@ -2112,7 +2112,7 @@ select,
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
     z-index: 1;
 }
 .ia-util-btn:nth-of-type(2) {
@@ -2144,7 +2144,7 @@ select,
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
 }
 
 .ia-send-btn {
@@ -2202,7 +2202,7 @@ select,
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
     flex-shrink: 0;
 }
 .ia-image-preview-remove:hover {
@@ -2346,7 +2346,7 @@ select,
     background: var(--bg-surface);
     cursor: pointer;
     color: var(--fg-secondary);
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
 }
 .theme-toggle-btn:hover {
     background: var(--bg-hover);
@@ -2379,7 +2379,7 @@ select,
     padding: var(--space-1) var(--space-3);
     font-size: 13px;
     color: var(--fg-secondary);
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
     cursor: pointer;
     height: 36px;
 }
@@ -2559,7 +2559,7 @@ select,
     background: transparent;
     cursor: pointer;
     color: var(--fg-muted);
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
 }
 .shortcut-modal-close:hover {
     background: var(--bg-hover);
@@ -2730,7 +2730,7 @@ select,
     box-shadow: var(--shadow-md);
     cursor: pointer;
     color: var(--fg-secondary);
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
     animation: fadeInOnly 0.15s ease-out;
 }
 .scroll-bottom-btn:hover {
@@ -2904,7 +2904,7 @@ select,
     font-size: 13px;
     font-weight: 500;
     cursor: pointer;
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
 }
 .error-boundary-btn:hover {
     background: var(--accent-hover);
@@ -3075,7 +3075,7 @@ select,
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -3127,7 +3127,7 @@ select,
     font-size: 14px;
     font-weight: 500;
     cursor: pointer;
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
     min-height: 40px;
 }
 .auth-back-btn:hover {
@@ -3146,7 +3146,7 @@ select,
     border: 2px solid var(--border-default);
     border-radius: var(--radius-md);
     cursor: pointer;
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
 }
 .auth-radio-card:hover {
     border-color: var(--fg-muted);
@@ -3278,7 +3278,7 @@ select,
     background: var(--bg-surface);
     cursor: pointer;
     color: var(--fg-secondary);
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
 }
 .settings-theme-btn:hover {
     border-color: var(--fg-primary);
@@ -3302,7 +3302,7 @@ select,
     background: transparent;
     cursor: pointer;
     color: var(--fg-primary);
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
     padding: 0;
 }
 .settings-switch-track {
@@ -3502,7 +3502,7 @@ select,
     font-size: 14px;
     font-weight: 500;
     cursor: pointer;
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
 }
 .settings-save-btn:hover {
     background: var(--accent-hover);
@@ -3677,7 +3677,7 @@ select,
     font-size: 14px;
     font-weight: 500;
     color: var(--fg-secondary);
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
     text-align: left;
     width: 100%;
 }
@@ -3746,7 +3746,7 @@ select,
     border: none;
     background: transparent;
     color: var(--fg-secondary);
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
     cursor: pointer;
 }
 .ci-back-btn:hover {
@@ -3831,7 +3831,7 @@ select,
     text-align: left;
     background: transparent;
     color: var(--fg-primary);
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
     cursor: pointer;
 }
 .ci-suggestion-btn:hover {
@@ -3944,7 +3944,7 @@ select,
     background: var(--accent);
     color: var(--fg-inverse);
     border: none;
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -4636,7 +4636,7 @@ select,
     color: var(--fg-secondary);
     cursor: pointer;
     font-size: 0.82rem;
-    transition: all 0.15s ease;
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
 }
 .practice-chip:hover {
     background: var(--bg-hover);
@@ -4712,7 +4712,7 @@ select,
     color: var(--fg-primary);
     cursor: pointer;
     text-align: left;
-    transition: all 0.15s ease;
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
 }
 .practice-option:hover:not(:disabled) {
     border-color: var(--accent);
@@ -4991,7 +4991,7 @@ select,
     color: var(--fg-secondary);
     cursor: pointer;
     font-size: 0.9rem;
-    transition: all 0.15s ease;
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
 }
 .auth-guest-btn:hover {
     border-color: var(--accent);
