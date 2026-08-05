@@ -229,7 +229,21 @@ export default function PracticePage() {
         }
     }, [currentLanguage.code]);
 
-    if (isLoading || !isAuthenticated) return null;
+    if (isLoading || !isAuthenticated) {
+        return (
+            <div className="settings-page">
+                <div className="settings-container">
+                    <div className="settings-skeleton">
+                        <div
+                            className="skeleton"
+                            style={{ height: 120, marginBottom: "var(--space-6)" }}
+                        />
+                        <div className="skeleton" style={{ height: 260 }} />
+                    </div>
+                </div>
+            </div>
+        );
+    }
 
     const accuracy = totalCount > 0 ? Math.round((correctCount / totalCount) * 100) : 0;
 
