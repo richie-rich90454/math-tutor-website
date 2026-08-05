@@ -10,6 +10,23 @@ const MarkdownRenderer = dynamic(() => import("@/components/ui/MarkdownRenderer"
 });
 const MessageActions = dynamic(() => import("@/components/chat/MessageActions"));
 
+// Memoize the heavy markdown+KaTeX renderer so an unchanged streaming prefix is
+// never re-parsed on subsequent chunks.
+const MemoMarkdown = memo(MarkdownRenderer);
+
+// Split streaming content at the last paragraph break: everything before it is
+// stable markdown (rendered once), the tail is live text (cheap to re-render).
+function splitStreamingContent(content: string): { stable: string; tail: string } {
+    if (!content) return { stable: "", tail: "" };
+    const para = content.lastIndexOf("\n\n");
+    if (para === -1) {
+        const nl = content.lastIndexOf("\n");
+        if (nl === -1) return { stable: "", tail: content };
+        return { stable: content.slice(0, nl), tail: content.slice(nl) };
+    }
+    return { stable: content.slice(0, para + 2), tail: content.slice(para + 2) };
+}
+
 interface MessageRowProps {
     message: Message;
     isStreaming: boolean;
@@ -148,10 +165,29 @@ const MessageRow = memo(function MessageRow({
                             aria-busy={isStreaming && isLastMessage ? "true" : "false"}
                         >
                             {message.content ? (
-                                <MarkdownRenderer
-                                    content={message.content}
-                                    onSuggestionClick={onSuggestionClick}
-                                />
+                                isStreaming && isLastMessage ? (
+                                    (() => {
+                                        const { stable, tail } = splitStreamingContent(
+                                            message.content,
+                                        );
+                                        return (
+                                            <>
+                                                <MemoMarkdown
+                                                    content={stable}
+                                                    onSuggestionClick={onSuggestionClick}
+                                                />
+                                                {tail && (
+                                                    <span className="streaming-tail">{tail}</span>
+                                                )}
+                                            </>
+                                        );
+                                    })()
+                                ) : (
+                                    <MemoMarkdown
+                                        content={message.content}
+                                        onSuggestionClick={onSuggestionClick}
+                                    />
+                                )
                             ) : (
                                 <span className="streaming-cursor" />
                             )}
