@@ -212,7 +212,6 @@ export default function MarkdownRenderer({
 
     const normalizedContent = normalizeLatex(content);
     const { suggestions, cleanContent } = extractSuggestions(normalizedContent);
-
     return (
         <ErrorBoundary
             fallback={
@@ -325,8 +324,17 @@ export default function MarkdownRenderer({
                                 key={i}
                                 className="mdr-suggestion-chip"
                                 onClick={() => onSuggestionClick(s)}
+                                title={s}
                             >
-                                {s}
+                                <ReactMarkdown
+                                    remarkPlugins={[remarkMath]}
+                                    rehypePlugins={[[rehypeKatex, { throwOnError: false }]]}
+                                    components={{
+                                        p: ({ children }) => <span>{children}</span>,
+                                    }}
+                                >
+                                    {s}
+                                </ReactMarkdown>
                             </button>
                         ))}
                     </div>
