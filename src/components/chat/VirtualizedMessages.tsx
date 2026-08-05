@@ -87,14 +87,21 @@ export default function VirtualizedMessages({
     }, [updateRange]);
 
     // Measure a row once mounted and whenever it resizes (streaming growth).
+    // Height writes are debounced so a rapidly-growing (streaming) row doesn't
+    // trigger a re-render + reflow on every frame.
     const measure = useCallback((index: number) => (el: HTMLElement | null) => {
         if (!el) return;
+        let timer = 0;
         const apply = (h: number) => {
             const prev = heightsRef.current.get(index);
             if (Math.abs((prev ?? -1) - h) > 0.5) {
-                heightsRef.current.set(index, h);
-                setHeights(new Map(heightsRef.current));
-                updateRangeRef.current();
+                if (timer) window.clearTimeout(timer);
+                timer = window.setTimeout(() => {
+                    timer = 0;
+                    heightsRef.current.set(index, h);
+                    setHeights(new Map(heightsRef.current));
+                    updateRangeRef.current();
+                }, 120);
             }
         };
         apply(el.offsetHeight);
