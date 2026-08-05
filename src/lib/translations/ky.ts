@@ -146,6 +146,7 @@ const ky: Translations = {
     settingsLanguageSaved: "Тил тандоосу сакталды",
     settingsVersion: "Математика AI мугалими v1.0.0",
     legacyVersion: "Эски версия",
+    browserOutdated: "Сиздин браузер бардык мүмкүнчүлүктөрдү колдобосо керек",
     modernVersion: "Заманбап версия",
     progressTitle: "Сиздин прогрессиңиз",
     progressConversations: "Сүйлөшүүлөр",
