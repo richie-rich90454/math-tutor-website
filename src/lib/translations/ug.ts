@@ -145,6 +145,8 @@ const ug: Translations = {
     settingsThemeSystem: "سىستېما",
     settingsLanguageSaved: "تىل تەڭشىكى ساقلاندى",
     settingsVersion: "ماتېماتىكا ئوقۇتقۇچىسى AI v1.0.0",
+    legacyVersion: "كونا نۇسخا",
+    modernVersion: "يېڭى نۇسخا",
     progressTitle: "تەرەققىياتىڭىز",
     progressConversations: "سۆھبەتلەر",
     progressMessages: "خەتلەر",
