@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { apiFetch } from "@/lib/api-client";
+import MarkdownRenderer from "@/components/ui/MarkdownRenderer";
 import type { Translations } from "@/lib/translations";
 
 interface Formula {
@@ -131,7 +132,7 @@ export default function SheetsPage() {
                                 {current.formulas.map((f, i) => (
                                     <div key={i} className="sheet-row">
                                         <span className="sheet-formula-name">{f.name}</span>
-                                        <code className="sheet-formula">{f.formula}</code>
+                                        <MarkdownRenderer content={"$$" + f.formula + "$$"} />
                                         <span className="sheet-mandarin">{f.mandarin}</span>
                                     </div>
                                 ))}
