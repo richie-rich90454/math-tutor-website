@@ -109,8 +109,8 @@
         renderStats();
         var card = el("questionCard");
         if (!pool.length) {
-            el("questionTag").textContent = " ";
-            el("questionText").textContent = " ";
+            MathTutor.setText(el("questionTag"), " ");
+            MathTutor.setText(el("questionText"), " ");
             el("optionsList").innerHTML = '<p class="muted">' + MathTutor.escapeHtml(MathTutor.t("practiceDone")) + "</p>";
             el("feedback").className = "hidden";
             el("aiHelp").className = "hidden";
@@ -120,8 +120,8 @@
         if (index >= pool.length) {
             index = pool.length - 1;
         }
-        el("questionTag").textContent = current.topic + " · G" + current.grade;
-        el("questionText").textContent = current.question;
+        MathTutor.setText(el("questionTag"), current.topic + " · G" + current.grade);
+        MathTutor.setText(el("questionText"), current.question);
         var html = "";
         for (var i = 0; i < current.options.length; i++) {
             html += '<div class="row"><a href="#" data-option="' + i + '" class="option-btn">'
@@ -164,18 +164,18 @@
         });
         var resultEl = el("feedbackResult");
         resultEl.style.color = correct ? "#22c55e" : "#dc2626";
-        resultEl.textContent = correct
+        MathTutor.setText(resultEl, correct
             ? MathTutor.t("practiceCorrect")
-            : MathTutor.t("practiceIncorrect");
-        el("feedbackExplanation").textContent = MathTutor.t("practiceExplanation") + ": " + current.explanation;
+            : MathTutor.t("practiceIncorrect"));
+        MathTutor.setText(el("feedbackExplanation"), MathTutor.t("practiceExplanation") + ": " + current.explanation);
         el("feedback").className = "";
     }
 
     function renderStats() {
-        el("streakVal").textContent = String(streak);
+        MathTutor.setText(el("streakVal"), String(streak));
         var accuracy = totalCount > 0 ? Math.round((correctCount / totalCount) * 100) : 0;
-        el("accuracyVal").textContent = accuracy + "%";
-        el("progressVal").textContent = totalCount + "/" + Math.max(pool.length, totalCount);
+        MathTutor.setText(el("accuracyVal"), accuracy + "%");
+        MathTutor.setText(el("progressVal"), totalCount + "/" + Math.max(pool.length, totalCount));
     }
 
     function nextQuestion() {
@@ -228,8 +228,8 @@
                 var n = (data.items || []).length;
                 var card = el("reviewCard");
                 if (n > 0) {
-                    el("reviewText").textContent = MathTutor.t("reviewDue") + ": " + n + " "
-                        + MathTutor.t("reviewDueToday");
+                    MathTutor.setText(el("reviewText"), MathTutor.t("reviewDue") + ": " + n + " "
+                        + MathTutor.t("reviewDueToday"));
                     card.className = "card";
                 } else {
                     card.className = "card hidden";
@@ -245,7 +245,7 @@
             url: "/api/study-plan",
             method: "GET",
             success: function (data) {
-                el("planText").textContent = data.plan || "";
+                MathTutor.setText(el("planText"), data.plan || "");
             },
             error: function () {
             }
@@ -258,7 +258,7 @@
             method: "POST",
             data: { language: MathTutor.currentLanguage },
             success: function (data) {
-                el("planText").textContent = data.plan || "";
+                MathTutor.setText(el("planText"), data.plan || "");
             },
             error: function (msg) {
                 showError(msg);
@@ -268,7 +268,7 @@
 
     function showError(msg) {
         var box = el("errorBox");
-        box.textContent = msg;
+        MathTutor.setText(box, msg);
         box.className = "auth-msg";
     }
 
