@@ -145,6 +145,8 @@ const kk: Translations = {
     settingsThemeSystem: "Жүйе",
     settingsLanguageSaved: "Тіл қалауы сақталды",
     settingsVersion: "Математика мұғалімі AI v1.0.0",
+    legacyVersion: "Ескі нұсқа",
+    modernVersion: "Заманауи нұсқа",
     progressTitle: "Сіздің жетістігіңіз",
     progressConversations: "Әңгімелер",
     progressMessages: "Хабарламалар",
