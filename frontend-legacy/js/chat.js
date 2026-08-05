@@ -996,6 +996,9 @@
         el("modalBody").innerHTML = bodyHtml;
         el("modalOverlay").className = "modal-overlay";
         el("modal").className = "modal";
+        el("modalOk").className = "btn btn-primary";
+        el("modalCancel").className = "btn";
+        el("modalCancel").textContent = MathTutor.t("modalCancel");
         el("modalOk").onclick = okHandler;
         el("modalCancel").onclick = cancelHandler || function () {
             hideModal();
