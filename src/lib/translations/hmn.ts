@@ -145,6 +145,8 @@ const hmn: Translations = {
     settingsThemeSystem: "Raws Lub Tshuab",
     settingsLanguageSaved: "Koj hom lus tau khaws tseg",
     settingsVersion: "AI Math Tutor v1.0.0",
+    legacyVersion: "Qub lawm",
+    modernVersion: "Niaj hnub nimno",
     progressTitle: "Koj Txoj Kev Nce Qib",
     progressConversations: "Kev Sib Tham",
     progressMessages: "Cov Lus",
