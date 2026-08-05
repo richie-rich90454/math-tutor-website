@@ -145,6 +145,8 @@ const en: Translations = {
     settingsThemeSystem: "System",
     settingsLanguageSaved: "Language preference saved",
     settingsVersion: "AI Math Tutor v1.0.0",
+    legacyVersion: "Legacy version",
+    modernVersion: "Modern version",
     progressTitle: "Your Progress",
     progressConversations: "Conversations",
     progressMessages: "Messages",
