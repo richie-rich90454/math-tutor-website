@@ -331,7 +331,9 @@ export default function PracticePage() {
                         </div>
                         <div className="practice-stat">
                             <span className="practice-stat-value">{accuracy}%</span>
-                            <span className="practice-stat-label">Accuracy</span>
+                            <span className="practice-stat-label">
+                                {t("practiceAccuracy") || "Accuracy"}
+                            </span>
                         </div>
                         <div className="practice-stat">
                             <span className="practice-stat-value">
