@@ -55,6 +55,7 @@
     --fg-secondary: #525252;
     --fg-muted: #a3a3a3;
     --fg-inverse: #ffffff;
+    --fg-on-accent: #ffffff;
 
     --border-default: #e5e5e5;
     --border-subtle: #f0f0f0;
@@ -95,6 +96,7 @@
     --fg-secondary: #a3a3a3;
     --fg-muted: #6b6b6b;
     --fg-inverse: #0a0a0a;
+    --fg-on-accent: #0a0a0a;
 
     --border-default: #262626;
     --border-subtle: #1c1c1c;
@@ -135,6 +137,7 @@
         --fg-secondary: #a3a3a3;
         --fg-muted: #6b6b6b;
         --fg-inverse: #0a0a0a;
+        --fg-on-accent: #0a0a0a;
         --border-default: #262626;
         --border-subtle: #1c1c1c;
         --border-focus: #fafafa;
@@ -395,6 +398,31 @@ a:hover {
 /* ==========================================
    Scrollbar
    ========================================== */
+/* Global custom scrollbar (thicker, visible track, theme-aware) */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-app-alt);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--bg-active);
+    border: 2px solid var(--bg-app-alt);
+    border-radius: var(--radius-sm);
+    min-height: 40px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--fg-muted);
+}
+::-webkit-scrollbar-corner {
+    background: var(--bg-app-alt);
+}
+html {
+    scrollbar-width: auto;
+    scrollbar-color: var(--bg-active) var(--bg-app-alt);
+}
+
 .custom-scrollbar {
     scrollbar-width: thin;
     scrollbar-color: var(--fg-muted) transparent;
@@ -739,18 +767,18 @@ select,
 }
 
 .chat-messages-area::-webkit-scrollbar {
-    width: 6px;
+    width: 12px;
 }
 .chat-messages-area::-webkit-scrollbar-track {
-    background: transparent;
+    background: var(--bg-app-alt);
 }
 .chat-messages-area::-webkit-scrollbar-thumb {
-    background: var(--border-default);
-    border-radius: 3px;
-    transition: background var(--transition-fast);
+    background: var(--bg-active);
+    border: 2px solid var(--bg-app-alt);
+    border-radius: var(--radius-sm);
 }
 .chat-messages-area::-webkit-scrollbar-thumb:hover {
-    background: var(--fg-tertiary);
+    background: var(--fg-muted);
 }
 
 .chat-messages-inner {
@@ -1601,6 +1629,8 @@ select,
     font-size: 0.9375rem;
     line-height: 1.7;
     color: var(--fg-primary);
+    overflow-wrap: break-word;
+    min-width: 0;
 }
 .markdown-content p {
     color: var(--fg-primary);
@@ -1864,9 +1894,21 @@ select,
     font-size: 0.8125rem;
     color: var(--fg-secondary);
     transition: all var(--transition-fast);
-    white-space: nowrap;
+    white-space: normal;
+    max-width: 100%;
+    text-align: left;
     font-weight: 500;
     cursor: pointer;
+}
+.mdr-suggestion-chip .markdown-content {
+    display: inline;
+}
+.mdr-suggestion-chip p {
+    margin: 0;
+    display: inline;
+}
+.mdr-suggestion-chip .katex {
+    font-size: 1em;
 }
 .mdr-suggestion-chip:hover {
     border-color: var(--accent);
@@ -4459,6 +4501,11 @@ select,
 }
 
 /* Responsive KaTeX */
+.katex-display {
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-width: 100%;
+}
 @media (max-width: 480px) {
     .katex {
         font-size: 0.95em !important;
@@ -4766,11 +4813,13 @@ select,
 }
 .sheet-formula-name {
     min-width: 140px;
+    flex-shrink: 0;
     color: var(--fg-primary);
     font-weight: 500;
 }
 .sheet-formula {
     flex: 1;
+    min-width: 0;
     background: var(--bg-hover);
     padding: 4px 10px;
     border-radius: var(--radius-sm);
@@ -4780,7 +4829,7 @@ select,
 .sheet-mandarin {
     color: var(--fg-secondary);
     font-size: 0.85rem;
-    white-space: nowrap;
+    flex-shrink: 0;
 }
 .sheet-term {
     flex: 1;
