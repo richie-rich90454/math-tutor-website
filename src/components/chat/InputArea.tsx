@@ -101,7 +101,8 @@ const InputArea = memo(function InputArea({
     const processFile = useCallback(
         (file: File) => {
             if (!file.type.startsWith("image/") || !onImageSelect) return;
-            if (file.size > 20 * 1024 * 1024) return;
+            // Backend rejects images over 3MB decoded; keep the client in sync.
+            if (file.size > 3 * 1024 * 1024) return;
             const reader = new FileReader();
             reader.onload = (e) => {
                 onImageSelect(e.target?.result as string, file.type);
