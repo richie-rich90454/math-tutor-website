@@ -140,6 +140,8 @@ TRANSLATION_TABLES["he"] = {
     settingsThemeSystem: "מערכת",
     settingsLanguageSaved: "העדפת השפה נשמרה",
     settingsVersion: "מורה AI למתמטיקה v1.0.0",
+    legacyVersion: "גרסה ישנה",
+    modernVersion: "גרסה מודרנית",
     progressTitle: "ההתקדמות שלך",
     progressConversations: "שיחות",
     progressMessages: "הודעות",

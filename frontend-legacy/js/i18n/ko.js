@@ -143,6 +143,8 @@ TRANSLATION_TABLES["ko"] = {
     settingsThemeSystem: "시스템",
     settingsLanguageSaved: "언어 설정이 저장되었습니다",
     settingsVersion: "수학 튜터 AI v1.0.0",
+    legacyVersion: "레거시 버전",
+    modernVersion: "최신 버전",
     progressTitle: "내 진행 상황",
     progressConversations: "대화",
     progressMessages: "메시지",

@@ -142,6 +142,8 @@ TRANSLATION_TABLES["ru"] = {
     settingsThemeSystem: "Системная",
     settingsLanguageSaved: "Язык сохранён",
     settingsVersion: "Версия",
+    legacyVersion: "Старая версия",
+    modernVersion: "Современная версия",
     progressTitle: "Мой прогресс",
     progressConversations: "Беседы",
     progressMessages: "Сообщения",

@@ -143,6 +143,8 @@ TRANSLATION_TABLES["ky"] = {
     settingsThemeSystem: "Система",
     settingsLanguageSaved: "Тил тандоосу сакталды",
     settingsVersion: "Математика AI мугалими v1.0.0",
+    legacyVersion: "Эски версия",
+    modernVersion: "Заманбап версия",
     progressTitle: "Сиздин прогрессиңиз",
     progressConversations: "Сүйлөшүүлөр",
     progressMessages: "Билдирмелер",

@@ -143,6 +143,8 @@ TRANSLATION_TABLES["hni"] = {
     settingsThemeSystem: "Zaolmaol",
     settingsLanguageSaved: "Ngaqssaq toqv e zaovq",
     settingsVersion: "AI Math Tutor v1.0.0",
+    legacyVersion: "旧版",
+    modernVersion: "新版",
     progressTitle: "Naq e ssivq soqssaq",
     progressConversations: "Miiqsiq",
     progressMessages: "Miiqsiq",

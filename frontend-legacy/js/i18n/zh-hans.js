@@ -140,6 +140,8 @@ TRANSLATION_TABLES["zh-hans"] = {
     settingsThemeSystem: "跟随系统",
     settingsLanguageSaved: "语言偏好已保存",
     settingsVersion: "AI 数学导师 v1.0.0",
+    legacyVersion: "旧版",
+    modernVersion: "新版",
     progressTitle: "你的进度",
     progressConversations: "对话数",
     progressMessages: "消息数",

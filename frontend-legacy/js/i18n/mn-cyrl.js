@@ -141,6 +141,8 @@ TRANSLATION_TABLES["mn-cyrl"] = {
     settingsThemeSystem: "Систем",
     settingsLanguageSaved: "Хэлний тохиргоо хадгалагдлаа",
     settingsVersion: "AI Математикийн багш v1.0.0",
+    legacyVersion: "Хуучин хувилбар",
+    modernVersion: "Орчин үеийн хувилбар",
     progressTitle: "Таны ахиц",
     progressConversations: "Ярианууд",
     progressMessages: "Мессежүүд",

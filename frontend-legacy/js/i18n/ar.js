@@ -140,6 +140,8 @@ TRANSLATION_TABLES["ar"] = {
     settingsThemeSystem: "النظام",
     settingsLanguageSaved: "تم حفظ تفضيل اللغة",
     settingsVersion: "مدرس الرياضيات AI v1.0.0",
+    legacyVersion: "النسخة القديمة",
+    modernVersion: "النسخة الحديثة",
     progressTitle: "تقدمك",
     progressConversations: "المحادثات",
     progressMessages: "الرسائل",

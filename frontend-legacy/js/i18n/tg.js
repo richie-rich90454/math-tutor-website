@@ -143,6 +143,8 @@ TRANSLATION_TABLES["tg"] = {
     settingsThemeSystem: "Системавӣ",
     settingsLanguageSaved: "Забон сабт шуд",
     settingsVersion: "Версия",
+    legacyVersion: "Нусхаи кӯҳна",
+    modernVersion: "Нусхаи муосир",
     progressTitle: "Пешрафт",
     progressConversations: "Сӯҳбатҳо",
     progressMessages: "Паёмҳо",

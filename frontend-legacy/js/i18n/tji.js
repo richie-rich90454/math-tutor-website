@@ -142,6 +142,8 @@ TRANSLATION_TABLES["tji"] = {
     settingsThemeSystem: "Xitongx",
     settingsLanguageSaved: "Zif saeq oq",
     settingsVersion: "AI Suf Xof Sir v1.0.0",
+    legacyVersion: "旧版",
+    modernVersion: "新版",
     progressTitle: "Ngi xof suq",
     progressConversations: "Tao zov kax",
     progressMessages: "Zif kax",

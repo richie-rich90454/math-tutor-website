@@ -141,6 +141,8 @@ TRANSLATION_TABLES["de"] = {
     settingsThemeSystem: "System",
     settingsLanguageSaved: "Spracheinstellung gespeichert",
     settingsVersion: "AI Mathe-Tutor v1.0.0",
+    legacyVersion: "Legacy-Version",
+    modernVersion: "Moderne Version",
     progressTitle: "Dein Fortschritt",
     progressConversations: "Gesprache",
     progressMessages: "Nachrichten",

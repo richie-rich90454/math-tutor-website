@@ -142,6 +142,8 @@ TRANSLATION_TABLES["uz"] = {
     settingsThemeSystem: "Tizim bo'yicha",
     settingsLanguageSaved: "Til saqlandi",
     settingsVersion: "Versiya",
+    legacyVersion: "Eski versiya",
+    modernVersion: "Zamonaviy versiya",
     progressTitle: "Taraqqiyot",
     progressConversations: "Suhbatlar",
     progressMessages: "Xabarlar",

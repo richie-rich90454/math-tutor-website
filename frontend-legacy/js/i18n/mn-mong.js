@@ -141,6 +141,8 @@ TRANSLATION_TABLES["mn-mong"] = {
     settingsThemeSystem: "ᠰᠢᠰᠲ᠋ᠧᠮ",
     settingsLanguageSaved: "ᠬᠡᠯᠡᠨ ᠦ ᠲᠣᠬᠢᠷᠢᠭᠠ ᠬᠠᠳᠠᠭᠠᠯᠠᠭᠳᠠᠯᠠ",
     settingsVersion: "AI ᠮᠠᠲ᠋ᠧᠮᠠᠲᠢᠺᠢᠨ ᠶᠢᠨ ᠪᠠᠭᠰᠢ v1.0.0",
+    legacyVersion: "ᠬᠠᠭᠤᠴᠢᠨ ᠬᠡᠪ",
+    modernVersion: "ᠣᠷᠴᠢᠨ ᠦᠶᠡ ᠶᠢᠨ ᠬᠡᠪ",
     progressTitle: "ᠴᠢ ᠶᠢᠨ ᠠᠬᠢᠴᠤᠳᠠᠯ",
     progressConversations: "ᠬᠡᠯᠡᠯᠴᠡᠡ",
     progressMessages: "ᠵᠠᠬᠢᠳᠠᠯ",

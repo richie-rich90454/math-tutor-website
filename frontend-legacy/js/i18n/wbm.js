@@ -142,6 +142,8 @@ TRANSLATION_TABLES["wbm"] = {
     settingsThemeSystem: "A tɛ",
     settingsLanguageSaved: "Lix siak mawh",
     settingsVersion: "AI siw suak kaung pui v1.0.0",
+    legacyVersion: "旧版",
+    modernVersion: "新版",
     progressTitle: "Mēix a toem",
     progressConversations: "Kao lix",
     progressMessages: "Lix",

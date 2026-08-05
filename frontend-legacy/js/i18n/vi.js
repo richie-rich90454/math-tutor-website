@@ -143,6 +143,8 @@ TRANSLATION_TABLES["vi"] = {
     settingsThemeSystem: "Theo hệ thống",
     settingsLanguageSaved: "Đã lưu ngôn ngữ",
     settingsVersion: "Phiên bản",
+    legacyVersion: "Phiên bản cũ",
+    modernVersion: "Phiên bản hiện đại",
     progressTitle: "Tiến độ học tập",
     progressConversations: "Hội thoại",
     progressMessages: "Tin nhắn",

@@ -142,6 +142,8 @@ TRANSLATION_TABLES["pcc"] = {
     settingsThemeSystem: "Xitungx",
     settingsLanguageSaved: "Vah dingh baenz oq",
     settingsVersion: "Soqyoz Lauxsae AI v1.0.0",
+    legacyVersion: "旧版",
+    modernVersion: "新版",
     progressTitle: "Ginghdu mwngz",
     progressConversations: "Gangjvah",
     progressMessages: "Vah",

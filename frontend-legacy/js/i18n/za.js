@@ -143,6 +143,8 @@ TRANSLATION_TABLES["za"] = {
     settingsThemeSystem: "Sizdung",
     settingsLanguageSaved: "Vah sawqdingh cungj nyoengq ndaej",
     settingsVersion: "Sawsoq Son AI v1.0.0",
+    legacyVersion: "Biujgeq",
+    modernVersion: "Siendai",
     progressTitle: "Aen Cienz Mwngz",
     progressConversations: "Vahdoeng",
     progressMessages: "Vah",

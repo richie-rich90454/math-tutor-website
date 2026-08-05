@@ -143,6 +143,8 @@ TRANSLATION_TABLES["lhu"] = {
     settingsThemeSystem: "Šɛ law ve",
     settingsLanguageSaved: "Hkaw šɛ hk'a law te law ve",
     settingsVersion: "AI math šu-sheu law v1.0.0",
+    legacyVersion: "旧版",
+    modernVersion: "新版",
     progressTitle: "Naw ve a t'aw law",
     progressConversations: "Hkaw law",
     progressMessages: "Hkaw law",
