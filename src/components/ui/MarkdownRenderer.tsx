@@ -145,23 +145,28 @@ function useVocabHighlight(
         // Already highlighted (unrelated re-render) — leave the DOM alone.
         if (container.querySelector(".mdr-vocab")) return;
         let cancelled = false;
-        loadGlossary().then((terms) => {
-            if (cancelled || terms.length === 0) return;
-            const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT);
-            const textNodes: Text[] = [];
-            let node: Node | null = walker.nextNode();
-            while (node) {
-                if (!isInsideExcluded(node)) {
-                    textNodes.push(node as Text);
+        // Debounce so actively streaming content (which changes every frame)
+        // doesn't trigger a glossary TreeWalker walk on every chunk.
+        const timer = window.setTimeout(() => {
+            loadGlossary().then((terms) => {
+                if (cancelled || terms.length === 0) return;
+                const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT);
+                const textNodes: Text[] = [];
+                let node: Node | null = walker.nextNode();
+                while (node) {
+                    if (!isInsideExcluded(node)) {
+                        textNodes.push(node as Text);
+                    }
+                    node = walker.nextNode();
                 }
-                node = walker.nextNode();
-            }
-            for (const tn of textNodes) {
-                highlightTextNode(tn, terms);
-            }
-        });
+                for (const tn of textNodes) {
+                    highlightTextNode(tn, terms);
+                }
+            });
+        }, 150);
         return () => {
             cancelled = true;
+            window.clearTimeout(timer);
         };
     }, [containerRef, content]);
 }
