@@ -72,13 +72,14 @@ public class VisionChatService {
             messages.addMessage(activeChatId, "user", "[Image] " + userText, 0);
         }
 
-        List<ContextBuilder.ContextMessage> contextMessages = new ArrayList<>();
-        contextMessages.add(new ContextBuilder.ContextMessage("system", VISION_SYSTEM_PROMPT));
-
-        List<MessageRepository.MessageRecord> history = messages.findRecent(activeChatId, 20);
+        List<MessageRepository.MessageRecord> history =
+                messages.findRecent(activeChatId, ContextBuilder.MAX_HISTORY_FETCH);
+        List<ContextBuilder.ContextMessage> historyContext = new ArrayList<>();
         for (MessageRepository.MessageRecord msg : history) {
-            contextMessages.add(new ContextBuilder.ContextMessage(msg.role(), msg.content()));
+            historyContext.add(new ContextBuilder.ContextMessage(msg.role(), msg.content()));
         }
+        List<ContextBuilder.ContextMessage> contextMessages =
+                contextBuilder.buildContext(VISION_SYSTEM_PROMPT, historyContext, "");
 
         String optimizedImage = imageOptimizer.optimizeDataUrl(image);
         AiClient.AiStream stream = aiClient.streamVisionChat(contextMessages, userText, optimizedImage);
