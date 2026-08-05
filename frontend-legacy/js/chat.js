@@ -321,6 +321,7 @@
                 + '</div><div class="msg-body loading-dots">...</div></div>';
         }
         area.innerHTML = html;
+        MathTutor.renderMath(area);
         scrollMessagesToBottom();
     }
 
