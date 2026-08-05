@@ -146,6 +146,7 @@ const iom: Translations = {
     settingsLanguageSaved: "Waac nyei ndaangc jienv",
     settingsVersion: "AI Math Tutor v1.0.0",
     legacyVersion: "旧版",
+    browserOutdated: "您的浏览器可能无法支持全部功能",
     modernVersion: "新版",
     progressTitle: "Meih nyei ndaangc",
     progressConversations: "Waac",
