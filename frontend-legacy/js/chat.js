@@ -47,13 +47,13 @@
         MathTutor.applyLang(MathTutor.currentLanguage);
         var authLink = el("authLink");
         if (authLink) {
-            authLink.textContent = MathTutor.isAuthenticated()
+            MathTutor.setText(authLink, MathTutor.isAuthenticated()
                 ? MathTutor.t("sidebarSignOut")
-                : MathTutor.t("sidebarSignIn");
+                : MathTutor.t("sidebarSignIn"));
         }
         var chatTitle = el("chatTitle");
         if (chatTitle && currentChat) {
-            chatTitle.textContent = currentChat.title;
+            MathTutor.setText(chatTitle, currentChat.title);
         }
         renderChatList();
         renderSidebarUserArea();
@@ -992,13 +992,13 @@
 
     // ---------- Modal ----------
     function showModal(title, bodyHtml, okHandler, cancelHandler) {
-        el("modalTitle").textContent = title;
+        MathTutor.setText(el("modalTitle"), title);
         el("modalBody").innerHTML = bodyHtml;
         el("modalOverlay").className = "modal-overlay";
         el("modal").className = "modal";
         el("modalOk").className = "btn btn-primary";
         el("modalCancel").className = "btn";
-        el("modalCancel").textContent = MathTutor.t("modalCancel");
+        MathTutor.setText(el("modalCancel"), MathTutor.t("modalCancel"));
         el("modalOk").onclick = okHandler;
         el("modalCancel").onclick = cancelHandler || function () {
             hideModal();
@@ -1341,7 +1341,7 @@
             + '<div id="paletteList" class="palette-list"></div>';
         showModal(MathTutor.t("cmdPlaceholder"), body, null, closeCommandPalette);
         el("modalOk").className = "btn hidden";
-        el("modalCancel").textContent = "Esc";
+        MathTutor.setText(el("modalCancel"), "Esc");
         paletteOpen = true;
         var inp = el("paletteInput");
         inp.onkeyup = function () {
