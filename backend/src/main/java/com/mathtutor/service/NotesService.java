@@ -48,10 +48,8 @@ public class NotesService {
         String prompt = "Compress this math tutoring chat into a study note: short bullet "
                 + "points of the key concepts, formulas and steps covered. Keep it under 150 tokens. "
                 + "Write the note in " + langHint + ".";
-        List<ContextBuilder.ContextMessage> noteContext = new ArrayList<>();
-        noteContext.add(new ContextBuilder.ContextMessage("system", prompt));
-        noteContext.addAll(contextMessages.subList(
-                Math.max(0, contextMessages.size() - 20), contextMessages.size()));
+        List<ContextBuilder.ContextMessage> noteContext =
+                contextBuilder.buildContext(prompt, contextMessages, "");
         String note = aiClient.complete(noteContext, 300).trim();
         if (!note.isEmpty()) {
             jdbc.update("""
