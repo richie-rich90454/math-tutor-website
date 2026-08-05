@@ -81,7 +81,25 @@
 
     // Resume the last active chat (mirrors modern mt-last-chat-id), unless the
     // user turned the preference off in Settings (mt-resume-last-chat cookie).
+    // A ?chat=<id> query param (e.g. from the progress page) takes precedence.
     function maybeResumeLastChat() {
+        var qChat = null;
+        try {
+            var m = /[?&]chat=([^&]+)/.exec(location.search);
+            if (m) {
+                qChat = decodeURIComponent(m[1]);
+            }
+        } catch (e) {
+        }
+        if (qChat) {
+            for (var i = 0; i < chatHistory.length; i++) {
+                if (chatHistory[i].id === qChat) {
+                    selectChat(qChat);
+                    return;
+                }
+            }
+            return;
+        }
         if (MathTutor.getCookie("mt-resume-last-chat") === "0") {
             return;
         }
@@ -89,8 +107,8 @@
         if (!lastId) {
             return;
         }
-        for (var i = 0; i < chatHistory.length; i++) {
-            if (chatHistory[i].id === lastId) {
+        for (var j = 0; j < chatHistory.length; j++) {
+            if (chatHistory[j].id === lastId) {
                 selectChat(lastId);
                 return;
             }
