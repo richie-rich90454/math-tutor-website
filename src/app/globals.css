@@ -692,7 +692,8 @@ select,
     font-size: 0.8125rem;
     color: var(--fg-secondary);
     transition: all var(--transition-fast);
-    white-space: nowrap;
+    white-space: normal;
+    max-width: 100%;
     font-weight: 500;
     will-change: transform;
     cursor: pointer;
