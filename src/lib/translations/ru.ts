@@ -145,6 +145,7 @@ const ru: Translations = {
     settingsLanguageSaved: "Язык сохранён",
     settingsVersion: "Версия",
     legacyVersion: "Старая версия",
+    browserOutdated: "Ваш браузер может не поддерживать все функции",
     modernVersion: "Современная версия",
     progressTitle: "Мой прогресс",
     progressConversations: "Беседы",
