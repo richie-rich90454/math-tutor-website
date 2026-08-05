@@ -478,7 +478,7 @@ export default function Home() {
                                 <div className="chat-messages-area" ref={chatMessagesRef}>
                                     <div className="chat-messages-inner">
                                         <div className="chat-messages-list">
-                                            <VirtualizedMessages>
+                                            <VirtualizedMessages scrollRef={chatMessagesRef}>
                                                 {renderedMessages}
                                             </VirtualizedMessages>
                                             {isLoading &&
