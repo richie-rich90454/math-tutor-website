@@ -64,14 +64,11 @@ export default function Home() {
         isSidebarOpen,
         setIsSidebarOpen,
         isMobile,
-        isTouchDevice,
         showShortcuts,
         setShowShortcuts,
         showCommandPalette,
         setShowCommandPalette,
         showScrollBtn,
-        hoveredMsgId,
-        setHoveredMsgId,
         feedback,
         handleSidebarToggle,
         scrollToBottom,
@@ -210,12 +207,13 @@ export default function Home() {
         });
     }, []);
 
+    const onSuggestionClick = useCallback((text: string) => setInput(text), [setInput]);
+
     const renderedMessages = useMemo(() => {
         return messages.map((message, index) => (
             <MessageRow
                 key={message.id}
                 message={message}
-                isHovered={isTouchDevice || hoveredMsgId === message.id}
                 isStreaming={isStreaming}
                 isLastMessage={index === messages.length - 1}
                 formatTime={formatTime}
@@ -225,18 +223,14 @@ export default function Home() {
                 feedbackValue={feedback.get(message.id) || null}
                 onEdit={handleEdit}
                 editLabel={t("chatEditMessage") || "Edit message"}
-                onSuggestionClick={(text: string) => setInput(text)}
+                onSuggestionClick={onSuggestionClick}
                 onFollowUp={sendMessage}
-                onMouseEnter={() => setHoveredMsgId(message.id)}
-                onMouseLeave={() => setHoveredMsgId(null)}
                 onTogglePin={togglePin}
                 isPinned={!!message.isPinned}
             />
         ));
     }, [
         messages,
-        hoveredMsgId,
-        isTouchDevice,
         isStreaming,
         feedback,
         formatTime,
@@ -247,8 +241,7 @@ export default function Home() {
         togglePin,
         t,
         sendMessage,
-        setHoveredMsgId,
-        setInput,
+        onSuggestionClick,
     ]);
 
     return (
