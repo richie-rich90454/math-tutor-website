@@ -144,6 +144,7 @@ const mnMong: Translations = {
     settingsLanguageSaved: "ᠬᠡᠯᠡᠨ ᠦ ᠲᠣᠬᠢᠷᠢᠭᠠ ᠬᠠᠳᠠᠭᠠᠯᠠᠭᠳᠠᠯᠠ",
     settingsVersion: "AI ᠮᠠᠲ᠋ᠧᠮᠠᠲᠢᠺᠢᠨ ᠶᠢᠨ ᠪᠠᠭᠰᠢ v1.0.0",
     legacyVersion: "ᠬᠠᠭᠤᠴᠢᠨ ᠬᠡᠪ",
+    browserOutdated: "ᠲᠠᠨᠤ ᠹᠡᠷᠡᠪᠡᠷ ᠪᠦᠬᠦ ᠴᠢᠳᠠᠪᠤᠷᠢᠶᠢ ᠳᠡᠮᠵᠢᠬᠦ ᠦᠭᠡᠢ ᠪᠠᠢᠵᠤ ᠮᠡᠳᠡᠬᠦ",
     modernVersion: "ᠣᠷᠴᠢᠨ ᠦᠶᠡ ᠶᠢᠨ ᠬᠡᠪ",
     progressTitle: "ᠴᠢ ᠶᠢᠨ ᠠᠬᠢᠴᠤᠳᠠᠯ",
     progressConversations: "ᠬᠡᠯᠡᠯᠴᠡᠡ",
