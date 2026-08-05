@@ -146,6 +146,7 @@ const vi: Translations = {
     settingsLanguageSaved: "Đã lưu ngôn ngữ",
     settingsVersion: "Phiên bản",
     legacyVersion: "Phiên bản cũ",
+    browserOutdated: "Trinh duyet cua ban co the khong ho tro tat ca tinh nang",
     modernVersion: "Phiên bản hiện đại",
     progressTitle: "Tiến độ học tập",
     progressConversations: "Hội thoại",
