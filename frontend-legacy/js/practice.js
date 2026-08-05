@@ -3,6 +3,14 @@
     "use strict";
 
     var TOPICS = ["arithmetic", "algebra", "geometry", "calculus", "trigonometry", "statistics"];
+    var TOPIC_KEYS = {
+        arithmetic: "topicArithmetic",
+        algebra: "topicAlgebra",
+        geometry: "topicGeometry",
+        calculus: "topicCalculus",
+        trigonometry: "topicTrigonometry",
+        statistics: "topicStatistics"
+    };
     var pool = [];
     var index = 0;
     var selected = -1;
@@ -39,7 +47,8 @@
         for (var i = 0; i < TOPICS.length; i++) {
             var tp = TOPICS[i];
             html += '<a href="#" data-topic="' + tp + '" class="chip'
-                + (tp === topic && !reviewMode ? " chip-active" : "") + '">' + MathTutor.escapeHtml(tp) + "</a> ";
+                + (tp === topic && !reviewMode ? " chip-active" : "") + '">'
+                + MathTutor.escapeHtml(MathTutor.t(TOPIC_KEYS[tp])) + "</a> ";
         }
         host.innerHTML = html;
         $(host).off("click").on("click", "a[data-topic]", function (e) {
