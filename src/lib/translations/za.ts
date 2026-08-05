@@ -146,6 +146,7 @@ const za: Translations = {
     settingsLanguageSaved: "Vah sawqdingh cungj nyoengq ndaej",
     settingsVersion: "Sawsoq Son AI v1.0.0",
     legacyVersion: "Biujgeq",
+    browserOutdated: "Lwed moz neix doengj mbouj dwg",
     modernVersion: "Siendai",
     progressTitle: "Aen Cienz Mwngz",
     progressConversations: "Vahdoeng",
