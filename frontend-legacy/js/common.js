@@ -379,6 +379,11 @@ function wrapBestTerm(node, terms) {
     if (!text || text.length < 4) {
         return;
     }
+    // Never touch text bearing math delimiters — splitting it would break $..$
+    // pairs before MathJax typesets them.
+    if (text.indexOf("$") !== -1) {
+        return;
+    }
     var best = null;
     for (var i = 0; i < terms.length; i++) {
         var term = terms[i];
