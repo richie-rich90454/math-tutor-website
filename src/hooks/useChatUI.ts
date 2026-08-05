@@ -69,12 +69,19 @@ export function useChatUI(
         if (window.innerWidth <= 768) setIsSidebarOpen((p) => !p);
     }, []);
 
-    // Scroll helpers
+    // Scroll helpers — scroll the chat container directly (scrollIntoView would
+    // force a synchronous layout pass and scroll every ancestor on each chunk).
     const scrollToBottom = useCallback(
         (smooth = true) => {
-            messagesEndRef.current?.scrollIntoView({ behavior: smooth ? "smooth" : "auto" });
+            const el = chatMessagesRef.current;
+            if (!el) return;
+            if (smooth && typeof el.scrollTo === "function") {
+                el.scrollTo({ top: el.scrollHeight, behavior: "smooth" });
+            } else {
+                el.scrollTop = el.scrollHeight;
+            }
         },
-        [messagesEndRef],
+        [chatMessagesRef],
     );
 
     const isNearBottom = useCallback(() => {
