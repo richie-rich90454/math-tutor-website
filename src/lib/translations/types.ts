@@ -153,6 +153,7 @@ export interface Translations {
     settingsLanguageSaved: string;
     settingsVersion: string;
     legacyVersion: string;
+    browserOutdated: string;
     modernVersion: string;
     progressTitle: string;
     progressConversations: string;
