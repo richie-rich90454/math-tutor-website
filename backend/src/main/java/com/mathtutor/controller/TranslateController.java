@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -48,11 +47,11 @@ public class TranslateController {
         if (message == null || message.isBlank()) {
             return ResponseEntity.badRequest().body(Map.of("error", "message is required"));
         }
-        List<ContextBuilder.ContextMessage> context = new ArrayList<>();
-        context.add(new ContextBuilder.ContextMessage("system",
+        List<ContextBuilder.ContextMessage> context = contextBuilder.buildContext(
                 "Translate the following math explanation into Mandarin (Simplified Chinese). "
-                        + "Keep all LaTeX and markdown unchanged. Output only the translation."));
-        context.add(new ContextBuilder.ContextMessage("user", message));
+                        + "Keep all LaTeX and markdown unchanged. Output only the translation.",
+                List.of(),
+                message);
         try {
             String translation = aiClient.complete(context, 1000).trim();
             if (translation.isEmpty()) {
