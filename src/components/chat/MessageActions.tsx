@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect, useCallback, memo } from "react";
-import gsap from "gsap";
+import { useState, useCallback, memo } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 interface MessageActionsProps {
@@ -30,20 +29,6 @@ const MessageActions = memo(function MessageActions({
 }: MessageActionsProps) {
     const { t } = useLanguage();
     const [copied, setCopied] = useState(false);
-    const ref = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        if (!ref.current) return;
-        if (isVisible) {
-            gsap.fromTo(
-                ref.current,
-                { x: 10, opacity: 0 },
-                { x: 0, opacity: 1, duration: 0.2, ease: "power2.out" },
-            );
-        } else {
-            gsap.to(ref.current, { x: 10, opacity: 0, duration: 0.15, ease: "power2.in" });
-        }
-    }, [isVisible]);
 
     const handleCopy = useCallback(async () => {
         await navigator.clipboard.writeText(content);
@@ -52,7 +37,7 @@ const MessageActions = memo(function MessageActions({
     }, [content]);
 
     return (
-        <div ref={ref} className={`msg-actions ${isVisible ? "is-visible" : ""}`}>
+        <div className={`msg-actions ${isVisible ? "is-visible" : ""}`}>
             <button
                 onClick={handleCopy}
                 className="msg-action-btn"
