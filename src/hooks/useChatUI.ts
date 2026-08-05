@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 
 export function useChatUI(
     sendMessage: (overrideInput?: string) => Promise<void>,
@@ -100,6 +100,13 @@ export function useChatUI(
     }, [chatMessagesRef, messages.length]);
 
     // Keyboard shortcuts
+    // sendMessage changes identity on every keystroke, so route it through a ref
+    // to avoid rebinding this listener on each input change.
+    const sendMessageRef = useRef(sendMessage);
+    useEffect(() => {
+        sendMessageRef.current = sendMessage;
+    }, [sendMessage]);
+
     useEffect(() => {
         const handler = (e: KeyboardEvent) => {
             const mod = e.ctrlKey || e.metaKey;
@@ -121,7 +128,7 @@ export function useChatUI(
             }
             if (mod && e.key === "Enter") {
                 e.preventDefault();
-                sendMessage();
+                sendMessageRef.current();
             }
             if (e.key === "Escape") {
                 if (showCommandPalette) setShowCommandPalette(false);
@@ -134,7 +141,6 @@ export function useChatUI(
     }, [
         handleSidebarToggle,
         handleNewChat,
-        sendMessage,
         showCommandPalette,
         showShortcuts,
         isSidebarOpen,
