@@ -146,6 +146,8 @@ const nxq: Translations = {
     settingsThemeSystem: "Ddee sai keel",
     settingsLanguageSaved: "Seiq gge saiq ceel sai",
     settingsVersion: "Hhee laq lv sheeq mee AI v1.0.0",
+    legacyVersion: "旧版",
+    modernVersion: "新版",
     progressTitle: "Ngyu gge hheeq bbei hheeq",
     progressConversations: "Zal ddee chee la",
     progressMessages: "Seiq ddee bbeq",
