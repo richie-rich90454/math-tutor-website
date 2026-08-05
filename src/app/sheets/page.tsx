@@ -132,7 +132,9 @@ export default function SheetsPage() {
                                 {current.formulas.map((f, i) => (
                                     <div key={i} className="sheet-row">
                                         <span className="sheet-formula-name">{f.name}</span>
-                                        <MarkdownRenderer content={"$$" + f.formula + "$$"} />
+                                        <div className="sheet-formula">
+                                            <MarkdownRenderer content={"$$" + f.formula + "$$"} />
+                                        </div>
                                         <span className="sheet-mandarin">{f.mandarin}</span>
                                     </div>
                                 ))}
