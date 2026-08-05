@@ -143,6 +143,7 @@ const zhHans: Translations = {
     settingsLanguageSaved: "语言偏好已保存",
     settingsVersion: "AI 数学导师 v1.0.0",
     legacyVersion: "旧版",
+    browserOutdated: "您的浏览器可能无法支持全部功能",
     modernVersion: "新版",
     progressTitle: "你的进度",
     progressConversations: "对话数",
