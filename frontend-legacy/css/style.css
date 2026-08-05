@@ -115,7 +115,7 @@ html,body{height:100%;}
 .msg-role{font-weight:bold;font-size:12px;margin-bottom:3px;}
 .msg-user .msg-role{color:#1a56db;}
 .msg-assistant .msg-role{color:#0a7a3d;}
-.msg-body{white-space:pre-wrap;font-size:13px;line-height:1.45;}
+.msg-body{white-space:pre-wrap;font-size:13px;line-height:1.45;word-wrap:break-word;}
 .msg-user .msg-body{background:#eef3fb;padding:8px;border:1px solid #c9d8f0;}
 .msg-assistant .msg-body{background:#f7faf8;padding:8px;border:1px solid #d4e8dc;}
 .msg-time{color:#999;font-size:11px;margin-top:3px;}
@@ -265,7 +265,7 @@ body.theme-dark .shortcuts-help strong{color:#7ea6ff;}
 
 /* Sheets tables */
 .sheet-table{border-collapse:collapse;}
-.sheet-table td{padding:6px 8px;border-bottom:1px solid #e0e0e0;vertical-align:middle;}
+.sheet-table td{padding:6px 8px;border-bottom:1px solid #e0e0e0;vertical-align:middle;word-wrap:break-word;}
 .sheet-formula-name{width:140px;}
 .sheet-mandarin{width:120px;text-align:right;}
 body.theme-dark .sheet-table td{border-bottom-color:#2a2e37;}
