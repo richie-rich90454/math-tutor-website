@@ -143,6 +143,8 @@ const ja: Translations = {
     settingsThemeSystem: "システム",
     settingsLanguageSaved: "言語設定を保存しました",
     settingsVersion: "AI 数学チューター v1.0.0",
+    legacyVersion: "旧バージョン",
+    modernVersion: "モダンバージョン",
     progressTitle: "あなたの進捗",
     progressConversations: "会話数",
     progressMessages: "メッセージ数",
