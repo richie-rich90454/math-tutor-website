@@ -4,6 +4,24 @@ import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom/vitest";
 import ContinueLearning from "@/components/home/ContinueLearning";
 import { LanguageProvider } from "@/contexts/LanguageContext";
+import { AuthContext } from "@/contexts/AuthContext";
+
+const authValue = {
+    user: {
+        id: "1",
+        email: "a@b.c",
+        name: "T",
+        preferred_language: "en",
+        math_level: "1",
+    },
+    isLoading: false,
+    isAuthenticated: true,
+    login: vi.fn(),
+    signup: vi.fn(),
+    logout: vi.fn(),
+    refreshUser: vi.fn(),
+    startGuest: vi.fn(),
+};
 
 function mockFetchWith(...responses: Array<{ topics?: unknown[]; weakTopics?: unknown[] }>) {
     const calls: Array<() => Promise<unknown>> = responses.map((body) => () =>
@@ -21,7 +39,9 @@ function mockFetchWith(...responses: Array<{ topics?: unknown[]; weakTopics?: un
 function renderLearning() {
     return render(
         <LanguageProvider>
-            <ContinueLearning onSelect={vi.fn()} />
+            <AuthContext.Provider value={authValue}>
+                <ContinueLearning onSelect={vi.fn()} />
+            </AuthContext.Provider>
         </LanguageProvider>,
     );
 }
@@ -53,7 +73,9 @@ describe("ContinueLearning", () => {
         const onSelect = vi.fn();
         render(
             <LanguageProvider>
-                <ContinueLearning onSelect={onSelect} />
+                <AuthContext.Provider value={authValue}>
+                    <ContinueLearning onSelect={onSelect} />
+                </AuthContext.Provider>
             </LanguageProvider>,
         );
         await waitFor(() => {
