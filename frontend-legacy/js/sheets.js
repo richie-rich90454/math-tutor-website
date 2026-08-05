@@ -29,7 +29,7 @@
         var sel = el("langSelect");
         sel.value = MathTutor.currentLanguage;
         $(sel).on("change", function () {
-            MathTutor.setLanguage(this.value);
+            MathTutor.setLanguage(this.value, loadSheet);
         });
     }
 
@@ -53,7 +53,8 @@
 
     function loadSheet() {
         MathTutor.api({
-            url: "/api/sheets?topic=" + encodeURIComponent(active),
+            url: "/api/sheets?topic=" + encodeURIComponent(active)
+                + "&language=" + encodeURIComponent(MathTutor.currentLanguage),
             method: "GET",
             success: function (data) {
                 var sheet = data.sheet;
