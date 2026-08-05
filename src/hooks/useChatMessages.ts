@@ -15,6 +15,10 @@ export function useChatMessages() {
     const { addToast } = useToast();
 
     const [input, setInput] = useState("");
+    const inputRef = useRef(input);
+    useEffect(() => {
+        inputRef.current = input;
+    }, [input]);
     const [pendingImage, setPendingImage] = useState<{ data: string; mimeType: string } | null>(
         null,
     );
@@ -173,7 +177,7 @@ export function useChatMessages() {
 
     const sendMessage = useCallback(
         async (overrideInput?: string) => {
-            const messageText = (overrideInput ?? input).trim();
+            const messageText = (overrideInput ?? inputRef.current).trim();
             if (!messageText || isLoadingRef.current) return;
 
             isLoadingRef.current = true;
@@ -304,7 +308,7 @@ export function useChatMessages() {
                 assistantIdRef.current = null;
             }
         },
-        [input, currentLanguage.code, activeChatId, t, addChatSession, appendStreamChunk, flushStreamNow],
+        [currentLanguage.code, activeChatId, t, addChatSession, appendStreamChunk, flushStreamNow],
     );
 
     const sendImage = useCallback(async () => {
@@ -315,12 +319,12 @@ export function useChatMessages() {
         const imageMessage: Message = {
             id: Date.now().toString(),
             role: "user",
-            content: `[Image] ${input || "Please solve this math problem"}`,
+            content: `[Image] ${inputRef.current || "Please solve this math problem"}`,
             timestamp: new Date(),
         };
 
         const imageData = pendingImage;
-        const currentInput = input;
+        const currentInput = inputRef.current;
         setInput("");
         setPendingImage(null);
         setMessages((prev) => [...prev, imageMessage]);
@@ -430,7 +434,7 @@ export function useChatMessages() {
             abortControllerRef.current = null;
             assistantIdRef.current = null;
         }
-    }, [pendingImage, input, currentLanguage.code, activeChatId, addChatSession, appendStreamChunk, flushStreamNow]);
+    }, [pendingImage, currentLanguage.code, activeChatId, addChatSession, appendStreamChunk, flushStreamNow]);
 
     const handleStopGeneration = useCallback(() => {
         stopRequestedRef.current = true;
