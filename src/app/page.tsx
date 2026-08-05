@@ -31,6 +31,10 @@ const MathParticles = dynamic(() => import("@/components/ui/MathParticles"), {
 });
 const ShortcutHelp = dynamic(() => import("@/components/ui/ShortcutHelp"));
 
+const prefersReducedMotion = () =>
+    typeof window !== "undefined" &&
+    !!window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+
 export default function Home() {
     const { t } = useLanguage();
     const {
@@ -92,6 +96,7 @@ export default function Home() {
     // ── GSAP animations ──
     useEffect(() => {
         if (messages.length === 0 && welcomeRef.current) {
+            if (prefersReducedMotion()) return;
             const titleEl = welcomeRef.current.querySelector(".welcome-title");
             const subtitleEl = welcomeRef.current.querySelector(".welcome-subtitle");
             const inputCard = welcomeRef.current.querySelector(".welcome-input-card");
@@ -113,6 +118,7 @@ export default function Home() {
 
     useGSAP(
         () => {
+            if (prefersReducedMotion()) return;
             if (contentAreaRef.current && messages.length > 0) {
                 gsap.fromTo(
                     contentAreaRef.current,
@@ -126,6 +132,7 @@ export default function Home() {
 
     const hasMessages = messages.length > 0;
     useEffect(() => {
+        if (prefersReducedMotion()) return;
         if (hasMessages && contentAreaRef.current) {
             const headerBtns = contentAreaRef.current.querySelectorAll(".app-header-btn");
             if (headerBtns.length > 0) {
@@ -146,6 +153,7 @@ export default function Home() {
     }, [hasMessages]);
 
     useEffect(() => {
+        if (prefersReducedMotion()) return;
         if (scrollBtnRef.current && showScrollBtn !== prevStreamingRef.current) {
             prevStreamingRef.current = showScrollBtn;
             gsap.killTweensOf(scrollBtnRef.current);
@@ -167,6 +175,7 @@ export default function Home() {
     }, [showScrollBtn]);
 
     useEffect(() => {
+        if (prefersReducedMotion()) return;
         if (hasMessages && inputBarRef.current) {
             gsap.fromTo(
                 inputBarRef.current,
@@ -181,7 +190,7 @@ export default function Home() {
         const prevLen = prevMessagesLenRef.current;
         const newLen = messages.length;
         prevMessagesLenRef.current = newLen;
-        if (newLen > prevLen && chatMessagesRef.current) {
+        if (newLen > prevLen && chatMessagesRef.current && !prefersReducedMotion()) {
             const timer = setTimeout(() => {
                 const rows = chatMessagesRef.current!.querySelectorAll(".message-row");
                 for (let i = prevLen; i < rows.length; i++) {
