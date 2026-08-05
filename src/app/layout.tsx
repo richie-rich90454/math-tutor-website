@@ -28,6 +28,7 @@ import { AuthProvider } from "@/contexts/AuthContext";
 import { ToastProvider } from "@/contexts/ToastContext";
 import SkipLink from "@/components/ui/SkipLink";
 import HtmlAttributes from "@/components/ui/HtmlAttributes";
+import BrowserSupportBanner from "@/components/ui/BrowserSupportBanner";
 
 const notoSans = Noto_Sans({
     variable: "--font-noto-sans",
@@ -472,6 +473,7 @@ export default function RootLayout({
                         <AuthProvider>
                             <HtmlAttributes />
                             <SkipLink />
+                            <BrowserSupportBanner />
                             <ChatProvider>{children}</ChatProvider>
                         </AuthProvider>
                     </ToastProvider>
