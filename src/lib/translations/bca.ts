@@ -145,6 +145,8 @@ const bca: Translations = {
     settingsThemeSystem: "Xirtonf",
     settingsLanguageSaved: "Vut xux nox duix lix",
     settingsVersion: "Suaip Laolsi AI v1.0.0",
+    legacyVersion: "旧版",
+    modernVersion: "新版",
     progressTitle: "Nel Nox Jinxdux",
     progressConversations: "Sua Daot",
     progressMessages: "Suaxua",
