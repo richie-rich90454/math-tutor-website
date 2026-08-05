@@ -77,7 +77,7 @@
 
     function showError(msg) {
         var box = el("errorBox");
-        box.textContent = msg;
+        MathTutor.setText(box, msg);
         box.className = "auth-msg";
     }
 
