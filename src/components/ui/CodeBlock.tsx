@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import js from "react-syntax-highlighter/dist/esm/languages/prism/javascript";
 import ts from "react-syntax-highlighter/dist/esm/languages/prism/typescript";
@@ -49,6 +50,7 @@ interface CodeBlockProps {
 }
 
 export default function CodeBlock({ language, code }: CodeBlockProps) {
+    const { t } = useLanguage();
     const [copied, setCopied] = useState(false);
 
     const handleCopy = () => {
@@ -76,7 +78,7 @@ export default function CodeBlock({ language, code }: CodeBlockProps) {
                 {code}
             </SyntaxHighlighter>
             <button onClick={handleCopy} className="mdr-copy-btn">
-                {copied ? "Copied!" : "Copy"}
+                {copied ? t("chatCopied") : t("copy")}
             </button>
         </div>
     );
