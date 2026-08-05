@@ -143,6 +143,7 @@ const ar: Translations = {
     settingsLanguageSaved: "تم حفظ تفضيل اللغة",
     settingsVersion: "مدرس الرياضيات AI v1.0.0",
     legacyVersion: "النسخة القديمة",
+    browserOutdated: "قد لا يدعم متصفحك جميع الميزات",
     modernVersion: "النسخة الحديثة",
     progressTitle: "تقدمك",
     progressConversations: "المحادثات",
