@@ -48,6 +48,36 @@
         });
     }
 
+    function buildResumeCheck() {
+        var check = el("resumeCheck");
+        check.checked = MathTutor.getCookie("mt-resume-last-chat") !== "0";
+        $(check).on("change", function () {
+            MathTutor.setCookie("mt-resume-last-chat", check.checked ? "1" : "0", 365);
+        });
+    }
+
+    function loadUsage() {
+        MathTutor.api({
+            url: "/api/usage",
+            method: "GET",
+            success: function (data) {
+                var text = el("usageText");
+                if (!text || !data || !data.today) {
+                    return;
+                }
+                var total = (data.today.requestTokens || 0) + (data.today.responseTokens || 0);
+                var cost = data.today.estCostUsd || 0;
+                var txt = MathTutor.t("usageToday") + ": " + MathTutor.formatTokens(total) + " tok ~$" + cost.toFixed(4);
+                if (data.cacheHits && data.cacheHits > 0) {
+                    txt += " (" + data.cacheHits + " " + MathTutor.t("usageCacheHits") + ")";
+                }
+                text.textContent = txt;
+            },
+            error: function () {
+            }
+        });
+    }
+
     function loadAccount() {
         MathTutor.refreshSession(function (ok) {
             if (ok) {
@@ -77,6 +107,8 @@
         buildLangSwitcher();
         buildLanguageSelect();
         buildThemeSelect();
+        buildResumeCheck();
+        loadUsage();
         loadAccount();
 
         el("signOutBtn").onclick = function () {
