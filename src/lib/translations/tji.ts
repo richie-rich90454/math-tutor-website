@@ -145,6 +145,7 @@ const tji: Translations = {
     settingsLanguageSaved: "Zif saeq oq",
     settingsVersion: "AI Suf Xof Sir v1.0.0",
     legacyVersion: "旧版",
+    browserOutdated: "您的浏览器可能无法支持全部功能",
     modernVersion: "新版",
     progressTitle: "Ngi xof suq",
     progressConversations: "Tao zov kax",
