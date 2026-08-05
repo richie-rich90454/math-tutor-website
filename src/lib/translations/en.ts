@@ -146,6 +146,7 @@ const en: Translations = {
     settingsLanguageSaved: "Language preference saved",
     settingsVersion: "AI Math Tutor v1.0.0",
     legacyVersion: "Legacy version",
+    browserOutdated: "Your browser may not support all features",
     modernVersion: "Modern version",
     progressTitle: "Your Progress",
     progressConversations: "Conversations",
