@@ -103,12 +103,13 @@ export default function PracticePage() {
         [topic, grade, currentLanguage.code],
     );
 
+    // loadProblems identity changes with topic/grade/language, so the effect
+    // re-runs on those changes — no manual reload calls needed in the pickers.
     useEffect(() => {
         if (isAuthenticated) {
             loadProblems();
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [isAuthenticated, currentLanguage.code]);
+    }, [isAuthenticated, loadProblems]);
 
     useEffect(() => {
         if (isAuthenticated) {
@@ -285,7 +286,6 @@ export default function PracticePage() {
                                             className={`practice-chip ${tp === topic && !reviewMode ? "is-active" : ""}`}
                                             onClick={() => {
                                                 setTopic(tp);
-                                                loadProblems(tp, grade);
                                             }}
                                         >
                                             {topicLabel(tp, t)}
@@ -306,7 +306,6 @@ export default function PracticePage() {
                                                 ? "all"
                                                 : Number(e.target.value);
                                         setGrade(value);
-                                        loadProblems(topic, value);
                                     }}
                                 >
                                     <option value="all">{t("gradeAll") || "All"}</option>
