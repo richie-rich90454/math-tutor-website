@@ -22,15 +22,17 @@ public class SheetsController {
     }
 
     @GetMapping
-    public ResponseEntity<?> sheets(@RequestParam(required = false) String topic) {
+    public ResponseEntity<?> sheets(
+            @RequestParam(required = false) String topic,
+            @RequestParam(required = false) String language) {
         if (topic == null || topic.isBlank()) {
             List<Map<String, Object>> out = new ArrayList<>();
-            for (SheetsService.SheetTopic sheet : sheets.all()) {
+            for (SheetsService.SheetTopic sheet : sheets.all(language)) {
                 out.add(sheets.toJson(sheet));
             }
             return ResponseEntity.ok(Map.of("sheets", out));
         }
-        SheetsService.SheetTopic sheet = sheets.get(topic).orElse(null);
+        SheetsService.SheetTopic sheet = sheets.get(topic, language).orElse(null);
         if (sheet == null) {
             return ResponseEntity.status(404).body(Map.of("error", "Topic not found"));
         }
