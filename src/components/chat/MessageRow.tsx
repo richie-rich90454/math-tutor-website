@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useState } from "react";
 import dynamic from "next/dynamic";
 import type { Message } from "@/types/chat";
 import Skeleton from "@/components/ui/Skeleton";
@@ -50,11 +50,14 @@ const MessageRow = memo(function MessageRow({
     isPinned,
 }: MessageRowProps) {
     const { t } = useLanguage();
+    const [focused, setFocused] = useState(false);
     return (
         <div
             className={`message-row ${message.role === "user" ? "is-user" : "is-assistant"}`}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
+            onFocus={() => setFocused(true)}
+            onBlur={() => setFocused(false)}
         >
             <div className="message-row-bubble-wrapper">
                 {message.role === "user" ? (
@@ -65,7 +68,7 @@ const MessageRow = memo(function MessageRow({
                                 onSuggestionClick={onSuggestionClick}
                             />
                         </div>
-                        {isHovered && !isStreaming && (
+                        {(isHovered || focused) && !isStreaming && (
                             <button
                                 className="msg-edit-btn"
                                 onClick={() => onEdit(message.id, message.content)}
