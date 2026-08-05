@@ -33,7 +33,7 @@
         $(sel).on("change", function () {
             MathTutor.setLanguage(this.value, function () {
                 var saved = el("langSaved");
-                saved.textContent = MathTutor.t("settingsLanguageSaved");
+                MathTutor.setText(saved, MathTutor.t("settingsLanguageSaved"));
                 saved.className = "auth-ok";
                 reapply();
             });
@@ -71,7 +71,7 @@
                 if (data.cacheHits && data.cacheHits > 0) {
                     txt += " (" + data.cacheHits + " " + MathTutor.t("usageCacheHits") + ")";
                 }
-                text.textContent = txt;
+                MathTutor.setText(text, txt);
             },
             error: function () {
             }
@@ -84,9 +84,9 @@
                 el("accountInfo").className = "";
                 el("accountNotSigned").className = "hidden";
                 var user = MathTutor.currentUser();
-                el("accountEmail").textContent = user.email || "-";
-                el("accountName").textContent = user.name || "-";
-                el("accountLevel").textContent = user.math_level || "-";
+                MathTutor.setText(el("accountEmail"), user.email || "-");
+                MathTutor.setText(el("accountName"), user.name || "-");
+                MathTutor.setText(el("accountLevel"), user.math_level || "-");
             } else {
                 el("accountInfo").className = "hidden";
                 el("accountNotSigned").className = "";
@@ -133,7 +133,7 @@
             el("pwOk").className = "auth-ok hidden";
             el("pwError").className = "auth-msg hidden";
             if (next.length < 8) {
-                el("pwError").textContent = MathTutor.t("authPasswordTooShort");
+                MathTutor.setText(el("pwError"), MathTutor.t("authPasswordTooShort"));
                 el("pwError").className = "auth-msg";
                 return false;
             }
@@ -144,12 +144,12 @@
                 success: function () {
                     el("currentPassword").value = "";
                     el("newPassword").value = "";
-                    el("pwOk").textContent = MathTutor.t("settingsPasswordChanged");
+                    MathTutor.setText(el("pwOk"), MathTutor.t("settingsPasswordChanged"));
                     el("pwOk").className = "auth-ok";
                     loadSessions();
                 },
                 error: function (msg) {
-                    el("pwError").textContent = msg || MathTutor.t("settingsCurrentPasswordWrong");
+                    MathTutor.setText(el("pwError"), msg || MathTutor.t("settingsCurrentPasswordWrong"));
                     el("pwError").className = "auth-msg";
                 }
             });
@@ -179,7 +179,7 @@
             method: "GET",
             success: function (data) {
                 var n = (data.sessions || []).length;
-                el("sessionCountText").textContent = MathTutor.t("settingsSessions") + ": " + n;
+                MathTutor.setText(el("sessionCountText"), MathTutor.t("settingsSessions") + ": " + n);
             },
             error: function () {
             }
