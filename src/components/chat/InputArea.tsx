@@ -33,6 +33,10 @@ const InputArea = memo(function InputArea({
     const { t, currentLanguage } = useLanguage();
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     const fileInputRef = useRef<HTMLInputElement>(null);
+    const valueRef = useRef(value);
+    useEffect(() => {
+        valueRef.current = value;
+    }, [value]);
     const [isDragOver, setIsDragOver] = useState(false);
     const [isListening, setIsListening] = useState(false);
     const recognitionRef = useRef<SpeechRecognition | null>(null);
@@ -179,7 +183,7 @@ const InputArea = memo(function InputArea({
                 transcript += results[i][0].transcript;
             }
             if (results[results.length - 1].isFinal) {
-                onChange(value ? value + " " + transcript : transcript);
+                onChange(valueRef.current ? valueRef.current + " " + transcript : transcript);
                 setIsListening(false);
             }
         };
@@ -190,7 +194,7 @@ const InputArea = memo(function InputArea({
         recognitionRef.current = recognition;
         recognition.start();
         setIsListening(true);
-    }, [isListening, value, onChange, currentLanguage.code]);
+    }, [isListening, onChange, currentLanguage.code]);
 
     return (
         <div className="ia-root">
