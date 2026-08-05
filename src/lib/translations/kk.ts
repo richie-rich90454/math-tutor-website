@@ -146,6 +146,7 @@ const kk: Translations = {
     settingsLanguageSaved: "Тіл қалауы сақталды",
     settingsVersion: "Математика мұғалімі AI v1.0.0",
     legacyVersion: "Ескі нұсқа",
+    browserOutdated: "Браузеріңіз барлық мүмкіндіктерді қолдамауы мүмкін",
     modernVersion: "Заманауи нұсқа",
     progressTitle: "Сіздің жетістігіңіз",
     progressConversations: "Әңгімелер",
