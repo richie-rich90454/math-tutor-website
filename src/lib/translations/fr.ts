@@ -144,6 +144,7 @@ const fr: Translations = {
     settingsLanguageSaved: "Preference de langue enregistree",
     settingsVersion: "Tuteur de Maths IA v1.0.0",
     legacyVersion: "Version héritée",
+    browserOutdated: "Votre navigateur peut ne pas prendre en charge toutes les fonctionnalites",
     modernVersion: "Version moderne",
     progressTitle: "Votre Progression",
     progressConversations: "Conversations",
