@@ -630,7 +630,9 @@
             method: "POST",
             data: {},
             success: function (data) {
-                var url = (window.location.origin || "") + (data.url || "");
+                var origin = window.location.origin
+                    || (window.location.protocol + "//" + window.location.host);
+                var url = origin + (data.url || "");
                 if (window.clipboardData && window.clipboardData.setData) {
                     window.clipboardData.setData("Text", url);
                     alert(MathTutor.t("shareCopied"));
@@ -774,7 +776,7 @@
                     chatHistory.unshift({
                         id: serverChatId,
                         title: body.message.slice(0, 50) + (body.message.length > 50 ? "..." : ""),
-                        timestamp: new Date().toISOString(),
+                        timestamp: MathTutor.isoNow(),
                         preview: body.message.slice(0, 100),
                         topic: null,
                         isPinned: false,
@@ -991,7 +993,65 @@
     }
 
     // ---------- Modal ----------
+    var lastFocused = null;
+
+    function getFocusable(root) {
+        var out = [];
+        var tags = root.getElementsByTagName("*");
+        for (var i = 0; i < tags.length; i++) {
+            var node = tags[i];
+            if (node.disabled) {
+                continue;
+            }
+            var tag = node.tagName;
+            if (tag === "INPUT" && node.type !== "hidden"
+                || tag === "TEXTAREA" || tag === "SELECT" || tag === "BUTTON"
+                || (tag === "A" && node.getAttribute("href"))) {
+                out.push(node);
+            }
+        }
+        return out;
+    }
+
+    function focusModalFirst() {
+        var f = getFocusable(el("modal"));
+        if (f && f.length) {
+            f[0].focus();
+        }
+    }
+
+    function trapModalFocus(e) {
+        var key = e.keyCode;
+        if (key === 27) {
+            e.preventDefault();
+            hideModal();
+            return;
+        }
+        if (key !== 9) {
+            return;
+        }
+        var f = getFocusable(el("modal"));
+        if (!f.length) {
+            return;
+        }
+        var first = f[0];
+        var last = f[f.length - 1];
+        var active = document.activeElement;
+        if (e.shiftKey) {
+            if (active === first || active === document.body) {
+                e.preventDefault();
+                last.focus();
+            }
+        } else {
+            if (active === last || active === document.body) {
+                e.preventDefault();
+                first.focus();
+            }
+        }
+    }
+
     function showModal(title, bodyHtml, okHandler, cancelHandler) {
+        lastFocused = document.activeElement;
         MathTutor.setText(el("modalTitle"), title);
         el("modalBody").innerHTML = bodyHtml;
         el("modalOverlay").className = "modal-overlay";
@@ -1003,11 +1063,16 @@
         el("modalCancel").onclick = cancelHandler || function () {
             hideModal();
         };
+        focusModalFirst();
     }
 
     function hideModal() {
         el("modalOverlay").className = "modal-overlay hidden";
         el("modal").className = "modal hidden";
+        if (lastFocused && lastFocused.focus) {
+            lastFocused.focus();
+        }
+        lastFocused = null;
     }
 
     // ---------- Image handling ----------
@@ -1184,6 +1249,8 @@
                 toggleFeedback(msgId, "down");
             }
         });
+
+        $(el("modal")).on("keydown", trapModalFocus);
 
         $(".prompt-btn").each(function () {
             var btn = this;
