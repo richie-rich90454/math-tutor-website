@@ -121,6 +121,7 @@
         el("optionsList").innerHTML = html;
         el("feedback").className = "hidden";
         el("aiHelp").className = "hidden";
+        MathTutor.renderMath(el("questionCard"));
         $(el("optionsList")).off("click").on("click", "a[data-option]", function (e) {
             e.preventDefault();
             if (selected !== -1) {
@@ -202,6 +203,7 @@
             success: function (text) {
                 host.innerHTML = '<strong>' + MathTutor.escapeHtml(MathTutor.t("practiceAskAI")) + "</strong><br>"
                     + MathTutor.renderMarkdownSafe(text);
+                MathTutor.renderMath(host);
             },
             error: function (xhr) {
                 host.innerHTML = MathTutor.escapeHtml(MathTutor.t("errorNetwork"));
