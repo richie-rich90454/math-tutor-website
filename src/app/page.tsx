@@ -209,6 +209,11 @@ export default function Home() {
 
     const onSuggestionClick = useCallback((text: string) => setInput(text), [setInput]);
 
+    const onSend = useCallback(() => {
+        if (pendingImage) sendImage();
+        else sendMessage();
+    }, [pendingImage, sendImage, sendMessage]);
+
     const renderedMessages = useMemo(() => {
         return messages.map((message, index) => (
             <MessageRow
@@ -413,7 +418,7 @@ export default function Home() {
                                         <InputArea
                                             value={input}
                                             onChange={setInput}
-                                            onSend={pendingImage ? sendImage : sendMessage}
+                                            onSend={onSend}
                                             isLoading={isLoading}
                                             isStreaming={isStreaming}
                                             onStop={handleStopGeneration}
@@ -509,7 +514,7 @@ export default function Home() {
                                             <InputArea
                                                 value={input}
                                                 onChange={setInput}
-                                                onSend={pendingImage ? sendImage : sendMessage}
+                                                onSend={onSend}
                                                 isLoading={isLoading}
                                                 isStreaming={isStreaming}
                                                 onStop={handleStopGeneration}
