@@ -145,6 +145,7 @@ const pcc: Translations = {
     settingsLanguageSaved: "Vah dingh baenz oq",
     settingsVersion: "Soqyoz Lauxsae AI v1.0.0",
     legacyVersion: "旧版",
+    browserOutdated: "您的浏览器可能无法支持全部功能",
     modernVersion: "新版",
     progressTitle: "Ginghdu mwngz",
     progressConversations: "Gangjvah",
