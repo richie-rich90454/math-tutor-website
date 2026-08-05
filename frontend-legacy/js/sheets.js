@@ -53,6 +53,8 @@
                 }
                 renderFormulas(sheet.formulas || []);
                 renderTerms(sheet.terms || []);
+                MathTutor.renderMath(el("formulasList"));
+                MathTutor.renderMath(el("termsList"));
             },
             error: function (msg) {
                 var box = el("errorBox");
