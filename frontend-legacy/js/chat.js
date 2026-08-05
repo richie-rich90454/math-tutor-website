@@ -15,6 +15,11 @@
     var bypassCacheNext = false;
     var currentAssistantId = null;
     var assistantBuf = "";
+    var feedbackState = {};
+    var resumed = false;
+    var paletteOpen = false;
+    var paletteCommands = [];
+    var paletteIndex = 0;
 
     // ---------- Element cache ----------
     function el(id) {
@@ -62,12 +67,34 @@
             success: function (data) {
                 chatHistory = data.chats || [];
                 renderChatList();
+                if (!resumed) {
+                    resumed = true;
+                    maybeResumeLastChat();
+                }
             },
             error: function (msg) {
                 chatHistory = [];
                 renderChatList();
             }
         });
+    }
+
+    // Resume the last active chat (mirrors modern mt-last-chat-id), unless the
+    // user turned the preference off in Settings (mt-resume-last-chat cookie).
+    function maybeResumeLastChat() {
+        if (MathTutor.getCookie("mt-resume-last-chat") === "0") {
+            return;
+        }
+        var lastId = MathTutor.getCookie("mt-last-chat-id");
+        if (!lastId) {
+            return;
+        }
+        for (var i = 0; i < chatHistory.length; i++) {
+            if (chatHistory[i].id === lastId) {
+                selectChat(lastId);
+                return;
+            }
+        }
     }
 
     function renderChatList() {
@@ -158,6 +185,7 @@
                 }
                 currentChat = data.chat;
                 activeChatId = chatId;
+                MathTutor.setCookie("mt-last-chat-id", chatId, 365);
                 renderMessages();
                 renderSidebarUserArea();
                 reapplyUiTexts();
@@ -321,6 +349,7 @@
                 + '</div><div class="msg-body loading-dots">...</div></div>';
         }
         area.innerHTML = html;
+        MathTutor.highlightVocab(area);
         MathTutor.renderMath(area);
         scrollMessagesToBottom();
     }
@@ -346,6 +375,12 @@
                     ? '<a href="#" data-action="fresh" data-msg-id="' + MathTutor.escapeHtml(msg.id) + '">'
                         + MathTutor.escapeHtml(MathTutor.t("chatFreshAnswer")) + "</a>"
                     : "")
+                + '<a href="#" data-action="feedback-up" data-msg-id="' + MathTutor.escapeHtml(msg.id) + '"'
+                + (feedbackState[msg.id] === "up" ? ' class="msg-fb-active"' : "") + ">"
+                + MathTutor.escapeHtml(MathTutor.t("chatHelpful")) + "</a>"
+                + '<a href="#" data-action="feedback-down" data-msg-id="' + MathTutor.escapeHtml(msg.id) + '"'
+                + (feedbackState[msg.id] === "down" ? ' class="msg-fb-active"' : "") + ">"
+                + MathTutor.escapeHtml(MathTutor.t("chatNotHelpful")) + "</a>"
                 + '<a href="#" data-action="regenerate" data-msg-id="' + MathTutor.escapeHtml(msg.id) + '">'
                 + MathTutor.escapeHtml(MathTutor.t("chatRegenerate")) + "</a></div>";
         } else {
@@ -358,9 +393,25 @@
             + '<div class="msg-body">' + MathTutor.renderMarkdownSafe(body) + "</div>"
             + (msg.is_cached ? '<span class="msg-cached-badge">' + MathTutor.escapeHtml(MathTutor.t("chatAskedBefore")) + "</span>" : "")
             + suggestionButtons(suggestions)
+            + followupButtons(msg)
             + '<div class="msg-time">' + MathTutor.escapeHtml(MathTutor.formatTime(msg.timestamp)) + "</div>"
             + actions
             + "</div>";
+    }
+
+    // One-click follow-up chips (mirrors modern MessageRow). Hidden while the
+    // message is the one being streamed.
+    function followupButtons(msg) {
+        if (msg.id === currentAssistantId) {
+            return "";
+        }
+        var labels = [MathTutor.t("followUpExplain"), MathTutor.t("followUpExamples"), MathTutor.t("followUpAnother")];
+        var html = '<span class="followup-chips">';
+        for (var i = 0; i < labels.length; i++) {
+            html += '<a href="#" class="followup-chip" data-followup="' + i + '">'
+                + MathTutor.escapeHtml(labels[i]) + "</a>";
+        }
+        return html + "</span>";
     }
 
     function suggestionButtons(suggestions) {
@@ -904,6 +955,16 @@
         });
     }
 
+    // Local-only feedback toggle (mirrors modern useChatUI — no backend).
+    function toggleFeedback(messageId, type) {
+        if (feedbackState[messageId] === type) {
+            delete feedbackState[messageId];
+        } else {
+            feedbackState[messageId] = type;
+        }
+        renderMessages();
+    }
+
     // ---------- New chat ----------
     function handleNewChat() {
         if (isLoading || isStreaming) {
@@ -913,6 +974,7 @@
         currentChat = null;
         activeChatId = null;
         el("chatInput").value = "";
+        MathTutor.deleteCookie("mt-last-chat-id");
         renderMessages();
         showWelcomeView();
         renderSidebarUserArea();
@@ -1090,6 +1152,15 @@
             }
         });
 
+        $(el("messagesArea")).on("click", "a.followup-chip", function (e) {
+            e.preventDefault();
+            var idx = parseInt(this.getAttribute("data-followup"), 10);
+            var labels = [MathTutor.t("followUpExplain"), MathTutor.t("followUpExamples"), MathTutor.t("followUpAnother")];
+            if (idx >= 0 && idx < labels.length && !isLoading) {
+                sendMessage(labels[idx]);
+            }
+        });
+
         $(el("messagesArea")).on("click", "a[data-action]", function (e) {
             e.preventDefault();
             var action = this.getAttribute("data-action");
@@ -1104,6 +1175,10 @@
                 handleFreshAnswer();
             } else if (action === "edit") {
                 handleEdit(msgId);
+            } else if (action === "feedback-up") {
+                toggleFeedback(msgId, "up");
+            } else if (action === "feedback-down") {
+                toggleFeedback(msgId, "down");
             }
         });
 
@@ -1152,10 +1227,19 @@
             } else if (ctrl && e.keyCode === 69) { // Ctrl+E export
                 e.preventDefault();
                 handleExport();
-            } else if (ctrl && e.keyCode === 191) { // Ctrl+/ help (no-op in legacy)
+            } else if (ctrl && e.keyCode === 75) { // Ctrl+K command palette
                 e.preventDefault();
-            } else if (ctrl && e.keyCode === 66) { // Ctrl+B toggle sidebar (no-op in legacy, two-pane)
+                if (paletteOpen) {
+                    closeCommandPalette();
+                } else {
+                    openCommandPalette();
+                }
+            } else if (ctrl && e.keyCode === 191) { // Ctrl+/ shortcuts help
                 e.preventDefault();
+                openShortcutsHelp();
+            } else if (ctrl && e.keyCode === 66) { // Ctrl+B toggle sidebar
+                e.preventDefault();
+                toggleSidebar();
             }
         });
     }
@@ -1175,6 +1259,150 @@
             error: function () {
             }
         });
+    }
+
+    // ---------- Command palette (Ctrl+K) ----------
+    function buildCommands() {
+        var cmds = [];
+        cmds.push({ label: MathTutor.t("headerNewChat") + " (Ctrl+N)", run: function () {
+            closeCommandPalette();
+            handleNewChat();
+        } });
+        cmds.push({ label: MathTutor.t("headerExportChat"), run: function () {
+            closeCommandPalette();
+            handleExport();
+        } });
+        cmds.push({ label: MathTutor.t("practiceTitle"), run: function () {
+            location.href = "/legacy/practice.html";
+        } });
+        cmds.push({ label: MathTutor.t("sheetsTitle"), run: function () {
+            location.href = "/legacy/sheets.html";
+        } });
+        cmds.push({ label: MathTutor.t("progressTitle"), run: function () {
+            location.href = "/legacy/progress.html";
+        } });
+        cmds.push({ label: MathTutor.t("sidebarSettings"), run: function () {
+            location.href = "/legacy/settings.html";
+        } });
+        cmds.push({ label: MathTutor.t("themeToggle"), run: function () {
+            var next = MathTutor.getTheme() === "dark" ? "light" : "dark";
+            MathTutor.setTheme(next);
+        } });
+        if (MathTutor.isAuthenticated()) {
+            cmds.push({ label: MathTutor.t("sidebarSignOut"), run: function () {
+                handleAuthLink();
+            } });
+        }
+        return cmds;
+    }
+
+    function renderPaletteList(cmds, query) {
+        paletteCommands = [];
+        var q = String(query || "").toLowerCase();
+        for (var i = 0; i < cmds.length; i++) {
+            if (!q || cmds[i].label.toLowerCase().indexOf(q) !== -1) {
+                paletteCommands.push(cmds[i]);
+            }
+        }
+        var list = el("paletteList");
+        if (!list) {
+            return;
+        }
+        if (!paletteCommands.length) {
+            list.innerHTML = '<div class="muted">' + MathTutor.escapeHtml(MathTutor.t("cmdNoResults")) + "</div>";
+            return;
+        }
+        if (paletteIndex >= paletteCommands.length) {
+            paletteIndex = paletteCommands.length - 1;
+        }
+        var html = "";
+        for (var j = 0; j < paletteCommands.length; j++) {
+            html += '<a href="#" data-palette="' + j + '" class="palette-item'
+                + (j === paletteIndex ? " palette-active" : "") + '">'
+                + MathTutor.escapeHtml(paletteCommands[j].label) + "</a>";
+        }
+        list.innerHTML = html;
+    }
+
+    function runPaletteCommand() {
+        var cmd = paletteCommands[paletteIndex];
+        if (cmd) {
+            cmd.run();
+        }
+    }
+
+    function openCommandPalette() {
+        paletteIndex = 0;
+        paletteCommands = [];
+        var body = '<input type="text" id="paletteInput" value="" style="width:90%;">'
+            + '<div id="paletteList" class="palette-list"></div>';
+        showModal(MathTutor.t("cmdPlaceholder"), body, null, closeCommandPalette);
+        el("modalOk").className = "btn hidden";
+        el("modalCancel").textContent = "Esc";
+        paletteOpen = true;
+        var inp = el("paletteInput");
+        inp.onkeyup = function () {
+            renderPaletteList(buildCommands(), inp.value);
+        };
+        inp.onkeydown = function (e) {
+            var key = e.keyCode;
+            if (key === 38) {
+                if (paletteIndex > 0) {
+                    paletteIndex -= 1;
+                }
+                renderPaletteList(buildCommands(), inp.value);
+            } else if (key === 40) {
+                if (paletteIndex < paletteCommands.length - 1) {
+                    paletteIndex += 1;
+                }
+                renderPaletteList(buildCommands(), inp.value);
+            } else if (key === 13) {
+                runPaletteCommand();
+            } else if (key === 27) {
+                closeCommandPalette();
+            }
+        };
+        $(el("paletteList")).off("click").on("click", "a[data-palette]", function (e) {
+            e.preventDefault();
+            paletteIndex = parseInt(this.getAttribute("data-palette"), 10);
+            runPaletteCommand();
+        });
+        renderPaletteList(buildCommands(), "");
+        inp.focus();
+    }
+
+    function closeCommandPalette() {
+        paletteOpen = false;
+        hideModal();
+    }
+
+    // ---------- Keyboard shortcuts help (Ctrl+/) ----------
+    function openShortcutsHelp() {
+        showModal(MathTutor.t("shortcutsTitle"),
+            '<div class="shortcuts-help">'
+            + '<div><strong>Ctrl+N</strong> \u2014 ' + MathTutor.escapeHtml(MathTutor.t("shortcutsNewChat")) + "</div>"
+            + '<div><strong>Ctrl+E</strong> \u2014 ' + MathTutor.escapeHtml(MathTutor.t("shortcutsExportChat")) + "</div>"
+            + '<div><strong>Ctrl+K</strong> \u2014 ' + MathTutor.escapeHtml(MathTutor.t("cmdPlaceholder")) + "</div>"
+            + '<div><strong>Ctrl+B</strong> \u2014 ' + MathTutor.escapeHtml(MathTutor.t("shortcutsToggleSidebar")) + "</div>"
+            + '<div><strong>Ctrl+/</strong> \u2014 ' + MathTutor.escapeHtml(MathTutor.t("shortcutsShowHelp")) + "</div>"
+            + '<div><strong>Enter</strong> \u2014 ' + MathTutor.escapeHtml(MathTutor.t("shortcutsSendMessage")) + "</div>"
+            + '<div><strong>Shift+Enter</strong> \u2014 ' + MathTutor.escapeHtml(MathTutor.t("shortcutsNewLine")) + "</div>"
+            + '<div><strong>Esc</strong> \u2014 ' + MathTutor.escapeHtml(MathTutor.t("shortcutsCloseModals")) + "</div>"
+            + "</div>",
+            function () {
+                hideModal();
+            },
+            function () {
+                hideModal();
+            });
+    }
+
+    function toggleSidebar() {
+        var cell = el("sidebarCell");
+        if (!cell) {
+            return;
+        }
+        cell.style.display = cell.style.display === "none" ? "" : "none";
     }
 
     if (document.readyState === "complete" || document.readyState === "interactive") {
