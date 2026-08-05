@@ -155,6 +155,9 @@ public class SheetsService {
             Resource[] resources = new PathMatchingResourcePatternResolver()
                     .getResources("classpath*:sheets/*.json");
             for (Resource resource : resources) {
+                if (resource.getFilename().equals("translations.json")) {
+                    continue;
+                }
                 try (InputStream in = resource.getInputStream()) {
                     JsonNode root = objectMapper.readTree(in);
                     String topic = root.path("topic").asString().toLowerCase();
