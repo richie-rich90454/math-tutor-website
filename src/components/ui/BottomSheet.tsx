@@ -86,6 +86,20 @@ export default function BottomSheet({ isOpen, onClose, title, children }: Bottom
         };
     }, [onClose]);
 
+    // Keyboard: Escape closes the sheet; focus the first control when opened.
+    useEffect(() => {
+        if (!isOpen) return;
+        const onKey = (e: KeyboardEvent) => {
+            if (e.key === "Escape") onClose();
+        };
+        window.addEventListener("keydown", onKey);
+        const first = sheetRef.current?.querySelector<HTMLElement>(
+            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+        );
+        first?.focus();
+        return () => window.removeEventListener("keydown", onKey);
+    }, [isOpen, onClose]);
+
     const handleBackdropClick = useCallback(
         (e: React.MouseEvent) => {
             if (e.target === backdropRef.current) onClose();
