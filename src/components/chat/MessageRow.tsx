@@ -1,4 +1,4 @@
-import { memo, useState } from "react";
+import { memo, useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import type { Message } from "@/types/chat";
 import Skeleton from "@/components/ui/Skeleton";
@@ -46,9 +46,10 @@ const MessageRow = memo(function MessageRow({
     const { t } = useLanguage();
     const [focused, setFocused] = useState(false);
     const [hovered, setHovered] = useState(false);
-    const [isTouch] = useState(
-        () => typeof window !== "undefined" && !!window.matchMedia?.("(hover: none)").matches,
-    );
+    const [isTouch, setIsTouch] = useState(false);
+    useEffect(() => {
+        setIsTouch(!!window.matchMedia?.("(hover: none)").matches);
+    }, []);
     const isActionsVisible = focused || hovered || isTouch;
     return (
         <div
