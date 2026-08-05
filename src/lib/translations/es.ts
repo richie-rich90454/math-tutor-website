@@ -143,6 +143,8 @@ const es: Translations = {
     settingsThemeSystem: "Sistema",
     settingsLanguageSaved: "Preferencia de idioma guardada",
     settingsVersion: "AI Tutor de Matematicas v1.0.0",
+    legacyVersion: "Versión anterior",
+    modernVersion: "Versión moderna",
     progressTitle: "Tu Progreso",
     progressConversations: "Conversaciones",
     progressMessages: "Mensajes",
