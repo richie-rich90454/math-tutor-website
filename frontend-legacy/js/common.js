@@ -142,7 +142,7 @@ MathTutor.applyLang = function (lang) {
         var el = els[i];
         var key = el.getAttribute && el.getAttribute("data-i18n");
         if (key && table[key] !== undefined) {
-            el.textContent = table[key];
+            MathTutor.setText(el, table[key]);
         }
         var phKey = el.getAttribute && el.getAttribute("data-i18n-placeholder");
         if (phKey && table[phKey] !== undefined) {
@@ -264,6 +264,20 @@ MathTutor.refreshSession = function (callback) {
 };
 
 // ---------- Safe rendering ----------
+// IE6/IE7 lack Element.textContent (read + write). setText writes to
+// textContent where supported and falls back to innerText (IE's equivalent).
+MathTutor.setText = function (el, value) {
+    if (!el) {
+        return;
+    }
+    var v = value === null || value === undefined ? "" : String(value);
+    if (document.createElement("div").textContent !== undefined) {
+        el.textContent = v;
+    } else {
+        el.innerText = v;
+    }
+};
+
 MathTutor.escapeHtml = function (text) {
     if (text === null || text === undefined) {
         return "";
@@ -279,11 +293,16 @@ MathTutor.escapeHtml = function (text) {
 
 // Render simple markdown-style content safely. Only transforms safe
 // characters after HTML escaping; LaTeX delimiters are preserved as text.
+// Old IE (<=7) has no white-space:pre-wrap, so newlines are made explicit
+// with <br> there; modern browsers keep the raw newline for pre-wrap.
 MathTutor.renderMarkdownSafe = function (text) {
     var escaped = MathTutor.escapeHtml(text);
     escaped = escaped.replace(/^#{1,6}\s+/gm, "<strong>").replace(/[ \t]+$/gm, "");
     escaped = escaped.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
     escaped = escaped.replace(/`([^`]+)`/g, "<code>$1</code>");
+    if (MathTutor.isOldIE()) {
+        escaped = escaped.replace(/\n/g, "<br>");
+    }
     return escaped;
 };
 
@@ -510,6 +529,45 @@ MathTutor.isOldIE = function () {
     var m = /MSIE (\d+)/.exec(ua);
     return !!m && parseInt(m[1], 10) < 10;
 };
+
+// IE6/IE7 lack Date.prototype.toISOString; emit the same UTC ISO format by hand.
+MathTutor.isoNow = function () {
+    var d = new Date();
+    function pad(n) {
+        return n < 10 ? "0" + n : String(n);
+    }
+    return d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate())
+        + "T" + pad(d.getHours()) + ":" + pad(d.getMinutes()) + ":" + pad(d.getSeconds()) + "Z";
+};
+
+// IE6 does not support attribute selectors (input[type=text]), so form fields
+// would render unstyled. Tag the non-checkbox/radio inputs of .field blocks
+// with a plain class the stylesheet can target.
+MathTutor.styleFields = function () {
+    var divs = document.getElementsByTagName("div");
+    for (var i = 0; i < divs.length; i++) {
+        if (divs[i].className && divs[i].className.indexOf("field") !== -1) {
+            var inputs = divs[i].getElementsByTagName("input");
+            for (var j = 0; j < inputs.length; j++) {
+                var t = inputs[j].type;
+                if (t !== "checkbox" && t !== "radio") {
+                    inputs[j].className += " field-input";
+                }
+            }
+            var sels = divs[i].getElementsByTagName("select");
+            for (var k = 0; k < sels.length; k++) {
+                sels[k].className += " field-input";
+            }
+            var tas = divs[i].getElementsByTagName("textarea");
+            for (var l = 0; l < tas.length; l++) {
+                tas[l].className += " field-input";
+            }
+        }
+    }
+};
+if (typeof jQuery !== "undefined") {
+    jQuery(document).ready(MathTutor.styleFields);
+}
 
 MathTutor.supportsMethod = function (method) {
     if (MathTutor.isOldIE()) {
