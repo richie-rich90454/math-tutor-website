@@ -37,6 +37,43 @@ export function useChatMessages() {
     const chatMessagesRef = useRef<HTMLDivElement>(null);
     const messagesEndRef = useRef<HTMLDivElement>(null);
 
+    // Stream rendering: chunks are buffered and flushed once per animation
+    // frame instead of re-rendering on every network chunk (rAF batching).
+    const assistantIdRef = useRef<string | null>(null);
+    const streamBufferRef = useRef("");
+    const streamRafRef = useRef(0);
+
+    const flushStreamBuffer = useCallback(() => {
+        streamRafRef.current = 0;
+        if (!streamBufferRef.current) return;
+        const text = streamBufferRef.current;
+        streamBufferRef.current = "";
+        const id = assistantIdRef.current;
+        if (id) {
+            setMessages((prev) =>
+                prev.map((m) => (m.id === id ? { ...m, content: m.content + text } : m)),
+            );
+        }
+    }, []);
+
+    const appendStreamChunk = useCallback(
+        (chunk: string) => {
+            streamBufferRef.current += chunk;
+            if (!streamRafRef.current) {
+                streamRafRef.current = window.requestAnimationFrame(flushStreamBuffer);
+            }
+        },
+        [flushStreamBuffer],
+    );
+
+    const flushStreamNow = useCallback(() => {
+        if (streamRafRef.current) {
+            window.cancelAnimationFrame(streamRafRef.current);
+            streamRafRef.current = 0;
+        }
+        flushStreamBuffer();
+    }, [flushStreamBuffer]);
+
     // Load messages when selecting a chat from sidebar
     useEffect(() => {
         if (!currentChat || isLoaded) return;
@@ -159,7 +196,7 @@ export function useChatMessages() {
 
             const controller = new AbortController();
             abortControllerRef.current = controller;
-            const timeoutId = setTimeout(() => controller.abort(), 30_000);
+            const timeoutId = setTimeout(() => controller.abort(), 120_000);
 
             try {
                 const response = await apiFetch("/api/chat/message", {
@@ -203,37 +240,36 @@ export function useChatMessages() {
                     }
                 }
 
-                const assistantId = (Date.now() + 1).toString();
-                const isCached = response.headers.get("X-Cache") === "hit";
-                setMessages((prev) => [
-                    ...prev,
-                    {
-                        id: assistantId,
-                        role: "assistant",
-                        content: "",
-                        timestamp: new Date(),
-                        isCached,
-                    },
-                ]);
+            const assistantId = (Date.now() + 1).toString();
+            const isCached = response.headers.get("X-Cache") === "hit";
+            assistantIdRef.current = assistantId;
+            setMessages((prev) => [
+                ...prev,
+                {
+                    id: assistantId,
+                    role: "assistant",
+                    content: "",
+                    timestamp: new Date(),
+                    isCached,
+                },
+            ]);
 
-                const reader = response.body?.getReader();
-                if (!reader) throw new Error("No response body");
-                const decoder = new TextDecoder();
+            const reader = response.body?.getReader();
+            if (!reader) throw new Error("No response body");
+            const decoder = new TextDecoder();
 
-                while (true) {
-                    const { value, done } = await reader.read();
-                    if (done) break;
-                    const chunk = decoder.decode(value, { stream: true });
-                    if (!chunk) continue;
-                    setMessages((prev) =>
-                        prev.map((m) =>
-                            m.id === assistantId ? { ...m, content: m.content + chunk } : m,
-                        ),
-                    );
-                }
-            } catch (error: unknown) {
-                clearTimeout(timeoutId);
-                const isAbort = error instanceof DOMException && error.name === "AbortError";
+            while (true) {
+                const { value, done } = await reader.read();
+                if (done) break;
+                const chunk = decoder.decode(value, { stream: true });
+                if (!chunk) continue;
+                appendStreamChunk(chunk);
+            }
+            flushStreamNow();
+        } catch (error: unknown) {
+            clearTimeout(timeoutId);
+            flushStreamNow();
+            const isAbort = error instanceof DOMException && error.name === "AbortError";
                 if (isAbort) {
                     if (!stopRequestedRef.current) {
                         setMessages((prev) => [
@@ -265,9 +301,10 @@ export function useChatMessages() {
                 setIsStreaming(false);
                 stopRequestedRef.current = false;
                 abortControllerRef.current = null;
+                assistantIdRef.current = null;
             }
         },
-        [input, currentLanguage.code, activeChatId, t, addChatSession],
+        [input, currentLanguage.code, activeChatId, t, addChatSession, appendStreamChunk, flushStreamNow],
     );
 
     const sendImage = useCallback(async () => {
@@ -292,7 +329,7 @@ export function useChatMessages() {
 
         const controller = new AbortController();
         abortControllerRef.current = controller;
-        const timeoutId = setTimeout(() => controller.abort(), 30_000);
+        const timeoutId = setTimeout(() => controller.abort(), 120_000);
 
         try {
             const response = await apiFetch("/api/chat/image", {
@@ -339,6 +376,7 @@ export function useChatMessages() {
             }
 
             const assistantId = (Date.now() + 1).toString();
+            assistantIdRef.current = assistantId;
             setMessages((prev) => [
                 ...prev,
                 { id: assistantId, role: "assistant", content: "", timestamp: new Date() },
@@ -353,14 +391,12 @@ export function useChatMessages() {
                 if (done) break;
                 const chunk = decoder.decode(value, { stream: true });
                 if (!chunk) continue;
-                setMessages((prev) =>
-                    prev.map((m) =>
-                        m.id === assistantId ? { ...m, content: m.content + chunk } : m,
-                    ),
-                );
+                appendStreamChunk(chunk);
             }
+            flushStreamNow();
         } catch (error: unknown) {
             clearTimeout(timeoutId);
+            flushStreamNow();
             const isAbort = error instanceof DOMException && error.name === "AbortError";
             if (isAbort) {
                 if (!stopRequestedRef.current) {
@@ -392,8 +428,9 @@ export function useChatMessages() {
             setIsLoading(false);
             setIsStreaming(false);
             abortControllerRef.current = null;
+            assistantIdRef.current = null;
         }
-    }, [pendingImage, input, currentLanguage.code, activeChatId, addChatSession]);
+    }, [pendingImage, input, currentLanguage.code, activeChatId, addChatSession, appendStreamChunk, flushStreamNow]);
 
     const handleStopGeneration = useCallback(() => {
         stopRequestedRef.current = true;
