@@ -118,15 +118,15 @@ public class ProblemBank {
 
     private String normalizeLanguage(String language) {
         String lang = language == null || language.isBlank() ? "en" : language;
-        lang = LANGUAGE_ALIAS.getOrDefault(lang, lang);
+        String resolved = LANGUAGE_ALIAS.getOrDefault(lang, lang);
         if (!byId.isEmpty()) {
             boolean any = byId.values().stream()
-                    .anyMatch(p -> p.language() != null && p.language().equals(lang));
+                    .anyMatch(p -> p.language() != null && p.language().equals(resolved));
             if (!any) {
                 return "en";
             }
         }
-        return lang;
+        return resolved;
     }
 
     private void loadAll() {
