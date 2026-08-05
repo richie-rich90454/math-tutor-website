@@ -152,6 +152,8 @@ export interface Translations {
     settingsThemeSystem: string;
     settingsLanguageSaved: string;
     settingsVersion: string;
+    legacyVersion: string;
+    modernVersion: string;
     progressTitle: string;
     progressConversations: string;
     progressMessages: string;
