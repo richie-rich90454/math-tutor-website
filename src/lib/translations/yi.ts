@@ -144,6 +144,8 @@ const yi: Translations = {
     settingsThemeSystem: "ꌋꆀꌠ",
     settingsLanguageSaved: "ꉉꅍꌠ ꐞꄉꌐ",
     settingsVersion: "AI Math Tutor v1.0.0",
+    legacyVersion: "旧版",
+    modernVersion: "新版",
     progressTitle: "ꆏꌠꐛꉬꅉ",
     progressConversations: "ꉉꇐ",
     progressMessages: "ꉉꅍ",
