@@ -422,7 +422,7 @@
         for (var i = 0; i < suggestions.length; i++) {
             html += '<button type="button" class="suggestion-btn" data-suggestion="'
                 + MathTutor.escapeHtml(suggestions[i]) + '">'
-                + MathTutor.escapeHtml(suggestions[i]) + "</button>";
+                + MathTutor.renderMarkdownSafe(suggestions[i]) + "</button>";
         }
         return html + "</div>";
     }
