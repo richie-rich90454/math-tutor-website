@@ -144,6 +144,7 @@ TRANSLATION_TABLES["hmn"] = {
     settingsLanguageSaved: "Koj hom lus tau khaws tseg",
     settingsVersion: "AI Math Tutor v1.0.0",
     legacyVersion: "Qub lawm",
+    browserOutdated: "Koj lub browser tej zaum tsis txhawb nqa tag nrho cov yam ntxwv",
     modernVersion: "Niaj hnub nimno",
     progressTitle: "Koj Txoj Kev Nce Qib",
     progressConversations: "Kev Sib Tham",

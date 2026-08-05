@@ -144,6 +144,7 @@ TRANSLATION_TABLES["hni"] = {
     settingsLanguageSaved: "Ngaqssaq toqv e zaovq",
     settingsVersion: "AI Math Tutor v1.0.0",
     legacyVersion: "旧版",
+    browserOutdated: "您的浏览器可能无法支持全部功能",
     modernVersion: "新版",
     progressTitle: "Naq e ssivq soqssaq",
     progressConversations: "Miiqsiq",

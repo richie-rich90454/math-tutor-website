@@ -144,6 +144,7 @@ TRANSLATION_TABLES["tg"] = {
     settingsLanguageSaved: "Забон сабт шуд",
     settingsVersion: "Версия",
     legacyVersion: "Нусхаи кӯҳна",
+    browserOutdated: "Браузери шумо метавонад ҳамаи имкониятҳоро дастгирӣ накунад",
     modernVersion: "Нусхаи муосир",
     progressTitle: "Пешрафт",
     progressConversations: "Сӯҳбатҳо",

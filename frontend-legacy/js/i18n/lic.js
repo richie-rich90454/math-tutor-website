@@ -144,6 +144,7 @@ TRANSLATION_TABLES["lic"] = {
     settingsLanguageSaved: "Lai kaeu hlaeu",
     settingsVersion: "Kafux Tomhau AI v1.0.0",
     legacyVersion: "旧版",
+    browserOutdated: "您的浏览器可能无法支持全部功能",
     modernVersion: "新版",
     progressTitle: "Meuz Tae Gaenx",
     progressConversations: "Hum",

@@ -143,6 +143,7 @@ TRANSLATION_TABLES["uz"] = {
     settingsLanguageSaved: "Til saqlandi",
     settingsVersion: "Versiya",
     legacyVersion: "Eski versiya",
+    browserOutdated: "Brauzeringiz barcha imkoniyatlarni qollab-quvvatlamasligi mumkin",
     modernVersion: "Zamonaviy versiya",
     progressTitle: "Taraqqiyot",
     progressConversations: "Suhbatlar",

@@ -142,6 +142,7 @@ TRANSLATION_TABLES["es"] = {
     settingsLanguageSaved: "Preferencia de idioma guardada",
     settingsVersion: "AI Tutor de Matematicas v1.0.0",
     legacyVersion: "Versión anterior",
+    browserOutdated: "Es posible que su navegador no admita todas las funciones",
     modernVersion: "Versión moderna",
     progressTitle: "Tu Progreso",
     progressConversations: "Conversaciones",

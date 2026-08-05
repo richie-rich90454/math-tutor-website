@@ -141,6 +141,7 @@ TRANSLATION_TABLES["zh-hant"] = {
     settingsLanguageSaved: "語言偏好已儲存",
     settingsVersion: "AI 數學導師 v1.0.0",
     legacyVersion: "舊版",
+    browserOutdated: "您的瀏覽器可能無法支援全部功能",
     modernVersion: "新版",
     progressTitle: "你的進度",
     progressConversations: "對話數",
