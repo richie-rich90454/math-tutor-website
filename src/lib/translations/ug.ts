@@ -146,6 +146,7 @@ const ug: Translations = {
     settingsLanguageSaved: "تىل تەڭشىكى ساقلاندى",
     settingsVersion: "ماتېماتىكا ئوقۇتقۇچىسى AI v1.0.0",
     legacyVersion: "كونا نۇسخا",
+    browserOutdated: "توركۆرگۈڭىز بارلىق ئىقتىدارلارنى قوللىماسلىقى مۇمكىن",
     modernVersion: "يېڭى نۇسخا",
     progressTitle: "تەرەققىياتىڭىز",
     progressConversations: "سۆھبەتلەر",
