@@ -4,11 +4,31 @@ import { render, screen, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom/vitest";
 import UsageMeter from "@/components/ui/UsageMeter";
 import { LanguageProvider } from "@/contexts/LanguageContext";
+import { AuthContext } from "@/contexts/AuthContext";
+
+const authValue = {
+    user: {
+        id: "1",
+        email: "a@b.c",
+        name: "T",
+        preferred_language: "en",
+        math_level: "1",
+    },
+    isLoading: false,
+    isAuthenticated: true,
+    login: vi.fn(),
+    signup: vi.fn(),
+    logout: vi.fn(),
+    refreshUser: vi.fn(),
+    startGuest: vi.fn(),
+};
 
 function renderMeter() {
     return render(
         <LanguageProvider>
-            <UsageMeter />
+            <AuthContext.Provider value={authValue}>
+                <UsageMeter />
+            </AuthContext.Provider>
         </LanguageProvider>,
     );
 }
