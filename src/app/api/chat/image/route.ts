@@ -42,7 +42,13 @@ export async function POST(request: Request) {
                     controller.enqueue(value);
                 }
             } catch (err) {
-                controller.error(err);
+                // Reader canceled when the client disconnected — the controller is
+                // already closed, so ignore.
+                try {
+                    controller.error(err);
+                } catch {
+                    // ignore
+                }
             }
         },
         cancel() {
