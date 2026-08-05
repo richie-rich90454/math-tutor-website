@@ -15,6 +15,7 @@
         "frontend:test": "node scripts/minify-json.js && vitest run",
         "frontend:typecheck": "node scripts/minify-json.js && tsc --noEmit",
         "frontend:legacy:i18n": "node scripts/generate-legacy-i18n.js",
+        "frontend:e2e": "playwright test",
         "backend:dev": "cd backend && mvn spring-boot:run",
         "backend:build": "cd backend && mvn package",
         "backend:start": "cd backend && java -jar target/math-tutor-backend-1.0.0.jar",
