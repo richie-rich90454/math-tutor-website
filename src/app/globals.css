@@ -1727,6 +1727,10 @@ select,
     overflow-x: auto;
     overscroll-behavior-x: contain;
 }
+.mdr-code-loading {
+    min-height: 72px;
+    background: var(--bg-hover);
+}
 
 .mdr-copy-btn {
     position: absolute;
