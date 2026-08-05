@@ -12,7 +12,6 @@ const MessageActions = dynamic(() => import("@/components/chat/MessageActions"))
 
 interface MessageRowProps {
     message: Message;
-    isHovered: boolean;
     isStreaming: boolean;
     isLastMessage: boolean;
     formatTime: (d: Date) => string;
@@ -24,15 +23,12 @@ interface MessageRowProps {
     editLabel: string;
     onSuggestionClick?: (text: string) => void;
     onFollowUp?: (text: string) => void;
-    onMouseEnter: () => void;
-    onMouseLeave: () => void;
     onTogglePin?: (messageId: string) => void;
     isPinned?: boolean;
 }
 
 const MessageRow = memo(function MessageRow({
     message,
-    isHovered,
     isStreaming,
     isLastMessage,
     formatTime,
@@ -44,18 +40,21 @@ const MessageRow = memo(function MessageRow({
     editLabel,
     onSuggestionClick,
     onFollowUp,
-    onMouseEnter,
-    onMouseLeave,
     onTogglePin,
     isPinned,
 }: MessageRowProps) {
     const { t } = useLanguage();
     const [focused, setFocused] = useState(false);
+    const [hovered, setHovered] = useState(false);
+    const [isTouch] = useState(
+        () => typeof window !== "undefined" && !!window.matchMedia?.("(hover: none)").matches,
+    );
+    const isActionsVisible = focused || hovered || isTouch;
     return (
         <div
             className={`message-row ${message.role === "user" ? "is-user" : "is-assistant"}`}
-            onMouseEnter={onMouseEnter}
-            onMouseLeave={onMouseLeave}
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
             onFocus={() => setFocused(true)}
             onBlur={() => setFocused(false)}
         >
@@ -68,7 +67,7 @@ const MessageRow = memo(function MessageRow({
                                 onSuggestionClick={onSuggestionClick}
                             />
                         </div>
-                        {(isHovered || focused) && !isStreaming && (
+                        {isActionsVisible && !isStreaming && (
                             <button
                                 className="msg-edit-btn"
                                 onClick={() => onEdit(message.id, message.content)}
@@ -110,7 +109,7 @@ const MessageRow = memo(function MessageRow({
                             isCached={message.isCached}
                             onFeedback={(type) => onFeedback(message.id, type)}
                             feedback={feedbackValue}
-                            isVisible={isHovered}
+                            isVisible={isActionsVisible}
                             onTogglePin={onTogglePin ? () => onTogglePin(message.id) : undefined}
                             isPinned={isPinned}
                         />
