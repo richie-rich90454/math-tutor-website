@@ -84,24 +84,31 @@ export function useChatUI(
         [chatMessagesRef],
     );
 
-    const isNearBottom = useCallback(() => {
-        const el = chatMessagesRef.current;
-        if (!el) return true;
-        return el.scrollHeight - el.scrollTop - el.clientHeight < 100;
-    }, [chatMessagesRef]);
-
-    // Auto-scroll on new messages
+    // Auto-scroll on new messages. Near-bottom state is tracked from scroll
+    // events (nearBottomRef) so the per-chunk render never forces a layout read.
+    const nearBottomRef = useRef(true);
     useEffect(() => {
-        if (isStreaming && isNearBottom()) scrollToBottom(false);
-        else if (!isStreaming && messages.length > prevMessagesLenRef.current) scrollToBottom(true);
-    }, [messages, isStreaming, scrollToBottom, isNearBottom, prevMessagesLenRef]);
+        if (isStreaming && nearBottomRef.current) {
+            scrollToBottom(false);
+        } else if (
+            !isStreaming &&
+            messages.length > prevMessagesLenRef.current &&
+            nearBottomRef.current
+        ) {
+            scrollToBottom(true);
+        }
+    }, [messages, isStreaming, scrollToBottom, prevMessagesLenRef]);
 
-    // Scroll button visibility
+    // Scroll button visibility + near-bottom tracking, driven by scroll events.
     useEffect(() => {
         const el = chatMessagesRef.current;
         if (!el) return;
-        const handler = () =>
-            setShowScrollBtn(el.scrollHeight - el.scrollTop - el.clientHeight > 200);
+        const handler = () => {
+            const dist = el.scrollHeight - el.scrollTop - el.clientHeight;
+            nearBottomRef.current = dist < 100;
+            setShowScrollBtn(dist > 200);
+        };
+        handler();
         el.addEventListener("scroll", handler, { passive: true });
         return () => el.removeEventListener("scroll", handler);
     }, [chatMessagesRef, messages.length]);
@@ -177,7 +184,6 @@ export function useChatUI(
         feedback,
         handleSidebarToggle,
         scrollToBottom,
-        isNearBottom,
         handleFeedback,
     };
 }
