@@ -4877,6 +4877,34 @@ select,
     justify-content: center;
 }
 
+.browser-support-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+    padding: var(--space-2) var(--space-4);
+    background: color-mix(in srgb, var(--warning, #f59e0b) 12%, transparent);
+    border-bottom: 1px solid color-mix(in srgb, var(--warning, #f59e0b) 28%, transparent);
+    color: var(--fg-primary);
+    font-size: 0.82rem;
+}
+.browser-support-link {
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+/* Reduced motion: honor the OS preference for animations/transitions. */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
 /* ---------- Home learning cards ---------- */
 .learning-cards {
     display: grid;
