@@ -41,17 +41,16 @@ export function useChatUI(
     }, []);
 
     // Touch swipe for sidebar
+    const swipeStartRef = useRef({ x: 0, y: 0 });
     useEffect(() => {
         if (!isMobile) return;
-        let startX = 0;
-        let startY = 0;
         const handleTouchStart = (e: TouchEvent) => {
-            startX = e.touches[0].clientX;
-            startY = e.touches[0].clientY;
+            swipeStartRef.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
         };
         const handleTouchEnd = (e: TouchEvent) => {
-            const dx = e.changedTouches[0].clientX - startX;
-            const dy = e.changedTouches[0].clientY - startY;
+            const start = swipeStartRef.current;
+            const dx = e.changedTouches[0].clientX - start.x;
+            const dy = e.changedTouches[0].clientY - start.y;
             if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 60) {
                 if (dx > 0 && !isSidebarOpen) setIsSidebarOpen(true);
                 else if (dx < 0 && isSidebarOpen) setIsSidebarOpen(false);
