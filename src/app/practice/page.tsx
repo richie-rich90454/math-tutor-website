@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { apiFetch } from "@/lib/api-client";
+import MarkdownRenderer from "@/components/ui/MarkdownRenderer";
 import type { Translations } from "@/lib/translations";
 
 interface Problem {
@@ -361,7 +362,9 @@ export default function PracticePage() {
                             <span className="practice-question-tag">
                                 {current.topic} · G{current.grade}
                             </span>
-                            <h3 className="practice-question">{current.question}</h3>
+                            <div className="practice-question">
+                                <MarkdownRenderer content={current.question} />
+                            </div>
                             <div className="practice-options">
                                 {current.options.map((opt, i) => {
                                     let className = "practice-option";
@@ -406,8 +409,8 @@ export default function PracticePage() {
                                         <strong>
                                             {t("practiceExplanation") || "Explanation"}:{" "}
                                         </strong>
-                                        {current.explanation}
                                     </p>
+                                    <MarkdownRenderer content={current.explanation} />
                                     <div className="practice-actions">
                                         <button
                                             className="practice-ask-btn"
@@ -428,7 +431,7 @@ export default function PracticePage() {
                             {aiHelp && (
                                 <div className="practice-ai-help" ref={aiBoxRef}>
                                     <strong>{t("practiceAskAI") || "Ask AI for help"}</strong>
-                                    <p className="practice-ai-text">{aiHelp}</p>
+                                    <MarkdownRenderer content={aiHelp} />
                                 </div>
                             )}
                         </div>
