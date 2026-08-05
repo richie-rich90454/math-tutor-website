@@ -20,7 +20,7 @@ export default function VirtualizedMessages({
 }: Props) {
     const fallbackRef = useRef<HTMLDivElement>(null);
     const heightsRef = useRef<Map<number, number>>(new Map());
-    const [, force] = useState(0);
+    const [heights, setHeights] = useState<Map<number, number>>(new Map());
     const [range, setRange] = useState({ start: 0, end: 20 });
 
     const items = Array.isArray(children) ? children : [];
@@ -31,10 +31,10 @@ export default function VirtualizedMessages({
         if (!container) return;
         const top = container.scrollTop;
         const height = container.clientHeight;
+        const h = heightsRef.current;
 
         let off = 0;
         let start = 0;
-        const h = heightsRef.current;
         for (let i = 0; i < count; i++) {
             const rh = h.get(i) ?? estimatedHeight;
             if (off + rh > top) {
@@ -86,42 +86,39 @@ export default function VirtualizedMessages({
         updateRangeRef.current = updateRange;
     }, [updateRange]);
 
-    const measure = useCallback(
-        (index: number) => (el: HTMLElement | null) => {
-            if (!el) return;
-            const apply = (h: number) => {
-                if (Math.abs((heightsRef.current.get(index) ?? -1) - h) > 0.5) {
-                    heightsRef.current.set(index, h);
-                    force((n) => n + 1);
-                    updateRangeRef.current();
-                }
-            };
-            apply(el.offsetHeight);
-            const ro = new ResizeObserver((entries) => {
-                apply(entries[0]?.contentRect.height ?? el.offsetHeight);
-            });
-            ro.observe(el);
-            el.setAttribute("data-virt-index", String(index));
-        },
-        [],
-    );
+    // Measure a row once mounted and whenever it resizes (streaming growth).
+    const measure = useCallback((index: number) => (el: HTMLElement | null) => {
+        if (!el) return;
+        const apply = (h: number) => {
+            const prev = heightsRef.current.get(index);
+            if (Math.abs((prev ?? -1) - h) > 0.5) {
+                heightsRef.current.set(index, h);
+                setHeights(new Map(heightsRef.current));
+                updateRangeRef.current();
+            }
+        };
+        apply(el.offsetHeight);
+        const ro = new ResizeObserver((entries) => {
+            apply(entries[0]?.contentRect.height ?? el.offsetHeight);
+        });
+        ro.observe(el);
+    }, []);
 
     if (count <= 50) {
         return <>{children}</>;
     }
 
-    const h = heightsRef.current;
     let startOff = 0;
     for (let i = 0; i < range.start; i++) {
-        startOff += h.get(i) ?? estimatedHeight;
+        startOff += heights.get(i) ?? estimatedHeight;
     }
     let endOff = startOff;
     for (let i = range.start; i < range.end; i++) {
-        endOff += h.get(i) ?? estimatedHeight;
+        endOff += heights.get(i) ?? estimatedHeight;
     }
     let total = endOff;
     for (let i = range.end; i < count; i++) {
-        total += h.get(i) ?? estimatedHeight;
+        total += heights.get(i) ?? estimatedHeight;
     }
 
     const visible = items.slice(range.start, range.end).map((child, i) => {
