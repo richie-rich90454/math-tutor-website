@@ -145,6 +145,8 @@ const tdd: Translations = {
     settingsThemeSystem: "ᥟᥢᥰ ᥔᥣᥢᥰ",
     settingsLanguageSaved: "ᥖᥣᥒᥰ ᥑᥣᥛᥰ ᥘᥤ ᥘᥤᥐᥰ",
     settingsVersion: "ᥑᥣᥛᥰ ᥞᥤᥛᥰ ᥓᥣᥒᥴ ᥔᥨᥢ AI v1.0.0",
+    legacyVersion: "旧版",
+    modernVersion: "新版",
     progressTitle: "ᥞᥩᥛᥰ ᥐᥨᥢᥐᥣ ᥛᥫᥰ",
     progressConversations: "ᥑᥣᥛᥰ ᥖᥩᥐᥰ ᥘᥣᥭᥰ",
     progressMessages: "ᥑᥣᥛᥰ",
