@@ -1948,6 +1948,12 @@ select,
     vertical-align: text-bottom;
     border-radius: 1px;
 }
+.streaming-tail {
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    color: var(--fg-secondary);
+    opacity: 0.75;
+}
 
 /* ==========================================
    Message Actions
