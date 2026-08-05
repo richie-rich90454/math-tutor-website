@@ -144,6 +144,8 @@ const lis: Translations = {
     settingsThemeSystem: "System",
     settingsLanguageSaved: "ꓫꓬ ꓝꓳꓹ ꓫꓬ ꓕꓯꓽ",
     settingsVersion: "AI Math Tutor v1.0.0",
+    legacyVersion: "旧版",
+    modernVersion: "新版",
     progressTitle: "ꓠꓴ ꓠꓵꓽ ꓕꓯꓽ",
     progressConversations: "ꓫꓬ ꓟꓬ",
     progressMessages: "ꓫꓬ ꓕꓯꓽ ꓟꓬ",
