@@ -70,15 +70,16 @@
             host.innerHTML = '<span class="muted">-</span>';
             return;
         }
-        var html = "";
+        var html = '<table class="sheet-table" width="100%" cellpadding="0" cellspacing="0">';
         for (var i = 0; i < formulas.length; i++) {
             var f = formulas[i];
-            html += '<div class="row">'
-                + '<span style="min-width:140px;"><strong>' + MathTutor.escapeHtml(f.name) + "</strong></span>"
-                + '<code style="flex:1;">' + MathTutor.escapeHtml(f.formula) + "</code>"
-                + '<span class="muted">' + MathTutor.escapeHtml(f.mandarin) + "</span>"
-                + "</div>";
+            html += '<tr>'
+                + '<td class="sheet-formula-name"><strong>' + MathTutor.escapeHtml(f.name) + "</strong></td>"
+                + '<td class="sheet-formula">$$' + MathTutor.escapeHtml(f.formula) + "$$</td>"
+                + '<td class="sheet-mandarin muted">' + MathTutor.escapeHtml(f.mandarin) + "</td>"
+                + "</tr>";
         }
+        html += "</table>";
         host.innerHTML = html;
     }
 
@@ -88,12 +89,13 @@
             host.innerHTML = '<span class="muted">-</span>';
             return;
         }
-        var html = "";
+        var html = '<table class="sheet-table" width="100%" cellpadding="0" cellspacing="0">';
         for (var i = 0; i < terms.length; i++) {
             var term = terms[i];
-            html += '<div class="row"><span style="flex:1;"><strong>' + MathTutor.escapeHtml(term.term) + "</strong></span>"
-                + '<span class="muted">' + MathTutor.escapeHtml(MathTutor.t("sheetsMandarin") + ": " + term.mandarin) + "</span></div>";
+            html += '<tr><td class="sheet-term"><strong>' + MathTutor.escapeHtml(term.term) + "</strong></td>"
+                + '<td class="sheet-mandarin muted">' + MathTutor.escapeHtml(MathTutor.t("sheetsMandarin") + ": " + term.mandarin) + "</td></tr>";
         }
+        html += "</table>";
         host.innerHTML = html;
     }
 
