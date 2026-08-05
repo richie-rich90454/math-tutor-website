@@ -298,6 +298,122 @@ MathTutor.extractSuggestions = function (content) {
     return { suggestions: suggestions, clean: clean };
 };
 
+// ---------- Math vocabulary highlight (C17) ----------
+// Mirrors the modern MarkdownRenderer: glossary terms (from the B13 sheets
+// bank) get a highlighted span with a Mandarin tooltip. Zero AI — a plain
+// post-render DOM pass. Runs before MathJax typesets so math output is never
+// touched; skips code/pre/script/style and MathJax spans defensively.
+MathTutor.vocabTerms = null;
+
+MathTutor.loadVocab = function (callback) {
+    if (MathTutor.vocabTerms) {
+        if (callback) {
+            callback(MathTutor.vocabTerms);
+        }
+        return;
+    }
+    $.ajax({
+        url: API_BASE_URL + "/api/sheets",
+        dataType: "json",
+        success: function (data) {
+            var terms = [];
+            var sheets = data.sheets || [];
+            for (var s = 0; s < sheets.length; s++) {
+                var tlist = sheets[s].terms || [];
+                for (var i = 0; i < tlist.length; i++) {
+                    var name = tlist[i].term;
+                    if (name && name.length >= 4 && tlist[i].mandarin) {
+                        terms.push({ lower: name.toLowerCase(), original: name, mandarin: tlist[i].mandarin });
+                    }
+                }
+            }
+            MathTutor.vocabTerms = terms;
+            if (callback) {
+                callback(terms);
+            }
+        },
+        error: function () {
+            MathTutor.vocabTerms = [];
+            if (callback) {
+                callback(MathTutor.vocabTerms);
+            }
+        }
+    });
+};
+
+MathTutor.highlightVocab = function (root) {
+    if (!root) {
+        return;
+    }
+    MathTutor.loadVocab(function (terms) {
+        if (!terms.length) {
+            return;
+        }
+        var nodes = [];
+        collectTextNodes(root, nodes);
+        for (var i = 0; i < nodes.length; i++) {
+            wrapBestTerm(nodes[i], terms);
+        }
+    });
+};
+
+function collectTextNodes(node, out) {
+    var child = node.firstChild;
+    while (child) {
+        if (child.nodeType === 3) {
+            out.push(child);
+        } else if (child.nodeType === 1) {
+            var tag = child.nodeName.toLowerCase();
+            var cls = child.className ? String(child.className) : "";
+            if (tag !== "code" && tag !== "pre" && tag !== "script" && tag !== "style"
+                && cls.indexOf("MathJax") === -1 && cls.indexOf("mdr-vocab") === -1) {
+                collectTextNodes(child, out);
+            }
+        }
+        child = child.nextSibling;
+    }
+}
+
+function wrapBestTerm(node, terms) {
+    var text = node.nodeValue || "";
+    if (!text || text.length < 4) {
+        return;
+    }
+    var best = null;
+    for (var i = 0; i < terms.length; i++) {
+        var term = terms[i];
+        var idx = text.toLowerCase().indexOf(term.lower);
+        while (idx !== -1) {
+            var before = idx === 0 ? " " : text.charAt(idx - 1);
+            var after = idx + term.original.length >= text.length ? " " : text.charAt(idx + term.original.length);
+            if (!/[a-z]/i.test(before) && !/[a-z]/i.test(after)) {
+                if (best === null || term.original.length > best.original.length) {
+                    best = term;
+                    best.index = idx;
+                }
+                break;
+            }
+            idx = text.toLowerCase().indexOf(term.lower, idx + 1);
+        }
+    }
+    if (!best) {
+        return;
+    }
+    var frag = document.createDocumentFragment();
+    if (best.index > 0) {
+        frag.appendChild(document.createTextNode(text.substring(0, best.index)));
+    }
+    var mark = document.createElement("span");
+    mark.className = "mdr-vocab";
+    mark.appendChild(document.createTextNode(text.substring(best.index, best.index + best.original.length)));
+    mark.title = text.substring(best.index, best.index + best.original.length) + " \u2014 " + best.mandarin;
+    frag.appendChild(mark);
+    if (best.index + best.original.length < text.length) {
+        frag.appendChild(document.createTextNode(text.substring(best.index + best.original.length)));
+    }
+    node.parentNode.replaceChild(frag, node);
+}
+
 // ---------- Time formatting ----------
 MathTutor.formatTime = function (isoOrSql) {
     if (!isoOrSql) {
