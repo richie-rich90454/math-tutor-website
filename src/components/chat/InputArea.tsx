@@ -80,9 +80,8 @@ const InputArea = memo(function InputArea({
     const handleChange = useCallback(
         (e: React.ChangeEvent<HTMLTextAreaElement>) => {
             onChange(e.target.value);
-            setTimeout(adjustHeight, 0);
         },
-        [onChange, adjustHeight],
+        [onChange],
     );
 
     const handleSend = useCallback(() => {
