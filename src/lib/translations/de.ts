@@ -144,6 +144,7 @@ const de: Translations = {
     settingsLanguageSaved: "Spracheinstellung gespeichert",
     settingsVersion: "AI Mathe-Tutor v1.0.0",
     legacyVersion: "Legacy-Version",
+    browserOutdated: "Ihr Browser unterstuetzt moeglicherweise nicht alle Funktionen",
     modernVersion: "Moderne Version",
     progressTitle: "Dein Fortschritt",
     progressConversations: "Gesprache",
