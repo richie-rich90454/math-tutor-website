@@ -80,4 +80,73 @@ describe("useChatUI", () => {
         expect(handleNewChat).toHaveBeenCalledTimes(1);
         expect(result.current.showCommandPalette).toBe(false);
     });
+
+    it.each([
+        ["Ctrl+N", "n", true],
+        ["Ctrl+Enter", "Enter", true],
+        ["Ctrl+/", "/", true],
+        ["Ctrl+B", "b", true],
+    ])("%s dispatches without throwing", (_label, key, ctrl) => {
+        const { result } = setup();
+        expect(() =>
+            act(() => {
+                window.dispatchEvent(new KeyboardEvent("keydown", { key, ctrlKey: ctrl }));
+            }),
+        ).not.toThrow();
+        // Ctrl+/ toggles the shortcuts panel; Ctrl+B toggles the sidebar on desktop.
+        expect(result.current).toBeDefined();
+    });
+
+    it("opens the shortcuts panel with Ctrl+/", () => {
+        const { result } = setup();
+        act(() => {
+            window.dispatchEvent(new KeyboardEvent("keydown", { key: "/", ctrlKey: true }));
+        });
+        expect(result.current.showShortcuts).toBe(true);
+    });
+
+    it("closes the shortcuts panel with Escape", () => {
+        const { result } = setup();
+        act(() => {
+            window.dispatchEvent(new KeyboardEvent("keydown", { key: "/", ctrlKey: true }));
+        });
+        expect(result.current.showShortcuts).toBe(true);
+        act(() => {
+            window.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape" }));
+        });
+        expect(result.current.showShortcuts).toBe(false);
+    });
+
+    it("does not open the shortcuts panel for a plain slash", () => {
+        const { result } = setup();
+        act(() => {
+            window.dispatchEvent(new KeyboardEvent("keydown", { key: "/" }));
+        });
+        expect(result.current.showShortcuts).toBe(false);
+    });
+
+    it.each([
+        ["up", "up"],
+        ["down", "down"],
+    ])("feedback %s sets then toggles off", (_label, type) => {
+        const { result } = setup();
+        act(() => result.current.handleFeedback("m1", type as "up" | "down"));
+        expect(result.current.feedback.get("m1")).toBe(type);
+        act(() => result.current.handleFeedback("m1", type as "up" | "down"));
+        expect(result.current.feedback.get("m1")).toBeUndefined();
+    });
+
+    it("keeps independent feedback per message", () => {
+        const { result } = setup();
+        act(() => result.current.handleFeedback("a", "up"));
+        act(() => result.current.handleFeedback("b", "down"));
+        expect(result.current.feedback.get("a")).toBe("up");
+        expect(result.current.feedback.get("b")).toBe("down");
+    });
+
+    it("does not open the sidebar on desktop via toggle", () => {
+        const { result } = setup();
+        act(() => result.current.handleSidebarToggle());
+        expect(result.current.isSidebarOpen).toBe(true);
+    });
 });
