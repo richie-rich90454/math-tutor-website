@@ -442,6 +442,11 @@ html {
 /* ==========================================
    Accessibility
    ========================================== */
+/* Brand-tinted text selection */
+::selection {
+    background: color-mix(in srgb, var(--accent) 22%, transparent);
+    color: var(--fg-primary);
+}
 /* Visible keyboard focus ring across the app */
 :focus-visible {
     outline: 2px solid var(--accent);
