@@ -144,6 +144,7 @@ const ja: Translations = {
     settingsLanguageSaved: "言語設定を保存しました",
     settingsVersion: "AI 数学チューター v1.0.0",
     legacyVersion: "旧バージョン",
+    browserOutdated: "お使いのブラウザは一部の機能に対応していない可能性があります",
     modernVersion: "モダンバージョン",
     progressTitle: "あなたの進捗",
     progressConversations: "会話数",
