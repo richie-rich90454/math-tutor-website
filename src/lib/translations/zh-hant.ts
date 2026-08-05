@@ -142,6 +142,8 @@ const zhHant: Translations = {
     settingsThemeSystem: "跟隨系統",
     settingsLanguageSaved: "語言偏好已儲存",
     settingsVersion: "AI 數學導師 v1.0.0",
+    legacyVersion: "舊版",
+    modernVersion: "新版",
     progressTitle: "你的進度",
     progressConversations: "對話數",
     progressMessages: "訊息數",
