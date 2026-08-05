@@ -1968,7 +1968,6 @@ select,
     border: 1px solid var(--border-default);
     border-radius: var(--radius-sm);
     box-shadow: var(--shadow-md);
-    animation: fadeInOnly 0.12s ease-out;
     opacity: 0;
     pointer-events: none;
 }
@@ -1976,6 +1975,7 @@ select,
 .msg-actions:focus-within {
     opacity: 1;
     pointer-events: auto;
+    animation: fadeInOnly 0.12s ease-out;
 }
 
 /* Touch devices have no hover, so keep action toolbars reachable */
