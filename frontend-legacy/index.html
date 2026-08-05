@@ -37,7 +37,7 @@
         </span>
     </div>
 
-    <div class="chat-stage">
+    <div class="chat-stage" id="chat-stage">
     <table class="chat-layout" cellpadding="0" cellspacing="0">
         <tr>
             <td class="sidebar-cell">
@@ -65,7 +65,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="chat-body-row" id="chatBodyRow" height="100%" valign="middle">
+                        <td class="chat-body-row" height="100%" valign="middle">
                             <div id="welcomeSection" class="welcome">
                                 <h1 class="welcome-title" data-i18n="title">MathTutor AI</h1>
                                 <p class="welcome-subtitle" data-i18n="subtitle">What do you want to learn today?</p>
@@ -129,5 +129,27 @@
 <script src="/legacy/js/common.js"></script>
 <script src="/legacy/js/mathjax.js"></script>
 <script src="/legacy/js/chat.js"></script>
+
+<script>
+function fixChatHeight() {
+  var h;
+  if (document.compatMode && document.compatMode === 'CSS1Compat') {
+    h = document.documentElement.clientHeight;
+  } else {
+    h = document.body.clientHeight;
+  }
+  var el = document.getElementById('chat-stage');
+  if (el) {
+    el.style.height = (h - 38) + 'px';
+  }
+}
+if (window.attachEvent) {
+  window.attachEvent('onload', fixChatHeight);
+  window.attachEvent('onresize', fixChatHeight);
+} else {
+  window.onload = fixChatHeight;
+  window.onresize = fixChatHeight;
+}
+</script>
 </body>
 </html>

@@ -17,11 +17,21 @@ html,body{height:100%;}
 .legacy-shell{width:100%;}
 .legacy-main{width:100%;}
 .legacy-content{padding:8px;}
+
 /* Chat app shell fills the viewport so the page never leaves a blank band below.
    overflow:auto (not hidden) so narrow screens can scroll to clipped header links. */
 .shell-app{position:relative;height:100%;overflow:auto;}
 .shell-app .legacy-header{position:absolute;top:0;left:0;right:0;z-index:5;}
-.shell-app .chat-stage{position:absolute;top:38px;left:0;right:0;bottom:0;}
+
+/* Fix: explicit height via JS + overflow hidden to lock the stage */
+.shell-app .chat-stage{
+  position:absolute;
+  top:38px;
+  left:0;
+  right:0;
+  bottom:0;
+  overflow:hidden;
+}
 .shell-app .chat-layout{width:100%;height:100%;}
 
 /* Header */
@@ -57,10 +67,25 @@ html,body{height:100%;}
 
 /* Chat */
 .chat-layout{width:100%;height:100%;}
-.chat-stack{width:100%;height:100%;}
-.chat-toolbar-row{vertical-align:top;}
-.chat-body-row{vertical-align:middle;height: 100%;}
-.chat-footer-row{vertical-align:top;}
+
+/* FIX: force the inner table to respect its height and keep rows within bounds */
+.chat-stack{
+  width:100%;
+  height:100%;
+  table-layout:fixed;   /* enables % heights to work & prevents row expansion */
+}
+.chat-toolbar-row{
+  vertical-align:top;
+  /* NO height – let it size to content */
+}
+.chat-body-row{
+  vertical-align:middle;
+  height:100%;           /* takes remaining space after toolbar & footer */
+}
+.chat-footer-row{
+  vertical-align:top;
+  /* NO height – let it size to content */
+}
 .sidebar-cell{width:230px;vertical-align:top;background:#111;color:#eee;}
 .sidebar-cell a{color:#ccc;}
 .sidebar-inner{padding:8px;}
@@ -72,7 +97,7 @@ html,body{height:100%;}
 .sidebar-chat-preview{display:block;color:#999;font-size:11px;overflow:hidden;white-space:nowrap;}
 .sidebar-chat-actions{font-size:11px;margin-top:3px;}
 .sidebar-chat-actions a{margin-right:6px;}
-.chat-cell{vertical-align:top;background:#fff;height: 100%;}
+.chat-cell{vertical-align:top;background:#fff;height:100%;}
 .chat-toolbar{padding:6px 10px;background:#eee;border-bottom:1px solid #ccc;}
 .chat-toolbar .right{float:right;}
 
