@@ -145,6 +145,8 @@ const lic: Translations = {
     settingsThemeSystem: "Fongfou",
     settingsLanguageSaved: "Lai kaeu hlaeu",
     settingsVersion: "Kafux Tomhau AI v1.0.0",
+    legacyVersion: "旧版",
+    modernVersion: "新版",
     progressTitle: "Meuz Tae Gaenx",
     progressConversations: "Hum",
     progressMessages: "Lai",
