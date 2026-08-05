@@ -144,6 +144,7 @@ const bo: Translations = {
     settingsLanguageSaved: "སྐད་ཡིག་གི་གདམ་ཀ་ཉར་ཚགས་བྱས་ཟིན།",
     settingsVersion: "AI རྩིས་རིག་སློབ་དཔོན་ v1.0.0",
     legacyVersion: "སྔོན་གྱི་པར།",
+    browserOutdated: "ཁྱེད་ཀྱི་ལྟ་ཆས་ཀྱིས་ནུས་པ་ཡོངས་ལ་རྒྱབ་སྐྱོར་མི་བྱེད་སྲིད།",
     modernVersion: "དེང་རབས་པར།",
     progressTitle: "ཁྱེད་ཀྱི་ཡར་སྐྱེལ།",
     progressConversations: "སྐད་ཆ།",
