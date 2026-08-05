@@ -43,7 +43,7 @@ function topicLabel(topic: string, t: (key: keyof Translations) => string): stri
 }
 
 export default function SheetsPage() {
-    const { t } = useLanguage();
+    const { t, currentLanguage } = useLanguage();
     const [active, setActive] = useState("algebra");
     const [sheets, setSheets] = useState<SheetTopic[]>([]);
     const [loading, setLoading] = useState(true);
@@ -52,7 +52,7 @@ export default function SheetsPage() {
     const load = useCallback(() => {
         setLoading(true);
         setError(false);
-        apiFetch("/api/sheets")
+        apiFetch(`/api/sheets?language=${encodeURIComponent(currentLanguage.code)}`)
             .then((r) => {
                 if (!r.ok) throw new Error(`HTTP ${r.status}`);
                 return r.json();
@@ -65,7 +65,7 @@ export default function SheetsPage() {
             })
             .catch(() => setError(true))
             .finally(() => setLoading(false));
-    }, []);
+    }, [currentLanguage.code]);
 
     useEffect(() => {
         load();
