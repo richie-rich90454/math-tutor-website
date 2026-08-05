@@ -395,6 +395,27 @@ export default function Home() {
                                 <ChatTools chatId={activeChatId} />
                             </>
                         )}
+                        <a
+                            href="/legacy"
+                            className="app-header-btn"
+                            title={t("legacyVersion") || "Legacy version"}
+                            aria-label={t("legacyVersion") || "Legacy version"}
+                        >
+                            <svg
+                                width="18"
+                                height="18"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            >
+                                <rect x="2" y="4" width="20" height="14" rx="2" />
+                                <line x1="8" y1="21" x2="16" y2="21" />
+                                <line x1="12" y1="18" x2="12" y2="21" />
+                            </svg>
+                        </a>
                         <ThemeToggle />
                         <LanguageSwitcher />
                     </div>
