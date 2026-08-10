@@ -89,7 +89,7 @@ public class ChatsController {
             return unauthenticated();
         }
 
-        CreateChatRequest body = CreateChatRequest.parse(JsonBody.parse(rawBody));
+        CreateChatRequest body = CreateChatRequest.parse(parseJson(rawBody));
         ChatRepository.ChatRecord chat = chats.createChat(
                 session.id(), body.title(), body.preview());
         return ResponseEntity.status(201).body(Map.of("chat", chat));
@@ -134,7 +134,7 @@ public class ChatsController {
             return ResponseEntity.status(403).body(Map.of("error", "Not authorized"));
         }
 
-        UpdateChatRequest body = UpdateChatRequest.parse(JsonBody.parse(rawBody));
+        UpdateChatRequest body = UpdateChatRequest.parse(parseJson(rawBody));
         for (Map.Entry<String, Object> field : body.changedFields().entrySet()) {
             chats.updateChat(id, field.getKey(), field.getValue());
         }
@@ -187,7 +187,7 @@ public class ChatsController {
             return ResponseEntity.status(404).body(Map.of("error", "Message not found"));
         }
 
-        JsonLike body = JsonBody.parse(rawBody);
+        JsonLike body = parseJson(rawBody);
         Boolean pinnedValue = body.booleanOrNull("pinned");
         boolean pinned = pinnedValue == null || pinnedValue;
         messages.setPinned(messageId, pinned);
@@ -222,7 +222,7 @@ public class ChatsController {
         }
         String language = null;
         try {
-            JsonLike body = JsonBody.parse(rawBody);
+            JsonLike body = parseJson(rawBody);
             language = body.string("language");
         } catch (Exception ignored) {
             // optional body; language falls back to English

@@ -55,6 +55,7 @@
     --fg-secondary: #525252;
     --fg-muted: #a3a3a3;
     --fg-inverse: #ffffff;
+    --fg-on-accent: #ffffff;
 
     --border-default: #e5e5e5;
     --border-subtle: #f0f0f0;
@@ -95,6 +96,7 @@
     --fg-secondary: #a3a3a3;
     --fg-muted: #6b6b6b;
     --fg-inverse: #0a0a0a;
+    --fg-on-accent: #0a0a0a;
 
     --border-default: #262626;
     --border-subtle: #1c1c1c;
@@ -135,6 +137,7 @@
         --fg-secondary: #a3a3a3;
         --fg-muted: #6b6b6b;
         --fg-inverse: #0a0a0a;
+        --fg-on-accent: #0a0a0a;
         --border-default: #262626;
         --border-subtle: #1c1c1c;
         --border-focus: #fafafa;
@@ -395,6 +398,31 @@ a:hover {
 /* ==========================================
    Scrollbar
    ========================================== */
+/* Global custom scrollbar (thicker, visible track, theme-aware) */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-app-alt);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--bg-active);
+    border: 2px solid var(--bg-app-alt);
+    border-radius: var(--radius-sm);
+    min-height: 40px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--fg-muted);
+}
+::-webkit-scrollbar-corner {
+    background: var(--bg-app-alt);
+}
+html {
+    scrollbar-width: auto;
+    scrollbar-color: var(--bg-active) var(--bg-app-alt);
+}
+
 .custom-scrollbar {
     scrollbar-width: thin;
     scrollbar-color: var(--fg-muted) transparent;
@@ -414,6 +442,21 @@ a:hover {
 /* ==========================================
    Accessibility
    ========================================== */
+/* Brand-tinted text selection */
+::selection {
+    background: color-mix(in srgb, var(--accent) 22%, transparent);
+    color: var(--fg-primary);
+}
+/* Visible keyboard focus ring across the app */
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+.sb-chat-item:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
+    border-radius: var(--radius-md);
+}
 .sr-only {
     position: absolute;
     width: 1px;
@@ -554,7 +597,7 @@ select,
     border: 1px solid var(--border-default);
     background: var(--bg-surface);
     color: var(--fg-secondary);
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
     cursor: pointer;
 }
 .app-header-btn:hover {
@@ -663,8 +706,9 @@ select,
     padding: 7px 14px;
     font-size: 0.8125rem;
     color: var(--fg-secondary);
-    transition: all var(--transition-fast);
-    white-space: nowrap;
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
+    white-space: normal;
+    max-width: 100%;
     font-weight: 500;
     will-change: transform;
     cursor: pointer;
@@ -739,18 +783,18 @@ select,
 }
 
 .chat-messages-area::-webkit-scrollbar {
-    width: 6px;
+    width: 12px;
 }
 .chat-messages-area::-webkit-scrollbar-track {
-    background: transparent;
+    background: var(--bg-app-alt);
 }
 .chat-messages-area::-webkit-scrollbar-thumb {
-    background: var(--border-default);
-    border-radius: 3px;
-    transition: background var(--transition-fast);
+    background: var(--bg-active);
+    border: 2px solid var(--bg-app-alt);
+    border-radius: var(--radius-sm);
 }
 .chat-messages-area::-webkit-scrollbar-thumb:hover {
-    background: var(--fg-tertiary);
+    background: var(--fg-muted);
 }
 
 .chat-messages-inner {
@@ -900,7 +944,7 @@ select,
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
     opacity: 0;
     box-shadow: var(--shadow-sm);
 }
@@ -1041,7 +1085,7 @@ select,
     border: 1px solid transparent;
     background: transparent;
     color: var(--fg-secondary);
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
     cursor: pointer;
     flex-shrink: 0;
 }
@@ -1134,7 +1178,7 @@ select,
     border: none;
     background: transparent;
     color: var(--fg-secondary);
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
     cursor: pointer;
     position: relative;
 }
@@ -1195,7 +1239,7 @@ select,
     font-weight: 500;
     color: var(--fg-inverse);
     border: none;
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
     cursor: pointer;
 }
 .sb-new-chat-btn:hover {
@@ -1219,7 +1263,7 @@ select,
     background: var(--accent);
     color: var(--fg-inverse);
     border: none;
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
     cursor: pointer;
     position: relative;
 }
@@ -1354,7 +1398,7 @@ select,
     border: none;
     background: transparent;
     color: var(--fg-muted);
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
     cursor: pointer;
     display: flex;
     opacity: 0;
@@ -1393,7 +1437,7 @@ select,
     border: none;
     background: transparent;
     color: var(--fg-secondary);
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
 }
 .sb-collapsed-history-btn:hover {
     background: var(--bg-hover);
@@ -1587,7 +1631,7 @@ select,
     cursor: pointer;
     font-size: 13px;
     color: var(--fg-primary);
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
 }
 .sb-sign-in-btn:hover {
     background: var(--bg-hover);
@@ -1601,6 +1645,8 @@ select,
     font-size: 0.9375rem;
     line-height: 1.7;
     color: var(--fg-primary);
+    overflow-wrap: break-word;
+    min-width: 0;
 }
 .markdown-content p {
     color: var(--fg-primary);
@@ -1685,6 +1731,10 @@ select,
     max-width: 100%;
     overflow-x: auto;
     overscroll-behavior-x: contain;
+}
+.mdr-code-loading {
+    min-height: 72px;
+    background: var(--bg-hover);
 }
 
 .mdr-copy-btn {
@@ -1802,7 +1852,7 @@ select,
     padding: 4px 12px;
     font-size: 12px;
     cursor: pointer;
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
 }
 .followup-chip:hover {
     color: var(--fg-primary);
@@ -1846,7 +1896,7 @@ select,
     padding: 5px 14px;
     font-size: 13px;
     cursor: pointer;
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
 }
 .continue-learning-chip:hover {
     color: var(--fg-primary);
@@ -1863,10 +1913,22 @@ select,
     padding: 6px 14px;
     font-size: 0.8125rem;
     color: var(--fg-secondary);
-    transition: all var(--transition-fast);
-    white-space: nowrap;
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
+    white-space: normal;
+    max-width: 100%;
+    text-align: left;
     font-weight: 500;
     cursor: pointer;
+}
+.mdr-suggestion-chip .markdown-content {
+    display: inline;
+}
+.mdr-suggestion-chip p {
+    margin: 0;
+    display: inline;
+}
+.mdr-suggestion-chip .katex {
+    font-size: 1em;
 }
 .mdr-suggestion-chip:hover {
     border-color: var(--accent);
@@ -1891,6 +1953,12 @@ select,
     vertical-align: text-bottom;
     border-radius: 1px;
 }
+.streaming-tail {
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    color: var(--fg-secondary);
+    opacity: 0.75;
+}
 
 /* ==========================================
    Message Actions
@@ -1911,17 +1979,21 @@ select,
     border: 1px solid var(--border-default);
     border-radius: var(--radius-sm);
     box-shadow: var(--shadow-md);
-    animation: fadeInOnly 0.12s ease-out;
-    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
 }
-.msg-actions.is-visible {
-    visibility: visible;
+.msg-actions.is-visible,
+.msg-actions:focus-within {
+    opacity: 1;
+    pointer-events: auto;
+    animation: fadeInOnly 0.12s ease-out;
 }
 
 /* Touch devices have no hover, so keep action toolbars reachable */
 @media (hover: none) {
     .msg-actions {
-        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
     }
     .mdr-copy-btn {
         opacity: 1;
@@ -1963,7 +2035,7 @@ select,
     cursor: pointer;
     color: var(--fg-muted);
     font-size: 12px;
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
 }
 .msg-action-btn:hover {
     color: var(--fg-primary);
@@ -2045,7 +2117,7 @@ select,
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
     z-index: 1;
 }
 .ia-util-btn:nth-of-type(2) {
@@ -2077,7 +2149,7 @@ select,
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
 }
 
 .ia-send-btn {
@@ -2135,7 +2207,7 @@ select,
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
     flex-shrink: 0;
 }
 .ia-image-preview-remove:hover {
@@ -2279,7 +2351,7 @@ select,
     background: var(--bg-surface);
     cursor: pointer;
     color: var(--fg-secondary);
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
 }
 .theme-toggle-btn:hover {
     background: var(--bg-hover);
@@ -2312,7 +2384,7 @@ select,
     padding: var(--space-1) var(--space-3);
     font-size: 13px;
     color: var(--fg-secondary);
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
     cursor: pointer;
     height: 36px;
 }
@@ -2492,7 +2564,7 @@ select,
     background: transparent;
     cursor: pointer;
     color: var(--fg-muted);
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
 }
 .shortcut-modal-close:hover {
     background: var(--bg-hover);
@@ -2663,7 +2735,7 @@ select,
     box-shadow: var(--shadow-md);
     cursor: pointer;
     color: var(--fg-secondary);
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
     animation: fadeInOnly 0.15s ease-out;
 }
 .scroll-bottom-btn:hover {
@@ -2837,7 +2909,7 @@ select,
     font-size: 13px;
     font-weight: 500;
     cursor: pointer;
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
 }
 .error-boundary-btn:hover {
     background: var(--accent-hover);
@@ -3008,7 +3080,7 @@ select,
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -3060,7 +3132,7 @@ select,
     font-size: 14px;
     font-weight: 500;
     cursor: pointer;
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
     min-height: 40px;
 }
 .auth-back-btn:hover {
@@ -3079,7 +3151,7 @@ select,
     border: 2px solid var(--border-default);
     border-radius: var(--radius-md);
     cursor: pointer;
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
 }
 .auth-radio-card:hover {
     border-color: var(--fg-muted);
@@ -3211,7 +3283,7 @@ select,
     background: var(--bg-surface);
     cursor: pointer;
     color: var(--fg-secondary);
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
 }
 .settings-theme-btn:hover {
     border-color: var(--fg-primary);
@@ -3235,7 +3307,7 @@ select,
     background: transparent;
     cursor: pointer;
     color: var(--fg-primary);
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
     padding: 0;
 }
 .settings-switch-track {
@@ -3435,7 +3507,7 @@ select,
     font-size: 14px;
     font-weight: 500;
     cursor: pointer;
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
 }
 .settings-save-btn:hover {
     background: var(--accent-hover);
@@ -3610,7 +3682,7 @@ select,
     font-size: 14px;
     font-weight: 500;
     color: var(--fg-secondary);
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
     text-align: left;
     width: 100%;
 }
@@ -3679,7 +3751,7 @@ select,
     border: none;
     background: transparent;
     color: var(--fg-secondary);
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
     cursor: pointer;
 }
 .ci-back-btn:hover {
@@ -3764,7 +3836,7 @@ select,
     text-align: left;
     background: transparent;
     color: var(--fg-primary);
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
     cursor: pointer;
 }
 .ci-suggestion-btn:hover {
@@ -3877,7 +3949,7 @@ select,
     background: var(--accent);
     color: var(--fg-inverse);
     border: none;
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -4459,6 +4531,11 @@ select,
 }
 
 /* Responsive KaTeX */
+.katex-display {
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-width: 100%;
+}
 @media (max-width: 480px) {
     .katex {
         font-size: 0.95em !important;
@@ -4564,7 +4641,7 @@ select,
     color: var(--fg-secondary);
     cursor: pointer;
     font-size: 0.82rem;
-    transition: all 0.15s ease;
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
 }
 .practice-chip:hover {
     background: var(--bg-hover);
@@ -4640,7 +4717,7 @@ select,
     color: var(--fg-primary);
     cursor: pointer;
     text-align: left;
-    transition: all 0.15s ease;
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
 }
 .practice-option:hover:not(:disabled) {
     border-color: var(--accent);
@@ -4766,11 +4843,13 @@ select,
 }
 .sheet-formula-name {
     min-width: 140px;
+    flex-shrink: 0;
     color: var(--fg-primary);
     font-weight: 500;
 }
 .sheet-formula {
     flex: 1;
+    min-width: 0;
     background: var(--bg-hover);
     padding: 4px 10px;
     border-radius: var(--radius-sm);
@@ -4780,7 +4859,8 @@ select,
 .sheet-mandarin {
     color: var(--fg-secondary);
     font-size: 0.85rem;
-    white-space: nowrap;
+    min-width: 0;
+    overflow-wrap: break-word;
 }
 .sheet-term {
     flex: 1;
@@ -4800,6 +4880,34 @@ select,
     font-size: 0.82rem;
     text-align: center;
     justify-content: center;
+}
+
+.browser-support-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+    padding: var(--space-2) var(--space-4);
+    background: color-mix(in srgb, var(--warning, #f59e0b) 12%, transparent);
+    border-bottom: 1px solid color-mix(in srgb, var(--warning, #f59e0b) 28%, transparent);
+    color: var(--fg-primary);
+    font-size: 0.82rem;
+}
+.browser-support-link {
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+/* Reduced motion: honor the OS preference for animations/transitions. */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }
 
 /* ---------- Home learning cards ---------- */
@@ -4888,7 +4996,7 @@ select,
     color: var(--fg-secondary);
     cursor: pointer;
     font-size: 0.9rem;
-    transition: all 0.15s ease;
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
 }
 .auth-guest-btn:hover {
     border-color: var(--accent);

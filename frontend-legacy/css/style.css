@@ -17,11 +17,21 @@ html,body{height:100%;}
 .legacy-shell{width:100%;}
 .legacy-main{width:100%;}
 .legacy-content{padding:8px;}
+
 /* Chat app shell fills the viewport so the page never leaves a blank band below.
    overflow:auto (not hidden) so narrow screens can scroll to clipped header links. */
 .shell-app{position:relative;height:100%;overflow:auto;}
 .shell-app .legacy-header{position:absolute;top:0;left:0;right:0;z-index:5;}
-.shell-app .chat-stage{position:absolute;top:38px;left:0;right:0;bottom:0;}
+
+/* Fix: explicit height via JS + overflow hidden to lock the stage */
+.shell-app .chat-stage{
+  position:absolute;
+  top:38px;
+  left:0;
+  right:0;
+  bottom:0;
+  overflow:hidden;
+}
 .shell-app .chat-layout{width:100%;height:100%;}
 
 /* Header */
@@ -33,11 +43,11 @@ html,body{height:100%;}
 .legacy-header .right{float:right;}
 
 /* Buttons */
-.btn{display:inline-block;padding:5px 12px;margin:2px;border:1px solid #999;background:#e8e8e8;color:#222;cursor:pointer;font-size:13px;}
+.btn{display:inline-block;zoom:1;padding:5px 12px;margin:2px;border:1px solid #8a8a8a;border-top-color:#f0f0f0;border-left-color:#f0f0f0;border-right-color:#6e6e6e;border-bottom-color:#6e6e6e;background:#e8e8e8;color:#222;cursor:pointer;font-size:13px;}
 .btn:hover{background:#dcdcdc;}
-.btn-primary{background:#1a56db;border-color:#0a3a9b;color:#fff;}
+.btn-primary{background:#1a56db;border-color:#0a3a9b;border-top-color:#7aa0ff;border-left-color:#7aa0ff;border-right-color:#06307d;border-bottom-color:#06307d;color:#fff;}
 .btn-primary:hover{background:#1747b5;}
-.btn-danger{background:#c0392b;border-color:#922b21;color:#fff;}
+.btn-danger{background:#c0392b;border-color:#922b21;border-top-color:#ef8a7a;border-left-color:#ef8a7a;border-right-color:#6d1f15;border-bottom-color:#6d1f15;color:#fff;}
 .btn-danger:hover{background:#a93226;}
 .btn:disabled{color:#999;cursor:default;background:#f0f0f0;}
 .btn-small{padding:2px 8px;font-size:12px;}
@@ -45,8 +55,8 @@ html,body{height:100%;}
 /* Forms */
 .field{margin-bottom:10px;}
 .field label{display:block;margin-bottom:3px;font-weight:bold;}
-.field input[type=text],.field input[type=email],.field input[type=password],.field select,.field textarea{
-    width:280px;padding:5px;border:1px solid #aaa;background:#fff;font-size:13px;}
+/* IE6 has no attribute selectors, so styleFields() tags text controls with .field-input */
+.field-input{width:280px;padding:5px;border:1px solid #7f7f7f;border-top-color:#7f7f7f;border-left-color:#7f7f7f;border-right-color:#e8e8e8;border-bottom-color:#e8e8e8;background:#fff;font-size:13px;}
 .field textarea{height:70px;font-family:Tahoma,Arial,sans-serif;}
 .field .hint{color:#777;font-size:11px;}
 
@@ -57,10 +67,25 @@ html,body{height:100%;}
 
 /* Chat */
 .chat-layout{width:100%;height:100%;}
-.chat-stack{width:100%;height:100%;}
-.chat-toolbar-row{vertical-align:top;}
-.chat-body-row{vertical-align:middle;height: 100%;}
-.chat-footer-row{vertical-align:top;}
+
+/* FIX: force the inner table to respect its height and keep rows within bounds */
+.chat-stack{
+  width:100%;
+  height:100%;
+  table-layout:fixed;   /* enables % heights to work & prevents row expansion */
+}
+.chat-toolbar-row{
+  vertical-align:top;
+  /* NO height – let it size to content */
+}
+.chat-body-row{
+  vertical-align:middle;
+  height:100%;           /* takes remaining space after toolbar & footer */
+}
+.chat-footer-row{
+  vertical-align:top;
+  /* NO height – let it size to content */
+}
 .sidebar-cell{width:230px;vertical-align:top;background:#111;color:#eee;}
 .sidebar-cell a{color:#ccc;}
 .sidebar-inner{padding:8px;}
@@ -72,7 +97,7 @@ html,body{height:100%;}
 .sidebar-chat-preview{display:block;color:#999;font-size:11px;overflow:hidden;white-space:nowrap;}
 .sidebar-chat-actions{font-size:11px;margin-top:3px;}
 .sidebar-chat-actions a{margin-right:6px;}
-.chat-cell{vertical-align:top;background:#fff;height: 100%;}
+.chat-cell{vertical-align:top;background:#fff;height:100%;}
 .chat-toolbar{padding:6px 10px;background:#eee;border-bottom:1px solid #ccc;}
 .chat-toolbar .right{float:right;}
 
@@ -81,7 +106,7 @@ html,body{height:100%;}
 .welcome h1{font-size:26px;}
 .welcome-subtitle{color:#666;margin:8px 0 16px 0;}
 .prompt-buttons{text-align:center;}
-.prompt-btn{display:inline-block;margin:4px;padding:8px 14px;border:1px solid #aaa;background:#fff;cursor:pointer;font-size:13px;}
+.prompt-btn{display:inline-block;zoom:1;margin:4px;padding:8px 14px;border:1px solid #aaa;background:#fff;cursor:pointer;font-size:13px;}
 .prompt-btn:hover{background:#f0f0f0;}
 
 /* Messages */
@@ -90,15 +115,15 @@ html,body{height:100%;}
 .msg-role{font-weight:bold;font-size:12px;margin-bottom:3px;}
 .msg-user .msg-role{color:#1a56db;}
 .msg-assistant .msg-role{color:#0a7a3d;}
-.msg-body{white-space:pre-wrap;font-size:13px;line-height:1.45;}
+.msg-body{white-space:pre-wrap;font-size:13px;line-height:1.45;word-wrap:break-word;}
 .msg-user .msg-body{background:#eef3fb;padding:8px;border:1px solid #c9d8f0;}
 .msg-assistant .msg-body{background:#f7faf8;padding:8px;border:1px solid #d4e8dc;}
 .msg-time{color:#999;font-size:11px;margin-top:3px;}
 .msg-actions{font-size:11px;margin-top:4px;}
 .msg-actions a{margin-right:8px;}
 .suggestions{margin-top:6px;}
-.suggestion-btn{display:inline-block;margin:2px 4px 2px 0;padding:3px 10px;border:1px solid #9db4ff;background:#0a0a0a;color:#9db4ff;border-radius:4px;font-size:12px;cursor:pointer;}
-.msg-cached-badge{display:inline-block;margin:2px 0;padding:1px 8px;border:1px solid #444;border-radius:10px;color:#999;font-size:11px;}
+.suggestion-btn{display:inline-block;zoom:1;margin:2px 4px 2px 0;padding:3px 10px;border:1px solid #9db4ff;background:#0a0a0a;color:#9db4ff;font-size:12px;cursor:pointer;white-space:normal;max-width:100%;text-align:left;}
+.msg-cached-badge{display:inline-block;zoom:1;margin:2px 0;padding:1px 8px;border:1px solid #444;color:#999;font-size:11px;}
 .loading-dots{color:#999;}
 
 /* Input bar */
@@ -140,6 +165,10 @@ html,body{height:100%;}
 .hidden{display:none;}
 .spinner{color:#666;}
 
+/* Keyboard focus indicators (modern browsers; IE6 draws its own) */
+a:focus,button:focus,input:focus,select:focus,textarea:focus{outline:1px dotted #1a56db;outline-offset:1px;}
+body.theme-dark a:focus,body.theme-dark button:focus,body.theme-dark input:focus,body.theme-dark select:focus,body.theme-dark textarea:focus{outline-color:#7ea6ff;}
+
 /* Header controls (dark header in both themes) */
 .legacy-header select{background:#16181f;color:#fff;border:1px solid #333;font-size:12px;padding:1px 2px;}
 .legacy-header .header-btn{color:#9db4ff;}
@@ -157,7 +186,7 @@ body.theme-dark .btn-danger{background:#c0392b;border-color:#922b21;color:#fff;}
 body.theme-dark .btn-danger:hover{background:#d14332;}
 body.theme-dark .btn:disabled{color:#6b7280;background:#22262f;}
 body.theme-dark .field label{color:#c6ccd6;}
-body.theme-dark .field input[type=text],body.theme-dark .field input[type=email],body.theme-dark .field input[type=password],body.theme-dark .field select,body.theme-dark .field textarea{background:#1a1d24;border-color:#3a3f4b;color:#d7dbe3;}
+body.theme-dark .field-input{background:#1a1d24;border-color:#3a3f4b;color:#d7dbe3;}
 body.theme-dark .field .hint{color:#8a93a3;}
 body.theme-dark .auth-page{background:#16181f;border-color:#2a2e37;}
 body.theme-dark .auth-msg{color:#e5736a;}
@@ -201,17 +230,51 @@ body.theme-dark .spinner{color:#9aa3b2;}
 .quota-banner{background:#fff7e6;border-bottom:1px solid #f5c518;color:#7a5b00;padding:6px 12px;font-size:12px;text-align:center;}
 body.theme-dark .quota-banner{background:#33270a;border-bottom-color:#8a6d1a;color:#e9c55c;}
 .learning-cards{margin-top:14px;}
-.learning-card{display:block;border:1px solid #d0d5dd;border-radius:8px;padding:10px 12px;margin-bottom:8px;text-decoration:none;color:#111827;background:#fff;}
+.learning-card{display:block;border:1px solid #d0d5dd;padding:10px 12px;margin-bottom:8px;text-decoration:none;color:#111827;background:#fff;}
 .learning-card:hover{border-color:#6366f1;}
 body.theme-dark .learning-card{background:#16181f;border-color:#2a2e37;color:#e5e7eb;}
 .learning-card-tag{display:block;font-size:11px;text-transform:uppercase;color:#6366f1;font-weight:700;margin-bottom:4px;}
 .learning-card-text{display:block;font-size:14px;}
-.chip{display:inline-block;border:1px solid #d0d5dd;border-radius:6px;padding:3px 10px;margin-right:6px;font-size:12px;text-decoration:none;color:#374151;background:#fff;}
+.chip{display:inline-block;zoom:1;border:1px solid #d0d5dd;padding:3px 10px;margin-right:6px;font-size:12px;text-decoration:none;color:#374151;background:#fff;}
 .chip-active{background:#6366f1;border-color:#6366f1;color:#fff;}
 body.theme-dark .chip{background:#16181f;border-color:#2a2e37;color:#c9ced6;}
 body.theme-dark .chip-active{background:#6366f1;color:#fff;}
-.option-btn{display:block;border:1px solid #d0d5dd;border-radius:6px;padding:8px 12px;margin-bottom:6px;text-decoration:none;color:#111827;background:#fff;}
+.option-btn{display:block;border:1px solid #d0d5dd;padding:8px 12px;margin-bottom:6px;text-decoration:none;color:#111827;background:#fff;}
 .option-btn:hover{border-color:#6366f1;}
 body.theme-dark .option-btn{background:#16181f;border-color:#2a2e37;color:#e5e7eb;}
 .note-text{white-space:pre-wrap;color:#374151;}
 body.theme-dark .note-text{color:#c9ced6;}
+
+/* Follow-up chips (parity) */
+.followup-chips{display:block;margin:4px 0;}
+.followup-chip{display:inline-block;zoom:1;margin:2px 4px 2px 0;padding:3px 10px;border:1px solid #1a56db;border-top-color:#7aa0ff;border-left-color:#7aa0ff;border-right-color:#06307d;border-bottom-color:#06307d;background:#eef3fb;color:#1a56db;font-size:12px;text-decoration:none;}
+.followup-chip:hover{background:#dbe7fb;text-decoration:none;}
+body.theme-dark .followup-chip{background:#16213a;border-color:#24406e;border-top-color:#2b4f8f;border-left-color:#2b4f8f;border-right-color:#12233f;border-bottom-color:#12233f;color:#7ea6ff;}
+body.theme-dark .followup-chip:hover{background:#1b2947;}
+.msg-fb-active{font-weight:bold;color:#1a56db !important;}
+body.theme-dark .msg-fb-active{color:#7ea6ff !important;}
+
+/* Command palette (parity) */
+.palette-list{margin-top:6px;max-height:240px;overflow:auto;}
+.palette-item{display:block;padding:6px 8px;border:1px solid #fff;color:#111;text-decoration:none;}
+.palette-item:hover{text-decoration:none;}
+.palette-active{background:#1a56db;color:#fff;border-color:#1a56db;}
+body.theme-dark .palette-item{color:#d7dbe3;border-color:#16181f;}
+body.theme-dark .palette-active{background:#1a56db;color:#fff;border-color:#1a56db;}
+
+/* Shortcuts help (parity) */
+.shortcuts-help{line-height:1.9;}
+.shortcuts-help strong{color:#1a56db;}
+body.theme-dark .shortcuts-help strong{color:#7ea6ff;}
+
+/* Sheets tables */
+.sheet-table{border-collapse:collapse;}
+.sheet-table td{padding:6px 8px;border-bottom:1px solid #e0e0e0;vertical-align:middle;word-wrap:break-word;}
+.sheet-formula-name{width:140px;}
+.sheet-mandarin{width:120px;text-align:right;}
+body.theme-dark .sheet-table td{border-bottom-color:#2a2e37;}
+#formulasList,#termsList{overflow:auto;}
+
+/* C17 vocab highlight */
+.mdr-vocab{background:#fff3cd;border-bottom:1px dotted #d97706;padding:0 1px;cursor:help;}
+body.theme-dark .mdr-vocab{background:#3a2d0a;border-bottom-color:#d9a23d;}

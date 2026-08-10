@@ -62,13 +62,18 @@ public class ProblemBank {
     // Deterministic per-day pick (B11): epochDay modulo the pool size. No AI,
     // no storage — the same day always yields the same problem per topic+language.
     public Optional<Problem> problemOfDay(String topic, String language) {
-        List<Problem> pool = filter(topic, normalizeLanguage(language));
-        if (pool.isEmpty()) {
+        try {
+            List<Problem> pool = filter(topic, normalizeLanguage(language));
+            if (pool.isEmpty()) {
+                return Optional.empty();
+            }
+            long dayIndex = ChronoUnit.DAYS.between(LocalDate.of(1970, 1, 1), LocalDate.now());
+            long seed = (dayIndex + topicSeed(topic)) % pool.size();
+            return Optional.of(pool.get((int) seed));
+        } catch (Exception e) {
+            // Never let a bad pick take the endpoint down; return "no problem".
             return Optional.empty();
         }
-        long dayIndex = ChronoUnit.DAYS.between(LocalDate.of(1970, 1, 1), LocalDate.now());
-        long seed = (dayIndex + topicSeed(topic)) % pool.size();
-        return Optional.of(pool.get((int) seed));
     }
 
     private List<Problem> filter(String topic, String language) {
@@ -79,8 +84,11 @@ public class ProblemBank {
         }
         pool = new ArrayList<>();
         for (Problem p : byId.values()) {
-            if (p.language().equals(language)
-                    && (topic == null || topic.isBlank() || p.topic().equalsIgnoreCase(topic))) {
+            String pLang = p.language();
+            String pTopic = p.topic();
+            if (pLang != null && pLang.equals(language)
+                    && (topic == null || topic.isBlank()
+                            || (pTopic != null && pTopic.equalsIgnoreCase(topic)))) {
                 pool.add(p);
             }
         }
@@ -96,12 +104,29 @@ public class ProblemBank {
         return topic.hashCode() & 0x7fffffff;
     }
 
+    // China-minority packs and Traditional Chinese use Mandarin (zh-hans) as
+    // their education language, so route them to the authored zh-hans problems.
+    private static final Map<String, String> LANGUAGE_ALIAS = Map.ofEntries(
+            Map.entry("zh-hant", "zh-hans"),
+            Map.entry("bca", "zh-hans"), Map.entry("dng", "zh-hans"),
+            Map.entry("hni", "zh-hans"), Map.entry("iom", "zh-hans"),
+            Map.entry("lic", "zh-hans"), Map.entry("lhu", "zh-hans"),
+            Map.entry("lis", "zh-hans"), Map.entry("nxq", "zh-hans"),
+            Map.entry("pcc", "zh-hans"), Map.entry("tdd", "zh-hans"),
+            Map.entry("tji", "zh-hans"), Map.entry("wbm", "zh-hans"),
+            Map.entry("yi", "zh-hans"), Map.entry("za", "zh-hans"));
+
     private String normalizeLanguage(String language) {
         String lang = language == null || language.isBlank() ? "en" : language;
-        if (!byId.isEmpty() && byId.values().stream().noneMatch(p -> p.language().equals(lang))) {
-            return "en";
+        String resolved = LANGUAGE_ALIAS.getOrDefault(lang, lang);
+        if (!byId.isEmpty()) {
+            boolean any = byId.values().stream()
+                    .anyMatch(p -> p.language() != null && p.language().equals(resolved));
+            if (!any) {
+                return "en";
+            }
         }
-        return lang;
+        return resolved;
     }
 
     private void loadAll() {

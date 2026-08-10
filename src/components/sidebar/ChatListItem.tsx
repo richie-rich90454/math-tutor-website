@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import type { ChatSession } from "@/contexts/ChatContext";
 
@@ -28,6 +28,8 @@ export default function ChatListItem({
     isPinned,
 }: ChatListItemProps) {
     const { t } = useLanguage();
+    const itemRef = useRef<HTMLDivElement>(null);
+    const [focused, setFocused] = useState(false);
     const longPressTimer = useRef<number | null>(null);
     const longPressOrigin = useRef({ x: 0, y: 0 });
     const longPressFired = useRef(false);
@@ -65,10 +67,32 @@ export default function ChatListItem({
         onSelect(chat);
     };
 
+    // Keyboard: Enter/Space opens the chat; Shift+F10 or the Menu key opens the
+    // context menu (rename/pin/delete) anchored to the focused row.
+    const handleKeyDown = (e: React.KeyboardEvent) => {
+        if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            onSelect(chat);
+        } else if (e.key === "ContextMenu" || (e.shiftKey && e.key === "F10")) {
+            e.preventDefault();
+            const rect = itemRef.current?.getBoundingClientRect();
+            onContextMenu({
+                preventDefault: () => {},
+                clientX: rect ? rect.left + rect.width / 2 : 0,
+                clientY: rect ? rect.bottom : 0,
+            } as unknown as React.MouseEvent);
+        }
+    };
+
     return (
         <div
+            ref={itemRef}
             data-chat-id={chat.id}
+            tabIndex={0}
+            role="button"
+            aria-label={chat.title}
             onClick={handleClick}
+            onKeyDown={handleKeyDown}
             onContextMenu={onContextMenu}
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
@@ -76,6 +100,8 @@ export default function ChatListItem({
             onTouchCancel={clearLongPress}
             onMouseEnter={() => onHover(chat.id)}
             onMouseLeave={() => onHover(null)}
+            onFocus={() => setFocused(true)}
+            onBlur={() => setFocused(false)}
             className={`sb-chat-item ${isActive ? "is-active" : isHovered ? "is-hovered" : ""}`}
         >
             <div className="sb-chat-item-row">
@@ -92,7 +118,7 @@ export default function ChatListItem({
                     <h4 className="sb-chat-item-title">{chat.title}</h4>
                     <p className="sb-chat-item-preview">{chat.preview}</p>
                 </div>
-                {isHovered && (
+                {(isHovered || focused) && (
                     <button
                         onClick={(e) => {
                             e.stopPropagation();

@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import type { Message } from "@/types/chat";
 import Skeleton from "@/components/ui/Skeleton";
@@ -10,9 +10,25 @@ const MarkdownRenderer = dynamic(() => import("@/components/ui/MarkdownRenderer"
 });
 const MessageActions = dynamic(() => import("@/components/chat/MessageActions"));
 
+// Memoize the heavy markdown+KaTeX renderer so an unchanged streaming prefix is
+// never re-parsed on subsequent chunks.
+const MemoMarkdown = memo(MarkdownRenderer);
+
+// Split streaming content at the last paragraph break: everything before it is
+// stable markdown (rendered once), the tail is live text (cheap to re-render).
+function splitStreamingContent(content: string): { stable: string; tail: string } {
+    if (!content) return { stable: "", tail: "" };
+    const para = content.lastIndexOf("\n\n");
+    if (para === -1) {
+        const nl = content.lastIndexOf("\n");
+        if (nl === -1) return { stable: "", tail: content };
+        return { stable: content.slice(0, nl), tail: content.slice(nl) };
+    }
+    return { stable: content.slice(0, para + 2), tail: content.slice(para + 2) };
+}
+
 interface MessageRowProps {
     message: Message;
-    isHovered: boolean;
     isStreaming: boolean;
     isLastMessage: boolean;
     formatTime: (d: Date) => string;
@@ -24,15 +40,12 @@ interface MessageRowProps {
     editLabel: string;
     onSuggestionClick?: (text: string) => void;
     onFollowUp?: (text: string) => void;
-    onMouseEnter: () => void;
-    onMouseLeave: () => void;
     onTogglePin?: (messageId: string) => void;
     isPinned?: boolean;
 }
 
 const MessageRow = memo(function MessageRow({
     message,
-    isHovered,
     isStreaming,
     isLastMessage,
     formatTime,
@@ -44,17 +57,24 @@ const MessageRow = memo(function MessageRow({
     editLabel,
     onSuggestionClick,
     onFollowUp,
-    onMouseEnter,
-    onMouseLeave,
     onTogglePin,
     isPinned,
 }: MessageRowProps) {
     const { t } = useLanguage();
+    const [focused, setFocused] = useState(false);
+    const [hovered, setHovered] = useState(false);
+    const [isTouch, setIsTouch] = useState(false);
+    useEffect(() => {
+        setIsTouch(!!window.matchMedia?.("(hover: none)").matches);
+    }, []);
+    const isActionsVisible = focused || hovered || isTouch;
     return (
         <div
             className={`message-row ${message.role === "user" ? "is-user" : "is-assistant"}`}
-            onMouseEnter={onMouseEnter}
-            onMouseLeave={onMouseLeave}
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+            onFocus={() => setFocused(true)}
+            onBlur={() => setFocused(false)}
         >
             <div className="message-row-bubble-wrapper">
                 {message.role === "user" ? (
@@ -65,7 +85,7 @@ const MessageRow = memo(function MessageRow({
                                 onSuggestionClick={onSuggestionClick}
                             />
                         </div>
-                        {isHovered && !isStreaming && (
+                        {isActionsVisible && !isStreaming && (
                             <button
                                 className="msg-edit-btn"
                                 onClick={() => onEdit(message.id, message.content)}
@@ -107,7 +127,7 @@ const MessageRow = memo(function MessageRow({
                             isCached={message.isCached}
                             onFeedback={(type) => onFeedback(message.id, type)}
                             feedback={feedbackValue}
-                            isVisible={isHovered}
+                            isVisible={isActionsVisible}
                             onTogglePin={onTogglePin ? () => onTogglePin(message.id) : undefined}
                             isPinned={isPinned}
                         />
@@ -145,10 +165,29 @@ const MessageRow = memo(function MessageRow({
                             aria-busy={isStreaming && isLastMessage ? "true" : "false"}
                         >
                             {message.content ? (
-                                <MarkdownRenderer
-                                    content={message.content}
-                                    onSuggestionClick={onSuggestionClick}
-                                />
+                                isStreaming && isLastMessage ? (
+                                    (() => {
+                                        const { stable, tail } = splitStreamingContent(
+                                            message.content,
+                                        );
+                                        return (
+                                            <>
+                                                <MemoMarkdown
+                                                    content={stable}
+                                                    onSuggestionClick={onSuggestionClick}
+                                                />
+                                                {tail && (
+                                                    <span className="streaming-tail">{tail}</span>
+                                                )}
+                                            </>
+                                        );
+                                    })()
+                                ) : (
+                                    <MemoMarkdown
+                                        content={message.content}
+                                        onSuggestionClick={onSuggestionClick}
+                                    />
+                                )
                             ) : (
                                 <span className="streaming-cursor" />
                             )}

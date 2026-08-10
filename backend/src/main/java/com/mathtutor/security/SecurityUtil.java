@@ -64,7 +64,7 @@ public class SecurityUtil {
     private String pbkdf2(String password, byte[] salt, int iterations, int keylen) {
         try {
             PBEKeySpec spec = new PBEKeySpec(password.toCharArray(), salt, iterations, keylen * 8);
-            SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");
+            SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmac" + PBKDF2_DIGEST);
             byte[] hash = factory.generateSecret(spec).getEncoded();
             return toHex(hash);
         } catch (Exception e) {

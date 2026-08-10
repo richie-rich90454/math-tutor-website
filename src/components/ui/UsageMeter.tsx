@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useAuth } from "@/contexts/AuthContext";
 
 interface UsagePayload {
     today?: { requestTokens: number; responseTokens: number; total: number; estCostUsd: number };
@@ -23,9 +24,14 @@ function formatCost(value: number): string {
 
 export default function UsageMeter({ refreshKey = 0 }: { refreshKey?: number }) {
     const { t } = useLanguage();
+    const { isAuthenticated } = useAuth();
     const [usage, setUsage] = useState<UsagePayload | null>(null);
 
     useEffect(() => {
+        if (!isAuthenticated) {
+            setUsage(null);
+            return;
+        }
         let active = true;
         fetch("/api/usage", { headers: { Accept: "application/json" } })
             .then((res) => (res.ok ? res.json() : null))
@@ -36,7 +42,7 @@ export default function UsageMeter({ refreshKey = 0 }: { refreshKey?: number }) 
         return () => {
             active = false;
         };
-    }, [refreshKey]);
+    }, [refreshKey, isAuthenticated]);
 
     if (!usage?.today) return null;
 

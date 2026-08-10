@@ -3,6 +3,14 @@
     "use strict";
 
     var TOPICS = ["arithmetic", "algebra", "geometry", "calculus", "trigonometry", "statistics"];
+    var TOPIC_KEYS = {
+        arithmetic: "topicArithmetic",
+        algebra: "topicAlgebra",
+        geometry: "topicGeometry",
+        calculus: "topicCalculus",
+        trigonometry: "topicTrigonometry",
+        statistics: "topicStatistics"
+    };
     var active = "algebra";
 
     function el(id) {
@@ -21,7 +29,7 @@
         var sel = el("langSelect");
         sel.value = MathTutor.currentLanguage;
         $(sel).on("change", function () {
-            MathTutor.setLanguage(this.value);
+            MathTutor.setLanguage(this.value, loadSheet);
         });
     }
 
@@ -31,7 +39,8 @@
         for (var i = 0; i < TOPICS.length; i++) {
             var tp = TOPICS[i];
             html += '<a href="#" data-topic="' + tp + '" class="chip'
-                + (tp === active ? " chip-active" : "") + '">' + MathTutor.escapeHtml(tp) + "</a> ";
+                + (tp === active ? " chip-active" : "") + '">'
+                + MathTutor.escapeHtml(MathTutor.t(TOPIC_KEYS[tp])) + "</a> ";
         }
         host.innerHTML = html;
         $(host).off("click").on("click", "a[data-topic]", function (e) {
@@ -44,7 +53,8 @@
 
     function loadSheet() {
         MathTutor.api({
-            url: "/api/sheets?topic=" + encodeURIComponent(active),
+            url: "/api/sheets?topic=" + encodeURIComponent(active)
+                + "&language=" + encodeURIComponent(MathTutor.currentLanguage),
             method: "GET",
             success: function (data) {
                 var sheet = data.sheet;
@@ -53,10 +63,12 @@
                 }
                 renderFormulas(sheet.formulas || []);
                 renderTerms(sheet.terms || []);
+                MathTutor.renderMath(el("formulasList"));
+                MathTutor.renderMath(el("termsList"));
             },
             error: function (msg) {
                 var box = el("errorBox");
-                box.textContent = msg;
+                MathTutor.setText(box, msg);
                 box.className = "auth-msg";
             }
         });
@@ -68,15 +80,16 @@
             host.innerHTML = '<span class="muted">-</span>';
             return;
         }
-        var html = "";
+        var html = '<table class="sheet-table" width="100%" cellpadding="0" cellspacing="0">';
         for (var i = 0; i < formulas.length; i++) {
             var f = formulas[i];
-            html += '<div class="row">'
-                + '<span style="min-width:140px;"><strong>' + MathTutor.escapeHtml(f.name) + "</strong></span>"
-                + '<code style="flex:1;">' + MathTutor.escapeHtml(f.formula) + "</code>"
-                + '<span class="muted">' + MathTutor.escapeHtml(f.mandarin) + "</span>"
-                + "</div>";
+            html += '<tr>'
+                + '<td class="sheet-formula-name"><strong>' + MathTutor.escapeHtml(f.name) + "</strong></td>"
+                + '<td class="sheet-formula">$$' + MathTutor.escapeHtml(f.formula) + "$$</td>"
+                + '<td class="sheet-mandarin muted">' + MathTutor.escapeHtml(f.mandarin) + "</td>"
+                + "</tr>";
         }
+        html += "</table>";
         host.innerHTML = html;
     }
 
@@ -86,12 +99,13 @@
             host.innerHTML = '<span class="muted">-</span>';
             return;
         }
-        var html = "";
+        var html = '<table class="sheet-table" width="100%" cellpadding="0" cellspacing="0">';
         for (var i = 0; i < terms.length; i++) {
             var term = terms[i];
-            html += '<div class="row"><span style="flex:1;"><strong>' + MathTutor.escapeHtml(term.term) + "</strong></span>"
-                + '<span class="muted">' + MathTutor.escapeHtml(MathTutor.t("sheetsMandarin") + ": " + term.mandarin) + "</span></div>";
+            html += '<tr><td class="sheet-term"><strong>' + MathTutor.escapeHtml(term.term) + "</strong></td>"
+                + '<td class="sheet-mandarin muted">' + MathTutor.escapeHtml(MathTutor.t("sheetsMandarin") + ": " + term.mandarin) + "</td></tr>";
         }
+        html += "</table>";
         host.innerHTML = html;
     }
 

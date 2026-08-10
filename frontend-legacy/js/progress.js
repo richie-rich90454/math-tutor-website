@@ -40,10 +40,10 @@
             url: "/api/progress",
             method: "GET",
             success: function (data) {
-                el("statChats").textContent = String(data.totalChats || 0);
-                el("statMessages").textContent = String(data.totalMessages || 0);
-                el("statStreak").textContent = String(data.longestStreak || 0);
-                el("statTopics").textContent = String((data.topics || []).length);
+                MathTutor.setText(el("statChats"), String(data.totalChats || 0));
+                MathTutor.setText(el("statMessages"), String(data.totalMessages || 0));
+                MathTutor.setText(el("statStreak"), String(data.longestStreak || 0));
+                MathTutor.setText(el("statTopics"), String((data.topics || []).length));
 
                 renderTopics(data.topics || []);
                 renderRecent(data.recentChats || []);
@@ -52,7 +52,7 @@
             },
             error: function (msg) {
                 var box = el("errorBox");
-                box.textContent = msg;
+                MathTutor.setText(box, msg);
                 box.className = "auth-msg";
                 el("statsRow").className = "stats-table hidden";
                 el("topicsCard").className = "card hidden";

@@ -15,6 +15,11 @@
     var bypassCacheNext = false;
     var currentAssistantId = null;
     var assistantBuf = "";
+    var feedbackState = {};
+    var resumed = false;
+    var paletteOpen = false;
+    var paletteCommands = [];
+    var paletteIndex = 0;
 
     // ---------- Element cache ----------
     function el(id) {
@@ -42,13 +47,13 @@
         MathTutor.applyLang(MathTutor.currentLanguage);
         var authLink = el("authLink");
         if (authLink) {
-            authLink.textContent = MathTutor.isAuthenticated()
+            MathTutor.setText(authLink, MathTutor.isAuthenticated()
                 ? MathTutor.t("sidebarSignOut")
-                : MathTutor.t("sidebarSignIn");
+                : MathTutor.t("sidebarSignIn"));
         }
         var chatTitle = el("chatTitle");
         if (chatTitle && currentChat) {
-            chatTitle.textContent = currentChat.title;
+            MathTutor.setText(chatTitle, currentChat.title);
         }
         renderChatList();
         renderSidebarUserArea();
@@ -62,12 +67,52 @@
             success: function (data) {
                 chatHistory = data.chats || [];
                 renderChatList();
+                if (!resumed) {
+                    resumed = true;
+                    maybeResumeLastChat();
+                }
             },
             error: function (msg) {
                 chatHistory = [];
                 renderChatList();
             }
         });
+    }
+
+    // Resume the last active chat (mirrors modern mt-last-chat-id), unless the
+    // user turned the preference off in Settings (mt-resume-last-chat cookie).
+    // A ?chat=<id> query param (e.g. from the progress page) takes precedence.
+    function maybeResumeLastChat() {
+        var qChat = null;
+        try {
+            var m = /[?&]chat=([^&]+)/.exec(location.search);
+            if (m) {
+                qChat = decodeURIComponent(m[1]);
+            }
+        } catch (e) {
+        }
+        if (qChat) {
+            for (var i = 0; i < chatHistory.length; i++) {
+                if (chatHistory[i].id === qChat) {
+                    selectChat(qChat);
+                    return;
+                }
+            }
+            return;
+        }
+        if (MathTutor.getCookie("mt-resume-last-chat") === "0") {
+            return;
+        }
+        var lastId = MathTutor.getCookie("mt-last-chat-id");
+        if (!lastId) {
+            return;
+        }
+        for (var j = 0; j < chatHistory.length; j++) {
+            if (chatHistory[j].id === lastId) {
+                selectChat(lastId);
+                return;
+            }
+        }
     }
 
     function renderChatList() {
@@ -158,6 +203,7 @@
                 }
                 currentChat = data.chat;
                 activeChatId = chatId;
+                MathTutor.setCookie("mt-last-chat-id", chatId, 365);
                 renderMessages();
                 renderSidebarUserArea();
                 reapplyUiTexts();
@@ -321,6 +367,8 @@
                 + '</div><div class="msg-body loading-dots">...</div></div>';
         }
         area.innerHTML = html;
+        MathTutor.highlightVocab(area);
+        MathTutor.renderMath(area);
         scrollMessagesToBottom();
     }
 
@@ -345,6 +393,12 @@
                     ? '<a href="#" data-action="fresh" data-msg-id="' + MathTutor.escapeHtml(msg.id) + '">'
                         + MathTutor.escapeHtml(MathTutor.t("chatFreshAnswer")) + "</a>"
                     : "")
+                + '<a href="#" data-action="feedback-up" data-msg-id="' + MathTutor.escapeHtml(msg.id) + '"'
+                + (feedbackState[msg.id] === "up" ? ' class="msg-fb-active"' : "") + ">"
+                + MathTutor.escapeHtml(MathTutor.t("chatHelpful")) + "</a>"
+                + '<a href="#" data-action="feedback-down" data-msg-id="' + MathTutor.escapeHtml(msg.id) + '"'
+                + (feedbackState[msg.id] === "down" ? ' class="msg-fb-active"' : "") + ">"
+                + MathTutor.escapeHtml(MathTutor.t("chatNotHelpful")) + "</a>"
                 + '<a href="#" data-action="regenerate" data-msg-id="' + MathTutor.escapeHtml(msg.id) + '">'
                 + MathTutor.escapeHtml(MathTutor.t("chatRegenerate")) + "</a></div>";
         } else {
@@ -357,9 +411,25 @@
             + '<div class="msg-body">' + MathTutor.renderMarkdownSafe(body) + "</div>"
             + (msg.is_cached ? '<span class="msg-cached-badge">' + MathTutor.escapeHtml(MathTutor.t("chatAskedBefore")) + "</span>" : "")
             + suggestionButtons(suggestions)
+            + followupButtons(msg)
             + '<div class="msg-time">' + MathTutor.escapeHtml(MathTutor.formatTime(msg.timestamp)) + "</div>"
             + actions
             + "</div>";
+    }
+
+    // One-click follow-up chips (mirrors modern MessageRow). Hidden while the
+    // message is the one being streamed.
+    function followupButtons(msg) {
+        if (msg.id === currentAssistantId) {
+            return "";
+        }
+        var labels = [MathTutor.t("followUpExplain"), MathTutor.t("followUpExamples"), MathTutor.t("followUpAnother")];
+        var html = '<span class="followup-chips">';
+        for (var i = 0; i < labels.length; i++) {
+            html += '<a href="#" class="followup-chip" data-followup="' + i + '">'
+                + MathTutor.escapeHtml(labels[i]) + "</a>";
+        }
+        return html + "</span>";
     }
 
     function suggestionButtons(suggestions) {
@@ -370,7 +440,7 @@
         for (var i = 0; i < suggestions.length; i++) {
             html += '<button type="button" class="suggestion-btn" data-suggestion="'
                 + MathTutor.escapeHtml(suggestions[i]) + '">'
-                + MathTutor.escapeHtml(suggestions[i]) + "</button>";
+                + MathTutor.renderMarkdownSafe(suggestions[i]) + "</button>";
         }
         return html + "</div>";
     }
@@ -578,7 +648,9 @@
             method: "POST",
             data: {},
             success: function (data) {
-                var url = (window.location.origin || "") + (data.url || "");
+                var origin = window.location.origin
+                    || (window.location.protocol + "//" + window.location.host);
+                var url = origin + (data.url || "");
                 if (window.clipboardData && window.clipboardData.setData) {
                     window.clipboardData.setData("Text", url);
                     alert(MathTutor.t("shareCopied"));
@@ -722,7 +794,7 @@
                     chatHistory.unshift({
                         id: serverChatId,
                         title: body.message.slice(0, 50) + (body.message.length > 50 ? "..." : ""),
-                        timestamp: new Date().toISOString(),
+                        timestamp: MathTutor.isoNow(),
                         preview: body.message.slice(0, 100),
                         topic: null,
                         isPinned: false,
@@ -903,6 +975,16 @@
         });
     }
 
+    // Local-only feedback toggle (mirrors modern useChatUI — no backend).
+    function toggleFeedback(messageId, type) {
+        if (feedbackState[messageId] === type) {
+            delete feedbackState[messageId];
+        } else {
+            feedbackState[messageId] = type;
+        }
+        renderMessages();
+    }
+
     // ---------- New chat ----------
     function handleNewChat() {
         if (isLoading || isStreaming) {
@@ -912,6 +994,7 @@
         currentChat = null;
         activeChatId = null;
         el("chatInput").value = "";
+        MathTutor.deleteCookie("mt-last-chat-id");
         renderMessages();
         showWelcomeView();
         renderSidebarUserArea();
@@ -928,20 +1011,86 @@
     }
 
     // ---------- Modal ----------
+    var lastFocused = null;
+
+    function getFocusable(root) {
+        var out = [];
+        var tags = root.getElementsByTagName("*");
+        for (var i = 0; i < tags.length; i++) {
+            var node = tags[i];
+            if (node.disabled) {
+                continue;
+            }
+            var tag = node.tagName;
+            if (tag === "INPUT" && node.type !== "hidden"
+                || tag === "TEXTAREA" || tag === "SELECT" || tag === "BUTTON"
+                || (tag === "A" && node.getAttribute("href"))) {
+                out.push(node);
+            }
+        }
+        return out;
+    }
+
+    function focusModalFirst() {
+        var f = getFocusable(el("modal"));
+        if (f && f.length) {
+            f[0].focus();
+        }
+    }
+
+    function trapModalFocus(e) {
+        var key = e.keyCode;
+        if (key === 27) {
+            e.preventDefault();
+            hideModal();
+            return;
+        }
+        if (key !== 9) {
+            return;
+        }
+        var f = getFocusable(el("modal"));
+        if (!f.length) {
+            return;
+        }
+        var first = f[0];
+        var last = f[f.length - 1];
+        var active = document.activeElement;
+        if (e.shiftKey) {
+            if (active === first || active === document.body) {
+                e.preventDefault();
+                last.focus();
+            }
+        } else {
+            if (active === last || active === document.body) {
+                e.preventDefault();
+                first.focus();
+            }
+        }
+    }
+
     function showModal(title, bodyHtml, okHandler, cancelHandler) {
-        el("modalTitle").textContent = title;
+        lastFocused = document.activeElement;
+        MathTutor.setText(el("modalTitle"), title);
         el("modalBody").innerHTML = bodyHtml;
         el("modalOverlay").className = "modal-overlay";
         el("modal").className = "modal";
+        el("modalOk").className = "btn btn-primary";
+        el("modalCancel").className = "btn";
+        MathTutor.setText(el("modalCancel"), MathTutor.t("modalCancel"));
         el("modalOk").onclick = okHandler;
         el("modalCancel").onclick = cancelHandler || function () {
             hideModal();
         };
+        focusModalFirst();
     }
 
     function hideModal() {
         el("modalOverlay").className = "modal-overlay hidden";
         el("modal").className = "modal hidden";
+        if (lastFocused && lastFocused.focus) {
+            lastFocused.focus();
+        }
+        lastFocused = null;
     }
 
     // ---------- Image handling ----------
@@ -1089,6 +1238,15 @@
             }
         });
 
+        $(el("messagesArea")).on("click", "a.followup-chip", function (e) {
+            e.preventDefault();
+            var idx = parseInt(this.getAttribute("data-followup"), 10);
+            var labels = [MathTutor.t("followUpExplain"), MathTutor.t("followUpExamples"), MathTutor.t("followUpAnother")];
+            if (idx >= 0 && idx < labels.length && !isLoading) {
+                sendMessage(labels[idx]);
+            }
+        });
+
         $(el("messagesArea")).on("click", "a[data-action]", function (e) {
             e.preventDefault();
             var action = this.getAttribute("data-action");
@@ -1103,8 +1261,14 @@
                 handleFreshAnswer();
             } else if (action === "edit") {
                 handleEdit(msgId);
+            } else if (action === "feedback-up") {
+                toggleFeedback(msgId, "up");
+            } else if (action === "feedback-down") {
+                toggleFeedback(msgId, "down");
             }
         });
+
+        $(el("modal")).on("keydown", trapModalFocus);
 
         $(".prompt-btn").each(function () {
             var btn = this;
@@ -1151,10 +1315,19 @@
             } else if (ctrl && e.keyCode === 69) { // Ctrl+E export
                 e.preventDefault();
                 handleExport();
-            } else if (ctrl && e.keyCode === 191) { // Ctrl+/ help (no-op in legacy)
+            } else if (ctrl && e.keyCode === 75) { // Ctrl+K command palette
                 e.preventDefault();
-            } else if (ctrl && e.keyCode === 66) { // Ctrl+B toggle sidebar (no-op in legacy, two-pane)
+                if (paletteOpen) {
+                    closeCommandPalette();
+                } else {
+                    openCommandPalette();
+                }
+            } else if (ctrl && e.keyCode === 191) { // Ctrl+/ shortcuts help
                 e.preventDefault();
+                openShortcutsHelp();
+            } else if (ctrl && e.keyCode === 66) { // Ctrl+B toggle sidebar
+                e.preventDefault();
+                toggleSidebar();
             }
         });
     }
@@ -1174,6 +1347,150 @@
             error: function () {
             }
         });
+    }
+
+    // ---------- Command palette (Ctrl+K) ----------
+    function buildCommands() {
+        var cmds = [];
+        cmds.push({ label: MathTutor.t("headerNewChat") + " (Ctrl+N)", run: function () {
+            closeCommandPalette();
+            handleNewChat();
+        } });
+        cmds.push({ label: MathTutor.t("headerExportChat"), run: function () {
+            closeCommandPalette();
+            handleExport();
+        } });
+        cmds.push({ label: MathTutor.t("practiceTitle"), run: function () {
+            location.href = "/legacy/practice.html";
+        } });
+        cmds.push({ label: MathTutor.t("sheetsTitle"), run: function () {
+            location.href = "/legacy/sheets.html";
+        } });
+        cmds.push({ label: MathTutor.t("progressTitle"), run: function () {
+            location.href = "/legacy/progress.html";
+        } });
+        cmds.push({ label: MathTutor.t("sidebarSettings"), run: function () {
+            location.href = "/legacy/settings.html";
+        } });
+        cmds.push({ label: MathTutor.t("themeToggle"), run: function () {
+            var next = MathTutor.getTheme() === "dark" ? "light" : "dark";
+            MathTutor.setTheme(next);
+        } });
+        if (MathTutor.isAuthenticated()) {
+            cmds.push({ label: MathTutor.t("sidebarSignOut"), run: function () {
+                handleAuthLink();
+            } });
+        }
+        return cmds;
+    }
+
+    function renderPaletteList(cmds, query) {
+        paletteCommands = [];
+        var q = String(query || "").toLowerCase();
+        for (var i = 0; i < cmds.length; i++) {
+            if (!q || cmds[i].label.toLowerCase().indexOf(q) !== -1) {
+                paletteCommands.push(cmds[i]);
+            }
+        }
+        var list = el("paletteList");
+        if (!list) {
+            return;
+        }
+        if (!paletteCommands.length) {
+            list.innerHTML = '<div class="muted">' + MathTutor.escapeHtml(MathTutor.t("cmdNoResults")) + "</div>";
+            return;
+        }
+        if (paletteIndex >= paletteCommands.length) {
+            paletteIndex = paletteCommands.length - 1;
+        }
+        var html = "";
+        for (var j = 0; j < paletteCommands.length; j++) {
+            html += '<a href="#" data-palette="' + j + '" class="palette-item'
+                + (j === paletteIndex ? " palette-active" : "") + '">'
+                + MathTutor.escapeHtml(paletteCommands[j].label) + "</a>";
+        }
+        list.innerHTML = html;
+    }
+
+    function runPaletteCommand() {
+        var cmd = paletteCommands[paletteIndex];
+        if (cmd) {
+            cmd.run();
+        }
+    }
+
+    function openCommandPalette() {
+        paletteIndex = 0;
+        paletteCommands = [];
+        var body = '<input type="text" id="paletteInput" value="" style="width:90%;">'
+            + '<div id="paletteList" class="palette-list"></div>';
+        showModal(MathTutor.t("cmdPlaceholder"), body, null, closeCommandPalette);
+        el("modalOk").className = "btn hidden";
+        MathTutor.setText(el("modalCancel"), "Esc");
+        paletteOpen = true;
+        var inp = el("paletteInput");
+        inp.onkeyup = function () {
+            renderPaletteList(buildCommands(), inp.value);
+        };
+        inp.onkeydown = function (e) {
+            var key = e.keyCode;
+            if (key === 38) {
+                if (paletteIndex > 0) {
+                    paletteIndex -= 1;
+                }
+                renderPaletteList(buildCommands(), inp.value);
+            } else if (key === 40) {
+                if (paletteIndex < paletteCommands.length - 1) {
+                    paletteIndex += 1;
+                }
+                renderPaletteList(buildCommands(), inp.value);
+            } else if (key === 13) {
+                runPaletteCommand();
+            } else if (key === 27) {
+                closeCommandPalette();
+            }
+        };
+        $(el("paletteList")).off("click").on("click", "a[data-palette]", function (e) {
+            e.preventDefault();
+            paletteIndex = parseInt(this.getAttribute("data-palette"), 10);
+            runPaletteCommand();
+        });
+        renderPaletteList(buildCommands(), "");
+        inp.focus();
+    }
+
+    function closeCommandPalette() {
+        paletteOpen = false;
+        hideModal();
+    }
+
+    // ---------- Keyboard shortcuts help (Ctrl+/) ----------
+    function openShortcutsHelp() {
+        showModal(MathTutor.t("shortcutsTitle"),
+            '<div class="shortcuts-help">'
+            + '<div><strong>Ctrl+N</strong> \u2014 ' + MathTutor.escapeHtml(MathTutor.t("shortcutsNewChat")) + "</div>"
+            + '<div><strong>Ctrl+E</strong> \u2014 ' + MathTutor.escapeHtml(MathTutor.t("shortcutsExportChat")) + "</div>"
+            + '<div><strong>Ctrl+K</strong> \u2014 ' + MathTutor.escapeHtml(MathTutor.t("cmdPlaceholder")) + "</div>"
+            + '<div><strong>Ctrl+B</strong> \u2014 ' + MathTutor.escapeHtml(MathTutor.t("shortcutsToggleSidebar")) + "</div>"
+            + '<div><strong>Ctrl+/</strong> \u2014 ' + MathTutor.escapeHtml(MathTutor.t("shortcutsShowHelp")) + "</div>"
+            + '<div><strong>Enter</strong> \u2014 ' + MathTutor.escapeHtml(MathTutor.t("shortcutsSendMessage")) + "</div>"
+            + '<div><strong>Shift+Enter</strong> \u2014 ' + MathTutor.escapeHtml(MathTutor.t("shortcutsNewLine")) + "</div>"
+            + '<div><strong>Esc</strong> \u2014 ' + MathTutor.escapeHtml(MathTutor.t("shortcutsCloseModals")) + "</div>"
+            + "</div>",
+            function () {
+                hideModal();
+            },
+            function () {
+                hideModal();
+            });
+    }
+
+    function toggleSidebar() {
+        var cell = el("sidebarCell");
+        if (!cell) {
+            return;
+        }
+        cell.style.display = cell.style.display === "none" ? "" : "none";
     }
 
     if (document.readyState === "complete" || document.readyState === "interactive") {

@@ -31,6 +31,10 @@ const MathParticles = dynamic(() => import("@/components/ui/MathParticles"), {
 });
 const ShortcutHelp = dynamic(() => import("@/components/ui/ShortcutHelp"));
 
+const prefersReducedMotion = () =>
+    typeof window !== "undefined" &&
+    !!window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+
 export default function Home() {
     const { t } = useLanguage();
     const {
@@ -64,14 +68,11 @@ export default function Home() {
         isSidebarOpen,
         setIsSidebarOpen,
         isMobile,
-        isTouchDevice,
         showShortcuts,
         setShowShortcuts,
         showCommandPalette,
         setShowCommandPalette,
         showScrollBtn,
-        hoveredMsgId,
-        setHoveredMsgId,
         feedback,
         handleSidebarToggle,
         scrollToBottom,
@@ -95,6 +96,7 @@ export default function Home() {
     // ── GSAP animations ──
     useEffect(() => {
         if (messages.length === 0 && welcomeRef.current) {
+            if (prefersReducedMotion()) return;
             const titleEl = welcomeRef.current.querySelector(".welcome-title");
             const subtitleEl = welcomeRef.current.querySelector(".welcome-subtitle");
             const inputCard = welcomeRef.current.querySelector(".welcome-input-card");
@@ -116,6 +118,7 @@ export default function Home() {
 
     useGSAP(
         () => {
+            if (prefersReducedMotion()) return;
             if (contentAreaRef.current && messages.length > 0) {
                 gsap.fromTo(
                     contentAreaRef.current,
@@ -129,6 +132,7 @@ export default function Home() {
 
     const hasMessages = messages.length > 0;
     useEffect(() => {
+        if (prefersReducedMotion()) return;
         if (hasMessages && contentAreaRef.current) {
             const headerBtns = contentAreaRef.current.querySelectorAll(".app-header-btn");
             if (headerBtns.length > 0) {
@@ -149,6 +153,7 @@ export default function Home() {
     }, [hasMessages]);
 
     useEffect(() => {
+        if (prefersReducedMotion()) return;
         if (scrollBtnRef.current && showScrollBtn !== prevStreamingRef.current) {
             prevStreamingRef.current = showScrollBtn;
             gsap.killTweensOf(scrollBtnRef.current);
@@ -170,6 +175,7 @@ export default function Home() {
     }, [showScrollBtn]);
 
     useEffect(() => {
+        if (prefersReducedMotion()) return;
         if (hasMessages && inputBarRef.current) {
             gsap.fromTo(
                 inputBarRef.current,
@@ -184,7 +190,7 @@ export default function Home() {
         const prevLen = prevMessagesLenRef.current;
         const newLen = messages.length;
         prevMessagesLenRef.current = newLen;
-        if (newLen > prevLen && chatMessagesRef.current) {
+        if (newLen > prevLen && chatMessagesRef.current && !prefersReducedMotion()) {
             const timer = setTimeout(() => {
                 const rows = chatMessagesRef.current!.querySelectorAll(".message-row");
                 for (let i = prevLen; i < rows.length; i++) {
@@ -210,12 +216,18 @@ export default function Home() {
         });
     }, []);
 
+    const onSuggestionClick = useCallback((text: string) => setInput(text), [setInput]);
+
+    const onSend = useCallback(() => {
+        if (pendingImage) sendImage();
+        else sendMessage();
+    }, [pendingImage, sendImage, sendMessage]);
+
     const renderedMessages = useMemo(() => {
         return messages.map((message, index) => (
             <MessageRow
                 key={message.id}
                 message={message}
-                isHovered={isTouchDevice || hoveredMsgId === message.id}
                 isStreaming={isStreaming}
                 isLastMessage={index === messages.length - 1}
                 formatTime={formatTime}
@@ -225,18 +237,14 @@ export default function Home() {
                 feedbackValue={feedback.get(message.id) || null}
                 onEdit={handleEdit}
                 editLabel={t("chatEditMessage") || "Edit message"}
-                onSuggestionClick={(text: string) => setInput(text)}
+                onSuggestionClick={onSuggestionClick}
                 onFollowUp={sendMessage}
-                onMouseEnter={() => setHoveredMsgId(message.id)}
-                onMouseLeave={() => setHoveredMsgId(null)}
                 onTogglePin={togglePin}
                 isPinned={!!message.isPinned}
             />
         ));
     }, [
         messages,
-        hoveredMsgId,
-        isTouchDevice,
         isStreaming,
         feedback,
         formatTime,
@@ -247,8 +255,7 @@ export default function Home() {
         togglePin,
         t,
         sendMessage,
-        setHoveredMsgId,
-        setInput,
+        onSuggestionClick,
     ]);
 
     return (
@@ -397,6 +404,27 @@ export default function Home() {
                                 <ChatTools chatId={activeChatId} />
                             </>
                         )}
+                        <a
+                            href="/legacy"
+                            className="app-header-btn"
+                            title={t("legacyVersion") || "Legacy version"}
+                            aria-label={t("legacyVersion") || "Legacy version"}
+                        >
+                            <svg
+                                width="18"
+                                height="18"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            >
+                                <rect x="2" y="4" width="20" height="14" rx="2" />
+                                <line x1="8" y1="21" x2="16" y2="21" />
+                                <line x1="12" y1="18" x2="12" y2="21" />
+                            </svg>
+                        </a>
                         <ThemeToggle />
                         <LanguageSwitcher />
                     </div>
@@ -420,7 +448,7 @@ export default function Home() {
                                         <InputArea
                                             value={input}
                                             onChange={setInput}
-                                            onSend={pendingImage ? sendImage : sendMessage}
+                                            onSend={onSend}
                                             isLoading={isLoading}
                                             isStreaming={isStreaming}
                                             onStop={handleStopGeneration}
@@ -478,7 +506,7 @@ export default function Home() {
                                 <div className="chat-messages-area" ref={chatMessagesRef}>
                                     <div className="chat-messages-inner">
                                         <div className="chat-messages-list">
-                                            <VirtualizedMessages>
+                                            <VirtualizedMessages scrollRef={chatMessagesRef}>
                                                 {renderedMessages}
                                             </VirtualizedMessages>
                                             {isLoading &&
@@ -516,7 +544,7 @@ export default function Home() {
                                             <InputArea
                                                 value={input}
                                                 onChange={setInput}
-                                                onSend={pendingImage ? sendImage : sendMessage}
+                                                onSend={onSend}
                                                 isLoading={isLoading}
                                                 isStreaming={isStreaming}
                                                 onStop={handleStopGeneration}

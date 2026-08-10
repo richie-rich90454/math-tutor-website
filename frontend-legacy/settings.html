@@ -14,6 +14,8 @@
         <span class="right">
             <span id="langSwitcher"></span>
             <span> | </span>
+            <a href="/" data-i18n="modernVersion">Modern version</a>
+            <span> | </span>
             <a href="/legacy/index.html" data-i18n="navBackToApp">Back to app</a>
         </span>
     </div>
@@ -44,6 +46,18 @@
                     <option value="system" data-i18n="settingsThemeSystem">System</option>
                 </select>
             </div>
+        </div>
+
+        <div class="card">
+            <h3 data-i18n="settingsResumeLastChat">Resume last chat</h3>
+            <div class="row">
+                <label><input type="checkbox" id="resumeCheck"> <span data-i18n="settingsResumeLastChat">Resume last chat</span></label>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 data-i18n="usageToday">Usage today</h3>
+            <div class="row" id="usageText">-</div>
         </div>
 
         <div class="card">

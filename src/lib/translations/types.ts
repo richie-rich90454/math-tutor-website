@@ -76,6 +76,7 @@ export interface Translations {
     chatScrollToBottom: string;
     chatCopyMessage: string;
     chatCopied: string;
+    copy: string;
     chatRegenerate: string;
     chatEditMessage: string;
     chatHelpful: string;
@@ -151,6 +152,9 @@ export interface Translations {
     settingsThemeSystem: string;
     settingsLanguageSaved: string;
     settingsVersion: string;
+    legacyVersion: string;
+    browserOutdated: string;
+    modernVersion: string;
     progressTitle: string;
     progressConversations: string;
     progressMessages: string;
@@ -220,6 +224,7 @@ export interface Translations {
     practiceIncorrect?: string;
     practiceNext?: string;
     practiceStreak?: string;
+    practiceAccuracy?: string;
     practiceAskAI?: string;
     practiceExplanation?: string;
     practiceDone?: string;

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { apiFetch } from "@/lib/api-client";
+import MarkdownRenderer from "@/components/ui/MarkdownRenderer";
 
 interface PublicMessage {
     role: string;
@@ -78,7 +79,9 @@ export default function PublicChatPage() {
                                 <span className="public-msg-role">
                                     {m.role === "user" ? t("chatYou") : t("ciAIMathTutor")}
                                 </span>
-                                <p className="public-msg-content">{m.content}</p>
+                                <div className="public-msg-content">
+                                    <MarkdownRenderer content={m.content} />
+                                </div>
                             </div>
                         ))}
                     </div>

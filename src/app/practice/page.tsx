@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { apiFetch } from "@/lib/api-client";
+import MarkdownRenderer from "@/components/ui/MarkdownRenderer";
 import type { Translations } from "@/lib/translations";
 
 interface Problem {
@@ -102,12 +103,13 @@ export default function PracticePage() {
         [topic, grade, currentLanguage.code],
     );
 
+    // loadProblems identity changes with topic/grade/language, so the effect
+    // re-runs on those changes — no manual reload calls needed in the pickers.
     useEffect(() => {
         if (isAuthenticated) {
             loadProblems();
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [isAuthenticated, currentLanguage.code]);
+    }, [isAuthenticated, loadProblems]);
 
     useEffect(() => {
         if (isAuthenticated) {
@@ -227,7 +229,21 @@ export default function PracticePage() {
         }
     }, [currentLanguage.code]);
 
-    if (isLoading || !isAuthenticated) return null;
+    if (isLoading || !isAuthenticated) {
+        return (
+            <div className="settings-page">
+                <div className="settings-container">
+                    <div className="settings-skeleton">
+                        <div
+                            className="skeleton"
+                            style={{ height: 120, marginBottom: "var(--space-6)" }}
+                        />
+                        <div className="skeleton" style={{ height: 260 }} />
+                    </div>
+                </div>
+            </div>
+        );
+    }
 
     const accuracy = totalCount > 0 ? Math.round((correctCount / totalCount) * 100) : 0;
 
@@ -284,7 +300,6 @@ export default function PracticePage() {
                                             className={`practice-chip ${tp === topic && !reviewMode ? "is-active" : ""}`}
                                             onClick={() => {
                                                 setTopic(tp);
-                                                loadProblems(tp, grade);
                                             }}
                                         >
                                             {topicLabel(tp, t)}
@@ -305,7 +320,6 @@ export default function PracticePage() {
                                                 ? "all"
                                                 : Number(e.target.value);
                                         setGrade(value);
-                                        loadProblems(topic, value);
                                     }}
                                 >
                                     <option value="all">{t("gradeAll") || "All"}</option>
@@ -330,7 +344,9 @@ export default function PracticePage() {
                         </div>
                         <div className="practice-stat">
                             <span className="practice-stat-value">{accuracy}%</span>
-                            <span className="practice-stat-label">Accuracy</span>
+                            <span className="practice-stat-label">
+                                {t("practiceAccuracy") || "Accuracy"}
+                            </span>
                         </div>
                         <div className="practice-stat">
                             <span className="practice-stat-value">
@@ -361,7 +377,9 @@ export default function PracticePage() {
                             <span className="practice-question-tag">
                                 {current.topic} · G{current.grade}
                             </span>
-                            <h3 className="practice-question">{current.question}</h3>
+                            <div className="practice-question">
+                                <MarkdownRenderer content={current.question} />
+                            </div>
                             <div className="practice-options">
                                 {current.options.map((opt, i) => {
                                     let className = "practice-option";
@@ -406,8 +424,8 @@ export default function PracticePage() {
                                         <strong>
                                             {t("practiceExplanation") || "Explanation"}:{" "}
                                         </strong>
-                                        {current.explanation}
                                     </p>
+                                    <MarkdownRenderer content={current.explanation} />
                                     <div className="practice-actions">
                                         <button
                                             className="practice-ask-btn"
@@ -428,7 +446,7 @@ export default function PracticePage() {
                             {aiHelp && (
                                 <div className="practice-ai-help" ref={aiBoxRef}>
                                     <strong>{t("practiceAskAI") || "Ask AI for help"}</strong>
-                                    <p className="practice-ai-text">{aiHelp}</p>
+                                    <MarkdownRenderer content={aiHelp} />
                                 </div>
                             )}
                         </div>

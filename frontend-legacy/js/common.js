@@ -142,7 +142,7 @@ MathTutor.applyLang = function (lang) {
         var el = els[i];
         var key = el.getAttribute && el.getAttribute("data-i18n");
         if (key && table[key] !== undefined) {
-            el.textContent = table[key];
+            MathTutor.setText(el, table[key]);
         }
         var phKey = el.getAttribute && el.getAttribute("data-i18n-placeholder");
         if (phKey && table[phKey] !== undefined) {
@@ -264,6 +264,20 @@ MathTutor.refreshSession = function (callback) {
 };
 
 // ---------- Safe rendering ----------
+// IE6/IE7 lack Element.textContent (read + write). setText writes to
+// textContent where supported and falls back to innerText (IE's equivalent).
+MathTutor.setText = function (el, value) {
+    if (!el) {
+        return;
+    }
+    var v = value === null || value === undefined ? "" : String(value);
+    if (document.createElement("div").textContent !== undefined) {
+        el.textContent = v;
+    } else {
+        el.innerText = v;
+    }
+};
+
 MathTutor.escapeHtml = function (text) {
     if (text === null || text === undefined) {
         return "";
@@ -279,11 +293,16 @@ MathTutor.escapeHtml = function (text) {
 
 // Render simple markdown-style content safely. Only transforms safe
 // characters after HTML escaping; LaTeX delimiters are preserved as text.
+// Old IE (<=7) has no white-space:pre-wrap, so newlines are made explicit
+// with <br> there; modern browsers keep the raw newline for pre-wrap.
 MathTutor.renderMarkdownSafe = function (text) {
     var escaped = MathTutor.escapeHtml(text);
     escaped = escaped.replace(/^#{1,6}\s+/gm, "<strong>").replace(/[ \t]+$/gm, "");
     escaped = escaped.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
     escaped = escaped.replace(/`([^`]+)`/g, "<code>$1</code>");
+    if (MathTutor.isOldIE()) {
+        escaped = escaped.replace(/\n/g, "<br>");
+    }
     return escaped;
 };
 
@@ -297,6 +316,127 @@ MathTutor.extractSuggestions = function (content) {
     });
     return { suggestions: suggestions, clean: clean };
 };
+
+// ---------- Math vocabulary highlight (C17) ----------
+// Mirrors the modern MarkdownRenderer: glossary terms (from the B13 sheets
+// bank) get a highlighted span with a Mandarin tooltip. Zero AI — a plain
+// post-render DOM pass. Runs before MathJax typesets so math output is never
+// touched; skips code/pre/script/style and MathJax spans defensively.
+MathTutor.vocabTerms = null;
+
+MathTutor.loadVocab = function (callback) {
+    if (MathTutor.vocabTerms) {
+        if (callback) {
+            callback(MathTutor.vocabTerms);
+        }
+        return;
+    }
+    $.ajax({
+        url: API_BASE_URL + "/api/sheets",
+        dataType: "json",
+        success: function (data) {
+            var terms = [];
+            var sheets = data.sheets || [];
+            for (var s = 0; s < sheets.length; s++) {
+                var tlist = sheets[s].terms || [];
+                for (var i = 0; i < tlist.length; i++) {
+                    var name = tlist[i].term;
+                    if (name && name.length >= 4 && tlist[i].mandarin) {
+                        terms.push({ lower: name.toLowerCase(), original: name, mandarin: tlist[i].mandarin });
+                    }
+                }
+            }
+            MathTutor.vocabTerms = terms;
+            if (callback) {
+                callback(terms);
+            }
+        },
+        error: function () {
+            MathTutor.vocabTerms = [];
+            if (callback) {
+                callback(MathTutor.vocabTerms);
+            }
+        }
+    });
+};
+
+MathTutor.highlightVocab = function (root) {
+    if (!root) {
+        return;
+    }
+    MathTutor.loadVocab(function (terms) {
+        if (!terms.length) {
+            return;
+        }
+        var nodes = [];
+        collectTextNodes(root, nodes);
+        for (var i = 0; i < nodes.length; i++) {
+            wrapBestTerm(nodes[i], terms);
+        }
+    });
+};
+
+function collectTextNodes(node, out) {
+    var child = node.firstChild;
+    while (child) {
+        if (child.nodeType === 3) {
+            out.push(child);
+        } else if (child.nodeType === 1) {
+            var tag = child.nodeName.toLowerCase();
+            var cls = child.className ? String(child.className) : "";
+            if (tag !== "code" && tag !== "pre" && tag !== "script" && tag !== "style"
+                && cls.indexOf("MathJax") === -1 && cls.indexOf("mdr-vocab") === -1) {
+                collectTextNodes(child, out);
+            }
+        }
+        child = child.nextSibling;
+    }
+}
+
+function wrapBestTerm(node, terms) {
+    var text = node.nodeValue || "";
+    if (!text || text.length < 4) {
+        return;
+    }
+    // Never touch text bearing math delimiters — splitting it would break $..$
+    // pairs before MathJax typesets them.
+    if (text.indexOf("$") !== -1) {
+        return;
+    }
+    var best = null;
+    for (var i = 0; i < terms.length; i++) {
+        var term = terms[i];
+        var idx = text.toLowerCase().indexOf(term.lower);
+        while (idx !== -1) {
+            var before = idx === 0 ? " " : text.charAt(idx - 1);
+            var after = idx + term.original.length >= text.length ? " " : text.charAt(idx + term.original.length);
+            if (!/[a-z]/i.test(before) && !/[a-z]/i.test(after)) {
+                if (best === null || term.original.length > best.original.length) {
+                    best = term;
+                    best.index = idx;
+                }
+                break;
+            }
+            idx = text.toLowerCase().indexOf(term.lower, idx + 1);
+        }
+    }
+    if (!best) {
+        return;
+    }
+    var frag = document.createDocumentFragment();
+    if (best.index > 0) {
+        frag.appendChild(document.createTextNode(text.substring(0, best.index)));
+    }
+    var mark = document.createElement("span");
+    mark.className = "mdr-vocab";
+    mark.appendChild(document.createTextNode(text.substring(best.index, best.index + best.original.length)));
+    mark.title = text.substring(best.index, best.index + best.original.length) + " \u2014 " + best.mandarin;
+    frag.appendChild(mark);
+    if (best.index + best.original.length < text.length) {
+        frag.appendChild(document.createTextNode(text.substring(best.index + best.original.length)));
+    }
+    node.parentNode.replaceChild(frag, node);
+}
 
 // ---------- Time formatting ----------
 MathTutor.formatTime = function (isoOrSql) {
@@ -389,6 +529,45 @@ MathTutor.isOldIE = function () {
     var m = /MSIE (\d+)/.exec(ua);
     return !!m && parseInt(m[1], 10) < 10;
 };
+
+// IE6/IE7 lack Date.prototype.toISOString; emit the same UTC ISO format by hand.
+MathTutor.isoNow = function () {
+    var d = new Date();
+    function pad(n) {
+        return n < 10 ? "0" + n : String(n);
+    }
+    return d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate())
+        + "T" + pad(d.getHours()) + ":" + pad(d.getMinutes()) + ":" + pad(d.getSeconds()) + "Z";
+};
+
+// IE6 does not support attribute selectors (input[type=text]), so form fields
+// would render unstyled. Tag the non-checkbox/radio inputs of .field blocks
+// with a plain class the stylesheet can target.
+MathTutor.styleFields = function () {
+    var divs = document.getElementsByTagName("div");
+    for (var i = 0; i < divs.length; i++) {
+        if (divs[i].className && divs[i].className.indexOf("field") !== -1) {
+            var inputs = divs[i].getElementsByTagName("input");
+            for (var j = 0; j < inputs.length; j++) {
+                var t = inputs[j].type;
+                if (t !== "checkbox" && t !== "radio") {
+                    inputs[j].className += " field-input";
+                }
+            }
+            var sels = divs[i].getElementsByTagName("select");
+            for (var k = 0; k < sels.length; k++) {
+                sels[k].className += " field-input";
+            }
+            var tas = divs[i].getElementsByTagName("textarea");
+            for (var l = 0; l < tas.length; l++) {
+                tas[l].className += " field-input";
+            }
+        }
+    }
+};
+if (typeof jQuery !== "undefined") {
+    jQuery(document).ready(MathTutor.styleFields);
+}
 
 MathTutor.supportsMethod = function (method) {
     if (MathTutor.isOldIE()) {

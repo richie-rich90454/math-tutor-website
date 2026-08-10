@@ -33,22 +33,38 @@ export async function POST(request: Request) {
     const reader = upstream.body!.getReader();
 
     const passHeaders: Record<string, string> = {};
-    for (const h of ["X-Quota-Limit", "X-Quota-Used", "X-Quota-Remaining", "X-Quota-Warning"]) {
+    for (const h of [
+        "X-Quota-Limit",
+        "X-Quota-Used",
+        "X-Quota-Remaining",
+        "X-Quota-Warning",
+        "X-Cache",
+    ]) {
         const value = upstream.headers.get(h);
         if (value) passHeaders[h] = value;
     }
 
+    // Pump the upstream body through as fast as it arrives (no pull round-trips,
+    // which added per-chunk latency and made streaming feel stuttery).
     const stream = new ReadableStream<Uint8Array>({
-        async pull(controller) {
+        async start(controller) {
             try {
-                const { done, value } = await reader.read();
-                if (done) {
-                    controller.close();
-                    return;
+                while (true) {
+                    const { done, value } = await reader.read();
+                    if (done) {
+                        controller.close();
+                        return;
+                    }
+                    controller.enqueue(value);
                 }
-                controller.enqueue(value);
             } catch (err) {
-                controller.error(err);
+                // Reader canceled when the client disconnected — the controller is
+                // already closed, so ignore.
+                try {
+                    controller.error(err);
+                } catch {
+                    // ignore
+                }
             }
         },
         cancel() {

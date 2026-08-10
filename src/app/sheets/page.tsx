@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { apiFetch } from "@/lib/api-client";
+import MarkdownRenderer from "@/components/ui/MarkdownRenderer";
 import type { Translations } from "@/lib/translations";
 
 interface Formula {
@@ -42,7 +43,7 @@ function topicLabel(topic: string, t: (key: keyof Translations) => string): stri
 }
 
 export default function SheetsPage() {
-    const { t } = useLanguage();
+    const { t, currentLanguage } = useLanguage();
     const [active, setActive] = useState("algebra");
     const [sheets, setSheets] = useState<SheetTopic[]>([]);
     const [loading, setLoading] = useState(true);
@@ -51,7 +52,7 @@ export default function SheetsPage() {
     const load = useCallback(() => {
         setLoading(true);
         setError(false);
-        apiFetch("/api/sheets")
+        apiFetch(`/api/sheets?language=${encodeURIComponent(currentLanguage.code)}`)
             .then((r) => {
                 if (!r.ok) throw new Error(`HTTP ${r.status}`);
                 return r.json();
@@ -64,7 +65,7 @@ export default function SheetsPage() {
             })
             .catch(() => setError(true))
             .finally(() => setLoading(false));
-    }, []);
+    }, [currentLanguage.code]);
 
     useEffect(() => {
         load();
@@ -131,7 +132,9 @@ export default function SheetsPage() {
                                 {current.formulas.map((f, i) => (
                                     <div key={i} className="sheet-row">
                                         <span className="sheet-formula-name">{f.name}</span>
-                                        <code className="sheet-formula">{f.formula}</code>
+                                        <div className="sheet-formula">
+                                            <MarkdownRenderer content={"$$" + f.formula + "$$"} />
+                                        </div>
                                         <span className="sheet-mandarin">{f.mandarin}</span>
                                     </div>
                                 ))}

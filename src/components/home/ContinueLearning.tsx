@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { apiFetch } from "@/lib/api-client";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useAuth } from "@/contexts/AuthContext";
 
 interface ContinueLearningProps {
     onSelect: (text: string) => void;
@@ -18,10 +19,12 @@ function pickTopics(data: { topic?: string }[] | undefined, limit: number): stri
 
 export default function ContinueLearning({ onSelect }: ContinueLearningProps) {
     const { t } = useLanguage();
+    const { isAuthenticated } = useAuth();
     const [recent, setRecent] = useState<string[]>([]);
     const [weak, setWeak] = useState<string[]>([]);
 
     useEffect(() => {
+        if (!isAuthenticated) return;
         let cancelled = false;
         (async () => {
             try {
@@ -42,7 +45,7 @@ export default function ContinueLearning({ onSelect }: ContinueLearningProps) {
         return () => {
             cancelled = true;
         };
-    }, []);
+    }, [isAuthenticated]);
 
     if (recent.length === 0 && weak.length === 0) {
         return null;

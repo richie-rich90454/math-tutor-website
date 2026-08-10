@@ -31,16 +31,24 @@ export async function POST(request: Request) {
     const reader = upstream.body!.getReader();
 
     const stream = new ReadableStream<Uint8Array>({
-        async pull(controller) {
+        async start(controller) {
             try {
-                const { done, value } = await reader.read();
-                if (done) {
-                    controller.close();
-                    return;
+                while (true) {
+                    const { done, value } = await reader.read();
+                    if (done) {
+                        controller.close();
+                        return;
+                    }
+                    controller.enqueue(value);
                 }
-                controller.enqueue(value);
             } catch (err) {
-                controller.error(err);
+                // Reader canceled when the client disconnected — the controller is
+                // already closed, so ignore.
+                try {
+                    controller.error(err);
+                } catch {
+                    // ignore
+                }
             }
         },
         cancel() {

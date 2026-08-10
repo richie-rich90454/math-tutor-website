@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 
 export function useChatUI(
     sendMessage: (overrideInput?: string) => Promise<void>,
@@ -41,17 +41,16 @@ export function useChatUI(
     }, []);
 
     // Touch swipe for sidebar
+    const swipeStartRef = useRef({ x: 0, y: 0 });
     useEffect(() => {
         if (!isMobile) return;
-        let startX = 0;
-        let startY = 0;
         const handleTouchStart = (e: TouchEvent) => {
-            startX = e.touches[0].clientX;
-            startY = e.touches[0].clientY;
+            swipeStartRef.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
         };
         const handleTouchEnd = (e: TouchEvent) => {
-            const dx = e.changedTouches[0].clientX - startX;
-            const dy = e.changedTouches[0].clientY - startY;
+            const start = swipeStartRef.current;
+            const dx = e.changedTouches[0].clientX - start.x;
+            const dy = e.changedTouches[0].clientY - start.y;
             if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 60) {
                 if (dx > 0 && !isSidebarOpen) setIsSidebarOpen(true);
                 else if (dx < 0 && isSidebarOpen) setIsSidebarOpen(false);
@@ -69,37 +68,58 @@ export function useChatUI(
         if (window.innerWidth <= 768) setIsSidebarOpen((p) => !p);
     }, []);
 
-    // Scroll helpers
+    // Scroll helpers — scroll the chat container directly (scrollIntoView would
+    // force a synchronous layout pass and scroll every ancestor on each chunk).
     const scrollToBottom = useCallback(
         (smooth = true) => {
-            messagesEndRef.current?.scrollIntoView({ behavior: smooth ? "smooth" : "auto" });
+            const el = chatMessagesRef.current;
+            if (!el) return;
+            if (smooth && typeof el.scrollTo === "function") {
+                el.scrollTo({ top: el.scrollHeight, behavior: "smooth" });
+            } else {
+                el.scrollTop = el.scrollHeight;
+            }
         },
-        [messagesEndRef],
+        [chatMessagesRef],
     );
 
-    const isNearBottom = useCallback(() => {
-        const el = chatMessagesRef.current;
-        if (!el) return true;
-        return el.scrollHeight - el.scrollTop - el.clientHeight < 100;
-    }, [chatMessagesRef]);
-
-    // Auto-scroll on new messages
+    // Auto-scroll on new messages. Near-bottom state is tracked from scroll
+    // events (nearBottomRef) so the per-chunk render never forces a layout read.
+    const nearBottomRef = useRef(true);
     useEffect(() => {
-        if (isStreaming && isNearBottom()) scrollToBottom(false);
-        else if (!isStreaming && messages.length > prevMessagesLenRef.current) scrollToBottom(true);
-    }, [messages, isStreaming, scrollToBottom, isNearBottom, prevMessagesLenRef]);
+        if (isStreaming && nearBottomRef.current) {
+            scrollToBottom(false);
+        } else if (
+            !isStreaming &&
+            messages.length > prevMessagesLenRef.current &&
+            nearBottomRef.current
+        ) {
+            scrollToBottom(true);
+        }
+    }, [messages, isStreaming, scrollToBottom, prevMessagesLenRef]);
 
-    // Scroll button visibility
+    // Scroll button visibility + near-bottom tracking, driven by scroll events.
     useEffect(() => {
         const el = chatMessagesRef.current;
         if (!el) return;
-        const handler = () =>
-            setShowScrollBtn(el.scrollHeight - el.scrollTop - el.clientHeight > 200);
+        const handler = () => {
+            const dist = el.scrollHeight - el.scrollTop - el.clientHeight;
+            nearBottomRef.current = dist < 100;
+            setShowScrollBtn(dist > 200);
+        };
+        handler();
         el.addEventListener("scroll", handler, { passive: true });
         return () => el.removeEventListener("scroll", handler);
     }, [chatMessagesRef, messages.length]);
 
     // Keyboard shortcuts
+    // sendMessage changes identity on every keystroke, so route it through a ref
+    // to avoid rebinding this listener on each input change.
+    const sendMessageRef = useRef(sendMessage);
+    useEffect(() => {
+        sendMessageRef.current = sendMessage;
+    }, [sendMessage]);
+
     useEffect(() => {
         const handler = (e: KeyboardEvent) => {
             const mod = e.ctrlKey || e.metaKey;
@@ -121,7 +141,7 @@ export function useChatUI(
             }
             if (mod && e.key === "Enter") {
                 e.preventDefault();
-                sendMessage();
+                sendMessageRef.current();
             }
             if (e.key === "Escape") {
                 if (showCommandPalette) setShowCommandPalette(false);
@@ -134,7 +154,6 @@ export function useChatUI(
     }, [
         handleSidebarToggle,
         handleNewChat,
-        sendMessage,
         showCommandPalette,
         showShortcuts,
         isSidebarOpen,
@@ -164,7 +183,6 @@ export function useChatUI(
         feedback,
         handleSidebarToggle,
         scrollToBottom,
-        isNearBottom,
         handleFeedback,
     };
 }
